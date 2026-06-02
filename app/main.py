@@ -19,6 +19,11 @@ env_path = os.path.join(PROJECT_ROOT, ".env")
 if os.path.exists(env_path):
     load_dotenv(env_path)
 
+# main.py의 load_dotenv(env_path) 바로 아랫줄에 추가
+db_url = os.environ.get("DATABASE_URL", "")
+if db_url.startswith("postgres://"):
+    os.environ["DATABASE_URL"] = db_url.replace("postgres://", "postgresql://", 1)
+
 from fastapi import FastAPI, Request, Response
 from fastapi.responses import RedirectResponse, FileResponse, JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
