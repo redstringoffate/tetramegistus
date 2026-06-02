@@ -4,6 +4,15 @@ FROM python:3.11-slim
 # 2. 시스템 환경 변수 설정 (파이썬 출력 버퍼링 방지)
 ENV PYTHONUNBUFFERED=1
 
+# 🔥 [수복] WeasyPrint가 그리모아 PDF 연성에 필요한 리눅스 그래픽 핵심 부품들 강제 설치
+RUN apt-get update && apt-get install -y \
+    libglib2.0-0 \
+    libpango-1.0-0 \
+    libpangocairo-1.0-0 \
+    libgdk-pixbuf2.0-0 \
+    shared-mime-info \
+    && rm -rf /var/lib/apt/lists/*
+
 # 3. 캡슐 내부의 작업 폴더 지정
 WORKDIR /code
 
