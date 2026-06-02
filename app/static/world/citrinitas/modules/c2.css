@@ -1,0 +1,101 @@
+/* app/static/world/citrinitas/modules/c2.css */
+
+.c2-hora-occulta {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    width: 100%;
+}
+
+/* N4 메인 모듈 대제목 뼈대 규격 이식 (색상은 건드리지 않음) */
+.data-title {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+}
+
+.matrix-label-black {
+    font-size: 0.65rem !important; 
+    background: transparent !important; 
+    color: #000 !important; /* 🟢 Citrinitas 노란 배경에 맞춘 검은색 텍스트 */
+    padding: 0;
+    font-weight: 600 !important;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem !important; 
+    text-transform: uppercase;
+}
+
+/* 🔯 3 Mother Letters Selector */
+.ritual-selector {
+    display: flex;
+    width: fit-content;
+    border: 1px solid #777; /* 🟢 탭 전체를 감싸는 얇은 회색 테두리 */
+    margin-top: 10px;
+}
+
+.ritual-btn {
+    width: 120px;
+    height: 40px;
+    background: #000;
+    color: #3cff8f;
+    
+    border: none;
+    border-right: 1px solid #777; /* 🟢 버튼 내부 구분선도 회색으로 통일 */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+}
+
+/* 마지막 버튼은 우측 선을 제거 */
+.ritual-btn:last-child {
+    border-right: none;
+}
+
+.ritual-btn:hover {
+    background: rgba(60, 255, 143, 0.15);
+}
+
+.ritual-btn.active {
+    background: #3cff8f;
+    color: #000;
+    font-weight: bold;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* 💡 Hover Tooltip (아래로 이동) */
+.ritual-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 45px; /* 🟢 버튼 높이(40px)보다 살짝 아래에서 시작 */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3cff8f;
+    color: #000;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, top 0.2s;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.ritual-btn:hover::after {
+    opacity: 1;
+    top: 50px; /* 🟢 Hover 시 아래로 자연스럽게 내려오는 애니메이션 */
+}
+
+/* 하위 콘텐츠가 렌더링될 성소 */
+.ritual-sanctum {
+    margin-top: 2rem;
+    border-top: 1px dashed rgba(60, 255, 143, 0.3);
+    padding-top: 2rem;
+    min-height: 300px;
+}

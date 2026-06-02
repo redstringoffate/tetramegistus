@@ -1,0 +1,33 @@
+{% extends "mobile/world/shell/base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/mobile/world/shell/grimoire.css?v=2">
+
+<div class="m-grimoire-container">
+    <div class="m-page-title">The Grimoire</div>
+
+    <div class="m-stage-group">
+        <a href="/world/grimoire/nigredo" class="m-stage-trigger m-glow-nigredo">
+            > NIGREDO
+        </a>
+    </div>
+
+    <div class="m-stage-group">
+        <a href="/world/grimoire/albedo" class="m-stage-trigger m-glow-albedo">
+            > ALBEDO
+        </a>
+    </div>
+
+    <div class="m-stage-group">
+        <a href="/world/grimoire/citrinitas" class="m-stage-trigger m-glow-citrinitas">
+            > CITRINITAS
+        </a>
+    </div>
+
+    <div class="m-stage-group">
+        <a href="/world/grimoire/rubedo" class="m-stage-trigger m-glow-rubedo">
+            > RUBEDO
+        </a>
+    </div>
+</div>
+{% endblock %}

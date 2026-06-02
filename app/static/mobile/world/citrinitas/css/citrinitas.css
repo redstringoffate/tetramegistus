@@ -1,0 +1,30 @@
+/* 📱 Mobile Citrinitas Theme */
+#stage-container.stage-citrinitas .page-content {
+  background: #ffe600;
+  color: #000;
+}
+
+#stage-container.stage-citrinitas .page-content h1,
+#stage-container.stage-citrinitas .page-content p,
+#stage-container.stage-citrinitas .page-content button {
+  color: #000;
+}
+
+#stage-container.stage-citrinitas .page-content button {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* 🚀 황금색 배경에 어울리는 푸터 */
+#stage-container.stage-citrinitas .m-content-footer {
+  border-top: 1px dashed rgba(0, 0, 0, 0.2) !important;
+}
+
+#stage-container.stage-citrinitas .m-content-footer .credits {
+  color: #444 !important;
+}
+
+#stage-container.stage-citrinitas .m-content-footer a {
+  color: #111 !important;
+  font-weight: bold;
+}

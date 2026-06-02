@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Prima Materia</title>
+  <link rel="icon" href="data:,">
+  
+  <link rel="stylesheet" href="/static/mobile/genesis/css/base.css?v=6">
+  
+  {% block extra_css %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+  {% block content %}{% endblock %}
+
+  <script src="/gate/ritual.js"></script>
+  <script>
+    async function handleLogout() {
+        try {
+            const response = await fetch('/gate/logout', { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            if (response.ok) {
+                window.location.replace("/world/nigredo"); 
+            }
+        } catch (error) {
+            console.error("Logout ritual failed:", error);
+            window.location.reload();
+        }
+    }
+    window.handleLogout = handleLogout;
+  </script>
+</body>
+</html>

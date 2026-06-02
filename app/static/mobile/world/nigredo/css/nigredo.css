@@ -1,0 +1,30 @@
+/* 📱 Mobile Nigredo Theme */
+#stage-container.stage-nigredo .page-content {
+  background: #0b0b0b;
+  color: #e0e0e0;
+}
+
+#stage-container.stage-nigredo .page-content h1,
+#stage-container.stage-nigredo .page-content p {
+  color: #e0e0e0;
+}
+
+#stage-container.stage-nigredo .page-content button {
+  background: #111;
+  color: #e0e0e0;
+  border: 1px solid #333;
+}
+
+/* 🚀 모바일 클래스(.m-content-footer)에 맞춘 하단 푸터 스타일 */
+#stage-container.stage-nigredo .m-content-footer {
+  border-top: 1px dashed rgba(255, 255, 255, 0.15) !important;
+  color: #999 !important;
+}
+
+#stage-container.stage-nigredo .m-content-footer .credits {
+  color: #999 !important;
+}
+
+#stage-container.stage-nigredo .m-content-footer a {
+  color: #49dce1 !important; /* 니그레도의 시안 블루 링크 */
+}

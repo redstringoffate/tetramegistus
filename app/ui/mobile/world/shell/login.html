@@ -1,0 +1,56 @@
+{% extends "mobile/world/shell/base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/mobile/world/shell/login.css?v=7">
+{% endblock %}
+
+{% block content %}
+<div id="popup-blur" class="blur-overlay" onclick="togglePopup('forgot-popup', false)"></div>
+
+<div class="m-auth-wrapper">
+    <div id="auth-main" class="m-auth-container">
+        <h1 class="m-auth-title">LOG-IN</h1>
+        
+        <form id="login-form" onsubmit="handleInitialSubmit(event)">
+            <div class="m-auth-fields">
+                <div class="m-input-group">
+                    <label for="email">e-mail:</label>
+                    <input type="email" id="email" name="email" required spellcheck="false" autocomplete="email">
+                </div>
+                <div class="m-input-group">
+                    <label for="password">password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+            </div>
+
+            <div id="password-error" class="m-error-msg"></div>
+            <button type="submit" class="m-submit-btn">Submit</button>
+        </form>
+        
+        <div class="m-auth-footer">
+            <span class="m-forgot-text" onclick="togglePopup('forgot-popup', true)">Password Forgotten</span>
+        </div>
+    </div>
+
+    <div id="anamnesis-layer" class="m-intrusion-overlay">
+        <div class="m-ritual-box">
+            <h2 class="m-anamnesis-title">Anamnesis</h2>
+            <div class="m-input-ritual">
+                <input type="text" id="verify-code" placeholder="enter 6-digit code" autocomplete="off" inputmode="numeric">
+                <button type="button" class="m-ritual-btn" onclick="submitVerification()">↵</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="forgot-popup" class="m-mini-popup">
+        <div class="m-close-icon" onclick="togglePopup('forgot-popup', false)">×</div>
+        <div class="m-popup-content">
+            <label>Enter e-mail:</label>
+            <input type="email" id="reset-email" spellcheck="false">
+            <button class="m-submit-btn m-reset-submit-btn" onclick="sendResetEmail()">send</button>
+        </div>
+    </div>
+</div>
+
+<script src="/static/mobile/world/shell/login.js?v=7"></script>
+{% endblock %}

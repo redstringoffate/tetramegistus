@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="/static/world/albedo/modules/a10.css">
+
+<div class="a10-resonantia a2-coagulatio">
+    <h1 class="materia-title">RESONANTIA</h1>
+
+    <div class="control-row main-toggle-row">
+        <div class="system-tabs" id="a10-system-tabs">
+            <button class="sys-tab active" data-sys="tropical" onclick="switchA10System('tropical')">Tropical</button>
+            <button class="sys-tab" data-sys="sidereal" onclick="switchA10System('sidereal')">Sidereal</button>
+            <button class="sys-tab" data-sys="draconic" onclick="switchA10System('draconic')">Draconic</button>
+            <button class="sys-tab" data-sys="ketunic" onclick="switchA10System('ketunic')" title="South Node at Aries 0°">Ketunic</button>
+        </div>
+
+        <div id="resonantia-controls" class="anti-switch-module" style="margin-left: 25px;">
+            <div class="dichotomy-module secondary-toggle">
+                <span class="dicho-label active" id="label-mode-comp">COMPOSITE</span>
+                <div class="toggle-switch" onclick="switchA10Mode()">
+                    <div class="toggle-knob" id="anti-knob"></div>
+                </div>
+                <span class="dicho-label" id="label-mode-anti">ANTI-COMPOSITE</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-row condition-row">
+        <div id="sidereal-controls-panel-a10" class="n9-ayanamsa-container" style="display: none;">
+            <button class="n9-aya-btn" data-ayan="lahiri" onclick="switchA10Ayanamsa('lahiri')" title="Standard Vedic (Chitra Paksha)">Lahiri</button>
+            <button class="n9-aya-btn" data-ayan="raman" onclick="switchA10Ayanamsa('raman')" title="B.V. Raman">Raman</button>
+            <button class="n9-aya-btn" data-ayan="kp" onclick="switchA10Ayanamsa('kp')" title="Krishnamurti Paddhati">KP</button>
+            <button class="n9-aya-btn" data-ayan="fagan" onclick="switchA10Ayanamsa('fagan')" title="Fagan-Bradley">Fagan-Bradley</button>
+            <button class="n9-aya-btn" data-ayan="yukteswar" onclick="switchA10Ayanamsa('yukteswar')" title="Sri Yukteswar">Yukteswar</button>
+        </div>
+    </div>
+
+    <div class="control-row a10-category-row">
+        <button class="cat-btn active" data-cat="planets" onclick="switchA10Category('planets')">PLANETS</button>
+        <button class="cat-btn" data-cat="asteroids" onclick="switchA10Category('asteroids')">MAJOR ASTEROIDS</button>
+        <button class="cat-btn" data-cat="lilith" onclick="switchA10Category('lilith')">LILITH & NODES</button>
+        <button class="cat-btn" data-cat="fates" onclick="switchA10Category('fates')">FATES</button>
+        <button class="cat-btn" data-cat="angles" onclick="switchA10Category('angles')">ANGLES</button>
+        <button class="cat-btn" id="btn-cat-hermetic" data-cat="hermetic" onclick="switchA10Category('hermetic')">HERMETIC</button>
+    </div>
+
+    <div class="a2-table-container n9-table-container a10-wrapper">
+        <table class="a2-chart-table n9-table a10-table" id="a10-table">
+            <colgroup id="a10-colgroup">
+                <col style="width: 180px;"> </colgroup>
+            <thead id="a10-thead">
+                </thead>
+            <tbody id="a10-tbody">
+                </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="a10-loading">
+    <div class="hieros-bg"></div>
+    <div class="hieros-text">HIEROS GAMOS</div>
+</div>
+
+<div id="a10-info-tooltip"></div>
+
+<script src="/static/world/albedo/modules/a10.js?v=999"></script>

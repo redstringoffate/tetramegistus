@@ -1,0 +1,693 @@
+/* N2 모듈 전용 CSS 영토 */
+
+/* 1. 최상위 경로 지정을 통한 우선순위 탈취 */
+#stage-container.stage-nigredo .n2-principia {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    color: #7CFF9B !important;
+}
+
+/* 2. 컬럼 폭 강제 각인 (40px 설정 반영) */
+#stage-container.stage-nigredo .col-celestial { width: 140px !important; }
+#stage-container.stage-nigredo .col-info      { width: 150px !important; }
+#stage-container.stage-nigredo .col-code      { width: 40px !important; }
+#stage-container.stage-nigredo .col-sabian    { width: auto !important; }
+
+/* 3. 테이블 레이아웃 수복 */
+#stage-container.stage-nigredo .n2-chart-table {
+    width: 100% !important;
+    table-layout: fixed !important; /* 브라우저의 자의적 계산 차단 */
+    border-collapse: collapse !important;
+    margin-bottom: 50px !important;
+}
+
+/* 4. 헤더 및 셀 스타일링 */
+#stage-container.stage-nigredo .n2-chart-table th {
+    text-align: left !important;
+    font-size: 0.7rem !important;
+    color: #666 !important;
+    padding: 10px !important;
+    border-bottom: 1px solid rgba(124, 255, 155, 0.2) !important;
+    text-transform: uppercase;
+}
+
+#stage-container.stage-nigredo .n2-chart-table td {
+    padding: 12px 10px !important;
+    border-bottom: 1px solid rgba(124, 255, 155, 0.05) !important;
+    font-size: 0.85rem !important;
+    color: #7CFF9B !important;
+}
+
+/* 5. 정렬 및 특수 효과 */
+#stage-container.stage-nigredo .cell-info { color: #49dce1 !important; }
+
+/* Duad, Dod, Decan, Bd: 중앙 정렬 수복 */
+#stage-container.stage-nigredo .cell-code,
+#stage-container.stage-nigredo .col-code-head {
+    text-align: center !important;
+}
+
+/* Sabian Symbol: 가변폭 및 이탤릭 */
+#stage-container.stage-nigredo .cell-sabian {
+    white-space: normal !important;
+    font-style: italic !important;
+    opacity: 0.8 !important;
+    word-break: keep-all !important;
+}
+
+/* 6. 예약 공간 및 버튼 */
+#stage-container.stage-nigredo .n2-options-spacer { height: 60px !important; display: flex; align-items: center; }
+
+/* n2.css 하단에 추가 */
+#stage-container.stage-nigredo .materia-title {
+    margin-bottom: 50px !important; /* 제목 아래 약 두 줄 정도의 여백 확보 */
+}
+
+
+/* 🏛️ [DDS IDENTITY SYSTEM]: 완전 수복 */
+#stage-container.stage-nigredo .n2-principia {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace !important;
+    color: #7CFF9B !important; 
+}
+
+#stage-container.stage-nigredo .materia-title {
+    font-size: 1.5rem; color: #7CFF9B; 
+    margin-bottom: 50px !important; 
+    letter-spacing: 3px; text-transform: uppercase; font-weight: 600;
+}
+
+/* n2.css 수정 부분 */
+
+/* 1. 간격과 정렬 설정 */
+#stage-container.stage-nigredo .lordship-bar { 
+    display: flex; 
+    align-items: center;  /* 수직 중앙 정렬 */
+    gap: 60px;            /* 원하시는 넓은 간격 */
+    margin-bottom: 25px; 
+    font-size: 0.8rem; 
+    color: #49dce1; 
+    opacity: 0.9;
+    flex-wrap: nowrap;    /* 🚨 강제로 줄바꿈 방지 */
+}
+
+/* 2. 슬롯 너비 최적화 */
+#stage-container.stage-nigredo .lord-slot { 
+    width: auto;          /* 🚨 180px 고정 해제 -> 글자 크기에 맞춤 */
+    flex-shrink: 0;       /* 공간 부족해도 찌그러지지 않게 방어 */
+    white-space: nowrap;  /* 내부 글자 줄바꿈 방지 */
+}
+
+/* 3. 값 스타일 (기존 유지) */
+#stage-container.stage-nigredo .lord-slot .val { 
+    color: #fff; 
+    margin-left: 5px; 
+    font-weight: 600; 
+}
+
+/* 🔌 Primary Switch Module */
+#stage-container.stage-nigredo .system-switch-module { display: inline-flex; border: 1px solid #7CFF9B; background: #000; overflow: hidden; margin-bottom: 10px; }
+#stage-container.stage-nigredo .sys-tab {
+    background: transparent; border: none; border-right: 1px solid rgba(124, 255, 155, 0.4);
+    color: #7CFF9B; padding: 8px 24px; font-size: 0.8rem; cursor: pointer; transition: 0.2s; font-family: inherit;
+}
+#stage-container.stage-nigredo .sys-tab:last-child { border-right: none; }
+#stage-container.stage-nigredo .sys-tab.active { background: #7CFF9B !important; color: #000 !important; font-weight: bold; }
+
+/* 🌫️ Sub-Options Vault & Manifestation Logic */
+#stage-container.stage-nigredo .sub-options-vault { height: 50px; display: flex; align-items: center; margin-bottom: 15px; }
+#stage-container.stage-nigredo .sidereal-controls { 
+    display: flex; align-items: center; gap: 50px; 
+    visibility: hidden; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; 
+}
+#stage-container.stage-nigredo .sidereal-controls.manifested { visibility: visible; opacity: 1; pointer-events: auto; }
+
+#stage-container.stage-nigredo .ayanamsa-switch-module { display: inline-flex; border: 1px solid #333; background: #000; }
+#stage-container.stage-nigredo .ayan-tab { background: transparent; border: none; border-right: 1px solid #222; color: #555; padding: 4px 14px; font-size: 0.7rem; cursor: pointer; }
+#stage-container.stage-nigredo .ayan-tab.active { background: #333 !important; color: #eee !important; }
+
+#stage-container.stage-nigredo .dichotomy-module { display: flex; align-items: center; gap: 12px; }
+#stage-container.stage-nigredo .dicho-label { font-size: 0.65rem; color: #444; text-transform: uppercase; transition: 0.2s; }
+#stage-container.stage-nigredo .dicho-label.active { color: #49dce1; text-shadow: 0 0 5px #49dce1; }
+#stage-container.stage-nigredo .toggle-switch { width: 34px; height: 16px; background: #111; border: 1px solid #444; border-radius: 8px; position: relative; cursor: pointer; }
+#stage-container.stage-nigredo .toggle-knob { width: 12px; height: 12px; background: #333; border-radius: 50%; position: absolute; top: 1px; left: 2px; transition: 0.2s ease; }
+#stage-container.stage-nigredo .toggle-knob.right { left: 18px; background: #49dce1; box-shadow: 0 0 8px #49dce1; }
+
+/* 📋 Data Table: 헤더 미학 동기화 */
+#stage-container.stage-nigredo .category-label { 
+    font-size: 0.85rem; color: #49dce1; border-left: 2px solid #49dce1; 
+    padding-left: 12px; 
+    margin: 0px 0 5px 0 !important; 
+    letter-spacing: 2px; 
+}
+#stage-container.stage-nigredo .n2-chart-table { width: 100% !important; table-layout: fixed !important; border-collapse: collapse !important; margin-bottom: 35px !important; }
+
+#stage-container.stage-nigredo .n2-chart-table th { 
+    text-align: left; font-size: 0.65rem; color: #7CFF9B !important; 
+    padding: 12px 10px; border-bottom: 1px solid rgba(124, 255, 155, 0.2); 
+    text-transform: uppercase; font-family: inherit !important;
+    opacity: 0.7;
+}
+
+#stage-container.stage-nigredo .n2-chart-table td { padding: 12px 10px; border-bottom: 1px solid rgba(124, 255, 155, 0.05); color: #7CFF9B; font-size: 0.8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* 📋 Nakshatra Mode 전용 스타일 */
+#stage-container.stage-nigredo .graha-row td, 
+#stage-container.stage-nigredo .modern-row td { border-bottom: 1px dashed rgba(124, 255, 155, 0.1); }
+#stage-container.stage-nigredo .n2-chart-table .system-divider-row td { height: 3px !important; padding: 0 !important; line-height: 0 !important; font-size: 0 !important; background: rgba(124, 255, 155, 0.25) !important; border: none !important; }
+#stage-container.stage-nigredo .cell-nak, 
+#stage-container.stage-nigredo .cell-pada { color: #49dce1; text-align: center !important; }
+
+#stage-container.stage-nigredo .cell-info { color: #49dce1; }
+#stage-container.stage-nigredo .cell-code { text-align: center !important; }
+#stage-container.stage-nigredo .n2-chart-table tbody tr:hover { background: rgba(124, 255, 155, 0.03); }
+#stage-container.stage-nigredo .cell-sabian { white-space: normal !important; font-style: italic; opacity: 0.7; font-size: 0.75rem; word-break: keep-all; }
+
+/* static/world/nigredo/modules/n2.css */
+
+
+/* 1. Header Styling */
+#stage-container.stage-nigredo .n2-chart-table th {
+    text-align: left !important;
+    font-size: 0.7rem !important;
+    color: #7F7F7F !important;
+    padding: 10px !important;
+    border-bottom: 1px solid rgba(124, 255, 155, 0.2) !important;
+    text-transform: uppercase;
+}
+
+/* 2. Anaretic Degree (Absolute Priority - Solid Red) */
+/* 🔑 [FIX]: ID 경로(#stage-container...)를 포함시켜 기본 녹색 설정을 확실하게 덮어씁니다. */
+#stage-container.stage-nigredo .n2-chart-table td.text-anaretic {
+    color: #EB3324 !important;
+    text-shadow: none !important; /* Glow 제거하여 선명도 확보 */
+    font-weight: 900 !important;
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.5)); /* 가독성용 미세 그림자 */
+}
+
+/* 3. Lordship Styling */
+.lord-active-body { 
+    font-weight: 900 !important; 
+    color: #ffffff !important;
+    text-shadow: 0 0 10px #ffffff;
+    text-decoration: none !important;
+    border: none !important;
+}
+
+.lord-active-info { 
+    font-weight: 900 !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 10px #ffffff;
+    text-decoration: none !important;
+    border: none !important;
+}
+
+/* 4. Solar Phasing (Badge-like Glow) */
+.phase-cazimi { 
+    color: #FFF !important; 
+    text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFD700 !important;
+}
+.phase-combust { 
+    color: #FFF !important; 
+    text-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000, 0 0 20px #FF0000 !important;
+}
+.phase-beams { 
+    color: #FFF !important; 
+    text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00, 0 0 20px #00FF00 !important;
+}
+
+/* 5. Elements & Planets: "Super Nova" Glow (Wide Radius) */
+
+/* 🔥 Fire: Hot Pink / Magenta Red */
+.glow-fire { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #F71831, 
+        0 0 10px #F71831, 
+        0 0 20px #F71831, 
+        0 0 30px #F71831; 
+}
+
+/* 🌍 Earth: Golden Amber */
+.glow-earth { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #FFB933, 
+        0 0 10px #FFB933, 
+        0 0 20px #FFB933, 
+        0 0 30px #FFB933; 
+}
+
+/* 🌬️ Air: Pure White / Silver (차가운 느낌) */
+.glow-air { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #E6E6E6, 
+        0 0 10px #E6E6E6, 
+        0 0 20px #E6E6E6, 
+        0 0 30px #E6E6E6; 
+}
+
+/* 💧 Water: Electric Cyan / Deep Blue (형광 느낌) */
+.glow-water { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #0168FC, 
+        0 0 10px #0168FC, 
+        0 0 20px #0168FC, 
+        0 0 30px #0168FC; 
+}
+
+/* Planets (7행성) - Thick & Distinct */
+
+/* ♄ Saturn: Yellow / Ochre */
+.glow-saturn { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FFF200,
+        0 0 8px #FFF200, 
+        0 0 10px #FFF200,
+        0 0 15px #FFF200, 
+        0 0 20px #FFF200,
+        0 0 30px #FFF200; 
+}
+
+/* ♃ Jupiter: Neon Green */
+.glow-jupiter { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #47BD5A,
+        0 0 8px #47BD5A, 
+        0 0 10px #47BD5A,
+        0 0 15px #47BD5A, 
+        0 0 20px #47BD5A,
+        0 0 25px #47BD5A, 
+        0 0 30px #47BD5A; 
+}
+
+/* ♂ Mars: Deep Crimson Red */
+.glow-mars { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #F50000, 
+        0 0 8px #F50000,
+        0 0 10px #F50000, 
+        0 0 15px #F50000,  
+        0 0 20px #F50000,
+        0 0 25px #F50000,
+        0 0 30px #F50000, 
+        0 0 35px #F50000; 
+}
+
+/* ☉ Sun: Orange Gold */
+.glow-sun { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FC55CE, 
+        0 0 8px #FC55CE,
+        0 0 10px #FC55CE, 
+        0 0 15px #FC55CE,  
+        0 0 20px #FC55CE,
+        0 0 30px #FC55CE,
+        0 0 35px #FC55CE, 
+        0 0 40px #FC55CE; 
+}
+
+/* ♀ Venus: Grey */
+.glow-venus { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #999999, 
+        0 0 8px #999999,
+        0 0 10px #999999,
+        0 0 12px #999999, 
+        0 0 14px #999999,
+        0 0 17px #999999, 
+        0 0 20px #999999, 
+        0 0 22px #999999,
+        0 0 25px #999999,
+        0 0 28px #999999, 
+        0 0 30px #999999; 
+}
+
+/* ☿ Mercury: Cyan Blue */
+.glow-mercury { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #341DFC,
+        0 0 8px #341DFC, 
+        0 0 10px #341DFC,
+        0 0 15px #341DFC, 
+        0 0 20px #341DFC,
+        0 0 25px #341DFC, 
+        0 0 30px #341DFC; 
+}
+
+/* ☽ Moon: White Silver */
+.glow-moon { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FFB9FA,
+        0 0 8px #FFB9FA, 
+        0 0 10px #FFB9FA,
+        0 0 15px #FFB9FA, 
+        0 0 20px #FFB9FA,
+        0 0 25px #FFB9FA, 
+        0 0 30px #FFB9FA; 
+}
+
+/* ☋ Ketu: White */
+.glow-ketu { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FFFFFF,
+        0 0 8px #FFFFFF, 
+        0 0 10px #FFFFFF,
+        0 0 15px #FFFFFF, 
+        0 0 20px #FFFFFF,
+        0 0 25px #FFFFFF, 
+        0 0 30px #FFFFFF; 
+}
+
+/* ☊ Rahu: Azure */
+.glow-rahu { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #6AFFDD,
+        0 0 8px #6AFFDD, 
+        0 0 10px #6AFFDD,
+        0 0 15px #6AFFDD, 
+        0 0 20px #6AFFDD,
+        0 0 25px #6AFFDD, 
+        0 0 30px #6AFFDD; 
+}
+
+/* 7. Glyph Clarity Enhancer (Size Up for Visibility) */
+#stage-container.stage-nigredo .cell-code, 
+#stage-container.stage-nigredo .cell-nak,
+#stage-container.stage-nigredo .cell-pada {
+    font-weight: 700 !important; 
+    font-size: 1.1rem !important; /* 기호 크기를 키워 Glow가 더 잘 보이게 함 */
+    vertical-align: middle;
+}
+
+/* Layout Adjustments */
+#stage-container.stage-nigredo .n2-principia {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    color: #7CFF9B !important;
+}
+#stage-container.stage-nigredo .col-celestial { width: 140px !important; }
+#stage-container.stage-nigredo .col-info      { width: 150px !important; }
+#stage-container.stage-nigredo .col-code      { width: 45px !important; } /* 넓어진 glow 고려하여폭 조정 */
+#stage-container.stage-nigredo .col-sabian    { width: auto !important; }
+
+#stage-container.stage-nigredo .n2-chart-table {
+    width: 100% !important;
+    table-layout: fixed !important; 
+    border-collapse: collapse !important;
+    margin-bottom: 50px !important;
+}
+#stage-container.stage-nigredo .n2-chart-table td {
+    padding: 12px 5px !important; /* padding 조정 */
+    border-bottom: 1px solid rgba(124, 255, 155, 0.05) !important;
+    font-size: 0.85rem !important;
+    color: #7CFF9B !important;
+}
+#stage-container.stage-nigredo .cell-info { color: #49dce1 !important; }
+#stage-container.stage-nigredo .cell-code { text-align: center !important; }
+#stage-container.stage-nigredo .cell-sabian {
+    white-space: normal !important;
+    font-style: italic !important;
+    opacity: 0.8 !important;
+    word-break: keep-all !important;
+    color: #7CFF9B !important;
+}
+
+/* static/world/nigredo/modules/n2.css */
+
+/* ... (기존 스타일은 그대로 유지) ... */
+
+/* 8. Fixed Star Icons (Tier-Based Visuals) */
+/* Flex container for stars */
+.fs-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.fs-icon {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: transform 0.2s, filter 0.2s;
+    filter: drop-shadow(0 0 2px currentColor);
+}
+
+.fs-icon:hover {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 5px currentColor);
+}
+
+/* Tier Specifics */
+/* 👑 Royal: Crown (Gold) */
+.fs-royal {
+    color: #FFD700;
+    font-weight: 900;
+}
+.fs-royal::before { content: "♛"; }
+
+/* ✨ Spica: Sparkle (Blue-White) */
+.fs-spica {
+    color: #00FFFF;
+    font-weight: 900;
+}
+.fs-spica::before { content: "✨"; }
+
+/* ⭐ Major: Big Star (White) */
+.fs-major {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+}
+.fs-major::before { content: "✯"; }
+
+/* ✶ Traditional: Six-point Star (Silver) */
+.fs-traditional {
+    color: #C0C0C0;
+    font-size: 1.1rem;
+}
+.fs-traditional::before { content: "✶"; }
+
+/* • Common: Small Star (Grey) */
+.fs-common {
+    color: #808080;
+    font-size: 0.9rem;
+}
+.fs-common::before { content: "*"; }
+
+
+/* 9. Fixed Star Meaning Popover (Dynamic Position) */
+.fs-popover-box {
+    position: absolute; /* Fixed -> Absolute for JS positioning */
+    transform: none;    /* 🔥 이 줄을 추가하세요! (이전의 translate 강제 이동을 무효화) */
+    width: 320px;
+    max-height: 400px; /* 너무 길어지지 않게 제한 */
+    background: rgba(0, 0, 0, 0.98);
+    border: 1px solid #7CFF9B;
+    box-shadow: 0 0 30px rgba(124, 255, 155, 0.3);
+    padding: 20px;
+    z-index: 9999;
+    color: #7CFF9B;
+    font-family: ui-monospace, monospace;
+    overflow-y: auto;
+    display: none; /* Hidden by default */
+}
+
+.fs-popover-box.active { display: block; }
+
+.fs-title {
+    font-size: 1.1rem;
+    font-weight: 900;
+    border-bottom: 1px solid #49dce1;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    color: #49dce1;
+}
+
+.fs-content {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.fs-constellation {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.fs-close-hint {
+    margin-top: 15px;
+    font-size: 0.7rem;
+    color: #555;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* static/world/nigredo/modules/n2.css */
+
+/* ... (상단 기존 스타일 유지) ... */
+
+/* Nakshatra Mode Alignment Fix */
+/* Header Force Center */
+#stage-container.stage-nigredo .n2-chart-table th:nth-child(4),
+#stage-container.stage-nigredo .n2-chart-table th#pada-header-label {
+    text-align: center !important; 
+}
+
+/* Cell Alignment */
+#stage-container.stage-nigredo .cell-nak {
+    text-align: left !important;
+    padding-left: 15px !important;
+    color: #49dce1;
+}
+
+#stage-container.stage-nigredo .cell-pada,
+#stage-container.stage-nigredo .n2-chart-table td.cell-pada {
+    text-align: center !important; /* Force Center */
+    color: #49dce1;
+}
+
+/* 9. Fixed Star Meaning Popover (Dynamic Position) */
+.fs-popover-box {
+    position: absolute; /* Fixed -> Absolute for JS positioning */
+    width: 320px;
+    max-height: 400px; /* 너무 길어지지 않게 제한 */
+    background: rgba(0, 0, 0, 0.98);
+    border: 1px solid #7CFF9B;
+    box-shadow: 0 0 30px rgba(124, 255, 155, 0.3);
+    padding: 15px;
+    z-index: 99999;
+    color: #7CFF9B;
+    font-family: ui-monospace, monospace;
+    overflow-y: auto;
+    display: none; 
+    border-radius: 4px;
+}
+
+.fs-popover-box.active { display: block; }
+
+.fs-title {
+    font-size: 1.1rem;
+    font-weight: 900;
+    border-bottom: 1px solid #49dce1;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    color: #49dce1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.fs-content {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #eeeeee;
+}
+
+.fs-content p { margin-bottom: 8px; }
+
+.fs-constellation {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 10px;
+    font-style: italic;
+    text-align: right;
+}
+
+.fs-close-hint {
+    margin-top: 10px;
+    font-size: 0.7rem;
+    color: #666;
+    text-align: center;
+    cursor: pointer;
+    border-top: 1px solid #333;
+    padding-top: 5px;
+}
+
+/* 🔒 [Area Lockdown]: Stage-Style Veil 시스템 */
+.principia-section.section-time-locked {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* 🌑 투명한 베일 레이어 (Stage 락의 느낌을 위해 배경색 제거) */
+.lock-blackout {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.05); /* 아주 미세한 어둠 */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: help;
+    pointer-events: auto; /* 라벨 마우스 오버 허용 */
+}
+
+/* 중앙의 락 라벨 (가독성을 위해 색상 및 그림자 조정) */
+.lock-label {
+    color: #49dce1; /* 시스템 포인트 컬러 사용 */
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    text-transform: uppercase;
+    opacity: 0.8;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1); /* 배경이 밝을 때를 대비한 그림자 */
+    pointer-events: none;
+}
+
+/* 🚀 [CORE VISUAL]: Stage Lock 미학 복제 */
+/* 락 걸린 섹션 내부의 테이블과 라벨을 유령처럼 만듭니다 */
+.section-time-locked .n2-chart-table,
+.section-time-locked .category-label {
+    filter: grayscale(1); /* 흑백 처리 */
+    opacity: 0.1;        /* 90% 투명도 (Stage 기준) */
+    pointer-events: none; /* 클릭 및 상호작용 원천 차단 */
+    user-select: none;
+}
+
+/* Hover 시 라벨 강조 (경고 의미 부여) */
+.section-time-locked:hover .lock-label {
+    opacity: 1;
+    color: #ff5252; /* 붉은색 경고 포인트 */
+    transition: all 0.3s ease;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   NIGREDO UI ENFORCER (Absolute Priority Overrides)
+   ───────────────────────────────────────────────────────────── */
+
+#stage-container.stage-nigredo .hidden { display: none !important; }
+
+/* 1. Zodiac Table Column Widths - 상단의 150px 강제 명령을 덮어씁니다 */
+#stage-container.stage-nigredo .zodiac-mode .col-body { width: 190px !important; }
+#stage-container.stage-nigredo .zodiac-mode .col-info { width: 220px !important; } /* 넓게 확장 완료 */
+#stage-container.stage-nigredo .zodiac-mode .col-house { width: 45px !important; }
+#stage-container.stage-nigredo .zodiac-mode .col-code { width: 45px !important; }
+#stage-container.stage-nigredo .zodiac-mode .col-sabian { width: 460px !important; }
+
+/* 2. Nakshatra Table Column Widths */
+#stage-container.stage-nigredo .nakshatra-mode .col-nak-body { width: 200px !important; }
+#stage-container.stage-nigredo .nakshatra-mode .col-nak-info { width: 200px !important; }
+#stage-container.stage-nigredo .nakshatra-mode .col-nak-name { width: 160px !important; }
+#stage-container.stage-nigredo .nakshatra-mode .col-nak-pada { width: 70px !important; }
+#stage-container.stage-nigredo .nakshatra-mode .col-nak-sabian { width: 470px !important; }
+
+/* 3. 하우스(Hs.) 데이터 셀 - 상단의 녹색 강제 명령을 덮어씁니다 */
+#stage-container.stage-nigredo .n2-chart-table td.cell-house {
+    text-align: center !important;
+    color: #2ff3f3 !important; /* 드디어 적용되는 폰트 컬러 (Gold) */   
+    /* 3. 약간의 글로우 효과 추가 */
+    text-shadow: 0 0 6px rgba(40, 148, 255, 0.6);
+}

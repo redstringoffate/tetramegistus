@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="/static/world/citrinitas/modules/c2_shin.css?v=6">
+
+<div class="aleph-container" id="shin-app">
+    <div class="ritual-header">
+        <h3 class="ritual-title">[ ש ] ARUDHA ASCENDANT RECTIFICATION</h3>
+    </div>
+
+    <div id="step-1-input" class="c1-module-container shin-step active">
+        <div class="c1-form-group">
+            <label class="c1-coord-label">Date</label>
+            <div class="c1-date-row">
+                <select id="shin-date-y" class="c1-select"></select>
+                <select id="shin-date-m" class="c1-select"></select>
+                <select id="shin-date-d" class="c1-select"></select>
+            </div>
+        </div>
+
+        <div class="c1-form-group">
+            <label class="c1-coord-label">Location</label>
+            <div class="c1-city-search-container">
+                <input type="text" id="shin-city-search" class="c1-input full-width" placeholder="Search City..." autocomplete="off">
+                <div id="shin-city-results" class="c1-city-results"></div>
+            </div>
+            
+            <div id="shin-manual-toggle" class="c1-manual-toggle">or Manual Entry ▾</div>
+
+            <div id="shin-manual-panel" class="c1-manual-panel shin-hidden">
+                <div class="c1-coord-block">
+                    <div class="c1-sub-label">Latitude</div>
+                    <div class="c1-coord-inputs">
+                        <div class="c1-sign-toggle">
+                            <div class="c1-sign-btn active" data-target="lat" data-sign="+">+</div>
+                            <div class="c1-sign-btn" data-target="lat" data-sign="-">−</div>
+                        </div>
+                        <input id="shin-lat-int" class="c1-input-int" placeholder="00">
+                        <span class="c1-dot">.</span>
+                        <input id="shin-lat-dec" class="c1-input-dec" placeholder="0000">
+                    </div>
+                </div>
+
+                <div class="c1-coord-block">
+                    <div class="c1-sub-label">Longitude</div>
+                    <div class="c1-coord-inputs">
+                        <div class="c1-sign-toggle">
+                            <div class="c1-sign-btn active" data-target="lng" data-sign="+">+</div>
+                            <div class="c1-sign-btn" data-target="lng" data-sign="-">−</div>
+                        </div>
+                        <input id="shin-lng-int" class="c1-input-int" placeholder="000">
+                        <span class="c1-dot">.</span>
+                        <input id="shin-lng-dec" class="c1-input-dec" placeholder="0000">
+                    </div>
+                </div>
+
+                <div class="c1-coord-block shin-mt-15">
+                    <div class="c1-sub-label">Timezone</div>
+                    <select id="shin-tz" class="c1-select full-width"></select>
+                </div>
+            </div>
+        </div>
+        
+        <button class="cyber-btn full-width shin-mt-20" onclick="Shin.initiateScan()">INITIATE RITUAL</button>
+    </div>
+
+    <div id="step-2-questions" class="shin-step">
+        <div id="q-render-area"></div>
+        <div class="shin-btn-group">
+            <button class="cyber-btn-outline full-width" onclick="Shin.goBack()">BACK</button>
+            <button id="shin-next-btn" class="cyber-btn full-width" onclick="Shin.processNext()">NEXT</button>
+        </div>
+    </div>
+
+    <div id="step-3-results" class="shin-step">
+        <div class="shin-result-header">
+            <h2 class="shin-result-title">RESULTS</h2>
+        </div>
+        
+        <div class="result-content">
+            <div class="shin-res-label">POSSIBLE BIRTH TIMES</div>
+            <div id="res-blocks" class="shin-res-blocks">
+                </div>
+            
+            <button class="cyber-btn-outline full-width shin-mt-30" onclick="Shin.resetRitual()">RESTART RITUAL</button>
+        </div>
+    </div>
+</div>

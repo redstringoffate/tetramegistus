@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="/static/mobile/world/nigredo/modules/n5.css?v=1">
+
+<div class="m-n5-container">
+    <h1 class="m-materia-title">SCHEMA</h1>
+
+    <div class="m-anti-switch-module" style="margin-bottom: 15px;">
+        <div class="m-dichotomy-module" onclick="window.toggleN5Mode()">
+            <span class="m-dicho-label active" id="n5-lbl-unus">UNUS</span>
+            <div class="m-toggle-switch">
+                <div class="m-toggle-knob" id="n5-knob-mode"></div>
+            </div>
+            <span class="m-dicho-label" id="n5-lbl-intersectus">INTERSECTUS</span>
+        </div>
+    </div>
+
+    <div class="m-system-selectors" id="n5-system-selectors" style="display: none;">
+        <div class="m-sel-row">
+            <div class="m-sel-col">
+                <label>System A</label>
+                <select id="n5-sys-a-select" class="m-n5-select" onchange="window.handleSystemAChange(this.value)">
+                    <option value="default" selected>Select System</option>
+                    <option value="tropical">Tropical</option>
+                    <option value="sidereal">Sidereal</option>
+                    <option value="draconic">Draconic</option>
+                    <option value="ketunic">Ketunic</option>
+                </select>
+            </div>
+            <div class="m-sel-x">✕</div>
+            <div class="m-sel-col">
+                <label>System B</label>
+                <select id="n5-sys-b-select" class="m-n5-select" onchange="window.handleSystemBChange(this.value)">
+                    <option value="default" selected>Wait for Sys A</option>
+                </select>
+            </div>
+        </div>
+        <button class="m-enter-btn" onclick="window.fetchSchemaData()">ENTER</button>
+    </div>
+
+    <div class="m-system-switch-module" style="margin-top: 20px;">
+        <button class="m-sys-tab active" id="n5-tab-patterns" onclick="window.switchN5View('patterns')">PATTERNS</button>
+        <button class="m-sys-tab" id="n5-tab-aspects" onclick="window.switchN5View('aspects')">ASPECTS</button>
+    </div>
+
+    <div id="m-view-patterns">
+        <div class="m-cat-grid" id="n5-shapes-grid" style="grid-template-columns: repeat(3, 1fr);">
+            </div>
+
+        <div id="n5-pattern-detail-area" style="display: none;">
+            <div class="m-card-header" style="cursor: pointer;" onclick="window.showPatternPopup()">
+                <div class="m-card-title">Shape: <span id="n5-shape-name" style="color:#7CFF9B; margin-left:5px;"></span> <span style="font-size:0.8rem; color:#888; margin-left:5px;">ⓘ</span></div>
+            </div>
+            
+            <div class="m-n5-table-wrapper">
+                <table class="m-n5-table">
+                    <thead id="m-n5-thead-patterns"></thead>
+                    <tbody id="m-n5-tbody-patterns"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="n5-pattern-empty" class="m-placeholder">Select a shape to view structures.</div>
+    </div>
+
+    <div id="m-view-aspects" style="display: none;">
+        
+        <div id="n5-aspect-filter-container" style="display: none; margin-bottom: 20px; justify-content: center;">
+            <div class="m-dichotomy-module" onclick="window.toggleAspectSystemFilter()">
+                <span id="n5-lbl-filter-a" class="m-dicho-label active">SYS A</span>
+                <div class="m-toggle-switch">
+                    <div class="m-toggle-knob" id="n5-knob-filter"></div>
+                </div>
+                <span id="n5-lbl-filter-b" class="m-dicho-label">SYS B</span>
+            </div>
+        </div>
+
+        <div class="m-cat-grid" id="n5-aspect-tabs" style="grid-template-columns: repeat(2, 1fr);">
+            <button class="m-tab active" data-cat="planets" onclick="window.switchN5Category('planets')">Planets</button>
+            <button class="m-tab" data-cat="asteroids" onclick="window.switchN5Category('asteroids')">Asteroids</button>
+            <button class="m-tab" data-cat="lilith" onclick="window.switchN5Category('lilith')">Nodes</button>
+            <button class="m-tab" data-cat="fates" onclick="window.switchN5Category('fates')">Fates</button>
+            <button class="m-tab" data-cat="hermetic" style="grid-column: 1 / -1;">Hermetic</button>
+        </div>
+
+        <div class="m-custom-dropdown" style="margin-bottom: 15px;">
+            <div class="m-dropdown-selected" id="n5-dd-selected" onclick="window.toggleN5Dropdown()">
+                SELECT BODY
+            </div>
+            <div class="m-dropdown-list" id="n5-dd-list" style="display:none;"></div>
+        </div>
+
+        <div class="m-n5-aspects-wrapper">
+            <div class="m-aspect-col m-col-narrow">
+                <div class="m-aspect-header">ASPECTS</div>
+                <div class="m-aspect-body" id="m-n5-list-aspects"></div>
+            </div>
+            <div class="m-aspect-col">
+                <div class="m-aspect-header">OBJECTS</div>
+                <div class="m-aspect-body" id="m-n5-list-objects"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="m-n5-toast" class="m-toast-hidden"></div>
+    <div id="fs-popover" class="fs-popover-box"></div>
+</div>
+
+<script src="/static/mobile/world/nigredo/modules/n5.js?v=5"></script>

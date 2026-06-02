@@ -1,0 +1,57 @@
+{% extends "mobile/genesis/templates/base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/mobile/genesis/css/index.css?v=20">
+{% endblock %}
+
+{% block body_class %}centered{% endblock %}
+
+{% block content %}
+<div class="void">
+  <div id="materia-core">
+    <h1>Prima Materia</h1>
+    <button id="form-me">Form New Vessel [me]</button>
+  </div>
+
+  <div id="ritual-gateway" class="hidden-element">
+    <div id="key-icon">⚷</div>
+    
+    <div id="pc-like-entry-zone">
+      <input type="text" class="core-segment" maxlength="4" placeholder="XXXX" inputmode="text" autocomplete="off" spellcheck="false">
+      <span class="segment-dash">-</span>
+      <input type="text" class="core-segment" maxlength="4" placeholder="XXXX" inputmode="text" autocomplete="off" spellcheck="false">
+      <span class="segment-dash">-</span>
+      <input type="text" class="core-segment" maxlength="4" placeholder="XXXX" inputmode="text" autocomplete="off" spellcheck="false">
+      <span class="segment-dash">-</span>
+      <input type="text" class="core-segment" maxlength="4" placeholder="XXXX" inputmode="text" autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+
+  <input id="entry-code" class="hidden-trigger" type="password" />
+
+</div>
+<script src="/static/mobile/genesis/js/ritual_touch.js?v=23"></script>
+
+<script>
+// 1. [신규]: 페이지를 떠날 때(월드로 들어갈 때) 화면을 아예 숨겨버림
+// 브라우저가 캐시에 '빈 화면'을 저장하게 만들어서 뒤로가기 시 번쩍이는 현상 원천 차단
+window.addEventListener("pagehide", () => {
+    document.body.style.display = "none";
+});
+
+// 2. 뒤로가기로 난입 시 캐시 파괴 후 서버 검증(reload) 강제
+window.addEventListener("pageshow", (event) => {
+    // 만약 뒤로가기로 돌아왔다면
+    if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+        // 혹시라도 화면이 보일까 봐 다시 한번 강제로 숨김
+        document.body.style.display = "none";
+        // 서버로 재요청
+        window.location.reload();
+    } else {
+        // 정상적인 최초 진입이라면 화면을 다시 보여줌
+        document.body.style.display = "";
+    }
+});
+</script>
+
+{% endblock %}

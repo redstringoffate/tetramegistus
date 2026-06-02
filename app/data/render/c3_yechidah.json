@@ -1,0 +1,1787 @@
+{
+  "title": {
+    "en": "[ יחידה ] YECHIDAH : The Desert of Silence",
+    "ko": "[ יחידה ] YECHIDAH : 침묵의 황야"
+  },
+  "script": {
+    "scn_1": {
+      "bg_image": "desert.png",
+      "en": [
+        "The desert continued to be crossed.",
+        "The hot, dry wind wore against the skin little by little.",
+        "The lips had split long ago,",
+        "and the blood that had once broken through had already dried in place."
+      ],
+      "ko": [
+        "사막을 계속해서 걸어가고 있었다.",
+        "뜨겁고 건조한 바람은 피부를 조금씩 마모시킨다.",
+        "입술은 이미 오래전에 갈라져 있었고,",
+        "한 번 터져 흘렀던 피는 어느새 말라붙어 있었다."
+      ]
+    },
+    "scn_2": {
+      "bg_image": "scorching.png",
+      "en": [
+        "With every breath, the inside of the throat dries as if being burned away.",
+        "The sun overhead heats existence like a great open flame.",
+        "Yet when night arrives,",
+        "the cold air pierces the body as though the heat of day had never existed."
+      ],
+      "ko": [
+        "숨을 들이쉴 때마다 목 안쪽은 타들어가는 듯 메말라 간다.",
+        "내려쬐는 태양은 마치 거대한 불길과 같이 존재를 달군다.",
+        "그러나 밤이 찾아오면,",
+        "낮의 열기가 존재하지 않았던 것처럼 차가운 공기가 몸을 파고들었다."
+      ]
+    },
+    "scn_3": {
+      "bg_image": "moonlight.png",
+      "en": [
+        "The moonlight was strangely clear,",
+        "and the stars were far too bright.",
+        "So bright",
+        "that it almost seemed as though someone were looking down."
+      ],
+      "ko": [
+        "달빛은 이상할 정도로 선명했고,",
+        "별들은 지나치게 밝았다.",
+        "너무나 밝아서,",
+        "오히려 누군가 내려다보고 있는 듯한 착각이 들 정도로."
+      ]
+    },
+    "scn_4": {
+      "bg_image": "scorching2.png",
+      "en": [
+        "And so the walking continues without end.",
+        "Across the desert.",
+        "Beneath the burning day.",
+        "Beneath the freezing night."
+      ],
+      "ko": [
+        "그렇게 하염없이 걷는다.",
+        "사막 위를.",
+        "뜨거운 낮 아래를.",
+        "차가운 밤 아래를."
+      ]
+    },
+    "scn_5": {
+      "bg_image": "scorching2.png",
+      "bg_effect": "blur",
+      "en": [
+        "Thirst and exhaustion fracture the flesh, yet the steps do not stop.",
+        "Onward.",
+        "Forward.",
+        "And forward again."
+      ],
+      "ko": [
+        "갈증과 피로는 육신에 균열을 내건만, 발걸음은 멈추지 않는다.",
+        "계속해서.",
+        "앞으로.",
+        "그리고 다시 앞으로."
+      ]
+    },
+    "scn_6": {
+      "bg_image": "heat.png",
+      "en": [
+        "The sun seemed to have descended lower than before.",
+        "Light no longer shone.",
+        "It pressed down from above, a weight grinding into the flesh.",
+        " ",
+        "The sand beneath the feet had grown burning hot,",
+        "and the steps begin to lose their feeling.",
+        " ",
+        "Heat seeps into the inside of the head,",
+        "and the edges of thought slowly begin to blur."
+      ],
+      "ko": [
+        "태양은 이전보다도 낮게 내려와 있는 듯했다.",
+        "빛은 더 이상 비추는 것이 아니라,",
+        "위에서부터 눌러오는 무게로 육신을 짓이긴다.",
+        " ",
+        "발 아래의 모래는 뜨겁게 달아올라 있었고,",
+        "발걸음은 점점 감각을 잃어간다.",
+        " ",
+        "열기는 머리 안쪽까지 스며들어,",
+        "생각의 가장자리부터 천천히 흐릿해진다."
+      ]
+    },
+    "scn_7": {
+      "bg_image": "heat.png",
+      "bg_effect": "blur",
+      "en": [
+        "The field of vision begins to tremble.",
+        "Distant dunes rippled like waves,",
+        "and the border between sky and earth loosened faintly within the heat.",
+        " ",
+        "Even so, the body did not fall.",
+        "Only the two legs continue to move."
+      ],
+      "ko": [
+        "시야가 조금씩 흔들린다.",
+        "멀리 있는 모래언덕은 물결처럼 일렁였고,",
+        "하늘과 땅의 경계는 열기 속에서 희미하게 풀려나갔다.",
+        " ",
+        "그럼에도 육신은 쓰러지지 않았다.",
+        "두 다리만은 계속해서 움직인다."
+      ]
+    },
+    "scn_8": {
+      "bg_image": "white",
+      "en": [
+        "As though following a motion decided long ago.",
+        " ",
+        "Like a wound spring that knows nothing of stopping,",
+        "the steps moved forward again.",
+        "Just like that.",
+        "Everything grows distant beneath the burning light.",
+        " ",
+        "Thirst, pain, exhaustion—",
+        "all of it fades,",
+        "as though happening somewhere very far away."
+      ],
+      "ko": [
+        "이미 오래전에 정해진 움직임을 따라가는 것처럼.",
+        " ",
+        "멈춤을 알지 못하는 태엽처럼,",
+        "발걸음은 다시 앞으로 나아갔다.",
+        "그렇게.",
+        "뜨거운 빛 아래에서 모든 것이 멀어진다.",
+        " ",
+        "갈증도, 통증도, 피로도,",
+        "마치 아주 먼 곳에서 일어나는 일처럼 희미해진다."
+      ]
+    },
+    "scn_9": {
+      "bg_image": "haze.png",
+      "en": [
+        "What remains is heat, and sand.",
+        " ",
+        "...And still, the dying body moves forward.",
+        " ",
+        "Somewhere within it,",
+        "a resonance not yet formed into words slowly rises."
+      ],
+      "ko": [
+        "남은 것은 열기, 그리고 모래.",
+        " ",
+        "...그럼에도 앞으로 나아가는 죽어가는 몸.",
+        " ",
+        "그 안쪽 어딘가에서,",
+        "아직 말이 되지 못한 울림 하나가 천천히 떠오른다."
+      ]
+    },
+    "q_malkuth": {
+      "bg_image": "haze.png",
+      "bg_effect": "blur",
+      "en": "...What thirsts?",
+      "ko": "...무엇이 목마른가?",
+      "options": {
+        "saturn": {
+          "en": "Not to collapse.",
+          "ko": "무너지기 싫다."
+        },
+        "jupiter": {
+          "en": "Farther.",
+          "ko": "더 멀리 가고 싶다."
+        },
+        "mars": {
+          "en": "To win.",
+          "ko": "이기고 싶다."
+        },
+        "sun": {
+          "en": "To prove.",
+          "ko": "증명하고 싶다."
+        },
+        "venus": {
+          "en": "To touch.",
+          "ko": "닿고 싶다."
+        },
+        "mercury": {
+          "en": "To know.",
+          "ko": "알고 싶다."
+        },
+        "moon": {
+          "en": "Home.",
+          "ko": "집으로 돌아가고 싶다."
+
+        }
+      }
+    },
+    "scn_10": {
+      "bg_image": "scorching2.png",
+      "en": [
+        "The resonance did not wait for an answer.",
+        " ",
+        "What had risen sank down once more,",
+        "and upon the sand, only hot breath and wind remained.",
+        " ",
+        "The chest rose and fell violently,",
+        "and consciousness seemed ready to break at any moment."
+      ],
+      "ko": [
+        "울림은 대답을 기다리지 않았다.",
+        " ",
+        "떠올랐던 것은 다시 가라앉고,",
+        "모래 위에는 뜨거운 숨과 바람만이 남았다.",
+        " ",
+        "가슴은 거칠게 오르내리고,",
+        "의식은 금방이라도 끊어질 것만 같았다."
+      ]
+    },
+    "scn_11": {
+      "bg_image": "scorching.png",
+      "en": [
+        "And yet, strangely,",
+        "darkness did not come.",
+        " ",
+        "The eyes would not close,",
+        "and the body did not fall into the sand.",
+        " ",
+        "Still, the steps continued."
+      ],
+      "ko": [
+        "그러나 이상할 정도로,",
+        "어둠은 찾아오지 않았다.",
+        " ",
+        "눈은 감기지 않고,",
+        "육신 또한 끝내 모래 위로 쓰러지지 않는다.",
+        " ",
+        "두 다리는 여전히 앞으로 나아가고 있었다."
+      ]
+    },
+    "scn_12": {
+      "bg_image": "moon.png",
+      "en": [
+        "Before long, the sun had begun to sink,",
+        "and the heat of day faded from the desert as though it had been a lie.",
+        " ",
+        "Cold night settled over the sand,",
+        "and a moonlight, strangely bright, hung in the sky.",
+        " ",
+        "Shadows stretched black across the dunes,",
+        "and only the sound of footsteps continued faintly beneath the cold light."
+      ],
+      "ko": [
+        "어느새 태양은 기울고,",
+        "낮의 열기는 거짓이었던 것처럼 사막 위에서 식어간다.",
+        " ",
+        "차가운 밤이 모래 위로 내려앉고,",
+        "기이할 정도로 밝은 달빛이 하늘에 걸렸다.",
+        " ",
+        "모래 위의 그림자는 검게 길어지고,",
+        "발걸음의 소리만이 차가운 빛 아래로 희미하게 이어진다."
+      ]
+    },
+    "scn_13": {
+      "bg_image": "moon2.png",
+      "en": [
+        "The head lifts before one knows it.",
+        " ",
+        "Above, a round moon hangs in the sky.",
+        " ",
+        "Its light was too bright,",
+        "like a hole opened in the night.",
+        " ",
+        "How long had it been watched?",
+        " ",
+        "At some point,",
+        "a faint mist begins to drift slowly across the moonlight."
+      ],
+      "ko": [
+        "문득 고개가 들린다.",
+        " ",
+        "하늘에 떠 있는 것은 둥근 달.",
+        " ",
+        "지나치게 밝은 빛은",
+        "마치 밤하늘에 뚫린 구멍처럼 보였다.",
+        " ",
+        "얼마나 바라보고 있었을까.",
+        " ",
+        "어느 순간부터인가,",
+        "희미한 안개가 달빛 위를 천천히 스쳐 지나간다."
+      ]
+    },
+    "scn_14": {
+      "bg_image": "moon2.png",
+      "bg_effect": "blur",
+      "en": [
+        "The mist veils the moon,",
+        "then reveals it once more.",
+        " ",
+        "Veiling.",
+        "Revealing.",
+        " ",
+        "The blurred light trembled like the surface of water,",
+        "and the world beneath the moon slowly began to lose its shape."
+      ],
+      "ko": [
+        "안개는 달을 가리고,",
+        "이내 다시 드러낸다.",
+        " ",
+        "가리고,",
+        "드러내고.",
+        " ",
+        "흐릿한 빛은 마치 수면처럼 흔들렸고,",
+        "달 아래의 세상 또한 조금씩 형태를 잃어간다."
+      ]
+    },
+    "scn_15": {
+      "bg_image": "mist.png",
+      "en": [
+        "The mist moves slowly on,",
+        "and the moonlight breaks apart between its folds.",
+        " ",
+        "The broken light leaves strange forms upon the sand,",
+        "and the forms blur and bend once more.",
+        " ",
+        "Yet some do not vanish."
+      ],
+      "ko": [
+        "안개는 천천히 흘러가고,",
+        "달빛은 그 사이로 부서진다.",
+        " ",
+        "부서진 빛은 모래 위에 기묘한 형상을 남기고,",
+        "형상은 다시 흐릿하게 일그러진다.",
+        " ",
+        "그러나 몇몇은 사라지지 않는다."
+      ]
+    },
+    "q_yesod": {
+      "bg_image": "white",
+      "en": [
+        "Beneath the moonlight,",
+        "what draws the eye first?"
+      ],
+      "ko": [
+        "달빛 아래,",
+        "가장 먼저 눈에 들어오는 것은 무엇인가?"
+      ],
+      "options": {
+        "saturn": {
+          "en": "A cracked black stone",
+          "ko": "검게 갈라진 돌"
+        },
+        "jupiter": {
+          "en": "A road stretching beyond sight",
+          "ko": "멀리 뻗은 길"
+        },
+        "mars": {
+          "en": "The tip of a crimson spear",
+          "ko": "붉은 창끝"
+        },
+        "sun": {
+          "en": "A golden mask",
+          "ko": "황금 가면"
+        },
+        "venus": {
+          "en": "A cracked marble statue",
+          "ko": "금이 간 백색 조각상"
+        },
+        "mercury": {
+          "en": "An unsealed scroll",
+          "ko": "봉인되지 않은 두루마리"
+        },
+        "moon": {
+          "en": "A still bowl of water",
+          "ko": "잔잔한 물그릇"
+
+        }
+      }
+    },
+    "scn_16": {
+      "bg_image": "hand.png",
+      "en": [
+        "The gaze settles upon a single form.",
+        " ",
+        "The hand reaches forward slowly,",
+        "and the fingertips pass over the moonlight as though brushing its surface.",
+        " ",
+        "Just before they touch—"
+      ],
+      "ko": [
+        "시선은 하나의 형상에 머문다.",
+        " ",
+        "손은 천천히 앞으로 뻗어지고,",
+        "손끝은 달빛 위를 스치듯 지나간다.",
+        " ",
+        "닿을 것 같았던 순간—"
+      ]
+    },
+    "scn_17": {
+      "bg_image": "black",
+      "en": [
+        "The mist scatters.",
+        " ",
+        "The form disappears,",
+        "and the moonlight goes out with it."
+      ],
+      "ko": [
+        "안개가 흩어진다.",
+        " ",
+        "형상은 사라지고,",
+        "달빛 또한 함께 꺼져버린다."
+      ]
+    },
+    "scn_18": {
+      "bg_image": "black",
+      "en": [
+        ""
+      ],
+      "ko": [
+        ""
+      ]
+    },
+    "scn_19": {
+      "bg_image": "thunder.png",
+      "en": [
+        ""
+      ],
+      "ko": [
+        ""
+      ]
+    },
+    "scn_20": {
+      "bg_image": "pillars.png",
+      "en": [
+        "The sky splits open.",
+        " ",
+        "Flame surges upward,",
+        "and ice drives down from above.",
+        " ",
+        "The two pillars collide."
+      ],
+      "ko": [
+        "하늘이 갈라진다.",
+        " ",
+        "불길은 위로 치솟고,",
+        "얼음은 아래로 내려꽂힌다.",
+        " ",
+        "두 기둥은 서로를 향해 충돌한다."
+      ]
+    },
+    "scn_21": {
+      "bg_image": "pillars.png",
+      "bg_effect": "blur",
+      "en": [
+        "Heat and cold rush in at once.",
+        " ",
+        "There is nowhere to flee.",
+        "Nor anywhere to turn the eyes.",
+        " ",
+        "The body trembles before them."
+      ],
+      "ko": [
+        "열기와 냉기가 동시에 몰아친다.",
+        " ",
+        "도망칠 수 없다.",
+        "눈을 돌릴 수도 없다.",
+        " ",
+        "육신은 그 앞에서 떨린다."
+      ]
+    },
+    "q_alignment_1": {
+      "bg_image": "pillars2.png",
+      "en": [
+        "For a moment, a voice descends from the sky.",
+        " ",
+        "Fire burns away the boundary,",
+        "and ice gives the boundary form.",
+        "...",
+        "By what is the world sustained?"
+      ],
+      "ko": [
+        "순간. 하늘에서 음성이 내려온다.",
+        " ",
+        "불은 경계를 태우고,",
+        "얼음은 경계를 만든다.",
+        "...",
+        "세계는 무엇에 의해 유지되는가?"
+      ],
+      "options": {
+        "severity": {
+          "en": "By limit.",
+          "ko": "한계에 의해."
+        },
+        "center": {
+          "en": "By law.",
+          "ko": "법칙에 의해."
+        },
+        "benevolence": {
+          "en": "By expansion.",
+          "ko": "확장에 의해."
+        }
+      }
+    },
+    "scn_22": {
+      "bg_image": "black",
+      "en": [
+        "The voice disappears.",
+        " ",
+        "So does the fire.",
+        "So does the ice.",
+        " ",
+        "And silence remains."
+      ],
+      "ko": [
+        "음성은 사라진다.",
+        " ",
+        "불도.",
+        "얼음도.",
+        " ",
+        "그리고 침묵이 남는다."
+      ]
+    },
+    "scn_23": {
+      "bg_image": "sublime.png",
+      "bg_effect": "blur",
+      "en": [
+        "The flame dies down,",
+        "and the ice slowly melts upon the sand.",
+        " ",
+        "Where the two pillars had collided,",
+        "not a sound remained.",
+        " ",
+        "Through the fissure in the broken sky,",
+        "a faint light was descending."
+      ],
+      "ko": [
+        "불길은 사그라지고,",
+        "얼음은 모래 위에서 천천히 녹아내린다.",
+        " ",
+        "두 기둥이 부딪힌 자리에는",
+        "아무 소리도 남지 않았다.",
+        " ",
+        "갈라진 하늘의 틈 사이로,",
+        "희미한 빛 하나가 내려오고 있었다."
+      ]
+    },
+    "scn_24": {
+      "bg_image": "sublime.png",
+      "en": [
+        "The light does not burn the eyes.",
+        " ",
+        "Rather.",
+        " ",
+        "Something long forgotten",
+        "quietly returns within it.",
+        " ",
+        "Not as something lost,",
+        "but as something finally recognized again."
+      ],
+      "ko": [
+        "그 빛은 눈을 태우지 않는다.",
+        " ",
+        "오히려.",
+        " ",
+        "오래전부터 잊고 있었던 무언가가",
+        "그 안에서 조용히 되돌아온다.",
+        " ",
+        "잃어버린 것이 아니라,",
+        "끝내 다시 알아보게 된 것처럼."
+      ]
+    },
+    "q_tiferet": {
+      "bg_image": "white",
+      "en": "...What calls you?",
+      "ko": "...무엇이 그대를 부르는가?",
+      "options": {
+        "saturn": {
+          "en": "The martyr's chain",
+          "ko": "순교자의 쇠사슬"
+        },
+        "jupiter": {
+          "en": "The prophet's trumpet",
+          "ko": "예언자의 나팔"
+        },
+        "mars": {
+          "en": "The sword of Transcendent",
+          "ko": "초월자의 검"
+        },
+        "sun": {
+          "en": "The sun-king's scepter",
+          "ko": "태양왕의 홀"
+        },
+        "venus": {
+          "en": "The perfume of enchantment",
+          "ko": "매혹의 향수"
+        },
+        "mercury": {
+          "en": "The sage's scroll",
+          "ko": "현자의 두루마리"
+        },
+        "moon": {
+          "en": "The virgin-mother's chalice",
+          "ko": "성모의 잔"
+        }
+      }
+    },
+    "scn_25": {
+      "bg_image": "sublime2.png",
+      "en": [
+        "The light does not disappear.",
+        " ",
+        "Even when the eyes turn away.",
+        "Even when the head is lowered.",
+        " ",
+        "It remains there still."
+      ],
+      "ko": [
+        "빛은 사라지지 않는다.",
+        " ",
+        "눈을 돌려도.",
+        "고개를 숙여도.",
+        " ",
+        "그것은 여전히 그 자리에 있다."
+      ]
+    },
+    "scn_26": {
+      "bg_image": "sublime2.png",
+      "bg_effect": "blur",
+      "en": [
+        "The steps come to a halt.",
+        " ",
+        "The sand still cools beneath the feet,",
+        "and the cold wind passes through the folds of the garment.",
+        " ",
+        "Yet all of it",
+        "begins to blur like something far away."
+      ],
+      "ko": [
+        "발걸음이 멎는다.",
+        " ",
+        "모래는 여전히 발 아래에서 식어가고,",
+        "차가운 바람은 옷자락 사이를 지나간다.",
+        " ",
+        "그러나 그 모든 것은",
+        "조금씩 먼 곳의 일처럼 흐려진다."
+      ]
+    },
+    "scn_27": {
+      "bg_image": "sublime3.png",
+      "en": [
+        "The head lowers.",
+        " ",
+        "Though the knees had not touched the sand,",
+        "what had already bowed was not the body.",
+        " ",
+        "Between the cracked lips,",
+        "not a word comes forth."
+      ],
+      "ko": [
+        "고개가 숙여진다.",
+        " ",
+        "무릎은 모래 위에 닿지 않았으나,",
+        "이미 낮아진 것은 육신이 아니었다.",
+        " ",
+        "갈라진 입술 사이로",
+        "아무 말도 흘러나오지 않는다."
+      ]
+    },
+    "q_alignment_2": {
+      "bg_image": "white",
+      "en": [
+        "Again, a voice descends from the sky.",
+        " ",
+        "...",
+        "To obtain it,",
+        "what can be forsaken?"
+      ],
+      "ko": [
+        "다시, 하늘에서 음성이 내려온다.",
+        " ",
+        "...",
+        "그것을 얻기 위해,",
+        "무엇을 포기할 수 있는가?"
+      ],
+      "options": {
+        "severity": {
+          "en": "The wavering heart",
+          "ko": "흔들리는 마음"
+        },
+        "center": {
+          "en": "The name once held",
+          "ko": "붙들고 있던 이름"
+        },
+        "benevolence": {
+          "en": "The boundary left behind",
+          "ko": "남겨둔 경계"
+
+        }
+      }
+    },
+    "scn_28": {
+      "bg_image": "sublime4.png",
+      "en": [
+        "The light draws gradually nearer.",
+        "",
+        "Rather—",
+        "the distance that had remained before it—",
+        "begins to disappear, little by little."
+      ],
+      "ko": [
+        "빛은 점차 가까워진다.",
+        "",
+        "오히려—",
+        "그 빛 앞에서 남아있던 거리감이—",
+        "조금씩 사라져간다."
+      ]
+    },
+    "q_alignment_3": {
+      "bg_image": "sublime4.png",
+      "bg_effect": "blur",
+      "en": [
+        "If that sublimity forgives thee,",
+        "canst thou forgive thyself?"
+      ],
+      "ko": [
+        "만약 그것이, 그 숭고함이 그대를 용서한다면—",
+        "그대는 스스로를 용서할 수 있는가?"
+      ],
+      "options": {
+        "severity": {
+          "en": "The sin must first be beheld.",
+          "ko": "죄성은 직시되어야 한다"
+        },
+        "center": {
+          "en": "It will be received, wound and all.",
+          "ko": "있는 그대로 받아들인다. 상흔까지도."
+        },
+        "benevolence": {
+          "en": "The knee shall bend before mercy",
+          "ko": "자비 앞에 무릎은 절로 꿇릴 것이다."
+
+        }
+      }
+    },
+    "scn_29": {
+      "bg_image": "white",
+      "en": [
+        "The voice can no longer be heard.",
+        " ",
+        "Nor the answer.",
+        " ",
+        "At some point,",
+        "all of it had grown distant."
+      ],
+      "ko": [
+        "음성은 더 이상 들리지 않는다.",
+        " ",
+        "대답 또한.",
+        " ",
+        "어느 순간부터인가",
+        "그 모든 것이 멀어져 있었다."
+      ]
+    },
+    "scn_daat_1": {
+      "bg_image": "daat.png",
+      "en": [
+        "Yet among the things that had grown distant,",
+        "one very slender fissure remained.",
+        " ",
+        "The fissure did not shine.",
+        "Nor was it dark.",
+        " ",
+        "It was simply",
+        "open like an unseen door."
+      ],
+      "ko": [
+        "그러나 멀어진 것들 사이로,",
+        "아주 가느다란 틈 하나가 남아 있었다.",
+        " ",
+        "그 틈은 빛나지 않았다.",
+        "어둡지도 않았다.",
+        " ",
+        "다만,",
+        "보이지 않는 문처럼 열려 있었다."
+      ]
+    },
+    "q_daat": {
+      "bg_image": "daat.png",
+      "bg_effect": "blur",
+      "en": "...What passes through the fissure?",
+      "ko": "...무엇이 그 틈을 지나가는가?",
+      "options": {
+        "shin": {
+          "en": "Flame.",
+          "ko": "불꽃."
+        },
+        "mem": {
+          "en": "Water.",
+          "ko": "물."
+        },
+        "aleph": {
+          "en": "Breath.",
+          "ko": "숨."
+        },
+        "dummy_1": {
+          "en": "Name", "ko": "이름."
+        },
+        "dummy_2": {
+          "en": "Shadow.", "ko": "그림자"
+        }
+      }
+    },
+    "scn_31": {
+      "bg_image": "white",
+      "en": [
+        "The flame.",
+        "The ice.",
+        "The light.",
+        " ",
+        "One by one, they sink into silence.",
+        " ",
+        "What remains is stillness."
+      ],
+      "ko": [
+        "불길도.",
+        "얼음도.",
+        "빛도.",
+        " ",
+        "하나씩 침묵 속으로 가라앉는다.",
+        " ",
+        "남아 있는 것은 고요함."
+      ]
+    },
+    "scn_32": {
+      "bg_image": "light.png",
+      "en": [
+        "In the place where nothing seemed to remain,",
+        "something instead begins to fill the silence.",
+        " ",
+        "Without sound.",
+        "Without form.",
+        "Without name."
+      ],
+      "ko": [
+        "아무것도 남지 않은 듯한 자리에서,",
+        "오히려 무언가가 조용히 차오른다.",
+        " ",
+        "소리도.",
+        "형상도.",
+        "이름도 없이."
+      ]
+    },
+    "q_kether": {
+      "bg_image": "light.png",
+      "bg_effect": "blur",
+      "en": "...What is plentiful?",
+      "ko": "...무엇이 충만한가?",
+      "options": {
+        "saturn": {
+          "en": "Silence.",
+          "ko": "침묵."
+        },
+        "jupiter": {
+          "en": "The horizon.",
+          "ko": "지평선."
+        },
+        "mars": {
+          "en": "The flame.",
+          "ko": "불꽃."
+        },
+        "sun": {
+          "en": "The dawn.",
+          "ko": "새벽."
+        },
+        "venus": {
+          "en": "The hymn.",
+          "ko": "찬가."
+        },
+        "mercury": {
+          "en": "The name.",
+          "ko": "이름."
+        },
+        "moon": {
+          "en": "The return.",
+          "ko": "귀향."
+        }
+      }
+    },
+    "scn_33": {
+      "bg_image": "light2.png",
+      "en": [
+        "Fullness rises.",
+        " ",
+        "Without sound.",
+        "Without form.",
+        "Without name.",
+        " ",
+        "The sense that nothing is lacking anymore",
+        "slowly spreads through the stillness."
+      ],
+      "ko": [
+        "충만함이 차오른다.",
+        " ",
+        "소리 없이.",
+        "형상 없이.",
+        "이름 없이.",
+        " ",
+        "더는 부족한 것이 없다는 감각이",
+        "고요함 속에서 천천히 번져간다."
+      ]
+    },
+    "scn_34": {
+      "bg_image": "vanish.png",
+      "en": [
+        "For a moment.",
+        " ",
+        "Everything scatters.",
+        " ",
+        "The sky.",
+        "The desert.",
+        "The light.",
+        " ",
+        "As though none of it had ever been there."
+      ],
+      "ko": [
+        "순간.",
+        " ",
+        "모든 것이 흩어진다.",
+        " ",
+        "하늘도.",
+        "사막도.",
+        "빛도.",
+        " ",
+        "마치 처음부터 그곳에 없었던 것처럼."
+      ]
+    },
+    "scn_35": {
+      "bg_image": "pond.png",
+      "en": [
+        "Again.",
+        "The small pool of tears.",
+        "",
+        "Across the still surface,",
+        "a faint tremor begins to spread."
+      ],
+      "ko": [
+        "다시.",
+        "작은 눈물의 웅덩이.",
+        "",
+        "고요한 표면 위로",
+        "희미한 떨림 하나가 번진다."
+      ]
+    },
+    "scn_36": {
+      "bg_image": "pond.png",
+      "bg_effect": "blur",
+      "en": [
+        "Nothing is reflected beneath the surface.",
+        " ",
+        "Not the sky.",
+        "Not the face.",
+        "Not the desert already crossed.",
+        " ",
+        "Only the faintest ripple",
+        "spreads outward from within.",
+        " ",
+        "Deeply.",
+        "Quietly."
+      ],
+      "ko": [
+        "표면 아래에는 아무것도 비치지 않는다.",
+        " ",
+        "하늘도.",
+        "얼굴도.",
+        "지나온 사막도.",
+        " ",
+        "다만 아주 희미한 물결만이",
+        "안쪽에서 바깥으로 번져간다.",
+        " ",
+        "깊고.",
+        "고요하게."
+      ]
+    },
+    "scn_37": {
+      "bg_image": "ripple.png",
+      "en": [
+        "The fingertips touch the water.",
+        " ",
+        "A ripple rises.",
+        " ",
+        "Along its spreading rings,",
+        "the pool, the earth, and the forms that still remained",
+        "begin quietly to scatter."
+      ],
+      "ko": [
+        "손끝이 물 위에 닿는다.",
+        " ",
+        "파문이 일어난다.",
+        " ",
+        "그 파문을 따라",
+        "웅덩이도, 지상도, 남아 있던 형상도",
+        "조용히 흩어지기 시작한다."
+      ]
+    },
+    "scn_38": {
+      "bg_image": "ripple.png",
+      "bg_effect": "blur",
+      "en": [
+        "The ripple spreads outward,",
+        "and the edge of the pool quietly comes undone.",
+        " ",
+        "The sand.",
+        "The sky.",
+        "Every outline that still remained.",
+        " ",
+        "One by one, they sink beneath the water."
+      ],
+      "ko": [
+        "파문은 바깥으로 번져가고,",
+        "웅덩이의 가장자리는 조용히 풀려나간다.",
+        " ",
+        "모래도.",
+        "하늘도.",
+        "남아 있던 모든 윤곽도.",
+        " ",
+        "물결 아래로 하나씩 가라앉는다."
+      ]
+    },
+    "scn_39": {
+      "bg_image": "surface.png",
+      "en": [
+        "Nothing is reflected upon the surface anymore.",
+        " ",
+        "Only a very faint light",
+        "slowly spreads from the depths.",
+        " ",
+        "Quietly.",
+        "As though it had never been held from the beginning."
+      ],
+      "ko": [
+        "수면 위에는 더 이상 아무것도 비치지 않는다.",
+        " ",
+        "다만 아주 희미한 빛 하나가",
+        "깊은 곳에서 천천히 번져간다.",
+        " ",
+        "고요하게.",
+        "마치 처음부터 붙잡힌 적 없었다는 듯이."
+      ]
+    },
+    "scn_40": {
+      "bg_image": "end.png",
+      "en": [
+        "Before the final ripple disappears.",
+        "It rises from the deepest place.",
+        " ",
+        "“No hand shall reach even the hem of my robe.”"
+      ],
+      "ko": [
+        "마지막 물결이 사라지기 전.",
+        "가장 깊은 곳에서 떠오른다.",
+        " ",
+        "“그 누구도 내 옷자락조차 잡지 못할 것이다”"
+      ]
+    }
+  },
+  "revelations": {
+    "sephiroth": {
+      "kether": {
+        "en": [
+          "The crown is set upon the highest place,",
+          "and its weight flows into the deepest below.",
+          "Upon the empty center, nameless authority shall remain."
+        ],
+        "ko": [
+          "왕관은 가장 높은 곳에 놓이고,",
+          "무게는 가장 깊은 곳으로 흐른다.",
+          "비어 있는 중심 위에 이름 없는 권위가 머무르리라."
+        ]       
+      },
+      "chokmah": {
+        "en": [
+          "Wisdom flows before form,",
+          "and possibility overflows before name.",
+          "The light that presses endlessly onward shall become its own path."
+        ],
+        "ko": [
+          "지혜는 형태보다 앞서 흐르고,",
+          "가능성은 이름보다 먼저 넘친다.",
+          "끝없이 밀려나는 빛은 스스로 길이 되리라."
+        ]       
+      },
+      "binah": {
+        "en": [
+          "The limit holds what would otherwise flow,",
+          "and silence gathers the scattered within darkness.",
+          "Beneath the closed boundary, understanding shall at last remain."
+        ],
+        "ko": [
+          "한계는 흐르는 것을 붙들고,",
+          "침묵은 흩어진 것을 어둠 안에 모은다.",
+          "닫힌 경계 아래에서 이해는 비로소 머무르리라."
+        ]       
+      },
+      "chesed": {
+        "en": [
+          "Abundance flows beyond the boundary,",
+          "and mercy divides itself within the overflow.",
+          "What has been given shall spread into a wider name."
+        ],
+        "ko": [
+          "풍요는 경계를 넘어 흐르고,",
+          "자비는 넘침 속에서 스스로를 나눈다.",
+          "베풀어진 것은 더 넓은 이름으로 번져가리라."
+        ]       
+      },
+      "geburah": {
+        "en": [
+          "The edge of the blade divides what shall remain from what shall fall away,",
+          "and the wound leaves the outline of what must be guarded.",
+          "The force that holds collapse at bay shall stand as a light of severance."
+        ],
+        "ko": [
+          "칼끝은 남을 것과 사라질 것을 가르고,",
+          "상처는 지켜야 할 것의 윤곽을 남긴다.",
+          "무너짐을 막는 힘은 절단의 빛으로 서리라."
+        ]       
+      },
+      "tiferet": {
+        "en": [
+          "Order seeks beauty,",
+          "and desire seeks beauty also.",
+          "Between them, the light shall remain as harmony."
+        ],
+        "ko": [
+          "질서는 아름다움을 갈망하고,",
+          "욕망 또한 아름다움을 갈망한다.",
+          "그 사이의 빛은 끝내 조화로 머무르리라."
+        ]       
+      },
+      "netzach": {
+        "en": [
+          "Longing rises before reason,",
+          "and the step moves forward before meaning.",
+          "The fire that does not cease shall remain as victory unto itself."
+        ],
+        "ko": [
+          "열망은 이유보다 먼저 일어나고,",
+          "발걸음은 의미보다 먼저 나아간다.",
+          "멈추지 않는 불길은 스스로 승리로 남으리라."
+        ]       
+      },
+      "hod": {
+        "en": [
+          "What is scattered remains within a name,",
+          "and what is spoken takes form within order.",
+          "Beneath the shell of language, unseen glory shall stand."
+        ],
+        "ko": [
+          "흩어진 것은 이름 안에서 머무르고,",
+          "말해진 것은 질서 안에서 형태를 얻는다.",
+          "언어의 껍질 아래에 보이지 않는 영광이 서리라."
+        ]       
+      },
+      "yesod": {
+        "en": [
+          "Dream flows beneath memory,",
+          "and moonlight reflects itself upon the water.",
+          "The visible world shall rise upon an unseen foundation."
+        ],
+        "ko": [
+          "꿈은 기억 아래에서 흐르고,",
+          "달빛은 물 위에서 스스로를 비춘다.",
+          "보이는 세계는 보이지 않는 기초 위에 떠오르리라."
+        ]       
+      },
+      "malkuth": {
+        "en": [
+          "The kingdom stands in the lowest place,",
+          "and all things receive a body there.",
+          "The mark that remains at the end shall hold the place of beginning."
+        ],
+        "ko": [
+          "왕국은 가장 낮은 곳에 서고,",
+          "모든 것은 그곳에서 몸을 얻는다.",
+          "끝에 남은 표식은 다시 시작을 품으리라."
+        ]       
+      }
+    },
+    "path": {
+      "path_11": {
+        "path": "kether_chokmah",
+        "letter": "shin",
+        "name": {
+          "en": "Scintillating Intelligence",
+          "ko": "반짝이는 지성"
+        },
+        "en": [
+          "The flame flashes first within the highest silence,",
+          "and possibility, not yet scattered, reveals itself beneath the spark.",
+          "The light flowing from crown to wisdom shall become a path in the end."
+        ],
+        "ko": [
+          "불꽃은 가장 높은 침묵 속에서 먼저 번쩍이고,",
+          "아직 흩어지지 않은 가능성은 섬광 아래 스스로를 드러낸다.",
+          "왕관에서 지혜로 흐르는 빛은 끝내 길이 되리라."
+        ]
+      },
+      "path_12": {
+        "path": "kether_binah",
+        "letter": "mem",
+        "name": {
+          "en": "Intelligence of Transparency",
+          "ko": ""
+        },
+        "en": [
+          "Water receives the highest light and sinks into the deep,",
+          "and what is transparent conceals itself while letting every form pass through.",
+          "The silence flowing from crown to understanding shall become a mirror in the end."
+        ],
+        "ko": [
+          "물은 가장 높은 빛을 받아 깊은 곳으로 가라앉고,",
+          "투명한 것은 스스로를 감추며 모든 형상을 통과시킨다.",
+          "왕관에서 이해로 흐르는 침묵은 끝내 거울이 되리라."
+        ]
+      },
+      "path_13": {
+        "path": "netzach_hod",
+        "letter": "resh",
+        "name": {
+          "en": "Uniting Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The head turns scattered victory and glory toward a single direction,",
+          "and divided currents shall be joined again beneath a name."
+        ],
+        "ko": [
+          "머리는 흩어진 승리와 영광을 하나의 방향으로 돌리고,",
+          "서로 갈라진 흐름은 이름 아래 다시 이어지리라."
+        ]
+      },
+      "path_14": {
+        "path": "geburah_chesed",
+        "letter": "pe",
+        "name": {
+          "en": "Illuminating Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The mouth presses the inner light outward,",
+          "and what is spoken shall reveal what lies hidden between strength and mercy."
+        ],
+        "ko": [
+          "입은 안쪽의 빛을 밖으로 밀어내고,",
+          "말해진 것은 힘과 자비 사이에 숨겨진 것을 밝히리라."
+        ]
+      },
+      "path_15": {
+        "path": "binah_chokmah",
+        "letter": "aleph",
+        "name": {
+          "en": "Constituting Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "Breath passes between understanding and wisdom,",
+          "and the formless comes to know itself within that breathing.",
+          "The two divided lights shall form one world upon unseen air."
+        ],
+        "ko": [
+          "숨은 이해와 지혜 사이를 지나며,",
+          "형태 없는 것은 그 호흡 안에서 서로를 알아본다.",
+          "나뉜 두 빛은 보이지 않는 공기 위에서 하나의 세계를 이루리라."
+        ]
+      },
+      "path_16": {
+        "path": "tiferet_netzach",
+        "letter": "vav",
+        "name": {
+          "en": "Eternal Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The hook binds beauty and victory fast together,",
+          "and the bound longing shall remain as an unbroken light."
+        ],
+        "ko": [
+          "갈고리는 아름다움과 승리를 단단히 이어 붙이고,",
+          "묶인 열망은 끊어지지 않는 빛으로 남으리라."
+        ]
+      },
+      "path_17": {
+        "path": "tiferet_hod",
+        "letter": "lamed",
+        "name": {
+          "en": "Disposing Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The goad arranges the scattered order beneath beauty once more,",
+          "and what has tilted shall find its place within adjustment."
+        ],
+        "ko": [
+          "채찍은 아름다움 아래 흩어진 질서를 다시 배열하고,",
+          "기울어진 것은 조정 속에서 제자리를 얻으리라."
+        ]
+      },
+      "path_18": {
+        "path": "hod_yesod",
+        "letter": "yod",
+        "name": {
+          "en": "House of Influence",
+          "ko": ""
+        },
+        "en": [
+          "The small hand sends the language of glory down beneath the foundation,",
+          "and unseen influence shall remain like a seed in the deep."
+        ],
+        "ko": [
+          "작은 손은 영광의 언어를 기초 아래로 흘려보내고,",
+          "보이지 않는 영향은 씨앗처럼 깊은 곳에 머무르리라."
+        ]
+      },
+      "path_19": {
+        "path": "tiferet_kether",
+        "letter": "dalet",
+        "name": {
+          "en": "",
+          "ko": "Intelligence of all the activities of the spiritual beings"
+        },
+        "en": [
+          "Before what is closed, the door waits for impact,",
+          "and upon the opened way, one will shall pass toward the crown."
+        ],
+        "ko": [
+          "닫힌 곳 앞에서 문은 충돌을 기다리고,",
+          "열린 길 위로 하나의 의지가 왕관을 향해 지나가리라."
+        ]
+      },
+      "path_20": {
+        "path": "tiferet_chokmah",
+        "letter": "gimel",
+        "name": {
+          "en": "Intelligence of Will",
+          "ko": ""
+        },
+        "en": [
+          "The camel carries the light of beauty toward the far reaches of wisdom,",
+          "and overflowing will shall find its own direction upon the road."
+        ],
+        "ko": [
+          "낙타는 아름다움의 빛을 지혜의 먼 곳으로 옮기고,",
+          "넘치는 의지는 길 위에서 스스로의 방향을 얻으리라."
+        ]
+      },
+      "path_21": {
+        "path": "tiferet_binah",
+        "letter": "bet",
+        "name": {
+          "en": "Intelligence of Conciliation",
+          "ko": ""
+        },
+        "en": [
+          "The house raises a dwelling between beauty and understanding,",
+          "and what was divided shall take the form of reconciliation beneath one roof."
+        ],
+        "ko": [
+          "집은 아름다움과 이해 사이에 머무를 자리를 세우고,",
+          "갈라진 것은 한 지붕 아래에서 화해의 형태를 얻으리라."
+        ]
+      },
+      "path_22": {
+        "path": "tiferet_chesed",
+        "letter": "he",
+        "name": {
+          "en": "Faithful Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The window opens quietly from beauty toward mercy,",
+          "and faith, revealed like breath, shall receive the overflowing light."
+        ],
+        "ko": [
+          "창은 아름다움에서 자비를 향해 조용히 열리고,",
+          "숨결처럼 드러난 믿음은 넘치는 빛을 받아들이리라."
+        ]
+      },
+      "path_23": {
+        "path": "tiferet_geburah",
+        "letter": "nun",
+        "name": {
+          "en": "Stable Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The fish descends from beauty into the deep force below,",
+          "and sunken change shall leave behind an unmoving center."
+        ],
+        "ko": [
+          "물고기는 아름다움 아래의 깊은 힘으로 내려가고,",
+          "가라앉은 변화는 흔들리지 않는 중심을 남기리라."
+        ]
+      },
+      "path_24": {
+        "path": "tiferet_yesod",
+        "letter": "kaf",
+        "name": {
+          "en": "Imaginative Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The palm holds the light of beauty upon the foundation of dream,",
+          "and the grasped image shall take shape within the unseen world."
+        ],
+        "ko": [
+          "손바닥은 아름다움의 빛을 꿈의 기초 위에 붙들고,",
+          "쥐어진 형상은 보이지 않는 세계에서 모습을 얻으리라."
+        ]
+      },
+      "path_25": {
+        "path": "malkuth_netzach",
+        "letter": "chet",
+        "name": {
+          "en": "Intelligence of Probation",
+          "ko": ""
+        },
+        "en": [
+          "The fence raises a boundary of trial between kingdom and victory,",
+          "and what seeks to cross shall prove itself before the wall."
+        ],
+        "ko": [
+          "울타리는 왕국과 승리 사이에 시련의 경계를 세우고,",
+          "넘어서려는 것은 그 장벽 앞에서 스스로를 증명하리라."
+        ]
+      },
+      "path_26": {
+        "path": "malkuth_hod",
+        "letter": "tet",
+        "name": {
+          "en": "Renovating Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The hidden thing coils upward from the low place of kingdom toward glory,",
+          "and the old form shall be born anew beneath the inner ember."
+        ],
+        "ko": [
+          "숨겨진 것은 왕국의 낮은 곳에서 영광을 향해 몸을 말고,",
+          "낡은 형상은 안쪽의 불씨 아래 새롭게 태어나리라."
+        ]
+      },
+      "path_27": {
+        "path": "yesod_netzach",
+        "letter": "zayin",
+        "name": {
+          "en": "Exciting Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The blade awakens the sleeping current between foundation and victory,",
+          "and from the place divided, movement shall rise again."
+        ],
+        "ko": [
+          "칼날은 기초와 승리 사이의 잠든 흐름을 깨우고,",
+          "갈라진 자리에서 움직임은 다시 일어나리라."
+        ]
+      },
+      "path_28": {
+        "path": "yesod_malkuth",
+        "letter": "tav",
+        "name": {
+          "en": "Natural Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The mark descends from foundation into kingdom and receives a body,",
+          "and the trace left at the end of nature shall hold another beginning."
+        ],
+        "ko": [
+          "표식은 기초에서 왕국으로 내려와 몸을 얻고,",
+          "자연의 끝에 남은 흔적은 다시 시작을 품으리라."
+        ]
+      },
+      "path_29": {
+        "path": "chokmah_chesed",
+        "letter": "samekh",
+        "name": {
+          "en": "Corporeal Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The pillar upholds the overflowing current between wisdom and mercy,",
+          "and expansion made flesh shall stand upon an axis that does not fall."
+        ],
+        "ko": [
+          "기둥은 지혜와 자비 사이에 넘치는 흐름을 지탱하고,",
+          "몸을 얻은 확장은 무너지지 않는 축 위에 서리라."
+        ]
+      },
+      "path_30": {
+        "path": "binah_geburah",
+        "letter": "ayin",
+        "name": {
+          "en": "Collecting Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The eye gathers what is scattered between understanding and strength,",
+          "and the order seen from above shall collect the fragments within darkness."
+        ],
+        "ko": [
+          "눈은 이해와 힘 사이에서 흩어진 것을 끌어모으고,",
+          "내려다본 질서는 어둠 속의 조각들을 하나로 모으리라."
+        ]
+      },
+      "path_31": {
+        "path": "chesed_netzach",
+        "letter": "qoph",
+        "name": {
+          "en": "Perpetual Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The current continues without boundary between mercy and victory,",
+          "and what returns without end shall remain as an unceasing cycle."
+        ],
+        "ko": [
+          "흐름은 자비와 승리 사이에서 경계 없이 이어지고,",
+          "끝없이 되돌아오는 것은 멈추지 않는 순환으로 남으리라."
+        ]
+      },
+      "path_32": {
+        "path": "geburah_hod",
+        "letter": "tzadi",
+        "name": {
+          "en": "Administrative Intelligence",
+          "ko": ""
+        },
+        "en": [
+          "The hook draws up what is hidden between strength and glory,",
+        "and what is revealed shall find its place beneath the hand of order."
+        ],
+        "ko": [
+          "낚시바늘은 힘과 영광 사이에서 숨은 것을 끌어올리고,",
+          "드러난 것은 질서의 손 아래 제자리를 얻으리라."
+        ]
+      }
+    },
+    "triangle": {
+      "triangle_01": {
+        "title": {
+          "en": "The Triangle of Sovereignty",
+          "ko": "주권의 삼각형"
+        },
+        "sephiroth": "kether_chokmah_binah",
+        "en": [
+          "The crown divides itself between wisdom and understanding,",
+          "and the two divided lights shall stand as order beneath one sovereignty."
+        ],
+        "ko": [
+          "왕관은 지혜와 이해 사이에서 스스로를 나누고,",
+          "나뉜 두 빛은 하나의 주권 아래 질서로 서리라."
+        ]
+      },
+      "triangle_02": {
+        "title": {
+          "en": "The Triangle of Descent",
+          "ko": "하강의 삼각형"
+        },
+        "sephiroth": "kether_binah_tiferet",
+        "en": [
+          "The light of the crown flows downward through the vessel of understanding,",
+          "and what has descended shall remain as order within beauty."
+        ],
+        "ko": [
+          "왕관의 빛은 이해의 그릇을 지나 아래로 흐르고,",
+          "하강한 것은 아름다움 속에서 질서로 머무르리라."
+        ]
+      },
+      "triangle_03": {
+        "title": {
+          "en": "The Triangle of Union",
+          "ko": "합일의 삼각형"
+        },
+        "sephiroth": "kether_chokmah_tiferet",
+        "en": [
+          "The light of the crown passes through wisdom and presses outward,",
+          "and what has flowed forth shall illuminate itself within beauty."
+        ],
+        "ko": [
+          "왕관의 빛은 지혜를 지나 밖으로 밀려나고,",
+          "흘러나온 것은 아름다움 속에서 스스로를 밝히리라."
+        ]
+      },
+      "triangle_04": {
+        "title": {
+          "en": "The Triangle of Severity",
+          "ko": "엄격의 삼각형"
+        },
+        "sephiroth": "chokmah_binah_tiferet",
+        "en": [
+          "Wisdom faces understanding, and understanding receives wisdom,",
+          "and the two divided currents shall take one form within beauty."
+        ],
+        "ko": [
+          "지혜는 이해를 마주하고, 이해는 지혜를 품으며,",
+          "나뉜 두 흐름은 아름다움 안에서 하나의 형상을 얻으리라."
+        ]
+      },
+      "triangle_05": {
+        "title": {
+          "en": "The Triangle of Severity",
+          "ko": "엄격의 삼각형"
+        },
+        "sephiroth": "binah_geburah_tiferet",
+        "en": [
+          "Understanding gives birth to strength, and strength tests beauty,",
+          "and the hindered light shall remain as a severe path within endurance."
+        ],
+        "ko": [
+          "이해는 힘을 낳고, 힘은 아름다움을 시험하며,",
+          "가로막힌 빛은 견딤 속에서 엄격한 길로 남으리라."
+        ]
+      },
+      "triangle_06": {
+        "title": {
+          "en": "The Triangle of Mercy",
+          "ko": "자비의 삼각형"
+        },
+        "sephiroth": "chokmah_chesed_tiferet",
+        "en": [
+          "Wisdom overflows into mercy, and mercy flows toward beauty,",
+          "and the given light shall become a wider path within one order."
+        ],
+        "ko": [
+          "지혜는 자비로 넘치고, 자비는 아름다움을 향해 흐르며,",
+          "베풀어진 빛은 하나의 질서 안에서 넓은 길이 되리라."
+        ]
+      },
+      "triangle_07": {
+        "title": {
+          "en": "The Triangle of Judgment",
+          "ko": "심판의 삼각형"
+        },
+        "sephiroth": "geburah_chesed_tiferet",
+        "en": [
+          "Strength divides mercy, and mercy reflects strength in return,",
+          "and the beauty between them shall stand upon the scales of judgment."
+        ],
+        "ko": [
+          "힘은 자비를 가르고, 자비는 힘을 다시 비추며,",
+          "그 사이의 아름다움은 심판의 저울 위에 서리라."
+        ]
+      },
+      "triangle_08": {
+        "title": {
+          "en": "The Triangle of Discipline",
+          "ko": "절제의 삼각형"
+        },
+        "sephiroth": "geburah_tiferet_hod",
+        "en": [
+          "Strength descends beneath beauty into the order of glory,",
+          "and what is scattered shall be raised as one beneath the name of discipline."
+        ],
+        "ko": [
+          "힘은 아름다움 아래에서 영광의 질서로 낮아지고,",
+          "흩어진 것은 절제의 이름 아래 하나로 세워지리라."
+        ]
+      },
+      "triangle_09": {
+        "title": {
+          "en": "The Triangle of Devotion",
+          "ko": "헌신의 삼각형"
+        },
+        "sephiroth": "chesed_tiferet_netzach",
+        "en": [
+          ""
+        ],
+        "ko": [
+          "자비는 아름다움을 지나 승리의 불길로 흐르고,",
+          "넘치는 빛은 열망 속에서 헌신의 형상을 얻으리라."
+        ]
+      },
+      "triangle_10": {
+        "title": {
+          "en": "The Triangle of Expression",
+          "ko": "발현의 삼각형"
+        },
+        "sephiroth": "tiferet_hod_netzach",
+        "en": [
+          "Mercy passes through beauty into the fire of victory,",
+          "and the overflowing light shall take the form of devotion within longing."
+        ],
+        "ko": [
+          "아름다움은 영광과 승리 사이에서 스스로를 나누고,",
+          "말해진 열망은 발현된 빛으로 형태를 얻으리라."
+        ]
+      },
+      "triangle_11": {
+        "title": {
+          "en": "The Triangle of Form",
+          "ko": "형상의 삼각형"
+        },
+        "sephiroth": "tiferet_hod_yesod",
+        "en": [
+          "Beauty divides itself between glory and victory,",
+          "and the longing once spoken shall take form as expressed light."
+        ],
+        "ko": [
+          "아름다움은 영광의 언어를 지나 기초 아래로 내려가고,",
+          "말해진 빛은 보이지 않는 곳에서 형상으로 서리라."
+        ]
+      },
+      "triangle_12": {
+        "title": {
+          "en": "The Triangle of Desire",
+          "ko": "열망의 삼각형"
+        },
+        "sephiroth": "tiferet_netzach_yesod",
+        "en": [
+          "Beauty seeps beneath the foundation through the longing of victory,",
+          "and the held light shall burn as desire within the depth of dream."
+        ],
+        "ko": [
+          "아름다움은 승리의 열망을 지나 기초 아래로 스며들고,",
+          "붙잡힌 빛은 꿈의 깊이에서 욕망으로 타오르리라."
+        ]
+      },
+      "triangle_13": {
+        "title": {
+          "en": "The Triangle of Reflection",
+          "ko": "반영의 삼각형"
+        },
+        "sephiroth": "hod_netzach_yesod",
+        "en": [
+          "Glory reflects victory, and victory sinks beneath the foundation,",
+          "and the two currents facing one another shall remain as reflection within dream."
+        ],
+        "ko": [
+          "영광은 승리를 비추고, 승리는 기초 아래로 가라앉으며,",
+          "서로를 마주한 두 흐름은 꿈속에서 반영으로 남으리라."
+        ]
+      },
+      "triangle_14": {
+        "title": {
+          "en": "The Triangle of Manifestation",
+          "ko": "현현의 삼각형"
+        },
+        "sephiroth": "kether_chokmah_binah",
+        "en": [
+          "Glory condenses through the foundation into the low place of kingdom,",
+          "and what has been spoken shall receive a body and remain as manifestation."
+        ],
+        "ko": [
+          "영광은 기초를 지나 왕국의 낮은 곳으로 응축되고,",
+          "말해진 것은 끝내 몸을 얻어 현현으로 남으리라."
+        ]
+      },
+      "triangle_15": {
+        "title": {
+          "en": "The Triangle of Incarnation",
+          "ko": "육화의 삼각형"
+        },
+        "sephiroth": "kether_chokmah_binah",
+        "en": [
+          "Victory descends through the foundation into the low place of kingdom,",
+          "and the longing that did not cease shall clothe itself in the path of flesh."
+        ],
+        "ko": [
+          "승리는 기초를 지나 왕국의 낮은 곳으로 내려오고,",
+          "멈추지 않은 열망은 끝내 육신의 길을 입으리라."
+        ]
+      }
+    }
+  }
+}

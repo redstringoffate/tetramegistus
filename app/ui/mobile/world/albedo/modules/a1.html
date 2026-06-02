@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/static/mobile/world/albedo/modules/a1.css">
+
+<div class="m-a1-container">
+    <h2 class="m-coniunctio-title">CONIUNCTIO</h2>
+
+    <section class="m-materia-section">
+        <label class="m-section-label">PRIME ANCHOR (S1)</label>
+        <div id="m-s1-trigger" class="m-materia-selector-box">
+            <span id="m-s1-text">Select first anchor...</span>
+            <span class="m-arrow">▼</span>
+        </div>
+    </section>
+
+    <section class="m-materia-section">
+        <label class="m-section-label">SECOND ANCHOR (S2)</label>
+        <div id="m-s2-trigger" class="m-materia-selector-box">
+            <span id="m-s2-text">Waiting for Prime Anchor...</span>
+            <span class="m-arrow">▼</span>
+        </div>
+    </section>
+
+    <section class="m-materia-actions">
+        <div class="m-action-row">
+            <span class="m-action-text">Manifest Union</span>
+            <button id="m-btn-manifest" class="m-symbol-btn m-cyan-btn">+</button>
+        </div>
+    </section>
+
+    <div class="m-davison-result-area">
+        <div class="m-result-label">Coniunctio Seed:</div>
+        <div id="m-davison-summary" class="m-result-text">Select two anchors to manifest union.</div>
+    </div>
+</div>
+
+<div id="m-list-overlay" class="m-modal-overlay m-hidden">
+    <div class="m-bottom-sheet">
+        <div class="m-sheet-header">
+            <span id="m-sheet-title" class="m-sheet-title">SELECT ANCHOR</span>
+            <button id="m-list-close" class="m-sheet-close-btn">×</button>
+        </div>
+        
+        <div id="m-seed-list-container" class="m-sheet-list"></div>
+        
+        <div class="m-pagination-control">
+            <button id="m-pg-first" class="m-pg-btn">&lt;&lt;</button>
+            <button id="m-pg-prev" class="m-pg-btn">&lt;</button>
+            <span id="m-pg-info" class="m-pg-info">1 / 1</span>
+            <button id="m-pg-next" class="m-pg-btn">&gt;</button>
+            <button id="m-pg-last" class="m-pg-btn">&gt;&gt;</button>
+        </div>
+    </div>
+</div>
+
+<script src="/static/mobile/world/albedo/modules/a1.js?v=2"></script>

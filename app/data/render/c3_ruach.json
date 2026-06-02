@@ -1,0 +1,855 @@
+{
+  "title": {
+    "en": "[ ר ] RUACH : The Garden of Light and Runic Revelation",
+    "ko": "[ ר ] RUACH : 빛의 정원과 룬의 계시"
+  },
+  
+  "system_messages": {
+    "instruction_subconscious": {
+      "en": [
+        "Read the narrative and choose the image or reaction that immediately draws you in."
+      ],
+      "ko": [
+        "머리로 생각하지 말고, 본능적으로 끌리거나 가장 강렬하게 다가오는 심상을 선택해 주세요."
+      ]
+    }
+  },
+
+  "subconscious_questions": {
+    "scn_prologue": {
+      "title": { "en": "The Garden of Light", "ko": "빛의 정원" },
+      "bg_image": "prologue.png",
+      "narrative": {
+        "en": [
+          "You do not know how long you have been here.",
+          "At some point, you find yourself walking slowly through a garden filled with light.",
+          "The air is clear, and the leaves and flowers shift almost silently in the breeze.",
+          " ",
+          "It is a beautiful and quiet place,",
+          "yet for some reason, it does not feel entirely unfamiliar."
+        ],
+        "ko": [
+          "언제부터 이곳에 있었는지는 알 수 없다.",
+          "문득 당신은 빛이 스며드는 정원을 천천히 걷고 있었던 것이다.",
+          "공기는 맑고, 나뭇잎과 꽃들은 바람에 거의 소리 없이 흔들린다.",
+          " ",
+          "아름답고 고요한 공간이지만,",
+          "이상하게도 당신은 이곳이 완전히 낯설지만은 않다는 느낌을 받는다."
+        ]
+      }
+    },
+    
+    "scn_tree_intro": {
+      "title": { "en": "The Enormous Tree", "ko": "거대한 고목" },
+      "bg_image": "world_tree.png",
+      "narrative": {
+        "en": [
+          "As you continue walking through the garden,",
+          "the landscape gradually opens into a wide clearing.",
+          " ",
+          "At its center stands an enormous tree,",
+          "almost unreal in scale.",
+          "It feels as though time has gathered differently here,",
+          "condensed into a quiet presence.",
+          " ",
+          "A subtle scent drifts from the tree,",
+          "slowly filling your breath."
+        ],
+        "ko": [
+          "정원을 따라 계속 걸어가다 보니,",
+          "어느 순간 풍경이 트이며 넓은 공간으로 이어진다.",
+          " ",
+          "그 한가운데,",
+          "비현실적으로 거대한 고목이 서 있다.",
+          "시간이 이곳에서만 다르게 흐른 듯,",
+          "오랜 세월이 응축된 기운이 느껴진다.",
+          " ",
+          "고목에서 풍기는 향기가 천천히 당신의 호흡을 채운다."
+        ]
+      }
+    },
+    
+    "q_mother_1": {
+      "title": { "en": "The Scent", "ko": "향기" },
+      "bg_image": "world_tree.png",
+      "narrative": {
+        "en": [
+          "It is not merely a smell,",
+          "but something that touches a deeper sense within you.",
+          " ",
+          "You pause without realizing it,",
+          "and notice the quality of that sensation.",
+          " ",
+          "Which does it feel closest to?"
+        ],
+        "ko": [
+          "그 향기는 단순한 냄새가 아니라,",
+          "당신 안의 어떤 감각을 건드린다.",
+          " ",
+          "잠시 멈춰 선 당신은,",
+          "그 감각이 무엇에 가까운지 스스로에게 묻게 된다.",
+          " ",
+          "당신에게 더 가까운 것은 무엇인가?"
+        ]
+      },
+      "options": {
+        "dry_warm": {
+          "en": "Dry and warm, as if something is being awakened",
+          "ko": "건조하고 따뜻하며, 무언가를 깨우는 듯한 향"
+        },
+        "moist_deep": {
+          "en": "Moist and deep, as if sinking inward",
+          "ko": "촉촉하고 깊으며, 안쪽으로 가라앉는 듯한 향"
+        },
+        "light_clear": {
+          "en": "Light and clear, as if your view is opening",
+          "ko": "가볍고 투명하며, 시야가 열리는 듯한 향"
+        }
+      }
+    },
+
+    "scn_thunder_1": {
+      "title": { "en": "Sudden Darkness", "ko": "갑작스런 어둠" },
+      "bg_image": "thunder.png",
+      "narrative": {
+        "en": [
+          "As you breathe in the scent,",
+          "a sudden swell rises within you—",
+          "something difficult to name.",
+          " ",
+          "Drawn without thinking,",
+          "you reach out toward the tree.",
+          " ",
+          "In that instant— light splits the sky,",
+          "darkness falls without warning,",
+          "and everything around you disappears into it.",
+          " ",
+          "Your body freezes,",
+          "caught in a moment that feels longer than it is."
+        ],
+        "ko": [
+          "향기를 들이키는 순간,",
+          "이유를 알 수 없는 벅참이 당신 안에서 솟아오른다.",
+          " ",
+          "무언가에 이끌리듯,",
+          "당신은 고목에 손을 뻗는다.",
+          " ",
+          "그 순간— 하늘이 갈라지듯 번개가 내리치고,",
+          "빛은 순식간에 사라지며,",
+          "주변은 깊은 어둠에 잠긴다.",
+          " ",
+          "몸이 굳은 채 아무것도 할 수 없던 시간은",
+          "얼마 지나지 않아 끝난다."
+        ]
+      }
+    },
+
+    "scn_thunder_2": {
+      "title": { "en": "The Aftermath", "ko": "번개가 멈춘 후" },
+      "bg_image": "thunder.png",
+      "narrative": {
+        "en": [
+          "Then, just as suddenly,",
+          "it ends.",
+          " ",
+          "The sky clears.",
+          "The light returns.",
+          " ",
+          "When you look again,",
+          "the tree is gone."
+        ],
+        "ko": [
+          "번개가 멈추자,",
+          "하늘은 언제 그랬냐는 듯 다시 맑아진다.",
+          " ",
+          "숨을 고르고 다시 눈을 들었을 때,",
+          "거대한 고목은 흔적도 없이 사라져 있다."
+        ]
+      }
+    },
+
+    "q_mother_2": {
+      "title": { "en": "The Remnant", "ko": "남겨진 것" },
+      "narrative": {
+        "en": [
+          "You approach the place where it once stood.",
+          " ",
+          "Something remains there—",
+          "something you cannot fully describe.",
+          " ",
+          "As you look at it,",
+          "you realize you are not trying to name it,",
+          "but to feel what it is closest to.",
+          " ",
+          "Which does it resemble more?"
+        ],
+        "ko": [
+          "당신은 천천히 그 자리에 다가간다.",
+          " ",
+          "그곳에는,",
+          "설명할 수 없는 무언가가 남겨져 있다.",
+          " ",
+          "당신은 그것을 바라보다가,",
+          "그것이 무엇인지보다",
+          "어떤 느낌에 가까운지를 먼저 인식하게 된다.",
+          " ",
+          "당신에게 더 가까운 것은?"
+        ]
+      },
+      "options": {
+        "Shin": {
+          "en": "A small flame, subtly alive and moving",
+          "ko": "미세하게 살아 움직이는 작은 불꽃"
+        },
+        "Mem": {
+          "en": "A cold, solid stone with a sense of weight",
+          "ko": "차갑고 단단한, 무게감 있는 돌"
+        },
+        "Aleph": {
+          "en": "A faint mist that would scatter if you tried to touch it",
+          "ko": "손을 뻗으면 흩어져 사라질 것 같은 옅은 안개"
+        }
+      }
+    },
+
+    "q_mother_3": {
+      "title": { "en": "The Restless Heart", "ko": "조급해지는 마음" },
+      "bg_image": "forest.png",
+      "narrative": {
+        "en": [
+          "This time, you stop.",
+          "You do not reach for it, nor do you move closer.",
+          "Instead, you turn away, trying to return to the garden where you began.",
+          " ",
+          "But no matter how far you walk, it does not appear again.",
+          "Time feels suspended.",
+          "Your body does not tire, yet something within you grows restless.",
+          " ",
+          "Then, a small stone catches against your foot.",
+          "Without thinking, you kick it forward."
+        ],
+        "ko": [
+          "이번에는 당신은 멈춘다.",
+          "그것에 다가가지도, 손을 뻗지도 않는다.",
+          "그대로 몸을 돌려, 처음의 정원으로 돌아가려 한다.",
+          " ",
+          "하지만—",
+          "아무리 걸어도, 그곳은 다시 나타나지 않는다.",
+          "시간이 흐르지 않는 듯,",
+          "몸은 지치지도, 배고프지도 않지만, 당신의 마음은 점점 조급해진다.",
+          " ",
+          "그때, 발치에 작은 돌 하나가 걸린다.",
+          "당신은 아무 생각 없이, 그 돌을 발로 차낸다."
+        ]
+      },
+      "options": {
+        "roll_dice": {
+          "en": "[ Kick the stone ]",
+          "ko": "[ 돌을 걷어찬다 ]"
+        }
+      }
+    },
+
+    "scn_temple_1": {
+      "title": { "en": "The Hidden Structure", "ko": "숨겨진 구조물" },
+      "bg_image": "temple.png",
+      "narrative": {
+        "en": [
+          "A dull sound.",
+          "A stone slips from your step and rolls forward.",
+          "It bounces once, then again—",
+          "before striking something.",
+          " ",
+          "You turn toward the sound.",
+          "A structure stands there,",
+          "where nothing had been before.",
+          " ",
+          "As you approach,",
+          "worn pillars and broken walls reveal a darkened interior."
+        ],
+        "ko": [
+          "툭.",
+          "발끝에 걸린 돌이 앞으로 튕겨 나간다.",
+          "돌이 바닥을 몇 번 구르다가,",
+          "어딘가에 부딪히는 소리가 난다.",
+          " ",
+          "당신은 그 방향으로 시선을 옮긴다.",
+          "조금 전까지는 보이지 않던 구조물이",
+          "그 자리에 서 있다.",
+          " ",
+          "가까이 다가가자,",
+          "낡은 돌기둥과 무너진 벽 사이로",
+          "안쪽이 어둡게 열려 있다."
+        ]
+      }
+    },
+
+    "scn_temple_2": {
+      "title": { "en": "Entering the Dark", "ko": "어둠 속으로" },
+      "bg_image": "temple.png",
+      "narrative": {
+        "en": [
+          "Without hesitation, you step inside.",
+          " ",
+          "The air is colder within,",
+          "and sound seems to settle rather than carry.",
+          " ",
+          "Deeper in,",
+          "on a low altar,",
+          "a single flame burns quietly."
+        ],
+        "ko": [
+          "당신은 망설임 없이 안으로 들어간다.",
+          " ",
+          "공기는 바깥보다 차갑고,",
+          "소리는 거의 흡수된 듯 가라앉아 있다.",
+          " ",
+          "안쪽 깊은 곳,",
+          "낮은 제단 위에서",
+          "불꽃 하나가 조용히 타오르고 있다."
+        ]
+      }
+    },
+
+    "q_planet_1": {
+      "title": { "en": "The Flame's Gaze", "ko": "불꽃의 시선" },
+      "bg_image": "flames.png",
+      "narrative": {
+        "en": [
+          "You watch the flame.",
+          "It does not hold a fixed shape,",
+          "shifting as if it were alive.",
+          " ",
+          "As you observe it,",
+          "what kind of sensation arises first within you?"
+        ],
+        "ko": [
+          "당신은 불꽃을 바라보고 있다.",
+          "불꽃은 일정한 형태 없이,",
+          "살아 있는 것처럼 끊임없이 흔들린다.",
+          " ",
+          "그것을 바라보는 동안,",
+          "당신 안에서 가장 먼저 일어나는 감각은?"
+        ]
+      },
+      "options_by_mother": {
+        "Shin": {
+          "Mars": { "en": "A subtle physical lean forward, as if your body reacts first", "ko": "몸이 먼저 반응하듯, 미세하게 앞으로 기울어지는 감각" },
+          "Venus": { "en": "Your gaze lingers, quietly drawn to its presence", "ko": "시선이 머물며, 그 모습에 자연스럽게 끌리는 느낌" },
+          "Mercury": { "en": "A brief sense that there is a pattern to notice, drawing your attention", "ko": "어떤 패턴이나 흐름이 보일 것 같아, 잠시 집중하게 되는 상태" },
+          "Moon": { "en": "A shift in feeling, as if an emotion passes through without explanation", "ko": "이유 없이 기분이 바뀌며, 감정이 먼저 스쳐 지나가는 느낌" }
+        },
+        "Mem": {
+          "Sun": { "en": "Your gaze settles at its center, bringing a sense of steadiness", "ko": "시선이 자연스럽게 중심에 머물며, 안정되는 느낌" },
+          "Mercury": { "en": "You find yourself quietly tracing how it works", "ko": "구조나 흐름을 가만히 짚어보게 되는 상태" },
+          "Venus": { "en": "A subtle awareness of balance or harmony forms", "ko": "전체의 균형이나 어울림이 신경 쓰이는 감각" },
+          "Pluto": { "en": "A pull inward, making it difficult to look away", "ko": "시선을 떼기 어렵게 만드는, 안쪽으로 빨려 들어가는 느낌" }
+        },
+        "Aleph": {
+          "Jupiter": { "en": "A sudden opening sensation, as if something expands outward", "ko": "갑자기 감각이 확 트이면서, 어딘가로 확장되는 듯한 느낌" },
+          "Saturn": { "en": "A sense of weight and solidity, as if everything becomes still and grounded", "ko": "전체가 무겁고 단단해진 것처럼, 쉽게 움직이지 않는 느낌" },
+          "Uranus": { "en": "A brief jolt, like a sudden break or shift in the flow", "ko": "순간적으로 전율이 스치듯, 흐름이 끊기거나 튀는 느낌" },
+          "Neptune": { "en": "A soft dissolving feeling, as if boundaries begin to melt away", "ko": "힘이 빠지듯 경계가 풀리며, 모든 게 부드럽게 섞이는 느낌" }
+        }
+      }
+    },
+
+    "q_planet_2": {
+      "title": { "en": "Fuel for the Fire", "ko": "불꽃의 양식" },
+      "bg_image": "firewood.png",
+      "narrative": {
+        "en": [
+          "You notice a pile of wood beside the altar.",
+          " ",
+          "After a brief pause,",
+          "you pick up a single piece and place it into the flame.",
+          " ",
+          "For a moment, it shifts—",
+          "then continues burning in a different manner.",
+          " ",
+          "What does the flame now resemble more?"
+        ],
+        "ko": [
+          "당신은 제단 옆에 놓인 장작 더미를 발견한다.",
+          " ",
+          "잠시 망설이다,",
+          "당신은 장작 한 조각을 집어 불꽃 속으로 천천히 던져 넣는다.",
+          " ",
+          "불꽃은 잠시 흔들리더니,",
+          "이전과는 다른 결로 타오르기 시작한다.",
+          " ",
+          "당신의 눈앞에 보이는 불꽃의 모습은 어느 쪽에 더 가까운가?"
+        ]
+      },
+      "options_by_mother": {
+        "Shin": {
+          "Mars": { "en": "A flame that rises sharply upward, pushing with force", "ko": "위로 곧게 치솟으며, 힘 있게 밀어붙이는 불꽃" },
+          "Venus": { "en": "A flame that sways softly, spreading outward", "ko": "부드럽게 흔들리며, 주변으로 번지듯 퍼지는 불꽃" },
+          "Mercury": { "en": "A flame that continues in a steady, rhythmic way", "ko": "일정한 리듬을 타듯, 잔잔하게 이어지는 불꽃" },
+          "Moon": { "en": "A flame that flickers irregularly, shifting without a clear direction", "ko": "방향 없이 흔들리며, 감정처럼 불규칙하게 움직이는 불꽃" }
+        },
+        "Mem": {
+          "Sun": { "en": "A flame with a clear, steady core holding its place", "ko": "중심이 또렷하게 살아 있으며, 그 자리를 유지하는 불꽃" },
+          "Mercury": { "en": "A flame that seems to split slightly, revealing inner structure", "ko": "미세하게 갈라지며, 안쪽 구조가 드러나는 듯한 불꽃" },
+          "Venus": { "en": "A flame that flows evenly, smoothly connected throughout", "ko": "전체가 고르게 이어지며, 부드럽게 연결된 불꽃" },
+          "Pluto": { "en": "A flame that burns inward, becoming more dense and concentrated", "ko": "안쪽으로 깊게 타들어가며, 점점 더 응축되는 불꽃" }
+        },
+        "Aleph": {
+          "Jupiter": { "en": "A flame that expands outward, pressing into the space around it", "ko": "점점 더 크게 번지며, 주변까지 밀어내는 듯한 불꽃" },
+          "Saturn": { "en": "A flame that feels weighted downward, steady and resistant to movement", "ko": "무게를 가진 것처럼 아래로 눌리며, 쉽게 흔들리지 않는 불꽃" },
+          "Uranus": { "en": "A flame that shifts abruptly, breaking its own flow", "ko": "갑자기 튀듯 변하며, 흐름이 끊기는 듯한 불꽃" },
+          "Neptune": { "en": "A flame that softens at the edges, spreading like smoke", "ko": "경계가 흐려지며, 연기처럼 퍼져 나가는 불꽃" }
+        }
+      }
+    },
+
+    "q_planet_3": {
+      "title": { "en": "The Singer in the Dark", "ko": "어둠 속의 가객" },
+      "bg_image": "mystic.png",
+      "narrative": {
+        "en": [
+          "A low, quiet melody rises from behind you.",
+          "You had not expected anyone else to be here,",
+          "and for a moment, your body stiffens.",
+          " ",
+          "As you turn,",
+          "you see a cloaked figure playing a worn stringed instrument, singing softly.",
+          "Their fingers move in a steady rhythm,",
+          "the sound spreading evenly through the space.",
+          " ",
+          "When you see their face,",
+          "there is a strange sense of familiarity.",
+          " ",
+          "What form has the being before you taken?"
+        ],
+        "ko": [
+          "당신의 등 뒤에서 낮게 울리는 노랫소리가 들린다.",
+          "이곳에 누군가가 있을 것이라고는 전혀 생각하지 못했던 당신은",
+          "순간 몸이 굳는다.",
+          " ",
+          "천천히 뒤를 돌아보자,",
+          "전신을 망토로 감싼 존재가 낡은 현악기를 켜며 조용히 노래를 부르고 있다.",
+          "손끝은 일정한 리듬을 유지하고 있고,",
+          "소리는 공간에 고르게 퍼진다.",
+          " ",
+          "얼굴이 보이는 순간,",
+          "처음 보는 존재임에도 이상하게 낯설지 않다는 느낌이 스친다.",
+          " ",
+          "당신 앞에 서 있는 존재의 형상은?"
+        ]
+      },
+      "options_by_mother": {
+        "Shin": {
+          "Mars": { "en": "A young man, with faint old scars across the back of his hands, a subtle tension in his fingers", "ko": "젊은 남성의 얼굴을 하고 있다. 손등에는 오래된 흉터가 옅게 남아 있고, 손가락 끝에 미세하게 힘이 들어가 있다" },
+          "Venus": { "en": "A woman, her skin unusually smooth, her nails uniformly kept with unnatural precision", "ko": "여성의 모습을 하고 있다. 피부가 지나치게 매끄럽고, 손톱 끝까지 균일하게 정리되어 있다" },
+          "Mercury": { "en": "A youthful figure, with thin hands and pronounced joints, the fingers moving with excessive precision", "ko": "나이가 어려 보이는 인물이다. 손이 가늘고 관절이 뚜렷하며, 손끝이 지나치게 정교하게 움직인다" },
+          "Moon": { "en": "A woman, though her eyes seem faintly damp, her expression never fully settling", "ko": "여성의 형태를 하고 있지만, 눈가가 젖어 있는 듯하며 표정이 완전히 고정되지 않는다" }
+        },
+        "Mem": {
+          "Sun": { "en": "A figure with clearly defined features, their expression barely changing, their gaze completely fixed forward", "ko": "또렷한 이목구비를 가진 인물이다. 표정은 거의 변하지 않는데, 시선이 정면에서 조금도 흔들리지 않는다" },
+          "Mercury": { "en": "A young man, with sharply defined facial lines, the texture of his eyebrows unnaturally uniform", "ko": "젊은 남성이다. 얼굴선이 날카롭게 정리되어 있고, 눈썹의 결이 지나치게 일정하게 정돈되어 있다" },
+          "Venus": { "en": "A woman, her hair and clothing perfectly arranged, nearly symmetrical from left to right", "ko": "여성의 형태다. 머리카락과 옷차림이 흐트러진 부분 없이 정리되어 있지만, 좌우가 거의 완벽하게 맞춰져 있다" },
+          "Pluto": { "en": "A figure whose age is difficult to determine, with smooth skin lacking color, the edges of the lips softly blurred", "ko": "나이를 가늠하기 어려운 인물이다. 피부는 매끈하지만 혈색이 거의 없고, 입술의 경계가 흐릿하게 번져 있다" }
+        },
+        "Aleph": {
+          "Jupiter": { "en": "A grown man, with broad shoulders, yet the seams of his clothing sit slightly outside where they should align", "ko": "성인 남성의 형태다. 어깨가 넓지만, 옷의 봉제선이 실제 몸보다 바깥쪽에 어긋나 있다" },
+          "Saturn": { "en": "An elderly figure, with unusually thin lips, the corners trembling faintly without speaking", "ko": "노인의 모습이다. 입술이 지나치게 얇고, 말하지 않는데도 입가가 미세하게 떨리고 있다" },
+          "Uranus": { "en": "A young figure, with misaligned buttons and sleeves of uneven length", "ko": "젊은 인물이다. 단추의 위치가 위아래로 조금씩 어긋나 있고, 소매 길이가 양쪽이 다르다" },
+          "Neptune": { "en": "A figure of unclear gender, one eye slightly off-focus, as if not fully aligned with the other", "ko": "성별이 분명하지 않은 얼굴이다. 눈의 초점이 맞지 않은 듯, 한쪽이 아주 약하게 빗나가 있다" }
+        }
+      }
+    },
+
+    "scn_epilogue_intro": {
+      "title": { "en": "The Parting Gift", "ko": "마지막 선물" },
+      "bg_image": "mystic2.png",
+      "narrative": {
+        "en": [
+          "The cloaked figure lets the song come to an end.",
+          "A quiet pause.",
+          "A faint smile follows.",
+          " ",
+          "“Was the journey pleasant?”",
+          " ",
+          "No answer comes.",
+          "The instrument is set aside.",
+          " ",
+          "“Before you return to the earthly world, a small gift will be left behind.",
+          "Nothing from this place can be carried back in full.",
+          "Only a fragment of what you need will remain with you.”"
+        ],
+        "ko": [
+          "망토를 뒤집어쓴 존재가 노래를 멈춘다.",
+          "짧은 정적.",
+          "희미한 웃음이 스친다.",
+          " ",
+          "“여정은 즐거웠나?”",
+          " ",
+          "아무런 대답도 돌아오지 않는다.",
+          "현악기가 조용히 내려놓인다.",
+          " ",
+          "“지상으로 돌아가기 전에, 작은 선물을 하나 남기지.",
+          "이곳의 것을 그대로 가져갈 수는 없으니,",
+          "지금의 너에게 필요한 조각만 남게 될 것이다.”"
+        ]
+      }
+    }
+  },
+
+  "epilogue_tools": {
+    "coin": {
+      "bg_image": "coin.png",
+      "action": {
+        "en": [
+          "A small coin rests on an open palm.",
+          "“Once.”"
+        ],
+        "ko": [
+          "손 위에 작은 금화 하나가 놓인다.",
+          "“한 번 던져 보아라.”"
+        ]
+      },
+      "results": {
+        "Heads": {
+          "en": [
+            "It spins briefly in the air.",
+            "A pause.",
+            " ",
+            "It lands.",
+            "Heads.",
+            "The current remains open."
+          ],
+          "ko": [
+            "금화를 허공에 튕겨 올린다.",
+            "짧은 정적.",
+            " ",
+            "Heads로군.",
+            "흐름이 아직 열려 있다."
+          ]
+        },
+        "Tails": {
+          "en": [
+            "It spins briefly in the air.",
+            "A pause.",
+            " ",
+            "It lands.",
+            "Tails.",
+            "The pattern has already settled."
+          ],
+          "ko": [
+            "금화를 허공에 튕겨 올린다.",
+            "짧은 정적.",
+            " ",
+            "Tails로군.",
+            "이미 결이 굳어 있다."
+          ]
+        }
+      }
+    },
+    "dice": {
+      "bg_image": "dice.png",
+      "action": {
+        "en": [
+          "A small die is placed before you.",
+          "“Roll it.”"
+        ],
+        "ko": [
+          "작은 주사위가 조용히 건네진다.",
+          "“굴려 보아라.”"
+        ]
+      },
+      "results": {
+        "1": {
+          "en": [
+            "It lands with a soft sound.",
+            "A brief pause.",
+            " ",
+            "One, then.", 
+            "A current pressing forward can be felt."
+          ],
+          "ko": [
+            "주사위가 바닥 위를 한 번 구른다.",
+            "잠시 시선이 머문다.",
+            " ",
+            "1이로군.", 
+            "앞으로 밀려 나가려는 흐름이 느껴진다."
+          ]
+        },
+        "2": {
+          "en": [
+            "It lands with a soft sound.",
+            "A brief pause.",
+            " ",
+            "Two, then.", 
+            "A pattern seeking balance has settled in."
+          ],
+          "ko": [
+            "주사위가 바닥 위를 한 번 구른다.",
+            "잠시 시선이 머문다.",
+            " ",
+            "2로군.", 
+            "균형을 유지하려는 결이 자리 잡고 있다."
+          ]
+        },
+        "3": {
+          "en": [
+            "It lands with a soft sound.",
+            "A brief pause.",
+            " ",
+            "Three, then.", 
+            "A shift in direction begins to emerge."
+          ],
+          "ko": [
+            "주사위가 바닥 위를 한 번 구른다.",
+            "잠시 시선이 머문다.",
+            " ",
+            "3이로군.", 
+            "방향이 흔들리거나 바뀌려는 기운이 스친다."
+          ]
+        },
+        "4": {
+          "en": [
+            "It lands with a soft sound.",
+            "A brief pause.",
+            " ",
+            "Four, then.", 
+            "A tendency to hold what has formed is present."
+          ],
+          "ko": [
+            "주사위가 바닥 위를 한 번 구른다.",
+            "잠시 시선이 머문다.",
+            " ",
+            "4로군.", 
+            "이미 형성된 것을 붙잡고 있는 흐름이 보인다."
+          ]
+        },
+        "5": {
+          "en": [
+            "It lands with a soft sound.",
+            "A brief pause.",
+            " ",
+            "Five, then.", 
+            "A movement toward refinement and ordering is detected."
+          ],
+          "ko": [
+            "주사위가 바닥 위를 한 번 구른다.",
+            "잠시 시선이 머문다.",
+            " ",
+            "5로군.", 
+            "결을 다듬고 정리하려는 움직임이 감지된다."
+          ]
+        },
+        "6": {
+          "en": [
+            "It lands with a soft sound.",
+            "A brief pause.",
+            " ",
+            "Six, then.", 
+            "A cycle shows signs of closing."
+          ],
+          "ko": [
+            "주사위가 바닥 위를 한 번 구른다.",
+            "잠시 시선이 머문다.",
+            " ",
+            "6이로군.", 
+            "하나의 흐름이 닫히려는 기색이 보인다."
+          ]
+        }
+      }
+    }
+  },
+  "interpretations": {
+    "runes": {
+      "Fehu": {
+        "en": "Moving value settles into a flowing current.",
+        "ko": "움직이는 가치가 흐름으로 놓여 있다."
+      },
+      "Uruz": {
+        "en": "Untamed force stands as it is.",
+        "ko": "가공되지 않은 힘이 그대로 존재한다."
+      },
+      "Thurisaz": {
+        "en": "A dividing force cuts through the boundary.",
+        "ko": "경계를 가르는 충돌이 작동한다."
+      },
+      "Ansuz": {
+        "en": "A current of meaning opens.",
+        "ko": "의미를 전달하는 흐름이 열린다."
+      },
+      "Raidho": {
+        "en": "Direction unfolds into the shape of a path.",
+        "ko": "방향이 길의 형태로 이어진다."
+      },
+      "Kenaz": {
+        "en": "What was unseen is placed within the light.",
+        "ko": "드러나지 않던 것이 빛 속에 놓인다."
+      },
+      "Gebo": {
+        "en": "Exchange settles into a single bond.",
+        "ko": "주고받는 관계가 하나의 결을 이룬다."
+      },
+      "Wunjo": {
+        "en": "Aligned feeling gives rise to a full and quiet joy.",
+        "ko": "정서의 흐름이 맞물리며 충만한 기쁨이 맺힌다."
+      },
+      "Hagalaz": {
+        "en": "A force that breaks form operates at the center.",
+        "ko": "형태를 깨뜨리는 힘이 중심에서 작동한다."
+      },
+      "Nied": {
+        "en": "Lack establishes the measure and demands endurance.",
+        "ko": "결핍이 기준을 세우고 인내를 요구한다."
+      },
+      "Isaz": {
+        "en": "All movement remains held in stillness.",
+        "ko": "모든 흐름이 고정된 상태로 머문다."
+      },
+      "Jera": {
+        "en": "Balance completes itself, and the result forms.",
+        "ko": "균형이 맞춰지며 결과가 맺힌다."
+      },
+      "Eihwaz": {
+        "en": "End and beginning are bound along a single axis.",
+        "ko": "끝과 시작이 하나의 축으로 연결된다."
+      },
+      "Peroth": {
+        "en": "The cast of fate lies hidden within unseen balance.",
+        "ko": "운명의 패가 보이지 않는 균형 속에 감춰져 있다."
+      },
+      "Algiz": {
+        "en": "Awakened instinct raises a boundary of protection.",
+        "ko": "날카롭게 깨어 있는 직관이 보호의 경계를 세운다."
+      },
+      "Sowilo": {
+        "en": "A certainty forged in depth cuts through in a single direction.",
+        "ko": "심연을 통과한 확신이 올바른 방향을 관통한다."
+      },
+      "Tiwaz": {
+        "en": "What stands upright in conviction points toward a higher law.",
+        "ko": "곧게 선 신념은 더 높은 법을 향한다."
+      },
+      "Berkano": {
+        "en": "Guarded potential grows within time and structure.",
+        "ko": "보호된 가능성이 시간과 구조 속에서 자라난다."
+      },
+      "Ehwaz": {
+        "en": "Interlocked roles drive a single direction forward.",
+        "ko": "맞물린 역할이 하나의 방향을 앞으로 밀어낸다."
+      },
+      "Mannaz": {
+        "en": "The individual is bound into a single idea within structure.",
+        "ko": "개별은 구조 속에서 하나의 이상으로 묶인다."
+      },
+      "Laguz": {
+        "en": "The current redraws its own course.",
+        "ko": "흐름은 스스로 방향을 다시 그린다."
+      },
+      "Ingwaz": {
+        "en": "Completed force condenses for what comes next.",
+        "ko": "완성된 힘은 다음 질서를 위해 응축된다."
+      },
+      "Dagaz": {
+        "en": "When division dissolves, another light appears.",
+        "ko": "경계가 해체됨에서 다른 빛이 드러난다."
+      },
+      "Othala": {
+        "en": "All things belong to an unseen origin.",
+        "ko": "모든 것은 보이지 않는 근원에 속한다."
+      }
+    },
+
+    "planets": {
+      "Mars": {
+        "en": "Pressure builds and drives direction forward, while a deeper will moves beneath what is seen.",
+        "ko": "압력이 쌓이며 방향을 밀어내고, 드러난 힘 뒤에서 더 깊은 의지가 움직인다."
+      },
+      "Venus": {
+        "en": "Attraction and attunement overlap, as an unseen balance shapes what appears in relation.",
+        "ko": "끌림과 조율이 겹쳐지며, 보이는 관계 너머에서 보이지 않는 균형이 형태를 맞춘다."
+      },
+      "Mercury": {
+        "en": "The act of reading the flow continues, and what is scattered forms itself into patterns of meaning.",
+        "ko": "흐름을 읽는 작용이 이어지며, 흩어진 것들이 의미의 연결로 스스로를 구성한다."
+      },
+      "Moon": {
+        "en": "Sensation, memory, and unspoken layers stir first, and what appears follows after.",
+        "ko": "감각과 기억, 말해지지 않은 층이 먼저 흔들리고, 드러나는 것은 그 뒤를 따른다."
+      },
+      "Sun": {
+        "en": "A single center reveals itself, and all things around it take their place by its measure.",
+        "ko": "하나의 중심이 스스로를 밝히며, 그 주위의 모든 것은 그 기준에 따라 자리를 잡는다."
+      },
+      "Saturn": {
+        "en": "An unseen limit defines form, and only what remains is fixed into structure.",
+        "ko": "보이지 않는 한계가 형태를 규정하고, 남겨진 것만이 구조로 굳어진다."
+      },
+      "Jupiter": {
+        "en": "Meaning extends beyond itself, as the flow expands into a greater context.",
+        "ko": "의미가 스스로를 넘어서며, 흐름은 더 큰 맥락으로 확장되어 이어진다."
+      },
+      "Uranus": {
+        "en": "A break forms within what once held, and another structure appears without warning.",
+        "ko": "끊어지지 않던 질서에 균열이 들어가며, 다른 구조가 예고 없이 모습을 드러낸다."
+      },
+      "Neptune": {
+        "en": "Boundaries dissolve from what once held form, and the flow spreads into meaning, no longer distinct.",
+        "ko": "형태를 이루던 경계가 풀리며, 흐름은 의미로 번지고 다시 구분되지 않는다."
+      },
+      "Pluto": {
+        "en": "Beneath what is outwardly expressed, a deeper layer overturns, and all is woven again in a different order.",
+        "ko": "겉으로 드러난 힘 아래에서 더 깊은 층이 뒤집히며, 모든 것은 다른 결로 다시 짜인다."
+      }
+    },
+
+    "mother_letters": {
+      "Shin": {
+        "en": "An unceasing flow presses outward, bringing form into being.",
+        "ko": "멈추지 않는 흐름이 스스로를 밀어내며 형태를 낳는다."
+      },
+      "Mem": {
+        "en": "The current sinks inward, and an unseen pressure holds form in place.",
+        "ko": "흐름이 안으로 가라앉으며, 보이지 않는 압력이 형태를 붙잡는다."
+      },
+      "Aleph": {
+        "en": "Above all currents, an unchanging measure quietly remains.",
+        "ko": "모든 흐름 위에, 바뀌지 않는 하나의 기준이 조용히 놓여 있다."
+      }
+    },
+
+    "numerology": {
+      "primary": {
+        "1": { "en": "A single will ignites direction.", "ko": "하나의 의지가 방향을 점화한다." },
+        "2": { "en": "Two currents diverge, and relation takes form.", "ko": "두 흐름이 나뉘며 관계가 형성된다." },
+        "3": { "en": "What was divided reconnects, and a sequence begins to unfold.", "ko": "분리된 것들이 이어지며 전개가 만들어진다." },
+        "4": { "en": "The flow settles, and structure takes its place.", "ko": "흐름이 고정되며 구조가 자리 잡는다." },
+        "5": { "en": "A fracture enters, and change begins to move.", "ko": "균열이 개입하며 변화가 시작된다." },
+        "6": { "en": "The currents align, and harmony comes into form.", "ko": "흐름이 맞춰지며 조화가 이루어진다." },
+        "7": { "en": "The search turns inward, reaching toward unseen layers.", "ko": "보이지 않는 층을 향한 탐색이 깊어진다." },
+        "8": { "en": "Accumulated force reveals itself outwardly.", "ko": "축적된 힘이 외부로 드러난다." },
+        "9": { "en": "The flow reaches completion and closes into a single pattern.", "ko": "흐름이 완성에 이르며 하나의 결로 닫힌다." }
+      },
+      "secondary": {
+        "1": { "en": "All things move toward a single center.", "ko": "모든 것은 하나의 중심으로 수렴하려 한다." },
+        "2": { "en": "Separation does not create conflict, but reveals relation.", "ko": "분리는 갈등이 아니라, 관계를 드러내기 위한 방식이다." },
+        "3": { "en": "Creation is not chance, but the unfolding of what was already set to continue.", "ko": "생성은 우연이 아니라, 이미 이어질 흐름의 발현이다." },
+        "4": { "en": "Stability is not chosen, but required for what endures.", "ko": "안정은 선택이 아니라, 지속을 위한 필연이다." },
+        "5": { "en": "Change does not arrive from outside, but emerges from within.", "ko": "변화는 외부에서 오는 것이 아니라, 내부 균열의 결과다." },
+        "6": { "en": "Harmony is not made, but found where what diverged returns to alignment.", "ko": "조화는 만들어지는 것이 아니라, 어긋남이 수렴된 상태다." },
+        "7": { "en": "Truth is not revealed, but discovered in depth.", "ko": "진실은 드러나는 것이 아니라, 깊이 속에서 발견된다." },
+        "8": { "en": "Power is not accumulated, but uncovered where it already exists.", "ko": "힘은 쌓이는 것이 아니라, 이미 존재하던 것이 드러나는 것이다." },
+        "9": { "en": "An ending is not disappearance, but completion preparing what follows.", "ko": "끝은 사라짐이 아니라, 다음을 준비하는 완성이다." }
+      },
+      "tertiary": {
+        "1": { "en": "The beginning remains one.", "ko": "시작은 항상 하나로 남는다." },
+        "2": { "en": "What is divided does not fully part.", "ko": "나뉜 것은 서로를 벗어나지 못한다." },
+        "3": { "en": "What is joined continues to extend itself.", "ko": "이어진 것은 계속해서 자신을 확장한다." },
+        "4": { "en": "What is established seeks to endure.", "ko": "세워진 것은 스스로를 유지하려 한다." },
+        "5": { "en": "Movement in instability repeats without rest.", "ko": "흔들림은 멈추지 않고 반복된다." },
+        "6": { "en": "What is misaligned is drawn back into accord.", "ko": "어긋남은 결국 하나로 맞춰진다." },
+        "7": { "en": "What is unseen does not remain hidden.", "ko": "보이지 않는 것은 끝내 드러난다." },
+        "8": { "en": "What is revealed gathers again.", "ko": "드러난 힘은 다시 쌓인다." },
+        "9": { "en": "Completion turns again toward beginning.", "ko": "완성은 다시 시작으로 이어진다." }
+      }
+    }
+  }
+}

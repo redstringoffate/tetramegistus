@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "comp_type": "B5",
+    "sys_tab": "B6",
+    "ayanamsa": "C6"
+  },
+  "houses": {
+    "1": { "row_start": 9, "info": "B", "planets": "C", "asteroids": "D", "range": "E", "duad": "F", "dodeca": "G", "decan": "H", "bounds": "I", "sabian": "J" },
+    "2": { "row_start": 10, "info": "B", "planets": "C", "asteroids": "D", "range": "E", "duad": "F", "dodeca": "G", "decan": "H", "bounds": "I", "sabian": "J" },
+    "3": { "row_start": 11, "info": "B", "planets": "C", "asteroids": "D", "range": "E", "duad": "F", "dodeca": "G", "decan": "H", "bounds": "I", "sabian": "J" },
+    "4": { "row_start": 12, "info": "B", "planets": "C", "asteroids": "D", "range": "E", "duad": "F", "dodeca": "G", "decan": "H", "bounds": "I", "sabian": "J" },
+    "5": { "row_start": 13, "info": "B", "planets": "C", "asteroids": "D", "range": "E", "duad": "F", "dodeca": "G", "decan": "H", "bounds": "I", "sabian": "J" },
+    "6": { "row_start": 14, "info": "B", "planets": "C", "asteroids": "D", "range": "E", "duad": "F", "dodeca": "G", "decan": "H", "bounds": "I", "sabian": "J" },
+    "7": { "row_start": 15, "info": "B", "planets": "C", "asteroids": "D", "range": "E", "duad": "F", "dodeca": "G", "decan": "H", "bounds": "I", "sabian": "J" },
+    "8": { "row_start": 16, "info": "B", "planets": "C", "asteroids": "D", "range": "E", "duad": "F", "dodeca": "G", "decan": "H", "bounds": "I", "sabian": "J" },
+    "9": { "row_start": 17, "info": "B", "planets": "C", "asteroids": "D", "range": "E", "duad": "F", "dodeca": "G", "decan": "H", "bounds": "I", "sabian": "J" },
+    "10": { "row_start": 18, "info": "B", "planets": "C", "asteroids": "D", "range": "E", "duad": "F", "dodeca": "G", "decan": "H", "bounds": "I", "sabian": "J" },
+    "11": { "row_start": 19, "info": "B", "planets": "C", "asteroids": "D", "range": "E", "duad": "F", "dodeca": "G", "decan": "H", "bounds": "I", "sabian": "J" },
+    "12": { "row_start": 20, "info": "B", "planets": "C", "asteroids": "D", "range": "E", "duad": "F", "dodeca": "G", "decan": "H", "bounds": "I", "sabian": "J" }
+  }
+}

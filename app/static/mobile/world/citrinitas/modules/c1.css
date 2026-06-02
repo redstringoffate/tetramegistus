@@ -1,0 +1,149 @@
+/* static/mobile/world/citrinitas/modules/c1.css */
+:root {
+    /* 🚀 [수복]: PC판 C1의 50 Shades 고유 컬러 (컬럼 밑줄용) */
+    --c1-color-0: #FF2602; --c1-color-1: #0AFFEF; --c1-color-2: #99FF05; --c1-color-3: #E814FF; --c1-color-4: #0ACC05; 
+    --c1-color-5: #FF0366; --c1-color-6: #FF9104; --c1-color-7: #0755FF; --c1-color-8: #FDFF08; --c1-color-9: #B76EFF; 
+    --c1-color-10: #544DA1; --c1-color-11: #68D4FF; --c1-color-12: #992314; --c1-color-13: #FDC1FF; --c1-color-14: #FCB8D6; 
+    --c1-color-15: #D8FCB6; --c1-color-16: #FCF7D6; --c1-color-17: #A8FFF3; --c1-color-18: #04FF6D; --c1-color-19: #FCA992; 
+    --c1-color-20: #996635; --c1-color-21: #B2F0AB; --c1-color-22: #4A3DB0; --c1-color-23: #EDEDED; --c1-color-24: #68FFE0; 
+    --c1-color-25: #FF64C5; --c1-color-26: #39B570; --c1-color-27: #E1FDFF; --c1-color-28: #F5A831; --c1-color-29: #C49D76; 
+    --c1-color-30: #B5478C; --c1-color-31: #AB88FF; --c1-color-32: #288559; --c1-color-33: #817F26; --c1-color-34: #1C8EFF; 
+    --c1-color-35: #F4EEFF; --c1-color-36: #CC4366; --c1-color-37: #BAD6D6; --c1-color-38: #795FA3; --c1-color-39: #3D83D6; 
+    --c1-color-40: #A33387; --c1-color-41: #5D6E24; --c1-color-42: #E8B919; --c1-color-43: #4C616E; --c1-color-44: #B1BAB5; 
+    --c1-color-45: #A8D6B3; --c1-color-46: #476DE0; --c1-color-47: #C941FF; --c1-color-48: #A6FF94; --c1-color-49: #3BD0D4;
+
+    /* 천체별 고유 컬러 */
+    --c-planet: #06F8FF; --c-major: #54FF5F; --c-node: #C164FF; --c-fate: #ce93d8; 
+    --c-hermetic: #FC09CA; --c-vertex: #fff59d; --c-syzygy: #2B32FF; --c-angle: #1507ED; --c-cusp: #555555; 
+
+    --h-veil-1: rgba(255, 51, 0, 0.15);    --h-veil-2: rgba(255, 102, 0, 0.15);
+    --h-veil-3: rgba(255, 124, 128, 0.15); --h-veil-4: rgba(255, 102, 153, 0.15);
+    --h-veil-5: rgba(255, 102, 204, 0.15); --h-veil-6: rgba(255, 102, 255, 0.15);
+    --h-veil-7: rgba(204, 153, 255, 0.15); --h-veil-8: rgba(153, 153, 255, 0.15);
+    --h-veil-9: rgba(102, 153, 255, 0.15); --h-veil-10: rgba(0, 102, 255, 0.15);
+    --h-veil-11: rgba(0, 51, 204, 0.15);   --h-veil-12: rgba(0, 51, 153, 0.15);
+}
+
+.elem-fire { color: #FC4036 !important; } .elem-earth { color: #ffd740 !important; } 
+.elem-air { color: #e0e0e0 !important; } .elem-water { color: #36D9F5 !important; }
+.m-c1-sabian-text { min-width: 300px; max-width: none; white-space: normal !important; color: #888; font-style: italic; text-align: left !important; line-height: 1.4; border-bottom: 1px solid #161616; }
+.sign-boundary td { border-bottom: 2px solid #49dce1 !important; }
+
+/* 🚀 [데이터 렌더링 클래스] */
+.m-c1-item-row { display: block; margin-bottom: 4px; font-size: 0.75rem; font-weight: 500; cursor: pointer; padding: 2px 4px; border-radius: 4px; }
+.m-c1-item-row:active { background: rgba(73, 220, 225, 0.2); }
+.p-planet { color: var(--c-planet); } .p-major { color: var(--c-major); } .p-node { color: var(--c-node); font-style: italic; }
+.p-fate { color: var(--c-fate); } .p-lot, .lot-hermetic { color: var(--c-hermetic); } .p-vertex { color: var(--c-vertex); }
+.p-syzygy { color: var(--c-syzygy); font-weight: bold; } .p-angle { color: var(--c-angle); font-weight: 900; }
+.p-cusp { color: var(--c-cusp); font-size: 0.8em; } .p-minor { color: #888; }
+.star-marker { color: #ffd700; margin-left: 2px; } .star-marker b { color: #ff4444; font-weight: 900; }
+
+.m-c1-container { padding: 10px 0; font-family: 'Consolas', 'Monaco', monospace !important; color: #49dce1; }
+.m-materia-title { color: #060606; font-size: 1.1rem; font-weight: normal; margin-bottom: 16px; letter-spacing: 1px; text-align: center; }
+
+.m-c1-controls-wrapper { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; padding: 0; }
+.m-c1-top-row, .m-c1-middle-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; width: 100%; height: 26px; }
+.m-c1-bottom-row { display: flex; width: 100%; height: 26px; }
+
+.m-btn-sys-settings { flex: none; height: 100%; padding: 0 10px; background: rgba(73, 220, 225, 0.05); border: 1px solid #49dce1; color: #49dce1; font-family: inherit; font-size: 0.65rem; font-weight: bold; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.m-btn-sys-settings:active { background: rgba(73, 220, 225, 0.15); }
+
+.m-connected-tabs { display: flex; height: 100%; border: 1px solid #49dce1; background: #000; border-radius: 4px; overflow: hidden; align-items: stretch; flex: 1; }
+.m-connected-tabs .m-tab { flex: 1; height: 100%; padding: 0 10px; background: transparent; border: none; border-right: 1px solid rgba(73, 220, 225, 0.3); color: #49dce1; font-size: 0.65rem; font-weight: bold; font-family: inherit; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
+.m-connected-tabs .m-tab:last-child { border-right: none; }
+.m-connected-tabs .m-tab.active { background: #49dce1 !important; color: #000 !important; font-weight: 900; }
+.m-ayan-tabs .m-tab { padding: 0 4px; font-size: 0.6rem; white-space: nowrap; } 
+
+.m-c1-data-management-box { display: flex; align-items: center; gap: 8px; height: 100%; background: #000; border: 1px solid #49dce1; padding: 0 8px; border-radius: 4px; }
+.m-dm-label { font-size: 0.65rem; color: #49dce1; font-weight: bold; line-height: 1; }
+.m-dm-buttons { display: flex; gap: 4px; align-items: center; height: 100%; }
+.m-c1-icon-btn { width: 22px; height: 18px; background: #111; border: 1px solid #49dce1; color: #49dce1; border-radius: 3px; font-size: 0.75rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; padding: 0; }
+
+.m-dichotomy-module { display: flex; align-items: center; gap: 6px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.m-dicho-label { font-size: 0.65rem; color: #444; font-weight: bold; user-select: none; transition: 0.2s; }
+.m-dicho-label.active { color: #49dce1; text-shadow: 0 0 8px rgba(73, 220, 225, 0.6); }
+.m-toggle-switch { width: 32px; height: 14px; background: #111; border: 1px solid #49dce1; border-radius: 10px; position: relative; }
+.m-toggle-knob { width: 10px; height: 10px; background: #555; border-radius: 50%; position: absolute; top: 1px; left: 1px; transition: left 0.3s ease; }
+.m-toggle-switch.modern-active .m-toggle-knob { left: 19px; background: #49dce1; box-shadow: 0 0 5px rgba(73, 220, 225, 0.8); }
+
+.m-c1-table-wrapper { width: 100%; overflow: auto; -webkit-overflow-scrolling: touch; border-top: 2px solid #222; border-bottom: 2px solid #222; max-height: 60vh; background: #000; position: relative; }
+.m-c1-table { width: max-content; min-width: 100%; border-collapse: separate; border-spacing: 0; background: #000; font-size: 0.68rem; table-layout: auto; }
+.m-c1-table th, .m-c1-table td { padding: 8px 6px; border-right: 1px solid #161616; text-align: center; vertical-align: middle; white-space: nowrap; box-sizing: border-box; }
+.m-c1-table th { background: #050505; font-weight: bold; position: sticky; top: 0; z-index: 20; border-bottom: 2px solid #222; height: 30px; color: #fff; }
+
+.m-c1-table th.m-c1-sabian-num { z-index: 40 !important; left: 0; background: #000 !important; border-right: 2px solid #333; box-shadow: 4px 4px 10px rgba(0,0,0,0.9); }
+.m-c1-table td.m-c1-sabian-num { position: sticky; left: 0; z-index: 30; background: #000 !important; color: #888; font-weight: bold; border-right: 2px solid #333; box-shadow: 4px 0 10px rgba(0,0,0,0.9); width: 85px; min-width: 85px; text-align: left; padding-left: 10px; }
+
+.m-c1-loading-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.93); display: flex; align-items: center; justify-content: center; z-index: 99999 !important; backdrop-filter: blur(6px); opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.m-c1-loading-overlay.active { opacity: 1; pointer-events: all; }
+.m-c1-loading-text { color: #ff4444; font-family: monospace; font-size: 1.0rem; font-weight: bold; letter-spacing: 3px; }
+
+.m-c1-modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.85); display: none; align-items: center; justify-content: center; z-index: 99999 !important; backdrop-filter: blur(5px); }
+.m-c1-modal-window { background: #000; border: 1px solid #49dce1; width: 92vw; max-height: 85vh; display: flex; flex-direction: column; border-radius: 6px; overflow: hidden; box-shadow: 0 0 25px rgba(73, 220, 225, 0.2); }
+.m-c1-modal-header { background: #050505; color: #49dce1; font-size: 0.75rem; font-weight: bold; padding: 14px; text-align: center; border-bottom: 1px solid #111; letter-spacing: 1px; }
+.m-c1-modal-body { padding: 15px; overflow-y: auto; flex: 1; background: #000; }
+.m-c1-modal-footer { display: flex; justify-content: space-between; padding: 12px 15px; background: #030303; border-top: 1px solid #111; gap: 10px; }
+.m-c1-btn-confirm, .m-c1-btn-return { flex: 1; background: #000; border: 1px solid; padding: 12px; font-size: 0.7rem; font-weight: bold; font-family: inherit; border-radius: 4px; cursor: pointer; }
+.m-c1-btn-confirm { color: #49dce1; border-color: #1f5f3a; }
+.m-c1-btn-return { color: #777; border-color: #222; }
+
+/* static/mobile/world/citrinitas/modules/c1.css (맨 아래에 추가) */
+
+/* 🚀 사비안 라인 (50 Shades 컬러 박스) */
+.sabian-line-box {
+    position: absolute; right: 0; top: 0; bottom: 0;
+    display: flex; flex-direction: row-reverse; pointer-events: none;
+}
+.s-line-thick { width: 3px; height: 100%; }
+.s-line-thin { width: 2px; background: #2A69B5; height: 100%; margin-right: 1px; }
+
+/* 🚀 Toast 팝업 강제 부활 (누락 대비) */
+.m-toast-hidden { transform: translateY(100%); opacity: 0; pointer-events: none; }
+#m-c1-toast {
+    position: fixed; bottom: 0; left: 0; width: 100%; box-sizing: border-box; 
+    background: rgba(5, 12, 15, 0.96); border-top: 1px solid #49dce1; color: #fff; 
+    padding: 15px 20px; font-size: 0.8rem; transition: transform 0.3s ease, opacity 0.3s ease; 
+    z-index: 99999 !important; box-shadow: 0 -4px 20px rgba(0,0,0,0.6); 
+    backdrop-filter: blur(6px); padding-bottom: calc(15px + env(safe-area-inset-bottom)); 
+    text-align: center; 
+}
+
+/* static/mobile/world/citrinitas/modules/c1.css (맨 아래 추가) */
+
+/* 🚀 Popover UI (Asteroid & Arabic Lots Meaning Definitions) */
+.c1-popover-box { 
+    position: fixed !important; 
+    top: 50% !important; 
+    left: 50% !important; 
+    bottom: auto !important; 
+    transform: translate(-50%, -50%) !important; 
+    width: 85%; 
+    max-height: 50vh; 
+    background: rgba(0, 0, 0, 0.95); 
+    border: 1px solid #49dce1; 
+    box-shadow: 0 0 30px rgba(73, 220, 225, 0.2); 
+    padding: 20px; 
+    z-index: 99999; 
+    color: #49dce1; 
+    overflow-y: auto; 
+    display: none; 
+    border-radius: 8px; 
+    backdrop-filter: blur(10px);
+}
+.c1-popover-box.active { display: block; }
+
+/* static/mobile/world/citrinitas/modules/c1.css */
+
+/* 하우스 배경색 바인딩 (n8에서 이식) */
+.bg-house-1 { background-color: var(--h-veil-1) !important; } 
+.bg-house-2 { background-color: var(--h-veil-2) !important; } 
+.bg-house-3 { background-color: var(--h-veil-3) !important; } 
+.bg-house-4 { background-color: var(--h-veil-4) !important; } 
+.bg-house-5 { background-color: var(--h-veil-5) !important; } 
+.bg-house-6 { background-color: var(--h-veil-6) !important; } 
+.bg-house-7 { background-color: var(--h-veil-7) !important; } 
+.bg-house-8 { background-color: var(--h-veil-8) !important; } 
+.bg-house-9 { background-color: var(--h-veil-9) !important; } 
+.bg-house-10 { background-color: var(--h-veil-10) !important; } 
+.bg-house-11 { background-color: var(--h-veil-11) !important; } 
+.bg-house-12 { background-color: var(--h-veil-12) !important; }

@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="/static/mobile/world/citrinitas/modules/c1_add_natal.css?v=4">
+
+<!-- static/mobile/world/citrinitas/modules/c1_add_natal.html -->
+<div class="m-c1-form-container">
+    <div class="m-form-item">
+        <label class="m-form-label">Name</label>
+        <input type="text" id="m-c1-natal-name" class="m-form-input" placeholder="Enter Designation" autocomplete="off">
+    </div>
+
+    <div class="m-form-item">
+        <label class="m-form-label">Date</label>
+        <div class="m-form-row triplet">
+            <select id="m-c1-natal-y" class="m-form-select"></select>
+            <select id="m-c1-natal-m" class="m-form-select"></select>
+            <select id="m-c1-natal-d" class="m-form-select"></select>
+        </div>
+    </div>
+
+    <div class="m-form-item">
+        <label class="m-form-label">Time</label>
+        <div class="m-form-row triplet" id="m-c1-time-row">
+            <select id="m-c1-natal-h" class="m-form-select"></select>
+            <select id="m-c1-natal-min" class="m-form-select"></select>
+            <select id="m-c1-natal-s" class="m-form-select"></select>
+        </div>
+        <div class="m-unknown-check">
+            <input type="checkbox" id="m-c1-natal-unknown">
+            <label for="m-c1-natal-unknown">Time Unknown</label>
+        </div>
+    </div>
+
+    <div class="m-form-item" style="position: relative;">
+        <label class="m-form-label">Location</label>
+        <input type="text" id="m-c1-city-search" class="m-form-input" placeholder="Search city" autocomplete="off">
+        <!-- 🚀 실시간 검색 결과 드롭다운 영역 -->
+        <div id="m-c1-city-results" class="m-search-results"></div>
+        
+        <div class="m-manual-trigger" id="m-c1-manual-toggle">Manual Entry ▾</div>
+        
+        <!-- 🚀 수동 좌표 입력 영역 (기본 숨김) -->
+        <div id="m-c1-manual-panel" class="m-manual-area" style="display:none;">
+            <div class="m-coord-group">
+                <span class="m-coord-title">LATITUDE</span>
+                <div class="m-coord-input-row">
+                    <div class="m-sign-toggle" data-target="lat">
+                        <div class="m-sign-btn active" data-sign="+">N</div>
+                        <div class="m-sign-btn" data-sign="-">S</div>
+                    </div>
+                    <input type="number" id="m-c1-lat-int" class="m-coord-int" placeholder="00">
+                    <span class="m-coord-dot">.</span>
+                    <input type="number" id="m-c1-lat-dec" class="m-coord-dec" placeholder="0000">
+                </div>
+            </div>
+
+            <div class="m-coord-group">
+                <span class="m-coord-title">LONGITUDE</span>
+                <div class="m-coord-input-row">
+                    <div class="m-sign-toggle" data-target="lng">
+                        <div class="m-sign-btn active" data-sign="+">E</div>
+                        <div class="m-sign-btn" data-sign="-">W</div>
+                    </div>
+                    <input type="number" id="m-c1-lng-int" class="m-coord-int" placeholder="000">
+                    <span class="m-coord-dot">.</span>
+                    <input type="number" id="m-c1-lng-dec" class="m-coord-dec" placeholder="0000">
+                </div>
+            </div>
+
+            <div class="m-coord-group">
+                <span class="m-coord-title">TIMEZONE</span>
+                <select id="m-c1-tz" class="m-form-select full"></select>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/mobile/world/citrinitas/modules/c1_add_natal.js?v=2"></script>

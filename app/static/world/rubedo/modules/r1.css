@@ -1,0 +1,404 @@
+/* app/static/world/rubedo/modules/r1.css */
+
+.r1-hermeticum-system {
+    width: 100%;
+    max-width: 800px; 
+}
+
+/* 🚀 1. R2 메인 타이틀 디자인 이식 */
+.r1-main-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+/* 🚀 2. Dichotomy Toggle 이식 */
+.r1-option-vault { margin-bottom: 20px; }
+.dichotomy-module { display: flex; align-items: center; gap: 10px; font-size: 0.7rem; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+.dicho-label { color: #555; transition: color 0.2s; }
+.dicho-label.active { color: #9abafb; font-weight: bold; } /* 활성 텍스트 블랙 */
+.toggle-switch { width: 34px; height: 16px; background: #000; border: 1px solid #000; border-radius: 8px; position: relative; cursor: pointer; }
+.toggle-knob { width: 12px; height: 12px; background: #3cff8f; border-radius: 50%; position: absolute; top: 1px; left: 2px; transition: 0.2s; }
+.toggle-knob.right { left: 18px; }
+
+/* 📜 스크롤 뷰포트 */
+.r1-list-viewport {
+    height: 600px; 
+    overflow-y: auto;
+    border: 1px solid #1a1a1a;
+    background: transparent;
+    position: relative; 
+}
+
+/* 🚀 3. 슬림한 블랙 스크롤바 커스텀 */
+.r1-list-viewport::-webkit-scrollbar {
+    width: 6px; /* 아주 얇게 */
+}
+.r1-list-viewport::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3); /* 배경에 자연스럽게 묻히도록 */
+    border-left: 1px solid #1a1a1a;
+}
+.r1-list-viewport::-webkit-scrollbar-thumb {
+    background: #111; /* 다크 블랙 */
+    border-radius: 3px;
+}
+.r1-list-viewport::-webkit-scrollbar-thumb:hover {
+    background: #333; 
+}
+
+/* ➖ 각 줄(Row) */
+.r1-row {
+    height: 45px;
+    background: #000000;
+    border-bottom: 1px solid rgba(60, 255, 143, 0.2); 
+    border-left: 2px solid transparent; /* 기본은 투명한 왼쪽 보더 */
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: background 0.2s, padding-left 0.2s;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.r1-row:hover {
+    background: rgba(60, 255, 143, 0.1);
+    padding-left: 25px; 
+}
+
+.r1-row.empty-row { cursor: default; }
+.r1-row.empty-row:hover { background: #000; padding-left: 20px; }
+
+/* 아이콘 및 텍스트 정렬 */
+.row-icon { margin-right: 15px; font-size: 1.1rem; color: #3cff8f; } /* 기본 별(✧) DDS Green */
+.row-icon.pinned-icon { color: #ffffff; font-size: 1.2rem; } /* 상단 고정(❖) 화이트 */
+.row-title { flex: 1; font-size: 0.85rem; color: #ddd; letter-spacing: 1px; }
+.row-meta { font-size: 0.7rem; color: #666; letter-spacing: 2px; }
+
+/* 🚀 4. 'ㄱ'자 90도 회전 보더 라인 */
+.sticky-folder {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: #050505; 
+    border-bottom: 1px solid #3cff8f; /* 뚜렷한 하단 라인 */
+    border-left: 2px solid #3cff8f;   /* 뚜렷한 좌측 라인 (ㄱ자 형성) */
+}
+
+.sticky-pinned {
+    position: sticky;
+    z-index: 10;
+    background: #000;
+    border-left: 2px solid #3cff8f;   /* 좌측 라인 이어받기 */
+}
+
+/* app/static/world/rubedo/modules/r1.css 맨 아래 */
+
+/* 🚀 1. Archivum 기본 상태 (Cyan Blue 글로우 & 볼드) */
+.sticky-folder .row-title {
+    font-weight: bold !important; 
+    color: #49dce1; /* Cyan Blue 텍스트 */
+    text-shadow: 0 0 12px rgba(73, 220, 225, 0.5); /* 은은한 후광 효과 */
+    letter-spacing: 2px;
+}
+
+/* 🚀 2. Archivum 활성화 (RETURN) 상태 - 🟢 배경 초록, 텍스트 검정, 글로우 제거 */
+.sticky-folder.active-archivum {
+    background: #3cff8f; /* 배경을 DDS Green으로 꽉 채움 */
+    border-bottom: 1px solid #3cff8f;
+    border-left: 2px solid #3cff8f;
+}
+
+.sticky-folder.active-archivum .row-title,
+.sticky-folder.active-archivum .row-icon,
+.sticky-folder.active-archivum .row-meta {
+    color: #000 !important; /* 텍스트, 아이콘 모두 블랙으로 반전 */
+    font-weight: 700 !important;
+    text-shadow: none !important; /* 🔑 배경이 꽉 찼으므로 글로우는 끕니다 */
+}
+
+.sticky-folder.active-archivum .row-icon {
+    font-size: 1.2rem; /* 화살표 아이콘 크기 조정 */
+}
+
+/* =========================================
+   R1 문서 뷰어(블로그 포스트 모드) 스타일
+========================================= */
+
+/* 모듈 헤더(대제목, 토글, 폴더바)를 숨기는 클래스 */
+.hidden-in-article {
+    display: none !important;
+}
+
+/* 리스트 껍데기(테두리, 제약)를 부수고 창 전체를 쓰는 클래스 */
+#r1-article-list.article-view-mode {
+    border: none !important;
+    background: transparent !important;
+    height: auto !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+}
+
+/* 블로그 포스트 래퍼 */
+.article-manifestation {
+    padding: 10px 20px 60px 20px;
+    animation: fadeIn 0.4s ease;
+}
+
+/* 🚀 새롭게 렌더링될 실제 글 제목 */
+.article-main-title {
+    font-family: 'Agency FB', sans-serif;
+    font-size: 2.5rem;
+    color: #eeeeee;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* 본문 영역 */
+.article-body {
+    color: #eeeeee;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.return-btn {
+    background: transparent;
+    border: 1px solid #7CFF9B;
+    color: #7CFF9B;
+    padding: 12px 50px;
+    cursor: pointer;
+    font-family: 'Agency FB', sans-serif;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.return-btn:hover {
+    background: rgba(124, 255, 155, 0.1);
+}
+
+/* 🚀 R1 문서 뷰어 전용 CSS (JS에서 완벽 분리) */
+.article-view-title {
+    margin: 0;
+    color: #eeeeee;
+    font-family: inherit; /* 쓸데없는 폰트 덮어쓰기 금지. 에디터 원본 유지 */
+    text-transform: none; /* 대문자(ALL CAPS) 변환 금지 */
+}
+
+.article-view-hr {
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.4); /* 슬림하고 시크한 검은 가로선 */
+    margin: 25px 0 50px 0; /* 제목과 본문 사이의 넉넉한 간격 */
+}
+
+.article-footer-zone {
+    text-align: center;
+    margin: 40px 0 40px 0; /* 🚀 위쪽 마진을 80px에서 40px로 반토막 */
+    border-top: none !important;
+    padding-top: 0px;      /* 🚀 위쪽 패딩은 아예 제거 */
+}
+
+/* 🚀 1. RETURN 버튼: 세련된 미니멀리즘 & DDS Green 글로우 */
+.article-return-btn {
+    background: transparent;
+    border: 1px solid #7CFF9B !important; /* DDS Green 상징색 */
+    color: #7CFF9B !important;
+    padding: 12px 60px;
+    cursor: pointer;
+    font-family: 'Agency FB', sans-serif; /* 사용자님 선호 폰트 */
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 5px; /* 글자 간격을 넓혀 고급스럽게 */
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* 부드러운 가속도 */
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 버튼 Hover 이펙트: 배경이 차오르며 빛나는 효과 */
+.article-return-btn:hover {
+    background: #7CFF9B !important;
+    color: #000 !important; /* 배경색과 대비되는 블랙 */
+    box-shadow: 0 0 20px rgba(124, 255, 155, 0.6); /* 네온 글로우 */
+    letter-spacing: 8px; /* 살짝 더 벌어지는 동적인 효과 */
+}
+
+/* 🚀 2. 가로 구분선: 얇고 시크한 블랙 라인 */
+.article-view-hr {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6); /* 얇고 선명한 검은 선 */
+    margin: 30px 0 60px 0;
+    width: 100%;
+}
+
+/* 🚀 3. 하단 둔탁한 바 박살내기 (커스텀 스크롤바) */
+/* 뷰어 내부의 스크롤바를 슬림한 블랙 스타일로 교체합니다. */
+#r1-article-viewer::-webkit-scrollbar {
+    width: 4px; /* 매우 얇게 */
+    height: 4px; /* 가로 스크롤바도 얇게 */
+}
+
+#r1-article-viewer::-webkit-scrollbar-track {
+    background: transparent; /* 트랙은 투명하게 */
+}
+
+#r1-article-viewer::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.8); /* 얇고 검은 바 */
+    border-radius: 10px;
+}
+
+#r1-article-viewer::-webkit-scrollbar-thumb:hover {
+    background: #000; /* 호버 시 더 진하게 */
+}
+
+/* Firefox용 스크롤바 설정 */
+#r1-article-viewer {
+    scrollbar-width: thin;
+    scrollbar-color: #000 transparent;
+    
+    /* 🚀 아래 두 줄을 추가해서 그릇의 넓이를 거대 차트에 맞게 강제 확장 */
+    width: 100%;
+    min-width: max-content; 
+}
+
+/* 🚀 [GRIMOIRE UI]: 플로팅 세이브 버튼 (Cyan Blue) */
+.grimoire-pdf-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    color: #49dce1 !important; /* Cyan Blue */
+    cursor: pointer;
+    z-index: 100;
+    padding: 6px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.grimoire-pdf-btn svg {
+    width: 22px;
+    height: 22px;
+    filter: drop-shadow(0 0 2px rgba(73, 220, 225, 0.4));
+    transition: all 0.2s ease;
+}
+
+.grimoire-pdf-btn:hover svg {
+    filter: drop-shadow(0 0 10px rgba(73, 220, 225, 1)); /* Cyan Glow 증폭 */
+    transform: scale(1.15);
+}
+
+.grimoire-pdf-btn:active {
+    transform: translateY(2px) scale(0.9);
+}
+
+/* 🚀 [GRIMOIRE RITUAL]: 인스크라이빙 오버레이 및 프로그레스 바 (DDS Green) */
+.inscribe-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9); /* 심연의 검은색 */
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: none; /* 기본 숨김 */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.inscribe-text {
+    color: #7CFF9B; /* DDS Green */
+    font-family: 'JetBrains Mono', 'Consolas', monospace !important;
+    letter-spacing: 0.5em;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(124, 255, 155, 0.5);
+}
+
+.inscribe-bar-wrap {
+    width: 400px;
+    height: 4px; /* 날렵한 라인 형태 */
+    background: rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.inscribe-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: #7CFF9B;
+    box-shadow: 0 0 15px rgba(124, 255, 155, 0.8);
+    transition: width 0.1s linear;
+}
+
+.inscribe-percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-family: 'JetBrains Mono', 'Consolas', monospace !important;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    mix-blend-mode: difference; /* 바가 차오를 때 글자색 반전 효과 */
+    z-index: 2;
+}
+
+.inscribe-done {
+    position: absolute;
+    color: #49dce1;
+    font-family: 'JetBrains Mono', 'Consolas', monospace !important;
+    letter-spacing: 0.3em;
+    font-size: 1.2rem;
+    opacity: 0;
+    text-shadow: 0 0 15px rgba(73, 220, 225, 0.8);
+    transition: opacity 0.4s ease;
+}
+
+/* =========================================================
+   🚀 [R1 Radar]: List & Archivum Folder N Marker
+========================================================= */
+/* N 마커가 튀어나갈 수 있도록 부모 컨테이너에 기준점 부여 */
+/* 🚀 N 마커 기준점 부여하되, Pin된 글의 sticky 속성은 절대 보호함! */
+.r1-row { position: relative; }
+.r1-row.sticky-pinned { position: sticky !important; }
+#archivum-folder { position: relative; }
+
+.r1-new-marker {
+    position: absolute;
+    left: 2px; /* 행(Row)과 폴더의 맨 좌측 밖으로 뱃지 배치 */
+    top: 30%;
+    transform: translateY(-50%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    background-color: #3cdeff;
+    border-radius: 3px;
+    
+    color: #000;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 0.6rem;
+    font-weight: 900;
+    
+    box-shadow: 
+        0 0 5px rgba(60, 255, 143, 1), 
+        0 0 10px rgba(60, 255, 143, 0.6);
+    
+    pointer-events: none;
+    z-index: 10;
+    animation: pulseGlow 2s infinite;
+}

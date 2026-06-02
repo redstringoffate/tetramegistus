@@ -1,0 +1,79 @@
+<!-- static/mobile/world/citrinitas/modules/c1_add_conjunction.html -->
+<link rel="stylesheet" href="/static/mobile/world/citrinitas/modules/c1_add_conjunction.css?v=1">
+
+<div class="m-c1-form-container">
+    <!-- 🚀 Person Switch Tabs -->
+    <div class="m-person-tabs">
+        <div class="m-p-tab active" id="m-btn-p1" onclick="m_c1_switchPerson(1)">PERSON 1</div>
+        <div class="m-p-tab" id="m-btn-p2" onclick="m_c1_switchPerson(2)">PERSON 2</div>
+    </div>
+
+    <div class="m-form-item">
+        <label class="m-form-label" id="m-lbl-conj-name">NAME (1)</label>
+        <input type="text" id="m-c1-conj-name" class="m-form-input" placeholder="Enter Designation" autocomplete="off">
+    </div>
+
+    <div class="m-form-item">
+        <label class="m-form-label">DATE</label>
+        <div class="m-form-row triplet">
+            <select id="m-c1-conj-y" class="m-form-select"></select>
+            <select id="m-c1-conj-m" class="m-form-select"></select>
+            <select id="m-c1-conj-d" class="m-form-select"></select>
+        </div>
+    </div>
+
+    <div class="m-form-item">
+        <label class="m-form-label">TIME</label>
+        <div class="m-form-row triplet" id="m-c1-conj-time-row">
+            <select id="m-c1-conj-h" class="m-form-select"></select>
+            <select id="m-c1-conj-min" class="m-form-select"></select>
+            <select id="m-c1-conj-s" class="m-form-select"></select>
+        </div>
+        <div class="m-unknown-check">
+            <input type="checkbox" id="m-c1-conj-unknown">
+            <label for="m-c1-conj-unknown">Time Unknown</label>
+        </div>
+    </div>
+
+    <div class="m-form-item" style="position: relative;">
+        <label class="m-form-label">LOCATION</label>
+        <input type="text" id="m-c1-conj-city-search" class="m-form-input" placeholder="Search city" autocomplete="off">
+        
+        <div id="m-c1-conj-city-results" class="m-search-results"></div>
+        
+        <div class="m-manual-trigger" id="m-c1-conj-manual-toggle">Manual Entry ▾</div>
+        
+        <div id="m-c1-conj-manual-panel" class="m-manual-area" style="display:none;">
+            <div class="m-coord-group">
+                <span class="m-coord-title">LATITUDE</span>
+                <div class="m-coord-input-row">
+                    <div class="m-sign-toggle" data-target="lat">
+                        <div class="m-sign-btn active" data-sign="+">N</div>
+                        <div class="m-sign-btn" data-sign="-">S</div>
+                    </div>
+                    <input type="number" id="m-c1-conj-lat-int" class="m-coord-int" placeholder="00">
+                    <span class="m-coord-dot">.</span>
+                    <input type="number" id="m-c1-conj-lat-dec" class="m-coord-dec" placeholder="0000">
+                </div>
+            </div>
+
+            <div class="m-coord-group">
+                <span class="m-coord-title">LONGITUDE</span>
+                <div class="m-coord-input-row">
+                    <div class="m-sign-toggle" data-target="lng">
+                        <div class="m-sign-btn active" data-sign="+">E</div>
+                        <div class="m-sign-btn" data-sign="-">W</div>
+                    </div>
+                    <input type="number" id="m-c1-conj-lng-int" class="m-coord-int" placeholder="000">
+                    <span class="m-coord-dot">.</span>
+                    <input type="number" id="m-c1-conj-lng-dec" class="m-coord-dec" placeholder="0000">
+                </div>
+            </div>
+
+            <div class="m-coord-group">
+                <span class="m-coord-title">TIMEZONE</span>
+                <select id="m-c1-conj-tz" class="m-form-select full"></select>
+            </div>
+        </div>
+    </div>
+</div>

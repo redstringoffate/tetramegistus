@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="/static/world/nigredo/modules/n7.css">
+
+<div class="n2-principia n7-hypostases">
+    <h1 class="materia-title" style="margin-bottom: 50px !important;">HYPOSTASES</h1>
+
+    <div class="n7-left-align-row">
+        <div class="n7-dichotomy-module">
+            <span class="n7-dicho-label active" id="n7-lbl-sigilum">SIGILUM</span>
+            <div class="n7-toggle-switch" onclick="window.toggleN7Primary()">
+                <div class="n7-toggle-knob" id="n7-knob-primary"></div>
+            </div>
+            <span class="n7-dicho-label" id="n7-lbl-plenitudo">PLENITUDO</span>
+        </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 40px; margin-bottom: 15px;">
+        <nav class="n7-system-switch-module" id="n7-system-nav" style="margin-bottom: 0;">
+            <button class="n7-sys-tab" data-sys="tropical" onclick="window.switchN7System('tropical')">Tropical</button>
+            <button class="n7-sys-tab" data-sys="sidereal" onclick="window.switchN7System('sidereal')">Sidereal</button>
+            <button class="n7-sys-tab" data-sys="draconic" onclick="window.switchN7System('draconic')">Draconic</button>
+            <button class="n7-sys-tab" data-sys="ketunic" title="South Node at Aries 0°" onclick="window.switchN7System('ketunic')">Ketunic</button>
+        </nav>
+
+        <div class="n7-dichotomy-module" id="n7-dicho-secondary" style="display:none;">
+            <span class="n7-dicho-label active" id="n7-lbl-sabian">SABIAN</span>
+            <div class="n7-toggle-switch" onclick="window.toggleN7Secondary()">
+                <div class="n7-toggle-knob" id="n7-knob-secondary"></div>
+            </div>
+            <span class="n7-dicho-label" id="n7-lbl-tabula">TABULA</span>
+        </div>
+    </div>
+
+    <div id="n7-ayanamsa-vault" style="height: 30px; visibility: hidden; display: flex; align-items: flex-start;"> 
+        <div id="sidereal-controls-panel-n7">
+            <nav class="n7-ayanamsa-switch-module">
+                <button class="n7-ayan-tab" data-ayan="lahiri" title="Standard Vedic (Chitra Paksha)" onclick="window.switchN7Ayanamsa('lahiri')">Lahiri</button>
+                <button class="n7-ayan-tab" data-ayan="raman" title="B.V. Raman" onclick="window.switchN7Ayanamsa('raman')">Raman</button>
+                <button class="n7-ayan-tab" data-ayan="kp" title="Krishnamurti Paddhati" onclick="window.switchN7Ayanamsa('kp')">KP</button>
+                <button class="n7-ayan-tab" data-ayan="fagan-bradley" title="Fagan-Bradley" onclick="window.switchN7Ayanamsa('fagan-bradley')">Fagan-Bradley</button>
+                <button class="n7-ayan-tab" data-ayan="yukteswar" title="Sri Yukteswar" onclick="window.switchN7Ayanamsa('yukteswar')">Yukteswar</button>
+            </nav>
+        </div>
+    </div>
+
+    <hr class="separator" style="margin: 15px 0 40px 0;">
+
+    <nav class="n7-ayanamsa-switch-module" id="n7-category-tabs" style="display:flex; width:100%; margin-bottom: 25px;">
+        <button class="n7-ayan-tab" style="flex:1;" data-cat="planets" onclick="window.switchN7Category('planets')">PLANETS</button>
+        <button class="n7-ayan-tab" style="flex:1;" data-cat="asteroids" onclick="window.switchN7Category('asteroids')">MAJOR ASTEROIDS</button>
+        <button class="n7-ayan-tab" style="flex:1;" data-cat="lilith" onclick="window.switchN7Category('lilith')">LILITH & NODES</button>
+        <button class="n7-ayan-tab" style="flex:1;" data-cat="fates" onclick="window.switchN7Category('fates')">FATES</button>
+        <button class="n7-ayan-tab" style="flex:1;" data-cat="angles" onclick="window.switchN7Category('angles')">ANGLES</button>
+        <button class="n7-ayan-tab" style="flex:1;" data-cat="hermetic" id="btn-cat-hermetic-n7" onclick="window.switchN7Category('hermetic')">HERMETIC</button>
+    </nav>
+
+    <div id="n7-view-container">
+        <div id="n7-view-sigilum" style="display: none; width: 100%; overflow-x: auto;">
+            <table class="n2-chart-table n7-sigilum-table" style="width: 100%; min-width: 1000px; table-layout: fixed;">
+                <thead>
+                    <tr>
+                        <th style="width:130px; text-align:left !important;">CELESTIAL BODIES</th>
+                        <th style="width:180px; text-align:left !important;">INFORMATION</th>
+                        <th style="width:60px; text-align:center !important;">HOUSE</th>
+                        <th style="width:80px; text-align:center !important;">ARIES 0°</th>
+                        <th style="width:80px; text-align:center !important;">DAY LORD</th>
+                        <th style="width:80px; text-align:center !important;">HOUR LORD</th>
+                        <th style="width:50px;" class="has-tooltip" title="Duad">Duad</th>
+                        <th style="width:50px;" class="has-tooltip" title="Dodecatemoria">Dod.</th>
+                        <th style="width:50px;" class="has-tooltip" title="Decan">Decan</th>
+                        <th style="width:50px;" class="has-tooltip" title="Egyptian Bounds">Bd.</th>
+                        <th style="width:300px; text-align:left !important;">SABIAN SYMBOL</th>
+                    </tr>
+                </thead>
+                <tbody id="n7-tbody-sigilum"></tbody>
+            </table>
+        </div>
+                            
+        <div id="n7-view-plenitudo-sabian" style="display: none;" class="n7-matrix-container">
+            <table class="n2-chart-table n7-matrix-table">
+                <colgroup id="n7-colgroup-sabian"></colgroup>
+                <thead id="n7-thead-sabian"></thead>
+                <tbody id="n7-tbody-sabian"></tbody>
+            </table>
+        </div>
+
+        <div id="n7-view-plenitudo-tabula" style="display: none;">
+            <div id="n7-tabula-wrapper" class="n7-tabula-wrapper"></div>
+        </div>
+    </div>
+
+    <div id="n7-info-tooltip" class="n7-floating-tooltip"></div>
+</div>
+
+<script src="/static/world/nigredo/modules/n7.js"></script>

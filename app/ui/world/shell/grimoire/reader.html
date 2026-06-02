@@ -1,0 +1,72 @@
+{% extends "world/shell/base.html" %}
+
+{% block sidebar %}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/world/shell/grimoire/reader.css?v=11">
+
+<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+
+<link rel='stylesheet' href='https://unpkg.com/luckysheet@2.1.13/dist/plugins/css/pluginsCss.css' />
+<link rel='stylesheet' href='https://unpkg.com/luckysheet@2.1.13/dist/plugins/plugins.css' />
+<link rel='stylesheet' href='https://unpkg.com/luckysheet@2.1.13/dist/css/luckysheet.css' />
+<link rel='stylesheet' href='https://unpkg.com/luckysheet@2.1.13/dist/assets/iconfont/iconfont.css' />
+<script src="https://unpkg.com/luckysheet@2.1.13/dist/plugins/js/plugin.js"></script>
+<script src="https://unpkg.com/luckysheet@2.1.13/dist/luckysheet.umd.js"></script>
+
+<div id="save-loading-overlay" class="modal-overlay" style="z-index: 9999999;">
+    <div class="modal-box" style="border-color: #49dce1;">
+        <p style="color: #49dce1; font-size: 1.1rem; margin-bottom: 20px;">Recompiling Grimoire Archive... 🔮</p>
+        <div class="loader-spinner"></div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/luckyexcel/dist/luckyexcel.umd.js"></script>
+
+<div class="excel-app-container" id="excel-app-container">
+    <div class="excel-header">
+        <div class="excel-title">🔮 Grimoire Reader : {{ display_name }}</div>
+        
+        <div class="action-btn-group">
+            <button id="btn-edit-mode" class="action-btn btn-edit">✏️ EDIT</button>
+            <button id="btn-save-edit" class="action-btn btn-save" style="display: none;">💾 SAVE</button>
+            <button id="btn-exit-edit" class="action-btn btn-exit" style="display: none;">❌ EXIT</button>
+            <a href="/world/grimoire/{{ stage }}" class="action-btn btn-close">CLOSE READER</a>
+        </div>
+    </div>
+
+    <div class="excel-workspace" id="excel-workspace">
+        <div class="loading-screen" id="loading-screen">Reading Archive Data...</div>
+    </div>
+
+    <div id="luckysheet-container"></div>
+
+    <div class="excel-footer">
+        <div class="sheet-tabs-container">
+            <div class="sheet-tabs-wrapper" id="sheet-tabs">
+                </div>
+        </div>
+        <div class="footer-controls">
+            <button id="btn-scroll-left" class="tab-nav-btn" title="Scroll Left">&#10094;</button>
+            <button id="btn-scroll-right" class="tab-nav-btn" title="Scroll Right">&#10095;</button>
+            <div class="footer-divider"></div>
+            <button id="btn-rearrange" class="btn-rearrange" title="Rearrange Sheet Numbers">Rearrange</button>
+        </div>
+    </div>
+</div>
+
+<div id="delete-modal" class="modal-overlay">
+    <div class="modal-box">
+        <p id="delete-modal-text">Delete 'sheet_name'?</p>
+        <div class="modal-buttons">
+            <button id="btn-modal-yes" class="btn-modal yes">YES</button>
+            <button id="btn-modal-no" class="btn-modal no">NO</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.GRIMOIRE_STAGE = "{{ stage }}";
+    window.GRIMOIRE_IDX = "{{ idx }}";
+</script>
+<script src="/static/world/shell/grimoire/reader.js?v=12"></script>
+{% endblock %}

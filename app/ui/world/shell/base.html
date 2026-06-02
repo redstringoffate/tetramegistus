@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tetramegistus</title>
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/world/shell/icon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="/static/world/shell/base.css">
+
+    {% if stage == "nigredo" %}
+    <link rel="stylesheet" href="/static/world/nigredo/nigredo.css">
+    {% elif stage == "albedo" %}
+    <link rel="stylesheet" href="/static/world/albedo/albedo.css">
+    {% elif stage == "citrinitas" %}
+    <link rel="stylesheet" href="/static/world/citrinitas/citrinitas.css">
+    {% elif stage == "rubedo" %}
+    <link rel="stylesheet" href="/static/world/rubedo/rubedo.css">
+    {% endif %}
+
+    <style>
+        /* 🚀 [Fix v19.1]: Scrollbar Starts BELOW Header */
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%; 
+            overflow: hidden; 
+        }
+        
+        #stage-container { 
+            position: absolute;
+            top: 64px; /* 🔑 Scrollbar starts below header */
+            left: 0;
+            width: 100%;
+            height: calc(100% - 64px); 
+            overflow-y: auto; 
+            overflow-x: hidden;
+        }
+
+        .layout {
+            display: flex; 
+            width: 100%;
+            min-height: 100%;
+            margin-top: 0 !important; /* 🔑 Remove duplicate margin */
+            position: relative;
+        }
+
+        /* 🔑 [핵심]: 콘텐츠 영역 가로 스크롤 제어 */
+        .page-content {
+            flex: 1;          /* 남은 공간 차지 */
+            width: 0;         /* Flexbox 버그 방지용 (중요) */
+            min-width: 0;     /* Flex 자식이 부모를 뚫고 나가는 현상 방지 */
+            
+            /* 🔑 가로 스크롤은 여기서 처리, 세로는 자연스럽게 둠 */
+            overflow-x: auto; 
+            overflow-y: visible; 
+            
+            padding-bottom: 50px; /* 하단 여백 */
+        }
+        
+        .stage-tooltip {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 100000;
+            background: #000;
+            color: #3cff8f;
+            border: 1px solid #3cff8f;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .sidebar-footer {
+            margin-top: 20px;
+            padding-right: 20px;
+            text-align: right; 
+            position: relative;
+            overflow: visible !important;
+        }
+
+        .inquiry-link {
+            font-size: 0.8rem;
+            color: rgb(200, 180, 255); 
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+        }
+
+        .inquiry-link .original-text {
+            display: inline-block;
+            transition: opacity 0.3s;
+        }
+
+        .inquiry-link .cryptic-text {
+            position: absolute;
+            top: 70px;    
+            right: 110px; 
+            white-space: nowrap;
+            opacity: 0;
+            font-size: 0.65rem; 
+            letter-spacing: 0.05em;
+            color: rgb(150, 245, 255) !important;
+            text-shadow: 0 0 5px rgba(150, 245, 255, 0.4);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateX(10px);
+            pointer-events: none;
+        }
+
+        .inquiry-link:hover .original-text { opacity: 0.6; }
+        .inquiry-link:hover .cryptic-text { opacity: 1; transform: translateX(0); }
+
+        /* ⚙️ [수복]: Settings 전용 Sticky 클래스 */
+        .side-bar.sticky-active {
+            position: sticky;
+            top: 0px;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            align-self: flex-start;
+        }
+
+        #sidebar-settings {
+            min-height: 100%;
+	    padding-top: 0;
+        }
+
+        .settings-container {
+            display: flex;
+            flex-direction: column;
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        }
+
+        .settings-top-label {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            padding: 20px 20px 10px 20px;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .settings-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .settings-header {
+            padding: 12px 16px 12px 35px;
+            font-size: 0.8rem;
+            color: #888;
+            font-weight: 400;
+            cursor: pointer;
+            transition: color 0.25s ease;
+            user-select: none;
+        }
+
+        .settings-header:hover {
+            color: #7CFF9B;
+            margin-left: 5px;
+        }
+
+        .settings-body {
+            display: none;
+            padding: 5px 0 10px 45px;
+        }
+
+        .settings-body label {
+            display: flex;
+            align-items: center;
+            padding: 6px 0;
+            font-size: 0.8rem;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .settings-body label:hover {
+            color: #7CFF9B;
+        }
+
+        .settings-body input[type="radio"] {
+            appearance: none;
+            width: 7px;
+            height: 7px;
+            border: 1px solid #555;
+            border-radius: 50%;
+            margin-right: 12px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .settings-body input[type="radio"]:checked {
+            background-color: #49dce1;
+            border-color: #49dce1;
+            box-shadow: 0 0 5px #49dce1;
+        }
+
+        .settings-exit {
+            margin-top: 30px;
+            padding: 15px;
+            font-size: 0.75rem;
+            color: #999;
+            text-align: center;
+            cursor: pointer;
+            transition: color 0.2s;
+            opacity: 0.6;
+        }
+
+        .settings-exit:hover {
+            color: #ff5050;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <div class="world-icon">
+        <img src="/static/world/shell/icon.svg" alt="World Icon">
+    </div>
+
+    <div class="stage-buttons">
+        <a href="/world/nigredo"    class="stage stage-i"   data-stage="nigredo"    data-label="Nigredo">I</a>
+        <a href="/world/albedo"     class="stage stage-ii"  data-stage="albedo"     data-label="Albedo">II</a>
+        <a href="/world/citrinitas"  class="stage stage-iii" data-stage="citrinitas" data-label="Citrinitas">III</a>
+        <a href="/world/rubedo"      class="stage stage-iv"  data-stage="rubedo"      data-label="Rubedo">IV</a>
+    </div>
+
+    <div class="utility">
+        {% if request.cookies.get("session_user_id") %}
+            <a href="/world/mypage" class="me-link" style="
+                color: #7CFF9B !important;
+                text-decoration: none !important;
+                font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+                font-size: 14px !important;
+                letter-spacing: 0.1em !important;
+                padding: 0 15px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+            ">[me]</a>
+        {% else %}
+            <button onclick="location.href='/login'">Log-in</button>
+        {% endif %}
+        <button onclick="openSettings()">Settings</button>
+    </div>
+</div>
+
+<div id="stage-container" class="stage-{{ stage }}">
+    <div class="layout">
+        <main class="page-content">
+            {% block content %}{% endblock %}
+
+            <footer class="content-footer" style="margin-top: 50px; padding: 20px 0; border-top: 1px dashed #333;">
+                <div class="credits" style="font-size: 0.8rem; color: #666;">
+                    <span>Created by</span>
+                    <a href="https://blog.naver.com/redstringoffate" target="_blank" rel="noopener" style="color: #888; text-decoration: none;">
+                        Redstringoffate
+                    </a>
+                </div>
+            </footer>
+        </main>
+
+        <aside class="side-bar">
+            <div id="sidebar-normal">
+                {% block sidebar %}{% endblock %}
+                
+                <footer class="sidebar-footer">
+                    <a href="/world/inquiries" class="inquiry-link">
+                        <span class="original-text">Inquiries</span>
+                        <span class="cryptic-text">invoke [ctrl+shift+9] to reincarnate</span>
+                    </a>
+                </footer>
+            </div>
+
+            <div id="sidebar-settings" style="display:none;">
+                <div class="settings-container">
+                    <div class="settings-top-label">SYSTEM SETTINGS</div>
+                    
+                    <div class="settings-item">
+                        <div class="settings-header" onclick="toggleAccordion('lang-body')">
+                            Language
+                        </div>
+                        <div id="lang-body" class="settings-body">
+                            <label><input type="radio" name="lang" value="en" checked> English</label>
+                            <label><input type="radio" name="lang" value="ko"> Korean</label>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-header" onclick="toggleAccordion('orb-body')" title="Fixed Stars Conjunction Orb">
+                            Orb Settings
+                        </div>
+                        <div id="orb-body" class="settings-body">
+                            <label><input type="radio" name="orb" value="0.5"> 0.5°</label>
+                            <label><input type="radio" name="orb" value="1.0" checked> 1.0° (DEF)</label>
+                            <label><input type="radio" name="orb" value="1.5"> 1.5°</label>
+                            <label><input type="radio" name="orb" value="2.0"> 2.0°</label>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-header" onclick="toggleAccordion('house-body')">
+                            House System
+                        </div>
+                        <div id="house-body" class="settings-body">
+                            <label><input type="radio" name="house" value="whole"> Whole Sign</label>
+                            <label><input type="radio" name="house" value="placidus" checked> Placidus (DEF)</label>
+                            <label><input type="radio" name="house" value="koch"> Koch</label>
+                        </div>
+                    </div>
+
+                    <div class="settings-exit" onclick="closeSettings()">
+                        CLOSE SETTINGS [X]
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<div id="reincarnate-overlay" style="
+    position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none;
+    align-items: center; justify-content: center; z-index: 99999;
+">
+    <div style="background: #000; border: 1px solid #3cff8f; padding: 28px 36px; min-width: 360px; text-align: center; font-family: monospace;">
+        <div style="color: #3cff8f; font-size: 0.85rem; letter-spacing: 0.14em; margin-bottom: 20px;">reincarnate?</div>
+        <div>
+            <button id="reincarnate-yes" style="background: transparent; border: 1px solid #3cff8f; color: #3cff8f; padding: 6px 18px; margin-right: 14px; cursor: pointer;">yes</button>
+            <button id="reincarnate-no" style="background: transparent; border: 1px solid #3cff8f; color: #3cff8f; padding: 6px 18px; cursor: pointer;">no</button>
+        </div>
+    </div>
+</div>
+
+<script src="/static/world/shell/world.js"></script>
+<script>
+    // 🔑 [수복]: Settings 토글 시 사이드바 Sticky 클래스 제어
+    function openSettings() {
+        document.querySelector('.side-bar').classList.add('sticky-active');
+        document.getElementById('sidebar-normal').style.display = 'none';
+        document.getElementById('sidebar-settings').style.display = 'block';
+    }
+
+    function closeSettings() {
+        document.querySelector('.side-bar').classList.remove('sticky-active');
+        document.getElementById('sidebar-settings').style.display = 'none';
+        document.getElementById('sidebar-normal').style.display = 'block';
+    }
+
+    function toggleAccordion(id) {
+        const target = document.getElementById(id);
+        const isVisible = target.style.display === 'block';
+        target.style.display = isVisible ? 'none' : 'block';
+    }
+
+    // 🚀 [월드 역행 방지 결계]: Reincarnate 후 뒤로가기로 난입 시 유령 화면 파괴
+    window.addEventListener("pageshow", (event) => {
+        // 브라우저가 캐시(bfcache)에서 이전 화면을 꺼내왔다면
+        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+            // 클릭도 안 되는 유령 화면(팝업 등)이 보이지 않도록 즉시 화면을 새까맣게 지움
+            document.body.style.display = "none";
+            // 강제 새로고침! -> 서버의 main.py 미들웨어가 "어? 시드(영혼) 없네?" 하고 태초로 다시 쫓아냄
+            window.location.reload();
+        }
+    });
+
+</script>
+</body>
+</html>

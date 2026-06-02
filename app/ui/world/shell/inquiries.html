@@ -1,0 +1,46 @@
+{% extends "world/shell/base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/world/shell/inquiries.css">
+<script src="/static/world/shell/inquiries.js" defer></script>
+
+<div class="inquiry-container">
+    <h1 class="inquiry-title">Inquiries</h1>
+
+    <div class="inquiry-form">
+        <select class="inquiry-select" id="inquiry-category">
+            <option value="Error Report">Error Report</option>
+            <option value="Other Inquiries">Other Inquiries</option>
+        </select>
+
+        <div class="image-upload-wrapper">
+            <input type="file" id="inquiry-images" accept="image/*" multiple style="display: none;">
+            <span class="add-image-text" onclick="document.getElementById('inquiry-images').click()">+ add image</span>
+            <div id="image-file-list" class="file-list"></div>
+        </div>
+
+        <input type="email" 
+               id="user-email" 
+               class="inquiry-input" 
+               placeholder="enter e-mail address for response"
+               required>
+
+        <textarea 
+            class="inquiry-textarea" 
+            id="inquiry-content"
+            maxlength="2000" 
+            placeholder="Type your message..."
+            oninput="document.getElementById('count').innerText = this.value.length"
+        ></textarea>
+        
+        <div class="char-counter">
+            <span id="count">0</span> / 2000
+        </div>
+
+        <div class="submit-area">
+            <div id="status-msg">sent to admin@tetramegistus.com</div>
+            <button type="button" class="send-btn" id="send-btn" onclick="sendInquiry()">send</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

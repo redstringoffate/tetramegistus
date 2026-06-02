@@ -1,0 +1,148 @@
+/* ===================================================
+   📱 R1 Corpus Hermeticum Mobile Remaster (Total Clean)
+=================================================== */
+
+.r1-hermeticum-system { width: 100%; max-width: 100%; box-sizing: border-box; }
+
+.r1-main-title {
+    font-size: 1.3rem; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 1.5rem; color: #e00000;
+    text-shadow: 0 0 10px rgba(224, 0, 0, 0.3);
+}
+
+/* 토글 */
+.r1-option-vault { margin-bottom: 20px; }
+.dichotomy-module { display: flex; align-items: center; gap: 12px; font-size: 0.75rem; }
+.dicho-label { color: #555; transition: color 0.2s; }
+.dicho-label.active { color: #49dce1; font-weight: bold; }
+.toggle-switch { width: 40px; height: 20px; background: #000; border: 1px solid #333; border-radius: 10px; position: relative; cursor: pointer; }
+.toggle-knob { width: 14px; height: 14px; background: #3cff8f; border-radius: 50%; position: absolute; top: 2px; left: 3px; transition: left 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+.toggle-knob.right { left: 21px; }
+
+/* 뷰포트 */
+.r1-list-viewport { height: calc(100vh - 220px); overflow-y: auto; border: 1px solid #1a1a1a; background: #000; position: relative; }
+
+/* 행(Row) - 2열 구조 */
+.r1-row {
+    position: relative; height: 65px; background: #000000;
+    border-bottom: 1px solid rgba(224, 0, 0, 0.15); 
+    display: flex; align-items: center; padding: 0 15px 0 35px;
+    cursor: pointer; font-family: ui-monospace, Consolas, monospace; box-sizing: border-box;
+}
+.r1-row:active { background: rgba(224, 0, 0, 0.08); }
+
+.row-icon { margin-right: 12px; font-size: 1rem; color: #e00000; flex-shrink: 0; } 
+.row-icon.pinned-icon { color: #ffffff; font-size: 1.1rem; } 
+
+/* 제목/날짜 그룹 */
+.row-text-group { display: flex; flex-direction: column; justify-content: center; flex: 1; min-width: 0; overflow: hidden; }
+.row-title { font-size: 0.85rem; color: #ccc; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 3px; }
+.row-meta { font-size: 0.6rem; color: #555; letter-spacing: 0.5px; text-align: left; }
+
+/* N 마커 */
+.r1-new-marker {
+    position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+    display: flex; align-items: center; justify-content: center;
+    width: 15px; height: 15px; background-color: #3cdeff; border-radius: 2px;
+    color: #000; font-family: ui-monospace, Consolas, monospace; font-size: 0.6rem; font-weight: 900;
+    box-shadow: 0 0 5px #3cdeff, 0 0 10px rgba(60, 222, 255, 0.6); z-index: 5;
+}
+
+/* 고정 */
+.sticky-folder { position: sticky; top: 0; z-index: 20; background: #050505; border-bottom: 1px solid #49dce1; padding-left: 35px !important; }
+.sticky-folder .row-title { font-weight: bold; color: #49dce1; }
+
+/* 뷰어 */
+/* 🚀 [추가]: Archivum 폴더의 data repository 텍스트 영구 삭제 */
+#archivum-meta { display: none !important; }
+
+/* 뷰어 (Rubedo 본연의 Red & Black 테마로 원상 복구) */
+#r1-article-viewer { 
+    background: transparent; /* 제멋대로 넣었던 검은 배경 폭파 */
+    padding: 15px 5px; 
+    box-sizing: border-box; 
+    position: relative; 
+}
+
+.article-view-title { 
+    font-size: 1.4rem !important; 
+    color: #000 !important; /* 글자색 검은색으로 복구 */
+    margin: 20px 0 10px 0 !important; 
+    border-bottom: 1px solid rgba(0,0,0,0.3); /* 밑줄 색상 변경 */
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.article-body-content { 
+    color: #000 !important; /* 글자색 검은색으로 복구 */
+    line-height: 1.7; 
+    font-size: 0.95rem; 
+    margin-top: 15px; 
+}
+
+/* 🚀 [핵심]: 차트(Table) 모바일 붕괴 방어 결계 */
+.article-body-content table {
+    width: 100%;
+    border-collapse: collapse;
+    display: block !important; /* 테이블을 강제로 블록화하여 */
+    overflow-x: auto !important; /* 모바일 폭을 넘어가면 가로 스크롤 생성 */
+    white-space: nowrap !important; /* 글자가 좁아서 찌그러지는 현상 방지 */
+    -webkit-overflow-scrolling: touch; /* 모바일에서 부드러운 스크롤 */
+    margin-bottom: 20px;
+}
+
+.grimoire-pdf-btn { 
+    position: absolute; 
+    top: -10px; 
+    right: 15px; 
+    background: transparent !important; 
+    border: 1px solid rgba(0, 0, 0, 0.4) !important; /* 버튼 테두리 색상 변경 */
+    color: #000 !important; /* 버튼 아이콘 색상 변경 */
+    padding: 8px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+
+/* 🛠️ [최종 조율]: ◄ RETURN 버튼 폼 서식 및 dds green 클릭 이펙트 */
+.article-return-btn { 
+    background: rgba(0, 0, 0, 0.05); 
+    border: 1px solid rgba(0, 0, 0, 0.4); 
+    color: #000; 
+    padding: 12px 45px; 
+    font-size: 0.85rem; 
+    letter-spacing: 2px; 
+    cursor: pointer; 
+    font-weight: bold;
+    font-family: ui-monospace, Consolas, monospace;
+    border-radius: 4px;
+    transition: all 0.15s ease-out;
+    outline: none;
+    -webkit-tap-highlight-color: transparent; /* 모바일 터치 시 음영 잔상 제거 */
+}
+
+/* 🚀 2. 버튼 클릭(터치) 시 dds green (#7CFF9B) 네온 발산 결계 */
+.article-return-btn:active { 
+    background: #000000 !important; 
+    border-color: #7CFF9B !important; 
+    color: #7CFF9B !important; 
+    box-shadow: 0 0 15px rgba(124, 255, 155, 0.5) !important;
+    text-shadow: 0 0 5px #7CFF9B;
+}
+
+.article-footer-zone { 
+    margin-top: 45px; 
+    margin-bottom: 20px;
+    display: flex;             /* 🚀 Flex 레이아웃 가동 */
+    justify-content: center;   /* 🚀 무조건 정중앙으로 밀어넣기 */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 오버레이 */
+.inscribe-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 99999; display: none; flex-direction: column; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+.inscribe-text { color: #3cff8f; font-size: 0.9rem; letter-spacing: 3px; margin-bottom: 20px; }
+.inscribe-bar-wrap { width: 80%; max-width: 260px; height: 6px; background: #222; position: relative; }
+.inscribe-bar-fill { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: #3cff8f; box-shadow: 0 0 10px #3cff8f; transition: width 0.1s linear; }
+
+/* 상단 헤더 숨김 결계 */
+.m-stage-header { display: none !important; }

@@ -1,0 +1,80 @@
+/* static/world/shell/grimoire/rubedo.css */
+
+.grimoire-archive-container {
+    background: transparent; 
+    color: #e0e0e0;
+    padding: 0px;
+    font-family: inherit;
+}
+
+.archive-title {
+    color: #e00000; /* 🚀 강렬한 딥 레드 타이틀 */
+    text-shadow: 0 0 10px rgba(224, 0, 0, 0.5);
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.archive-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.empty-grimoire {
+    color: #555;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.archive-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #404040;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: fit-content;
+}
+
+/* 🚀 황금빛 십자별 */
+.archive-item::before {
+    content: '✦'; 
+    color: #ffe600;
+    margin-right: 15px;
+    font-size: 1rem;
+    text-shadow: 0 0 5px #ffe600;
+    transition: transform 0.3s ease;
+}
+.archive-item:hover {
+    color: #ffe600;
+    transform: translateX(10px);
+}
+
+.archive-item:hover::before {
+    transform: scale(1.3);
+}
+
+/* 🚀 박스 형태의 돌아가기 버튼 (Hover 시 붉은 발광) */
+.btn-return {
+    display: inline-block;
+    background: transparent;
+    color: #777;
+    border: 1px solid #555;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-return:hover {
+    color: #ffe600;
+    border-color: #ffe600;
+    text-shadow: 0 0 8px rgba(255, 230, 0, 0.8);
+    box-shadow: 0 0 10px rgba(255, 230, 0, 0.4), inset 0 0 8px rgba(255, 230, 0, 0.2); 
+}

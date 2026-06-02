@@ -1,0 +1,181 @@
+/* static/world/shell/stage.css */
+
+/* 🔒 메인 콘텐츠 잠금 스타일 */
+.content-locked {
+    filter: grayscale(1); 
+    opacity: 0.1;        
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 0.4s ease;
+}
+
+/* 🚀 [GRIMOIRE UI]: 플로팅 세이브 아이콘 */
+.grimoire-float-btn {
+    position: absolute;
+    top: 0px;         /* 기존 25px -> 더 상단으로 밀착 */
+    right: 0px;       /* 기존 30px -> 더 우측 코너로 밀착 */
+    background: transparent !important; /* 보기 싫은 네모 배경 완전 제거 */
+    border: none !important;            /* 투박한 테두리 완전 제거 */
+    outline: none !important;
+    color: #49dce1 !important;          /* 완벽한 Cyan Blue 강제 적용 */
+    cursor: pointer;
+    z-index: 50;
+    padding: 4px;      /* 쓸데없는 여백 최소화 */
+    display: none;     
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 아이콘 SVG 자체 사이즈 및 기본 빛망울 */
+.grimoire-float-btn svg {
+    width: 20px;       /* 기존 28px -> 작고 날렵하게 축소 */
+    height: 20px;
+    filter: drop-shadow(0 0 2px rgba(73, 220, 225, 0.4));
+    transition: all 0.2s ease;
+}
+
+/* Hover: 네모 배경 없이 아이콘만 강하게 발광 */
+.grimoire-float-btn:hover {
+    background: transparent !important; /* 호버 시 나타나는 네모 박스 차단 */
+    box-shadow: none !important;
+}
+
+.grimoire-float-btn:hover svg {
+    filter: drop-shadow(0 0 10px rgba(73, 220, 225, 1)); /* Cyan Glow 이펙트 증폭 */
+    transform: scale(1.1); /* 마우스 올리면 아이콘만 살짝 커짐 */
+}
+
+/* Active: 클릭 시 물리적인 눌림 이펙트 */
+.grimoire-float-btn:active {
+    transform: translateY(2px) scale(0.95);
+}
+
+/* 🚀 [GRIMOIRE UI]: 인스크라이빙 오버레이 및 프로그레스 바 */
+.inscribe-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.inscribe-text {
+    color: #7CFF9B;
+    /* 폰트를 VS Code 스타일로 강제 고정 */
+    font-family: 'JetBrains Mono', 'Consolas', 'Courier New', monospace !important; 
+    letter-spacing: 0.4em;
+    font-size: 1rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 8px rgba(73, 220, 225, 0.5);
+}
+
+/* 스케치 반영: 두껍고 견고한 느낌의 외곽선 */
+.inscribe-bar-wrap {
+    width: 350px;
+    height: 30px; 
+    border: 2px solid #1a5153;
+    padding: 3px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* 차오르는 바 이펙트 */
+.inscribe-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: #7CFF9B;
+    box-shadow: 0 0 12px rgba(73, 220, 225, 0.6);
+    transition: width 0.1s linear;
+}
+
+/* 퍼센티지 텍스트 (바 중앙에 고정) */
+.inscribe-percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-family: 'JetBrains Mono', 'Consolas', monospace !important;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    mix-blend-mode: difference; /* 바가 차오를 때 글자색 반전 효과 */
+    z-index: 2;
+}
+
+.inscribe-done {
+    position: absolute;
+    color: #49dce1;
+    font-family: 'JetBrains Mono', 'Consolas', monospace !important;
+    letter-spacing: 0.3em;
+    font-size: 1.2rem;
+    opacity: 0;
+    text-shadow: 0 0 15px rgba(73, 220, 225, 0.8);
+    transition: opacity 0.4s ease;
+}
+
+/* =========================================================
+   사이드바 (Sidebar) 레이아웃 및 툴팁 디자인
+========================================================= */
+.module-menu { display: flex; flex-direction: column; gap: 6px; padding-top: 15px; }
+.mod-item-wrapper { position: relative; }
+
+.mod-item.is-locked { opacity: 0.15 !important; filter: grayscale(1); cursor: help; transition: all 0.5s ease; }
+.mod-item.is-time-locked { opacity: 0.15 !important; filter: grayscale(1); cursor: help; border-left: 2px solid rgba(255, 82, 82, 0.4) !important; }
+
+.custom-tooltip {
+    display: none; position: absolute; left: -240px; top: 50%; transform: translateY(-50%);
+    background-color: #000000; color: #49dce1; border: 1px solid #49dce1;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 0.75rem;
+    white-space: nowrap; padding: 8px 12px; z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8); pointer-events: none;
+}
+
+.mod-item-wrapper:hover .custom-tooltip.active-tooltip { display: block; }
+
+.mod-item { display: flex; align-items: center; padding: 12px 16px; text-decoration: none; transition: all 0.25s ease; }
+.mod-item.inactive { color: #888; margin-left: 20px; opacity: 0.8; }
+.mod-item.inactive:not(.is-locked):not(.is-time-locked):hover { color: #7CFF9B; margin-left: 15px; }
+.mod-item.active { color: #49dce1; background: #1e1e1e; margin-left: 0; border-left: 4px solid #49dce1; }
+
+.mod-id { font-size: 0.6rem; width: 30px; opacity: 0.5; font-family: monospace; }
+.mod-title { font-size: 0.8rem; letter-spacing: 0.5px; }
+.nav-label { font-size: 0.65rem; letter-spacing: 3px; padding: 0 20px 10px 20px; }
+
+
+/* =========================================================
+   🚀 [Module Radar]: Sidebar N Marker
+========================================================= */
+.mod-new-marker {
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    background-color: #3cff8f;
+    border-radius: 4px;
+    
+    color: #000;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 0.65rem;
+    font-weight: 900;
+    
+    box-shadow: 
+        0 0 5px rgba(60, 255, 143, 1),
+        0 0 15px rgba(60, 255, 143, 0.7),
+        0 0 25px rgba(60, 255, 143, 0.4);
+    
+    pointer-events: none;
+    z-index: 10;
+    animation: pulseGlow 2s infinite;
+}

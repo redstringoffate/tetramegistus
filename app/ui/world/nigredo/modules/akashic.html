@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>God Mode Lv1: Akashic Records</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/world/shell/icon.svg" type="image/svg+xml">
+    
+    <link rel="stylesheet" href="/static/world/shell/base.css">
+    <link rel="stylesheet" href="/static/world/nigredo/modules/akashic.css?v=3">
+</head>
+<body class="akashic-body">
+
+    <nav class="akashic-nav">
+        <div class="akashic-nav-title">God Mode Lv1: Akashic Records</div>
+        <a href="/world/nigredo" class="return-btn">RETURN TO TETRAMEGISTUS</a>
+    </nav>
+
+    <main class="akashic-layout">
+        <table class="akashic-table">
+            <thead>
+                <tr>
+                    <th class="col-souls">Recorded Souls</th>
+                    <th class="col-anamnesis">Anamnesis</th>
+                    <th class="col-visit">Last Visit</th>
+                    <th class="col-purge">Purge</th>
+                </tr>
+            </thead>
+            <tbody id="soul-list">
+                </tbody>
+        </table>
+
+        <div id="pagination" class="akashic-pagination"></div>
+    </main>
+
+    <div id="seed-tooltip"></div>
+
+    <div id="ritual-step1" class="ritual-overlay">
+        <div class="ritual-box">
+            <div class="ritual-title">INITIATING DISSOLUTION</div>
+            <p class="ritual-msg">Will you return this soul to the Void?</p>
+            <div class="ritual-btns">
+                <button class="ritual-btn" onclick="Akashic.proceedToStep2()">YES</button>
+                <button class="ritual-btn" onclick="Akashic.closeRitual()">NO</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="ritual-step2" class="ritual-overlay">
+        <div class="ritual-box">
+            <div class="ritual-title">[RETURN TO PRIMA MATERIA]</div>
+            <p class="ritual-msg">To complete the unmaking, type the soul's true name.</p>
+            <input type="text" id="true-name-input" class="ritual-input" placeholder="[Input: awaiting true name...]" onkeydown="Akashic.checkTrueName(event)" autocomplete="off">
+            <div class="ritual-guide">type full email address correctly and press Enter</div>
+        </div>
+    </div>
+
+    <div id="ritual-step3" class="ritual-overlay">
+        <div class="ritual-box">
+            <div class="ritual-title">FINAL SEAL</div>
+            <p class="ritual-msg">Enter Google Authenticator code to finalize the purge.</p>
+            <input type="password" id="otp-input" class="ritual-input" placeholder="000000" maxlength="6" onkeydown="Akashic.finalizePurge(event)" autocomplete="off">
+        </div>
+    </div>
+
+    <script src="/static/world/nigredo/modules/akashic.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+/* C1 EDIT LIST STYLING (Enhanced) */
+:root {
+    --c1-cyan: #49dce1;
+    --c1-bg-dark: #000;
+    --c1-border: #333; 
+    --c1-font: ui-monospace, SFMono-Regular, Consolas, 'Cascadia Code', monospace;
+}
+
+.c1-module-container {
+    padding: 5px;
+    color: #eee;
+    font-family: var(--c1-font);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* 툴팁 위치 계산을 위해 relative 유지 */
+    position: relative; 
+}
+
+.c1-edit-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto; /* 내용 많으면 스크롤 */
+    max-height: 400px; /* 적절한 최대 높이 설정 */
+}
+
+/* 🌟 NEW: Tooltip Styling */
+.c1-list-tooltip {
+    position: fixed; /* 뷰포트 기준 고정 (스크롤 영향 X) */
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid var(--c1-cyan);
+    color: #eee;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    z-index: 99999; /* 최상위 레이어 */
+    pointer-events: none; /* 마우스 이벤트 통과 */
+    display: none; /* 기본 숨김 */
+    white-space: pre-line; /* 줄바꿈(\n) 인식 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    border-radius: 2px;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+}
+
+/* Empty State */
+.c1-no-data {
+    text-align: center;
+    color: #666;
+    margin-top: 30px;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+/* List Item */
+.c1-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px;
+    border-bottom: 1px solid #1f1f1f;
+    transition: background 0.2s, border-color 0.2s;
+    cursor: default;
+}
+
+.c1-list-item:hover {
+    background: #0a0a0a;
+    border-bottom-color: #333;
+}
+
+/* Item Info */
+.c1-item-info { display: flex; align-items: center; gap: 15px; overflow: hidden; }
+.c1-item-index { color: #555; font-size: 0.8rem; min-width: 20px; text-align: right; }
+.c1-item-name {
+    color: var(--c1-cyan); font-weight: bold; font-size: 0.9rem;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px;
+}
+.c1-item-type { font-size: 0.65rem; color: #666; letter-spacing: 0.05em; margin-top: 2px; }
+
+/* Action Buttons */
+.c1-item-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+/* 🌟 ENHANCED BUTTONS */
+.c1-btn-edit, .c1-btn-del {
+    font-family: inherit; font-size: 0.7rem; padding: 5px 12px;
+    cursor: pointer; border-radius: 0; letter-spacing: 0.05em;
+    transition: all 0.2s ease-out; outline: none; text-transform: uppercase;
+    font-weight: bold; border-style: solid; border-width: 1px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5); /* 내부 깊이감 */
+}
+
+/* 🟦 EDIT Button: Cyan Theme */
+.c1-btn-edit {
+    border-color: #1f5f3a; color: var(--c1-cyan);
+    background: linear-gradient(to bottom, #0a1a12, #000);
+}
+.c1-btn-edit:hover {
+    border-color: var(--c1-cyan); color: #fff;
+    background: rgba(73, 220, 225, 0.2);
+    box-shadow: 0 0 12px rgba(73, 220, 225, 0.5); /* 강력한 외부 발광 */
+}
+
+/* 🟥 DEL Button: Red Theme */
+.c1-btn-del {
+    border-color: #550000; color: #ff5f5f;
+    background: linear-gradient(to bottom, #1a0a0a, #000);
+}
+.c1-btn-del:hover {
+    border-color: #ff4444; color: #fff;
+    background: rgba(255, 68, 68, 0.25);
+    box-shadow: 0 0 12px rgba(255, 68, 68, 0.5); /* 강력한 외부 발광 */
+}
+
+/* 🌟 🚀 NEW: Return Button Styling (Footer Override) */
+/* 모달 하단의 Return 버튼을 이쁘게 꾸밉니다. 이 CSS가 나중에 로드되므로 적용됩니다. */
+#c1-modal-overlay .c1-btn-return {
+    background: transparent !important;
+    border: 1px solid #333 !important;
+    color: #888 !important;
+    padding: 8px 24px !important;
+    font-family: var(--c1-font) !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.1em !important;
+    transition: all 0.2s !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+    margin-top: 10px !important;
+}
+#c1-modal-overlay .c1-btn-return:hover {
+    border-color: #666 !important;
+    color: #eee !important;
+    background: #111 !important;
+    box-shadow: 0 0 5px rgba(255,255,255,0.1) !important;
+}

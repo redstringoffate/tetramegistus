@@ -1,0 +1,85 @@
+/* static/mobile/world/nigredo/modules/n6.css */
+
+.m-n6-container {
+    padding: 10px 0;
+    font-family: 'Consolas', 'Monaco', monospace !important;
+    color: #7CFF9B;
+}
+
+.m-materia-title {
+    color: #7CFF9B; font-size: 1.1rem; font-weight: normal; 
+    margin-bottom: 20px; letter-spacing: 0.5px; text-align: center;
+}
+
+/* Switches & Toggles */
+.m-anti-switch-module { position: relative; display: flex; justify-content: flex-start; padding-left: 20px; }
+.m-dichotomy-module { display: flex; align-items: center; gap: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.m-dicho-label { font-size: 0.65rem; color: #666; transition: 0.2s; user-select: none; letter-spacing: 1px; }
+.m-dicho-label.active { color: #7CFF9B; font-weight: bold; text-shadow: 0 0 8px rgba(124, 255, 155, 0.6); }
+
+.m-toggle-switch { width: 36px; height: 18px; background: #111; border: 1px solid #7CFF9B; border-radius: 10px; position: relative; }
+.m-toggle-knob { width: 12px; height: 12px; background: #7CFF9B; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: left 0.3s ease; box-shadow: 0 0 5px rgba(124, 255, 155, 0.8); }
+.m-toggle-knob.right { left: 20px; }
+
+/* Tabs & Selects */
+.m-connected-tabs { display: flex; border: 1px solid #7CFF9B; background: #000; border-radius: 4px; overflow: hidden; width: calc(100% - 40px); margin: 0 auto 15px auto; }
+.m-connected-tabs .m-tab { flex: 1; background: transparent; border: none; border-right: 1px solid rgba(124, 255, 155, 0.4); color: #7CFF9B; padding: 10px 0; font-size: 0.75rem; text-align: center; font-family: inherit; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
+.m-connected-tabs .m-tab:last-child { border-right: none; }
+.m-connected-tabs .m-tab.active { background: #7CFF9B !important; color: #000 !important; font-weight: bold !important; }
+
+.m-ayan-tabs { border-color: #555; margin-top: -5px; margin-bottom: 15px; }
+.m-ayan-tabs .m-tab { padding: 6px 0; font-size: 0.6rem; color: #666; border-right-color: rgba(124, 255, 155, 0.3); }
+.m-ayan-tabs .m-tab.active { background: #333 !important; color: #fff !important; }
+
+.m-n6-select { background: #050505; border: 1px solid rgba(124, 255, 155, 0.4); color: #7CFF9B; padding: 8px 10px; font-family: inherit; font-size: 0.75rem; border-radius: 4px; outline: none; appearance: none; }
+.m-n6-select:focus { border-color: #7CFF9B; box-shadow: 0 0 5px rgba(124, 255, 155, 0.5); }
+
+/* Grids */
+.m-graha-grid-container { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: #222; border: 1px solid #555; margin: 0 20px 20px 20px; border-radius: 4px; overflow: hidden; }
+.m-h-keyboard-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #222; border: 1px solid #7CFF9B; margin: 0 10px 15px 10px; border-radius: 4px; overflow: hidden; }
+.m-grid-btn { background: #050505; color: #666; border: none; padding: 12px 0; text-align: center; cursor: pointer; font-family: inherit; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; transition: 0.1s; }
+.m-grid-btn:active { background: rgba(124, 255, 155, 0.1); }
+.m-grid-btn.active { background: #7CFF9B !important; color: #000 !important; box-shadow: inset 0 0 10px rgba(0,0,0,0.5); }
+
+/* Tables */
+.m-n6-table-wrapper { width: 100%; overflow: auto; -webkit-overflow-scrolling: touch; border-top: 2px solid #222; border-bottom: 2px solid #222; max-height: 65vh; background: #000; position: relative; }
+.m-n6-table { width: max-content; min-width: 100%; border-collapse: separate; border-spacing: 0; background: #000; font-size: 0.75rem; table-layout: auto; }
+.m-n6-table th, .m-n6-table td { padding: 12px 10px; border-right: 1px solid #161616; border-bottom: 1px solid #161616; text-align: center; vertical-align: middle; white-space: nowrap; box-sizing: border-box; }
+.m-n6-table th { background: #050505; color: #7F7F7F; font-weight: bold; position: sticky; top: 0; z-index: 20; border-bottom: 2px solid #333; }
+.m-n6-table th.sticky-corner { z-index: 40 !important; left: 0; background: #000 !important; color: #fff; border-right: 2px solid #333; box-shadow: 4px 4px 10px rgba(0,0,0,0.9); }
+.m-n6-table td.sticky-col { position: sticky; left: 0; z-index: 30; background: #000 !important; color: #fff; font-weight: bold; border-right: 2px solid #333; box-shadow: 4px 0 10px rgba(0,0,0,0.9); text-align: left; padding-left: 15px; }
+
+/* 🚀 Aspects 2-Col Layout (비율 및 폰트 밸런싱) */
+.m-n6-aspects-wrapper { display: flex; width: 100%; justify-content: space-between; gap: 5px; padding: 0 10px; box-sizing: border-box; }
+.m-aspect-col { flex: 1; display: flex; flex-direction: column; border: 1px solid #222; border-radius: 4px; background: #050505; overflow: hidden; height: 50vh; }
+.m-col-narrow { flex: 0.81; } /* 🚀 4.5 대 5.5 황금 비율 */
+.m-aspect-header { background: #111; color: #7F7F7F; font-size: 0.65rem; font-weight: bold; text-align: center; padding: 8px 0; border-bottom: 1px solid #333; letter-spacing: 0.5px; flex-shrink: 0; }
+.m-aspect-body { padding: 5px; overflow-y: auto; display: flex; flex-direction: column; gap: 5px; flex: 1; }
+
+.m-asp-item { padding: 8px 10px; background: #000; border: 1px solid #1a1a1a; border-radius: 4px; text-align: left; line-height: 1.4; display: flex; flex-direction: column; gap: 4px; cursor: pointer; transition: 0.2s; }
+.m-asp-item:active { background: rgba(124, 255, 155, 0.1); }
+.m-asp-item.active { background: rgba(124, 255, 155, 0.15); border-color: #7CFF9B; }
+.m-asp-item-center { align-items: center; justify-content: center; text-align: center; height: 100%; border: none; background: transparent; color: #555; }
+
+/* Clickable / Modals */
+.m-varga-clickable-td { cursor: pointer; transition: background 0.2s; }
+.m-varga-clickable-td:active { background: rgba(124, 255, 155, 0.1); }
+
+.m-toast-hidden { transform: translateY(100%); opacity: 0; pointer-events: none; }
+#m-n6-toast { position: fixed; bottom: 0; left: 0; width: 100%; box-sizing: border-box; background: rgba(5, 15, 20, 0.95); border-top: 1px solid #7CFF9B; color: #fff; padding: 15px 20px; font-size: 0.8rem; line-height: 1.4; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 9999; box-shadow: 0 -4px 15px rgba(0,0,0,0.5); backdrop-filter: blur(5px); padding-bottom: calc(15px + env(safe-area-inset-bottom)); text-align: center; }
+
+.fs-popover-box { position: fixed !important; top: 50% !important; left: 50% !important; bottom: auto !important; transform: translate(-50%, -50%) !important; width: 80%; max-height: 60vh; background: rgba(0, 0, 0, 0.95); border: 1px solid #7CFF9B; box-shadow: 0 0 30px rgba(124, 255, 155, 0.2); padding: 20px; z-index: 99999; color: #7CFF9B; overflow-y: auto; display: none; border-radius: 8px; }
+.fs-popover-box.active { display: block; }
+
+/* 🚀 Custom Dropdown (Aspects 전용) */
+.m-custom-dropdown { position: relative; width: 100%; }
+.m-dropdown-selected { background: #050505; border: 1px solid rgba(124, 255, 155, 0.4); padding: 12px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; color: #fff; cursor: pointer; font-size: 0.85rem; }
+.m-dropdown-selected::after { content: '▼'; font-size: 0.7rem; color: #7CFF9B; }
+.m-dropdown-list { position: absolute; top: 100%; left: 0; width: 100%; background: #000; border: 1px solid #333; max-height: 300px; overflow-y: auto; z-index: 100; border-radius: 4px; margin-top: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.9); }
+.m-dropdown-item { padding: 12px; border-bottom: 1px solid #111; font-size: 0.85rem; cursor: pointer; display: flex; justify-content: space-between; }
+.m-dropdown-item:active { background: rgba(124, 255, 155, 0.1); }
+
+/* 🚀 [수정 1]: Pluto와 Chiron 사이의 Cyan Blue 구분선 */
+.m-n6-divider-cyan td {
+    border-top: 1px solid #00FFFF !important;
+}

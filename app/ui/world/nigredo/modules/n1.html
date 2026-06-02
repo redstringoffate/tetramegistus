@@ -1,0 +1,148 @@
+<link rel="stylesheet" href="/static/world/nigredo/modules/n1.css">
+
+<div class="n1-container">
+    <h2 class="materia-title">Prima Materia</h2>
+
+    <section class="materia-section">
+        <label class="section-label">Select seed</label>
+        <div class="dropdown-container">
+            <select id="seed-selector" class="materia-dropdown" 
+                    onmousedown="handleDropdownClick()">
+                <option value="" disabled selected>Loading Anchor...</option>
+            </select>
+        </div>
+    </section>
+
+    <section class="materia-actions">
+        <div class="action-row">
+            <span class="action-text">Append Seed</span>
+            <button class="symbol-btn" onclick="location.href='/world/nigredo/append'">+</button>
+        </div>
+
+        <div class="action-row">
+            <span class="action-text">Edit Seed</span>
+            <button class="symbol-btn" onclick="goToEditPage()">*</button>
+        </div>
+
+        <div class="action-row">
+            <span class="action-text">Delete Seed</span>
+            <button class="symbol-btn delete" onclick="confirmExtinguish()">x</button>
+        </div>
+    </section>
+</div>
+
+<script src="/static/world/nigredo/modules/n1.js"></script>
+<script>
+    /**
+     * 🛡️ [Station Enforcer v14.9]
+     * 비회원 유동적 인덱스 정합성 및 물리적 소멸 로직 통합본
+     */
+    let isManifested = false; 
+
+    // 🔑 [수복]: 중복 선언을 제거하고 단일화된 초기화 로직을 집행합니다.
+    async function initializeStaticState() {
+        const selector = document.getElementById('seed-selector');
+        
+        // 1. 페이지 로드 즉시 n1.js의 renderSeeds를 호출하여 실재하는 데이터를 스캔합니다.
+        if (typeof renderSeeds === 'function') {
+            await renderSeeds();
+            isManifested = true; 
+        }
+
+        // 2. 렌더링 후 세션에 기록된 인덱스로 포커스를 맞춥니다.
+        const savedIdx = localStorage.getItem('current_seed_idx') || "0";
+        selector.value = savedIdx;
+    }
+
+    async function handleDropdownClick() {
+        if (!isManifested) {
+            if (typeof renderSeeds === 'function') {
+                await renderSeeds();
+                isManifested = true;
+            }
+        }
+    }
+
+    function goToEditPage() {
+        const selector = document.getElementById('seed-selector');
+        
+        // seed.idx를 찾는 옛날 방식 폐기!
+        // select 박스의 value 자체(서버는 숫자, 로컬은 LOCAL_이름)를 그대로 가져옴
+        const targetId = selector.value; 
+
+        if (!targetId) return alert("Select a seed.");
+
+        // 정확한 ID를 쥐고 Edit 페이지로 이동
+        location.href = `/world/nigredo/edit/${targetId}`;
+    }
+
+    async function confirmExtinguish() {
+        const selector = document.getElementById('seed-selector');
+        const selectedOption = selector.options[selector.selectedIndex];
+        
+        // 🔑 [v14.9 핵심 수복]: 누락되었던 변수 선언 확립
+        const selectedId = selector.value; 
+
+        // [me] (idx 0)는 절대 소멸될 수 없는 시스템의 기점입니다.
+        if (!selectedId || selectedId === "0") {
+            return alert("[me] cannot be extinguished.");
+        }
+
+        const seedData = JSON.parse(selectedOption.dataset.seedPayload || "{}");
+        const targetKey = seedData.name; // append.js에서 Key로 사용한 이름
+
+        if (confirm(`Seed '${targetKey}' will return to the void. Proceed?`)) {
+            try {
+                // 1. [Local Void]: 로컬 스토리지 찌꺼기 무조건 소각
+                if (localStorage.getItem(targetKey)) {
+                    localStorage.removeItem(targetKey);
+                }
+                for (let i = 0; i < localStorage.length; i++) {
+                    const k = localStorage.key(i);
+                    try {
+                        const d = JSON.parse(localStorage.getItem(k));
+                        // 1. [Local Void]: 로컬 스토리지 찌꺼기 무조건 소각
+                if (localStorage.getItem(targetKey)) {
+                    localStorage.removeItem(targetKey);
+                }
+                
+                // 🚀 [Sweeper Update]: 숨어있는 복제본까지 모조리 파기
+                const keysToRemove = [];
+                for (let i = 0; i < localStorage.length; i++) {
+                    const k = localStorage.key(i);
+                    try {
+                        const d = JSON.parse(localStorage.getItem(k));
+                        if (d && String(d.idx) === String(selectedId)) {
+                            keysToRemove.push(k);
+                        }
+                    } catch(e) {}
+                }
+                keysToRemove.forEach(k => localStorage.removeItem(k));
+                    } catch(e) {}
+                }
+
+                // 2. [Server Void]: 회원 시드라면 무조건 서버 API 찌르기 (족쇄 해제)
+                if (!isNaN(selectedId) && String(selectedId) !== "0") {
+                    const res = await fetch(`/api/natal/delete/${selectedId}`, { method: 'DELETE' });
+                    if (!res.ok) throw new Error("Server rejected the purge.");
+                }
+
+                // 3. [Session Cleanup]: 삭제 완료 후 회귀 로직
+                localStorage.removeItem('current_seed_idx');
+                localStorage.removeItem('current_seed_text');
+                
+                const meData = localStorage.getItem('tetramegistus.me');
+                if (meData) localStorage.setItem('active_seed', meData);
+
+                alert("Extinguished.");
+                location.replace(location.href); 
+
+            } catch (err) {
+                console.error("[VOID] Ritual Failed:", err);
+                alert("The seed resisted extinction.");
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', initializeStaticState);
+</script>

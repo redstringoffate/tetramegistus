@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ mode }} MODE - Tetramegistus</title>
+    <link rel="stylesheet" href="/static/world/rubedo/godmode_lv3/godmode_editor.css?v=2">
+</head>
+<body class="albedo-sanctuary">
+
+    <nav class="god-nav">
+        <div class="god-title">{{ mode }} MODE</div>
+        <div class="nav-buttons" style="align-items: center;">
+            <!-- 🚀 [신규] God Token 타이머 -->
+            <div id="god-token-timer" class="god-token-timer" onclick="EditorUI.extendGodToken()" title="Extend Session">God Token --:--:--</div>
+            <button class="action-btn" onclick="EditorUI.promptReturn()">RETURN TO GOD MODE</button>
+            <button class="action-btn btn-post" onclick="EditorUI.promptPost()">POST</button>
+        </div>
+    </nav>
+
+    <div class="editor-layout">
+        
+        <main class="editor-main">
+            <div class="toolbar">
+                <div class="toolbar-group" style="width: 100%; display: flex; justify-content: space-between;">
+                    <div style="display: flex; gap: 8px;">
+                        <!-- 🚀 파일, 표, 링크 도구 -->
+                        <button class="tool-btn" title="Insert Image">🖼️ Image</button>
+                        <button class="tool-btn" title="Attach File">📁 File</button>
+                        <button class="tool-btn" title="Insert Chart (Table)">📊 Chart</button>
+                        <button class="tool-btn tool-disabled" id="btn-link" title="Link">🔗 Link</button>
+                    </div>
+                    <button class="tool-btn" style="color:#0088ff; font-weight:bold; border:1px solid #0088ff;" onclick="EditorUI.manualSave()" title="Save Progress">💾 Save</button>
+                </div>
+                
+                <div class="toolbar-group">
+                    <!-- 🚀 폰트 및 사이즈 -->
+                    <select class="tool-select" id="font-family-select" title="Font Style">
+                        <option value="Cascadia Code" selected>Cascadia Code</option>
+                        <option value="Agency FB">Agency FB</option>
+                        <option value="Book Antiqua">Book Antiqua</option>
+                        <option value="Cascadia Code Light">Cascadia Code Light</option>
+                        <option value="Consolas">Consolas</option>
+                        <option value="Garamond">Garamond</option>
+                        <option value="Lucida Calligraphy">Lucida Calligraphy</option>
+                        <option value="Tahoma">Tahoma</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                    </select>
+
+                    <select class="tool-select" id="font-size-select" title="Font Size">
+                        <option value="8pt">8</option>
+                        <option value="9pt">9</option>
+                        <option value="10pt">10</option>
+                        <option value="11pt">11</option>
+                        <option value="12pt" selected>12</option>
+                        <option value="14pt">14</option>
+                        <option value="16pt">16</option>
+                        <option value="18pt">18</option>
+                        <option value="20pt">20</option>
+                        <option value="22pt">22</option>
+                        <option value="24pt">24</option>
+                        <option value="26pt">26</option>
+                        <option value="28pt">28</option>
+                        <option value="30pt">30</option>
+                        <option value="32pt">32</option>
+                        <option value="34pt">34</option>
+                        <option value="36pt">36</option>
+                    </select>
+
+                    <div class="tool-divider"></div>
+                    <!-- 🚀 기본 서식 -->
+                    <button class="tool-btn" style="font-weight:bold;" title="Bold">B</button>
+                    <button class="tool-btn" style="font-style:italic;" title="Italic">I</button>
+                    <button class="tool-btn" style="text-decoration:underline;" title="Underline">U</button>
+                    <button class="tool-btn" style="text-decoration:line-through;" title="Strikethrough">S</button>
+                    
+                    <div class="tool-divider"></div>
+                    <!-- 🚀 색상, 정렬, 간격, 특수기호 (중복 제거됨) -->
+                    <button class="tool-btn" title="Text Color">A</button>
+                    <button class="tool-btn" title="Background Color">🔠</button>
+                    <div class="tool-divider"></div>
+                    <button class="tool-btn" title="Align">≡</button>
+                    <button class="tool-btn" title="Line Spacing">↕</button>
+                    
+                    <!-- 🚀 [신규] 리스트(Bullet) 버튼 추가 -->
+                    <button class="tool-btn" title="List">📋</button>
+                    
+                    <button class="tool-btn" title="Superscript">T¹</button>
+                    <button class="tool-btn" title="Subscript">T₁</button>
+                    <button class="tool-btn" title="Symbol">※</button>
+                    
+                    <!-- 🚀 셀 색상 페인트 -->
+                    <button class="tool-btn tool-cell-paint" id="btn-cell-paint" style="display: none;" title="Cell Color">🎨 Cell Paint</button>
+                    
+                    <!-- 🚀 최근 색상 즉시 적용 (Quick Paint) -->
+                    <button class="tool-btn" id="btn-quick-paint" style="display: none; border: 1px solid #ddd; width: 28px; height: 28px; padding: 0; border-radius: 4px; vertical-align: middle; cursor: pointer; transition: 0.2s;" title="Quick Paint (Last Used Color)"></button>
+                </div>
+            </div>
+
+            <div class="writing-canvas" id="canvas-area">
+                <div id="editor-title" class="editor-title" contenteditable="true" data-placeholder="Title" style="font-family: 'Cascadia Code', monospace;"></div>
+                <div id="editor-content" class="editor-content" contenteditable="true" data-placeholder="Content" style="font-family: 'Cascadia Code', monospace;"></div>
+            </div>
+        </main>
+
+        <aside class="editor-sidebar" id="right-sidebar">
+            <div class="sidebar-handle" id="sidebar-toggle-btn" onclick="EditorUI.toggleSidebar()" title="Toggle Sidebar">▶</div>
+            <div class="sidebar-inner-content"> 
+                <div class="side-title">CURRENT LOCATION</div>
+                <div class="tree-item">📁 {{ module | upper }}</div>
+                {% set parts = path.split('/') %}
+                <div class="tree-indent">
+                    <div class="tree-item">📁 {{ parts[0] | capitalize }}</div>
+                    <div class="tree-indent">
+                        <div class="tree-item tree-active">📄 {{ parts[1] }}</div>
+                        <div class="lang-boxes">
+                            <div class="lang-box {% if lang == 'en' %}active{% endif %}" onclick="EditorUI.switchLang('en')">en</div>
+                            <div class="lang-box {% if lang == 'ko' %}active{% endif %}" onclick="EditorUI.switchLang('ko')">ko</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:40px; font-size:0.7rem; color:#ccc;">Auto-save: <span id="save-status">Idle</span></div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 저장 확인 모달 -->
+    <div id="modal-overlay" class="albedo-overlay" style="display: none;">
+        <div class="albedo-box">
+            <div id="modal-text" class="albedo-text">Will you save your progress?</div>
+            <div class="albedo-btn-group">
+                <button class="albedo-btn yes" id="modal-btn-yes">Yes</button>
+                <button class="albedo-btn no" id="modal-btn-no">No</button>
+            </div>
+        </div>
+    </div>
+
+    <meta id="meta-module" content="{{ module }}">
+    <meta id="meta-path" content="{{ path }}">
+    <meta id="meta-lang" content="{{ lang }}">
+
+    <!-- 🚀 JS 캐시 강제 무효화 버전업 (v=7) -->
+    <script src="/static/world/rubedo/godmode_lv3/godmode_editor.js?v=9"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+/* static/world/shell/grimoire/albedo.css */
+
+.grimoire-archive-container {
+    background: transparent; 
+    color: #e0e0e0;
+    padding: 0px;
+    font-family: inherit;
+}
+
+.archive-title {
+    color: #fff; 
+    text-shadow: 0 0 10px rgba(73, 220, 225, 0.5);
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.archive-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.empty-grimoire {
+    color: #555;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.archive-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #545454 !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: fit-content;
+}
+
+/* 🚀 시안 블루 십자별 */
+.archive-item::before {
+    content: '✦'; 
+    color: #b388ff;
+    margin-right: 15px;
+    font-size: 1rem;
+    text-shadow: 0 0 5px #b388ff;
+    transition: transform 0.3s ease;
+}
+
+.archive-item:hover {
+    color: #49dce1;
+    transform: translateX(10px);
+}
+
+.archive-item:hover::before {
+    transform: scale(1.3);
+}
+
+/* 🚀 박스 형태의 돌아가기 버튼 (Hover 시 시안 블루 발광) */
+.btn-return {
+    display: inline-block;
+    background: transparent;
+    color: #777;
+    border: 1px solid #555;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-return:hover {
+    color: #49dce1;
+    border-color: #49dce1;
+    text-shadow: 0 0 8px rgba(73, 220, 225, 0.8);
+    box-shadow: 0 0 10px rgba(73, 220, 225, 0.4), inset 0 0 8px rgba(73, 220, 225, 0.2); 
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Nigredo Archive Action Buttons & Layout
+   ───────────────────────────────────────────────────────────── */
+.archive-row {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 70px; /* 이름과 아이콘 사이의 간격 */
+    padding-right: 20px;
+}
+
+.archive-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* 마우스를 올렸을 때 액션 버튼들이 나타남 */
+.archive-row:hover .archive-actions {
+    opacity: 1; 
+}
+
+/* 아이콘 버튼 기본 스타일 */
+.btn-grimoire-action {
+    background: transparent;
+    border: 1px solid #333333 !important; 
+    color: #333333 !important; 
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-grimoire-action:hover {
+    transform: translateY(-2px);
+}
+
+/* 📥 다운로드 버튼 Hover (Nigredo 보라색) */
+.btn-grimoire-action.btn-download:hover {
+    color: #b388ff;
+    border-color: #b388ff;
+    background: rgba(179, 136, 255, 0.1);
+    box-shadow: 0 0 8px rgba(179, 136, 255, 0.4);
+}
+
+/* 🗑️ 삭제 버튼 Hover (경고의 붉은색) */
+.btn-grimoire-action.btn-delete:hover {
+    color: #ff5252;
+    border-color: #ff5252;
+    background: rgba(255, 82, 82, 0.1);
+    box-shadow: 0 0 8px rgba(255, 82, 82, 0.4);
+}
+
+.archive-row {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 70px; /* 이름과 아이콘 사이의 간격 */
+    padding-right: 20px;
+}
+
+.archive-actions {
+    display: flex;
+    gap: 10px;
+    opacity: 0; /* 평소에는 숨김 */
+    transition: opacity 0.3s ease;
+}
+
+/* 마우스를 올렸을 때 액션 버튼들이 나타남 */
+.archive-row:hover .archive-actions {
+    opacity: 1; 
+}

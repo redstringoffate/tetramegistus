@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/static/world/citrinitas/modules/c2.css">
+
+<div class="c2-hora-occulta">
+    <h1 class="data-title">HORA OCCULTA</h1>
+
+    <div class="matrix-unit" style="margin-top: 2rem;">
+        <h2 class="matrix-label-black">SELECT RITUAL</h2>
+        
+        <div class="ritual-selector">
+            <div class="ritual-btn" data-ritual="aleph" data-tooltip="Planetary Lord" onclick="C2.selectRitual('aleph')">א</div>
+            <div class="ritual-btn" data-ritual="mem" data-tooltip="Dasha Chandra" onclick="C2.selectRitual('mem')">מ</div>
+            <div class="ritual-btn" data-ritual="shin" data-tooltip="Arudha Ascendant" onclick="C2.selectRitual('shin')">ש</div>
+        </div>
+    </div>
+
+    <div id="ritual-sanctum" class="ritual-sanctum"></div>
+</div>
+
+<script src="/static/world/citrinitas/modules/c2.js"></script>

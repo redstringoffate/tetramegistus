@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="/static/world/nigredo/modules/n6.css?v=2">
+
+<div class="n6-divisio">
+    <div class="schema-header">
+        <div class="module-title">DIVISIO</div>
+        
+        <div class="dichotomy-wrapper">
+            <span id="n6-label-harmonics" class="dicho-label active">Harmonics</span>
+            <div class="toggle-switch" onclick="n6_toggleDivisioMode()">
+                <div class="toggle-knob" id="n6-mode-knob"></div>
+            </div>
+            <span id="n6-label-varga" class="dicho-label">Varga</span>
+        </div>
+
+        <div id="n6-sub-switch-container" class="dichotomy-wrapper" style="margin-top: 10px;">
+            <span id="n6-label-positions" class="dicho-label active">Positions</span>
+            <div class="toggle-switch" onclick="n6_toggleHarmonicView()">
+                <div class="toggle-knob" id="n6-view-knob"></div>
+            </div>
+            <span id="n6-label-aspects" class="dicho-label">Aspects</span>
+        </div>
+
+        <div id="n6-varga-controls" style="display: none; margin-top: 0px;">
+            <nav class="ayanamsa-switch-module" id="n6-ayanamsa-nav-container">
+                <button class="ayan-tab active" onclick="n6_switchAyanamsa('lahiri')">Lahiri</button>
+                <button class="ayan-tab" onclick="n6_switchAyanamsa('raman')">Raman</button>
+                <button class="ayan-tab" onclick="n6_switchAyanamsa('kp')">KP</button>
+                <button class="ayan-tab" onclick="n6_switchAyanamsa('fagan-bradley')">Fagan-Bradley</button>
+                <button class="ayan-tab" onclick="n6_switchAyanamsa('yukteswar')">Yukteswar</button>
+            </nav>
+
+            <div class="graha-grid-container" id="n6-graha-grid">
+                </div>
+        </div>
+    </div>
+
+    <hr class="separator" style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
+
+    <div id="n6-view-harmonic-positions" class="content-view">
+        <div class="h-scroll-view">
+            <table class="n6-table">
+                <thead>
+                    <tr>
+                        <th class="sticky-col">Celestial Bodies</th>
+                        <th>H1</th><th>H2</th><th>H3</th><th>H4</th><th>H5</th><th>H6</th>
+                        <th>H7</th><th>H8</th><th>H9</th><th>H10</th><th>H11</th><th>H12</th>
+                        <th>H16</th><th>H20</th><th>H24</th><th>H32</th>
+                    </tr>
+                </thead>
+                <tbody id="n6-h-pos-body">
+                    <tr><td class="sticky-col">Sun</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+                    <tr><td class="sticky-col">Moon</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+                    <tr><td class="sticky-col">Mercury</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+                    <tr><td class="sticky-col">Venus</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+                    <tr><td class="sticky-col">Mars</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="n6-view-harmonic-aspects" class="content-view" style="display: none;">
+        <div class="h-keyboard-grid" id="n6-h-btn-grid">
+            </div>
+        
+        <div class="aspect-explorer">
+            <div class="col-box" id="n6-col-h-bodies">
+                <div class="col-header">Celestial Bodies</div>
+                <div class="col-content" id="n6-list-h-bodies"></div>
+            </div>
+            <div class="col-box" id="n6-col-h-aspects">
+                <div class="col-header">Aspects</div>
+                <div class="col-content" id="n6-list-h-aspects"></div>
+            </div>
+            <div class="col-box" id="n6-col-h-objects">
+                <div class="col-header">Objects</div>
+                <div class="col-content" id="n6-list-h-objects">
+                    <div style="text-align: center; color: #444; margin-top: 50px;">Select Body & Aspect</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="n6-view-varga" class="content-view" style="display: none;">
+        <div class="varga-table-container">
+            <table class="n6-table varga-table">
+                <colgroup>
+                    <col style="width: 100px;">
+                    <col style="width: 250px;">
+                    <col style="width: 200px;">
+                    <col style="width: auto;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Division</th>
+                        <th>Information</th>
+                        <th>Nakshatra</th>
+                        <th>Purushartha</th>
+                    </tr>
+                </thead>
+                <tbody id="n6-varga-body">
+                    <tr><td>D1</td><td>-</td><td>-</td><td>-</td></tr>
+                    <tr><td>D2</td><td>-</td><td>-</td><td>-</td></tr>
+                    <tr><td>D3</td><td>-</td><td>-</td><td>-</td></tr>
+                    <tr><td>D4</td><td>-</td><td>-</td><td>-</td></tr>
+                    <tr><td>D9</td><td>-</td><td>-</td><td>-</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="/static/world/nigredo/modules/n6.js?v=4"></script>

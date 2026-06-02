@@ -1,0 +1,138 @@
+/* static/mobile/world/albedo/modules/a10.css */
+
+.m-a10-container {
+    padding: 10px 0; 
+    font-family: 'Consolas', 'Monaco', monospace !important;
+    color: #49dce1; 
+}
+
+.m-materia-title {
+    color: #49dce1; font-size: 1.1rem; font-weight: normal; 
+    margin-bottom: 20px; letter-spacing: 0.5px; text-align: center;
+}
+
+/* 1. 안티-컴포지트 토글 스위치 (좌측 정렬 & 소형화) */
+.m-anti-switch-module { display: flex; justify-content: flex-start; margin-bottom: 20px; padding-left: 20px; }
+.m-dichotomy-module { display: flex; align-items: center; gap: 8px; }
+.m-dicho-label { font-size: 0.65rem; color: #666; transition: 0.2s; user-select: none; }
+.m-dicho-label.active { color: #49dce1; font-weight: bold; text-shadow: 0 0 8px rgba(73, 220, 225, 0.6); }
+
+.m-toggle-switch { width: 36px; height: 18px; background: #111; border: 1px solid #49dce1; border-radius: 10px; position: relative; cursor: pointer; }
+.m-toggle-knob { width: 12px; height: 12px; background: #49dce1; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: left 0.3s ease; box-shadow: 0 0 5px rgba(73, 220, 225, 0.8); }
+
+.m-toggle-tooltip {
+    position: fixed; background: #49dce1; color: #000; padding: 4px 8px; border-radius: 4px;
+    font-size: 0.7rem; font-weight: bold; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    z-index: 10000; white-space: nowrap; transform: translate(-50%, -100%);
+}
+
+/* 2. System 연결형 블록 탭 */
+.m-connected-tabs {
+    display: flex; border: 1px solid #49dce1; background: #000; border-radius: 4px;
+    overflow: hidden; width: calc(100% - 40px); margin: 0 auto 15px auto;
+}
+.m-connected-tabs .m-tab {
+    flex: 1; background: transparent; border: none; border-right: 1px solid rgba(73, 220, 225, 0.4);
+    color: #49dce1; padding: 10px 0; font-size: 0.75rem; text-align: center;
+    font-family: inherit; text-transform: uppercase; cursor: pointer; transition: 0.2s;
+}
+.m-connected-tabs .m-tab:last-child { border-right: none; }
+.m-connected-tabs .m-tab.active { background: #49dce1 !important; color: #000 !important; font-weight: bold !important; }
+.m-tab:disabled { opacity: 0.3; pointer-events: none; }
+
+/* 3. Ayanamsa 연결형 블록 (계층 구분을 위해 슬릭/소형화) */
+.m-ayan-tabs { border-color: #949595; margin-top: -5px; }
+.m-ayan-tabs .m-tab { padding: 6px 0; font-size: 0.6rem; color: #444545; border-right-color: rgba(43, 122, 138, 0.4); }
+.m-ayan-tabs .m-tab.active { background: #444545 !important; color: #fff !important; }
+
+/* 4. Category 3x2 Grid 연결형 블록 탭 */
+.m-cat-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border: 1px solid #49dce1; border-radius: 4px; background: #000;
+    width: calc(100% - 40px); margin: 0 auto 20px auto; overflow: hidden;
+}
+.m-cat-grid .m-tab {
+    background: transparent; border: none;
+    border-right: 1px solid rgba(73, 220, 225, 0.4);
+    border-bottom: 1px solid rgba(73, 220, 225, 0.4);
+    color: #49dce1; padding: 10px 2px; font-size: 0.65rem; text-align: center;
+    font-family: inherit; text-transform: uppercase; cursor: pointer; transition: 0.2s;
+}
+.m-cat-grid .m-tab:nth-child(3n) { border-right: none; }
+.m-cat-grid .m-tab:nth-last-child(-n+3) { border-bottom: none; }
+.m-cat-grid .m-tab.active { background: #49dce1 !important; color: #000 !important; font-weight: bold !important; }
+.m-cat-grid .m-tab.locked { border-color: #ff4b4b; color: #ff4b4b; opacity: 0.4; }
+
+.m-hidden { display: none !important; }
+
+/* 5. 비교 매트릭스 테이블 */
+.m-a10-table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-top: 1px solid #333; border-bottom: 1px solid #333; }
+.m-a10-table { width: max-content; min-width: 100%; border-collapse: collapse; background: #000; }
+
+.m-a10-table th, .m-a10-table td { padding: 15px 12px; border-bottom: 1px solid rgba(73, 220, 225, 0.1); border-right: 1px solid rgba(73, 220, 225, 0.05); text-align: center; vertical-align: middle; }
+
+/* 테이블 헤더 줄바꿈 및 디자인 */
+.m-a10-table th { background: #050505; color: #7F7F7F; font-size: 0.75rem; text-transform: uppercase; font-weight: bold; position: sticky; top: 0; z-index: 5; line-height: 1.4; }
+
+/* 좌측 첫 번째 열(천체 이름) 무조건 고정 */
+.m-a10-table th:first-child, .m-a10-table td:first-child { position: sticky; left: 0; background: #050505; z-index: 10; text-align: left; font-weight: bold; color: #fff; border-right: 1px solid #333; }
+.m-a10-table th:first-child { z-index: 15; background: #000; }
+
+/* 사비안 심볼 데이터 텍스트 */
+.m-sabian-cell { color: #ccc; font-style: italic; font-size: 0.75rem; line-height: 1.5; white-space: pre-wrap; min-width: 160px; max-width: 200px; cursor: pointer; }
+
+/* 토스트 애니메이션 */
+.m-toast-hidden { transform: translateY(100%); opacity: 0; pointer-events: none; }
+#m-a10-toast { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(5, 15, 20, 0.95); border-top: 1px solid #49dce1; color: #fff; padding: 15px 20px; font-size: 0.8rem; line-height: 1.4; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 9999; box-shadow: 0 -4px 15px rgba(0,0,0,0.5); backdrop-filter: blur(5px); padding-bottom: calc(15px + env(safe-area-inset-bottom)); }
+
+/* 6. Hieros Gamos 로딩 애니메이션 */
+#m-a10-loading { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #000; display: none; align-items: center; justify-content: center; z-index: 20000 !important; overflow: hidden; }
+.m-hieros-bg { position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(180, 0, 0, 0.7) 0%, rgba(20, 0, 0, 0) 70%); border-radius: 50%; animation: m-hierosAura 2.5s ease-in-out infinite; z-index: 1; }
+.m-hieros-text { position: relative; color: #f0f0f0; font-size: 1.5rem; font-weight: bold; letter-spacing: 5px; text-transform: uppercase; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.4); z-index: 2; }
+
+@keyframes m-hierosAura {
+    0% { transform: scale(0.5); opacity: 0.3; }
+    50% { transform: scale(1.8); opacity: 1; }
+    100% { transform: scale(0.5); opacity: 0.3; }
+}
+
+/* 7. Glow Effects */
+.m-glow-slot { font-size: 1.2rem; min-width: 20px; text-align: center; }
+.glow-fire { color: #7CFF9B !important; text-shadow: 0 0 5px #F71831, 0 0 10px #F71831, 0 0 20px #F71831; }
+.glow-earth { color: #7CFF9B !important; text-shadow: 0 0 5px #FFB933, 0 0 10px #FFB933, 0 0 20px #FFB933; }
+.glow-air { color: #7CFF9B !important; text-shadow: 0 0 5px #E6E6E6, 0 0 10px #E6E6E6, 0 0 20px #E6E6E6; }
+.glow-water { color: #7CFF9B !important; text-shadow: 0 0 5px #0168FC, 0 0 10px #0168FC, 0 0 20px #0168FC; }
+
+.glow-saturn { color: #7CFF9B !important; text-shadow: 0 0 5px #FFF200, 0 0 10px #FFF200; }
+.glow-jupiter { color: #7CFF9B !important; text-shadow: 0 0 5px #47BD5A, 0 0 10px #47BD5A; }
+.glow-mars { color: #7CFF9B !important; text-shadow: 0 0 5px #F50000, 0 0 10px #F50000; }
+.glow-sun { color: #7CFF9B !important; text-shadow: 0 0 5px #FC55CE, 0 0 10px #FC55CE; }
+.glow-venus { color: #7CFF9B !important; text-shadow: 0 0 5px #999999, 0 0 10px #999999; }
+.glow-mercury { color: #7CFF9B !important; text-shadow: 0 0 5px #341DFC, 0 0 10px #341DFC; }
+.glow-moon { color: #7CFF9B !important; text-shadow: 0 0 5px #FFB9FA, 0 0 10px #FFB9FA; }
+
+/* =========================================================
+   🚀 [수복] Time Unknown 잠금 상태 강제 오버라이딩 (Angles & Hermetic)
+========================================================= */
+.a10-category-row .cat-btn.locked,
+.category-tabs .cat-btn.locked,
+.m-tab.locked {
+    background-color: #333333 !important; /* Angles처럼 짙은 회색 배경 */
+    color: #777777 !important;           /* 흐리고 죽은 글씨색 */
+    border-color: #222222 !important;
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    pointer-events: auto !important;     /* 터치 이벤트는 살려둬야 토스트를 띄울 수 있음 */
+}
+
+/* =========================================================
+   🚀 [수복] Hieros Gamos 로딩 화면 광학적 중앙 정렬
+========================================================= */
+#a10-loading, #m-a10-loading {
+    /* 모바일 브라우저 주소창/하단바 왜곡을 방어하는 동적 뷰포트 높이 */
+    height: 100dvh !important; 
+    
+    /* 물리적 정중앙에서 살짝 위로 띄워 사람 눈에 가장 아름다운 위치로 조정 */
+    padding-bottom: 10vh !important; 
+    box-sizing: border-box;
+}

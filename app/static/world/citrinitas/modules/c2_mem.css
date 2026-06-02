@@ -1,0 +1,409 @@
+/* app/static/world/citrinitas/modules/c2_mem.css */
+
+:root {
+    --c1-cyan: #49dce1;
+    --c1-bg-dark: #000;
+    --c1-border: #333; 
+    --c1-font: ui-monospace, SFMono-Regular, Consolas, 'Cascadia Code', monospace;
+}
+
+#mem-app {
+    font-family: var(--c1-font);
+    color: #37494F;
+}
+
+.ritual-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.ritual-title {
+    font-size: 1.0rem !important;
+    font-weight: 600 !important;
+    color: var(--c1-cyan) !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 2rem !important;
+}
+
+.c1-module-container * {
+    box-sizing: border-box;
+}
+
+.c1-module-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: var(--c1-font);
+}
+
+.c1-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.c1-coord-label {
+    font-size: 0.75rem;
+    color: var(--c1-cyan);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.05em;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.c1-date-row {
+    display: flex;
+    gap: 10px;
+}
+
+/* ==========================================================
+   입력창 및 드롭다운 (사이버 블랙 박스)
+   ========================================================== */
+.c1-select {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: #000;
+    border: 1px solid var(--c1-border);
+    border-radius: 0;
+    cursor: pointer;
+    transition: border-color 0.15s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23aaa' d='M5.5 8.5l4.5 4.5 4.5-4.5h-9z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+}
+
+.c1-select:focus {
+    outline: none;
+    border-color: var(--c1-cyan);
+    box-shadow: 0 0 0 3px rgba(73, 220, 225, 0.1);
+}
+
+.c1-input {
+    width: 100%;
+    padding: 12px;
+    background: #000;
+    border: 1px solid var(--c1-border);
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.c1-input:focus {
+    outline: none;
+    border-color: var(--c1-cyan);
+    box-shadow: 0 0 0 3px rgba(73, 220, 225, 0.1);
+}
+
+.full-width { width: 100%; }
+
+/* 검색 결과창 */
+.c1-city-search-container { position: relative; }
+.c1-city-results {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    z-index: 1000;
+    background: var(--c1-bg-dark);
+    border: 1px solid var(--c1-border);
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+}
+.c1-result-item {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    color: #aaa;
+    cursor: pointer;
+}
+.c1-result-item:hover, .c1-result-item.active {
+    background: #111;
+    color: var(--c1-cyan);
+}
+
+/* 버튼 */
+.cyber-btn {
+    background: transparent;
+    border: 1px solid var(--c1-cyan);
+    color: var(--c1-cyan);
+    padding: 10px;
+    font-family: var(--c1-font);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.cyber-btn:hover {
+    background: #000 !important; 
+    color: #fff !important; 
+    border-color: #fff !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
+}
+
+/* ==========================================================
+   레이아웃 및 간격 전용 유틸리티 (HTML 인라인 스타일 대체)
+   ========================================================== */
+.step-hidden { display: none; }
+.age-group { margin-top: -3px !important; }
+.btn-manifest { margin-top: 20px; }
+.btn-restart { margin-top: 30px; }
+
+/* ==========================================================
+   질문 및 씬 (Scene) 디자인
+   ========================================================== */
+.c1-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.c1-option-card {
+    border: 1px solid var(--c1-border);
+    background: #050505;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.c1-option-card:hover {
+    border-color: var(--c1-cyan);
+    background: rgba(73, 220, 225, 0.05);
+    color: #fff;
+}
+
+.scn-scene {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    border: 1px solid var(--c1-cyan);
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.scn-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    filter: blur(20px);
+    transition: opacity 2s ease-out, filter 2.5s ease-out;
+}
+
+.scn-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 1.5s ease-in-out;
+}
+
+.scn-content {
+    position: relative;
+    z-index: 10;
+    padding: 30px;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* 애니메이션 트리거 */
+.scn-scene.revealed .scn-bg { opacity: 1; filter: blur(0px); }
+.scn-scene.veiled .scn-overlay { background: rgba(0, 0, 0, 0.75); }
+.scn-scene.veiled .scn-content { opacity: 1; }
+
+/* 테마 커스텀 */
+.scn-scene.theme-dark .scn-bg { background-color: #000; background-image: none !important; }
+.scn-scene.theme-dark .scn-content { color: #fff; }
+.scn-scene.theme-light .scn-bg { background-color: #fff; background-image: none !important; }
+.scn-scene.theme-light.veiled .scn-overlay { background: rgba(255, 255, 255, 0.85); }
+.scn-scene.theme-light .scn-content { color: #000; text-shadow: none; }
+.scn-scene .c1-option-card { background: rgba(0, 0, 0, 0.5); border-color: rgba(73, 220, 225, 0.3); }
+.scn-scene.theme-light .c1-option-card { background: rgba(255, 255, 255, 0.5); border-color: #888; color: #333; }
+.scn-scene.theme-light .c1-option-card:hover { background: #fff; border-color: var(--c1-cyan); }
+
+/* ==========================================================
+   텍스트 및 결과창 요약 (JS 인라인 스타일 대체)
+   ========================================================== */
+.scene-title {
+    color: #771e81 !important;
+    margin-top: 0;
+    margin-bottom: 10px !important;
+    font-weight: bold !important;
+}
+
+.scn-scene .scene-title {
+    color: inherit; /* 무의식 파트에서는 테마(흑/백)를 따라가도록 */
+}
+
+.scene-instruction {
+    color: #888 !important;
+    font-size: 0.7rem !important;
+    margin-bottom: 30px !important;
+}
+
+/* 🎯 작고 예쁜 이탤릭체 질문 본문 */
+.scene-narrative {
+    font-size: 0.8rem !important; 
+    font-style: italic; 
+    line-height: 1.6;
+    margin-bottom: 30px !important;
+    color: #9DB9CC !important;
+}
+
+.scn-scene .scene-narrative {
+    color: inherit;
+}
+
+.scn-options-wrapper {
+    margin-top: 30px;
+}
+
+.res-summary-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.res-summary-title {
+    color: #00129A !important;
+    margin-bottom: 0;
+}
+
+.res-summary-desc {
+    margin-top: 15px;
+    color: #aaa;
+}
+
+.res-summary-json {
+    text-align: left;
+    background: #111;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+    color: #00e5ff;
+}
+
+/* ==========================================================
+   [ מ ] Mem : Manual Entry Panel (Black & White Theme - SCOPED)
+   ========================================================== */
+
+/* 1. 토글 버튼 (Aleph와 동일: 우측 정렬, Cyan Blue 호버) */
+#mem-app .c1-manual-toggle {
+    font-size: 0.75rem !important;
+    color: #888 !important; 
+    text-align: right !important; /* 우측 정렬 */
+    cursor: pointer !important;
+    margin-top: 8px !important;
+    letter-spacing: 1px !important;
+    transition: color 0.2s ease-in-out !important;
+    display: block !important; /* 우측 정렬이 먹히도록 block 강제 */
+}
+#mem-app .c1-manual-toggle:hover {
+    color: var(--c1-cyan) !important; /* Aleph와 동일한 Cyan Blue 호버 */
+}
+
+/* 2. 매뉴얼 입력 패널 컨테이너 (B&W) */
+#mem-manual-panel.c1-manual-panel {
+    background: #474747 !important;
+    border: 1px solid #444444 !important; 
+    padding: 15px !important;
+    margin-top: 10px !important;
+    border-radius: 2px !important;
+}
+
+/* 3. 내부 레이아웃 및 서브 라벨 */
+#mem-manual-panel .c1-coord-block {
+    margin-bottom: 12px !important;
+}
+#mem-manual-panel .c1-sub-label {
+    font-size: 0.7rem !important;
+    color: #aaaaaa !important;
+    margin-bottom: 6px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+#mem-manual-panel .c1-coord-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+/* 4. +/- 방향 전환 버튼 (핵심 B&W 포인트) */
+#mem-manual-panel .c1-sign-group {
+    display: flex !important;
+    border: 1px solid #ffffff !important; 
+    border-radius: 2px !important;
+    overflow: hidden !important;
+}
+#mem-manual-panel .c1-sign-btn {
+    padding: 4px 12px !important;
+    font-size: 0.9rem !important;
+    font-family: var(--c1-font) !important;
+    cursor: pointer !important;
+    background: #000000 !important;
+    color: #ffffff !important;
+    transition: all 0.15s ease !important;
+}
+#mem-manual-panel .c1-sign-btn.active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+}
+#mem-manual-panel .c1-sign-btn:not(.active):hover {
+    background: #222222 !important;
+}
+
+/* 5. 위도/경도 숫자 입력칸 (밑줄 스타일) */
+#mem-manual-panel .c1-input-int, 
+#mem-manual-panel .c1-input-dec {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #555555 !important;
+    color: #ffffff !important;
+    font-family: var(--c1-font) !important;
+    font-size: 1rem !important;
+    text-align: center !important;
+    padding: 4px !important;
+    outline: none !important;
+    transition: border-color 0.2s !important;
+}
+#mem-manual-panel .c1-input-int:focus, 
+#mem-manual-panel .c1-input-dec:focus {
+    border-bottom: 1px solid #ffffff !important; 
+}
+#mem-manual-panel .c1-input-int {
+    width: 45px !important;
+}
+#mem-manual-panel .c1-input-dec {
+    width: 60px !important;
+}
+#mem-manual-panel .c1-dot {
+    color: #ffffff !important;
+    font-weight: bold !important;
+}
+
+/* 6. Timezone 드롭다운 덮어쓰기 (B&W) */
+#mem-manual-panel .c1-select {
+    border: 1px solid #555555 !important;
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
+}
+#mem-manual-panel .c1-select:focus {
+    border-color: #ffffff !important;
+}

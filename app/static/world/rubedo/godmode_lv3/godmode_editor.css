@@ -1,0 +1,488 @@
+/* app/static/world/rubedo/godmode_lv3/godmode_editor.css */
+
+body.albedo-sanctuary {
+    background: #ffffff; /* 순백의 공간 */
+    color: #1a1a1a; 
+    margin: 0;
+    font-family: 'Consolas', serif; /* 본문 기본 폰트 */
+    animation: albedoFadeIn 1s ease-out forwards;
+}
+
+@keyframes albedoFadeIn {
+    0% { opacity: 0; filter: blur(10px); }
+    100% { opacity: 1; filter: blur(0px); }
+}
+
+/* --- Navigation (Top) --- */
+.god-nav {
+    height: 60px; 
+    border-bottom: 1px solid #e0e0e0;
+    display: flex; align-items: center; justify-content: space-between; 
+    padding: 0 20px;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+.god-title { font-size: 1.2rem; font-weight: bold; color: #00f7ff; letter-spacing: 2px;}
+
+.nav-buttons { display: flex; gap: 15px; }
+.action-btn {
+    background: #000; 
+    border: 2px solid #53ca6e; 
+    color: #7CFF9B;
+    padding: 6px 12px; 
+    cursor: pointer; 
+    font-size: 0.75rem;
+    transition: all 0.3s ease; /* 🚀 부드러운 색상 전환을 위한 트랜지션 */
+}
+.action-btn:hover {
+    color: #ffe600;
+    border-color: #ffe600;
+    text-shadow: 0 0 8px rgba(255, 230, 0, 0.8);
+    box-shadow: 0 0 10px rgba(255, 230, 0, 0.4), inset 0 0 8px rgba(255, 230, 0, 0.2); 
+}
+.btn-post {
+    background: transparent; 
+    border: 2px solid #49dce1; 
+    color: #49dce1;
+    padding: 6px 12px; 
+    cursor: pointer; 
+    font-size: 0.75rem;
+    transition: all 0.3s ease; /* 🚀 부드러운 색상 전환을 위한 트랜지션 */
+}
+.btn-post:hover {
+    color: #ff0000;
+    border-color: #ff0000;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgba(255, 81, 0, 0.4), inset 0 0 8px rgba(255, 230, 0, 0.2); 
+}
+
+/* --- Main Editor Area --- */
+.editor-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fdfdfd;
+}
+
+/* godmode_editor.css 상단 혹은 툴바 스타일 부근 */
+#font-family-select option[value="Agency FB"] { font-family: "Agency FB", sans-serif; }
+#font-family-select option[value="Book Antiqua"] { font-family: "Book Antiqua", serif; }
+#font-family-select option[value="Cascadia Code"] { font-family: "Cascadia Code", monospace; }
+/* ... 이하 동일하게 각 폰트의 가독성을 위해 옵션창에서도 해당 폰트가 보이게 설정 가능 ... */
+
+/* --- Toolbar --- */
+.toolbar {
+    border-bottom: 1px solid #eee;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff;
+}
+.toolbar-group { display: flex; gap: 8px; align-items: center; flex-wrap: wrap;}
+.tool-btn {
+    background: transparent; border: 1px solid transparent; border-radius: 4px;
+    color: #444; padding: 5px 8px; cursor: pointer; font-size: 0.9rem; transition: 0.2s;
+}
+.tool-btn:hover { background: #f0f8ff; color: #00f7ff; }
+.tool-divider { width: 1px; height: 20px; background: #ddd; margin: 0 5px; }
+.tool-select { border: 1px solid #ccc; padding: 3px; color: #333; outline: none;}
+
+/* 비활성화(꺼진) 상태 및 특수 버튼 */
+.tool-disabled { opacity: 0.3; pointer-events: none; }
+.tool-cell-paint { 
+    display: none; /* JS에서 제어 */
+    color: #3cff8f !important; /* DDS Green */
+    border: 1px solid #3cff8f !important; 
+    background: rgba(60, 255, 143, 0.05);
+}
+
+/* --- Writing Canvas --- */
+.writing-canvas {
+    flex: 1;
+    padding: 40px 10%;
+    overflow-y: auto;
+    outline: none;
+}
+.writing-canvas[data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: #bbb;
+    pointer-events: none;
+    display: block;
+}
+.editor-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    border-bottom: 2px solid #00f7ff;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    outline: none;
+}
+.editor-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    min-height: 50vh;
+    outline: none;
+    
+    /* 🚀 [수복] 가로 스크롤 강제 활성화 및 삐져나옴 방지 */
+    overflow-x: auto;
+    max-width: 100%;
+    display: block;
+}
+
+/* 🚀 1. Layout & Sidebar 교체 (사이드바 접기 기능) */
+.editor-layout { 
+    display: flex; 
+    height: calc(100vh - 60px); 
+    overflow-x: hidden; /* 사이드바가 밀려날 때 바깥으로 안 보이게 숨김 */
+}
+
+.editor-sidebar {
+    width: 250px;
+    flex-shrink: 0; /* 공간이 줄어도 사이드바 넓이 유지 */
+    box-sizing: border-box;
+    border-left: 1px solid #e0e0e0;
+    background: #fafafa;
+    padding: 20px;
+    font-family: ui-monospace, Consolas, monospace;
+    position: relative;
+    transition: margin-right 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* 부드러운 슬라이딩 */
+}
+
+/* 사이드바가 접혔을 때 (우측 마진을 마이너스로 줘서 밖으로 밀어냄) */
+.editor-sidebar.collapsed {
+    margin-right: -250px;
+}
+
+/* 사이드바 고리(Handle) 디자인 */
+.sidebar-handle {
+    position: absolute;
+    left: -24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 50px;
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #888;
+    font-size: 0.8rem;
+    z-index: 100;
+    transition: 0.2s;
+    box-shadow: -3px 0 10px rgba(0,0,0,0.02);
+}
+.sidebar-handle:hover {
+    background: #f0f8ff;
+    color: #0088ff;
+}
+
+/* 🚀 2. 언어 선택 상자 클릭 반응형 추가 */
+.lang-box {
+    border: 1px solid #ccc; padding: 4px 10px; font-size: 0.8rem; color: #888;
+    cursor: pointer; /* 클릭 가능한 마우스 커서 */
+    transition: all 0.2s;
+}
+.lang-box:hover:not(.active) {
+    background: #eee; color: #333;
+}
+.lang-box.active { border-color: #0088ff; background: #0088ff; color: #fff; pointer-events: none; }
+
+/* 🚀 3. 시크하고 슬림한 검은색 스크롤바 추가 (파일 맨 아래) */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #1a1a1a transparent;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #333333;
+}
+
+.side-title { font-size: 0.8rem; color: #999; margin-bottom: 20px; letter-spacing: 1px; }
+.tree-indent { margin-left: 15px; border-left: 1px solid #ddd; padding-left: 10px; margin-top: 10px;}
+.tree-item { color: #555; font-size: 0.9rem; margin: 5px 0; }
+.tree-active { color: #167f82; font-weight: bold; }
+
+.lang-boxes { display: flex; gap: 10px; margin-top: 15px; }
+.lang-box {
+    border: 1px solid #ccc; padding: 4px 10px; font-size: 0.8rem; color: #888;
+}
+.lang-box.active { border-color: #00f7ff; background: #00f7ff; color: #fff; }
+
+/* --- Albedo Modal (Popups) --- */
+.albedo-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px);
+    display: flex; align-items: center; justify-content: center; z-index: 9999;
+}
+.albedo-box {
+    background: #fff; border: 1px solid #00f7ff;
+    padding: 30px 40px; text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 136, 255, 0.15);
+    font-family: ui-monospace, Consolas, monospace;
+}
+.albedo-text { color: #00f7ff; font-size: 1.1rem; margin-bottom: 30px; letter-spacing: 1px;}
+.albedo-btn-group { display: flex; justify-content: center; gap: 20px; }
+.albedo-btn {
+    background: transparent; border: none; font-size: 1rem; cursor: pointer; transition: 0.2s;
+}
+.albedo-btn.yes { color: #00f7ff; font-weight: bold; font-family: 'Consolas';}
+.albedo-btn.yes:hover { text-shadow: 0 0 8px #044e51; }
+.albedo-btn.no { color: #999; font-family: 'Consolas'; }
+.albedo-btn.no:hover { color: #ff5050; }
+
+/* --- God Mode Editor Styles --- */
+.void-cell-selected { 
+    background-color: rgba(0, 136, 255, 0.4) !important; 
+    outline: 1px solid #0088ff; 
+}
+
+.gm-dropdown-menu { 
+    position: absolute; 
+    background: #111; 
+    border: 1px solid #0088ff; 
+    border-radius: 6px; 
+    box-shadow: 0 0 15px rgba(0,0,0,0.8); 
+    z-index: 10000; 
+    display: flex; 
+    flex-direction: column; 
+    padding: 5px 0; 
+    font-family: 'Cascadia Code', monospace; 
+    font-size: 13px; 
+    min-width: 120px; 
+}
+
+.gm-dropdown-item { 
+    padding: 8px 15px; 
+    cursor: pointer; 
+    color: #ccc; 
+    transition: 0.2s; 
+    user-select: none; 
+}
+
+.gm-dropdown-item:hover { 
+    background: #0088ff; 
+    color: #fff; 
+}
+
+.gm-modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.8); 
+    display: flex; justify-content: center; align-items: center; 
+    z-index: 9999;
+}
+
+.gm-modal-box {
+    background: #111; padding: 30px; border: 1px solid #0088ff; 
+    border-radius: 8px; box-shadow: 0 0 20px rgba(0,136,255,0.2);
+    font-family: 'Cascadia Code', monospace;
+}
+
+.sym-btn {
+    padding: 8px; font-size: 16px; text-align: center; cursor: pointer; 
+    background: #222; border: 1px solid #444; border-radius: 4px; 
+    transition: 0.2s; color: #3cff8f; /* DDS Green */
+}
+
+.sym-btn:hover { 
+    background: #0088ff !important; color: #fff; 
+}
+
+.color-swatch {
+    width: 30px; height: 30px; border-radius: 4px; cursor: pointer;
+    border: 1px solid #555; transition: 0.2s;
+}
+.color-swatch:hover { transform: scale(1.1); border-color: #fff; }
+
+/* --- God Mode Editor Extended Styles --- */
+.void-cell-selected { 
+    background-color: rgba(0, 136, 255, 0.4) !important; 
+    outline: 1px solid #0088ff; 
+}
+
+.gm-dropdown-menu { 
+    position: absolute; background: #111; border: 1px solid #0088ff; 
+    border-radius: 6px; box-shadow: 0 0 15px rgba(0,0,0,0.8); 
+    z-index: 10000; display: flex; flex-direction: column; 
+    padding: 5px 0; font-family: 'Cascadia Code', monospace; 
+    font-size: 13px; min-width: 130px; 
+}
+
+.gm-dropdown-item { 
+    padding: 8px 15px; cursor: pointer; color: #ccc; 
+    transition: 0.2s; user-select: none; 
+}
+
+.gm-dropdown-item:hover { background: #0088ff; color: #fff; }
+
+.gm-modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.8); display: flex; 
+    justify-content: center; align-items: center; z-index: 9999;
+}
+
+.gm-modal-box {
+    background: #111; padding: 30px; border: 1px solid #0088ff; 
+    border-radius: 8px; box-shadow: 0 0 20px rgba(0,136,255,0.2);
+    font-family: 'Cascadia Code', monospace;
+}
+
+.sym-btn {
+    padding: 8px; font-size: 16px; text-align: center; cursor: pointer; 
+    background: #222; border: 1px solid #444; border-radius: 4px; 
+    transition: 0.2s; color: #3cff8f; 
+}
+
+.sym-btn:hover { background: #0088ff !important; color: #fff; }
+
+.color-swatch {
+    width: 30px; height: 30px; border-radius: 4px; cursor: pointer;
+    border: 1px solid #555; transition: 0.2s;
+}
+.color-swatch:hover { transform: scale(1.1); border-color: #fff; }
+
+/* --- God Mode Link Tree Styles --- */
+.link-indent { 
+    padding-left: 15px; 
+    border-left: 1px solid #333; 
+    margin-left: 7px; 
+}
+
+.link-folder { 
+    padding: 6px; 
+    cursor: pointer; 
+    color: #aaa; 
+    transition: 0.2s; 
+    user-select: none; 
+}
+
+.link-folder:hover { 
+    color: #fff; 
+}
+
+.link-folder.active { 
+    color: #0088ff; 
+    font-weight: bold; 
+    background: rgba(0, 136, 255, 0.1); 
+    border-radius: 4px; 
+}
+
+.link-file { 
+    padding: 6px; 
+    cursor: pointer; 
+    color: #ccc; 
+    font-size: 0.95em; 
+    transition: 0.2s; 
+    margin: 2px 0; 
+}
+
+.link-file:hover { 
+    background: #0088ff; 
+    color: #fff; 
+    border-radius: 4px; 
+}
+
+.link-file.active { 
+    background: #0088ff; 
+    color: #fff; 
+    border-radius: 4px; 
+    font-weight: bold; 
+}
+
+/* --- Color Picker Button Effects --- */
+.color-confirm-btn {
+    width: 25%; background: #0088ff; border: none; color: #fff; cursor: pointer; 
+    border-radius: 4px; padding: 8px 0; transition: 0.2s; font-weight: bold;
+}
+.color-confirm-btn:hover {
+    background: #257274; text-shadow: 0 0 5px #fff; box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+}
+
+.color-cancel-btn {
+    width: 100%; background: #ff5050; color: #110d0d; font-family: 'Consolas';
+    padding: 8px; cursor: pointer; border-radius: 4px; transition: 0.2s;
+}
+.color-cancel-btn:hover {
+    background: #730a0a; color: #fff; box-shadow: 0 0 10px rgba(255, 80, 80, 0.4); font-family: 'Consolas';
+}
+
+/* --- Alchemical Element Swatches --- */
+.swatch-fire { background-color: #FFB8AA; border-color: #ff0000; }
+.swatch-earth { background-color: #FEFF8E; border-color: #dddd00; }
+.swatch-water { background-color: #A7F6FC; border-color: #0088ff; }
+.swatch-air { background-color: #f5f5f5; border-color: #cccccc; }
+
+/* --- Symbol Modal Categories --- */
+.sym-category-title {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin: 20px 0 10px 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+    text-align: left;
+    letter-spacing: 1px;
+}
+.sym-category-title:first-of-type {
+    margin-top: 5px;
+}
+.sym-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+}
+
+/* --- Toolbar Active State (눌린 버튼 이펙트) --- */
+.tool-btn.active-tool {
+    background: rgba(0, 136, 255, 0.1) !important;
+    color: #0088ff !important;
+    border: 1px solid #0088ff !important;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* --- God Token Timer --- */
+.god-token-timer {
+    color: #888;
+    font-size: 0.9rem;
+    margin-right: 20px;
+    cursor: pointer;
+    font-family: 'Cascadia Code', Consolas, monospace;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    user-select: none;
+    display: flex;
+    align-items: center;
+}
+
+.god-token-timer:hover {
+    color: #00f7ff;
+    text-shadow: 0 0 8px rgba(0, 247, 255, 0.8);
+}
+
+.god-token-timer.warning {
+    color: #ff5050;
+    animation: tokenPulseWarning 1s infinite;
+}
+
+@keyframes tokenPulseWarning {
+    0% { opacity: 1; text-shadow: 0 0 5px rgba(255, 80, 80, 0.5); }
+    50% { opacity: 0.5; text-shadow: none; }
+    100% { opacity: 1; text-shadow: 0 0 5px rgba(255, 80, 80, 0.5); }
+}
+
+@keyframes tokenExtending {
+    0% { transform: scale(1); filter: hue-rotate(0deg); }
+    50% { transform: scale(1.05); filter: hue-rotate(90deg); }
+    100% { transform: scale(1); filter: hue-rotate(0deg); }
+}

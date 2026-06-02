@@ -1,0 +1,164 @@
+/* app/static/world/nigredo/modules/akashic.css */
+
+:root {
+    --void-red: #ff4b4b;
+    --void-red-glow: rgba(255, 75, 75, 0.4);
+    --void-bg: #050505;
+    --void-dark-red: #441111;
+    --void-font: 'JetBrains Mono', 'Consolas', monospace;
+}
+
+.akashic-body {
+    background-color: var(--void-bg);
+    color: #eee;
+    font-family: var(--void-font);
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nav */
+.akashic-nav {
+    height: 60px;
+    background: #000;
+    border-bottom: 1px solid var(--void-red);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.akashic-nav-title {
+    color: var(--void-red);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px var(--void-red-glow);
+}
+
+.return-btn {
+    background: transparent;
+    border: 1px solid var(--void-red);
+    color: var(--void-red);
+    padding: 6px 18px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.return-btn:hover { 
+    color: #7CFF9B;
+    border-color: #7CFF9B;
+    text-shadow: 0 0 8px rgba(212, 19, 19, 0.8);
+    box-shadow: 0 0 10px rgba(172, 6, 6, 0.771), inset 0 0 8px rgba(137, 12, 12, 0.519); 
+}
+
+/* Table */
+.akashic-layout { flex: 1; padding: 40px 60px; overflow-y: auto; }
+.akashic-table { width: 100%; border-collapse: collapse; margin-top: 30px; }
+.akashic-table th { color: #666; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; text-align: left; padding: 15px 10px; border-bottom: 1.5px solid var(--void-dark-red); }
+.akashic-table td { padding: 18px 10px; border-bottom: 1px solid #1a1a1a; font-size: 0.85rem; }
+
+.col-souls { width: 40%; }
+.col-anamnesis { width: 25%; }
+.col-visit { width: 25%; }
+.col-purge { width: 10%; }
+
+.soul-id { color: #ccc; cursor: help; }
+.soul-id:hover { color: var(--void-red); text-shadow: 0 0 5px var(--void-red-glow); }
+.soul-time { color: #888; font-size: 0.8rem; }
+
+/* Purge Icon */
+.purge-trigger {
+    width: 28px; height: 18px; background: transparent;
+    border: 1px solid var(--void-dark-red); color: var(--void-dark-red);
+    cursor: pointer; font-size: 0.7rem; transition: 0.2s;
+}
+.purge-trigger:hover { border-color: var(--void-red); color: var(--void-red); box-shadow: 0 0 10px var(--void-red-glow); }
+
+/* Pagination */
+.akashic-pagination { display: flex; justify-content: center; gap: 20px; margin-top: 40px; }
+.pg-btn { cursor: pointer; color: var(--void-red); font-weight: bold; }
+.pg-btn.disabled { color: #333; cursor: default; }
+.pg-info { color: #555; font-size: 0.8rem; }
+
+/* Tooltip */
+#seed-tooltip {
+    position: fixed; display: none; background: #0a0a0a; border: 1px solid var(--void-red);
+    padding: 15px; z-index: 10000; pointer-events: none; min-width: 250px;
+}
+.tooltip-header { color: var(--void-red); font-size: 0.7rem; border-bottom: 1px solid var(--void-dark-red); margin-bottom: 8px; }
+.tooltip-row { display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 4px; }
+.tooltip-label { color: #666; }
+.tooltip-value { color: #aaa; }
+
+/* Ritual UI */
+.ritual-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.92); display: none; align-items: center; justify-content: center; z-index: 100000; }
+.ritual-box { background: #000; border: 1px solid var(--void-red); padding: 40px; width: 450px; text-align: center; }
+.ritual-title { color: var(--void-red); font-size: 0.85rem; letter-spacing: 0.2em; margin-bottom: 25px; }
+.ritual-msg { color: #888; font-size: 0.8rem; margin-bottom: 30px; line-height: 1.6; }
+.ritual-input { background: transparent; border: 1px solid var(--void-red); color: var(--void-red); padding: 10px; width: 100%; text-align: center; font-family: inherit; outline: none; margin-bottom: 20px; box-sizing: border-box; }
+.ritual-input::placeholder { color: #331111; }
+.ritual-guide { color: #662222; font-size: 0.65rem; margin-top: -10px; }
+.ritual-btns { display: flex; justify-content: center; gap: 20px; }
+.ritual-btn { background: transparent; border: 1px solid var(--void-red); color: var(--void-red); padding: 8px 25px; cursor: pointer; font-family: inherit; }
+.ritual-btn:hover { 
+    color: #f3062a;
+    border-color: #96051b;
+    background: #1c091e;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(212, 19, 19, 0.8);
+    box-shadow: 0 0 10px rgba(172, 6, 6, 0.771), inset 0 0 8px rgba(137, 12, 12, 0.519); 
+}
+
+/* ==========================================
+   📱 [모바일 뷰 모드] Card UI Transformation
+========================================== */
+@media screen and (max-width: 768px) {
+    /* 1. 네비게이션: 억지로 우겨넣지 않고 세로로 깔끔하게 2단 분리 */
+    .akashic-nav { flex-direction: column; height: auto; padding: 20px 15px; gap: 15px; text-align: center; }
+    .akashic-nav-title { font-size: 1.1rem; line-height: 1.4; word-break: keep-all; }
+    .return-btn { width: 100%; box-sizing: border-box; padding: 12px; font-size: 0.8rem; }
+    
+    /* 레이아웃 여백 조정 */
+    .akashic-layout { padding: 15px 10px; }
+
+    /* 2. 🚀 테이블(표) 구조를 완전히 해체하여 모바일용 '카드' 형태로 변환 */
+    .akashic-table, .akashic-table tbody, .akashic-table tr, .akashic-table td { display: block; width: 100%; }
+    .akashic-table thead { display: none; } /* 보기 흉한 테이블 헤더 삭제 */
+
+    .akashic-table tr {
+        background: #080202; border: 1px solid var(--void-dark-red);
+        border-radius: 6px; margin-bottom: 15px; padding: 15px;
+        position: relative; box-sizing: border-box;
+    }
+
+    .akashic-table td { padding: 5px 0; border: none; text-align: left; }
+
+    /* 이메일 (카드 제목 역할) */
+    .akashic-table td:nth-child(1) { 
+        font-size: 1rem; border-bottom: 1px dashed #331111; 
+        padding-bottom: 10px; margin-bottom: 10px; padding-right: 40px; word-break: break-all; 
+    }
+    
+    /* 라벨링 강제 주입 */
+    .akashic-table td:nth-child(2)::before { content: "Anamnesis: "; color: #555; font-size: 0.7rem; display: inline-block; width: 80px; }
+    .akashic-table td:nth-child(3)::before { content: "Last Visit: "; color: #555; font-size: 0.7rem; display: inline-block; width: 80px; }
+
+    /* 3. 삭제(X) 버튼을 카드의 우측 상단으로 예쁘게 올림 */
+    .akashic-table td:nth-child(4) { position: absolute; top: 12px; right: 15px; padding: 0; width: auto; }
+    .purge-trigger { width: 32px; height: 32px; font-size: 1.1rem; border-radius: 4px; background: rgba(255, 0, 0, 0.05); }
+
+    /* 4. 의식(Ritual) 팝업 최적화 */
+    .ritual-box { width: 90%; max-width: 320px; padding: 30px 20px; }
+    .ritual-title { font-size: 0.9rem; }
+    .ritual-btns { flex-direction: column; gap: 10px; }
+    .ritual-btn { width: 100%; }
+
+    /* 모바일 툴팁 강제 고정 */
+    #seed-tooltip { left: 50% !important; transform: translateX(-50%); top: auto !important; bottom: 20px; width: 90%; max-width: 350px; box-sizing: border-box; }
+}

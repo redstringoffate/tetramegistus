@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{{ mode }} MODE - Tetramegistus</title>
+    <link rel="stylesheet" href="/static/mobile/world/rubedo/godmode_lv3/godmode_editor.css?v=4">
+</head>
+<body class="albedo-sanctuary">
+
+    <nav class="god-nav">
+        <div class="nav-left">
+            <button class="action-btn back-btn" onclick="EditorUI.promptReturn()">◀</button>
+            <div class="god-title">{{ mode }}</div>
+        </div>
+        <div class="nav-buttons">
+            <div id="god-token-timer" class="god-token-timer" onclick="EditorUI.extendGodToken()" title="Extend Session">God Token --:--:--</div>
+            <button class="action-btn btn-post" onclick="EditorUI.promptPost()">POST</button>
+            <button class="action-btn menu-btn" onclick="EditorUI.openDocInfo()">☰</button>
+        </div>
+    </nav>
+
+    <div class="mobile-toolbar">
+        <button class="tool-btn" style="color:#0088ff; font-weight:bold;" onclick="EditorUI.manualSave()" title="Save Progress">💾</button>
+        <div class="tool-divider"></div>
+        <select class="tool-select" id="font-family-select" title="Font Style">
+            <option value="Cascadia Code" selected>Cascadia</option>
+            <option value="Agency FB">Agency</option>
+            <option value="Book Antiqua">Antiqua</option>
+            <option value="Consolas">Consolas</option>
+            <option value="Garamond">Garamond</option>
+            <option value="Times New Roman">Times</option>
+        </select>
+        <select class="tool-select" id="font-size-select" title="Font Size">
+            <option value="8pt">8</option>
+            <option value="10pt">10</option>
+            <option value="12pt" selected>12</option>
+            <option value="14pt">14</option>
+            <option value="16pt">16</option>
+            <option value="20pt">20</option>
+            <option value="24pt">24</option>
+        </select>
+        <div class="tool-divider"></div>
+        <button class="tool-btn" style="font-weight:bold;" title="Bold">B</button>
+        <button class="tool-btn" style="font-style:italic;" title="Italic">I</button>
+        <button class="tool-btn" style="text-decoration:underline;" title="Underline">U</button>
+        <button class="tool-btn" style="text-decoration:line-through;" title="Strikethrough">S</button>
+        <div class="tool-divider"></div>
+        <button class="tool-btn" title="Text Color">A</button>
+        <button class="tool-btn" title="Background Color">🔠</button>
+        <button class="tool-btn" title="Align">≡</button>
+        <button class="tool-btn" title="Line Spacing">↕</button>
+        <button class="tool-btn" title="List">📋</button>
+        <div class="tool-divider"></div>
+        <button class="tool-btn" title="Insert Image">🖼️</button>
+        <button class="tool-btn" title="Attach File">📁</button>
+        <button class="tool-btn" title="Insert Chart (Table)">📊</button>
+        <button class="tool-btn tool-disabled" id="btn-link" title="Link">🔗</button>
+        <button class="tool-btn" title="Symbol">※</button>
+        <button class="tool-btn tool-cell-paint" id="btn-cell-paint" style="display: none;" title="Cell Color">🎨</button>
+        <button class="tool-btn" id="btn-quick-paint" style="display: none; border: 1px solid #ddd; width: 24px; height: 24px; padding: 0; border-radius: 4px; vertical-align: middle; cursor: pointer;" title="Quick Paint"></button>
+    </div>
+
+    <main class="editor-main">
+        <div class="writing-canvas" id="canvas-area">
+            <div id="editor-title" class="editor-title" contenteditable="true" data-placeholder="Title" style="font-family: 'Cascadia Code', monospace;"></div>
+            <div id="editor-content" class="editor-content" contenteditable="true" data-placeholder="Content" style="font-family: 'Cascadia Code', monospace;"></div>
+        </div>
+    </main>
+
+    <div id="doc-info-modal" class="gm-modal-overlay" style="display: none;">
+        <div class="gm-modal-box" style="text-align: left;">
+            <div style="font-size:1.1rem; margin-bottom:15px; text-align:center; color:#0088ff; font-weight:bold;">DOCUMENT INFO</div>
+            <div class="tree-item" style="color:#0088ff; font-weight:bold;">📁 {{ module | upper }}</div>
+            {% set parts = path.split('/') %}
+            <div class="tree-indent">
+                <div class="tree-item">📁 {{ parts[0] | capitalize }}</div>
+                <div class="tree-indent">
+                    <div class="tree-item tree-active">📄 {{ parts[1] }}</div>
+                    <div class="lang-boxes">
+                        <div class="lang-box {% if lang == 'en' %}active{% endif %}" onclick="EditorUI.switchLang('en')">en</div>
+                        <div class="lang-box {% if lang == 'ko' %}active{% endif %}" onclick="EditorUI.switchLang('ko')">ko</div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:30px; font-size:0.8rem; color:#888; text-align:center;">Auto-save: <br><span id="save-status" style="color:#00f7ff;">Idle</span></div>
+            <button onclick="EditorUI.closeDocInfo()" style="width:100%; margin-top:20px; background:transparent; border:1px solid #0088ff; color:#0088ff; padding:10px; cursor:pointer; border-radius:4px; font-weight:bold;">Close</button>
+        </div>
+    </div>
+
+    <div id="modal-overlay" class="albedo-overlay" style="display: none;">
+        <div class="albedo-box">
+            <div id="modal-text" class="albedo-text">Will you save your progress?</div>
+            <div class="albedo-btn-group">
+                <button class="albedo-btn yes" id="modal-btn-yes">Yes</button>
+                <button class="albedo-btn no" id="modal-btn-no">No</button>
+            </div>
+        </div>
+    </div>
+
+    <meta id="meta-module" content="{{ module }}">
+    <meta id="meta-path" content="{{ path }}">
+    <meta id="meta-lang" content="{{ lang }}">
+
+    <script src="/static/mobile/world/rubedo/godmode_lv3/godmode_editor.js?v=4"></script>
+</body>
+</html>

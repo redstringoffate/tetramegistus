@@ -1,0 +1,869 @@
+/* static/world/nigredo/modules/n7.css */
+
+#stage-container.stage-nigredo .n7-hypostases {
+    width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+#stage-container.stage-nigredo .n7-hypostases .materia-title {
+    font-size: 1.5rem; 
+    color: #FFF; 
+    margin-bottom: 20px !important; 
+    letter-spacing: 3px; 
+    font-weight: 600;
+}
+
+/* =========================================================
+   N3 100% 복제 UI 컴포넌트 
+   ========================================================= */
+#stage-container.stage-nigredo .n7-hypostases .n7-left-align-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+/* 1. Dichotomy Switch (N3 Exact) */
+#stage-container.stage-nigredo .n7-hypostases .n7-dichotomy-module {
+    display: flex; align-items: center; gap: 12px; cursor: pointer;
+}
+#stage-container.stage-nigredo .n7-hypostases .n7-dicho-label {
+    font-size: 0.7rem; color: #666; text-transform: uppercase; transition: 0.2s; letter-spacing: normal;
+}
+#stage-container.stage-nigredo .n7-hypostases .n7-dicho-label.active {
+    color: #7CFF9B; font-weight: bold; text-shadow: 0 0 5px #7CFF9B;
+}
+#stage-container.stage-nigredo .n7-hypostases .n7-toggle-switch {
+    position: relative; width: 34px; height: 16px; background: #111; border: 1px solid #444; border-radius: 8px;
+}
+#stage-container.stage-nigredo .n7-hypostases .n7-toggle-knob {
+    position: absolute; top: 1px; left: 2px; width: 12px; height: 12px; background: #333; border-radius: 50%; transition: left 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); box-shadow: none;
+}
+/* JS의 인라인 스타일(left: 20px)에 반응하여 우측 이동 시 N3처럼 녹색 빛 발산 */
+#stage-container.stage-nigredo .n7-hypostases .n7-toggle-knob[style*="left: 20px"] {
+    background: #7CFF9B; box-shadow: 0 0 8px #7CFF9B;
+}
+
+/* 2. System Tabs (N3 Exact Absolute Visual Clone) */
+#stage-container.stage-nigredo .n7-hypostases .n7-system-switch-module {
+    display: inline-flex; 
+    border: 1px solid #7CFF9B; 
+    background: #000; 
+    overflow: hidden; 
+    margin-bottom: 25px; 
+    border-radius: 0;
+    flex-shrink: 0;  
+}
+#stage-container.stage-nigredo .n7-hypostases .n7-sys-tab {
+    padding: 8px 24px; 
+    background: transparent; 
+    color: #E0E0E0; /* 🚀 [FIX] 유저님 지적 반영: Inactive 상태의 밝은 회색/흰색 폰트 */
+    border: none; 
+    border-right: 1px solid rgba(124, 255, 155, 0.4);
+    font-family: inherit; 
+    font-size: 0.8rem; 
+    cursor: pointer; 
+    transition: 0.2s; 
+    text-transform: capitalize !important; /* 🚀 ALL CAPS 해제 */
+    letter-spacing: normal; 
+    flex: none;
+    flex-shrink: 0;  
+}
+#stage-container.stage-nigredo .n7-hypostases .n7-sys-tab:last-child { 
+    border-right: none; 
+}
+#stage-container.stage-nigredo .n7-hypostases .n7-sys-tab:hover { 
+    background: rgba(124, 255, 155, 0.05); 
+}
+#stage-container.stage-nigredo .n7-hypostases .n7-sys-tab.active {
+    background: #7CFF9B !important; 
+    color: #000 !important; 
+    font-weight: bold; 
+    text-shadow: none;
+    /* 🚀 [FIX] 유저님 지적 반영: N3 특유의 '아주 가늘게 검은 테두리'를 1px 이너 섀도우로 완벽 재현 */
+    box-shadow: inset 0 0 0 1px #000 !important;
+}
+
+/* 3. Ayanamsa Tabs (N3 Exact Absolute Visual Clone) */
+#stage-container.stage-nigredo .n7-hypostases #sidereal-controls-panel-n7 .n7-ayanamsa-switch-module {
+    display: inline-flex; 
+    border: 1px solid #333; 
+    background: #000; 
+    border-radius: 0;
+}
+#stage-container.stage-nigredo .n7-hypostases #sidereal-controls-panel-n7 .n7-ayan-tab {
+    padding: 4px 14px; 
+    background: transparent; 
+    color: #888; /* 🚀 N3 Ayanamsa 탭 특유의 어두운 회색 폰트 */
+    border: none; 
+    border-right: 1px solid #222;
+    font-family: inherit; 
+    font-size: 0.7rem; 
+    cursor: pointer; 
+    text-transform: capitalize !important; /* 🚀 ALL CAPS 해제 */
+    letter-spacing: normal; 
+    transition: 0.2s; 
+    flex: none;
+}
+#stage-container.stage-nigredo .n7-hypostases #sidereal-controls-panel-n7 .n7-ayan-tab:last-child { 
+    border-right: none; 
+}
+#stage-container.stage-nigredo .n7-hypostases #sidereal-controls-panel-n7 .n7-ayan-tab.active {
+    background: #333 !important; 
+    color: #eee !important; 
+    font-weight: normal; 
+    text-shadow: none;
+}
+
+/* 4. Category Tabs (N5 Aspect Tabs Exact Visual Clone) */
+#stage-container.stage-nigredo .n7-hypostases #n7-category-tabs.n7-ayanamsa-switch-module {
+    display: flex !important; /* HTML 인라인 속성 제어 */
+    border: 1px solid #555 !important; /* N5 .aspect-tabs 외곽선 */
+    background: #000;
+    gap: 0;
+    margin-bottom: 25px; 
+    flex-wrap: wrap;
+    width: 100%;
+    border-radius: 0 !important; /* 기존 N7의 4px 둥글기 강제 제거 */
+}
+
+#stage-container.stage-nigredo .n7-hypostases #n7-category-tabs .n7-ayan-tab {
+    background: transparent;
+    border: none;
+    border-right: 1px solid #333; /* N5 탭 구분선 */
+    color: #888; /* N5 Inactive 폰트 색상 */
+    padding: 8px 20px; /* N5 상하좌우 패딩 */
+    font-family: inherit;
+    font-size: 0.8rem; /* N5 폰트 사이즈 */
+    cursor: pointer;
+    transition: 0.2s;
+    text-transform: uppercase; /* 카테고리는 N5처럼 대문자 유지 */
+    letter-spacing: normal; 
+    flex: 1; /* 가로 공간 균등 분할 */
+    box-sizing: border-box; /* 활성화 시 1px 테두리로 인한 밀림 방지 */
+}
+
+#stage-container.stage-nigredo .n7-hypostases #n7-category-tabs .n7-ayan-tab:last-child { 
+    border-right: none; 
+}
+
+#stage-container.stage-nigredo .n7-hypostases #n7-category-tabs .n7-ayan-tab:hover { 
+    background: rgba(124, 255, 155, 0.05);
+}
+
+#stage-container.stage-nigredo .n7-hypostases #n7-category-tabs .n7-ayan-tab.active {
+    background-color: #7CFF9B !important; /* DDS Green */
+    color: #000 !important;
+    font-weight: bold;
+    /* 🚀 N5 고유 속성: 활성화 시 생성되는 1px 녹색 경계선과 글로우 효과 */
+    border: 1px solid #7CFF9B;
+    box-shadow: 0 0 10px rgba(124, 255, 155, 0.4);
+    text-shadow: none;
+    
+    /* 활성화 시 추가되는 1px 테두리 때문에 주변 탭이 밀리는 현상 방어 */
+    margin: -1px;
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================================
+   Table & Matrix Styles
+   ========================================================= */
+#stage-container.stage-nigredo .n7-sigilum-table th,
+#stage-container.stage-nigredo .n7-matrix-table th {
+    color: #7F7F7F !important;
+    border-bottom: 1px solid rgba(124, 255, 155, 0.2) !important;
+    padding: 12px 10px !important;
+    text-transform: uppercase;
+}
+#stage-container.stage-nigredo .n7-sigilum-table td {
+    padding: 15px 10px !important;
+    vertical-align: middle;
+}
+
+/* Matrix & Sabian */
+#stage-container.stage-nigredo .n7-matrix-container {
+    width: 100%; overflow-x: auto; padding-bottom: 20px;
+}
+#stage-container.stage-nigredo .n7-matrix-container::-webkit-scrollbar { height: 8px; }
+#stage-container.stage-nigredo .n7-matrix-container::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+#stage-container.stage-nigredo .n7-matrix-table {
+    width: max-content !important; min-width: 100% !important; margin-bottom: 0 !important;
+}
+#stage-container.stage-nigredo .n7-matrix-table td {
+    vertical-align: top; padding: 15px 15px !important; white-space: normal !important;
+}
+#stage-container.stage-nigredo .n7-matrix-table th:first-child,
+#stage-container.stage-nigredo .n7-matrix-table td:first-child {
+    position: sticky; left: 0; z-index: 100;
+    background: #000; border-right: 2px solid #333; font-weight: bold; color: #fff !important;
+}
+#stage-container.stage-nigredo .n7-matrix-table th:first-child { z-index: 200; }
+#stage-container.stage-nigredo .n7-sabian-cell {
+    border: 1px solid transparent; transition: all 0.2s; cursor: help;
+}
+#stage-container.stage-nigredo .n7-sabian-cell:hover { background: rgba(124, 255, 155, 0.05); }
+#stage-container.stage-nigredo .n7-cell-intersection {
+    border: 1px solid #7CFF9B !important; box-shadow: inset 0 0 15px rgba(124, 255, 155, 0.15);
+}
+#stage-container.stage-nigredo .n7-cell-line1 { font-style: normal; color: #7CFF9B; font-size: 0.85rem; margin-bottom: 8px; }
+#stage-container.stage-nigredo .n7-cell-line2 { font-style: italic; color: #aaa; font-size: 0.75rem; line-height: 1.5; }
+#stage-container.stage-nigredo .row-divider-group td { border-top: 1px dashed #444 !important; height: 8px; padding: 0 !important; }
+
+/* Tabula */
+#stage-container.stage-nigredo .n7-tabula-wrapper {
+    display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px;
+}
+#stage-container.stage-nigredo .n7-tabula-wrapper::-webkit-scrollbar { height: 8px; }
+#stage-container.stage-nigredo .n7-tabula-wrapper::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+.n7-tabula-col { min-width: 280px; border: 1px solid #333; background: rgba(5,5,5,0.8); }
+.n7-tabula-head { background: #000; padding: 15px; text-align: center; color: #7CFF9B; font-weight: bold; border-bottom: 1px solid #333; letter-spacing: 1px; }
+
+/* Tooltip */
+.n7-floating-tooltip {
+    position: fixed; z-index: 20000; background: rgba(5, 5, 5, 0.95);
+    border: 1px solid #7CFF9B; border-radius: 2px; box-shadow: 0 4px 20px rgba(0,0,0,0.9);
+    color: #e0e0e0; padding: 12px 16px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.8rem; white-space: pre-wrap; line-height: 1.6;
+    pointer-events: none; display: none; backdrop-filter: blur(4px);
+}
+
+/* =========================================================
+   🚀 PLENITUDO - SABIAN 절대 구조 개혁 (Overwrite)
+   ========================================================= */
+
+/* 1. 스크롤 Z-Index 절대 규칙 */
+#stage-container.stage-nigredo .n7-matrix-container {
+    max-height: 75vh; /* 세로 스크롤 강제 발생을 위한 높이 제한 */
+    overflow: auto;
+}
+
+/* 2순위: 상단 X축 헤더 (아래로 스크롤 시 고정) */
+#stage-container.stage-nigredo .n7-matrix-table th {
+    position: sticky; top: 0; z-index: 200 !important;
+    background: #080808 !important; /* 헤더가 데이터를 가릴 때 투명해지지 않도록 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.8);
+}
+
+/* 1순위: 좌측 Y축 고정 (상시 노출) */
+#stage-container.stage-nigredo .n7-matrix-table td:first-child {
+    position: sticky; left: 0; z-index: 100 !important;
+    background: #000 !important;
+}
+
+/* 0순위: Top-Left 코너 (가장 위에서 교차점 덮기) */
+#stage-container.stage-nigredo .n7-matrix-table th:first-child {
+    z-index: 300 !important;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+
+/* 2. 자체 교차셀(Intersection) Cyan Blue Glow */
+#stage-container.stage-nigredo .n7-cell-intersection {
+    border: 1px solid #00FFFF !important; 
+    box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.2), 0 0 10px rgba(0, 255, 255, 0.1) !important;
+    background: rgba(0, 255, 255, 0.03);
+}
+#stage-container.stage-nigredo .n7-cell-intersection .n7-cell-line1 {
+    color: #00FFFF !important; /* 텍스트도 Cyan 계열로 통일 */
+}
+
+/* =========================================================
+   🚀 PLENITUDO - TABULA (360° Sabian View) CSS 개혁
+   ========================================================= */
+
+/* 1. Sleek & Slender Scrollbars (다크/슬림 스크롤바 커스텀) */
+#stage-container.stage-nigredo .n7-tabula-wrapper .codex-table-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: #222 #000;
+}
+#stage-container.stage-nigredo .n7-tabula-wrapper .codex-table-wrapper::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+#stage-container.stage-nigredo .n7-tabula-wrapper .codex-table-wrapper::-webkit-scrollbar-track {
+    background: #000;
+}
+#stage-container.stage-nigredo .n7-tabula-wrapper .codex-table-wrapper::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 3px;
+}
+#stage-container.stage-nigredo .n7-tabula-wrapper .codex-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* 2. Table Foundations & Borders (N8 스타일 폰트/선 적용) */
+#stage-container.stage-nigredo .n7-tabula-table {
+    border-collapse: collapse;
+    width: max-content;
+    min-width: 100%;
+    table-layout: fixed;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+#stage-container.stage-nigredo .n7-tabula-table td,
+#stage-container.stage-nigredo .n7-tabula-table th {
+    border: 1px solid #111;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+/* 우측 사비안 심볼 텍스트는 길어질 경우 줄바꿈 허용 */
+#stage-container.stage-nigredo .n7-tabula-table .col-sabian-symbol {
+    white-space: normal !important;
+    color: #aaa;
+    font-style: italic;
+    min-width: 350px;
+}
+
+/* 3. The Anchor System (상단 헤더 + 좌측 컬럼 완벽 고정) */
+
+/* [Base Layer] 일반 데이터 셀 */
+#stage-container.stage-nigredo .n7-tabula-table td {
+    position: relative;
+    z-index: 1;
+}
+
+/* [Header Row] 상단 행성 이름 고정 */
+#stage-container.stage-nigredo .n7-tabula-table th {
+    position: sticky;
+    top: 0;
+    z-index: 20; 
+    background: #080808; 
+    color: #7CFF9B; /* N8 특유의 연녹색 헤더 */
+    font-weight: normal;
+    text-transform: uppercase;
+    border-bottom: 2px solid #333;
+}
+
+/* [Left Pillar] 좌측 사비안 넘버 고정 */
+#stage-container.stage-nigredo .n7-tabula-table td.sticky-col {
+    position: sticky;
+    left: 0;
+    z-index: 30;
+    background: #000 !important;
+    border-right: 2px solid #222;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.8); /* 데이터 위로 살짝 뜨는 그림자 */
+}
+
+/* [The Anchor] 좌상단 꼭짓점 (Sabian Number 헤더) 절대 고정 */
+#stage-container.stage-nigredo .n7-tabula-table th.sticky-col {
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 40 !important; /* 가장 높은 계층 */
+    background: #000 !important; 
+    color: #fff !important;
+    font-weight: bold;
+    border-right: 2px solid #333;
+    border-bottom: 2px solid #333;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+/* 4. Elemental Coloring & Sign Boundaries (4원소 및 별자리 경계선) */
+#stage-container.stage-nigredo .n7-tabula-table .elem-fire { color: #FC4036 !important; text-shadow: 0 0 5px rgba(255, 82, 82, 0.4); }
+#stage-container.stage-nigredo .n7-tabula-table .elem-earth { color: #ffd740 !important; text-shadow: 0 0 5px rgba(255, 215, 64, 0.4); }
+#stage-container.stage-nigredo .n7-tabula-table .elem-air { color: #e0e0e0 !important; }
+#stage-container.stage-nigredo .n7-tabula-table .elem-water { color: #36D9F5 !important; text-shadow: 0 0 5px rgba(68, 138, 255, 0.4); }
+
+/* 별자리 변하는 지점 (Aries 30 -> Taurus 1 등) 의 녹색 경계선 */
+#stage-container.stage-nigredo .n7-tabula-table tr.sign-boundary td {
+    border-bottom: 2px solid #7CFF9B !important;
+}
+
+/* =========================================================
+   🚀 Text Transform & Unified Scrollbar Override
+   ========================================================= */
+
+/* 1. KP 등 텍스트 강제 변환 완전 해제 (HTML 원본 텍스트 유지) */
+#stage-container.stage-nigredo .n7-hypostases .n7-sys-tab,
+#stage-container.stage-nigredo .n7-hypostases #sidereal-controls-panel-n7 .n7-ayan-tab {
+    text-transform: none !important;
+}
+
+/* 2. 모든 N7 뷰(Sigilum, Sabian, Tabula) 스크롤바 디자인 완벽 통일 */
+#stage-container.stage-nigredo #n7-view-sigilum,
+#stage-container.stage-nigredo .n7-matrix-container,
+#stage-container.stage-nigredo .n7-tabula-wrapper .codex-table-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: #222 #000;
+}
+
+#stage-container.stage-nigredo #n7-view-sigilum::-webkit-scrollbar,
+#stage-container.stage-nigredo .n7-matrix-container::-webkit-scrollbar,
+#stage-container.stage-nigredo .n7-tabula-wrapper .codex-table-wrapper::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+#stage-container.stage-nigredo #n7-view-sigilum::-webkit-scrollbar-track,
+#stage-container.stage-nigredo .n7-matrix-container::-webkit-scrollbar-track,
+#stage-container.stage-nigredo .n7-tabula-wrapper .codex-table-wrapper::-webkit-scrollbar-track {
+    background: #000 !important;
+}
+
+#stage-container.stage-nigredo #n7-view-sigilum::-webkit-scrollbar-thumb,
+#stage-container.stage-nigredo .n7-matrix-container::-webkit-scrollbar-thumb,
+#stage-container.stage-nigredo .n7-tabula-wrapper .codex-table-wrapper::-webkit-scrollbar-thumb {
+    background: #222 !important;
+    border-radius: 3px !important;
+}
+
+#stage-container.stage-nigredo #n7-view-sigilum::-webkit-scrollbar-thumb:hover,
+#stage-container.stage-nigredo .n7-matrix-container::-webkit-scrollbar-thumb:hover,
+#stage-container.stage-nigredo .n7-tabula-wrapper .codex-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #444 !important;
+}
+
+:root {
+    /* 천체 분류별 색상 */
+    --c-planet: #06F8FF;       /* 10행성 */
+    --c-major: #54FF5F;        /* Major Asteroids */
+    --c-node: #C164FF;         /* Lilith & Nodes */
+    --c-fate: #ce93d8;         /* Fates */
+    --c-hermetic: #FC09CA;     /* Hermetic Lots */
+    --c-vertex: #fff59d;       /* Vertex (Yellow) */
+    --c-syzygy: #2B32FF;       /* Syzygy */
+    --c-angle: #1507ED;       /* Angles */
+    --c-cusp: #555555;         /* Cusps  */
+    
+    --h-veil-1:  rgba(255, 51, 0, 0.12);      /* 1H */
+    --h-veil-2:  rgba(255, 102, 0, 0.12);    /* 2H */
+    --h-veil-3:  rgba(255, 124, 128, 0.12);    /* 3H */
+    --h-veil-4:  rgba(255, 102, 153, 0.12);  /* 4H */
+    --h-veil-5:  rgba(255, 102, 204, 0.12);    /* 5H */
+    --h-veil-6:  rgba(255, 102, 255, 0.12);    /* 6H */
+    --h-veil-7:  rgba(204, 153, 255, 0.12);  /* 7H */
+    --h-veil-8:  rgba(153, 153, 255, 0.12);       /* 8H */
+    --h-veil-9:  rgba(102, 153, 255, 0.12);    /* 9H */
+    --h-veil-10: rgba(0, 102, 255, 0.12);         /* 10H */
+    --h-veil-11: rgba(0, 51, 204, 0.12);    /* 11H */
+    --h-veil-12: rgba(0, 51, 153, 0.12);      /* 12H */
+
+
+    --l-sun: #FC55CE;
+    --l-moon: #FFB9FA;
+    --l-mercury: #341DFC;
+    --l-venus: #999999;
+    --l-mars: #F50000;
+    --l-jupiter: #47BD5A;
+    --l-saturn: #FFF200;
+    --l-uranus: #06FDF2;
+    --l-neptune: #1D89F2;
+    --l-pluto: #6C11BD;
+    
+    --l-chiron: #DE4169;
+    --l-ceres: #99FF05;
+    --l-juno: #9819FF;
+    --l-pallas: #52D6FF;
+    --l-vesta: #D7FFF1;
+    --l-asteroid-eros: #D813A6;
+    --l-psyche: #FFDBF8;
+    
+    --l-mean-lilith: #C164FF;
+    --l-true-lilith: #7D41A6;
+    --l-asteroid-lilith: #D477DB;
+    --l-north-node-t: #B5D6D1;
+    --l-rahu: #6E827F;
+    --l-south-node-t: #FCB1C8;
+    --l-ketu: #9E6F7D;
+    
+    --l-moira: #ce93d8;
+    --l-klotho: #BAFFFF;
+    --l-lachesis: #59EBFF;
+    --l-atropos: #0DDCFF;
+    
+    --l-ascendant: #FF350D;
+    --l-immum-coeli: #FDFF52;
+    --l-descendant: #0A46FF;
+    --l-midheaven: #66FF50;
+    
+    --l-fortune: #1BFCE8;
+    --l-spirit: #E6C2FC;
+    --l-necessity: #6A61FF;
+    --l-necessity-v: #4842AD;
+    --l-eros: #FF64C5;
+    --l-eros-v: #B5478C;
+    --l-courage: #288559;
+    --l-victory: #A6FF94;
+    --l-nemesis: #996635;
+    --l-vertex: #fff59d;
+    --l-syzygy: #2B32FF;
+}
+
+.p-planet { color: var(--c-planet) !important; }
+.p-major { color: var(--c-major); }
+.p-node { color: var(--c-node); font-style: italic; }
+.p-fate { color: var(--c-fate); }
+.p-hermetic { color: var(--c-hermetic); }
+.p-vertex { color: var(--c-vertex); }
+.p-syzygy { color: var(--c-syzygy); font-weight: bold; }
+.p-angle { color: var(--c-angle); font-weight: 900; text-transform: uppercase; }
+.p-cusp { color: var(--c-cusp); font-size: 0.8em; }
+
+
+/* 좌측 Sabian 도수 셀에 라인 박스가 들어갈 여백 확보 */
+#stage-container.stage-nigredo .n7-tabula-table td.sticky-col {
+    padding-right: 18px !important;
+    position: relative;
+}
+
+/* 여러 컬럼에 동시다발적으로 데이터가 뜰 경우 선이 겹치지 않고 나란히 정렬됨 */
+#stage-container.stage-nigredo .n7-tabula-table .sabian-line-box {
+    position: absolute;
+    right: 2px;
+    top: 1px;
+    bottom: 1px;
+    display: flex;
+    flex-direction: row-reverse; /* 우측부터 좌측으로 선이 쌓이게 정렬 */
+    gap: 2px;
+    padding: 2px 0;
+}
+
+#stage-container.stage-nigredo .n7-tabula-table .s-line-colored {
+    width: 3px;
+    height: 100%;
+    border-radius: 2px;
+    box-shadow: 0 0 5px currentColor; /* JS에서 주입된 color로 자동 글로우 효과 */
+}
+
+/* 🚀 Tabula 및 Sabian 테이블 스크롤 및 헤더 고정 완벽 방어 */
+
+/* 1. Sabian 뷰에도 Tabula처럼 자체 스크롤 박스화 강제 적용 */
+#stage-container.stage-nigredo .n7-matrix-container {
+    height: 75vh !important;
+    overflow-y: auto !important;
+}
+
+/* 2. Sticky 버그의 주범인 border-collapse 해제 (표가 깨지지 않게 0으로 밀착) */
+#stage-container.stage-nigredo .n7-tabula-table,
+#stage-container.stage-nigredo .n7-matrix-table {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+}
+
+/* 3. 헤더 상단 고정 강제화 (우선순위 최고) */
+#stage-container.stage-nigredo .n7-tabula-table thead th,
+#stage-container.stage-nigredo .n7-matrix-table thead th {
+    position: sticky !important;
+    top: 0 !important;
+    background-color: #000 !important;
+    z-index: 50 !important;
+}
+
+/* 4. 좌측 상단 모서리(SABIAN # 칸 등) - 가로/세로 모두 밀림 방지 */
+#stage-container.stage-nigredo .n7-tabula-table thead th.sticky-col,
+#stage-container.stage-nigredo .n7-matrix-table thead th:first-child {
+    position: sticky !important;
+    left: 0 !important;
+    z-index: 60 !important; /* 다른 헤더보다 더 위에 있어야 코너가 안 비침 */
+}
+
+/* 5. 좌측 Sabian 도수 세로 고정열 (Tabula 전용) */
+#stage-container.stage-nigredo .n7-tabula-table tbody td.sticky-col,
+#stage-container.stage-nigredo .n7-matrix-table tbody td:first-child {
+    position: sticky !important;
+    left: 0 !important;
+    background-color: #000 !important;
+    z-index: 40 !important;
+}
+
+/* 🚀 [Lord Highlighting]: 빛나는 권위 (Day/Hour Lord) */
+
+/* 1. Hour Lord: 오직 "Glow"만 담당 (색상 변경 X) */
+.lord-hour {
+    text-shadow: 
+        0 0 5px #C4FFFC, 
+        0 0 10px #C4FFFC, 
+        0 0 15px #C4FFFC, 
+        0 0 20px #C4FFFC !important; 
+        
+    /* z-index는 Glow가 다른 글자를 가리지 않게 하기 위함 */
+    position: relative;
+    z-index: 5;
+}
+
+/* 2. Day Lord: 오직 "Extra Bold"만 담당 (색상 변경 X) */
+.lord-day {
+    font-style: italic !important;
+}
+
+.bg-house-1  { background-color: var(--h-veil-1) !important; }
+.bg-house-2  { background-color: var(--h-veil-2) !important; }
+.bg-house-3  { background-color: var(--h-veil-3) !important; }
+.bg-house-4  { background-color: var(--h-veil-4) !important; }
+.bg-house-5  { background-color: var(--h-veil-5) !important; }
+.bg-house-6  { background-color: var(--h-veil-6) !important; }
+.bg-house-7  { background-color: var(--h-veil-7) !important; }
+.bg-house-8  { background-color: var(--h-veil-8) !important; }
+.bg-house-9  { background-color: var(--h-veil-9) !important; }
+.bg-house-10 { background-color: var(--h-veil-10) !important; }
+.bg-house-11 { background-color: var(--h-veil-11) !important; }
+.bg-house-12 { background-color: var(--h-veil-12) !important; }
+
+/* 5. Elements & Planets: "Super Nova" Glow (Wide Radius) */
+
+/* 🔥 Fire: Hot Pink / Magenta Red */
+.glow-fire { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #F71831, 
+        0 0 10px #F71831, 
+        0 0 20px #F71831, 
+        0 0 30px #F71831; 
+}
+
+/* 🌍 Earth: Golden Amber */
+.glow-earth { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #FFB933, 
+        0 0 10px #FFB933, 
+        0 0 20px #FFB933, 
+        0 0 30px #FFB933; 
+}
+
+/* 🌬️ Air: Pure White / Silver (차가운 느낌) */
+.glow-air { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #E6E6E6, 
+        0 0 10px #E6E6E6, 
+        0 0 20px #E6E6E6, 
+        0 0 30px #E6E6E6; 
+}
+
+/* 💧 Water: Electric Cyan / Deep Blue (형광 느낌) */
+.glow-water { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #0168FC, 
+        0 0 10px #0168FC, 
+        0 0 20px #0168FC, 
+        0 0 30px #0168FC; 
+}
+
+/* Planets (7행성) - Thick & Distinct */
+
+/* ♄ Saturn: Yellow / Ochre */
+.glow-saturn { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FFF200,
+        0 0 8px #FFF200, 
+        0 0 10px #FFF200,
+        0 0 15px #FFF200, 
+        0 0 20px #FFF200,
+        0 0 30px #FFF200; 
+}
+
+/* ♃ Jupiter: Neon Green */
+.glow-jupiter { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #47BD5A,
+        0 0 8px #47BD5A, 
+        0 0 10px #47BD5A,
+        0 0 15px #47BD5A, 
+        0 0 20px #47BD5A,
+        0 0 25px #47BD5A, 
+        0 0 30px #47BD5A; 
+}
+
+/* ♂ Mars: Deep Crimson Red */
+.glow-mars { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #F50000, 
+        0 0 8px #F50000,
+        0 0 10px #F50000, 
+        0 0 15px #F50000,  
+        0 0 20px #F50000,
+        0 0 25px #F50000,
+        0 0 30px #F50000, 
+        0 0 35px #F50000; 
+}
+
+/* ☉ Sun: Orange Gold */
+.glow-sun { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FC55CE, 
+        0 0 8px #FC55CE,
+        0 0 10px #FC55CE, 
+        0 0 15px #FC55CE,  
+        0 0 20px #FC55CE,
+        0 0 30px #FC55CE,
+        0 0 35px #FC55CE, 
+        0 0 40px #FC55CE; 
+}
+
+/* ♀ Venus: Grey */
+.glow-venus { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #999999, 
+        0 0 8px #999999,
+        0 0 10px #999999,
+        0 0 12px #999999, 
+        0 0 14px #999999,
+        0 0 17px #999999, 
+        0 0 20px #999999, 
+        0 0 22px #999999,
+        0 0 25px #999999,
+        0 0 28px #999999, 
+        0 0 30px #999999; 
+}
+
+/* ☿ Mercury: Cyan Blue */
+.glow-mercury { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #341DFC,
+        0 0 8px #341DFC, 
+        0 0 10px #341DFC,
+        0 0 15px #341DFC, 
+        0 0 20px #341DFC,
+        0 0 25px #341DFC, 
+        0 0 30px #341DFC; 
+}
+
+/* ☽ Moon: White Silver */
+.glow-moon { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FFB9FA,
+        0 0 8px #FFB9FA, 
+        0 0 10px #FFB9FA,
+        0 0 15px #FFB9FA, 
+        0 0 20px #FFB9FA,
+        0 0 25px #FFB9FA, 
+        0 0 30px #FFB9FA; 
+}
+
+
+/* Zodiac Coloring */
+/* 🔥 Fire: Hot Pink / Magenta Red */
+.glow-aries { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #F71831, 
+        0 0 10px #F71831, 
+        0 0 20px #F50000, 
+        0 0 30px #F71831,
+        0 0 35px #F50000; 
+}
+
+.glow-leo { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #F71831, 
+        0 0 10px #F71831, 
+        0 0 20px #FC55CE, 
+        0 0 30px #F71831,
+        0 0 35px #FC55CE; 
+}
+
+.glow-sagittarius { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #F71831, 
+        0 0 10px #F71831, 
+        0 0 20px #47BD5A, 
+        0 0 30px #F71831,
+        0 0 35px #47BD5A;  
+}
+
+/* 🌍 Earth: Golden Amber */
+.glow-taurus { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #FFB933, 
+        0 0 10px #FFB933, 
+        0 0 20px #999999, 
+        0 0 30px #FFB933,
+        0 0 35px #999999;  
+}
+
+.glow-virgo { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #FFB933, 
+        0 0 10px #FFB933, 
+        0 0 20px #341DFC, 
+        0 0 30px #FFB933,
+        0 0 35px #341DFC;  
+}
+
+.glow-capricorn { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #FFB933, 
+        0 0 10px #FFB933, 
+        0 0 20px #FFF200, 
+        0 0 30px #FFB933,
+        0 0 35px #FFF200;  
+}
+
+/* 🌬️ Air: Pure White / Silver (차가운 느낌) */
+.glow-gemini { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #E6E6E6, 
+        0 0 10px #E6E6E6, 
+        0 0 20px #341DFC, 
+        0 0 30px #E6E6E6,
+        0 0 35px #341DFC;  
+}
+
+.glow-libra { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #E6E6E6, 
+        0 0 10px #E6E6E6, 
+        0 0 20px #999999, 
+        0 0 30px #E6E6E6,
+        0 0 35px #999999;  
+}
+
+.glow-aquarius { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #E6E6E6, 
+        0 0 10px #E6E6E6, 
+        0 0 20px #FFF200, 
+        0 0 30px #E6E6E6,
+        0 0 35px #FFF200;  
+}
+
+/* 💧 Water: Electric Cyan / Deep Blue (형광 느낌) */
+.glow-cancer { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #0168FC, 
+        0 0 10px #0168FC, 
+        0 0 20px #FFB9FA, 
+        0 0 30px #0168FC,
+        0 0 35px #FFB9FA;  
+}
+
+.glow-scorpio { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #0168FC, 
+        0 0 10px #0168FC, 
+        0 0 20px #F50000, 
+        0 0 30px #0168FC,
+        0 0 35px #F50000;  
+}
+
+.glow-pisces { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #0168FC, 
+        0 0 10px #0168FC, 
+        0 0 20px #47BD5A, 
+        0 0 30px #0168FC,
+        0 0 35px #47BD5A;  
+}

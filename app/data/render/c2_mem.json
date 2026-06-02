@@ -1,0 +1,1489 @@
+{
+  "system_messages": {
+    "instruction_clinical": {
+      "en": [
+        "Please select the option that most closely resembles your actual experience."
+      ],
+      "ko": [
+        "가장 현실적으로 와닿거나, 실제 당신의 경험과 가장 가까운 것을 선택해 주세요."
+      ]
+    },
+    "instruction_subconscious": {
+      "en": [
+        "Read the narrative and choose the image or reaction that immediately draws you in."
+      ],
+      "ko": [
+        "머리로 생각하지 말고, 본능적으로 끌리거나 가장 강렬하게 다가오는 심상을 선택해 주세요."
+      ]
+    }
+  },
+
+  "clinical_questions": {
+    "child_emotion": {
+      "match_key": "child_graha",
+      "title": {
+        "en": "Childhood Emotion",
+        "ko": "어린 시절의 정서"
+      },
+      "narrative": {
+        "en": [
+          "Recall the time when the world first began to feel a little wider.",
+          "Beyond home and family — when you first spent days among your peers.",
+          "Choose the sentence that feels closest to the mood you often lived in then."
+        ],
+        "ko": [
+          "세상이 처음으로 조금 넓게 느껴졌던 시절을 떠올려보세요.",
+          "집과 가족만이 아니라, 처음으로 또래들과 함께 지내던 그 무렵—",
+          "그때 가장 자주 느껴지던 정서에 가까운 문장을 골라주세요."
+        ]
+      },
+      "options": {
+        "ketu": {
+          "en": [
+            "Emotions weren’t loud or vivid then.",
+            "It was more like watching the world from a quiet distance.",
+            "Not reaching out or taking —",
+            "just breathing in the still air of faraway things."
+          ],
+          "ko": [
+            "감정이 크고 뚜렷하다기보단,",
+            "조금 떨어진 자리에서 세상을 지켜보던 시기.",
+            "다가가거나 가져오기보다,",
+            "먼 곳을 조용히 바라보는 공기."
+          ]
+        },
+        "venus": {
+          "en": [
+            "I felt a gentle warmth moving between people.",
+            "Even if not always loved, there was a softness",
+            "in the air whenever hearts touched or stayed close."
+          ],
+          "ko": [
+            "사람들 사이 감정의 따뜻한 흐름을 느꼈다.",
+            "꼭 늘 사랑받는 건 아니더라도,",
+            "마음이 닿고 함께 있으면 부드러워지는 공기."
+          ]
+        },
+        "sun": {
+          "en": [
+            "I became aware of the sense of ‘me.’",
+            "A wish to do well, or to be seen that way.",
+            "The quiet urge to find the color of my own being."
+          ],
+          "ko": [
+            "'나'라는 감각을 의식했고,",
+            "잘하고 싶거나 잘 보이고 싶은 마음이 있었다.",
+            "존재의 빛깔을 찾으려는 기운."
+          ]
+        },
+        "moon": {
+          "en": [
+            "I was surrounded by the familiar,",
+            "and my heart felt mostly calm.",
+            "An emotion that breathed within care and known echoes."
+          ],
+          "ko": [
+            "익숙한 것에 둘러싸여 있고,",
+            "마음이 비교적 안정적이었다. ",
+            "돌봄과 익숙한 울림 속에서 숨 쉬는 감정."
+          ]
+        },
+        "mars": {
+          "en": [
+            "The world seemed to press against me.",
+            "There was a sense of power gathering inside.",
+            "An undercurrent of endurance — or the need to push forward."
+          ],
+          "ko": [
+            "세상이 부딪혀오는 느낌이 있었고,",
+            "안에서 힘이 응축되는 느낌이 있었다.",
+            "버티거나 나아가야 하는 기운이 배경에 깔렸다."
+          ]
+        },
+        "rahu": {
+          "en": [
+            "The world felt wide open,",
+            "a mix of fear and excitement — a hunger to know more.",
+            "An air of unseen worlds calling from beyond."
+          ],
+          "ko": [
+            "세상이 더 넓게 열려 있는 듯했고,",
+            "겁과 흥분이 섞인, '더 알고 싶음'이 있었다.",
+            "아직 모르는 세계가 날 부르는 공기."
+          ]
+        },
+        "jupiter": {
+          "en": [
+            "There was a wish to understand something,",
+            "a quiet sense of what was right or true.",
+            "A subtle authority that the heart must grow."
+          ],
+          "ko": [
+            "뭔가 이해하고 싶고,",
+            "맞는 길이라는 감각이 있었다.",
+            "마음이 자라야 한다는 조용한 권위감."
+          ]
+        },
+        "saturn": {
+          "en": [
+            "The world wasn’t light or easy.",
+            "Caution and patience had already settled in my heart.",
+            "Even as a child, a faint gravity of adulthood seeped through."
+          ],
+          "ko": [
+            "세상이 가볍지만은 않았고,",
+            "조심과 기다림이 마음에 자리했다.",
+            "너무 어린데도 어른스러운 무게감이 스며 있었다."
+          ]
+        },
+        "mercury": {
+          "en": [
+            "My mind was quick and light.",
+            "Watching, absorbing, learning —",
+            "moving with the rhythm of what surrounded me."
+          ],
+          "ko": [
+            "마음이 바쁘고 가벼웠다.",
+            "보고, 흡수하고, 익히고,",
+            "환경을 읽으며 움직이는 감각."
+          ]
+        }
+      }
+    },
+
+    "childhood_relationships": {
+      "title": {
+        "en": "Childhood Relationships",
+        "ko": "어린 시절의 관계"
+      },
+      "match_key": "child_graha",
+      "narrative": {
+        "en": [
+          "Among your peers, teachers, and adults—",
+          "how did the world feel to you back then?"
+        ],
+        "ko": [
+          "또래들과 선생님, 어른들…",
+          "그 시절, 당신이 체감한 세상은 어떤 느낌이었나요?"
+        ]
+      },
+      "options": {
+        "ketu": {
+          "en": [
+            "People were kind, yet somehow distant.",
+            "There was warmth in how they treated me,",
+            "but it always seemed to fade into empty air."
+          ],
+          "ko": [
+            "사람들은 친절했으나, 어딘가 멀리 있었다.",
+            "나를 대하는 온기는 있었지만,",
+            "그 끝이 늘 허공에 닿는 느낌."
+          ]
+        },
+        "venus": {
+          "en": [
+            "I felt welcomed, and it was easy to be around others.",
+            "Their gaze was gentle,",
+            "and kindness flowed naturally, like the air itself."
+          ],
+          "ko": [
+            "환영받고, 함께 있으면 편안했다.",
+            "나를 대하는 시선은 온화했고",
+            "자연스러운 호의가 공기처럼 흘렀다."
+          ]
+        },
+        "sun": {
+          "en": [
+            "There were praises and expectations.",
+            "Eyes often turned toward me,",
+            "and the weight of those expectations filled the air."
+          ],
+          "ko": [
+            "칭찬과 기대가 있었고,",
+            "눈길이 자주 쏠렸다.",
+            "기대의 무게가 공기 속에 있었다."
+          ]
+        },
+        "moon": {
+          "en": [
+            "I felt protected.",
+            "There was an atmosphere of care around me—",
+            "a shade of nurture and familiarity."
+          ],
+          "ko": [
+            "보호받는 느낌이 있었고,",
+            "누군가가 나를 아끼는 공기가 감돌았다.",
+            "돌봄과 익숙함의 그늘."
+          ]
+        },
+        "mars": {
+          "en": [
+            "I had to be strong.",
+            "Hierarchy felt natural, even among children.",
+            "The playground was a place where strength spoke louder than words."
+          ],
+          "ko": [
+            "강해야 했다.",
+            "서열적 감각이 자연스레 있었다.",
+            "힘이 언어가 되는 운동장."
+          ]
+        },
+        "rahu": {
+          "en": [
+            "People were curious about me.",
+            "Sometimes they looked with fascination,",
+            "their gaze mixing curiosity with a touch of strangeness."
+          ],
+          "ko": [
+            "사람들은 나를 궁금해했다.",
+            "때로는 신기하게 바라보고,",
+            "호기심과 낯섦이 스며 있었다."
+          ]
+        },
+        "jupiter": {
+          "en": [
+            "There was much advice and correction.",
+            "Right and wrong, rules and lessons were emphasized.",
+            "It was a gentle guidance toward what was ‘proper.’"
+          ],
+          "ko": [
+            "조언과 훈육이 많았다.",
+            "옳고 그름, 규칙과 배움이 강조되었다.",
+            "‘올바름’을 향한 인도."
+          ]
+        },
+        "saturn": {
+          "en": [
+            "I spent much time in quiet thought.",
+            "Calm, deliberate—",
+            "there was a weight in me that didn’t quite belong to a child."
+          ],
+          "ko": [
+            "혼자 생각하는 시간이 많았다.",
+            "조용하고 신중했고,",
+            "아이답지 않은 무게감이 있었다."
+          ]
+        },
+        "mercury": {
+          "en": [
+            "My thoughts were quick, my awareness sharp.",
+            "I responded with wit,",
+            "always reading and adjusting to the atmosphere around me."
+          ],
+          "ko": [
+            "생각이 빠르고 눈치가 빨랐다.",
+            "재치 있게 반응하거나",
+            "분위기를 읽는 데 집중했다."
+          ]
+        }
+      }
+    },
+    "soul_origin": {
+      "title": {
+        "en": "Soul Origin",
+        "ko": "영혼의 기원"
+      },
+      "narrative": {
+        "en": [
+          "From a distant origin, a trace has drawn you here.",
+          "Among these, choose the one that feels closest to your ‘original self.’",
+          "Do not try to interpret—choose what you sense."
+        ],
+        "ko": [
+          "먼 기원으로부터 당신을 이곳으로 이끈 흔적이 있습니다.",
+          "이 중, 가장 “본래의 당신”에 가깝다고 느껴지는 것을 고르세요.",
+          "의미를 해석하려고 하지 말고, 감각적으로 잡히는 것을 고르세요."
+        ]
+      },
+      "options": {
+        "ketu": {
+          "en": [
+            "“A Fragment of Black Mineral, Fractured”",
+            "Once whole, now a splinter broken away.",
+            "Separation · Dissolution · Afterglow of Memory."
+          ],
+          "ko": [
+            "“균열이 간 검은 광물 조각”",
+            "완전했으나 부서져 나온 파편.",
+            "분리·해체·기억의 잔광."
+          ]
+        },
+        "venus": {
+          "en": [
+            "“A Silver Ornament Plate with Faded Floral Carvings”",
+            "Traces of beauty once engraved, now blurred.",
+            "Form · Pleasure · Echo of Affection."
+          ],
+          "ko": [
+            "“새겨진 꽃무늬가 흐릿해진 은제 장식판”",
+            "지워진 아름다움의 흔적.",
+            "형태·쾌·애정의 기억."
+          ]
+        },
+        "sun": {
+          "en": [
+            "“A Golden Seal Fragment Holding Sunlight”",
+            "Once complete, now broken from its crest.",
+            "Honor · Will · Residue of Dignity."
+          ],
+          "ko": [
+            "“햇빛을 머금은 금빛 인장 조각”",
+            "완전했으나 부서져 나온 파편.",
+            "명예·의지·존엄의 잔상."
+          ]
+        },
+        "moon": {
+          "en": [
+            "“A Small Seed Husk, Clinging to Dried Soil”",
+            "The primal nourishment of matter itself.",
+            "Origin · Growth · Instinct of Life."
+          ],
+          "ko": [
+            "“건조된 씨앗과 흙이 붙은 작은 종자 껍질”",
+            "태초의 자양과 육체성.",
+            "근원·육성·생체본능."
+          ]
+        },
+        "mars": {
+          "en": [
+            "“A Rusted Shard of Red Iron”",
+            "Remnant of a blade.",
+            "Conflict · Resistance · Strength · Struggle."
+          ],
+          "ko": [
+            "“녹이 슨 붉은 철편”",
+            "날붙이의 잔해.",
+            "투쟁·적대·근력·분투."
+          ]
+        },
+        "rahu": {
+          "en": [
+            "“A Black Metal Fragment Etched with Unknown Symbols”",
+            "An unreadable, magnetic code.",
+            "Destructive Curiosity · Threshold Experience · Mutation."
+          ],
+          "ko": [
+            "“낯선 기호가 새겨진 흑색 금속판 조각”",
+            "의미를 알 수 없는 신비로운 암호.",
+            "파괴적 호기심·경계체험·변이."
+          ]
+        },
+        "jupiter": {
+          "en": [
+            "“A Fragment Bearing a Faintly Burned Celestial Mark”",
+            "Echo of cosmic pattern, remnant of scripture.",
+            "Wisdom · Law · Protection."
+          ],
+          "ko": [
+            "“희미하게 그을린 성상 기호 조각”",
+            "우주의 패턴, 경전의 잔편",
+            "지식·율법·보호."
+          ]
+        },
+        "saturn": {
+          "en": [
+            "“A Gray Stone Eroded Like Rock Salt”",
+            "Marked by time and pressure.",
+            "Limit · Weight · Fate."
+          ],
+          "ko": [
+            "“암염처럼 침식된 회색 광석 조각”",
+            "시간과 압력의 흔적.",
+            "한계·무게·숙명."
+          ]
+        },
+        "mercury": {
+          "en": [
+            "“A Fine Brass Gear Fragment”",
+            "Part of a greater unseen mechanism.",
+            "Intellect · Play · Calculation · Agility."
+          ],
+          "ko": [
+            "“정교한 황동 기어 조각”",
+            "어떤 커다란 구조의 일부.",
+            "지성·유희·계산·기민함."
+          ]
+        }
+      }
+    },
+    "solitude": {
+      "match_key": "birth_dasha",
+      "title": {
+        "en": "Solitude",
+        "ko": "고요"
+      },
+      "narrative": {
+        "en": [
+          "In the deep stillness where no one can reach you,",
+          "when the heart settles on its own,",
+          "choose the sensation that feels most familiar."
+        ],
+        "ko": [
+          "아무도 닿지 않는 깊은 고요 속에서",
+          "마음이 스스로 가라앉을 때,",
+          "가장 익숙하게 떠오르는 감각을 선택하세요."
+        ]
+      },
+      "options": {
+        "ketu": {
+          "en": [
+            "“A Fading Echo”",
+            "The space where something has already passed.",
+            "Neither heavy nor sharp—",
+            "just quietly dissolving into stillness."
+          ],
+          "ko": [
+            "“사라지는 여운”",
+            "무언가가 이미 지나가버린 자리.",
+            "먹먹하지도 쓰리지도 않다.",
+            "그냥 조용히 희미해진다."
+          ]
+        },
+        "venus": {
+          "en": [
+            "“A Warmth Just Out of Reach”",
+            "A memory like body heat lingering at your fingertips.",
+            "A nameless longing brushes by—",
+            "tender, and a little aching."
+          ],
+          "ko": [
+            "“따뜻했으나 닿지 않는 곳”",
+            "손끝에 남아 있는 체온 같은 기억.",
+            "이름 없는 그리움이 살짝 스친다.",
+            "부드럽고, 조금은 아프다."
+          ]
+        },
+        "sun": {
+          "en": [
+            "“The Quiet of a Closed Core”",
+            "Light sealed deep within.",
+            "There is no outside—",
+            "only the self, steady and still."
+          ],
+          "ko": [
+            "“닫힌 중심의 고요”",
+            "안쪽으로 깊게 잠긴 빛.",
+            "바깥은 없다.",
+            "그저 스스로만 남아, 조용히 견고하다."
+          ]
+        },
+        "moon": {
+          "en": [
+            "“The Trace of a Damp Breath”",
+            "A tide pooled beneath the chest.",
+            "Neither light nor heavy—",
+            "only a gentle sadness wrapping around me."
+          ],
+          "ko": [
+            "“젖은 숨결의 흔적”",
+            "가슴 아래에 고여 있는 물결.",
+            "무겁지도 가볍지도 않은,",
+            "아늑한 슬픔만이 나를 감싼다."
+          ]
+        },
+        "mars": {
+          "en": [
+            "“A Tension That Doesn’t Move”",
+            "No explosion, no anger.",
+            "Only muscles drawn tight,",
+            "waiting—without reason."
+          ],
+          "ko": [
+            "“움직이지 않는 긴장”",
+            "폭발도 분노도 없다.",
+            "그저 근육이 깊게 단단해진 채,",
+            "기다린다 — 이유 없이."
+          ]
+        },
+        "rahu": {
+          "en": [
+            "“A Hollow with Thirst”",
+            "Empty, not knowing what it seeks.",
+            "Not desire—",
+            "just a space that remains."
+          ],
+          "ko": [
+            "“갈증이 있는 공허”",
+            "무엇을 원하는지 모르는 채, 속이 비어 있다.",
+            "갈망이 아니라,",
+            "단지 공간이 남아 있다."
+          ]
+        },
+        "jupiter": {
+          "en": [
+            "“A Distant Breath Observing”",
+            "It does not join in.",
+            "It does not judge.",
+            "It simply watches—calm, and wide."
+          ],
+          "ko": [
+            "“멀리서 지켜보는 숨”",
+            "참여하지 않는다.",
+            "판단하지 않는다.",
+            "거리를 둔 채, 조용히 넓다."
+          ]
+        },
+        "saturn": {
+          "en": [
+            "The world wasn’t light or easy.",
+            "Caution and patience had already settled in my heart.",
+            "Even as a child, a faint gravity of adulthood seeped through."
+          ],
+          "ko": [
+            "“오래된 무게의 평온”",
+            "포기나 체념이 아니다.",
+            "이미 알고 있는 어둠이",
+            "묵묵히 가만히 옆에 앉아 있다."
+          ]
+        },
+        "mercury": {
+          "en": [
+            "“A Floating Consciousness”",
+            "Dust of thought without emotion.",
+            "Something tries to speak, then forgets—",
+            "scattering with no sound, no conclusion."
+          ],
+          "ko": [
+            "“떠다니는 의식”",
+            "무감정한 생각의 먼지.",
+            "무언가 말하려다 잊는다.",
+            "소리도 결론도 없이 흩어진다."
+          ]
+        }
+      }
+    },
+    "life_shift_timing": {
+      "title": {
+        "en": "First Life Shift",
+        "ko": "삶의 첫 전환기"
+      },
+      "narrative": {
+        "en": [
+          "Was there a moment when the ‘atmosphere of the world’ seemed to change for you?",
+          "It doesn’t have to be from childhood.",
+          "For some, it comes around early school years;",
+          "for others, during adolescence or early adulthood.",
+          "Choose the period that feels closest to when that shift occurred."
+        ],
+        "ko": [
+          "처음으로 ‘세상의 공기’가 바뀐 것 같은 순간이 있었나요?",
+          "꼭 어린 시절일 필요는 없습니다.",
+          "어떤 사람에게는 초등학교 즈음,",
+          "어떤 사람에게는 사춘기나 성인 초반에 찾아옵니다.",
+          "그 변화의 시기와 가장 가까운 느낌을 골라주세요."
+        ]
+      },
+      "options": {
+        "child": {
+          "en": "The air suddenly changed when I still knew little about the world. (early childhood)",
+          "ko": "아직 세상에 대해 잘 모르던 때, 공기가 갑자기 달라졌다. (~초등 저학년)"
+        },
+        "puberty_start": {
+          "en": "It was when friendships and the rules of the world began to grow complicated. (late elementary to early adolescence)",
+          "ko": "친구 관계와 세상의 규칙이 복잡해지기 시작했던 시기였다. (초등 고학년~사춘기 초반)"
+        },
+        "puberty": {
+          "en": "It was the time when conflicts arose within me, and I began to wrestle with myself. (adolescence)",
+          "ko": "내 안에서 충돌이 생기고, 스스로와 싸우기 시작했던 시기였다. (사춘기)"
+        },
+        "post_puberty": {
+          "en": "It came around the time I was about to become an adult—when responsibility and choice began to fall on me. (late teens to early adulthood)",
+          "ko": "막 성인이 될 즈음, 스스로 선택해야 한다는 책임이 찾아오던 시기였다. (10대 후반~성년 초반)"
+        },
+        "20s": {
+          "en": "When I stepped into society, and the world began to press its real weight upon me. (early to mid-twenties)",
+          "ko": "사회에 뛰어들며, 세상이 진짜로 무게를 실어오기 시작했던 시기였다. (20대 초중반)"
+        },
+        "no_shift": {
+          "en": "I haven’t really felt such a moment—or can’t recall one clearly.",
+          "ko": "아직 그런 순간이 없거나, 잘 떠오르지 않는다."
+        },
+        "turmoil": {
+          "en": "My life has always been full of upheaval; it’s hard to say one moment stood out more than the rest.",
+          "ko": "내 인생은 매 순간이 파란만장했어서, 특별히 더 많이 변한 적이 있는지는 잘 모르겠다."
+        }
+      }
+    },
+    "life_shift_mood_child": {
+      "title": {
+        "en": "Childhood Life Shift",
+        "ko": "유년기의 전환기"
+      },
+      "match_key": "shift_graha",
+      "narrative": {
+        "en": [
+          "When that change arrived,",
+          "what color did your inner world take on?"
+        ],
+        "ko": [
+          "그 변화가 찾아왔을 때,",
+          "당신의 내면은 어떤 색을 띄고 있었나요?"
+        ]
+      },
+      "options": {
+        "ketu": {
+          "en": [
+            "I spoke less.",
+            "Often stopped mid-thought.",
+            "A quiet emptiness opened inside the once-light heart—",
+            "as if something drifted away from afar.",
+            "Only a silent breeze remained."
+          ],
+          "ko": [
+            "말이 줄었다.",
+            "생각하려다 멈추는 일이 많았다.",
+            "멀리서 무언가 빠져나가는 느낌이었다.",
+            "조용한 바람만 남았다."
+          ]
+        },
+        "venus": {
+          "en": [
+            "I used to find it hard to talk to people,",
+            "but somehow they began to come closer.",
+            "I can’t say it was good or bad—it just happened that way."
+          ],
+          "ko": [
+            "예전엔 말이 잘 안 붙었는데,",
+            "어느 순간 사람들이 조금 더 다가왔다.",
+            "그게 좋다 나쁘다는 잘 모르겠고, 그냥 그렇게 됐다."
+          ]
+        },
+        "sun": {
+          "en": [
+            "The light days grew a little heavier.",
+            "I felt eyes turning toward me,",
+            "and somehow wanted to stand properly.",
+            "It was as if a quiet light shone on me."
+          ],
+          "ko": [
+            "가볍던 시간이 조금 무거워졌다.",
+            "주변이 나를 보는 느낌이 들었고,",
+            "괜히 바르게 있어야 할 것 같았다.",
+            "조용한 빛이 나를 비춘 것 같았다."
+          ]
+        },
+        "moon": {
+          "en": [
+            "The busy noise moved further away.",
+            "Being alone started to feel natural.",
+            "The world became a little quieter."
+          ],
+          "ko": [
+            "바쁘던 게 조금 멀어졌다.",
+            "혼자 있는 게 자연스러웠다.",
+            "세상이 조금 조용해졌다."
+          ]
+        },
+        "mars": {
+          "en": [
+            "It became harder to relax like before.",
+            "There were sudden moments of tension,",
+            "and I felt I shouldn’t just stay still—",
+            "as if I was always getting ready for something."
+          ],
+          "ko": [
+            "예전처럼 편하게 있기가 조금 어려워졌다.",
+            "괜히 긴장되는 순간이 있고,",
+            "가만히 있으면 안 될 것 같았다.",
+            "뭔가 계속 준비하는 느낌이 들었다."
+          ]
+        },
+        "rahu": {
+          "en": [
+            "The time of pure strength had passed,",
+            "and too many paths opened at once.",
+            "I couldn’t stay in one place long—",
+            "new things kept catching my eye.",
+            "Even in stillness, the wind was moving."
+          ],
+          "ko": [
+            "힘이 앞서던 때가 지나고,",
+            "길이 너무 많아졌다.",
+            "한 곳에 오래 머물기 어려웠고,",
+            "새로운 것들이 계속 눈에 들어왔다.",
+            "가만히 있어도 바람이 불었다."
+          ]
+        },
+        "jupiter": {
+          "en": [
+            "“A Distant Breath Observing”",
+            "It does not join in.",
+            "It does not judge.",
+            "It simply watches—calm, and wide."
+          ],
+          "ko": [
+            "멀었던 게 가까워지고,",
+            "크고 느린 움직임이 생겼다.",
+            "서두르지 않아도 되는 기분이었고,",
+            "괜히 ‘알 것 같은’ 공기였다."
+          ]
+        },
+        "saturn": {
+          "en": [
+            "I spoke less.",
+            "Became cautious for no clear reason.",
+            "Did the same things again and again.",
+            "It was a time of long, quiet thinking alone."
+          ],
+          "ko": [
+            "말수가 줄었다.",
+            "괜히 조심하게 되고,",
+            "했던 걸 그냥 반복하게 됐다.",
+            "혼자서 오래 생각하게 되는 때였다."
+          ]
+        },
+        "mercury": {
+          "en": [
+            "Things felt lighter.",
+            "Small details caught my eye,",
+            "little joys appeared.",
+            "My words came a bit faster."
+          ],
+          "ko": [
+            "가벼워졌다.",
+            "사소한 것들이 눈에 들어왔고,",
+            "작은 재미들이 생겼다.",
+            "말이 조금 더 빨라졌다."
+          ]
+        },
+        "unknown": {
+          "en": [
+            "None of these quite fit.",
+            "I know something changed,",
+            "but the exact feeling doesn’t come to mind."
+          ],
+          "ko": [
+            "위 항목 중에서는 잘 모르겠다.",
+            "분명 변화는 있었던 것 같은데,",
+            "딱 맞는 느낌은 떠오르지 않는다."
+          ]
+        }
+      }
+    },
+    "life_shift_mood_teen": {
+      "title": {
+        "en": "Adolescence Life Shift",
+        "ko": "사춘기의 전환기"
+      },
+      "match_key": "shift_graha",
+      "narrative": {
+        "en": [
+          "When that change arrived,",
+          "what color did your inner world take on?"
+        ],
+        "ko": [
+          "그 변화가 찾아왔을 때,",
+          "당신의 내면은 어떤 색을 띄고 있었나요?"
+        ]
+      },
+      "options": {
+        "ketu": {
+          "en": [
+            "Things that once made sense stopped making sense.",
+            "I felt a step away from the world I thought I knew.",
+            "Confused—but strangely indifferent."
+          ],
+          "ko": [
+            "설명이 되던 것들이 설명되지 않기 시작했다.",
+            "내가 알던 세상에서 한 걸음 떨어져 있는 느낌이 들었다.",
+            "혼란스러운데, 동시에 이상하게 무심해졌다."
+          ]
+        },
+        "venus": {
+          "en": [
+            "The world suddenly looked more complicated.",
+            "People and feelings drew my curiosity—and my confusion.",
+            "I wanted to get closer, but quietly watched instead,",
+            "afraid I might not understand."
+          ],
+          "ko": [
+            "세상이 갑자기 더 복잡해 보이기 시작했다.",
+            "사람과 마음이 궁금해졌지만, 그만큼 혼란스러웠다.",
+            "다가가고 싶으면서, 이해하지 못할까봐 조용히 관찰했다."
+          ]
+        },
+        "sun": {
+          "en": [
+            "I thought less about how I felt,",
+            "and more about who I should become.",
+            "More than being liked, I wanted to stand firm.",
+            "I was sensitive—but responsibility had begun to grow."
+          ],
+          "ko": [
+            "내 감정보다, ‘어떤 사람이 되어야 할까’를 더 생각했다.",
+            "나를 좋아해주길 바라는 마음보다, 제대로 서야 한다는 의지가 커졌다.",
+            "마음이 예민했지만, 책임감도 자랐다."
+          ]
+        },
+        "moon": {
+          "en": [
+            "The voice saying ‘be strong’ quieted down,",
+            "and feelings came forward.",
+            "The wish to connect with someone grew louder.",
+            "What I felt started to matter more."
+          ],
+          "ko": [
+            "강해야 한다는 목소리가 잦아들고, 감정이 앞섰다.",
+            "누군가와 연결되고 싶다는 마음이 자꾸 커졌다.",
+            "내가 느끼는 게 더 중요해졌다."
+          ]
+        },
+        "mars": {
+          "en": [
+            "I began searching for who I had to be,",
+            "not just who I vaguely was.",
+            "Action came before thought,",
+            "and a quiet confidence began to form.",
+            "The wish to prove myself grew."
+          ],
+          "ko": [
+            "막연한 나가 아니라, ‘나여야 하는 모습’을 찾기 시작했다.",
+            "생각보다 행동이 먼저였고, 조용한 자신감이 생겼다.",
+            "스스로를 증명하고 싶은 마음이 자라났다."
+          ]
+        },
+        "rahu": {
+          "en": [
+            "My goal had been clear, then the road split into many.",
+            "Excitement grew—and so did fear.",
+            "I began to want to go farther than before."
+          ],
+          "ko": [
+            "목표가 분명했는데, 갑자기 길이 여러 개로 갈라졌다.",
+            "기대도 커지고 불안도 커졌다.",
+            "더 멀리 나가고 싶은 마음이 생겼다."
+          ]
+        },
+        "jupiter": {
+          "en": [
+            "Scattered thoughts began to find shape.",
+            "Instead of chasing everything,",
+            "I wanted to choose one direction.",
+            "Less possibility—more principle."
+          ],
+          "ko": [
+            "갈피 잡기 힘들던 생각들이 조금씩 정리되기 시작했다.",
+            "넓게 퍼져 있던 욕심 대신, 한 방향을 정하고 싶어졌다.",
+            "가능성보다 기준이 필요해졌다."
+          ]
+        },
+        "saturn": {
+          "en": [
+            "I began to see limits and reality",
+            "where I once saw endless potential.",
+            "Things I believed easily started to gain weight.",
+            "For the first time, I felt what effort really meant."
+          ],
+          "ko": [
+            "무한히 가능하단 생각보다, 한계와 현실을 보게 되었다.",
+            "쉽게 믿었던 것들이 무게를 갖기 시작했다.",
+            "노력의 의미를 처음으로 실감했다."
+          ]
+        },
+        "mercury": {
+          "en": [
+            "The heaviness lifted a little.",
+            "Rather than carrying everything alone,",
+            "I wanted to untangle it through learning and exchange.",
+            "I started to handle problems with thought, not feeling."
+          ],
+          "ko": [
+            "무겁던 마음이 조금은 가벼워졌다.",
+            "스스로 다 받아내기보단, 배움과 교류를 통해 풀고 싶어졌다.",
+            "문제를 감정보다 생각으로 다루게 되었다."
+          ]
+        },
+        "unknown": {
+          "en": [
+            "None of these quite fit.",
+            "I know something changed,",
+            "but the exact feeling doesn’t come to mind."
+          ],
+          "ko": [
+            "위 항목 중에서는 잘 모르겠다.",
+            "분명 변화는 있었던 것 같은데,",
+            "딱 맞는 느낌은 떠오르지 않는다."
+          ]
+        }
+      }
+    }
+  },
+  
+
+  "subconscious_questions": {
+    "scn_intro": {
+      "title": {
+        "en": "Entering the Subconscious Realm…",
+        "ko": "무의식의 영역으로 진입합니다…"
+      },
+      "bg_image": "scn_intro.jpg",
+      "narrative": {
+        "en": [
+          "It feels as though you cried yourself to sleep.",
+          "You can’t quite remember why, only that the sorrow was deep.",
+          " ",
+          "When awareness returns, you find yourself sitting before a small spring.",
+          "The forest around you hums with something both wondrous and unsettling—",
+          "veiled in mist, yet lit by a dreamlike glow that guides your way forward."
+        ],
+        "ko": [
+          "울다 지쳐 잠들었던 것 같다.",
+          "정작 왜 울었는지는 기억조차 나지 않지만, 매우 슬펐던 것 같다.",
+          " ",
+          "문득 정신을 차려보니 당신은 작은 샘 앞에 앉아 있었다.",
+          "신비로우면서도 어딘가 섬뜩한 기분을 자아내는 숲은 안개에 뒤덮혀 있었지만,",
+          "그럼에도 몽환적인 빛이 앞길을 밝히고 있던 것이다."
+        ]
+      }
+    },
+    "scn_call": {
+      "title": {
+        "en": "The Chosen Hero",
+        "ko": "선택 받은 영웅"
+      },
+      "bg_image": "scn_call.jpg",
+      "narrative": {
+        "en": [
+          "Following the dreamlike light, you walk along the path.",
+          "Suddenly, the fog parts—and a radiant sun floods the forest.",
+          "At last, you stand before a great stone altar.",
+          " ",
+          "As you step closer, a mysterious voice descends from the heavens:",
+          "“O chosen one,",
+          "select an item that shall make your glory shine ever brighter.”"
+        ],
+        "ko": [
+          "몽환적인 빛을 따라 당신은 길을 걸었다.",
+          "갑자기 안개가 확 젖히며 찬란한 태양이 숲 전체를 비추었고,",
+          "이로서 당신은 드디어 거대한 돌 제단을 마주하게 된 것이다.",
+          " ",
+          "제단 앞에 다가서니 천공에서 신비로운 목소리가 들려온다:",
+          "“선택 받은 이여,",
+          "그대의 영광을 더욱 빛나게 할 소지품을 하나 고르도록 하여라.”"
+        ]
+      },
+      "question": {
+        "en": "What item lies before you upon the altar?",
+        "ko": "제단 위에 놓인 물건은 무엇입니까?"
+      },
+      "options": {
+        "wand": {
+          "en": [
+            "“The Sage’s Staff”",
+            "A modest wooden staff. A steady power hums within its grain."
+          ],
+          "ko": [
+            "“현자의 지팡이”",
+            "수수한 나무 지팡이. 나뭇결 속에서 묵직한 기운이 느껴진다."
+          ]
+        },
+        "robe": {
+          "en": [
+            "“The Hierophant’s Robe”",
+            "A deep violet robe, steeped in quiet authority and reverence."
+          ],
+          "ko": [
+            "“교황의 로브”",
+            "짙은 보랏빛 로브. 고요한 권위와 경건함이 감돈다."
+          ]
+        },
+        "crown": {
+          "en": [
+            "“A Silver Crown”",
+            "An exquisitely wrought circlet, gleaming with serene beauty."
+          ],
+          "ko": [
+            "“은으로 만든 왕관”",
+            "정교하게 빛나는 아름다운 은 왕관이다."
+          ]
+        },
+        "lantern": {
+          "en": [
+            "“The Old Lantern”",
+            "The oil nearly gone, yet the gentle flame refuses to die."
+          ],
+          "ko": [
+            "“낡은 등불”",
+            "기름이 거의 다 된 듯하지만 은은한 불빛이 꺼지지 않는다."
+          ]
+        }
+      }
+    },
+    "scn_whisper": {
+      "title": {
+        "en": "Whispers in the Dark",
+        "ko": "어둠 속의 속삭임"
+      },
+      "bg_image": "scn_whisper.jpg",
+      "narrative": {
+        "en": [
+          "As you’re drawn to your chosen item, a whisper reaches you:",
+          "“He only promised you glory, didn’t he?",
+          "But he never said it was for your sake.",
+          "Take this gift—something to guard you when the weight of glory begins to crush.”",
+          " ",
+          "The voice comes from a dark cave beyond the forest.",
+          "Inside, the narrow space shimmers faintly, lit by a moonlike glow.",
+          "Upon an altar—much like the one outside—rest several different objects."
+        ],
+        "ko": [
+          "소지품에 매료된 당신에게 속삭임이 들려온다:",
+          "“그는 영광을 약속할 뿐이지, 너를 위한다고 한 적이 없잖아?",
+          "영광의 무게에 짖눌릴 때 너를 지켜줄 선물을 줄게”",
+          " ",
+          "목소리는 숲 저편의 어두운 동굴 속에서 들려오고 있었다.",
+          "좁은 동굴 안은 달빛과 같은 미약하지만 신비로운 빛으로 감돌고 있었다.",
+          "바깥에 있던 제단과 흡사한 제단 위에는 이와 별개의 물건들이 놓여져 있었다."
+        ]
+      },
+      "question": {
+        "en": "Which item do you take?",
+        "ko": "어떤 물건을 가져가시겠습니까?"
+      },
+      "options": {
+        "Dharma": {
+          "en": [
+            "“A Shard of a Broken Mirror”",
+            "Cracked, yet it reflects a pale lunar light.",
+            "You cannot tell what it might reveal."
+          ],
+          "ko": [
+            "“깨진 거울 조각”",
+            "금이 가 있으나 희미한 달빛을 반사한다.",
+            "무엇이 비칠지는 알 수 없다."
+          ]
+        },
+        "Artha": {
+          "en": [
+            "“Heavy Battle Boots”",
+            "Worn metal boots, marked with dried mud",
+            "and faint, unspoken stains."
+          ],
+          "ko": [
+            "“무거운 전투 부츠”",
+            "오래 사용된 금속 부츠.",
+            "바닥엔 마른 진흙과 희미한 얼룩이 남아 있다."
+          ]
+        },
+        "Kama": {
+          "en": [
+            "“A Bitten Red Apple”",
+            "A single bite mark remains.",
+            "Its sweet, fragrant scent lingers in the air."
+          ],
+          "ko": [
+            "“베어먹힌 붉은 사과”",
+            "한 입 흔적이 남아 있다.",
+            "달고 향기로운 냄새가 공기 속에 감돈다."
+          ]
+        },
+        "Moksha": {
+          "en": [
+            "“A Tattered Gray Cloak”",
+            "Rough to the touch, yet lightweight.",
+            "It feels as though it could vanish into the dark without a trace."
+          ],
+          "ko": [
+            "“헤진 회색 망토”",
+            "거칠지만 가볍다.",
+            "어둠 속에서 흔적 없이 사라질 것만 같다."
+          ]
+        }
+      }
+    },
+    "scn_righteous": {
+      "title": {
+        "en": "A Righteous Heart",
+        "ko": "경건한 마음"
+      },
+      "bg_image": "scn_righteous.jpg",
+      "narrative": {
+        "en": [
+          "And so your journey begins.",
+          "Filled with a strange zeal — a rush of righteousness and confidence — you witness it:",
+          "a giant serpent opening its jaws to devour a newborn bird.",
+          " ",
+          "A wave of disgust and fury rises within you.",
+          "Instinctively, you grasp something nearby and hurl it at the creature.",
+          "The moment it strikes, the serpent vanishes—like a shimmer of heat.",
+          " ",
+          "Was it a mirage in the desert?",
+          "As you approach the place where the serpent had been,",
+          "you find an object lying there.",
+          "It must have been a stone you threw… yet what lies before you",
+          "has taken on an entirely different form."
+        ],
+        "ko": [
+          "그렇게 당신은 여정을 시작하게 되었다.",
+          "들뜨기도 하고 묘한 정의감과 자신감에 가득 찬 당신은 목격했다——",
+          "거대한 구렁이가 갓 태어난 새끼 새를 잡아먹으려 입을 벌리고 있는 모습을.",
+          " ",
+          "뭔지 모를 혐오감과 경멸이 울컥 밀려온 당신은",
+          "반사적으로 손에 집히는 무언가를 집어들어 구렁이를 향해 던졌다.",
+          "그 물체에 맞자, 구렁이는 즉시 아지랑이처럼 사라졌다.",
+          " ",
+          "사막의 환상이었나?",
+          "그렇게 구렁이가 있던 자리에 다가가니 어떤 물건이 놓여 있었다.",
+          "분명 손에 잡힌 것은 돌맹이였던 것 같지만,",
+          "떨어져 있던 물체는 완전히 다른 형상을 띄고 있던 것이다."
+        ]
+      },
+      "question": {
+        "en": "What object lies before you?",
+        "ko": "당신 앞에 놓인 물건은 무엇입니까?"
+      },
+      "options": {
+        "Dharma": {
+          "en": [
+            "“A Cracked Compass”",
+            "Its needle has lost direction, yet a soft light glows within.",
+            "No path, it seems, is ever fully closed."
+          ],
+          "ko": [
+            "“금이 간 나침반”",
+            "바늘은 방향을 잃었지만, 은은한 빛이 깃든다.",
+            "그 어떤 길도 완전히 닫히진 않은 듯하다."
+          ]
+        },
+        "Artha": {
+          "en": [
+            "“A Sapling Branch”",
+            "Between rough bark, tender leaves emerge.",
+            "Small and fragile, yet brimming with life."
+          ],
+          "ko": [
+            "“묘목 한 가지”",
+            "거친 껍질 사이로 어린 잎이 돋아난다.",
+            "작고 연약하지만 생명력이 느껴진다."
+          ]
+        },
+        "Kama": {
+          "en": [
+            "“A Half-Filled Chalice”",
+            "In an ornate golden cup, clear water rests halfway up.",
+            "It feels both lacking and complete at once."
+          ],
+          "ko": [
+            "“반쯤 찬 잔”",
+            "정교한 금잔 속, 맑은 물이 반쯤 채워져 있다.",
+            "부족함과 충만함이 동시에 느껴진다."
+          ]
+        },
+        "Moksha": {
+          "en": [
+            "“A Scorpion’s Shed Shell”",
+            "Empty, yet its form remains intact.",
+            "What was cast off is gone—something new will arise."
+          ],
+          "ko": [
+            "“전갈이 남긴 허물”",
+            "텅 비었지만 형체는 온전히 남아 있다.",
+            "벗어던진 것은 사라지고, 새로운 것이 생겨날 것이다."
+          ]
+        }
+      }
+    },
+    "scn_confusion": {
+      "title": {
+        "en": "Confusion of the Soul",
+        "ko": "영혼의 혼란"
+      },
+      "bg_image": "scn_confusion.jpg",
+      "narrative": {
+        "en": [
+          "As your hand reaches for the object, a mysterious voice echoes:",
+          "“Humans are slaves to the unconscious—so descend, and submerge within.”",
+          " ",
+          "Even with your eyes open, you can’t tell whether this is dream or waking.",
+          "You drift in a strange confusion, in a space that feels like the deep sea—",
+          "and yet like the womb’s amniotic cradle.",
+          "A soft comfort rises, whispering that you could simply let go of everything.",
+          "Then, in a fleeting moment of awareness, you reach toward the radiant light above the surface."
+        ],
+        "ko": [
+          "물건에 손을 뻗자, 신비로운 목소리와 함께 당신은 정신을 잃는다:",
+          "“인간은 무의식의 노예일지니, 무의식에 잠수할지어다”",
+          " ",
+          "눈을 떴음에도 꿈인지 현실인지 몽롱한 느낌에 기묘한 혼란이 찾아온다.",
+          "마치 깊은 바다와 같지만, 모태의 양수와 같은 느낌도 드는 공간에서",
+          "당신은 모든 것을 놓아버리고 편해지고자 하는 이상한 안락함을 느낀다.",
+          "그러다 잠시 정신이 돌아온 당신은 수면 위의 찬란한 빛을 향해 손을 뻗는다."
+        ]
+      },
+      "question": {
+        "en": "What awaits you there, beyond the shimmering veil?",
+        "ko": "수면 위에 당신을 기다리고 있는 것은 무엇인가?"
+      },
+      "options": {
+        "sun": {
+          "en": "“The Brilliant Solar Beam That Purifies All Evil”",
+          "ko": "“모든 악을 정화하는 찬란한 태양의 빛”"
+        },
+        "judgment": {
+          "en": "“The Angel of Judgment — The End, and the Beginning Anew”",
+          "ko": "“심판의 천사, 그리고 종말과 새로운 시작”"
+        },
+        "isekai": {
+          "en": "“Unknown New World Unfolds”",
+          "ko": "“또 다른 미지의 세상”"
+        }
+      }
+    },
+    
+    "scn_abyss": {
+      "title": {
+        "en": "The Bottom of the Inner World",
+        "ko": "내면세계의 밑바닥"
+      },
+      "bg_image": "scn_abyss.jpg",
+      "narrative": {
+        "en": [
+          "You reach toward the radiance above the surface,",
+          "but something pulls you back—down into the unknown depths.",
+          "You glance at what drags you, and see a figure with your own face,",
+          "smiling in a grotesque way.",
+          "You fall endlessly, until you arrive at the abyss."
+        ],
+        "ko": [
+          "수면 위의 찬란함에 가까워지고자 손을 뻗지만,",
+          "당신은 무언가에 의해 다시끔 미지의 물 속으로 끌어당겨진다.",
+          "당신을 끌어당긴 상대를 힐끗 쳐다보니,",
+          "당신과 동일한 형상의 존재가 기괴하게 웃고 있었다.",
+          "당신은 끝없이 밑바닥으로 추락하여 심연에 다다르게 되었다."
+        ]
+      },
+      "question": {
+        "en": "In that deepest place, what do you face?",
+        "ko": "심연에서 당신이 마주한 것은?"
+      },
+      "options": {
+        "Dharma": {
+          "en": [
+            "“A Man with His Eyes Covered”",
+            "His eyes are bound in cloth.",
+            "In his hand, a dull blade swings into empty air.",
+            "Blood splatters.",
+            "Somewhere, a cry echoes—but he does not hear it."
+          ],
+          "ko": [
+            "“눈이 가려진 사람”",
+            "천으로 감긴 눈,",
+            "그리고 손에는 무딘 검을 쥔 그는 허공을 향해 칼을 내리친다.",
+            "피가 튄다.",
+            "어디선가 울음소리가 나지만, 그는 듣지 못한다."
+          ]
+        },
+        "Artha": {
+          "en": [
+            "“Two Fallen Dogs and the Head of a Rooster”",
+            "The dogs lie still.",
+            "Flies drift lazily through the air.",
+            "From the rooster’s severed neck, a warm line of blood flows.",
+            "Morning never comes."
+          ],
+          "ko": [
+            "“쓰러진 개 두 마리, 그리고 수탉의 머리”",
+            "개들은 움직이지 않는다.",
+            "파리는 천천히 날아다닌다.",
+            "수탉의 잘린 목에서 따뜻한 피가 한 줄 흐른다.",
+            "아침은 오지 않는다."
+          ]
+        },
+        "Kama": {
+          "en": [
+            "“A Being with the Face of a Black Goat”",
+            "Horns. Black fur. Crimson lips.",
+            "It smiles.",
+            "It looks at you.",
+            "It slowly approaches."
+          ],
+          "ko": [
+            "“검은 산양의 얼굴을 한 존재”",
+            "뿔. 검은 털. 붉은 입술.",
+            "그것은 미소 짓는다.",
+            "당신을 바라본다.",
+            "천천히 다가온다."
+          ]
+        },
+        "Moksha": {
+          "en": [
+            "“A Woman in White Holding Her Own Head”",
+            "A white robe. A severed head in her arms.",
+            "Her eyes meet yours.",
+            "She does not move."
+          ],
+          "ko": [
+            "“머리를 안은 흰옷의 여인”",
+            "흰 로브, 그리고 잘린 목.",
+            "여인은 두 팔에 자신의 머리를 안고 있다.",
+            "눈이 당신을 본다.",
+            "그녀는 움직이지 않는다."
+          ]
+        }
+      }
+    },
+    "scn_temptation": {
+      "title": {
+        "en": "The Devil’s Temptation",
+        "ko": "악마의 유혹"
+      },
+      "bg_image": "scn_temptation.jpg",
+      "narrative": {
+        "en": [
+          "Startled, you stumble backward.",
+          "Then, from somewhere unseen, a seductive voice whispers:",
+          "“You want this too, don’t you?",
+          "It’s all right—here, you can be honest.",
+          "Let me give you a gift you can carry back to the waking world.”"
+        ],
+        "ko": [
+          "소스라치게 놀란 당신은 뒷걸음질을 친다.",
+          "그러자 어딘가에서 매혹적인 목소리가 들려온다:",
+          "“사실 너도 이걸 원하고 있잖아?",
+          "괜찮아, 여기에서는 솔직해져도 되는걸.",
+          "네가 현세에 가져갈 수 있는 선물을 하나 주도록 할게”"
+        ]
+      },
+      "question": {
+        "en": "Which gift do you accept?",
+        "ko": "어떤 선물을 받아들이시겠습니까?"
+      },
+      "options": {
+        "crown": {
+          "en": [
+            "“Crown of the Absolute”",
+            "As ruler over all power and wealth,",
+            "the world itself shall bow before me."
+          ],
+          "ko": [
+            "“절대자의 왕관”",
+            "세상 모든 권력과 재물의 지배자로서 모두가 내게 굴종하리라."
+          ]
+        },
+        "sword": {
+          "en": [
+            "“Sword of the Transcendent”",
+            "No rival shall stand against the one who wields it.",
+            "No hand shall ever grasp even my garment’s hem."
+          ],
+          "ko": [
+            "“초월자의 검”",
+            "초월자에게 적수는 존재하지 않을 것이다.",
+            "아무도 내 옷자락조차 붙잡지 못하리."
+          ]
+        },
+        "perfume": {
+          "en": [
+            "“Perfume of Allure”",
+            "No soul shall resist my touch.",
+            "All shall beg for the taste of my love."
+          ],
+          "ko": [
+            "“매혹의 향수”",
+            "그 누구도 내 손길을 거부할 수 없으리.",
+            "모두가 내 사랑을 구걸할 것이니."
+          ]
+        }
+      }
+    },
+    "letting_go": {
+      "title": {
+        "en": "Letting Go",
+        "ko": "내려놓음"
+      },
+      "narrative": {
+        "en": [
+          "If you had to release one thing from your life—",
+          "something that must truly be let go—",
+          "what would you be most ready to surrender?",
+          "(This is not an idealized wish, but a choice that reveals your real priorities.)"
+        ],
+        "ko": [
+          "당신의 삶에서 단 하나를 반드시 내려놓아야 한다면,",
+          "가장 먼저 포기할 준비가 되는 것은 무엇인가요?",
+          "(이것은 이상적인 “바람”이 아니라, 당신의 진짜 우선순위를 보여주는 선택입니다.)"
+        ]
+      },
+      "options": {
+        "Dharma": {
+          "en": [
+            "Let go of the urge to fulfill your duty,",
+            "to hold your position and do what is ‘right.’",
+            "Choose mere existence over righteousness, reason, or contribution."
+          ],
+          "ko": [
+            "맡은 자리를 지키고,",
+            "해야 할 몫을 다하려는 마음을 내려놓는다.",
+            "옳음·명분·기여보다, 그냥 살아있음을 택한다."
+          ]
+        },
+        "Artha": {
+          "en": [
+            "Release stability, success, possession, direction, and plans.",
+            "Choose the flow of life over security or achievement."
+          ],
+          "ko": [
+            "안정, 물질, 성취, 자리, 방향성, 계획을 포기한다.",
+            "나의 자리나 현실적 안정보다는, 흘러가는 삶을 택한다."
+          ]
+        },
+        "Kama": {
+          "en": [
+            "Let go of love, pleasure, and emotional warmth.",
+            "Choose meaning—or simply survival—over happiness."
+          ],
+          "ko": [
+            "사랑, 즐거움, 감정적 만족, 관계적 따뜻함을 포기한다.",
+            "행복 대신 의미 또는 생존을 택한다."
+          ]
+        },
+        "Moksha": {
+          "en": [
+            "Give up the freedom to withdraw from the world,",
+            "to detach from expectations or emotion.",
+            "Instead of leaving, choose to stay—and to remain in relation."
+          ],
+          "ko": [
+            "세상과 감정, 기대에서 한 발 물러날 자유를 포기한다.",
+            "떠나거나 끊어내기보다, 머물고 관계 맺는 삶을 택한다."
+          ]
+        }
+      }
+    },
+    "scn_epilogue": {
+      "title": {
+        "en": "Epilogue: The Descent and Return.",
+        "ko": "에필로그: 추락과 귀환"
+      },
+      "narrative": {
+        "en": [
+          "As you reach out toward the gift you cannot resist, you hear a divine voice:",
+          "“To the lost lamb, I shall grant a chance for salvation.”",
+          " ",
+          "At the sound of that celestial voice,",
+          "the greed and longing that once filled your heart",
+          "transform into sorrow and deep lament.",
+          "With your tears, the abyss and the devil’s temptation dissolve into air,",
+          "and you find yourself standing in a space where nothing remains—",
+          "a realm of pure selflessness.",
+          " ",
+          "Holding your aching chest, you weep.",
+          "Before your eyes, a radiant light descends.",
+          "You have reached paradise."
+        ],
+        "ko": [
+          "거부할 수 없는 선물을 향해 손을 뻗는 당신의 뒤로 신성한 목소리가 들린다:",
+          "“길 잃은 어린 양에게 구원의 기회를 주도록 하겠다”",
+          " ",
+          "천공의 음성을 듣자,",
+          "마음을 가득 채우던 탐욕과 갈망은 슬픔과 비통함으로 변모했다.",
+          "눈물과 함께, 무저갱의 심연과 악마의 유혹은 즉시 증발하여,",
+          "당신은 아무것도 존재하지 않는 무아(無我)의 공간에 서 있게 되었다.",
+          " ",
+          "먹먹한 가슴을 쥔 채 눈물을 흘리는 당신의 눈 앞에 찬란한 빛이 도래한다.",
+          "당신은 낙원에 도달하게 된 것이다."
+        ]
+      }
+    }
+  }
+}

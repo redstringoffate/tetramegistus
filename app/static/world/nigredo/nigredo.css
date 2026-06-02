@@ -1,0 +1,24 @@
+#stage-container.stage-nigredo .page-content {
+  background: #0b0b0b;
+  color: #e0e0e0;
+}
+
+#stage-container.stage-nigredo .page-content h1,
+#stage-container.stage-nigredo .page-content p {
+  color: #e0e0e0;
+}
+
+#stage-container.stage-nigredo .page-content button {
+  background: #111;
+  color: #e0e0e0;
+  border: 1px solid #333;
+}
+
+#stage-container.stage-nigredo .content-footer {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  color: #999;
+}
+
+#stage-container.stage-nigredo .content-footer a {
+  color: #999;
+}

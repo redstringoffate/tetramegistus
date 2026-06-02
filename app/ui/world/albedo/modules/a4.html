@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="/static/world/albedo/modules/a4.css">
+
+<div class="a4-figura">
+    <h1 class="materia-title">FIGURA</h1>
+
+    <div class="lordship-bar">
+        <div class="lord-slot">Sect: <span class="val" id="sect-val">-</span></div>
+    </div>
+
+    <nav class="system-switch-module">
+        <button class="sys-tab" data-schema="paulus" onclick="switchLotSchema('paulus')">Paulus</button>
+        <button class="sys-tab" data-schema="valens" onclick="switchLotSchema('valens')">Valens</button>
+    </nav>
+
+    <div class="a4-content">
+        
+        <section class="figura-section">
+            <h2 class="category-label">HERMETIC LOTS</h2>
+            <table class="a4-chart-table">
+                <colgroup>
+                    <col style="width: 200px;"> <col style="width: 200px;"> <col style="width: 60px;">  <col style="width: 45px;">  <col style="width: 45px;">  <col style="width: 45px;">  <col style="width: 45px;">  <col style="width: 460px;">  </colgroup>
+                <thead>
+                    <tr>
+                        <th>Hermetic Lots</th>
+                        <th>Information</th>
+                        <th class="cell-center">House</th>
+                        <th class="cell-center">Duad</th>
+                        <th class="cell-center">Dod.</th>
+                        <th class="cell-center">Decan</th>
+                        <th class="cell-center">Bd.</th>
+                        <th>Sabian Symbol</th>
+                    </tr>
+                </thead>
+                <tbody id="lots-body">
+                    <tr data-key="Fortune"><td class="cell-body">Lot of Fortune</td><td class="cell-info">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-sabian">-</td></tr>
+                    <tr data-key="Spirit"><td class="cell-body">Lot of Spirit</td><td class="cell-info">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-sabian">-</td></tr>
+                    <tr data-key="Necessity"><td class="cell-body">Lot of Necessity</td><td class="cell-info">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-sabian">-</td></tr>
+                    <tr data-key="Eros"><td class="cell-body">Lot of Eros</td><td class="cell-info">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-sabian">-</td></tr>
+                    <tr data-key="Courage"><td class="cell-body">Lot of Courage</td><td class="cell-info">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-sabian">-</td></tr>
+                    <tr data-key="Victory"><td class="cell-body">Lot of Victory</td><td class="cell-info">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-sabian">-</td></tr>
+                    <tr data-key="Nemesis"><td class="cell-body">Lot of Nemesis</td><td class="cell-info">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-sabian">-</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="figura-section">
+            <h2 class="category-label">FATE AXIS</h2>
+            <table class="a4-chart-table">
+                <colgroup>
+                    <col style="width: 200px;"> <col style="width: 200px;">
+                    <col style="width: 60px;"> <col style="width: 45px;"> <col style="width: 45px;"> <col style="width: 45px;"> <col style="width: 45px;">
+                    <col style="width: 460px;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Fate Axis</th>
+                        <th>Information</th>
+                        <th class="cell-center">House</th>
+                        <th class="cell-center">Duad</th>
+                        <th class="cell-center">Dod.</th>
+                        <th class="cell-center">Decan</th>
+                        <th class="cell-center">Bd.</th>
+                        <th>Sabian Symbol</th>
+                    </tr>
+                </thead>
+                <tbody id="vertex-body">
+                    <tr data-key="Vertex"><td class="cell-body">Vertex</td><td class="cell-info">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-sabian">-</td></tr>
+                    <tr data-key="Anti-Vertex"><td class="cell-body">Anti-Vertex</td><td class="cell-info">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-sabian">-</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="arcana-section">
+            <h2 class="category-label">SYZYGY</h2>
+            <table class="a4-chart-table">
+                <colgroup>
+                    <col style="width: 200px;"> <col style="width: 200px;">
+                    <col style="width: 60px;"> <col style="width: 45px;"> <col style="width: 45px;"> <col style="width: 45px;"> <col style="width: 45px;">
+                    <col style="width: 460px;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Syzygy</th> <th>Information</th>
+                        <th class="cell-center">House</th>
+                        <th class="cell-center">Duad</th>
+                        <th class="cell-center">Dod.</th>
+                        <th class="cell-center">Decan</th>
+                        <th class="cell-center">Bd.</th>
+                        <th>Sabian Symbol</th>
+                    </tr>
+                </thead>
+                <tbody id="syzygy-body">
+                    <tr data-key="Syzygy"><td class="cell-body" id="syz-name">-</td><td class="cell-info">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-center">-</td><td class="cell-sabian">-</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+</div>
+
+<script src="/static/world/albedo/modules/a4.js?v=999"></script>

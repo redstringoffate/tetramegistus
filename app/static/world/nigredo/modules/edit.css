@@ -1,0 +1,82 @@
+<style>
+    /* 1. Genesis 기본 레이아웃 유지 */
+    .date-row { display: flex; gap: 0.4rem; }
+    .date-row select { flex: 1; width: auto; text-align: center; }
+    #city-results { margin-top: 0.4rem; border: 1px solid #1f5f3a; background: #050505; }
+    .city-item { padding: 0.35rem 0.6rem; cursor: pointer; font-size: 0.8rem; }
+    .city-item:hover, .city-item.active { background: #0b1a12; color: #b6ffd0; }
+
+    #manual-panel { display: none; margin-top: 0.6rem; }
+    .coord-block { margin-bottom: 0.8rem; }
+    .coord-label { font-size: 0.75rem; color: #6be68c; margin-bottom: 0.25rem; }
+    .coord-row { display: flex; gap: 0.4rem; align-items: center; }
+    .sign-group { display: flex; }
+    .sign-btn { width: 2.2rem; text-align: center; border: 1px solid #1f5f3a; cursor: pointer; user-select: none; }
+    .sign-btn.active { border-color: #7CFF9B; color: #b6ffd0; }
+    .coord-row input { text-align: center; }
+    .coord-int { width: 4rem; }
+    .coord-dot { opacity: 0.6; }
+    .coord-dec { width: 5rem; }
+
+    /* 2. 모든 입력창 라인 통일 (이미지 6116cf 반영) */
+    .void input, .void select {
+        background: transparent;
+        border: 1px solid #1f5f3a;
+        color: #7CFF9B;
+        padding: 0.4rem;
+        outline: none;
+        font-family: inherit;
+    }
+    .void input:focus, .void select:focus {
+        border-color: #49dce1; /* 포커스 시 파란색 피드백 */
+    }
+
+    /* 3. 🔑 개조된 Time Unknown 스타일 (이미지 616ce5/61ddc0 반영) */
+    .unknown-row { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.8rem; }
+    #time-unknown { 
+        appearance: none; 
+        -webkit-appearance: none;
+        width: 1rem; height: 1rem; 
+        border: 1px solid #1f5f3a; 
+        background: black; 
+        cursor: pointer;
+        position: relative;
+    }
+    #time-unknown:checked { background: #7CFF9B; } /* 체크 시 그린으로 채움 */
+    .unknown-label { font-size: 0.75rem; color: rgb(73, 220, 225); cursor: pointer; }
+
+    /* 4. 🔑 버튼 구역 개조 (이미지 616d41/61ddc0 기반) */
+    .action-row { 
+        display: flex; 
+        justify-content: flex-start; /* 🔑 좌측 정렬 */
+        align-items: center; 
+        gap: 2rem; 
+        margin-top: 3.5rem; 
+    }
+
+    #incarnate { 
+        background: transparent; 
+        border: 1px solid #1f5f3a; 
+        color: #7CFF9B; 
+        padding: 0.5rem 1.8rem; 
+        cursor: pointer; 
+        font-family: inherit;
+        letter-spacing: 0.1em;
+        transition: all 0.2s;
+        order: 1; /* 🔑 MANIFEST가 첫 번째 */
+    }
+    #incarnate:hover { border-color: #49dce1; color: #49dce1; }
+
+    /* 🔑 RETURN 버튼 스타일 (명칭 및 순서 반영) */
+    .return-btn { 
+        color: #666; 
+        text-decoration: none; 
+        font-size: 0.75rem; 
+        letter-spacing: 0.1em; 
+        transition: color 0.2s;
+        order: 2; /* 🔑 RETURN이 두 번째 */
+    }
+    .return-btn:hover { color: #ff4d4d; }
+
+    .stage-tooltip { position: fixed; font-size: 0.65rem; color: rgb(73, 220, 225); opacity: 0; pointer-events: none; }
+</style>

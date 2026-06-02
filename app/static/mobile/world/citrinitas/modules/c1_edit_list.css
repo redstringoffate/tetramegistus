@@ -1,0 +1,52 @@
+/* static/mobile/world/citrinitas/modules/c1_edit_list.css */
+
+.m-c1-edit-list-container {
+    width: 100%; padding: 5px; box-sizing: border-box; font-family: 'Consolas', monospace;
+}
+
+.m-c1-list-wrapper {
+    display: flex; flex-direction: column; gap: 12px; 
+    max-height: 65vh; overflow-y: auto; padding-right: 5px;
+}
+
+.m-c1-list-item {
+    background: #050505; border: 1px solid #222; border-radius: 4px; padding: 12px;
+    display: flex; flex-direction: column; gap: 10px; transition: all 0.2s ease;
+}
+
+.m-c1-list-item.expanded { border-color: #49dce1; background: #080808; }
+
+.m-c1-item-header { display: flex; justify-content: space-between; align-items: center; }
+
+.m-c1-item-info { display: flex; gap: 10px; align-items: center; flex: 1; cursor: pointer; }
+.m-c1-item-idx { color: #555; font-size: 0.75rem; text-align: right; min-width: 20px; }
+.m-c1-item-name { 
+    color: #49dce1; font-weight: bold; font-size: 0.85rem; letter-spacing: 0.5px; 
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px;
+}
+.m-c1-item-type { color: #888; font-size: 0.65rem; text-transform: uppercase; margin-top: 2px; }
+
+.m-c1-item-actions { display: flex; gap: 6px; }
+
+.m-c1-btn-action {
+    padding: 6px 12px; font-size: 0.65rem; border-radius: 2px; font-weight: bold; font-family: inherit;
+    border: 1px solid; cursor: pointer; transition: 0.2s; outline: none;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* 🟦 EDIT Button */
+.m-c1-btn-edit { border-color: #1f5f3a; color: #49dce1; background: linear-gradient(to bottom, #0a1a12, #000); }
+.m-c1-btn-edit:active { background: rgba(73, 220, 225, 0.2); box-shadow: 0 0 12px rgba(73, 220, 225, 0.5); }
+
+/* 🟥 DEL Button */
+.m-c1-btn-del { border-color: #550000; color: #ff5f5f; background: linear-gradient(to bottom, #1a0a0a, #000); }
+.m-c1-btn-del:active { background: rgba(255, 68, 68, 0.25); box-shadow: 0 0 12px rgba(255, 68, 68, 0.5); }
+
+.m-c1-item-details { display: none; padding-top: 10px; border-top: 1px dashed #222; font-size: 0.7rem; color: #aaa; line-height: 1.5; }
+.m-c1-list-item.expanded .m-c1-item-details { display: block; animation: fadeIn 0.3s ease forwards; }
+
+.m-c1-detail-row { display: flex; gap: 8px; margin-bottom: 4px; }
+.m-c1-detail-label { color: #666; min-width: 50px; font-weight: bold; }
+.m-c1-no-data { text-align: center; color: #666; font-size: 0.8rem; padding: 20px; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }

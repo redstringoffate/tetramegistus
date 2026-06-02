@@ -1,0 +1,80 @@
+/* static/mobile/world/citrinitas/modules/c1_settings.css */
+
+.m-c1-settings-container {
+    width: 100%; color: #eee; font-family: 'Consolas', 'Monaco', monospace !important;
+    background: #000; box-sizing: border-box; padding: 5px;
+}
+
+.m-c1-settings-header-row {
+    display: flex; justify-content: space-between; padding: 0 10px 10px 10px;
+    border-bottom: 1px solid #1f1f1f; color: #666; font-size: 0.7rem; letter-spacing: 1px;
+}
+
+.m-c1-settings-wrapper {
+    display: flex; flex-direction: column; gap: 15px; overflow-y: auto;
+    max-height: 60vh; padding-top: 10px; padding-bottom: 30px;
+}
+
+.m-c1-setting-item {
+    background: #050505; border: 1px solid #1a1a1a; padding: 12px;
+    border-radius: 4px; display: flex; flex-direction: column;
+    transition: transform 0.1s, box-shadow 0.1s;
+    box-sizing: border-box; width: 100%;
+}
+
+/* 🚀 드래그 앤 드롭 상태 시 효과 */
+.m-c1-setting-item.dragging {
+    opacity: 0.8; border: 1px dashed #49dce1; transform: scale(0.98);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.8); z-index: 100;
+}
+
+.m-c1-setting-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px; gap: 8px;
+}
+
+/* 🚀 PC판 햄버거 아이콘 부활 */
+.m-drag-handle {
+    font-size: 1.2rem; color: #666; cursor: grab; padding: 0 5px;
+    user-select: none; transition: color 0.2s; display: flex; align-items: center; justify-content: center;
+}
+.m-drag-handle:active { color: #49dce1; }
+
+.m-c1-setting-title-box { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.m-c1-setting-title { color: #49dce1; font-weight: bold; font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.m-c1-setting-type { font-size: 0.65rem; color: #666; letter-spacing: 1px; margin-top: 2px; }
+
+.m-toggle-wrapper { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.m-toggle-label { font-size: 0.6rem; color: #444; font-weight: bold; transition: 0.2s; }
+.m-toggle-label.active { color: #49dce1; text-shadow: 0 0 5px rgba(73, 220, 225, 0.5); }
+.m-track { width: 32px; height: 14px; background: #050505; border: 1px solid #333; border-radius: 10px; position: relative; transition: 0.2s; }
+.m-knob { width: 10px; height: 10px; background: #444; border-radius: 50%; position: absolute; top: 1px; left: 2px; transition: 0.2s; }
+.m-track.on { border-color: #49dce1; }
+.m-track.on .m-knob { left: 18px; background: #49dce1; box-shadow: 0 0 5px #49dce1; }
+
+/* 🚀 우측 잘림 현상 원인 제거 (padding-left를 0으로 초기화) */
+.m-c1-options-area {
+    display: flex; flex-direction: column; gap: 10px;
+    padding-left: 0; width: 100%; box-sizing: border-box; transition: opacity 0.3s;
+}
+.m-c1-options-area.disabled { opacity: 0.3; pointer-events: none; }
+
+.m-c1-sub-row { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+.m-c1-sub-label { font-size: 0.65rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.m-c1-btn-group {
+    display: grid; border: 1px solid #49dce1; border-radius: 4px;
+    background: #000; width: 100%; box-sizing: border-box;
+}
+.m-c1-btn-group.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.m-c1-btn-group.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.m-c1-opt-btn {
+    background: transparent; border: none; border-right: 1px solid rgba(73, 220, 225, 0.3); border-bottom: 1px solid rgba(73, 220, 225, 0.3);
+    color: #666; padding: 8px 0; font-size: 0.65rem; font-family: inherit; font-weight: bold; cursor: pointer; transition: 0.2s; width: 100%;
+}
+.m-c1-btn-group.grid-3 .m-c1-opt-btn:nth-child(3n) { border-right: none; }
+.m-c1-btn-group.grid-3 .m-c1-opt-btn:nth-last-child(-n+3) { border-bottom: none; }
+.m-c1-btn-group.grid-2 .m-c1-opt-btn:nth-child(2n) { border-right: none; }
+.m-c1-btn-group.grid-2 .m-c1-opt-btn { border-bottom: none; }
+.m-c1-opt-btn.active { background: #49dce1 !important; color: #000 !important; text-shadow: none; }

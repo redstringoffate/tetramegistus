@@ -1,0 +1,586 @@
+{
+  "Heracles": {
+    "en": "Labors and trials, proving oneself through repeated challenges",
+    "ko": "과업과 시험, 반복되는 도전을 통해 증명됨"
+  },
+  "Sirene": {
+    "en": "Seduction and distraction, allure that diverts direction",
+    "ko": "유혹과 주의 분산, 방향을 흐리는 매혹"
+  },
+  "Ate": {
+    "en": "Error of judgment, catastrophe triggered by momentary confusion",
+    "ko": "판단 착오, 순간의 혼란이 부르는 파국"
+  },
+  "Silver": {
+    "en": "Exchange and value, a flexible yet reliable standard",
+    "ko": "교환과 가치, 유연하지만 확실한 기준"
+  },
+  "Hekate": {
+    "en": "Threshold and choice, awareness operating at the crossroads",
+    "ko": "경계와 선택, 갈림길에서 작동하는 인식"
+  },
+  "Nymphe": {
+    "en": "Allure and seduction, a softening influence within relationships",
+    "ko": "매혹과 유혹, 관계를 부드럽게 감싸는 영향"
+  },
+  "Nessus": {
+    "en": "Abuse and boundary collapse, recurring patterns of toxicity",
+    "ko": "학대와 경계 붕괴, 반복되는 독성 패턴"
+  },
+  "Hygeia": {
+    "en": "Prevention and maintenance, preserving health through balance",
+    "ko": "예방과 유지, 균형을 통해 건강을 보존함"
+  },
+  "Valentine": {
+    "en": "Expression of affection, an act that gives form to feeling",
+    "ko": "애정의 표명, 감정을 형태로 드러내는 행위"
+  },
+  "Atira": {
+    "en": "Inner orbit, conditions that operate inwardly before manifesting outward",
+    "ko": "내부 궤도, 외부보다 내면에 먼저 작동하는 조건"
+  },
+  "Quaoar": {
+    "en": "Primordial creation, a generative principle prior to order",
+    "ko": "근원적 창조, 질서 이전의 생성 원리"
+  },
+  "Asmodeus": {
+    "en": "Unrestrained impulse, desire eroding norms and limits",
+    "ko": "통제되지 않은 충동, 욕망이 규범을 침식하는 지점"
+  },
+  "Bounty": {
+    "en": "Reward and yield, tangible returns following effort",
+    "ko": "보상과 결실, 노력 이후에 돌아오는 실질적 성과"
+  },
+  "Phaethon": {
+    "en": "Loss of control, the runaway force of power beyond capacity",
+    "ko": "통제 상실, 감당하지 못한 힘의 폭주"
+  },
+  "Anubis": {
+    "en": "Threshold and transition, guiding between endings and beginnings",
+    "ko": "경계와 전이, 끝과 시작 사이를 인도하는 역할"
+  },
+  "Karma": {
+    "en": "Cause and consequence, the outcome of accumulated choices",
+    "ko": "원인과 결과, 축적된 선택의 귀결"
+  },
+  "Tyche": {
+    "en": "Chance and divergence, the operation of unpredictable fortune",
+    "ko": "우연과 분기, 예측 불가한 행운의 작동"
+  },
+  "Isis": {
+    "en": "Reconstruction after loss, the power to gather what has been scattered",
+    "ko": "상실 이후의 재구성, 흩어진 것을 다시 모으는 힘"
+  },
+  "Lust": {
+    "en": "Intense craving, an impulse toward immediate gratification",
+    "ko": "강렬한 욕구, 즉각적 충족을 향한 충동"
+  },
+  "Asteroid Lilith": {
+    "en": "Repressed or exiled primordial desire, the uncompromising core of instinct",
+    "ko": "억압되거나 추방된 원초적 욕망, 타협되지 않는 본능의 핵"
+  },
+  "Gabriella": {
+    "en": "Transmission and mediation, gently linking messages between parties",
+    "ko": "전달과 중개, 메시지를 부드럽게 연결하는 역할"
+  },
+  "Mnemosyne": {
+    "en": "Storage of memory, the past operating within the present",
+    "ko": "기억의 저장, 과거가 현재에 작동함"
+  },
+  "Boda": {
+    "en": "Connection and union, binding two elements into a single flow",
+    "ko": "연결과 결합, 두 요소를 하나의 흐름으로 묶음"
+  },
+  "Enterprise": {
+    "en": "Expansion and pioneering effort, organized drive toward a goal",
+    "ko": "확장과 개척, 목표를 향한 조직적 추진"
+  },
+  "Koronis": {
+    "en": "Recovery after wounding, a legacy remaining within fracture",
+    "ko": "상처 이후의 회복, 균열 속에서 남는 유산"
+  },
+  "Nemesis": {
+    "en": "Retribution and restored balance, the inescapable operation of consequence",
+    "ko": "응보와 균형 회복, 피할 수 없는 대가의 작동"
+  },
+  "Niobe": {
+    "en": "Loss and the cost of hubris, grief hardened into permanence",
+    "ko": "상실과 오만의 대가, 슬픔이 굳어 남음"
+  },
+  "Imhotep": {
+    "en": "Practical wisdom, knowledge embodied through structure and technique",
+    "ko": "실용적 지혜, 지식이 구조와 기술로 구현됨"
+  },
+  "Musa": {
+    "en": "Catalyst of inspiration, attunement that calls creation forth",
+    "ko": "영감의 촉발, 창작을 부르는 감응"
+  },
+  "Angel": {
+    "en": "Mediation and transmission, a role that connects messages",
+    "ko": "중재와 전달, 메시지를 연결하는 매개적 역할"
+  },
+  "Fama": {
+    "en": "Reputation and rumor, the amplification and spread of information",
+    "ko": "평판과 소문, 정보가 증폭되어 퍼지는 과정"
+  },
+  "Adonis": {
+    "en": "Youth and allure, ephemeral value that fades before time",
+    "ko": "젊음과 매력, 시간 앞에서 사라지는 덧없는 가치"
+  },
+  "Horus": {
+    "en": "Vigilance and insight, a gaze that perceives flow from above",
+    "ko": "감시와 통찰, 위에서 흐름을 인식하는 시선"
+  },
+  "Frigga": {
+    "en": "Home and protection, order maintained from behind the scenes",
+    "ko": "가정과 보호, 보이지 않는 곳에서 유지되는 질서"
+  },
+  "Klio": {
+    "en": "Memory and history, preserving events as meaning",
+    "ko": "기억과 역사, 사건을 의미로 보존함"
+  },
+  "Felicitas": {
+    "en": "Happiness and contentment, fulfillment felt within stability",
+    "ko": "행복과 만족, 안정 속에서 느껴지는 충만감"
+  },
+  "Lancelot": {
+    "en": "Loyalty and forbidden choice, a fracture between duty and desire",
+    "ko": "충성심과 금지된 선택, 의무와 욕망 사이의 균열"
+  },
+  "Psyche": {
+    "en": "A point of soul-bonding, psychological destiny awakened through relationship",
+    "ko": "영혼의 결속점, 관계를 통해 깨어나는 심리적 운명"
+  },
+  "Vulcan": {
+    "en": "Internal pressure and forging, form completed through heat",
+    "ko": "내부 압력과 단련, 열을 통해 형태가 완성됨"
+  },
+  "Astraea": {
+    "en": "Idealized justice, a standard of fairness misaligned with reality",
+    "ko": "이상적 정의, 현실과 어긋난 공정성의 기준"
+  },
+  "Perdix": {
+    "en": "Caution and survival, adaptation to avoid the fall",
+    "ko": "경계와 생존, 추락을 피하기 위한 적응"
+  },
+  "Klytia": {
+    "en": "Obsession and fixation, emotion bound to a single object",
+    "ko": "집착과 고정, 감정이 한 대상에 묶임"
+  },
+  "Pallas": {
+    "en": "Intelligence shaped for survival, strategic cognition formed under crisis",
+    "ko": "생존을 위한 지성, 위기 속에서 형성된 전략적 사고 구조"
+  },
+  "Erato": {
+    "en": "Romantic inspiration, translating emotion into language and song",
+    "ko": "연애적 영감, 감정을 언어와 노래로 풀어냄"
+  },
+  "Abundantia": {
+    "en": "Abundance and the flow of resources, a state of being filled beyond necessity",
+    "ko": "풍요와 자원의 흐름, 필요 이상으로 채워지거나 넘치는 상태"
+  },
+  "Banks": {
+    "en": "Accumulation and management of resources, storage structures based on trust",
+    "ko": "자원의 축적과 관리, 신뢰를 전제로 한 저장 구조"
+  },
+  "Polyhymnia": {
+    "en": "Silent devotion, belief sustained without words",
+    "ko": "침묵의 헌신, 말없이 지속되는 신념"
+  },
+  "Dionysus": {
+    "en": "Dissolution and intoxication, sensory outpouring that dismantles order",
+    "ko": "해체와 도취, 질서를 무너뜨리는 감각적 분출"
+  },
+  "Antigone": {
+    "en": "Stubborn fidelity to belief, personal ethics opposing authority",
+    "ko": "신념을 지키는 고집, 권위에 맞서는 개인의 윤리"
+  },
+  "Urania": {
+    "en": "Cosmic order, perception that reads patterns from a higher vantage",
+    "ko": "우주적 질서, 높은 관점에서 패턴을 읽는 인식"
+  },
+  "Harmonia": {
+    "en": "Balance and adjustment, the process of aligning opposing elements",
+    "ko": "균형과 조율, 상충하는 요소를 맞추는 과정"
+  },
+  "Artemis": {
+    "en": "Autonomy and distance, the protection of an inviolable personal domain",
+    "ko": "자율성과 거리 유지, 침범받지 않는 영역의 수호"
+  },
+  "Proserpina": {
+    "en": "A divided existence, conditions moving between darkness and light",
+    "ko": "이중적 삶, 어둠과 빛 사이를 오가는 조건"
+  },
+  "Jobse": {
+    "en": "Trial and endurance, the persistence of unexplained suffering",
+    "ko": "시련과 인내, 설명되지 않는 고통의 지속"
+  },
+  "Thetis": {
+    "en": "Protection and avoidance, defensive choices to evade injury",
+    "ko": "보호와 회피, 상처를 피하려는 방어적 선택"
+  },
+  "Daphne": {
+    "en": "Flight and transformation, changing form to preserve oneself",
+    "ko": "도피와 변형, 자신을 지키기 위한 형태 변화"
+  },
+  "Euterpe": {
+    "en": "Joy and play, rhythm that refreshes and reanimates emotion",
+    "ko": "기쁨과 유희, 정서를 환기시키는 리듬"
+  },
+  "Fortuna": {
+    "en": "Chance and fluctuation, the operation of unpredictable opportunity",
+    "ko": "우연과 변동, 예측 불가능한 기회의 작동"
+  },
+  "Medusa": {
+    "en": "Gaze and paralysis, fear that immobilizes its object",
+    "ko": "응시와 마비, 두려움이 대상을 고정시킴"
+  },
+  "Minerva": {
+    "en": "Rational judgment, strategic and defensive wisdom",
+    "ko": "이성적 판단, 전략과 방어의 지혜"
+  },
+  "Groom": {
+    "en": "Bonding and preparation, the stage just before a relationship is formalized",
+    "ko": "결속과 준비, 관계가 공식화되기 직전의 단계"
+  },
+  "Panacea": {
+    "en": "Expectation of universal remedy, the desire to fix everything",
+    "ko": "만능 해결을 향한 기대, 모든 것을 고치려는 욕망"
+  },
+  "Melpomene": {
+    "en": "Tragic awareness, revealing meaning through suffering",
+    "ko": "비극적 인식, 고통을 통해 의미를 드러냄"
+  },
+  "Academia": {
+    "en": "Learning and accumulated knowledge, thinking cultivated within structured systems",
+    "ko": "학습과 축적된 지식, 체계 속에서 길러지는 사고"
+  },
+  "Dejanira": {
+    "en": "Unintended catastrophe, toxicity accumulated within relationships",
+    "ko": "의도치 않은 파국, 관계 속에서 누적되는 독성"
+  },
+  "Freia": {
+    "en": "Value and allure, where possession and attraction intertwine",
+    "ko": "가치와 매혹, 소유와 끌림이 얽히는 지점"
+  },
+  "Orpheus": {
+    "en": "Song and persuasion, crossing boundaries through emotion",
+    "ko": "노래와 설득, 감정으로 경계를 넘나듦"
+  },
+  "Sedna": {
+    "en": "Betrayal and isolation, deep wounds hardened into survival conditions",
+    "ko": "배신과 고립, 깊은 상처가 생존 조건으로 굳어짐"
+  },
+  "Arachne": {
+    "en": "Obsessive skill, the capacity to weave relationships and events into entanglement",
+    "ko": "집착적 기술, 관계와 사건을 얽어 짜는 능력"
+  },
+  "Penelope": {
+    "en": "Endurance and postponement, deferring choice within time",
+    "ko": "인내와 보류, 시간 속에서 선택을 유예함"
+  },
+  "Orcus": {
+    "en": "Oaths and punishment, the cold enforcement of broken vows",
+    "ko": "맹세와 처벌, 어긴 약속에 대한 냉정한 집행"
+  },
+  "Pholus": {
+    "en": "Irreversible change triggered by a small catalyst",
+    "ko": "작은 계기로 촉발되는 돌이킬 수 없는 변화"
+  },
+  "Hebe": {
+    "en": "Recovery and renewal, the circulating rhythm of youth",
+    "ko": "회복과 재생, 젊음이 순환되는 리듬"
+  },
+  "Ceres": {
+    "en": "An archetype of loss and separation, caregiving that becomes a fated wound",
+    "ko": "상실과 분리의 원형, 돌봄이 상처로 남는 운명적 경험"
+  },
+  "Rockefellia": {
+    "en": "Capital and influence, accumulated resources converting into power",
+    "ko": "자본과 영향력, 축적된 자원이 권력으로 전환됨"
+  },
+  "Sappho": {
+    "en": "Emotional intimacy and poetic attunement, bonds beyond full articulation",
+    "ko": "정서적 친밀과 시적 감응, 말로 다 하지 못한 유대"
+  },
+  "Klotho": {
+    "en": "The thread of life already set in motion, conditions given at birth",
+    "ko": "이미 짜이기 시작한 삶의 실, 태어남과 동시에 주어진 조건"
+  },
+  "Amor": {
+    "en": "Light affection and goodwill, effortless emotional exchange",
+    "ko": "가벼운 애정과 호의, 부담 없는 정서적 교류"
+  },
+  "Midas": {
+    "en": "Fixation on value, what is held turning into burden",
+    "ko": "가치 집착, 손에 쥔 것이 짐으로 변함"
+  },
+  "Diana": {
+    "en": "Independence and boundaries, the strength to protect one’s own domain",
+    "ko": "독립성과 경계, 스스로의 영역을 지키는 힘"
+  },
+  "Moira": {
+    "en": "A structure of fate that transcends individual choice and permeates an entire life",
+    "ko": "개인의 선택을 초월한, 삶 전체를 관통하는 운명의 구조"
+  },
+  "Phaedra": {
+    "en": "Forbidden desire, suppressed emotion moving toward catastrophe",
+    "ko": "금지된 욕망, 억눌린 감정이 파국으로 향함"
+  },
+  "Pandora": {
+    "en": "An opened choice, the irreversible spread of consequences",
+    "ko": "열어버린 선택, 되돌릴 수 없는 결과의 확산"
+  },
+  "Kassandra": {
+    "en": "Warning and disbelief, true insight that goes unheeded",
+    "ko": "경고와 불신, 옳은 인식이 받아들여지지 않음"
+  },
+  "Lysithea": {
+    "en": "Expansion and growth, potential that increases through relationship",
+    "ko": "확장과 성장, 관계 속에서 커지는 가능성"
+  },
+  "Cleopatra": {
+    "en": "Power fused with allure, commanding situations through presence",
+    "ko": "권력과 매력의 결합, 존재감으로 상황을 장악함"
+  },
+  "Circe": {
+    "en": "Transformation and enchantment, an influence that alters relationships into new forms",
+    "ko": "변형과 매혹, 관계를 다른 형태로 바꾸는 영향력"
+  },
+  "Ixion": {
+    "en": "Taboo and transgression, the price of choices that evade responsibility",
+    "ko": "금기와 일탈, 책임을 회피한 선택의 대가"
+  },
+  "Aegle": {
+    "en": "Radiance and vitality, liveliness and impression expressed outwardly",
+    "ko": "빛과 생기, 외부로 드러나는 활력과 인상"
+  },
+  "Kleopatra": {
+    "en": "Power and allure, commanding situations through presence",
+    "ko": "권력과 매혹, 존재감으로 상황을 지배함"
+  },
+  "Bacchus": {
+    "en": "Release of control and intoxication, sensory expansion that dissolves boundaries",
+    "ko": "통제 완화와 도취, 경계를 허무는 감각의 확장"
+  },
+  "Cupido": {
+    "en": "The onset of attraction and liking, the moment emotion is ignited",
+    "ko": "끌림과 호감의 시작, 감정이 점화되는 순간"
+  },
+  "Aristoteles": {
+    "en": "Logic and classification, thinking that understands things through systems",
+    "ko": "논리와 분류, 사물을 체계로 이해하려는 사고"
+  },
+  "Icarus": {
+    "en": "Overconfidence and exceeded limits, risk where ascent and fall are intertwined",
+    "ko": "과신과 한계 초과, 상승과 추락이 맞물린 위험"
+  },
+  "Persephone": {
+    "en": "Separation and cycle, repetition of abduction and return",
+    "ko": "분리와 순환, 빼앗김과 귀환의 반복"
+  },
+  "Child": {
+    "en": "Immaturity and potential, a state not yet fully defined",
+    "ko": "미성숙함과 가능성, 아직 규정되지 않은 상태"
+  },
+  "Bella": {
+    "en": "Affection and aesthetic impression, softening the initial response in relationship",
+    "ko": "호감과 미적 인상, 관계의 첫 반응을 부드럽게 만듦"
+  },
+  "Delphine": {
+    "en": "Intuitive signals, subtle hints and premonitions",
+    "ko": "직관적 신호, 미묘한 암시와 예감"
+  },
+  "Echo": {
+    "en": "Resonance and repetition, attunement to others’ words and emotions",
+    "ko": "반향과 반복, 타인의 말과 감정에 공명함"
+  },
+  "Pele": {
+    "en": "Eruption and destructive creation, emotion exploding into new form",
+    "ko": "분출과 파괴적 창조, 감정이 폭발하며 형태를 바꿈"
+  },
+  "Raphaela": {
+    "en": "Healing and protection, gentle intervention to ease wounds",
+    "ko": "치유와 보호, 상처를 완화하려는 온화한 개입"
+  },
+  "Anteros": {
+    "en": "Returned emotion, relationships completed through reciprocity",
+    "ko": "되돌아오는 감정, 상호성에 의해 완성되는 관계"
+  },
+  "Juno": {
+    "en": "An inescapable relational contract, where bonding and exclusivity operate as fate",
+    "ko": "피할 수 없는 관계 계약, 결속과 배타성이 운명처럼 작동하는 지점"
+  },
+  "Adrastea": {
+    "en": "Inescapable recompense and retribution, the return of consequences for action",
+    "ko": "피할 수 없는 보상과 응보, 행동에 따르는 결과의 회수"
+  },
+  "Opportunity": {
+    "en": "A window of opportunity, a moment when conditions briefly open",
+    "ko": "기회의 창, 조건이 잠시 열리는 순간"
+  },
+  "Varuna": {
+    "en": "Invisible regulation, a force that watches over vows and morality",
+    "ko": "보이지 않는 규율, 약속과 도덕을 감시하는 힘"
+  },
+  "Mony": {
+    "en": "Monetary sense, awareness of exchange and possession",
+    "ko": "금전 감각, 교환과 소유에 대한 인식"
+  },
+  "Cerberus": {
+    "en": "Guardianship of boundaries, enforcing lines that must not be crossed",
+    "ko": "경계 수호와 차단, 넘어가서는 안 될 선을 지킴"
+  },
+  "Apollo": {
+    "en": "Order and creative formalization, a principle that renders perception into clear expression",
+    "ko": "질서와 창조적 형식화, 인식을 명확한 표현으로 드러내는 원리"
+  },
+  "Eris": {
+    "en": "Discord and rupture, bringing hidden conflict to the surface",
+    "ko": "불화와 균열, 감춰진 갈등을 수면 위로 끌어올림"
+  },
+  "Haumea": {
+    "en": "Radical creation, generative expansion through division",
+    "ko": "급진적 생성, 분열을 통해 확장되는 창조성"
+  },
+  "Amalthea": {
+    "en": "Protection and nurture, a role that supplies and fills lack",
+    "ko": "보호와 양육, 결핍을 메우는 공급의 역할"
+  },
+  "Chariklo": {
+    "en": "Sustained support, maintaining stability from the background",
+    "ko": "지속적 지지, 배경에서 안정성을 유지하는 역할"
+  },
+  "Talent": {
+    "en": "Latent ability, potential prior to manifestation",
+    "ko": "잠재된 능력, 드러나기 전의 가능성"
+  },
+  "Hidalgo": {
+    "en": "Crossing boundaries, movement beyond established order",
+    "ko": "경계 넘기, 기존 질서를 벗어나는 이동"
+  },
+  "Kalliope": {
+    "en": "Narrative and record, the ability to weave experience into story",
+    "ko": "서사와 기록, 경험을 이야기로 엮는 능력"
+  },
+  "Lachesis": {
+    "en": "The allocation of permitted time and possibility, the range of fate that appears as choice",
+    "ko": "허락된 시간과 가능성의 분배, 선택처럼 보이는 운명의 범위"
+  },
+  "Feronia": {
+    "en": "Liberation and recovery, a natural force of release from constraint",
+    "ko": "해방과 회복, 억압에서 벗어나는 자연스러운 힘"
+  },
+  "Osiris": {
+    "en": "Regeneration after death, order that follows disintegration",
+    "ko": "죽음 이후의 재생, 해체 뒤에 이어지는 질서"
+  },
+  "Toro": {
+    "en": "Stubborn propulsion, forceful energy that pushes through",
+    "ko": "완강한 추진, 힘으로 밀어붙이는 에너지"
+  },
+  "Alkeste": {
+    "en": "Sacrifice and devotion, relationships sustained through self-giving",
+    "ko": "희생과 헌신, 자신을 내어주며 유지되는 관계"
+  },
+  "Sisyphus": {
+    "en": "Repetitive labor, the cycle of effort without completion",
+    "ko": "반복되는 과업, 끝나지 않는 노력의 순환"
+  },
+  "Ganymed": {
+    "en": "Selection and elevation, a position raised by external criteria",
+    "ko": "선택과 발탁, 외부 기준에 의해 끌어올려지는 위치"
+  },
+  "Achilles": {
+    "en": "A fatal vulnerability revealed alongside strength, weakness left by overconfidence",
+    "ko": "강점과 동시에 드러나는 치명적 약점, 과신이 남기는 취약점"
+  },
+  "Industria": {
+    "en": "Effort and production, accumulating results through repetition",
+    "ko": "노력과 생산, 반복을 통해 성과를 축적함"
+  },
+  "Chiron": {
+    "en": "Innate trauma, a structural wound that is destined to repeat",
+    "ko": "태생적 트라우마, 반복될 수밖에 없는 상처의 구조"
+  },
+  "Makemake": {
+    "en": "Independent creation, generative force detached from existing order",
+    "ko": "독립적 창조, 기존 질서와 분리된 생성력"
+  },
+  "Narcissus": {
+    "en": "Self-gazing and narcissism, excessive focus on the ego",
+    "ko": "자기 응시와 자기애, 자아에 대한 과도한 집중"
+  },
+  "Prometheus": {
+    "en": "Defiance and seizure, bringing knowledge beyond taboo",
+    "ko": "도전과 탈취, 금기를 넘어 지식을 가져옴"
+  },
+  "Asteroid Eros": {
+    "en": "Primordial attraction that overrides will, desire acting prior to choice",
+    "ko": "의지를 압도하는 원초적 끌림, 선택 이전에 작동하는 욕망의 힘"
+  },
+  "Lameia": {
+    "en": "Lack and fixation, distorted desire seeking to replace what was lost",
+    "ko": "결핍과 집착, 잃은 것을 대신하려는 왜곡된 욕망"
+  },
+  "Atropos": {
+    "en": "Severance and finality, a point of decision that no effort can reverse",
+    "ko": "단절과 종결, 어떤 노력으로도 되돌릴 수 없는 결정점"
+  },
+  "Aesculapia": {
+    "en": "A process oriented toward healing, conscious effort to restore",
+    "ko": "치유를 향한 과정, 회복을 시도하는 의식적 노력"
+  },
+  "Hephaistos": {
+    "en": "Craft and mastery, skill that transforms flaw into strength",
+    "ko": "제작과 숙련, 결함을 힘으로 바꾸는 기술"
+  },
+  "Union": {
+    "en": "Union and agreement, binding multiple elements into a single unit",
+    "ko": "결합과 합의, 둘 이상의 요소가 하나의 단위로 묶임"
+  },
+  "Hera": {
+    "en": "Bond and status, authority maintained within relationship",
+    "ko": "결속과 지위, 관계 안에서 유지되는 권위"
+  },
+  "Gold": {
+    "en": "Value and accumulation, a resource that serves as a standard of exchange",
+    "ko": "가치와 축적, 교환의 기준이 되는 자원"
+  },
+  "Michel": {
+    "en": "Personal expression, self-form shaped through mastery",
+    "ko": "개인적 표현, 숙련을 통한 자기 형상화"
+  },
+  "Eos": {
+    "en": "Dawn and initiation, the moment a new current begins to open",
+    "ko": "새벽과 개시, 새로운 흐름이 열리는 순간"
+  },
+  "Casanova": {
+    "en": "Seduction and relational play, an approach that precedes emotion",
+    "ko": "유혹과 관계의 게임성, 감정 이전의 접근 방식"
+  },
+  "Asclepius": {
+    "en": "Practical healing, attempting restoration even through direct intervention",
+    "ko": "치유의 실천, 손을 더럽혀서라도 회복을 시도함"
+  },
+  "Vesta": {
+    "en": "The central hearth of life, a sacred core preserved through exclusion",
+    "ko": "삶의 중심 화로, 외부를 배제하고도 지켜야 하는 신성한 핵"
+  },
+  "Terpsichore": {
+    "en": "Movement and rhythm, expression through the body",
+    "ko": "움직임과 리듬, 몸을 통한 표현"
+  },
+  "Aphrodite": {
+    "en": "Allure within relationship, sensual attraction that ignites desire",
+    "ko": "관계 속 매혹과 감각적 끌림, 욕망의 촉발점"
+  },
+  "Hybris": {
+    "en": "Excess and arrogance, an impulse to overstep limits",
+    "ko": "과잉과 오만, 한계를 넘으려는 충동"
+  },
+  "Themis": {
+    "en": "Order and law, maintenance of objective standards",
+    "ko": "질서와 법칙, 객관적 기준의 유지"
+  }
+}

@@ -1,0 +1,467 @@
+/* app/static/world/citrinitas/modules/c2_aleph.css */
+
+:root {
+    --c1-cyan: #49dce1;
+    --c1-bg-dark: #000;
+    --c1-border: #333; 
+    --c1-font: ui-monospace, SFMono-Regular, Consolas, 'Cascadia Code', monospace;
+}
+
+/* Base Container */
+#aleph-app {
+    font-family: var(--c1-font);
+    color: #37494F;
+}
+
+.ritual-title {
+    font-size: 1.0rem !important;
+    font-weight: 600 !important;
+    color: #49dce1 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 2rem !important;
+}
+
+.c1-module-container * {
+    box-sizing: border-box;
+}
+
+.c1-module-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: var(--c1-font);
+}
+
+.c1-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* 라벨 스타일 */
+.c1-coord-label {
+    font-size: 0.75rem;
+    color: var(--c1-cyan);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.05em;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.c1-sub-label {
+    font-size: 0.65rem;
+    color: #888;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================
+   🚀 [복구] 입력창 및 드롭다운 (노란 바탕 위 까만 반투명 박스)
+   ========================================================== */
+#c2-date-y, #c2-date-m, #c2-date-d, 
+#c2-city-search, #c2-lat-int, #c2-lng-int, #c2-tz,
+.c1-input, .c1-select, .c1-input-int, .c1-input-dec {
+    background: transparent; 
+    border: none; 
+    border-bottom: 1px solid var(--c1-border);
+    color: #557985 !important; 
+    padding: 4px 2px;
+    font-family: var(--c1-font) !important;
+    font-size: 0.9rem;
+    outline: none;
+    border-radius: 0;
+    transition: border-color 0.2s;
+}
+
+#c2-date-y:focus, #c2-date-m:focus, #c2-date-d:focus, 
+#c2-city-search:focus, #c2-lat-int:focus, #c2-lng-int:focus, #c2-tz:focus {
+    border-color: var(--c1-cyan) !important;
+}
+
+.full-width { width: 100%; }
+
+.c1-date-row, .c1-coord-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+.c1-date-row .c1-select { flex: 1; }
+
+/* 검색 결과창 */
+.c1-city-search-container { position: relative; }
+.c1-city-results {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    z-index: 1000;
+    background: var(--c1-bg-dark);
+    border: 1px solid var(--c1-border);
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+}
+.c1-result-item {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    color: #aaa;
+    cursor: pointer;
+}
+.c1-result-item:hover, .c1-result-item.active {
+    background: #111;
+    color: var(--c1-cyan);
+}
+
+/* 수동 입력 패널 */
+.c1-manual-toggle {
+    font-size: 0.7rem;
+    color: #666;
+    cursor: pointer;
+    text-align: right;
+    margin-top: 5px;
+}
+.c1-manual-toggle:hover { color: var(--c1-cyan); }
+
+.c1-manual-panel {
+    display: none;
+    padding-top: 10px;
+    margin-top: 5px;
+    border-top: 1px dashed var(--c1-border);
+}
+
+.c1-coord-block { margin-bottom: 15px; }
+
+/* 좌표 +/- 기호 버튼 */
+.c1-sign-group {
+    display: flex;
+    border: 1px solid var(--c1-border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+.c1-sign-btn {
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: #666;
+    background: transparent;
+    user-select: none;
+}
+.c1-sign-btn.active {
+    background: var(--c1-cyan);
+    color: #000;
+    font-weight: bold;
+}
+.c1-sign-btn:not(.active) { background: #5B7482 !important; color: #eee !important; }
+
+.c1-dot { color: #666; padding: 0 2px; }
+.c1-input-int { width: 50px; text-align: right; }
+.c1-input-dec { width: 70px; }
+
+#disclaimer-text {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #37494F;
+    border-left: 2px solid var(--c1-cyan);
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+#flags-container { font-size: 0.8rem; color: #ff5555; }
+.c2-flag-item strong { color: #ff4444; }
+
+
+/* ==========================================================
+   🚀 [디자인 통합] SUBMIT SCAN 버튼 & NEXT 버튼 동일 이펙트
+   ========================================================== */
+.cyber-btn, .c1-action-btn {
+    background: transparent;
+    border: 1px solid var(--c1-cyan);
+    color: var(--c1-cyan);
+    padding: 10px;
+    font-family: var(--c1-font);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.cyber-btn:hover, .c1-action-btn:hover {
+    background: #000 !important; 
+    color: #fff !important; 
+    border-color: #fff !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* 살짝 흰색 빛 번짐 추가 (선택) */
+}
+
+/* RESTART 버튼은 기존처럼 눈에 띄지 않게 차분한 스타일 유지 */
+.c1-action-btn.btn-restart {
+    border-color: #777;
+    color: #777;
+    box-shadow: none;
+    font-size: 0.9rem;
+}
+.c1-action-btn.btn-restart:hover {
+    background: rgba(119, 119, 119, 0.1);
+    border-color: #fff;
+    color: #fff !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    transform: none;
+}
+
+
+/* ==========================================================
+   [질문 블록 및 타이틀 스타일]
+   ========================================================== */
+.question-block {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    background: none; 
+    border: none;
+    box-shadow: none;
+    color: #6E4F6E;
+}
+
+.question-block .q-text {
+    text-align: center;
+    margin-bottom: 25px; 
+}
+
+.question-block .q-text b {
+    color: #D6D8FF;
+    font-weight: bold;
+}
+
+/* Mars Ingress 타이틀 부분만 빨간색 적용 */
+.mars-ingress-block .q-text b:first-of-type {
+    color: #ff4444 !important; 
+    text-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
+}
+
+/* ==========================================================
+   [A/B 양자택일 버튼 및 O/X 버튼 스타일]
+   ========================================================== */
+.ab-btn {
+    width: 100%;
+    font-family: var(--c1-font);
+    font-size: 0.95rem;
+    text-align: left;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    background: rgba(0, 0, 0, 0.6); 
+    border: 1px solid #555; 
+    color: #ccc; 
+    cursor: pointer;
+    transition: all 0.2s ease-in-out; 
+    box-sizing: border-box;
+}
+
+.ab-btn:hover {
+    background: rgba(0, 229, 255, 0.1); 
+    border-color: #00e5ff; 
+    color: #fff; 
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3); 
+}
+
+.ab-btn.active {
+    background: #7CFF9B !important;
+    border-color: #00e5ff !important;
+    color: #000 !important; 
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4) !important;
+}
+
+/* 🚀 버튼 컨테이너 중앙 정렬 및 간격 띄우기 */
+.q-controls { 
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
+}
+
+/* ==========================================================
+   🚀 O X ? 버튼: 각진 네모 + 바깥쪽 이중 테두리 (크기 약간 축소)
+   ========================================================== */
+.ox-btn {
+    width: 34px;  /* 기존 45px에서 살짝 축소 */
+    height: 34px; 
+    border-radius: 0 !important; /* 둥근 모서리 완전 제거 */
+    background: #000 !important; /* 버튼 기본 배경 검은색 */
+    color: #fff !important; /* O, X, ? 폰트 흰색 */
+    font-family: var(--c1-font); 
+    font-size: 1.1rem; /* 박스에 맞춰 폰트 사이즈 조정 */
+    font-weight: bold;
+    cursor: pointer; 
+    transition: all 0.15s ease-in-out;
+    margin: 6px 10px; /* 그림자가 잘리지 않도록 좌우 여백 확보 */
+    margin-bottom: 20px !important;
+    
+    /* [핵심 디자인]: 안에서 밖으로 나가는 이중 테두리 */
+    /* 1. 버튼에 딱 붙은 얇은 흰색 테두리 (1px) */
+    border: 1px solid #fff !important; 
+    /* 2. 중간 검은색 띄우기 (2px) + 3. 가장 바깥 굵은 흰색 테두리 (3px 굵기 -> 총 5px) */
+    box-shadow: 0 0 0 2px #000, 0 0 0 5px #fff !important; 
+}
+
+/* 🚀 마우스 올렸을 때 살짝 커지는 이펙트 */
+.ox-btn:hover {
+    transform: scale(1.05); 
+}
+
+/* 클릭할 때 타격감 */
+.ox-btn:active {
+    transform: scale(0.95);
+}
+
+/* ==========================================================
+   🚀 Hover 및 선택된(Active) 상태: 네온 그린(#7CFF9B) 일괄 적용
+   ========================================================== */
+.ox-btn:hover,
+.question-block.state-yes .btn-o,
+.question-block.state-no .btn-x,
+.question-block.state-maybe .btn-q { 
+    background: #7CFF9B !important; /* 네온 그린 배경 */
+    color: #000 !important; /* 검은색 폰트 반전 */
+    /* 이중 테두리는 흑백 그대로 유지 */
+    border-color: #fff !important; 
+    box-shadow: 0 0 0 2px #000, 0 0 0 5px #fff !important; 
+}
+
+/* 결과창 텍스트 색상 */
+#res-asc, #res-hl { color: #00e5ff; font-family: monospace; }
+#res-pairs li { color: #bd00ff; font-family: monospace; }
+
+.step-hidden { display: none; }
+
+/* ==========================================================
+   🚀 상단 안내문 (Instruction Note) 전용 스타일
+   ========================================================== */
+.instruction-note {
+    margin-bottom: 40px !important;
+    padding: 15px;
+    border: 1px dashed #555; /* 점선 테두리 */
+    background: rgba(0, 0, 0, 0.4); /* 반투명 까만 박스 */
+    color: #bbb; /* 기본 설명 글씨 색상 */
+    font-size: 0.85rem;
+    text-align: center;
+    line-height: 1.5;
+    border-radius: 4px; /* 살짝 둥글게 원하시면 값 추가, 각지게 원하시면 0 */
+}
+
+/* [ INSTRUCTION ] 타이틀 부분 강조 색상 */
+.instruction-note .instruction-title {
+    color: #7CFF9B; /* 네온 초록색 */
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 8px; /* 아래 설명줄과의 간격 */
+    letter-spacing: 1px;
+}
+
+/* ==========================================================
+   🚀 각 층위 메인 질문 (Layer Prompt) 전용 스타일
+   ========================================================== */
+.layer-prompt {
+    font-size: 1.0rem;
+    font-weight: bold;
+    color: #fff; /* 하얀색 텍스트로 또렷하게 */
+    text-align: center;
+    margin-bottom: 40px !important; /* 아래 질문들과 여유를 둡니다 */
+    padding: 0 10px !important;
+    line-height: 1.4;
+    font-family: var(--c1-font) !important;
+}
+
+/* 메인 질문의 'Q.' 강조색 (하늘색) */
+.layer-prompt .q-mark {
+    color: #00e5ff;
+    font-size: 1.1rem;
+    margin-right: 5px;
+}
+
+/* ==========================================================
+   🚀 Layer 3: Saturn & Chiron 개별 폰트 색상 커스텀
+   ========================================================== */
+.saturn-text {
+    color: #43A047; /* 어두운 녹색 (가독성 고려) */
+    margin-bottom: 20px; /* 카이론 문항과의 간격을 <br><br> 대신 CSS로 띄움 */
+}
+
+.chiron-text {
+    color: #DC143C; /* 다크 크림슨 (Dark Crimson) */
+}
+
+/* ==========================================================
+   🚀 헤더 및 세이브 버튼 (가로 배치)
+   ========================================================== */
+.ritual-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.ritual-header .ritual-title {
+    margin-bottom: 0 !important; /* 기존 마진 덮어쓰기 */
+}
+
+/* ==========================================================
+   🚀 결과창 커스터마이징
+   ========================================================== */
+/* 2. Ritual Results 타이틀: 다크 크림슨 */
+.result-title {
+    color: #3B3B3B; 
+    font-family: var(--c1-font);
+    font-size: 1.0rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem !important;
+}
+
+/* 3. 실제 시간대 목록 디자인 */
+.res-times-list {
+    margin-bottom: 1.0rem;
+    max-height: 200px; /* 시간대가 많을 경우 스크롤 생성 */
+    overflow-y: auto;
+}
+.res-time-item {
+    font-family: var(--c1-font);
+    font-size: 1.2rem; /* 시간대 폰트 사이즈 */
+    color: #00e5ff; /* 시간대 폰트 색상 */
+    font-weight: bold;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+/* 4. Ascendant / Hour Lord 결과값 폰트 커스텀 */
+.res-label {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+.res-value-sub {
+    font-family: var(--c1-font) !important; /* 모노스페이스 고정 */
+    font-size: 1.1rem; /* Asc/H.L 폰트 사이즈 */
+    color: #3cff8f !important;
+    margin-left: 10px;
+}
+
+/* 5. Saturn | Chiron Pairs 폰트 커스텀 */
+.res-pair-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+.res-pair-item {
+    font-family: var(--c1-font) !important;
+    font-size: 1.05rem; /* 사이즈 커스텀 */
+    color: #bd00ff; /* 보라색 계열 강조 */
+    margin-bottom: 8px;
+    padding-left: 10px;
+    border-left: 2px solid #e586d5; /* 왼쪽에 엣지 있는 선 추가 */
+}
+
+/* ==========================================================
+   🚀 결과창 화면 전용 간격 조절 (위로 끌어올리기)
+   ========================================================== */
+#step-4-results {
+    margin-top: -1.0rem; /* 음수 값을 줘서 위로 끌어올림 (간격은 이 수치로 조절) */
+    padding-top: 0 !important; /* HTML에 기본으로 잡혀있는 위쪽 패딩 무력화 */
+}

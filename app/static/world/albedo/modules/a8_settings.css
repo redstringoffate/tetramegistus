@@ -1,0 +1,144 @@
+/* static/world/albedo/modules/a8_settings.css */
+
+.a8-module-container {
+    width: 100%;
+    min-width: 580px;
+    color: #e0e0e0;
+}
+
+.a8-settings-header-row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 15px;
+    font-size: 0.7rem;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.a8-setting-item {
+    background: #0A0A0A;
+    border: 1px solid #222;
+    margin-bottom: 7px;
+    padding: 12px;
+    border-radius: 2px;
+    transition: 0.2s;
+}
+
+.a8-setting-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.a8-setting-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ccc;
+    text-transform: uppercase;
+}
+
+/* Toggle Switch (C1 Style Benchmark) */
+.a8-toggle-wrapper {
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+}
+.a8-toggle-label { font-size: 0.6rem; color: #444; font-weight: bold; transition: 0.2s; }
+.a8-toggle-label.active { color: #7CFF9B; } /* Lucis Green */
+
+.a8-track {
+    width: 28px; height: 12px; background: #111;
+    border: 1px solid #444; border-radius: 6px; position: relative;
+    transition: 0.2s;
+}
+.a8-knob {
+    width: 8px; height: 8px; background: #666;
+    border-radius: 50%; position: absolute; top: 1px; left: 2px; 
+    transition: 0.2s;
+}
+.a8-track.on { border-color: #7CFF9B; background: rgba(124, 255, 155, 0.1); }
+.a8-track.on .a8-knob { left: 16px; background: #7CFF9B; box-shadow: 0 0 6px #7CFF9B; }
+
+/* Sub Options Area */
+.a8-options-area {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #333;
+    transition: 0.3s;
+    opacity: 1;
+}
+.a8-options-area.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.a8-btn-group {
+    display: flex;
+    width: fit-content;
+    border: 1px #7CFF9B;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #000;
+}
+
+.a8-opt-btn {
+    background: #000 !important;
+    border: 1px solid #49dce1 !important; /* Nigredo Green 테두리 */
+    color: #999999 !important;
+    /* 투박함 제거: 패딩 축소, 폰트 굵기 정상화 */
+    padding: 5px 12px; 
+    font-size: 0.75rem; 
+    font-weight: normal; 
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+    transition: 0.2s;
+}
+.a8-opt-btn:hover {
+    background: rgba(73, 220, 225, 0.1);
+    color: #49dce1; /* Hover hint */
+}
+.a8-opt-btn.active {
+    background: rgba(124, 255, 155, 0.15) !important;;
+    border-color: #49dce1;
+    color: #7CFF9B !important;
+    font-weight: bold !important;
+}
+
+/* ... (위쪽 코드는 그대로 유지) ... */
+
+/* === Confirm Button Area === */
+.a8-confirm-wrapper {
+    margin-top: 20px;
+    text-align: right;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+}
+
+/* 🚀 [FIX]: !important를 추가하여 다른 스타일 덮어쓰기 방지 */
+.a8-confirm-btn {
+    background-color: #000 !important;    /* 배경을 확실히 검은색으로 */
+    border: 2px solid #444 !important;    /* 테두리 두께 2px, 색상 고정 */
+    color: #7CFF9B !important;            /* 글자색 Lucis Green 고정 */
+    
+    padding: 8px 24px !important;         /* 너비 조금 더 확보 */
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    font-size: 0.85rem !important;
+    font-weight: 900 !important;          /* 🚀 볼드체 강제 (900) */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: none;
+    border-radius: 0;                     /* 혹시 모를 둥근 모서리 제거 */
+}
+
+.a8-confirm-btn:hover {
+    background-color: rgba(124, 255, 155, 0.1) !important;
+    border-color: #7CFF9B !important;
+    box-shadow: 0 0 15px rgba(124, 255, 155, 0.3) !important;
+    color: #fff !important;               /* 호버 시 글자색 흰색으로 강조 */
+}

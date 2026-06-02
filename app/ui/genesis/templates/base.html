@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Prima Materia</title>
+
+  <link rel="icon" href="data:,">
+
+  <style>
+    /* =========================
+        Global Reset
+    ========================== */
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: #050505;
+      color: #7CFF9B; /* 🔑 DDS 녹색 */
+    }
+
+    body {
+      width: 100%;
+      line-height: 1.55;
+    }
+
+    /* =========================
+        Font Modes
+    ========================== */
+
+    /* 기본: 노트북 / IDE / 터미널 */
+    body {
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        "Liberation Mono",
+        "Courier New",
+        monospace;
+      font-size: 14px;
+    }
+
+    /* 선언 화면만 serif */
+    body.centered {
+      font-family: "Times New Roman", serif;
+      color: #e6e6e6;
+    }
+
+    /* =========================
+        Layout
+    ========================== */
+
+    body.centered {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .void {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* index / incarnated */
+    body.centered .void {
+      max-width: 640px;
+      min-height: 100vh;
+      padding: 4rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Threshold / form */
+    body:not(.centered) .void {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 3.5rem 1rem 7rem; /* 🔑 상단 공백 감소 */
+      text-align: left;
+    }
+
+    /* =========================
+        Typography
+    ========================== */
+
+    h1 {
+      font-weight: normal;
+      font-size: 2.2rem;
+      letter-spacing: 0.08em;
+      margin: 0 0 2rem 0;
+    }
+
+    h2 {
+      font-weight: normal;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      margin: 3rem 0 0.6rem 0;
+      color: #6be68c; /* 🔑 섹션 살짝 밝게 */
+    }
+
+    p {
+      margin: 0.25rem 0;
+    }
+
+    /* =========================
+        Inputs
+    ========================== */
+
+    input, select {
+      background: #070707;
+      border: 1px solid #1f5f3a;
+      color: #7CFF9B;
+      padding: 0.45rem 0.6rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input::placeholder {
+      color: #3fa86a;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #7CFF9B;
+    }
+
+    /* =========================
+        Buttons
+    ========================== */
+
+    button {
+      background: none;
+      border: 1px solid #1f5f3a;
+      color: #7CFF9B;
+      padding: 0.45rem 1.2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    button:hover {
+      border-color: #7CFF9B;
+      color: #b6ffd0;
+    }
+
+    body:not(.centered) button {
+      align-self: flex-start;
+    }
+
+    /* =========================
+        Utility
+    ========================== */
+
+    .spacer-sm { height: 1.25rem; }
+    .spacer-md { height: 2.5rem; }
+    .spacer-lg { height: 4rem; }
+  </style>
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+  {% block content %}{% endblock %}
+
+  <div id="overlay" style="display:none">
+    <div id="prompt"></div>
+    <div id="buffer"></div>
+
+    <div id="confirm" style="display:none">
+      <p>Are you sure you want to reincarnate?</p>
+      <button id="yes">Yes</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <script src="/gate/ritual.js"></script>
+
+  <script>
+    /**
+     * 🔑 SOFT LOGOUT PROTOCOL
+     * 세션만 종료하고 브라우저의 시드 데이터(temp_ 쿠키 등)는 보존합니다.
+     */
+    async function handleLogout() {
+        try {
+            const response = await fetch('/gate/logout', { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            if (response.ok) {
+                // 🔑 중요: localStorage.clear() 및 쿠키 삭제 루프를 호출하지 않습니다.
+                // 이로써 로그아웃 후에도 Nigredo에서 본인의 차트를 계속 볼 수 있습니다.
+                window.location.replace("/world/nigredo"); 
+            }
+        } catch (error) {
+            console.error("Logout ritual failed:", error);
+            window.location.reload();
+        }
+    }
+
+    // 전역 함수로 등록하여 로그아웃 버튼에서 사용 가능하게 함
+    window.handleLogout = handleLogout;
+  </script>
+</body>
+</html>

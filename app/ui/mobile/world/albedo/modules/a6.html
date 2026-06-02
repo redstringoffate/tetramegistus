@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="/static/mobile/world/albedo/modules/a6.css?v=1">
+
+<div class="m-a6-container">
+    <h1 class="m-materia-title">MULTIPLICATIO</h1>
+
+    <div class="m-anti-switch-module" style="margin-bottom: 15px;">
+        <div class="m-dichotomy-module" onclick="window.toggleA6Mode()">
+            <span class="m-dicho-label active" id="a6-lbl-harmonics">HARMONICS</span>
+            <div class="m-toggle-switch">
+                <div class="m-toggle-knob" id="a6-knob-mode"></div>
+            </div>
+            <span class="m-dicho-label" id="a6-lbl-varga">VARGA</span>
+        </div>
+    </div>
+
+    <div class="m-anti-switch-module" id="a6-dicho-view" style="margin-bottom: 20px;">
+        <div class="m-dichotomy-module" onclick="window.toggleA6View()">
+            <span class="m-dicho-label active" id="a6-lbl-positions">POSITIONS</span>
+            <div class="m-toggle-switch">
+                <div class="m-toggle-knob" id="a6-knob-view"></div>
+            </div>
+            <span class="m-dicho-label" id="a6-lbl-aspects">ASPECTS</span>
+        </div>
+    </div>
+
+    <div id="m-a6-controls-varga" style="display: none;">
+        <nav class="m-connected-tabs m-ayan-tabs" id="a6-ayanamsa-nav-container"></nav>
+        <div class="m-graha-grid-container" id="a6-graha-grid"></div>
+    </div>
+
+    <div id="m-a6-view-container">
+        
+        <div id="m-view-positions" class="m-a6-table-wrapper" style="display: block;">
+            <table class="m-a6-table">
+                <thead>
+                    <tr id="m-a6-thead-positions">
+                        <th class="sticky-corner">CELESTIAL BODIES</th>
+                    </tr>
+                </thead>
+                <tbody id="m-a6-tbody-positions"></tbody>
+            </table>
+        </div>
+
+        <div id="m-view-aspects" style="display: none;">
+            <div class="m-h-keyboard-grid" id="a6-h-btn-grid"></div>
+
+            <div class="m-custom-dropdown" style="margin: 0 10px 15px 10px;">
+                <div class="m-dropdown-selected" id="a6-dd-selected" onclick="window.toggleA6Dropdown()">
+                    SELECT BODY
+                </div>
+                <div class="m-dropdown-list" id="a6-dd-list" style="display:none;"></div>
+            </div>
+
+            <div class="m-a6-aspects-wrapper">
+                <div class="m-aspect-col m-col-narrow">
+                    <div class="m-aspect-header">ASPECTS</div>
+                    <div class="m-aspect-body" id="m-a6-list-aspects"></div>
+                </div>
+                <div class="m-aspect-col">
+                    <div class="m-aspect-header">OBJECTS</div>
+                    <div class="m-aspect-body" id="m-a6-list-objects"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="m-view-varga" class="m-a6-table-wrapper" style="display: none;">
+            <table class="m-a6-table">
+                <thead>
+                    <tr>
+                        <th class="sticky-corner">DIVISION</th>
+                        <th>INFORMATION</th>
+                        <th>NAKSHATRA</th>
+                        <th>PURUSHARTHA</th>
+                    </tr>
+                </thead>
+                <tbody id="m-a6-tbody-varga"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div id="m-a6-toast" class="m-toast-hidden"></div>
+    <div id="fs-popover" class="fs-popover-box"></div>
+</div>
+
+<script src="/static/mobile/world/albedo/modules/a6.js?v=3"></script>

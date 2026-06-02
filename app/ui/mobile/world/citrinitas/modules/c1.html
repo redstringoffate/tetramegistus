@@ -1,0 +1,83 @@
+<!-- static/mobile/world/citrinitas/modules/c1.html -->
+<link rel="stylesheet" href="/static/mobile/world/citrinitas/modules/c1.css?v=17">
+
+<div class="m-c1-container">
+    <h2 class="m-materia-title">TABULA</h2>
+
+    <div class="m-c1-controls-wrapper">
+        <div class="m-c1-top-row">
+            <button id="m-btn-open-c1-settings" class="m-btn-sys-settings" onclick="m_c1_openModal('settings')">
+                ⚙ SYSTEM SETTINGS
+            </button>
+            <div class="m-dichotomy-module">
+                <span class="m-dicho-label active" id="m-c1-label-trad">TRADITIONAL</span>
+                <div class="m-toggle-switch" onclick="m_c1_switchDichotomy()">
+                    <div class="m-toggle-knob" id="m-c1-dicho-knob"></div>
+                </div>
+                <span class="m-dicho-label" id="m-c1-label-mod">MODERN</span>
+            </div>
+        </div>
+
+        <div class="m-c1-middle-row">
+            <div class="m-c1-data-management-box">
+                <span class="m-dm-label">MANAGE DATA</span>
+                <div class="m-dm-buttons">
+                    <button class="m-c1-icon-btn" onclick="m_c1_openModal('add_natal')" title="Add Natal">+</button>
+                    <button class="m-c1-icon-btn" onclick="m_c1_openModal('add_conj')" title="Add Conjunction">×</button>
+                    <button class="m-c1-icon-btn" onclick="m_c1_openModal('edit_list')" title="Edit Data">※</button>
+                </div>
+            </div>
+            <div class="m-connected-tabs m-sort-tabs">
+                <button class="m-tab active" id="m-c1-btn-sort-seed" onclick="m_c1_switchSortMode('seed')">SEED</button>
+                <button class="m-tab" id="m-c1-btn-sort-system" onclick="m_c1_switchSortMode('system')">SYSTEM</button>
+            </div>
+        </div>
+
+        <div class="m-c1-bottom-row">
+            <div class="m-connected-tabs m-ayan-tabs" id="m-c1-ayanamsa-bar"></div>
+        </div>
+    </div>
+
+    <div class="m-c1-table-wrapper" id="m-c1-table-container">
+        <table class="m-c1-table" id="m-lucis-tabula-table">
+            <thead id="m-c1-table-head"></thead>
+            <tbody id="m-c1-table-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<div id="m-c1-toast" class="m-toast-hidden"></div>
+
+<!-- 🚀 생얼 방지용 로딩 스크린 (active 기본 탑재) -->
+<div id="m-c1-loading" class="m-c1-loading-overlay active">
+    <div class="m-c1-loading-text">
+        Rendering Tabula<span class="m-c1-loading-dots">.......</span>
+    </div>
+</div>
+
+<div id="m-c1-modal-overlay" class="m-c1-modal-overlay">
+    <div class="m-c1-modal-window">
+        <div class="m-c1-modal-header" id="m-c1-modal-title">TITLE</div>
+        <div class="m-c1-modal-body" id="m-c1-modal-content"></div>
+        <div class="m-c1-modal-footer">
+            <button class="m-c1-btn-confirm" id="m-c1-btn-confirm">CONFIRM</button>
+            <button class="m-c1-btn-return" onclick="m_c1_closeModal()">RETURN</button>
+        </div>
+    </div>
+</div>
+
+<!-- 🚀 삭제해서 에러를 냈던 프래그먼트 템플릿 완전 복구 -->
+<template id="tpl-m-c1-add-natal">
+    {% include "mobile/world/citrinitas/modules/c1_add_natal.html" ignore missing %}
+</template>
+<template id="tpl-m-c1-add-conjunction">
+    {% include "mobile/world/citrinitas/modules/c1_add_conjunction.html" ignore missing %}
+</template>
+<template id="tpl-m-c1-edit-list">
+    {% include "mobile/world/citrinitas/modules/c1_edit_list.html" ignore missing %}
+</template>
+<template id="tpl-m-c1-settings">
+    {% include "mobile/world/citrinitas/modules/c1_settings.html" ignore missing %}
+</template>
+
+<script src="/static/mobile/world/citrinitas/modules/c1.js?v=17"></script>

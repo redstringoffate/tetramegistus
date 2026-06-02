@@ -1,0 +1,29 @@
+/* 📱 Mobile Rubedo Theme */
+#stage-container.stage-rubedo .page-content {
+  background: #e00000;
+  color: #000;
+}
+
+#stage-container.stage-rubedo .page-content h1,
+#stage-container.stage-rubedo .page-content p,
+#stage-container.stage-rubedo .page-content button {
+  color: #000;
+}
+
+#stage-container.stage-rubedo .page-content button {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+/* 🚀 붉은 배경에 어울리는 푸터 */
+#stage-container.stage-rubedo .m-content-footer {
+  border-top: 1px dashed rgba(0, 0, 0, 0.3) !important;
+}
+
+#stage-container.stage-rubedo .m-content-footer .credits {
+  color: #222 !important;
+}
+
+#stage-container.stage-rubedo .m-content-footer a {
+  color: #fff !important; /* 루베도에서는 강렬한 흰색 링크 */
+}

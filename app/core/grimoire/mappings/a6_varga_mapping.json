@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "stamper": "A2",
+    "ayanamsa": "B4",
+    "graha": "B5"
+  },
+  "layout": {
+    "cols": { "info": "B", "nakshatra": "C", "purushartha": "D" },
+    "rows": {
+      "D1": 9, "D2": 10, "D3": 11, "D4": 12, "D6": 13, "D7": 14, "D8": 15,
+      "D9": 16, "D10": 17, "D12": 18, "D16": 19, "D20": 20, "D24": 21, "D30": 22, "D60": 23
+    }
+  }
+}

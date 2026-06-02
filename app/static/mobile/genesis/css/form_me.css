@@ -1,0 +1,130 @@
+/* ===================================================
+   📱 Mobile Genesis Form Styles (자기완결적 Fit)
+=================================================== */
+.form-void {
+    padding: 25px 15px; /* 양옆 여백을 살짝 줄여서 공간 확보 */
+    align-items: stretch; 
+    justify-content: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden; /* 🚀 가로 스크롤(삐져나옴) 원천 차단 */
+    width: 100vw;       /* 화면 너비에 완벽하게 고정 */
+    box-sizing: border-box;
+}
+
+h2 {
+    font-size: 0.8rem;
+    color: #6be68c;
+    font-weight: normal;
+    margin: 15px 0 5px 0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* 🚀 폼 컨트롤 공통 미학 (삐져나옴 방지 핵심: min-width: 0) */
+select, input {
+    background: rgba(5, 10, 8, 0.8);
+    color: #7CFF9B;
+    border: 1px solid #1f5f3a;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 10px 8px; /* 패딩 최적화 */
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    
+    /* 🚀 브라우저의 최소 너비 고집을 꺾어서 화면 밖으로 밀려나는 걸 막음 */
+    min-width: 0; 
+    width: 100%;
+}
+
+select:focus, input:focus {
+    border-color: #7CFF9B;
+    box-shadow: 0 0 10px rgba(124, 255, 155, 0.2);
+}
+
+/* 날짜/시간 행 */
+.date-row { display: flex; gap: 8px; width: 100%; box-sizing: border-box; }
+.date-row select { flex: 1; text-align: center; text-align-last: center; }
+
+#city-search { width: 100%; margin-bottom: 5px; }
+
+#city-results { margin-top: 5px; border: 1px solid #1f5f3a; background: #050505; border-radius: 4px; max-height: 180px; overflow-y: auto; width: 100%; box-sizing: border-box; }
+.city-item { padding: 12px 15px; font-size: 0.9rem; border-bottom: 1px solid #0f2b1a; cursor: pointer; }
+.city-item:last-child { border-bottom: none; }
+.city-item.active, .city-item:active { background: #0b1a12; color: #b6ffd0; }
+
+#manual-toggle {
+    background: transparent; border: none; color: #3fa86a; padding: 10px 0;
+    font-family: inherit; cursor: pointer; text-align: left; width: 100%; outline: none;
+}
+
+#manual-panel { display: none; margin-top: 5px; background: rgba(3, 8, 5, 0.9); padding: 15px; border: 1px solid #1f5f3a; border-radius: 4px; width: 100%; box-sizing: border-box; }
+.coord-block { margin-bottom: 15px; width: 100%; }
+.coord-block:last-child { margin-bottom: 0; }
+.coord-label { font-size: 0.75rem; color: #6be68c; margin-bottom: 5px; }
+.coord-row { display: flex; gap: 6px; align-items: center; width: 100%; }
+
+/* 🚀 사라진 +/- 버튼 복구 및 크기 최적화 */
+.sign-group { display: flex; border: 1px solid #1f5f3a; border-radius: 4px; overflow: hidden; flex-shrink: 0; }
+.sign-btn { 
+    width: 35px; height: 40px; 
+    display: flex; align-items: center; justify-content: center; 
+    background: transparent; cursor: pointer;
+    
+    /* 🚀 명시적인 색상과 거대한 폰트 사이즈 부여 */
+    color: #3fa86a; 
+    font-size: 1.4rem; 
+    font-weight: normal; 
+}
+.sign-btn.active { background: #0f2b1a; color: #b6ffd0; font-weight: bold; }
+
+.coord-int { flex: 1; text-align: center; }
+.coord-dot { opacity: 0.6; flex-shrink: 0; }
+.coord-dec { flex: 1.5; text-align: center; }
+
+#tz-select { width: 100%; text-align: left; }
+
+#incarnate {
+    background: #0f2b1a; border: 1px solid #3fa86a; color: #7CFF9B;
+    padding: 15px; font-family: inherit; font-size: 1.1rem; letter-spacing: 0.1em;
+    font-weight: bold; border-radius: 4px; cursor: pointer; margin-top: 20px;
+    width: 100%; transition: all 0.3s;
+}
+#incarnate:active { background: #7CFF9B; color: #000; }
+
+.stage-tooltip { position: fixed; font-size: 0.65rem; letter-spacing: 0.08em; white-space: nowrap; pointer-events: none; z-index: 99999; opacity: 0; color: rgb(73, 220, 225); }
+
+/* ===================================================
+   💀 Manifestation Ritual Overlay
+=================================================== */
+#manifest-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 1s ease;
+}
+
+#manifest-overlay.is-manifesting {
+    opacity: 1; pointer-events: all;
+}
+
+.manifest-veil {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.85);
+}
+
+.manifest-text {
+    position: relative; z-index: 2;
+    color: rgb(3, 234, 252);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    opacity: 0.9;
+    text-shadow: 0 0 10px rgba(3, 234, 252, 0.5);
+    animation: pulseText 2s infinite alternate;
+}
+
+@keyframes pulseText {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; text-shadow: 0 0 20px rgba(3, 234, 252, 0.8); }
+}

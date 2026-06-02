@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/static/mobile/world/nigredo/modules/n9.css?v=1">
+
+<div class="m-n9-container">
+    <h2 class="m-materia-title">CHRONOMANTIA</h2>
+
+    <div class="m-switch-module" style="margin-bottom: 20px; display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 15px;">
+        <div class="m-dichotomy-module"
+             ontouchstart="showToggleTooltip('n9-dicho-tooltip', 'ZODIAC', 'JYOTISH', N9_STATE.mode === 'zodiac')"
+             ontouchend="hideToggleTooltip('n9-dicho-tooltip')">
+            <span class="m-dicho-label active" id="n9-label-zodiac">ZODIAC</span>
+            <div class="m-toggle-switch" onclick="switchN9Mode()">
+                <div class="m-toggle-knob" id="n9-dicho-knob"></div>
+            </div>
+            <span class="m-dicho-label" id="n9-label-jyotish">JYOTISH</span>
+        </div>
+        <div class="m-toggle-tooltip" id="n9-dicho-tooltip" style="left: 50%; transform: translate(-50%, -100%);"></div>
+    </div>
+
+    <div class="m-connected-tabs m-ayan-tabs m-hidden" id="n9-ayanamsa-bar" style="margin-bottom: 20px;">
+    </div>
+
+    <div class="m-n9-table-wrapper" id="n9-table-container">
+        <table class="m-n9-table" id="n9-timeline-table">
+            <thead id="n9-table-head"></thead>
+            <tbody id="n9-table-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<div id="m-n9-loading">
+    <div class="m-n9-loading-text">ACCESSING CHRONOMANTIA</div>
+</div>
+
+<div id="m-n9-toast" class="m-toast-hidden"></div>
+
+<script src="/static/mobile/world/nigredo/modules/n9.js?v=1"></script>

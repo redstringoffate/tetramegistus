@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="/static/mobile/world/albedo/modules/a2.css?v=3">
+
+<div class="m-a2-container">
+    <h2 class="m-materia-title">COAGULATIO</h2>
+
+    <div class="m-anti-switch-module" style="margin-bottom: 10px;">
+        <div class="m-dichotomy-module"
+             ontouchstart="showToggleTooltip('method-tooltip', 'COMPOSITE', 'DAVISON', A2_STATE.method === 'composite')"
+             ontouchend="hideToggleTooltip('method-tooltip')">
+            <span class="m-dicho-label active" id="label-method-comp">COMP</span>
+            <div class="m-toggle-switch" onclick="switchA2Method()">
+                <div class="m-toggle-knob" id="method-knob"></div>
+            </div>
+            <span class="m-dicho-label" id="label-method-dav">DAVI</span>
+        </div>
+        <div class="m-toggle-tooltip" id="method-tooltip"></div>
+    </div>
+
+    <div class="m-lordship-bar" id="m-davison-lords" style="display: none; justify-content: center; margin-bottom: 20px;">
+        <div class="m-lord-slot" style="text-align: center;">
+            Day Lord:<br>
+            <span class="m-val" id="day-lord" style="margin-left: 0; display: inline-block; margin-top: 4px;">-</span>
+        </div>
+        <div class="m-lord-slot" style="margin-left: 40px; text-align: center;">
+            Hour Lord:<br>
+            <span class="m-val" id="hour-lord" style="margin-left: 0; display: inline-block; margin-top: 4px;">-</span>
+        </div>
+    </div>
+
+    <div class="m-anti-switch-module" id="m-composite-controls" style="margin-bottom: 20px;">
+        <div class="m-dichotomy-module"
+             ontouchstart="showToggleTooltip('mode-tooltip', 'COMPOSITE', 'ANTI-COMPOSITE', A2_STATE.mode !== 'anti')"
+             ontouchend="hideToggleTooltip('mode-tooltip')">
+            <span class="m-dicho-label active" id="label-mode-comp">COMP</span>
+            <div class="m-toggle-switch" onclick="switchA2Mode()">
+                <div class="m-toggle-knob" id="anti-knob"></div>
+            </div>
+            <span class="m-dicho-label" id="label-mode-anti">ANTI</span>
+        </div>
+        <div class="m-toggle-tooltip" id="mode-tooltip"></div>
+    </div>
+
+    <div class="m-connected-tabs">
+        <button class="m-tab" data-sys="tropical" onclick="switchA2System('tropical')">Tropical</button>
+        <button class="m-tab" data-sys="sidereal" onclick="switchA2System('sidereal')">Sidereal</button>
+        <button class="m-tab" data-sys="draconic" onclick="switchA2System('draconic')">Draconic</button>
+        <button class="m-tab" data-sys="ketunic" onclick="switchA2System('ketunic')">Ketunic</button>
+    </div>
+
+    <div id="m-sidereal-vault" class="m-hidden">
+        <div class="m-connected-tabs m-ayan-tabs">
+            <button class="m-tab" data-ayan="lahiri" onclick="switchA2Ayanamsa('lahiri')">Lahiri</button>
+            <button class="m-tab" data-ayan="raman" onclick="switchA2Ayanamsa('raman')">Raman</button>
+            <button class="m-tab" data-ayan="kp" onclick="switchA2Ayanamsa('kp')">KP</button>
+            <button class="m-tab" data-ayan="fagan-bradley" onclick="switchA2Ayanamsa('fagan-bradley')">Fagan</button>
+            <button class="m-tab" data-ayan="yukteswar" onclick="switchA2Ayanamsa('yukteswar')">Yukteswar</button>
+        </div>
+        
+        <div class="m-anti-switch-module" style="margin-bottom: 20px;" id="m-view-toggle">
+            <div class="m-dichotomy-module"
+                 ontouchstart="showToggleTooltip('view-tooltip', 'ZODIAC', 'NAKSHATRA', A2_STATE.view !== 'nakshatra')"
+                 ontouchend="hideToggleTooltip('view-tooltip')">
+                <span class="m-dicho-label active" id="label-view-zod">ZOD</span>
+                <div class="m-toggle-switch" onclick="switchA2View()">
+                    <div class="m-toggle-knob" id="view-knob"></div>
+                </div>
+                <span class="m-dicho-label" id="label-view-nak">NAK</span>
+            </div>
+            <div class="m-toggle-tooltip" id="view-tooltip"></div>
+        </div>
+    </div>
+
+    <div class="m-cat-grid" id="m-cat-grid-zodiac">
+        <button class="m-tab cat-btn active" data-cat="planets" onclick="switchA2Category('planets')">Planets</button>
+        <button class="m-tab cat-btn" data-cat="asteroids" onclick="switchA2Category('asteroids')">Asteroids</button>
+        <button class="m-tab cat-btn" data-cat="lilith" onclick="switchA2Category('lilith')">Lilith & Nodes</button>
+        <button class="m-tab cat-btn" data-cat="fates" onclick="switchA2Category('fates')">Fates</button>
+    </div>
+
+    <div class="m-cat-grid" id="m-cat-grid-nakshatra" style="display:none;">
+        <button class="m-tab cat-btn" data-cat="grahas" onclick="switchA2Category('grahas')">Grahas</button>
+        <button class="m-tab cat-btn" data-cat="angles" onclick="switchA2Category('angles')">Angles</button>
+    </div>
+
+    <div id="m-a2-cards-container" class="m-card-container"></div>
+</div>
+
+<div id="m-a2-toast" class="m-toast-hidden"></div>
+<div id="fs-popover" class="fs-popover-box" style="display:none;"></div>
+
+<script src="/static/mobile/world/albedo/modules/a2.js?v=8"></script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script>
+		// Immediate client-side entry decision
+		(function () {
+			try {
+				const me = localStorage.getItem("tetramegistus.me")
+				if (me) {
+					window.location.replace("/world/nigredo")
+				} else {
+					window.location.replace("/prima-materia")
+				}
+			} catch (e) {
+				window.location.replace("/prima-materia")
+			}
+		})()
+	</script>
+</head>
+<body></body>
+</html>

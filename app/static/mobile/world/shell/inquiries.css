@@ -1,0 +1,105 @@
+/* ===================================================
+   📱 Mobile Inquiries Styles
+=================================================== */
+.m-inquiry-container {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.m-inquiry-title {
+    font-family: inherit;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #7CFF9B;
+    margin: 0 0 25px 0;
+    text-shadow: 0 0 10px rgba(0, 128, 0, 0.6), 0 0 30px rgba(0, 50, 50, 0.4);
+}
+
+.m-inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+/* 입력창 & 셀렉트바 모바일 최적화 */
+.m-inquiry-select, .m-inquiry-input {
+    width: 100%;
+    background: rgba(5, 10, 8, 0.8);
+    border: 1px solid #1f5f3a;
+    color: #ccc;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 12px;
+    outline: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.m-inquiry-select { color: rgb(3, 234, 252); }
+.m-inquiry-input:focus { border-color: rgb(150, 245, 255); }
+
+/* 텍스트 에어리어 */
+.m-inquiry-textarea {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #1f5f3a;
+    color: #ccc;
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 12px;
+    height: 180px;
+    resize: none;
+    outline: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.m-inquiry-textarea:focus { border-color: rgb(150, 245, 255); }
+
+.m-char-counter {
+    text-align: right; font-size: 0.75rem; color: #555; margin-top: -10px;
+}
+
+/* 이미지 첨부 UI 모바일화 */
+.m-image-upload-wrapper {
+    margin: -5px 0; display: flex; flex-direction: column; gap: 8px;
+}
+.m-add-image-text {
+    color: #3fa86a; font-size: 0.9rem; cursor: pointer; display: inline-block;
+}
+.m-file-list { display: flex; flex-direction: column; gap: 5px; }
+.file-item {
+    background: #0a1a11; color: rgb(3, 234, 252); font-size: 0.8rem;
+    padding: 8px 10px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;
+}
+.remove-file { color: #ff4d4d; font-weight: bold; cursor: pointer; padding: 0 10px; }
+
+/* 제출 버튼 영역 */
+.m-submit-area {
+    display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 10px;
+}
+
+#status-msg {
+    font-size: 0.8rem; color: rgb(150, 245, 255); opacity: 0; transition: opacity 0.5s ease;
+}
+
+.m-send-btn { 
+    width: 100%; 
+    background: linear-gradient(135deg, #0a120d 0%, #1a3021 100%); 
+    border: 2px solid #1f5f3a; color: #7CFF9B; 
+    padding: 15px; 
+    font-size: 1.2rem !important; 
+    border-radius: 4px; cursor: pointer; 
+    margin-top: 5px; 
+    transition: 0.3s; 
+    font-family: 'JetBrains Mono', monospace !important; 
+    font-weight: normal !important; 
+    letter-spacing: 2px;
+}
+
+.m-send-btn:active { background: #7CFF9B; color: #000; }

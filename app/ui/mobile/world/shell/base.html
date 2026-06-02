@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tetramegistus</title>
+
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/static/mobile/world/shell/base.css?v=44">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <header class="mobile-top-bar">
+        <a href="/world/nigredo"    class="m-stage m-stage-i">I</a>
+        <a href="/world/albedo"     class="m-stage m-stage-ii">II</a>
+        <a href="/world/citrinitas" class="m-stage m-stage-iii">III</a>
+        <a href="/world/rubedo"     class="m-stage m-stage-iv">IV</a>
+    </header>
+
+    <div id="stage-container" class="stage-{{ stage }}">
+        <main class="page-content">
+            {% block content %}{% endblock %}
+
+            <footer class="m-content-footer">
+                <div class="credits">
+                    <span class="credit-label">Created by</span>
+                    <a href="https://blog.naver.com/redstringoffate" target="_blank" rel="noopener" class="credit-link">
+                        Redstringoffate
+                    </a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <div id="ritual-dimmer"></div>
+
+    <div id="m-global-floating-ui">
+        <button id="m-global-grimoire-btn" class="btn-save-grimoire grimoire-float-btn" style="display: none;">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+        </button>
+
+        <div id="inscribe-overlay" class="inscribe-overlay" style="display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); z-index: 9999; flex-direction: column; justify-content: center; align-items: center;">
+            <div id="inscribe-status" class="inscribe-text">INSCRIBING TO GRIMOIRE...</div>
+            <div id="inscribe-bar-container" class="inscribe-bar-wrap">
+                <div id="inscribe-fill" class="inscribe-bar-fill"></div>
+                <div id="inscribe-percentage" class="inscribe-percentage">0%</div>
+            </div>
+            <div id="inscribe-done" class="inscribe-done">INSCRIPTION COMPLETE</div>
+        </div>
+    </div>
+
+    <div id="mobile-drawer" class="drawer-closed">
+        <div id="t-handle">
+            <div class="t-rune">T</div>
+        </div>
+        
+        <div class="drawer-content">
+            <div class="drawer-utility">
+                {% if request.cookies.get("session_user_id") %}
+                    <a href="/world/mypage" class="me-link">[me]</a>
+                {% else %}
+                    <button class="drawer-btn" onclick="location.href='/world/login'">Log-in</button>
+                {% endif %}
+                <button id="btn-settings" class="drawer-btn" onclick="toggleSettings()">Settings</button>
+            </div>
+
+            <div class="drawer-modules">
+                <div id="sidebar-normal">
+                    <div class="nav-label">MODULES</div>
+                    {% block sidebar %}{% endblock %}
+                </div>
+
+                <div id="sidebar-settings" class="settings-container hidden-sidebar">
+                    <div class="nav-label">SYSTEM SETTINGS</div>
+                    <div class="settings-body">
+                        
+                        <div class="settings-group">
+                            <div class="settings-group-title" onclick="toggleAccordion('lang-options')">
+                                Language <span class="acc-arrow">▼</span>
+                            </div>
+                            <div id="lang-options" class="settings-options">
+                                <label class="settings-radio-label">
+                                    <input type="radio" name="lang" value="en"> English (DEF)
+                                </label>
+                                <label class="settings-radio-label">
+                                    <input type="radio" name="lang" value="ko"> Korean
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="settings-group">
+                            <div class="settings-group-title" onclick="toggleAccordion('orb-options')">
+                                Orb Settings <span class="acc-arrow">▼</span>
+                            </div>
+                            <div id="orb-options" class="settings-options">
+                                <label class="settings-radio-label"><input type="radio" name="orb" value="0.5"> 0.5°</label>
+                                <label class="settings-radio-label"><input type="radio" name="orb" value="1.0"> 1.0° (DEF)</label>
+                                <label class="settings-radio-label"><input type="radio" name="orb" value="1.5"> 1.5°</label>
+                                <label class="settings-radio-label"><input type="radio" name="orb" value="2.0"> 2.0°</label>
+                            </div>
+                        </div>
+
+                        <div class="settings-group">
+                            <div class="settings-group-title" onclick="toggleAccordion('house-options')">
+                                House System <span class="acc-arrow">▼</span>
+                            </div>
+                            <div id="house-options" class="settings-options">
+                                <label class="settings-radio-label"><input type="radio" name="house" value="whole"> Whole Sign</label>
+                                <label class="settings-radio-label"><input type="radio" name="house" value="placidus"> Placidus (DEF)</label>
+                                <label class="settings-radio-label"><input type="radio" name="house" value="koch"> Koch</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div> <footer class="drawer-footer">
+                <a href="/world/inquiries" class="inquiry-link">Inquiries</a>
+            </footer>
+        </div>
+    </div>
+
+    <div id="reincarnate-overlay" class="hidden-element">
+        <div class="reincarnate-box">
+            <div class="reincarnate-title">reincarnate?</div>
+            <div class="reincarnate-actions">
+                <button id="reincarnate-yes">yes</button>
+                <button id="reincarnate-no">no</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/mobile/world/shell/world.js?v=47"></script>
+</body>
+</html>

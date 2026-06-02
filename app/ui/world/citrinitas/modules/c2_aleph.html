@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="/static/world/citrinitas/modules/c2_aleph.css?v=4">
+
+<div class="aleph-container" id="aleph-app">
+    <div class="ritual-header">
+        <h3 class="ritual-title">[ א ] PLANETARY LORD RECTIFICATION</h3>
+    </div>
+
+    <div id="step-1-input" class="c1-module-container">
+        <div class="c1-form-group">
+            <label class="c1-coord-label">Date</label>
+            <div class="c1-date-row">
+                <select id="c2-date-y" class="c1-select"></select>
+                <select id="c2-date-m" class="c1-select"></select>
+                <select id="c2-date-d" class="c1-select"></select>
+            </div>
+        </div>
+
+        <div class="c1-form-group">
+            <label class="c1-coord-label">Location</label>
+            <div class="c1-city-search-container">
+                <input type="text" id="c2-city-search" class="c1-input full-width" placeholder="Search City..." autocomplete="off">
+                <div id="c2-city-results" class="c1-city-results"></div>
+            </div>
+            
+            <div id="c2-manual-toggle" class="c1-manual-toggle">or Manual Entry</div>
+
+            <div id="c2-manual-panel" class="c1-manual-panel">
+                <div class="c1-coord-block">
+                    <div class="c1-sub-label">Latitude</div>
+                    <div class="c1-coord-row">
+                        <div class="c1-sign-group">
+                            <div class="c1-sign-btn active" data-target="lat" data-sign="+">+</div>
+                            <div class="c1-sign-btn" data-target="lat" data-sign="-">−</div>
+                        </div>
+                        <input id="c2-lat-int" class="c1-input-int" placeholder="00">
+                        <span class="c1-dot">.</span>
+                        <input id="c2-lat-dec" class="c1-input-dec" placeholder="0000">
+                    </div>
+                </div>
+                
+                <div class="c1-coord-block">
+                    <div class="c1-sub-label">Longitude</div>
+                    <div class="c1-coord-row">
+                        <div class="c1-sign-group">
+                            <div class="c1-sign-btn active" data-target="lng" data-sign="+">+</div>
+                            <div class="c1-sign-btn" data-target="lng" data-sign="-">−</div>
+                        </div>
+                        <input id="c2-lng-int" class="c1-input-int" placeholder="000">
+                        <span class="c1-dot">.</span>
+                        <input id="c2-lng-dec" class="c1-input-dec" placeholder="0000">
+                    </div>
+                </div>
+
+                <div class="c1-coord-block" style="margin-top: 15px;">
+                    <div class="c1-sub-label">Timezone</div>
+                    <select id="c2-tz" class="c1-select full-width"></select>
+                </div>
+            </div>
+        </div>
+        
+        <button class="cyber-btn full-width" style="margin-top: 20px;" onclick="Aleph.submitData()">SUBMIT SCAN</button>
+    </div>
+
+    <div id="step-2-disclaimer" class="step-hidden" style="display: none; padding: 20px 0;">
+        <div id="disclaimer-text" class="disclaimer-box"></div>
+        <div id="flags-container" class="flags-box"></div>
+        <div id="disclaimer-render-area"></div> 
+        
+        <button class="cyber-btn full-width" style="margin-top: 20px;" onclick="Aleph.startQuestionnaire()">PROCEED TO RITUAL</button>
+    </div>
+
+    <div id="step-3-questions" class="step-hidden" style="display: none; padding: 20px 0;">
+        <div id="q-render-area"></div>
+    </div>
+
+    <div id="step-4-results" class="step-hidden" style="display: none; padding: 20px 0;">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2 class="result-title" style="margin-bottom: 0;">Ritual Results</h2>
+            
+            </div>
+        
+        <div class="result-content">
+            <div class="res-label">POSSIBLE BIRTH TIMES</div>
+            <div id="res-times" class="res-times-list"></div>
+
+            <div class="res-label">LIKELY ASCENDANTS: <span id="res-asc" class="res-value-sub"></span></div>
+            <div class="res-label">LIKELY HOUR LORDS: <span id="res-hl" class="res-value-sub"></span></div>
+            
+            <div class="res-pair-section" style="margin-top: 20px;">
+                <div class="res-label">SATURN & CHIRON PAIRS:</div>
+                <ul id="res-pairs" class="res-pair-list"></ul>
+            </div>
+        </div>
+        
+        <button class="cyber-btn full-width" style="margin-top: 30px;" onclick="location.reload()">RESTART RITUAL</button>
+    </div>
+</div>

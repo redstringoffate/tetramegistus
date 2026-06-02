@@ -1,0 +1,3902 @@
+{
+  "system_messages": {
+    "disclaimer": {
+      "en": [ "This questionnaire is based on generalized behavioral patterns associated with planetary phase transitions." ,
+      "It is not a precise or complete assessment, and its accuracy may be limited depending on individual chart configurations."
+      ],
+      "ko": [ "이 설문은 행성의 전환 구간에서 나타나는 일반적인 행동 패턴을 기반으로 한 참고용 도구입니다." ,
+      "절대적인 판정이 아니라 방향성을 보기 위한 것입니다.",
+      "개인의 차트는 행성 간 각, 구성, 전체적인 강조점에 따라 다르게 나타날 수 있으며, 특정 요인이 강하게 작용하는 경우 결과가 덜 명확하게 느껴질 수 있습니다."
+      ]
+    },
+    "modifiers": {
+      "mars_retrograde": {
+        "en": [ "Mars is retrograde.",
+        "Action and drive may be internalized or expressed indirectly, making outward behavioral patterns less consistent." 
+        ],
+        "ko": [ "화성이 역행 중입니다. ", 
+        "행동과 추진력이 내면화되거나 간접적으로 표현되어, 외부 행동 패턴이 일정하지 않을 수 있습니다." 
+        ]
+      },
+      "mars_combust": {
+        "en": [ "Mars is combust.",
+        "Its expression may be fused with identity, making instinctive reactions harder to distinguish." 
+        ],
+        "ko": [ "화성이 연소 상태입니다.", 
+        "에너지가 자아와 결합되어, 본능적인 반응이 분리되어 드러나기 어려울 수 있습니다." 
+        ]
+      },
+      "mars_saturn_conjunction": {
+        "en": [ "Mars is conjunct Saturn.",
+        "Action tends to be controlled, delayed, or carefully measured, which can suppress or mask more immediate instinctive responses." 
+        ],
+        "ko": [ "화성과 토성이 합을 이루고 있습니다.", 
+        "행동이 통제되고 지연되거나 신중하게 조절되는 경향이 있어, 즉각적인 본능 반응이 억제되거나 드러나지 않을 수 있습니다." 
+        ]
+      },
+      "mars_saturn_square": {
+        "en": [ "Mars is square Saturn.",
+        "Action may feel blocked or slowed, requiring effort and timing rather than immediate execution." 
+        ],
+        "ko": [ "화성이 토성과 사각을 이루고 있습니다. ", 
+        "행동이 막히거나 느려지며, 즉각적인 실행보다 노력과 타이밍이 요구될 수 있습니다." 
+        ]
+      },
+      "mars_uranus_conjunction": {
+        "en": [ "Mars is conjunct Uranus.",
+        "Action may be sudden and impulsive, making patterns more erratic and less predictable." 
+        ],
+        "ko": [ "화성이 천왕성과 합을 이루고 있습니다.", 
+        "행동이 갑작스럽고 충동적으로 나타나, 패턴이 불규칙해질 수 있습니다." 
+        ]
+      },
+      "mars_uranus_square": {
+        "en": [ "Mars is square Uranus.",
+        "Action may shift abruptly, making behavior harder to stabilize into consistent patterns." 
+        ],
+        "ko": [ "화성이 천왕성과 사각을 이루고 있습니다.", 
+        "행동이 급격히 바뀌며, 일정한 패턴으로 안정되기 어려울 수 있습니다." 
+        ]
+      },
+      "mars_neptune_conjunction": {
+        "en": [ "Mars is conjunct Neptune.",
+        "Motivation and direction may be diffused, making action less direct or clearly defined." 
+        ],
+        "ko": [ "화성이 해왕성과 합을 이루고 있습니다.", 
+        "행동의 동기와 방향이 퍼지거나 흐려져, 직접적이고 명확한 실행이 어려울 수 있습니다." 
+        ]
+      },
+      "mars_neptune_square": {
+        "en": [ "Mars is square Neptune.",
+        "Clarity of action may fluctuate, making consistency and direction harder to maintain." 
+        ],
+        "ko": [ "화성이 해왕성과 사각을 이루고 있습니다.", 
+        "행동의 명확성이 흔들리며, 일관성과 방향성을 유지하기 어려울 수 있습니다." 
+        ]
+      },
+      "sun_saturn_conjunction": {
+        "en": [ "Sun is conjunct Saturn.",
+        "Behavior may be consistently moderated and controlled, reducing spontaneity in action." 
+        ],
+        "ko": [ "태양과 토성이 합을 이루고 있습니다.", 
+        "전반적인 행동이 절제되고 통제되는 경향이 있어, 즉흥성이 줄어들 수 있습니다." 
+        ]
+      },
+      "sun_uranus_conjunction": {
+        "en": [ "Sun is conjunct Uranus.",
+        "Behavior may shift unpredictably, making consistent patterns harder to identify."
+        ],
+        "ko": [ "태양과 천왕성이 합을 이루고 있습니다.",
+        "행동이 예측하기 어렵게 변하며, 일관된 패턴을 파악하기 어려울 수 있습니다."
+        ]
+      },
+      "sun_neptune_conjunction": {
+        "en": [ "Sun is conjunct Neptune.",
+        "Self-perception and intention may be fluid, making behavioral self-assessment less precise." 
+        ],
+        "ko": [ "태양과 해왕성이 합을 이루고 있습니다.", 
+        "자기 인식과 의도가 유동적으로 변해, 행동을 명확히 판단하기 어려울 수 있습니다." 
+        ]
+      }
+    },
+    "instruction_note": {
+      "en": [ "Select ❌ only if the statement clearly does not apply to you." ,
+      "If it feels even slightly relevant or uncertain, choose ⭕ or ❓."
+      ],
+      "ko": [ "해당되지 않는 것이 확실한 경우에만 ❌를 선택하세요." ,
+      "조금이라도 해당되거나 애매하면 ⭕ 또는 ❓를 선택하세요."
+      ]
+    },
+    "instruction_note_saturn_chiron": {
+      "en": [ "Each option is a paired set." ,
+      "Select ❌ if any part of the set clearly does not apply to you.",
+      "Even if one part fits, choose ❌ if the other part does not.",
+      "If both feel applicable or uncertain, choose ⭕ or ❓."
+      ],
+      "ko": [ "각 선택지는 하나의 세트로 구성되어 있습니다." ,
+      "세트의 어느 한 부분이라도 전혀 해당되지 않는 것이 확실하면 ❌를 선택하세요.",
+      "한쪽이 맞더라도 다른 한쪽이 맞지 않으면 ❌입니다.",
+      "두 요소 모두 어느 정도 해당되거나 애매하다면 ⭕ 또는 ❓를 선택하세요."
+      ]
+    },
+    "mars_asc_prompt": {
+      "en": "How does your drive and instinctive way of acting tend to show up, especially in situations that require immediate response?",
+      "ko": "즉각적인 대응이 필요한 상황에서, 당신의 추진력과 본능적인 행동 방식은 어떻게 드러나는 편입니까?"
+    },
+    "hourlord_asc_prompt": {
+      "en": "When faced with pressure, difficulty, or an unavoidable situation, how do you tend to respond?",
+      "ko": "압박이나 어려움, 피할 수 없는 상황에 직면했을 때, 당신은 주로 어떻게 대응하는 편입니까?"
+    },
+    "saturn_chiron_prompt": {
+      "en": "In which areas of your life do you tend to feel a persistent sense of responsibility, pressure, or vulnerability?",
+      "ko": "삶의 어떤 영역에서 지속적인 책임감, 압박, 혹은 취약함을 느끼는 편입니까?"
+    }
+  },
+  "anaretic_questions": {
+    "aries_to_taurus": {
+      "question": {
+        "en": "When pressure peaks, what feels like the most natural way to act?",
+        "ko": "압박이 최고조에 달했을 때, 어떤 방식이 가장 자연스럽게 느껴집니까?"
+      },
+      "29_deg": {
+        "en": "I tend to put everything into one decisive push, acting immediately and intensely to break through.",
+        "ko": "한 번에 몰아서 강하게 밀어붙이며, 즉각적으로 돌파하려는 경향이 있다."
+      },
+      "0_deg": {
+        "en": "I move in a steady and grounded way, building momentum gradually.",
+        "ko": "차분하고 안정적으로, 점진적으로 힘을 쌓아가며 움직인다."
+      }
+    },
+    "taurus_to_gemini": {
+      "question": {
+        "en": "When action becomes necessary, what instinct tends to take over first?",
+        "ko": "행동이 필요해질 때, 가장 먼저 앞서는 본능은 어느 쪽에 가깝습니까?"
+      },
+      "29_deg": {
+        "en": "I tend to double down on the same approach, pushing through by endurance and force of consistency.",
+        "ko": "같은 방식을 더 강하게 밀어붙이며, 버티는 힘과 일관성으로 돌파하려는 경향이 있다."
+      },
+      "0_deg": {
+        "en": "I try different angles quickly, adjusting my approach as new options appear.",
+        "ko": "새로운 선택지가 보이면 빠르게 방식을 바꾸고, 여러 각도에서 시도한다."
+      }
+    },
+    "gemini_to_cancer": {
+      "question": {
+        "en": "When deciding how to act, what most strongly shapes your response?",
+        "ko": "행동을 결정할 때, 무엇이 당신의 반응을 가장 강하게 좌우합니까?"
+      },
+      "29_deg": {
+        "en": "I keep engaging through thinking, talking, and reframing, as if staying in motion mentally is itself the action.",
+        "ko": "생각하고 말하고 재해석하는 흐름을 계속 이어가며, 정신적으로 계속 움직이는 것 자체가 행동처럼 느껴지는 경향이 있다."
+      },
+      "0_deg": {
+        "en": "I act when something feels emotionally right, protective, or personally meaningful.",
+        "ko": "감정적으로 맞다고 느껴지거나, 지켜야 할 가치가 분명할 때 행동한다."
+      }
+    },
+    "cancer_to_leo": {
+      "question": {
+        "en": "When your instinct to act is activated, how does it usually emerge?",
+        "ko": "행동 본능이 활성화될 때, 주로 어떤 방식으로 드러납니까?"
+      },
+      "29_deg": {
+        "en": "I react strongly from emotional sensitivity, moving quickly to protect, defend, or guard what matters.",
+        "ko": "감정적 예민함에서 강하게 반응하며, 중요한 것을 보호하고 지키기 위해 빠르게 움직이는 경향이 있다."
+      },
+      "0_deg": {
+        "en": "I act openly and directly, with visible confidence and a desire to make an impact.",
+        "ko": "존재감 있게 드러나며, 비교적 직접적이고 자신감 있게 행동한다."
+      }
+    },
+    "leo_to_virgo": {
+      "question": {
+        "en": "When you are driven to pursue something, what form does your effort most naturally take?",
+        "ko": "무언가를 강하게 추구할 때, 당신의 에너지는 어떤 방식으로 가장 자연스럽게 나타납니까?"
+      },
+      "29_deg": {
+        "en": "I put strong force behind expression, presence, and impact, as if I need to fully radiate my will into the situation.",
+        "ko": "표현, 존재감, 영향력에 강하게 힘을 싣고, 내 의지를 상황 안에 강하게 각인시키려는 경향이 있다."
+      },
+      "0_deg": {
+        "en": "I focus on usefulness, precision, and improving the way things are done.",
+        "ko": "유용성, 정확성, 그리고 일을 더 잘 되게 만드는 방식에 집중한다."
+      }
+    },
+    "virgo_to_libra": {
+      "question": {
+        "en": "Before taking action, what tends to happen inside you first?",
+        "ko": "행동에 들어가기 전에, 내면에서는 어떤 과정이 먼저 일어나는 편입니까?"
+      },
+      "29_deg": {
+        "en": "I keep refining, correcting, and optimizing, as if the action must be sharpened before it can be released.",
+        "ko": "행동이 나가기 전에 더 날카롭게 다듬어져야 한다는 듯, 계속 수정하고 교정하고 최적화하려는 경향이 있다."
+      },
+      "0_deg": {
+        "en": "I naturally factor in balance, timing, and the dynamics between myself and others.",
+        "ko": "균형, 타이밍, 그리고 나와 타인 사이의 관계 역학을 자연스럽게 고려한다."
+      }
+    },
+    "libra_to_scorpio": {
+      "question": {
+        "en": "When tension rises between people, how do you instinctively engage with it?",
+        "ko": "사람 사이의 긴장이 높아질 때, 당신은 본능적으로 어떻게 관여합니까?"
+      },
+      "29_deg": {
+        "en": "I instinctively keep working the dynamics, adjusting myself and the atmosphere until some kind of balance is restored.",
+        "ko": "어떤 식으로든 균형이 회복될 때까지 관계의 흐름과 분위기를 계속 조정하려는 경향이 있다."
+      },
+      "0_deg": {
+        "en": "I go straight into the emotional core of the tension and engage with it deeply.",
+        "ko": "긴장의 감정적 핵심으로 곧장 들어가, 그것과 깊게 맞붙는다."
+      }
+    },
+    "scorpio_to_sagittarius": {
+      "question": {
+        "en": "When something captures your energy, how does that energy tend to move?",
+        "ko": "어떤 대상이 당신의 에너지를 붙잡을 때, 그 에너지는 주로 어떤 식으로 움직입니까?"
+      },
+      "29_deg": {
+        "en": "I focus with total intensity, pouring myself into it so completely that it becomes hard to loosen my grip.",
+        "ko": "완전한 강도로 집중하며, 너무 깊이 몰입해서 쉽게 손을 늦추기 어려워지는 경향이 있다."
+      },
+      "0_deg": {
+        "en": "I channel the energy outward into movement, exploration, and a wider horizon of meaning.",
+        "ko": "그 에너지를 바깥으로 뻗어가며, 움직임과 탐색, 더 넓은 의미의 지평으로 확장한다."
+      }
+    },
+    "sagittarius_to_capricorn": {
+      "question": {
+        "en": "When you move toward a goal, what most strongly propels your action?",
+        "ko": "목표를 향해 나아갈 때, 무엇이 당신의 행동을 가장 강하게 추진합니까?"
+      },
+      "29_deg": {
+        "en": "I push forward with conviction and momentum, following the force of belief as far as it can carry me.",
+        "ko": "신념과 추진력으로 계속 앞으로 밀고 나가며, 확신의 힘이 닿는 데까지 가려는 경향이 있다."
+      },
+      "0_deg": {
+        "en": "I organize my effort into structure, discipline, and concrete progress.",
+        "ko": "에너지를 구조, 규율, 구체적인 진전의 형태로 정리해서 쓴다."
+      }
+    },
+    "capricorn_to_aquarius": {
+      "question": {
+        "en": "When responsibility or work demands action from you, how do you usually respond?",
+        "ko": "책임이나 일이 행동을 요구할 때, 당신은 주로 어떻게 반응합니까?"
+      },
+      "29_deg": {
+        "en": "I keep pushing toward completion, taking on weight and sustaining effort as if stopping is not really an option.",
+        "ko": "멈추는 것이 선택지가 아닌 것처럼, 무게를 떠안고 끝까지 밀어붙이며 지속적으로 수행하는 경향이 있다."
+      },
+      "0_deg": {
+        "en": "I approach it independently, preferring to act from my own logic and perspective.",
+        "ko": "자신만의 논리와 관점에 따라, 독립적으로 접근하며 행동한다."
+      }
+    },
+    "aquarius_to_pisces": {
+      "question": {
+        "en": "When deciding how to act, what orientation do you naturally take?",
+        "ko": "행동 방향을 정할 때, 당신은 자연스럽게 어떤 기준을 따릅니까?"
+      },
+      "29_deg": {
+        "en": "I act from principles, ideas, or systems so strongly that I can stay with the concept longer than with the immediate reality.",
+        "ko": "원칙, 아이디어, 시스템에 강하게 맞추어 움직이며, 눈앞의 현실보다 개념 쪽에 더 오래 머무는 경향이 있다."
+      },
+      "0_deg": {
+        "en": "I move by intuition, atmosphere, and the subtle flow of the situation.",
+        "ko": "직관, 분위기, 그리고 상황의 미묘한 흐름을 따라 움직인다."
+      }
+    },
+    "pisces_to_aries": {
+      "question": {
+        "en": "When the moment to act finally arrives, how do you tend to move?",
+        "ko": "마침내 행동할 순간이 왔을 때, 당신은 주로 어떤 식으로 움직입니까?"
+      },
+      "29_deg": {
+        "en": "I stay open and responsive for as long as possible, letting the situation reveal itself before I fully commit.",
+        "ko": "완전히 뛰어들기 전에 상황이 스스로 드러나도록 두며, 최대한 열려 있고 반응적인 상태를 유지하려는 경향이 있다."
+      },
+      "0_deg": {
+        "en": "I move directly and initiate fast, trusting the impulse to begin.",
+        "ko": "시작해야겠다는 충동을 믿고, 빠르고 직접적으로 움직인다."
+      }
+    }
+  },
+
+  "mars_asc_questions": {
+    "Aries": {
+      "Aries": {
+        "en": [
+          "I move first, and momentum shapes me.",
+          "My drive kicks in fast; hesitation is brief.",
+          "I prefer simple, direct solutions over complexity.",
+          "Sometimes I move so quickly that explaining it later feels awkward."
+        ],
+        "ko": [
+          "나는 먼저 움직이고, 속도가 나를 만든다.",
+          "행동할 때도 힘이 곧바로 실린다. 망설임은 짧다.",
+          "그래서 단순하게 해결하고 싶어지고, 복잡함은 뒷순위로 밀린다.",
+          "가끔은 너무 빨리 지나가서, 나중에 설명이 어려울 때가 있다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "I move steadily and like to confirm my footing first.",
+          "But when I commit, speed and force can suddenly surge.",
+          "It’s a mix of slow starts and surprising acceleration.",
+          "If my rhythm breaks, I can feel overwhelmed by the shift."
+        ],
+        "ko": [
+          "나는 안정적으로 움직이며, 먼저 확인하려 한다.",
+          "행동할 때는 갑자기 속도가 붙고, 앞서 나가려는 충동이 튀어 오른다.",
+          "그래서 느린 출발과 갑작스런 추진이 섞인다.",
+          "가끔 페이스가 깨지면 스스로도 숨이 차다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "I see multiple paths and move lightly between them.",
+          "Speed often arrives before full analysis.",
+          "Thought follows action, and results sometimes appear before words do."
+        ],
+        "ko": [
+          "나는 여러 가능성을 보며 가볍게 움직인다.",
+          "행동할 때는 판단보다 속도가 먼저 나온다.",
+          "그래서 생각이 행동을 따라가기도 하고, 말보다 결과가 먼저 생긴다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "I feel first, then move.",
+          "At times action bursts out suddenly, like emotion turning into motion.",
+          "I watch quietly, then act with heat in moments that matter.",
+          "Sensitivity and fire alternate in unexpected ways."
+        ],
+        "ko": [
+          "나는 상황을 감정으로 먼저 느낀다.",
+          "행동할 때는 갑작스럽게 돌파가 일어난다.",
+          "그래서 조용히 관찰하다가도 어느 순간 감정이 터지듯 움직인다.",
+          "섬세함과 불꽃이 한 번씩 서로를 밀어낸다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "I show up boldly and naturally take the lead.",
+          "When I feel something, I act — without circling around it.",
+          "Passion moves ahead of planning, and I trust my energy to carry me.",
+          "Sometimes I leap before thinking, but that enthusiasm feels true to me."
+        ],
+        "ko": [
+          "나는 존재감을 자연스럽게 드러낸다.",
+          "행동할 때는 주저 없이 뛰어오른다.",
+          "그래서 마음이 움직이면 곧바로 몸이 따른다.",
+          "가끔 계산 없이 열정이 먼저 나가도, 그 에너지가 곧 나를 증명한다고 느낀다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "I assess quietly and set standards before acting.",
+          "Then suddenly, I can switch into rapid motion.",
+          "Plans and impulses sometimes collide mid-decision.",
+          "At times, the urge to simply push through disrupts my careful pace."
+        ],
+        "ko": [
+          "나는 조심스럽게 판단하고 조용히 기준을 세운다.",
+          "행동할 때는 어느 순간 갑자기 속도가 붙는다.",
+          "그래서 계획과 충동이 섞인 결정을 할 때가 있다.",
+          "가끔 ‘그냥 밀어붙이고 싶다’는 충동이 내 안정된 리듬을 흔든다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "I aim for balance and harmony in my demeanor.",
+          "But sometimes urgency rises and I act decisively and fast.",
+          "I start gently, then shift into clear action when needed.",
+          "I feel the pull between “going smoothly” and “moving now.”"
+        ],
+        "ko": [
+          "나는 조화와 분위기를 맞추려 한다.",
+          "하지만 상황에 따라선 돌진하는 에너지가 갑자기 올라온다.",
+          "그래서 부드럽게 시작했다가도 어느 순간 결단이 빨라진다.",
+          "가끔 “좋게 가고 싶다”는 마음과 “지금 밀어야 한다”는 본능이 서로 끊어당긴다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "I watch deeply and move only when certain.",
+          "Stillness flips into sudden force once I commit.",
+          "Calm turns into decisive motion in one breath.",
+          "Quiet planning and instinctive impulse sometimes meet in conflict."
+        ],
+        "ko": [
+          "나는 깊이를 본다. 쉽게 움직이지 않지만, 결단하면 돌진한다.",
+          "행동할 때는 느린 관찰 뒤에 갑작스러운 속도가 붙는다.",
+          "그래서 침착하다가도 순간적으로 치고 나간다.",
+          "가끔 조용한 계획과 충동적 실행이 엇갈린다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "I open toward possibilities and motion.",
+          "I act faster than I think I do — learning by going.",
+          "Optimism fuels my pace.",
+          "Sometimes my conviction moves ahead of clarity, and reflection arrives late."
+        ],
+        "ko": [
+          "나는 넓은 세상과 가능성을 향해 열린다.",
+          "행동할 때는 생각보다 더 빠르게 움직이고, 직접 부딪힌다.",
+          "그래서 낙관이 속도를 만든다.",
+          "가끔 확신이 방향을 앞질러, 돌아볼 시간이 늦어진다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "I plan my direction and move with steady focus.",
+          "Yet there are moments I drive forward sharply and decisively.",
+          "I prepare calmly, then break through in one strong effort.",
+          "Occasionally the intensity outpaces my control."
+        ],
+        "ko": [
+          "나는 목표를 세우고 묵묵히 걸어간다.",
+          "행동할 때는 어떤 순간엔 갑자기 강하게 밀어붙인다.",
+          "그래서 차분히 준비하다 한 번에 돌파하기도 한다.",
+          "가끔 속도가 조절되지 않아 스스로를 몰아붙인다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "I observe from a slight distance before I act.",
+          "Yet once I decide, I move quickly and directly.",
+          "Independent judgment guides fast motion.",
+          "Sometimes I’m already ahead of others without realizing it."
+        ],
+        "ko": [
+          "나는 거리를 두고 세계를 판단한다.",
+          "행동할 때는 머뭇거리기보다 먼저 움직이는 편이다.",
+          "그래서 독자적인 판단과 빠른 추진이 결합된다.",
+          "가끔 너무 앞서가서 혼자 뛰고 있을 때가 있다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "I move with the current; emotional tone is my signal.",
+          "Then suddenly, something catches fire and I act without delay.",
+          "Peaceful flow shifts into swift decision.",
+          "Sometimes I don’t fully know why — it just feels right in the moment."
+        ],
+        "ko": [
+          "나는 흐름 속에서 움직인다. 감정과 분위기가 신호가 된다.",
+          "행동할 때는 갑자기 확 불이 붙을 때가 있다.",
+          "그래서 평온하다가도 어느 순간 주저 없이 나아간다.",
+          "가끔 왜 그렇게 했는지 스스로도 설명하기 어렵다."
+        ]
+      }
+    },
+    "Taurus": {
+      "Aries": {
+        "en": [
+          "I start fast, but the real push comes slow and heavy.",
+          "Two gears: quick spark, then steady grind.",
+          "If timing slips, frustration piles up — I need my rhythm."
+        ],
+        "ko": [
+          "나는 빠르게 반응하고 시작이 중요하다.",
+          "하지만 추진은 무겁게 들어가고, 밀기 시작하면 멈추기 어렵다.",
+          "그래서 내 리듬이 두 단계로 나뉜다: 급한 출발, 느린 밀어붙임.",
+          "타이밍이 어긋나면 답답함이 쌓인다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "I settle first, then commit.",
+          "Once I decide, I push hard and don’t shift direction.",
+          "I may start slow, but I persevere.",
+          "I build results brick by brick, no shortcuts."
+        ],
+        "ko": [
+          "나는 천천히 확신을 만들고, 움직이기 전에 자리를 잡는다.",
+          "행동할 때는 묵직하게 밀어붙이며, 쉽게 방향을 바꾸지 않는다.",
+          "그래서 시작은 늦지만, 일단 나아가면 오래 간다.",
+          "속도보다 견고함으로 결과가 쌓인다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "I notice everything and think fast — but I move slow and steady.",
+          "Ideas race, execution climbs like a mountain.",
+          "It works, but the mismatch can irritate me.",
+          "Still, once I build momentum, I don’t drop it."
+        ],
+        "ko": [
+          "나는 상황을 살피며 유연하게 대응한다.",
+          "행동할 때는 느리지만 꾸준히 밀어붙인다.",
+          "그래서 빠르게 아이디어는 떠오르지만, 실행은 묵직하게 누적된다.",
+          "속도가 엇갈릴 때 답답함이 생긴다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "I move when my heart feels grounded.",
+          "Quiet, steady force — especially when I care.",
+          "Once I pick someone or something to protect, I’m immovable.",
+          "Emotional stability leads to steady output."
+        ],
+        "ko": [
+          "나는 마음이 안전하다고 느낄 때 더 열릴 수 있다.",
+          "행동할 때는 조용하게, 오래 버티며 밀어붙인다.",
+          "그래서 누군가를 지키기로 하면 고집이 생기고, 느리지만 확실하게 나아간다.",
+          "감정이 안정되면 추진도 강해진다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "I desire to look solid and in control of myself.",
+          "I move slow but stick with it longer than anyone expects.",
+          "I hit strong at the start, then grind forward.",
+          "When pride wants speed, the pace drives me crazy."
+        ],
+        "ko": [
+          "나는 당당한 태도를 지키려 한다.",
+          "행동할 때는 느리지만 꾸준하게 밀어붙인다.",
+          "그래서 시작은 강렬하지만 유지가 중요한 사람이 된다.",
+          "가끔 속도감과 자존심이 엇갈려 답답함이 쌓인다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "I stay methodical and consistent.",
+          "I don’t rush — I refine, repeat, and reinforce.",
+          "Progress can be slow, but it holds.",
+          "Sometimes I annoy myself with how long I take — but I finish."
+        ],
+        "ko": [
+          "나는 섬세함과 꾸준함으로 자신을 관리한다.",
+          "행동할 때는 서두르지 않고, 반복과 안정으로 결과를 만든다.",
+          "그래서 과정이 길어도 흔들림이 적다.",
+          "가끔 느린 속도에 답답해지지만, 결국 끝까지 간다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "I try to keep grace while I push.",
+          "Deliberate, slow, then locked-in.",
+          "Quiet determination shapes the outcome.",
+          "When life demands speed, my pacing tests my patience."
+        ],
+        "ko": [
+          "나는 균형과 기품 있는 태도를 유지하려 한다.",
+          "행동할 때는 천천히, 확실하고 단단하게 움직인다.",
+          "그래서 조용한 끈기로 상황을 굳힌다.",
+          "가끔 너무 느린 흐름 때문에 스스로 답답해진다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "I build pressure in silence.",
+          "My actions are slow, strong, and unshakable.",
+          "I don’t quit — I wait, then strike.",
+          "Sometimes I hold too long — stubborn even with my own feelings."
+        ],
+        "ko": [
+          "나는 조용히 힘을 비축한다.",
+          "행동할 때는 버티고, 밀고, 끝까지 간다.",
+          "그래서 상대가 지쳐도 나는 남아 있다.",
+          "가끔 고집과 침묵이 서로를 굳혀, 너무 오래 버틴다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "I dream big and aim far.",
+          "My pace is calm and steady — expansion, not sprint.",
+          "I hold the course, even if I wish I could speed up sometimes.",
+          "Patience is a muscle I’m always stretching."
+        ],
+        "ko": [
+          "나는 멀리 보고 넓게 나아가려 한다.",
+          "행동할 때는 느리지만 견고하게 밀어붙인다.",
+          "그래서 방향은 크고, 속도는 안정적이다.",
+          "가끔 “더 빨리 가고 싶은 마음”이 답답함으로 쌓인다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "I move with stability and trust in my pace.",
+          "I act slowly but steadily, and I don’t quit.",
+          "It may take time, but I get results.",
+          "Sometimes I hold on so hard I miss other paths."
+        ],
+        "ko": [
+          "나는 안정과 신뢰를 기반으로 움직인다.",
+          "행동할 때는 느리지만 꾸준히, 포기하지 않는다.",
+          "그래서 오래 걸리더라도 결과를 만든다.",
+          "가끔 너무 버티느라 다른 길을 놓친다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "I think long, hold firm, and stick to my structure.",
+          "I move slowly but with conviction.",
+          "I out-endure people — that’s my thing.",
+          "But sometimes I freeze where I should adapt."
+        ],
+        "ko": [
+          "나는 변화를 의심하고, 사고의 구조를 고수한다.",
+          "행동할 때는 느리지만 고집스럽게 움직인다.",
+          "그래서 남들이 포기할 때도 묵묵히 버틴다.",
+          "가끔 유연해야 할 순간에 멈춰 있다가 흐름을 놓친다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "I flow forward — slow but enduring.",
+          "Soft start, quiet persistence, long game.",
+          "I don’t burn out; I dissolve obstacles gently.",
+          "I may look lost, but I eventually get there."
+        ],
+        "ko": [
+          "나는 유연하지만 쉽게 지치지 않는다.",
+          "행동할 때는 부드럽게 밀고 나가되, 쉽게 포기하지 않는다.",
+          "그래서 차분히 원하는 곳까지 흘러간다.",
+          "가끔 속도가 너무 느려 보이지만, 결국 도착한다."
+        ]
+      }
+    },
+    "Gemini": {
+      "Aries": {
+        "en": [
+          "I move first and figure it out on the way.",
+          "I stay quick, shifting direction when needed.",
+          "Flexible, responsive, curious — but not always committed long-term.",
+          "If I don’t lock in, it can look scattered."
+        ],
+        "ko": [
+          "나는 움직이며 판단한다.",
+          "행동할 때는 속도를 유지하며 방향을 자주 바꾼다.",
+          "그래서 빠르고 유연하지만, 집중이 오래 머물지는 않는다.",
+          "한 방향을 고수하지 않을 때, 산만하다는 느낌을 받기도 한다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "I prefer steady pace, but my thoughts split into many lanes.",
+          "Small changes can send me re-evaluating.",
+          "Slow to start, adaptable once moving.",
+          "I appear slow and my actions tend to scatter."
+        ],
+        "ko": [
+          "나는 일정한 페이스를 유지하려 한다.",
+          "행동할 때는 여러 선택지가 떠오르며, 작은 변수에도 생각이 흔들린다.",
+          "그래서 속도는 느리지만, 내부는 자잘하게 분산된다.",
+          "움직이기까지 오래 걸리지만, 시작하면 적응하며 간다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "I learn as I move, and speak as I think.",
+          "Fast shifts, multiple angles.",
+          "Quick pace, short attention span for static goals.",
+          "If interest stays, I go far; if not, I switch."
+        ],
+        "ko": [
+          "나는 움직이며 이해하고, 말하며 정리한다.",
+          "행동할 때도 방향이 자주 바뀌고, 여러 갈래로 나아간다.",
+          "그래서 속도는 있지만, 특정 목표에 오래 머물지 않는다.",
+          "관심이 유지되면 거기까지 가고, 사라지면 바로 바꾼다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "I sense the atmosphere first.",
+          "Words and thoughts follow the emotional current.",
+          "I shift between logic and feelings — rhythm changes mid-way.",
+          "Mood and logic trade positions, so pace can waver."
+        ],
+        "ko": [
+          "나는 분위기를 먼저 감지한다.",
+          "행동할 때는 생각과 말이 흐름을 만든다.",
+          "그래서 감정으로 시작했다가도, 도중에 논리로 방향이 바뀌곤 한다.",
+          "정서와 사고가 교차될 때 속도가 흔들린다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "I show up warm and expressive.",
+          "I lead with words and ideas.",
+          "Influence starts with explanation and charm.",
+          "Sometimes I over-explain — but that’s how I take space."
+        ],
+        "ko": [
+          "나는 존재감을 가지고 다가간다.",
+          "행동할 때는 말과 아이디어로 먼저 움직인다.",
+          "그래서 내 자신을 설명하고 설득하는 방식으로 영향력을 행사한다.",
+          "가끔 과하게 설명하려고 할 때, 그게 나를 드러내는 방식이기도 하다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "I want things precise, but my mind sprints.",
+          "I keep multiple plans open at once.",
+          "Structure and fluid options — sometimes both at once overwhelms me.",
+          "If I scatter, I try to organize even the scattering."
+        ],
+        "ko": [
+          "나는 정확함을 추구하지만, 생각이 빠르게 움직인다.",
+          "행동할 때는 여러 가능성을 동시에 열어둔다.",
+          "그래서 계획이 세분화되다가도 다양하게 흘러간다.",
+          "가끔 집중이 분산될 때, 그마저도 정리하려고 애쓴다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "I read social flow and steer through conversation.",
+          "I move the situation through persuasion, words and ideas.",
+          "Sometimes logic leads, and emotions follow behind."
+        ],
+        "ko": [
+          "나는 관계 속 흐름을 읽고 조율한다.",
+          "행동할 때는 말과 아이디어로 상황을 움직인다.",
+          "그래서 설득과 대화가 내 무기다.",
+          "가끔 말이 앞서면, 감정보다 논리가 나를 이끈다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "I observe before I speak.",
+          "Mind runs sharp and fast — language serves as a scalpel.",
+          "Quiet, then sudden precision.",
+          "Sometimes I am torn between depth and a quick fix."
+        ],
+        "ko": [
+          "나는 말보다 사실과 분위기를 먼저 본다.",
+          "행동할 때는 머릿속이 빠르게 돌아가며, 언어가 무기가 된다.",
+          "그래서 조용히 보고 있다가 결정적인 순간 말을 던진다.",
+          "가끔 깊이 욕구와 가벼운 돌파 사이에서 소음이 생긴다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "I chase possibilities and wider horizons.",
+          "I explore lightly, keeping many options open.",
+          "Big direction, branching paths.",
+          "Sometimes I pause and think about what really matters."
+        ],
+        "ko": [
+          "나는 믿음과 가능성을 향해 나아간다.",
+          "행동할 때는 가볍게 탐색하고 여러 선택지를 연다.",
+          "그래서 방향은 크지만, 실행은 분기점이 많다.",
+          "가끔 “무엇이 진짜 중요한가”로 마음이 갈린다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "I value structure and planning.",
+          "My mind runs fast, details pile up.",
+          "Even when well prepared, execution can wobble from over-thinking.",
+          "Sometimes too much information fogs the direction."
+        ],
+        "ko": [
+          "나는 계획과 구조를 중시한다.",
+          "행동할 때는 말과 생각이 복잡하게 움직인다.",
+          "그래서 준비가 잘 되어도 실행에서 속도가 흔들린다.",
+          "가끔 너무 많은 정보가 방향을 흐린다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "I keep mental distance to stay objective.",
+          "Fast insights, light pivots.",
+          "I untangle complexity with logic.",
+          "When I'm deeply immersed in analyzing, I sometimes detatch emotionally."
+        ],
+        "ko": [
+          "나는 생각과 거리 속에서 균형을 찾는다.",
+          "행동할 때는 빠른 판단과 가벼운 전환이 편하다.",
+          "그래서 복잡한 상황도 논리로 풀고 넘어간다.",
+          "가끔 너무 분석만 하다가 감정이 비어 보인다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "I move with intuition, not a fixed plan.",
+          "Thoughts spark fast, directions flicker.",
+          "Inspiration hits — I jump — then drift again.",
+          "Sometimes I lose track of where I was headed."
+        ],
+        "ko": [
+          "나는 감정과 직관을 따라간다.",
+          "행동할 때는 생각이 빠르게 튀며 방향이 자주 바뀐다.",
+          "그래서 영감이 떠오르면 바로 움직이지만, 집중이 흩어지기도 한다.",
+          "가끔 내가 어디로 향하는지 잠시 잃는다."
+        ]
+      }
+    },
+    "Cancer": {
+      "Aries": {
+        "en": [
+          "I jump fast, then hesitate.",
+          "Emotions cut into my momentum — sudden push, sudden pause.",
+          "Straight line turns curved in an instant.",
+          "When the feeling shifts, I can’t always explain why."
+        ],
+        "ko": [
+          "나는 즉각적으로 나간다.",
+          "행동할 때는 감정이 속도에 개입해, 갑작스럽게 밀고 갑작스레 멈춘다.",
+          "그래서 직진하려다 곡선으로 간다.",
+          "내 의도가 흐릿해질 때, 스스로도 이유를 설명하기 어렵다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "I like steady ground and predictable pacing.",
+          "Emotion and loyalty gives me momentum.",
+          "Slow build, strong follow-through.",
+          "If it matters to me, I stay even after others have quit."
+        ],
+        "ko": [
+          "나는 안정과 예측 가능한 흐름을 선호한다.",
+          "행동할 때는 감정과 보호 본능이 힘을 싣는다.",
+          "그래서 느리지만 확실히 움직인다.",
+          "정서적으로 의미 있는 목표일수록 오래 견딘다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "My head plans; my heart reroutes.",
+          "Mind builds the map, emotion chooses the turn.",
+          "When the vibe shifts, my speed suddenly changes.",
+          "I think fast but move slow if I don’t feel right."
+        ],
+        "ko": [
+          "나는 생각을 앞세우고, 말과 계획으로 틀을 만든다.",
+          "행동할 때는 감정과 보호본능이 방향을 끌어당긴다.",
+          "그래서 계획과 분위기 사이에 미묘한 긴장이 생긴다.",
+          "감정이 흐르면 속도가 갑자기 떨어질 때가 있다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "Emotion and intuition leads me.",
+          "My pace moves with my inner tide.",
+          "Attachment and loyalty fuel me.",
+          "For loved ones, I turn fierce without hesitation."
+        ],
+        "ko": [
+          "나는 감정과 본능이 나를 이끈다.",
+          "행동할 때도 마음의 물결이 속도를 정한다.",
+          "그래서 보호 욕구나 애착이 힘이 되고, 외부 기대보다 내 느낌이 우선된다.",
+          "가까운 사람을 위해서라면 무섭게 단단해진다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "I move with heart and pride.",
+          "Emotion sets direction; protection gives power.",
+          "I’m strongest when I’m protecting someone.",
+          "Sometimes my pride and feelings collide inside."
+        ],
+        "ko": [
+          "나는 자신감 속에 따뜻함을 담는다.",
+          "행동할 때는 감정의 흐름이 방향을 정한다.",
+          "누군가를 보호하려 할 때 가장 강해진다.",
+          "가끔 강한 마음과 부드러운 애착이 안에서 부딪힌다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "I move with care and intention.",
+          "Emotion and duty shape my choices.",
+          "Under the calm demeanor lies a caring heart.",
+          "Sometimes I drain myself trying to support everyone."
+        ],
+        "ko": [
+          "나는 세심하고 신중하다.",
+          "행동할 때는 감정과 배려가 기준을 만든다.",
+          "차분한 외관 너머에는 따뜻한 마음이 존재한다.",
+          "가끔 지나치게 마음을 쓰면서 에너지가 소모된다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "I keep things smooth, but if I'm uneasy, I pull back.",
+          "I must feel emotionally safe before I step forward.",
+          "The caring and diplomatic demeanor can shift when feelings erupt.",
+          "There is occasional dissonance between outward balance and inner sensitivity."
+        ],
+        "ko": [
+          "나는 조화롭게 보이지만, 정서가 불편해지면 잠시 물러서곤 한다.",
+          "행동할 때는 마음이 안전해야 앞으로 간다.",
+          "배려가 깊지만, 감정이 흔들리면 갑자기 방향을 틀기도 한다.",
+          "가끔 겉의 균형과 속의 민감함 사이에 긴장이 생긴다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "I feel undercurrents quickly.",
+          "My emotion and intuition are both a shield and weapon.",
+          "Intense outside, but soft inside.",
+          "Attachment and defensiveness coexist."
+        ],
+        "ko": [
+          "나는 마음의 흐름과 위험 신호를 빨리 감지한다.",
+          "행동할 때는 감정이 방패이자 칼날이 된다.",
+          "외적으로는 강렬하지만, 내면은 말캉하다.",
+          "가끔 애착과 방어가 동시에 작동한다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "I desire freedom and a big horizon.",
+          "Emotion becomes fuel — when it feels meaningful, I go far.",
+          "Hope expands my speed; doubt slows it.",
+          "I ponder between safety and big dreams."
+        ],
+        "ko": [
+          "나는 자유롭고 싶다. 멀리 보고 싶다.",
+          "행동할 때는 감정이 배경이 되어 속도를 조절한다.",
+          "그래서 따뜻한 목표일수록 더 멀리 간다.",
+          "가끔 마음의 안전과 큰 꿈 사이에서 흔들린다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "I lead with responsibility.",
+          "I need to feel emotionally secure before I commit to action.",
+          "Give me something to protect, and I become unshakeable.",
+          "Sometimes duty and emotion pull heavy in opposite directions."
+        ],
+        "ko": [
+          "나는 책임을 우선한다.",
+          "행동할 때는 마음이 안전해야 움직임이 확실해진다.",
+          "그래서 지켜야 할 것이 생기면 더 강해진다.",
+          "가끔 감정과 의무가 서로 무겁게 잡아당긴다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "I trust logic — until emotion hits hard.",
+          "When my mood changes, direction flickers.",
+          "I usually stick to principles, but sometimes act upon feelings.",
+          "Sometimes the discrepency confuses myself."
+        ],
+        "ko": [
+          "나는 감정보다 구조와 원리를 본다.",
+          "행동할 때는 마음의 온도가 변할 때 방향이 흔들린다.",
+          "그래서 원칙에 충실하다가도 갑작스레 감정에 끌린다.",
+          "가끔 스스로도 그 모순이 불편하다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "I follow emotional current, not schedules.",
+          "Compassion drives me farther than ambition.",
+          "I move most when it matters to someone I care about.",
+          "When feelings ripple, actions ripple with them."
+        ],
+        "ko": [
+          "나는 마음의 결로 움직인다.",
+          "행동할 때는 공감과 애착이 힘이 된다.",
+          "그래서 누군가를 위해서일 때 가장 멀리 간다.",
+          "가끔 감정이 흔들리면 행동도 물결처럼 영향을 받는다."
+        ]
+      }
+    },
+    "Leo": {
+      "Aries": {
+        "en": [
+          "I lead from the front.",
+          "Confidence becomes force, and I keep pushing.",
+          "When I commit, I don’t compromise.",
+          "When I care too much, my drive turns into stubborn fire."
+        ],
+        "ko": [
+          "나는 앞에 선다.",
+          "행동할 때는 자신감을 힘으로 바꾸며 꾸준히 밀어붙인다.",
+          "그래서 타협 없이 나가는 순간이 있다.",
+          "방향이 맞을 때는 강력하지만, 간혹 속도가 독단으로 변한다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "I build quietly but solidly.",
+          "Pride lights the fire under my steady pace.",
+          "Slow, then sudden heat — that’s my rhythm.",
+          "Desire for approval can tilt my direction sometimes."
+        ],
+        "ko": [
+          "나는 과장 없이 단단한 방식으로 나아가려 한다.",
+          "행동할 때는 자존심과 표현 욕구가 불을 붙인다.",
+          "그래서 묵직함 속에서 과열 순간이 생긴다.",
+          "속도는 일정하지만, 인정 욕구가 때로 방향을 흔든다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "I move lightly with flexibility.",
+          "Confidence and expression adds fuel.",
+          "Words flare, ideas pop — impact first, patience later.",
+          "Short but focused, with big bursts."
+        ],
+        "ko": [
+          "나는 가볍고 유연하게 움직인다.",
+          "행동할 때는 자신감과 표현 욕구가 힘을 더한다.",
+          "그래서 말과 의도가 과장될 때가 있고, 흐름에 불이 붙는다.",
+          "집중은 짧게, 추진은 강하게 번쩍인다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "I move gently… until I don’t.",
+          "Warmth and pride mix into a protective flame.",
+          "Quiet outside, but blazing once I decide.",
+          "Soft heart, fierce instinct when it matters."
+        ],
+        "ko": [
+          "나는 부드럽게 다가가지만 경계를 잃지 않는다.",
+          "행동할 때는 자존심과 따뜻한 확신이 불처럼 솟는다.",
+          "그래서 겉으로는 조용하지만, 내 마음이 결심하면 강렬하게 밀고 간다.",
+          "가끔 미묘하게 “보여주고 싶다”는 욕구가 튄다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "I feel responsible for how I present myself.",
+          "Spotlight motivates me — I want to win and be seen.",
+          "Expectation pushes me hard; pressure fuels me too.",
+          "I carry pride like armor and engine both."
+        ],
+        "ko": [
+          "나는 나를 드러내는 방식에 책임감을 느낀다.",
+          "행동할 때는 스포트라이트가 필요하다.",
+          "그래서 보여주는 것과 이기는 것 모두 중요하다.",
+          "때로는 기대에 스스로를 몰아넣지만, 그 긴장도 내 연료다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "I prove myself through precision and restraint.",
+          "Pride wants results, not noise.",
+          "I may look humble, but I care about my self image.",
+          "Perfectionistic tendencies makes me tense sometimes."
+        ],
+        "ko": [
+          "나는 절제된 방식으로 나를 증명한다.",
+          "행동할 때는 자부심이 개입되어 확실한 성과를 원한다.",
+          "그래서 겸손해 보이지만 내심 “제대로 보이고 싶다”는 마음이 있다.",
+          "가끔 완벽해야 한다는 부담이 스스로를 긴장시킨다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "I aim to influence with grace.",
+          "Poise and presence matter to me.",
+          "Soft edges, firm pride — attractive but deliberate.",
+          "I want validation, but I don’t want to look desperate."
+        ],
+        "ko": [
+          "나는 세련된 방식으로 영향력을 발휘하려 한다.",
+          "행동할 때는 위엄과 품위를 유지하며 나아간다.",
+          "그래서 부드럽지만 존재감을 잃지 않는다.",
+          "가끔 인정받고 싶으면서도, 그 욕구를 들키지 않으려 한다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "I don’t show power — I hold it.",
+          "If my pride is aggravated, I strike harder than expected.",
+          "Calm surface, iron refusal underneath.",
+          "Desire to reveal strength and hide it coexists."
+        ],
+        "ko": [
+          "나는 힘을 드러내지 않는다.",
+          "행동할 때 자존심이 관여하면 예상보다 강하게 반응한다.",
+          "그래서 겉은 고요해도, 안에서는 “포기하지 않는다”가 선다.",
+          "가끔 보여주고 싶은 마음과 숨기고 싶은 마음이 부딪힌다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "I move with confidence and positivity.",
+          "Pride and passion accelerate me.",
+          "The more I believe in myself, the braver I get.",
+          "Sometimes my confidence grows faster than I can hold it."
+        ],
+        "ko": [
+          "나는 긍정과 자신감을 바탕으로 나아간다.",
+          "행동할 때는 자부심과 열정이 나를 밀어준다.",
+          "그래서 스스로를 높이고 싶을수록 더 과감해진다.",
+          "가끔 기대가 커지고, 그만큼 부담도 커진다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "I want results, not applause — or so I say.",
+          "When pride kicks in, I surprise people with intensity.",
+          "There’s ambition behind quiet discipline.",
+          "I wrestle with wanting to be seen, and being discreet."
+        ],
+        "ko": [
+          "나는 조용히 성과를 내고 싶다.",
+          "행동할 때는 자존심이 타오르면 의외로 과감해진다.",
+          "그래서 겸손한 태도 뒤에 강한 욕망이 있다.",
+          "가끔 ‘보이고 싶다’와 ‘티 내고 싶지 않다’가 충돌한다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "I keep my distance, but pride still burns.",
+          "When something hits my ego, I ignite fast.",
+          "I try to cover a quiet hunger to be seen with a nonchalant attitude.",
+          "Spotlight is tempting, but irritating."
+        ],
+        "ko": [
+          "나는 거리를 둔다. 존재를 드러내기보다 관찰한다.",
+          "행동할 때는 자존심이 건 순간엔 의외로 불꽃이 튄다.",
+          "그래서 “나는 신경 안 쓴다” 뒤에 강한 인정 욕구가 있다.",
+          "가끔 인정받고 싶으면서도 드러나면 불편하다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "I flow until my pride is irritated.",
+          "Soft, then suddenly sharp — emotional ignition.",
+          "I surprise myself with the sudden switch.",
+          "Gentle energy, but dramatic flare when the line gets crossed."
+        ],
+        "ko": [
+          "나는 부드럽게 스며드는 쪽이다.",
+          "행동할 때는 자존심이 건 순간 갑자기 강렬해진다.",
+          "그래서 한없이 유연하다가도 어느 지점에서는 불꽃처럼 선다.",
+          "가끔 주변도 나도 그 전환에 놀란다."
+        ]
+      }
+    },
+    "Virgo": {
+      "Aries": {
+        "en": [
+          "I start fast, but details catch me.",
+          "I move, fix, move again — speed breaks into edits.",
+          "Momentum matters to me, so losing pace is frustrating.",
+          "I feel stressed when need for precision slows me down."
+        ],
+        "ko": [
+          "나는 빠르게 시작한다.",
+          "행동할 때는 세부가 걸린다. 정확하려는 습관이 속도를 불규칙하게 만든다.",
+          "그래서 나아가면서도 자꾸 수정한다.",
+          "기세가 꺾이는 느낌이 들면 스트레스를 받는다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "I move slow and steady, reconstructing as I go.",
+          "Small corrections stack into solid progress.",
+          "Nothing drastic — just consistent refinement.",
+          "Passage of time polishes my results."
+        ],
+        "ko": [
+          "나는 안정된 틀을 유지하며 천천히 간다.",
+          "행동할 때는 디테일을 조정하며, 효율을 찾는다.",
+          "그래서 변화는 작지만 누적된다.",
+          "시간이 지나면 결과가 깔끔하게 자리 잡는다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "I explore options fast, then get distracted by details.",
+          "Ideas scatter, execution narrows.",
+          "Quick start, refined finish — or tangled halfway.",
+          "Speed stays, freedom shrinks."
+        ],
+        "ko": [
+          "나는 다양한 가능성을 동시에 고려한다.",
+          "행동할 때는 세부를 다듬으려 한다.",
+          "그래서 가볍게 시작하지만, 점점 정교함에 발이 묶인다.",
+          "속도는 유지되지만, 자유로움이 줄어든다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "I read emotion with detail and respond practically.",
+          "I tidy problems and soothe feelings at the same time.",
+          "I don’t run — I organize, secure, steady.",
+          "Order gives me safety."
+        ],
+        "ko": [
+          "나는 감정의 세부 결을 읽는다.",
+          "행동할 때는 실용적으로 문제를 정리한다.",
+          "그래서 마음을 챙기지만 도망치지 않고, 현실적인 방식으로 대응한다.",
+          "정돈이 안전감을 만든다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "I try to look composed and capable.",
+          "I refine as I act, polishing the process and the result.",
+          "Big vision, precise steps.",
+          "Sometimes my perfectionistic tendencies dull my natural confidence."
+        ],
+        "ko": [
+          "나는 기품과 중심감을 지키려 한다.",
+          "행동할 때는 세부를 다듬고 효율을 찾는다.",
+          "그래서 큰 그림을 품고도 정교하게 접근한다.",
+          "때로는 완벽주의적 성향이 내 자신감을 가린다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "I chase clarity and precision.",
+          "Efficiency first, details always.",
+          "Tiny errors bother me more than big tasks do.",
+          "Sometimes I over-edit before I even start."
+        ],
+        "ko": [
+          "나는 조용히 정확함을 추구한다.",
+          "행동할 때는 효율과 디테일이 기준이 된다.",
+          "그래서 사소한 실수에도 신경이 곤두선다.",
+          "가끔 너무 많이 고치려다, 시작이 늦어진다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "I balance, refine, and choose carefully.",
+          "I try to avoid errors, especially with people.",
+          "I smooth the edges and polish every move.",
+          "Sometimes caution turns into delay."
+        ],
+        "ko": [
+          "나는 조율하고 정리한다.",
+          "행동할 때는 정확함과 디테일을 챙긴다.",
+          "그래서 관계 속에서 실수를 줄이려 한다.",
+          "가끔 지나치게 신중해지며, 결정이 늦어진다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "I see the root and carve precisely.",
+          "My actions are quiet, strategic, and surgical.",
+          "When needed, I strike cleanly with precision.",
+          "Sometimes I tunnel too deep and shut others out."
+        ],
+        "ko": [
+          "나는 본질을 본다.",
+          "행동할 때는 세부를 파고들고 정밀하게 접근한다.",
+          "그래서 필요할 때는 조용히, 정확하게 움직인다.",
+          "가끔 지나치게 세밀해져 곁을 둔다는 걸 잊는다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "I shoot far, but I tighten the screws on the way.",
+          "Grand ideas meet small refinements — friction.",
+          "“Fix it now or trust momentum?” is a real dilemma.",
+          "My spirit runs; my instincts check the map."
+        ],
+        "ko": [
+          "나는 넓게 보고 멀리 뛴다.",
+          "행동할 때는 세부 조정이 필요하다고 느낀다.",
+          "그래서 큰 이상과 작은 실천이 충돌할 때가 많다.",
+          "가끔 “지금 고칠까, 그냥 갈까”에서 멈칫한다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "I execute with discipline and accuracy.",
+          "Slow, strategic, deliberate — no wasted motion.",
+          "I can carry long plans without losing order.",
+          "Perfectionism sometimes drags my feet."
+        ],
+        "ko": [
+          "나는 질서와 규율 속에서 힘을 낸다.",
+          "행동할 때는 정확하고 치밀하게 접근한다.",
+          "그래서 오랜 계획도 지치지 않고 수행한다.",
+          "가끔 완벽하려다 속도가 늦춰진다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "I see systems, then get stuck fixing small parts.",
+          "Big concept meets tiny adjustments — loop.",
+          "Analytical clarity, then micro-focus fatigue.",
+          "I forget to zoom out sometimes."
+        ],
+        "ko": [
+          "나는 큰 구조와 흐름을 본다.",
+          "행동할 때는 작은 디테일에서 속도가 멈추기도 한다.",
+          "그래서 큰 그림과 분석이 교차된다.",
+          "가끔 사소한 문제에 너무 오래 머물며 지친다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "I sense the whole, then get dragged into the parts.",
+          "Clarity and blur trade places.",
+          "Too much analysis dulls intuition — immersing in feeling dissolves the plan."
+        ],
+        "ko": [
+          "나는 전체 분위기와 흐름을 먼저 느낀다.",
+          "행동할 때는 세부와 현실 조건에 끌려간다.",
+          "그래서 흐림과 선명함이 교차한다.",
+          "가끔 너무 분석하다 감정을 잊거나, 감정에 빠져 계획을 잊는다."
+        ]
+      }
+    },
+    "Libra": {
+      "Aries": {
+        "en": [
+          "I move fast — then pause.",
+          "I push forward, but a reflex for harmony hits the brakes.",
+          "Thus I fluctuate between surge, pause, and adjustment.",
+          "Even I can’t always explain why I hesitated."
+        ],
+        "ko": [
+          "나는 바로 움직인다.",
+          "행동할 때는 상대의 반응과 균형을 고려해 멈칫한다.",
+          "그래서 밀면서도 브레이크를 밟는 두 리듬이 겹친다.",
+          "스스로도 때때로, 왜 멈췄는지 설명하기 어렵다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "I keep steady rhythm, and stay grounded.",
+          "Compulsion for balance pulls me into pauses and rethinking loops.",
+          "Once I stop, restarting takes time.",
+          "Resolution can turn into over-negotiation."
+        ],
+        "ko": [
+          "나는 내 페이스를 유지하며, 쉽게 흔들리지 않는 편이다.",
+          "행동할 때는 관계 속 균형을 의식해, 속도가 다시 줄어든다.",
+          "그래서 한 번 멈추면 다시 움직이는 데 시간이 든다.",
+          "결정보다 조율이 길어질 때가 있다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "I move through connection and conversation.",
+          "Action comes through dialogue and relational adjustments.",
+          "I guide things gently, steering with words.",
+          "The finish line often looks like a compromise."
+        ],
+        "ko": [
+          "나는 관계의 흐름과 정보의 교환 속에서 움직인다.",
+          "행동할 때는 균형과 상호작용을 고려한다.",
+          "그래서 대화를 열어두면서 미묘하게 방향을 잡는다.",
+          "움직임은 부드럽고, 결론은 협상으로 정리된다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "I care about emotional balance, not just peace.",
+          "I protect feelings — mine and theirs.",
+          "I move only when the temperature feels right.",
+          "Conflict avoidance can dull my push."
+        ],
+        "ko": [
+          "나는 가까운 사람과의 감정 균형을 중요하게 여긴다.",
+          "행동할 때는 관계를 조율하려 한다.",
+          "그래서 내 감정과 상대의 반응을 동시에 보며 움직인다.",
+          "갈등 회피가 추진력을 흐릴 때가 있다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "I lead with warmth and presence.",
+          "I act with grace, even in conflict.",
+          "I solve things without losing dignity or tone.",
+          "Sometimes I juggle being admired and keeping harmony."
+        ],
+        "ko": [
+          "나는 자연스러운 존재감을 가지고 관계 속에 선다.",
+          "행동할 때는 조화와 우아함을 선택한다.",
+          "그래서 갈등 속에서도 품위를 잃지 않은 채 문제를 푼다.",
+          "가끔 인정받고 싶은 마음과 조화를 지키고 싶은 마음이 균형을 흔든다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "I aim for both precision and harmony.",
+          "I act thoughtfully, refining tone and timing.",
+          "I try to make the “right choice” in a kind manner.",
+          "Sometimes I over-accommodate and then second-guess myself."
+        ],
+        "ko": [
+          "나는 균형과 정확함을 동시에 원한다.",
+          "행동할 때는 관계와 조율을 염두에 둔다.",
+          "그래서 옳고 부드러운 방법을 찾으려 한다.",
+          "가끔 “너무 배려했다”는 생각이 들면 내 기준이 흔들린다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "I stay poised and balanced.",
+          "Even in my actions i pursue beauty, fairness, symmetry.",
+          "I decide — but aesthetics and tone matter.",
+          "Sometimes I waste time trying to solve it “perfectly.”"
+        ],
+        "ko": [
+          "나는 균형 잡힌 태도로 자리를 지킨다.",
+          "행동할 때도 조화와 품위를 유지하려 한다.",
+          "그래서 결정을 내릴 때도 모양과 분위기를 고려한다.",
+          "가끔 “예쁘게 해결하려다” 시간을 허비한다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "I don’t give up power — I just won’t grab forcefully.",
+          "I influence quietly, balancing while steering.",
+          "Strategy hides behind grace.",
+          "Sometimes gentleness looks calculated — even when it’s sincere."
+        ],
+        "ko": [
+          "나는 관계에서도 주도권을 잃지 않으려 한다..",
+          "행동할 때는 직접 밀지 않고, 균형을 이용해 방향을 잡는다.",
+          "그래서 조용히 판을 만든다.",
+          "가끔 스스로의 부드러움이 계산처럼 느껴질 때가 있다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "I go toward the horizon — open, curious, optimistic.",
+          "I act freely, but never carelessly.",
+          "I won’t chase freedom by stepping on someone’s toes.",
+          "Desire for honesty and diplomacy clash within."
+        ],
+        "ko": [
+          "나는 열린 세계를 향해 움직인다.",
+          "행동할 때는 관계의 균형과 조화를 고려한다.",
+          "그래서 자유롭지만, 결코 무례하게 가지 않는다.",
+          "가끔 솔직함과 배려의 선을 어디에 그릴지 고민된다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "I hold structure and standards.",
+          "But I still consider fairness and tone.",
+          "I make firm decisions — politely.",
+          "There is discrepency between balance and “what is right”."
+        ],
+        "ko": [
+          "나는 구조와 기준을 지킨다.",
+          "행동할 때는 관계의 균형도 고민한다.",
+          "그래서 냉정하게도, 예의를 다한 결정을 내린다.",
+          "가끔 ‘정답’과 ‘균형’이 충돌한다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "I hold my own opinion, always.",
+          "I act logically but still mind social tone.",
+          "I can set boundaries without losing civility.",
+          "Sometimes thought outruns feeling, and I seem distant."
+        ],
+        "ko": [
+          "나는 의견을 독립적으로 유지한다.",
+          "행동할 때는 논리와 균형을 고려한다.",
+          "그래서 예의를 잃지 않으면서도 선을 그을 줄 안다.",
+          "가끔 감정보다 생각이 앞서 차갑게 보인다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "I move by intuition and emotional atmosphere.",
+          "I over-consider balance and soften my steps.",
+          "Quiet motion, subtle decisions, deep awareness.",
+          "Sometimes I wait too long — and the moment passes."
+        ],
+        "ko": [
+          "나는 분위기와 감정의 미묘함을 따른다.",
+          "행동할 때는 관계의 균형을 지나치게 고려한다.",
+          "그래서 조용하지만 깊게 움직인다.",
+          "가끔 결정을 미루다 상황이 이미 흘러가버린다."
+        ]
+      }
+    },
+    "Scorpio": {
+      "Aries": {
+        "en": [
+          "I start fast, but quickly narrow in.",
+          "My energy shifts from sprint to tunnel vision.",
+          "Outside, it looks direct — inside, I’m quietly drilling down."
+        ],
+        "ko": [
+          "행동할 때는 집중이 깊어지고, 방향이 좁아진다.",
+          "그래서 빠르게 시작해도, 결국 깊이 파고들며 리듬이 바뀐다.",
+          "표면은 직진인데, 실제 에너지는 잠식과 침투 쪽이다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "I move steadily and don’t let go easily.",
+          "When I commit, I dig and finish.",
+          "The pace is slow, but the pressure builds.",
+          "Persistence quietly transforms everything."
+        ],
+        "ko": [
+          "나는 견고하게 움직이고, 쉽게 포기하지 않는다.",
+          "행동할 때는 깊이 파고들고, 끝을 보려 한다.",
+          "그래서 속도는 느리지만 압력은 높다.",
+          "집요함이 쌓이면, 조용히 모든 것을 바꾼다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "I approach lightly — at first.",
+          "But once engaged, I go deep and don’t quit.",
+          "Quick thoughts and relentless pressure build inner tension.",
+          "Simple things can suddenly turn intense."
+        ],
+        "ko": [
+          "나는 가볍게 접근하고, 필요하면 바꾼다.",
+          "행동할 때는 깊이 파고들며, 쉽게 포기하지 않는다.",
+          "그래서 표면은 가볍지만, 내면은 집요하게 조이면 불균형이 생긴다.",
+          "가끔 단순한 게 갑자기 무거워진다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "I protect what’s sacred to me.",
+          "When I care, I hold tight and don’t release.",
+          "Soft outside, steel inside.",
+          "If I choose to stand guard, I do not budge."
+        ],
+        "ko": [
+          "나는 마음의 깊은 층을 지키려 한다.",
+          "행동할 때는 집중하고, 쉽게 놓지 않는다.",
+          "그래서 겉으론 조용해도 의지가 무겁다.",
+          "누군가를 지키기로 하면 물러서지 않는다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "I like to stand strong in my own center.",
+          "When I act, I commit fully and hold the line.",
+          "The more I care, the deeper I dig in.",
+          "Sometimes pride and control egg each other on."
+        ],
+        "ko": [
+          "나는 스스로를 중심에 세우려 한다.",
+          "행동할 때는 집중하고 끝까지 밀어붙인다.",
+          "그래서 진심일수록 더 깊고 진득하게 움직인다.",
+          "가끔 자존심과 통제욕이 서로를 자극한다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "I observe carefully, then drill down.",
+          "Action brings intense focus and precision.",
+          "I spot what others miss.",
+          "Sometimes detail-work turns into near-obsession."
+        ],
+        "ko": [
+          "나는 신중하고 깊이 본다.",
+          "행동할 때는 집중력이 높아지고, 끝까지 파고든다.",
+          "그래서 감춰진 문제를 정확히 잡아낸다.",
+          "가끔 집착에 가까울 만큼 디테일에 매달린다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "I stay composed, but there’s weight underneath.",
+          "My effort comes from quiet conviction.",
+          "Calm on the surface — locked-in underneath.",
+          "Pleasant demeanor hides emotions inside."
+        ],
+        "ko": [
+          "나는 부드럽지만 가볍지 않다.",
+          "행동할 때는 내면 깊은 곳에서 의지가 나온다.",
+          "그래서 우아한 태도 뒤에 진한 집중력이 숨어 있다.",
+          "친절해 보이지만, 속에는 격정적인 감정이 존재한다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "I move only when it matters — then everything condenses.",
+          "Focused, private, unshakable.",
+          "When I act, it leaves a mark.",
+          "Sometimes I insist on carrying the weight alone."
+        ],
+        "ko": [
+          "나는 깊이 있고, 쉽게 방향을 바꾸지 않는다.",
+          "행동할 때는 목표가 정해지면 압축된 힘이 쏟아진다.",
+          "내 언행은 강렬한 존재감을 주변에 남긴다.",
+          "가끔 너무 많은 것을 혼자 감당하려 한다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "I aim wide — then lock in.",
+          "Exploration mixes with fixation.",
+          "Expansion and obsession show up together.",
+          "Sometimes I struggle between going broader… or diving deeper."
+        ],
+        "ko": [
+          "나는 멀리 보고 넓게 펼치려 한다.",
+          "행동할 때는 집중과 몰입이 깊게 작동한다.",
+          "그래서 확장과 집착이 함께 온다.",
+          "가끔 “넓게 갈 것인가 깊게 파고들 것인가” 사이에서 고민한다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "I hold weight without complaint.",
+          "When I act, it’s deliberate, steady, and relentless.",
+          "I don’t flinch — I finish.",
+          "Sometimes I take on too much alone."
+        ],
+        "ko": [
+          "나는 무게를 견딘다.",
+          "행동할 때는 조용히, 깊게, 집중해서 밀어붙인다.",
+          "그래서 쉽게 흔들리지 않고 끝까지 간다.",
+          "가끔 너무 많은 것을 혼자 처리한다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "I stay detached until I'm sure — then I strike.",
+          "When conviction hits, I move without hesitating.",
+          "Quiet, firm, uncompromising.",
+          "Sometimes my all-or-nothing stance freezes connection."
+        ],
+        "ko": [
+          "나는 거리감과 원칙을 유지한다.",
+          "행동할 때는 내적 확신이 생기면 강하게 몰아붙인다.",
+          "그래서 말 없이, 그러나 단호하게 움직인다.",
+          "가끔 타협 없는 태도가 관계를 얼어붙게 한다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "I track depth more than what's on the surface.",
+          "Action comes from instinct and emotion fused.",
+          "Quiet but relentless effort.",
+          "Sometimes devotion turns into fixation."
+        ],
+        "ko": [
+          "나는 표면보다 깊이를 본다.",
+          "행동할 때는 내적 확신과 강렬한 감정이 동력이 된다.",
+          "그래서 보이지 않는 곳에서 끈질기게 밀어붙인다.",
+          "가끔 집착처럼 보일 만큼 몰입한다."
+        ]
+      }
+    },
+    "Sagittarius": {
+      "Aries": {
+        "en": [
+          "I chase possibility.",
+          "When I move, optimism kicks me into high gear.",
+          "Acceleration is easy — stopping, not so much.",
+          "The vision stays big; the details… I tend to slack on."
+        ],
+        "ko": [
+          "나는 가능성을 밀며 나아간다.",
+          "행동할 때는 낙관과 속도가 하나가 된다.",
+          "그래서 가속이 쉽고, 멈추는 건 어렵다.",
+          "큰 방향을 잃지 않지만, 세부는 종종 대충 넘어간다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "I build steady… until something inside says “go.”",
+          "Then momentum clashes with patience.",
+          "Slow roots, wide leaps.",
+          "When my pace breaks rhythm, it takes time to stabilize again."
+        ],
+        "ko": [
+          "나는 안정과 반복으로 세워간다.",
+          "행동할 때는 속도를 올려 멀리 나아가고 싶어진다.",
+          "그래서 느린 축과 넓은 확장이 부딪힌다.",
+          "페이스가 흐트러지면, 다시 중심을 찾는 데 시간이 걸린다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "I move on possibilities.",
+          "I start lightly — then suddenly scale expands.",
+          "Curiosity spreads me wide; ambition pushes me far.",
+          "Expansion and distraction show up together."
+        ],
+        "ko": [
+          "나는 여러 가능성을 염두에 두고 움직인다.",
+          "행동할 때는 크게 뻗고, 범위를 넓힌다.",
+          "그래서 가볍게 시작한 일이 방향을 크게 잡아버릴 때가 있다.",
+          "확장과 분산이 동시에 일어난다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "I guard what I love — but I also want the horizon.",
+          "I hold close and leap far.",
+          "Tender anchors, wild expansions.",
+          "Sometimes my spirit wants distance while my heart clings tight."
+        ],
+        "ko": [
+          "나는 정서적인 안정이 먼저다.",
+          "행동할 때는 큰 방향을 향해 뛰기도 한다.",
+          "그래서 소중한 것을 품고 있으면서도, 때때로 멀리 도약하려 한다.",
+          "넓은 비전과 섬세함이 어색하게 섞인다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "I want to shine on my own terms.",
+          "My drive comes from inner beliefs and momentum.",
+          "Meaning fuels me, so I swing wide and aim far.",
+          "Sometimes belief runs ahead of logic — and I go farther than expected."
+        ],
+        "ko": [
+          "나는 밝게 빛나고자 한다.",
+          "행동할 때는 확신과 낙관이 속도를 만든다.",
+          "그래서 의미 있는 목표를 향해 크게 뻗는다.",
+          "가끔 이성보다도 믿음이 먼저 움직여, 예상보다 멀리 간다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "I want both precision and freedom.",
+          "I prepare carefully — then suddenly launch.",
+          "Exactness and boldness emerge consecutively.",
+          "Sometimes I stall between “perfection” and moving forward."
+        ],
+        "ko": [
+          "나는 작은 것에서 전체를 통제하려 한다.",
+          "행동할 때는 한 번 크게 치고 나가고 싶어진다.",
+          "그래서 꼼꼼함과 대담함이 번갈아 앞선다.",
+          "가끔 “정확하게 갈 것인가, 멀리 갈 것인가” 사이에서 고뇌한다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "I seek grace — but I’m fueled by optimism.",
+          "I ease in politely, then leap boldly when the moment hits.",
+          "Balance in the beginning, bravado at the end.",
+          "Sometimes I wonder if my actions were bigger than what I intended on."
+        ],
+        "ko": [
+          "나는 균형을 원하지만, 가능성을 향한 낙관이 존재한다.",
+          "행동할 때는 큰 그림을 보고 기세 있게 움직인다.",
+          "그래서 우아하게 시작해도, 결말은 의외로 대담하다.",
+          "가끔 “너무 크게 간 건 아닐까?” 하는 불안이 스친다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "I read the room first — quietly.",
+          "Then, out of nowhere, I break orbit.",
+          "Desire for control and freedom fight inside me."
+        ],
+        "ko": [
+          "나는 모든 것을 조용히 살핀다.",
+          "확신이 생기면 행동이 예상에서 이탈한다.",
+          "그래서 갑작스러운 대담함이 나타난다.",
+          "가끔 통제와 자유가 서로를 의심한다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "I move big, think big, expect big.",
+          "Conviction fires first, reflection second.",
+          "Plans? Sometimes I outrun them.",
+          "Occasionally I look back and realize I need to redraw the path I burned through."
+        ],
+        "ko": [
+          "나는 크게 움직인다.",
+          "행동할 때는 믿음과 확신이 곧 내 연료다.",
+          "그래서 말보다 행동이 먼저 뛰어가기도 한다.",
+          "가끔 너무 멀리 나가서, 돌아오는 길을 다시 만들어야 한다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "I climb step by step — toward something meaningful.",
+          "I need purpose, not just progress.",
+          "Reality and vision wrestle in my hands.",
+          "Sometimes urgent matters and dreams drift apart."
+        ],
+        "ko": [
+          "나는 현실을 다지고 차근히 올라간다.",
+          "행동할 때는 큰 방향성과 의미가 필요하다.",
+          "그래서 현실과 이상을 동시에 쥐려 한다.",
+          "가끔 “지금 할 일”과 “멀리 갈 이상”의 간극이 벌어진다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "I aim for the big picture.",
+          "When the direction feels right, hesitation disappears.",
+          "Thought combined with conviction leads to clean takeoff.",
+          "Sometimes vision races ahead of reality and leaves it catching up."
+        ],
+        "ko": [
+          "나는 시선을 멀리 둔다.",
+          "행동할 때는 방향성이 맞으면 과감하다",
+          "그래서 사유와 실행이 미래로 뻗는다.",
+          "가끔 현실보다 이상을 빠르게 따라간다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "I drift — until something sparks, and I bolt.",
+          "Freedom calls, and I follow.",
+          "The motion feels fluid but not always consistent.",
+          "Sometimes I lose the thread; sometimes I chase it too far."
+        ],
+        "ko": [
+          "나는 자연스러운 흐름을 따른다.",
+          "행동할 때 갑자기 한 방향으로 뛰어들기도 한다.",
+          "자유분방하지만 안정성이 부족한 느낌이 존재한다.",
+          "가끔 목적을 잃거나, 반대로 과도하게 멀리 간다."
+        ]
+      }
+    },
+    "Capricorn": {
+      "Aries": {
+        "en": [
+          "I act first, then judge the results.",
+          "But responsibility and outcome always weigh on me.",
+          "Momentum slows — often.",
+          "I value discipline, but sometimes it represses my raw speed."
+        ],
+        "ko": [
+          "나는 먼저 움직여보고 판단한다.",
+          "행동할 때는 결과와 책임이 무게를 준다.",
+          "그래서 속도가 줄고, 내 추진력에 자꾸 제동이 걸린다.",
+          "필요하다는 건 알지만, 가끔 내 속도가 억눌린다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "I build through steadiness.",
+          "Consistency is power, and repetition is strength.",
+          "Integrity results in fruition.",
+          "Quiet progress — solid finish."
+        ],
+        "ko": [
+          "나는 작은 확신을 반복하며 기반을 만든다.",
+          "행동할 때는 책임감이 속도를 관리하고, 꾸준히 힘을 준다.",
+          "그래서 오래 버티는 방식으로 결실을 맺는다.",
+          "가끔은 너무 빨리 지나가서, 나중에 설명이 어려울 때가 있다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "I read the room fast — but move with caution.",
+          "Responsibility filters every impulse.",
+          "Spontaneity and structure wrestle constantly.",
+          "Once duty enters, velocity leaves."
+        ],
+        "ko": [
+          "나는 상황을 빠르게 읽고 대응한다.",
+          "행동할 때는 책임을 따지며, 구조를 우선한다.",
+          "그래서 즉흥성과 계획이 충돌한다.",
+          "해야 할 일을 인식하면 속도가 줄고, 자유가 좁아진다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "I protect what’s inside.",
+          "Responsibility pulls me outward; feelings stay tucked in.",
+          "Emotions belong at home — duty belongs in action.",
+          "My inner world and obligations tug on each other."
+        ],
+        "ko": [
+          "나는 내면 세계를 보호하며 살아간다.",
+          "행동할 때는 외부 책임이 나를 일으킨다.",
+          "그래서 감정은 안쪽으로, 행동은 현실로 나뉠 때가 있다.",
+          "정서와 의무가 줄다리기한다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "I protect my dignity.",
+          "Achievement and duty set my pace.",
+          "When it’s time to prove myself, I get sharper, colder, focused.",
+          "The weight of my actions sometimes overshadow my pride and presence."
+        ],
+        "ko": [
+          "나는 품위를 잃지 않으려 노력한다.",
+          "행동할 때는 책임과 성취가 기준이 된다.",
+          "그래서 나는 스스로를 증명하고 싶을 때 더 냉철해진다.",
+          "가끔 “내가 선택한 무게”가 자존심보다 앞선다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "I calibrate myself inside systems.",
+          "A goal, a method, a clean line — then execution.",
+          "I earn trust by delivering.",
+          "Sometimes I hold myself to standards that cut a little too deep."
+        ],
+        "ko": [
+          "나는 체계 속에서 나를 조정한다.",
+          "행동할 때는 목표와 기준을 정하고 차근히 수행한다.",
+          "그래서 결과로 신뢰를 만든다.",
+          "가끔 스스로에게 지나치게 엄격해진다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "I stay composed — or try to.",
+          "Harmony matters, but results decide.",
+          "I move politely, but hold firm when it counts.",
+          "Sometimes grace and performance fight for first place in priority."
+        ],
+        "ko": [
+          "나는 품위를 유지하려 애쓴다.",
+          "행동할 때는 책임과 구조를 우선한다.",
+          "그래서 겉으론 부드러워도, 목표 앞에서는 단단해진다.",
+          "가끔 “예의”와 “성과”가 충돌한다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "Quiet, firm standards.",
+          "When I commit, I don’t flinch, nor pause.",
+          "If conflict is necessary, I go all the way through it.",
+          "Sometimes I choose methods that are a bit too extreme."
+        ],
+        "ko": [
+          "나는 조용하지만 단단한 기준을 가진다.",
+          "행동할 때는 구조와 목적이 분명해진다.",
+          "그래서 싸움이 필요하면 멈추지 않는다.",
+          "가끔 너무 무거운 방식을 선택한다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "My view is wide, my step measured.",
+          "Before I leap, I build the structure beneath me.",
+          "I work to translate vision into something real.",
+          "Freedom pulls; responsibility anchors — it gets heavy."
+        ],
+        "ko": [
+          "나는 시야가 넓고 가벼운 발걸음을 가진다.",
+          "행동할 때는 목적과 구조를 준비한다.",
+          "그래서 이상을 현실로 내리려 노력한다.",
+          "가끔 자유와 책임이 충돌해, 마음이 무거워진다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "I carry what’s mine to carry.",
+          "I finish. I endure. I don’t break easily.",
+          "Emotion takes a back seat when I’m locked in.",
+          "I ignore my feelings on the back burner sometimes."
+        ],
+        "ko": [
+          "나는 책임을 짊어지고, 버티고, 완주한다.",
+          "행동할 때는 감정 없이 목표를 따른다.",
+          "그래서 묵직하게 밀어붙이며 결과로 말한다.",
+          "가끔 나조차 내 마음을 후순위로 둔다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "I honor structure, and still guard my independence.",
+          "Plans, boundaries, standards — then movement.",
+          "Cool, steady progress.",
+          "Sometimes I chain myself to discipline more than anyone else does."
+        ],
+        "ko": [
+          "나는 체계 속에서 독립성을 지킨다.",
+          "행동할 때는 계획과 책임을 기반으로 움직인다.",
+          "그래서 차갑지만 꾸준히 성과를 만든다.",
+          "가끔 스스로를 규율에 과하게 묶는다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "Emotion imagines; willpower grounds it.",
+          "Dreams turn practical when I commit.",
+          "Vision can land, step by step.",
+          "Sometimes I move slowly trying to balance spirit and structure."
+        ],
+        "ko": [
+          "나는 감정과 상상을 통해 길을 찾는다.",
+          "행동할 때는 현실적이고 의지가 단단해진다.",
+          "그래서 상상력이 현실로 내려올 수 있다.",
+          "가끔 이상과 현실 사이에서 균형을 잡느라 느려진다."
+        ]
+      }
+    },
+    "Aquarius": {
+      "Aries": {
+        "en": [
+          "I cut my own path.",
+          "I move fast, but I don’t follow rules — just direction.",
+          "I can pivot sharply when the line no longer feels true.",
+          "Independence is easier than cooperation, so I change course when I need space."
+        ],
+        "ko": [
+          "나는 스스로 길을 만든다.",
+          "행동할 때는 규칙보다 방향성을 따른다.",
+          "그래서 빠르게 나가되, 어느 순간 딱 잘라 틀어지기도 한다.",
+          "협조보다 독립이 편해 선택지가 바뀔 때가 있다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "I like stability — until I don’t.",
+          "I hold steady, then sharply break pattern and move alone.",
+          "Consistency and disruption live right next to each other.",
+          "When I snap off a path, I reset, find a new ground, and continue."
+        ],
+        "ko": [
+          "나는 일관성을 지키며, 흔들림을 최소화하려 한다.",
+          "행동할 때는 갑작스레 방향을 바꾸고 독립적으로 움직인다.",
+          "그래서 안정성과 돌발이 함께 나타난다.",
+          "흐름이 끊기면, 다시 고정점을 잡는다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "I move like air — flexible, curious, but firm in my direction.",
+          "Thought and independent nature synchronize in my actions.",
+          "I change things naturally, without noise.",
+          "My rhythm is loose; my logic snaps clean."
+        ],
+        "ko": [
+          "나는 유동적으로 움직이며, 새로운 흐름을 찾는다.",
+          "행동할 때는 독립성과 사고가 맞물려, 방향을 또렷이 잡는다.",
+          "그래서 변화를 자연스럽게 밀어붙인다.",
+          "리듬이 자유롭고, 논리가 바람처럼 정리된다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "I feel deeply — but I act from distance.",
+          "Warm heart, cool delivery.",
+          "Soft inside, but my choices sometimes stay cold.",
+          "There’s always a temperature gap between what I feel and what I do."
+        ],
+        "ko": [
+          "나는 정서를 중심에 둔다.",
+          "행동할 때는 감정 대신 원칙이나 거리를 택하기도 한다.",
+          "그래서 마음은 부드럽지만, 결단은 차가운 방향으로 튀기도 한다.",
+          "내면과 행동의 체감 온도가 다르다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "I want to be my own center.",
+          "I act from distance and principle, not impulse.",
+          "Warmth and cold logic intersect constantly.",
+          "Sometimes my pride says one thing while my drive says another."
+        ],
+        "ko": [
+          "나는 독립된 중심이 되고자 한다.",
+          "행동할 때는 거리와 원칙을 기준으로 움직인다.",
+          "그래서 따뜻한 마음과 냉철한 판단이 교차한다.",
+          "가끔 “내 방식”과 “내 존재감”이 서로 다른 방향을 가리킨다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "Logic matters. Order matters — but it has to be my own.",
+          "I act from clarity, not emotion.",
+          "It may look off-beat, but there’s structure beneath it.",
+          "Sometimes I push logic so far I forget feeling exists."
+        ],
+        "ko": [
+          "나는 논리와 정돈을 중시한다.",
+          "행동할 때는 독립적인 판단과 원칙에 따라 움직인다.",
+          "그래서 때때로 엇박자처럼 느껴지지만, 나만의 질서가 있다.",
+          "가끔 너무 이성적으로 밀어붙여 감정을 놓친다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "I balance — but I keep my distance.",
+          "I act with logic and private boundaries.",
+          "I design my moves quietly, without drama.",
+          "Sometimes fairness replaces warmth, and I appear cold."
+        ],
+        "ko": [
+          "나는 균형을 잡되, 독립된 시선을 유지한다.",
+          "행동할 때는 논리와 거리감으로 대처한다.",
+          "그래서 감정에 휘둘리지 않고 조용히 판을 설계한다.",
+          "가끔 감정 대신 공정을 택해, 차갑다고 느껴질 때가 있다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "I don’t reveal easily.",
+          "My decisions come from logic with depth beneath it.",
+          "Quiet intensity, silent precision.",
+          "Sometimes my depth freezes into ice — sudden, clean, final."
+        ],
+        "ko": [
+          "나는 진심을 가볍게 내놓지 않는다.",
+          "행동할 때는 논리와 거리두기로 결단한다.",
+          "그래서 냉정한 듯 깊고, 멀어지는 듯 정확하다.",
+          "가끔 “지나친 깊이”와 “갑작스러운 차가움”이 교차한다."
+        ]
+      },
+
+      "Sagittarius": {
+        "en": [
+          "I orient toward new horizons.",
+          "Independence and ideas fuel my pace.",
+          "Freedom and idealism point the same way — until they don’t.",
+          "Sometimes I’m too far ahead, waiting for others to catch up."
+        ],
+        "ko": [
+          "나는 새로운 가능성을 향해 열린다.",
+          "행동할 때는 독립성과 아이디어가 속도를 만든다.",
+          "그래서 자유와 이상이 같은 방향을 본다.",
+          "가끔 너무 멀리 앞서가서, 이해받기까지 시간이 걸린다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "I build on reality, but I don’t bend easily.",
+          "Principle and autonomy drive my moves.",
+          "Cold from the outside, precise on the inside.",
+          "Sometimes I choose principles over relationships."
+        ],
+        "ko": [
+          "나는 거리를 지키며 나만의 질서를 따른다.",
+          "행동할 때도 흔들림 없이 내 방식으로 간다.",
+          "그래서 타협보다 독립과 논리를 선택한다.",
+          "가끔 인간적인 온기를 잊고 스스로 고립된다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "I stay outside the crowd, even while watching it closely.",
+          "I move my way, unwavering.",
+          "I’d rather be alone than compromise the principle.",
+          "Sometimes I forget my human warmth."
+        ],
+        "ko": [
+          "나는 거리를 지키며 나만의 질서를 따른다.",
+          "행동할 때도 흔들림 없이 내 방식으로 간다.",
+          "그래서 타협보다 독립과 논리를 선택한다.",
+          "가끔 인간적인 온기를 잊고 스스로 고립된다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "I move through feeling and intuition — until suddenly I don’t.",
+          "Warmth fades into logic in an instant.",
+          "Soft one moment, distant the next.",
+          "Even I don’t always know which part of me will answer."
+        ],
+        "ko": [
+          "나는 감정과 직관 속에서 의미를 느낀다.",
+          "행동할 때는 갑자기 차갑고 논리적이 된다.",
+          "그래서 따뜻함과 거리감이 번갈아 나타난다.",
+          "가끔 나도 내가 어떤 방식으로 움직일지 모른다."
+        ]
+      }
+    },
+    "Pisces": {
+      "Aries": {
+        "en": [
+          "I don’t like stopping.",
+          "I follow instinct, but speed dissolves into feeling.",
+          "I start clear and end in mist — a straight line that turns fluid mid-way.",
+          "I move with intention, then drift until the next signal hits."
+        ],
+        "ko": [
+          "나는 멈추지 않으려 한다.",
+          "행동할 때는 직감이 주도하고, 속도는 감정에 따라 흐릿해진다.",
+          "그래서 직선으로 나가다 흐름에 실릴 때가 있다.",
+          "시작은 명확한데, 마지막은 흐림 속에서 정리된다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "I settle slowly, and once I root, I stay.",
+          "My direction seeps in with time, guided by intuition.",
+          "Slow pace doesn’t indicate scatteredness — I build gently but firmly.",
+          "Emotion accumulates until it becomes a path."
+        ],
+        "ko": [
+          "나는 천천히 자리 잡고, 쉽게 흔들리지 않는다.",
+          "행동할 때는 흐름과 직감이 방향을 스며들게 만든다.",
+          "그래서 느리지만 무너지는 일은 드물다.",
+          "시간과 감정이 쌓이며 길이 열린다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "I keep many paths open.",
+          "Instinct pulls me, thoughts scatter, direction spreads.",
+          "I begin lightly and end soaked in feeling.",
+          "Choices multiply; conclusions blur."
+        ],
+        "ko": [
+          "나는 여러 경로를 동시에 열어둔다.",
+          "행동할 때는 직감이 흐름을 바꾸며, 방향이 번져나간다.",
+          "그래서 선택지는 많고, 결론은 흐릿할 때가 있다.",
+          "가볍게 시작했는데, 감정에 젖어 흩어지기도 한다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "I read the emotional atmosphere intuitively.",
+          "I move where energy pulls me, without forcing a plan.",
+          "No map, but an inner tide that knows where to land.",
+          "It's not avoidance — it's resonance."
+        ],
+        "ko": [
+          "나는 분위기와 감정의 결을 민감하게 읽는다.",
+          "행동할 때는 흐름을 타고 자연스럽게 움직인다.",
+          "그래서 계획 없이도, 마음이 당기는 곳으로 흘러가는 추진력이 생긴다.",
+          "헛된 에너지가 아니라, 감응에서 나온 방향성이다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "I glow quietly, without trying to burn.",
+          "My actions rise and fall like emotion.",
+          "Soft doesn’t mean weak — I push without force.",
+          "Sometimes my flexibility blurs my edge."
+        ],
+        "ko": [
+          "나는 과한 소진 없이 조용히 빛나고자 한다.",
+          "행동할 때는 감정과 직관이 파도처럼 움직인다.",
+          "그래서 부드러운 방식으로도 의지를 보인다.",
+          "가끔 내 마음의 유연함이 명확함을 흐린다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "I hold the details when I must — then let them go when I can’t.",
+          "Order and surrender take turns steering.",
+          "Letting things fall apart sometimes opens the breath I needed.",
+          "What looks like giving up is often choosing peace."
+        ],
+        "ko": [
+          "나는 세부를 관리하며 자신을 잡는다.",
+          "행동할 때는 흐름에 맡기거나 직이 튀어나온다.",
+          "그래서 정돈과 방임이 교차한다.",
+          "가끔 포기처럼 보이는 수용이 오히려 숨을 쉬게 한다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "I try to maintain a gentle balance.",
+          "I'm affected by the emotional atmosphere when I act.",
+          "Sometimes I move toward harmony more than I intended.",
+          "What I choose isn’t always my direction — sometimes it’s the current’s."
+        ],
+        "ko": [
+          "나는 부드러운 균형을 지향한다.",
+          "행동할 때는 감정과 흐름에 영향을 받는다.",
+          "그래서 의도보다 분위기를 따라가는 순간이 있다.",
+          "가끔 “내가 원하는 방향”보다 “흐름이 정한 방향”으로 움직인다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "I feel deeply and act from underneath.",
+          "Instinct whispers, but it’s sharp.",
+          "Silence moves me more than words do.",
+          "Sometimes I carry more emotion than I ever say."
+        ],
+        "ko": [
+          "나는 조용히 느끼고 해석한다.",
+          "행동할 때는 직감이 조용히 방향을 잡는다.",
+          "그래서 말보다 분위기가 나를 움직인다.",
+          "가끔 너무 많은 감정을 알고도 말하지 않는다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "I chase meaning — or a feeling that feels like meaning.",
+          "Emotion becomes motion, and I jump in unexpected directions.",
+          "Vision and mood blend; inspiration leads.",
+          "Sometimes I can’t tell if it is higher intuition or a passing wave."
+        ],
+        "ko": [
+          "나는 확신과 이상으로 움직인다.",
+          "행동할 때는 감정과 직감이 흐름을 만든다.",
+          "그래서 아무도 예상 못한 방식으로 나아간다.",
+          "가끔 “이게 비전인가, 기분인가” 헷갈릴 때가 있다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "I know structure — I also know when it dissolves.",
+          "Duty makes me steady; feelings make me shift.",
+          "I switch between discipline and surrender.",
+          "Sometimes I want to carry everything — sometimes I just release."
+        ],
+        "ko": [
+          "나는 질서를 유지하는 데 익숙하다.",
+          "행동할 때는 흐름과 감정이 뜻밖의 방향을 낸다.",
+          "그래서 단단함과 유연함이 번갈아 앞선다.",
+          "가끔 모든 걸 책임지고 싶다가도, 손을 놓고 싶어진다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "I value logic — then drift anyway.",
+          "Emotion slips through structure, changing lines.",
+          "Plans hold until something inside quietly tilts.",
+          "Sometimes I shift without knowing why — only that I must."
+        ],
+        "ko": [
+          "나는 객관과 원칙을 중시한다.",
+          "행동할 때는 감정과 흐름이 뜻하지 않은 방향을 만든다.",
+          "그래서 이성적 계획 속에 예측 불가한 움직임이 섞인다.",
+          "가끔 스스로도 이유를 모르는 변화가 찾아온다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "I am flow itself.",
+          "Emotion and inspiration strike, and the whole current shifts.",
+          "When momentum comes, it’s tidal — undeniable.",
+          "Sometimes the horizon dissolves, and reality feels far away."
+        ],
+        "ko": [
+          "나는 흐름 그 자체다.",
+          "행동할 때도 계획보다 감정과 영감이 우선이다.",
+          "그래서 억누를 수 없는 순간에 큰 물결처럼 움직인다.",
+          "가끔 방향이 흐려지고, 현실이 멀어진다."
+        ]
+      }
+    }
+  },
+
+  "hourlord_asc_questions": {
+    "Saturn": {
+      "Aries": {
+        "en": [
+          "Moves first—fast, direct, and decisive.",
+          "A natural front-runner who doesn’t hesitate.",
+          "But under pressure, they slow down and turn tactical,",
+          "suppressing unnecessary emotion and impulse.",
+          "Behind that drive lies a voice whispering, “I can’t afford to fail."
+        ],
+        "ko": [
+          "겉으로는 빠르고 직선적이며 먼저 움직인다.",
+          "주저하지 않는 태도가 자연스레 앞자리로 이끈다.",
+          "그러나 압박이 오면 속도를 줄이고 통제 전략을 쓴다.",
+          "불필요한 감정과 충동을 억누르며 버틴다.",
+          "겉의 추진력 너머, 안에서는 “실패하면 안 된다”가 작동한다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "When shaken, demeanor suddenly becomes solemn and heavy.",
+          "Feels anxiety inside, but refuses to show it.",
+          "Holds on tightly with the belief, “If I slip, it’s over.",
+          "Even well-meant concern can sting their pride during these moments."
+        ],
+        "ko": [
+          "마음이 흔들리면 갑자기 엄숙해지고 무거워지는 경향이 있다.",
+          "속으로는 많이 불안하지만, 티를 내지 않으려고 애쓴다.",
+          "“흘러내리면 끝난다”는 감각으로 버틴다.",
+          "이럴 땐 좋은 의도여도 타인의 걱정이 자존심의 상처로 다가온다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "Naturally optimistic and passionate,",
+          "yet surprisingly self-critical and responsible beneath the surface.",
+          "Even when struggling, it is masked with cheerfulness.",
+          "Quietly holds firm boundaries—once crossed, it won't be tolerated."
+        ],
+        "ko": [
+          "기본적으로 낙관적이고 열정적이지만,",
+          "의외로 내면에는 책임감과 내적 자기검열이 존재한다.",
+          "힘들어도 아닌 척, 유쾌한 가면을 유지하려고 한다.",
+          "은근 자신만의 확고한 선이 있어서, 그 선의 침범은 용납하지 않는다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "Calm, steady, and unshaken on the outside.",
+          "Observes patiently and maintains stability.",
+          "In crisis, slows down further, reinforcing structure.",
+          "Prefers safety over change, precision over haste.",
+          "“If I lose what I’ve built, everything collapses.” is what echos deep down."
+        ],
+        "ko": [
+          "겉은 느긋하고 안정적이며 쉽게 흔들리지 않는다.",
+          "상황을 오래 보며 무게 중심을 지킨다.",
+          "위기에서는 속도를 더 늦추고 구조를 유지하려 든다.",
+          "변화보다 안전을 택하며, 실수 없는 진행을 중시한다.",
+          "깊이에는 “지켜야 할 기반을 잃으면 무너진다”는 감각이 있다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "Detailed, analytical, and precise.",
+          "Even when pursuing expansion and opportunity, every step is analyzed.",
+          "Strong responsibility blends with perfectionism,",
+          "sometimes turning into an inner strictness that borders on compulsion."
+        ],
+        "ko": [
+          "꼼꼼하고 세밀하며, 지적이고 분석적이다.",
+          "은근히 외적 확장과 가능성을 추구하지만, 이조차도 세밀한 분석을 병행한다.",
+          "강한 책임감이 완벽주의적 성향과 맞물려서,",
+          "다소 강박적인 내적 규제로 이어지기도 한다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "Traditional at times, yet deeply reliable and responsible.",
+          "Immediately organizes situations and takes on the heaviest duties first.",
+          "Acts without excuses or drama—just endurance.",
+          "No shortcuts: if the direction is right, steady progress is maintained.",
+          "The strength lies not in never falling, but in rebuilding every time."
+        ],
+        "ko": [
+          "고지식한 부분이 있지만, 책임감이 강하고 신뢰감 있는 이미지이다.",
+          "상황을 곧바로 구조화하고, 가장 무거운 책임부터 붙든다.",
+          "변명·감정 없이, 해야 할 것을 끝까지 견디며 실행한다.",
+          "타협은 없다 — 방향이 맞다면 천천히라도 간다.",
+          "무너지지 않는 게 능력이 아니라, 무너져도 다시 세우는 게 습관이다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "Appears light and adaptable, but holds calculated weight inside.",
+          "Explores information and possibilities widely,",
+          "yet makes final decisions conservatively.",
+          "In crisis, grows quiet, controlling variables carefully.",
+          "Beneath it all: “Wasteful motion only increases anxiety.”"
+        ],
+        "ko": [
+          "가볍고 유연해 보이지만, 속엔 계산된 무게가 있다.",
+          "정보와 가능성을 넓히되, 최종 결론은 보수적으로 낸다.",
+          "위기에서는 말수가 줄고, 최대한 변수를 통제하려 든다.",
+          "즉흥성 대신 구조, 속도 대신 신중함이 발동된다.",
+          "내면에는 “헛된 움직임은 불안만 키운다”라는 기준이 있다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "Graceful, balanced, socially smooth.",
+          "Admired, but secretly pressured to keep everyone comfortable.",
+          "Responsible, patient, and highly self-regulated.",
+          "Holds strict internal standards—for others, and for self."
+        ],
+        "ko": [
+          "조화롭고 세련된 이미지와 태도를 갖추었다.",
+          "주변의 평판이 좋지만, 그 누구도 불편하게 하지 않으려 하는 강박이 있다.",
+          "책임감이 강하며, 인내심과 내적 자기검열이 심한 편이다.",
+          "자신에게도 타인에게도 상당히 엄격한 내적 기준을 가지고 있다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "Responds to stress with principle and structure.",
+          "Pushes emotion aside and manages situations logically.",
+          "Prefers firm resolution over emotional mess.",
+          "Unmoved by others’ feelings when order is at stake.",
+          "Ultimately seeks efficient, practical solutions."
+        ],
+        "ko": [
+          "위기에서 원칙과 규칙에 따라 반응한다.",
+          "감정적 여유를 주지 않고, 상황을 냉정하게 관리한다.",
+          "갈등이나 혼란보다는 단호한 정리와 해결을 선호한다.",
+          "주변의 감정에 신경 쓰지 않고, 자기 기준을 고수한다.",
+          "결국 효율적이고 실용적인 해결책을 추구한다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "Usually warm, but turns cold and structured in crisis.",
+          "Emotionally shuts down, speaks less, draws hard lines.",
+          "A quiet ability to say, “This is as far as it goes.",
+          "Soft exterior, hidden steel door."
+        ],
+        "ko": [
+          "평소엔 포근하지만, 위기가 오면 갑자기 차갑게 구조조정에 들어간다.",
+          "감정을 닫고, 말을 줄고, 단호하게 자신을 방어한다.",
+          "“여기까지야.” 라고 마음속 선을 긋는 능력이 있다.",
+          "상냥함 뒤에 숨은 냉철한 철문."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "Intense presence, quiet and calculated.",
+          "Observes, senses, and reads before speaking.",
+          "Inside, energy and judgment are always active.",
+          "Deep sense of responsibility and self-discipline.",
+          "Carries fatigue silently, never showing weakness."
+        ],
+        "ko": [
+          "존재감이 강렬하지만, 겉은 조용하고 신중하다.",
+          "상황을 읽고, 말보다 관찰과 느낌이 선행된다.",
+          "쉽게 드러내지 않지만 내부에는 늘 에너지와 판단이 흐르고 있다.",
+          "책임감이 강하며, 인내심과 내적 자기검열이 심한 편이다.",
+          "피로감이 있어도 티를 내지 않는다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "Dreamy, soft aura; quirky self-expression.",
+          "Yet in crisis, quietly builds structure and order.",
+          "Grips principles instead of emotion, responding slowly and steadily.",
+          "People end up thinking, “Wait… they’re sterner than I expected.”"
+        ],
+        "ko": [
+          "독특한 이미지에, 몽환적인 감성의 소유자이다.",
+          "흐릿한 바깥과 달리 위기 앞에서는 조용히 구조를 잡는다.",
+          "감정 대신 원칙을 붙잡고 천천히 대응한다.",
+          "사람들은 예상 못한 ‘응? 얘 이렇게 단단했어?’ 느낀다."
+        ]
+      }
+    },
+    "Jupiter": {
+      "Aries": {
+        "en": [
+          "Steps forward first, carving the path with outward energy.",
+          "Leads with certainty and contagious optimism.",
+          "When obstacles appear, expands even bigger and pushes through for answers.",
+          "Chooses growth over safety, challenge over retreat.",
+          "Fueled by the inner belief: “There is always a way forward.”"
+        ],
+        "ko": [
+          "먼저 나서고, 에너지를 밖으로 쏟으며 길을 연다.",
+          "확신과 낙관으로 주변을 끌고 간다.",
+          "문제를 만나면 더 크게 펼치고, 해답을 찾아 전진한다.",
+          "손해보다 상승을, 회피보다 도전을 택한다.",
+          "안에서는 “가능성은 항상 있다”는 믿음이 엔진이 된다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "Radiates confidence, presence, and charisma.",
+          "A touch of flair—sometimes even bravado—but it’s just an extension of self-expression.",
+          "Seeks possibility, expansion, and openness to the world."
+        ],
+        "ko": [
+          "자신감이 넘치고 존재감과 카리스마가 있다.",
+          "은근한 허세와 허풍이 있지만, 이는 본질적으로 자아 표현의 연장선이다.",
+          "외부로의 확장, 가능성, 그리고 개방성을 추구한다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "Passionate and playful, yet prone to over-optimism.",
+          "When expectations fall apart, doubles down and goes even bigger—almost out of spite.",
+          "If the world blocks the way, the response is: “Fine. I’ll go further then.”",
+          "It is not necessarily “positivity,” but more expansion as revenge."
+        ],
+        "ko": [
+          "열정적이고 유쾌하지만 과하게 낙관적인 경향 또한 존재한다.",
+          "기대가 무너지면 오기로 더 크게 판을 벌리기도 한.",
+          "세상이 자신을 막는다 느끼면 “그럼 더 멀리 갈게”라고 마음먹기도 한다.",
+          "긍정적 사고보다는 확장으로 복수하는 느낌에 더 가깝다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "Calm, steady, trustworthy presence.",
+          "Pursues growth slowly but consistently.",
+          "In crisis, keeps composure and redraws the long-term vision.",
+          "Optimism built on patience and endurance.",
+          "Core belief: “Time will take my side eventually.”"
+        ],
+        "ko": [
+          "차분하고 안정된 기운으로 신뢰를 준다.",
+          "확장과 성장을 천천히, 그러나 꾸준히 추구한다.",
+          "위기에서는 여유를 지키며 더 큰 그림을 다시 설정한다.",
+          "긍정과 인내가 결합돼 오래 가는 낙관을 보여준다.",
+          "속에는 “시간이 결국 내 편이 될 것”이라는 신념이 있다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "Precise, analytical, and detail-oriented.",
+          "Seeks expansion too, but every possibility comes with careful analysis.",
+          "Calm yet curiously bold—moves by their own standards and logic."
+        ],
+        "ko": [
+          "꼼꼼하고 세밀하며, 지적이고 분석적이다.",
+          "은근히 외적 확장과 가능성을 추구하지만, 이조차도 세밀한 분석을 병행한다.",
+          "차분하지만 이상하게 대범한 기질이 있으며, 본인만의 기준이 존재한다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "Even in crisis, thinks in long-term, structural, big-picture.",
+          "Not just putting out fires—stabilizing the entire system.",
+          "Speaks less but runs hundreds of scenarios internally.",
+          "Restores order through legitimacy, patience, and planning.",
+          "Inner beliefs: “If I endure and build now, everything follows later.”"
+        ],
+        "ko": [
+          "위기에서도 장기전·원칙·판 크게 보기가 작동한다.",
+          "당장 불을 끄는 것보다, 판 전체를 안정시키는 전략을 고민한다.",
+          "말 한마디가 짧아져서 그렇지, 머리 속엔 시나리오가 수십 개다.",
+          "신뢰·명분·질서를 확보하며 상황을 반듯하게 되돌린다.",
+          "“지금 버티고 설계하면, 나중에 모든 게 따라온다”는 감각이 존재한다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "Bright, open, rapidly expanding in knowledge and network.",
+          "Curiosity and optimism combined results in wide vision and connections.",
+          "In crisis, channels bigger perspectives and new possibilities.",
+          "Avoids getting stuck in minutiae—sees the overall flow.",
+          "Underlying belief: “The world can be understood and solved.”"
+        ],
+        "ko": [
+          "밝고 개방적이며, 지식과 관계망이 빠르게 확장된다.",
+          "호기심이 낙관과 결합해 ‘넓게 보고 넓게 연결’한다.",
+          "위기 시에는 더 큰 관점과 가능성으로 숨통을 튼다.",
+          "작은 문제에 갇히기보다는 ‘전체 흐름’을 본다.",
+          "속에는 “세상은 결국 이해할 수 있고 해결된다”가 깔린다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "Graceful, refined, socially attuned.",
+          "Liked by many, yet pressured not to discomfort anyone.",
+          "Expands outward through relationships and connection.",
+          "Soft optimism: “Wouldn’t it be better if we all got along?”"
+        ],
+        "ko": [
+          "조화롭고 세련된 이미지와 태도를 갖추었다.",
+          "주변의 평판이 좋지만, 그 누구도 불편하게 하지 않으려 하는 강박이 있다.",
+          "사람들과의 교류를 통해 외부로 확장하고자 하는 경향이 강하다.",
+          "'다들 친하게 지내면 좋지 않나' 하는 낙관적 성향이 존재한다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "Responds to turmoil through conviction and future-minded principles.",
+          "Solves problems with direction, value, and strategy—not emotion.",
+          "Keeps the vision steady even in uncertainty.",
+          "Ultimately follows own visions to find solutions."
+        ],
+        "ko": [
+          "위기 상황에서 신념과 가치를 기반으로 대응한다.",
+          "타인의 감정보단 미래 지향적으로 문제를 해결하려 한다.",
+          "큰 그림을 보며 원칙에 따라 차분히 풀어나간다.",
+          "불확실한 상황에서도 자신의 방향에 대한 확신을 놓지 않는다.",
+          "결국 미래를 향한 비전을 따르며 해결책을 찾는다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "Warm and emotionally expansive.",
+          "Sometimes protects and nurtures others beyond their capacity,",
+          "And quietly struggles under the weight of their emotional generosity."
+        ],
+        "ko": [
+          "마음이 넓고 감정이 풍부하다.",
+          "본인이 감당하기 어려울 정도로 정서적 보호를 타인에게 확장하기도 한다.",
+          "본인 스스로도 이러한 행보의 뒷감당을 종종 버거워한다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "Intense presence, quiet and observant.",
+          "Feels first, senses deeply, then speaks.",
+          "Internal energy and judgment always running.",
+          "Seeks answers through deeper truth or spiritual meaning."
+        ],
+        "ko": [
+          "존재감이 강렬하지만, 겉은 조용하고 신중하다.",
+          "상황을 읽고, 말보다 관찰과 느낌이 먼저다.",
+          "쉽게 드러내지 않지만 내부에는 늘 에너지와 판단이 흐르고 있다.",
+          "더 큰 진리나 영성을 통해 해답을 추구하는 경향이 있다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "Dreamy, soft aura; quirky self-expression.",
+          "Even in chaos, sees higher meaning and direction first.",
+          "Intuition rises, guiding toward ideal solutions.",
+          "Offers a calm, mysterious certainty when others shake.",
+          "There is also a touch of baseless optimism sometimes."
+        ],
+        "ko": [
+          "독특한 이미지에, 몽환적인 감성의 소유자이다.",
+          "위기 속에서도 큰 의미와 길을 먼저 본다.",
+          "직관이 확장되고, 이상적인 해결지점을 향해 자연스레 흐른다.",
+          "사람들이 흔들릴 때, 모호한 듯 평온한 확신을 준다.",
+          "다만, 근거 없는 낙관적인 성향 또한 존재한다."
+        ]
+      }
+    },
+    "Mars": {
+      "Aries": {
+        "en": [
+          "Can appear naturally aggressive.",
+          "Acts fast, breaks through rather than looks back.",
+          "Solves problems through confrontation and direct push.",
+          "Stillness feels like stagnation—must keep moving.",
+          "Inner tension: “If I lose ground, I lose myself.”"
+        ],
+        "ko": [
+          "자연스럽게 공격적으로 보일 수 있다.",
+          "움직임이 빠르고, 뒤돌아보기보다 돌파한다.",
+          "문제 상황도 충돌·투쟁을 통해 해결하려 한다.",
+          "멈춤은 곧 정체로 느껴져 행위를 지속한다.",
+          "“내가 밀리면 존재가 사라진다”는 내적 긴장이 있다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "When threatened, suddenly unleashes intense focus and force.",
+          "Sometimes surprises even oneself with their fierceness.",
+          "Pride is fuel—insults and humiliation hit hardest."
+        ],
+        "ko": [
+          "상황이 흔들릴 때 갑자기 에너지를 끌어올려 집중적으로 밀어붙힌다.",
+          "본인 스스로 놀랄 정도의 호전성이 발현되기도 한다.",
+          "자존심이 연료가 되며, 모멸감에 유독 민감하다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "When blocked, action comes before thought.",
+          "“Whatever—I'm going.” mode activates.",
+          "Charges first, reflects later: “Why did I go that far?”"
+        ],
+        "ko": [
+          "막히면 사고보다 행동이 먼저 튄다.",
+          "“아 몰라 나간다” 모드 발동.",
+          "논리 이전에 돌파 / 도약 / 돌진.",
+          "가다가 “뭐지 나 왜 이렇게까지 했지?” 뒤늦게 정리하기도 한다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "Seems slow, but has immense stubborn endurance.",
+          "Once committed, pushes steadily and relentlessly.",
+          "In crisis: either stops completely or pushes like a force of nature.",
+          "Emotion, when built up, turns into immovable resistance."
+        ],
+        "ko": [
+          "느릿해 보이지만 고집과 인내가 강하다.",
+          "움직일 때는 결정한 방향으로 꾸준히 밀고 나간다.",
+          "위기 시에는 완전히 멈추거나, 묵직하게 밀어붙인다.",
+          "감정이 쌓이면 단단한 저항으로 발현된다.",
+          "안에서는 “강제로 빼앗기기 전엔 절대 놓지 않는다”가 깔린다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "When shaken, precision and firmness activate.",
+          "Speech turns sharp; small errors become intolerable.",
+          "Not trying to fight—but their defense sounds like an invitation for a debate."
+        ],
+        "ko": [
+          "상황이 흔들리면 갑자기 정밀하고 단호한 성향이 켜진다.",
+          "말이 직설적으로 변하고 작은 실수도 그냥 넘기기 어렵다.",
+          "싸우려는 건 아닌데, 방어가 논쟁처럼 보일 때가 있다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "Silent, precise, and coldly effective.",
+          "Drops emotion and words—straight into action and control.",
+          "If there’s a problem, cuts without hesitation: cleanup = survival.",
+          "Doesn’t persuade—sets a standard and moves. Follow if you can.",
+          "Not explosive force, but concentrated pressure."
+        ],
+        "ko": [
+          "조용히, 그러나 정확하고 냉정하게 움직인다.",
+          "불필요한 감정·말 없이 바로 행동·통제 모드로 들어간다.",
+          "문제가 보이면 망설임 없이 잘라낸다 — 정리 = 생존이라는 감각이 존재한.",
+          "누구를 설득하기보다 기준을 주고, 하겠다면 따라오라는 태도를 취한다.",
+          "폭발적 에너지 대신, 고밀도의 추진력으로 밀어붙인다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "Light and quick, with hidden blunt decisiveness.",
+          "Agile words, agile responses, instant tactical movement.",
+          "In pressure, focus snaps into place—rapid reaction.",
+          "Can fire sharp words when impatient.",
+          "Inner motto: “Better to move than freeze.”"
+        ],
+        "ko": [
+          "가볍고 빠르지만, 속엔 단도직입적 결단이 숨어 있다.",
+          "말과 행동이 기민하고, 반응이 곧 추진력으로 이어진다.",
+          "위기에는 집중도가 급격히 올라가며 바로 대응한다.",
+          "다만 성급함이 날카로운 말로 튀는 순간도 있다.",
+          "내면엔 “멈추기보다 튀어나가는 편이 낫다”는 감각이 존재한다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "Graceful and social, yet surprisingly militant underneath.",
+          "Hates discomfort, but won’t hesitate to act fast when needed.",
+          "Aggression shows in diplomatic form—social combat skills.",
+          "Values fairness, but takes action quicker than expected."
+        ],
+        "ko": [
+          "조화롭고 세련된 이미지와 태도를 갖추었다.",
+          "주변의 평판이 좋지만, 그 누구도 불편하게 하지 않으려 하는 강박이 있다.",
+          "은근히 호전적인 구석이 있지만, 이를 사교적인 형태로 표출하려는 경향이 있다.",
+          "균형을 중시하지만, 의외로 큰 고민없이 바로 행동으로 향하는 편이다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "Usually calm, but reacts fast in crisis.",
+          "Decides quickly and moves to control the situation.",
+          "Prioritizes outcome over feelings—efficient and detached.",
+          "Restores order in their own way, unconcerned with reactions.",
+          "Swift, cool, solution-driven action."
+        ],
+        "ko": [
+          "평소엔 차분하지만, 위기 시에 바로 반응한다.",
+          "생각보다 빠르게 결단을 내리고 상황을 통제하려 한다.",
+          "감정보다 결과를 우선시, 효율적으로 문제 해결에 나선다.",
+          "사람들의 반응보다 자기 방식으로 상황을 돌려놓는 쪽으로, 결국 빠르고 냉정한 대응을 선호한다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "Warm normally, unexpectedly fierce when provoked.",
+          "Refuses to yield when emotionally provoked—protective aggression emerges.",
+          "Soft feelings turn into direct defensive offense."
+        ],
+        "ko": [
+          "평소엔 다정하지만, 의외로 호전적인 구석이 존재한다.",
+          "감정선을 자극하면 “여기서 밀리기 싫다” 모드가 켜진다.",
+          "내면의 말캉한 감정과 설움이 그대로 공격성으로 전환될 수 있다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "Intense presence, quiet and watchful.",
+          "Feels and analyzes first, strikes only when needed.",
+          "Carries a quiet, coiled inner ferocity at all times.",
+          "When faced with threat or betrayal, devastatingly focused retaliation follows."
+        ],
+        "ko": [
+          "존재감이 강렬하지만, 겉은 조용하고 신중하다.",
+          "상황을 읽고, 말보다 관찰과 느낌이 먼저다.",
+          "쉽게 드러내지 않지만 내부에는 늘 에너지와 판단이 흐르고 있다.",
+          "내면에 독기 서린 공격성이 늘 존재한다.",
+          "위기나 공격을 받으면 강렬한 공격성을 발산한다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "Dreamy, soft aura; quirky self-expression.",
+          "Once triggered, however, breaks through silently and unpredictably.",
+          "Intuitive anger flashes—surprisingly powerful drive emerges.",
+          "Acts without warning, in unexpected ways."
+        ],
+        "ko": [
+          "독특한 이미지에, 몽환적인 감성의 소유자이다.",
+          "평소엔 유연하지만, 자극을 받으면 조용히 돌파한다.",
+          "직관적 분노가 번뜩이고, 부드러운 겉과 달리 추진력이 세게 튄다.",
+          "말 없이, 예상 밖의 방식으로 치고나간다."
+        ]
+      }
+    },
+    "Sun": {
+      "Aries": {
+        "en": [
+          "Wears confidence like armor, taking the lead even in unfamiliar territory.",
+          "Keeps the center and doesn’t hide their presence.",
+          "In crisis, holds ground through pride and duty.",
+          "Maintaining authority becomes priority.",
+          "Inside sits a quiet pressure: “I must shine.”"
+        ],
+        "ko": [
+          "자신감을 외피처럼 두르고, 낯선 상황도 앞에서 리드한다.",
+          "중심을 잡으려 하고, 존재감을 숨기지 않는다.",
+          "위기에서는 자존심과 책임감으로 버틴다.",
+          "권위를 잃지 않는 것이 우선이 된다.",
+          "내면에 “나는 빛나야 한다”는 조용한 압박이 자리한다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "When pride is aggravated, becomes even more composed and regal.",
+          "Seeks to prove worth and be seen and acknowledged.",
+          "Sometimes tries too hard and reveals the effort.",
+          "And yes—afterward, there’s a quiet moment of cringing about it."
+        ],
+        "ko": [
+          "자존감이 건드려지면 더 태연하고 당당한 태도를 취한다.",
+          "자신을 증명하려 하고 인정받고 싶어한다.",
+          "다만, 때로는 이런 마음이 과해서 오히려 티가 나기도 한다.",
+          "본인 스스로도 이를 느껴서 속으로 민망해한다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "Warm, enthusiastic, naturally uplifting.",
+          "When feeling belittled, a switch activates within: confidence + display mode.",
+          "Laughs on the outside, heats up inside; if stifled, leaves with a “cool exit.”",
+          "Finds space, realigns self, and returns centered."
+        ],
+        "ko": [
+          "유쾌하고 열정적이며 낙천적이다.",
+          "무시당했다고 느끼면 과시 + 자기확신 부스터가 발동한다.",
+          "웃음 뒤에 기분이 뜨거워지고, 답답하면 쿨한 척 뛰쳐나간다.",
+          "밖에서 다시 중심을 잡는다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "Maintains stability and dignity, holding a centered presence.",
+          "Builds presence within a self-created order.",
+          "In pressure, manages demeanor so it doesn’t crack.",
+          "Quietly insists on their stance and tries to control the tempo.",
+          "Belief beneath: “If my standards shake, so do I.”"
+        ],
+        "ko": [
+          "안정과 품위를 유지하며 중심을 잡는다.",
+          "자신이 만든 질서 안에서 존재감을 구축한다.",
+          "위기에서는 태도를 무너지지 않게 관리한다.",
+          "조용히 의지를 고집하고 흐름을 통제하려 시도한다.",
+          "내면에는 “내 기준이 흔들리면 나도 흔들린다”는 감각이 존재한다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "When self-worth wavers, quietly reinforces identity.",
+          "Doesn’t display distress, repeats inwardly: “I’m not wrong.”",
+          "When hurt, tone tightens rather than expression flares.",
+          "Defends self through rational calm.",
+          "Later, a faint aftertaste of frustration."
+        ],
+        "ko": [
+          "내적 자존감이 흔들리면 조용히 존재감을 세우려 한다.",
+          "티는 안 내지만 “내가 틀린 건 아니다”를 스스로에게 되뇌는 편.",
+          "억울하면 표정보다 말투가 단단해진다.",
+          "객관적이고 차분한 태도를 통해 자아를 방어한다.",
+          "지나고 나면 조금 씁쓸해지기도 한다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "Serious, reliable, quietly authoritative.",
+          "In crisis, steps up, shoulders weight, stands steady.",
+          "Shows strength through perseverance, not speeches.",
+          "Becomes the pillar that does not shake.",
+          "Silently feels deep satisfaction from earned respect."
+        ],
+        "ko": [
+          "고지식하지만 책임감 있고 신뢰가는 이미지이다.",
+          "겉으론 담담하지만, 위기 시엔 책임을 떠안고 중심을 잡는다.",
+          "뭐라 말하기보단 자리를 지키며 태도로 무게를 준다.",
+          "흔들리지 않는 기둥이 됨에서 자아를 발산한다.",
+          "밖으로 티내지는 않지만, 이런 외적 인정에서 상당한 희열을 느낀다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "Shines through lively communication and bright mental presence.",
+          "Light on the surface but firm in self-identity underneath.",
+          "In stress, sharpens voice and stance clearly.",
+          "Beneath wit: “I need to be understood and seen for who I am.”"
+        ],
+        "ko": [
+          "밝고 존재감 있는 소통 방식으로 관심을 끈다.",
+          "가벼운 듯해도 자존과 자기 역할의식이 분명하다.",
+          "위기 시에는 자신의 의견과 태도를 선명히 세운다.",
+          "말과 이미지 뒤에 ‘나다움’을 지키려는 긴장감이 있다.",
+          "속에는 “세상이 나를 들어줘야 한다”는 마음이 자리한다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "Graceful, refined, attuned to harmony and social perception.",
+          "Seeks to avoid discomfort, yet craves respectful visibility.",
+          "If presence feels dismissed, poised pride rises.",
+          "Inner desire: “See me, treat me with regard.”"
+        ],
+        "ko": [
+          "조화롭고 세련된 이미지와 태도를 갖추었다.",
+          "주변의 평판이 좋지만, 그 누구도 불편하게 하지 않으려 하는 강박이 있다.",
+          "존재감이 위협받으면 점잖은 자존심이 고개 든다.",
+          "은근히 자신을 드러내고 싶고 “내가 존중받고 있는가”를 확인한다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "Calm, distinct, a touch unconventional.",
+          "Chooses individuality over trends or approval.",
+          "Acts indifferent to judgment, yet quietly wants recognition for uniqueness.",
+          "Proud outsider energy — craving acknowledgment of that difference."
+        ],
+        "ko": [
+          "차분하지만 날카롭고 독특한 구석이 있는 이미지다.",
+          "트렌드나 대중의 취향에서 한 발짝 떨어진 태도를 보인다.",
+          "외부 평판에 무관심한 것처럼 굴지만, 은근히 자아 확인 욕구가 강하다.",
+          "'남들과 다른 이방인인 나'에 도취하면서도 그 남다름을 인정받고자 하는 욕구가 있다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "Warm, protective, emotionally present.",
+          "Yet inwardly much more sensitive to ego wounds than others know.",
+          "Protecting others is partly protecting self-worth and emotional identity."
+        ],
+        "ko": [
+          "감정이 풍부하고 본인 사람을 잘 챙긴다.",
+          "그러나, 속으로는 주변인들보다 본인 자존감의 상처에 훨씬 민감하게 반응한다.",
+          "타자를 보듬음에서 자아와 자존감의 방어, 그리고 존재적 발산을 우회적으로 추구한다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "Subtle yet intense, observing before speaking.",
+          "Energy and intuition run deep beneath stillness.",
+          "Not loud in expression — impact is asserted quietly, yet unmistakably.",
+          "Presence felt rather than displayed."
+        ],
+        "ko": [
+          "존재감이 강렬하지만, 겉은 조용하고 신중하다.",
+          "상황을 읽고, 말보다 관찰과 느낌이 먼저다.",
+          "쉽게 드러내지 않지만 내부에는 늘 에너지와 판단이 흐르고 있다.",
+          "조용하고 은근하지만, 확실하게 자신의 존재감을 외부에 발산하려는 경향이 있다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "Dreamy, soft aura; quirky self-expression.",
+          "In pressure, reveals a surprisingly firm inner axis.",
+          "Follows intuition, holding direction without noise.",
+          "Seems fluid, but anchors fiercely when it matters."
+        ],
+        "ko": [
+          "독특한 이미지에, 몽환적인 감성의 소유자이다.",
+          "겉은 부드럽고 흐릿해 보여도, 위기 앞에서 자기만의 방향성이 또렷하게 드러난다.",
+          "직관적으로 “이게 맞다” 싶은 길을 조용히 밀고 나간다.",
+          "중심 없이 떠다니는 듯 보이지만, 결정적 순간엔 자기 축을 고집한다."
+        ]
+      }
+    },
+    "Venus": {
+      "Aries": {
+        "en": [
+          "Shows up confidently and directly.",
+          "Not hostile — values balance and goodwill.",
+          "In conflict, may soften tone and persuade rather than push.",
+          "Chooses kindness before force."
+        ],
+        "ko": [
+          "외향적이고 직선적인 모습이 먼저 드러난다.",
+          "하지만 충돌을 모두 반기는 건 아니며, 균형도 신경 쓴다.",
+          "갈등 상황에선 부드럽게 설득하거나 관계를 다독인다.",
+          "힘보다 호의를 우선하려 할 때가 있다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "Connects with warmth, charisma, and presence.",
+          "Expresses self proudly in social space.",
+          "Feels most alive when shining among people, not alone."
+        ],
+        "ko": [
+          "특유의 자신감과 존재감으로 사람들과 사교한다.",
+          "외교적 처세술로서 존재를 과시하고자 하는 욕구가 있으며,",
+          "사람들과의 조화를 통해 자아를 체감한다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "Sociable, enthusiastic, genuinely enjoys people.",
+          "When the mood dips, masks discomfort with humor or lightness.",
+          "If previous harmony doesn’t return, avoidant tendencies may surface."
+        ],
+        "ko": [
+          "사교적이고 사람을 좋아한다.",
+          "관계나 분위기 흐트러지면 괜히 가벼운 척, 밝은 척 한다.",
+          "불편함을 회피하려고 농담, 애매한 다정함 등으로 대응하기도 한다.",
+          "그래도 상황이 잘 풀리지 않으면 회피적 기질이 발동하기도 한다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "Comforting, steady, emotionally grounding.",
+          "Prioritizes stability, affection, gentle consistency.",
+          "In tense situations, tries to restore peace first, then addresses conflict softly.",
+          "Inner belief: “Love grows slowly and holds strongly.”"
+        ],
+        "ko": [
+          "부드럽고 따뜻한 안정감을 준다.",
+          "관계와 조화, 감각적 만족을 중시한다.",
+          "흔들림이 오면 일단 평온과 균형부터 회복하려 한다.",
+          "다툼보다는 품고, 설득하고, 유지하는 방식을 쓴다.",
+          "속에는 “안전과 사랑은 천천히 쌓아야 한다”는 신념이 있다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "Subtle warmth and thoughtful attention.",
+          "Cares in small, precise ways; notices what others need.",
+          "Creates ease quietly, without asking for credit."
+        ],
+        "ko": [
+          "섬세하고 세밀하며, 차분하고 분석적이다.",
+          "은근히 주변인들을 세심하게 챙기는 경향이 있다.",
+          "조용히 주변을 배려하며, 사람들간의 조화에 상당히 신경을 많이 쓴다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "Maintains dignity even under relational stress.",
+          "Persuades with composure, sets boundaries with grace.",
+          "Reorganizes dynamics quietly and effectively.",
+          "Soft strength earns respect without force — order returns."
+        ],
+        "ko": [
+          "위기에서도 체면을 잃지 않고, 관계의 구조를 조정한다.",
+          "감정적 호소 대신 품위와 균형감으로 설득 라인을 만든다.",
+          "부드럽지만 단호하게 기준을 세우고, 사람을 배치한다.",
+          "싸우지 않고도 존중을 얻고, 공간의 질서를 회복한다.",
+          "조용한 신뢰와 절도가 가장 강한 무기다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "Light, witty, naturally connective.",
+          "Uses playfulness to balance the room.",
+          "In conflict, chooses dialogue, flexibility, and social ease.",
+          "Inner thoughts: “Harmony makes connection effortless.”"
+        ],
+        "ko": [
+          "말투가 부드럽고 관계 연결이 자연스럽다.",
+          "위트와 매력으로 분위기를 조정한다.",
+          "위기에서는 갈등을 피하고 조화를 택한다.",
+          "사람과 감정의 흐름을 읽는데 능숙하다.",
+          "“갈등 없이 연결되는 게 가장 편하다”는 마음이 있다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "Elegant, socially smooth, harmony-focused.",
+          "Avoids discomfort, often becomes mediator.",
+          "Sometimes tries to make peace too fast, causing later ripples.",
+          "Wants everyone — including oneself — to feel safe together."
+        ],
+        "ko": [
+          "조화롭고 세련된 이미지와 태도를 갖추었다.",
+          "주변의 평판이 좋지만, 그 누구도 불편하게 하지 않으려 하는 강박이 있다.",
+          "주변 사람들의 화합과 조화의 중재자를 자처한다.",
+          "어색한 냉전 상태가 싫어서 어물쩍 좋게 넘어가려고 하다가 부작용이 생기기도 한다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "Observes first, then balances dynamics rationally.",
+          "If unsettled, quietly steps back to sort emotions.",
+          "Acts casual outwardly, but assesses deeply.",
+          "Maintains harmony — but in a way that aligns with personal logic."
+        ],
+        "ko": [
+          "상황을 평가하며, 관계의 균형을 찾으려 한다.",
+          "불안할 때는 조용히 거리두기를 하며 감정을 정리한다.",
+          "위기에서 감정을 가볍게 넘기려는 경향이 있지만, 속으로는 정확히 평가한다.",
+          "타인의 감정선에 민감하게 반응하되, 내 방식대로 정리한다.",
+          "결국 균형을 맞추고, 내 기준으로 상황을 관리한다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "Warm, sentimental, nurturing.",
+          "Default mode: emotional shelter and closeness",
+          "Seeks soft, familiar harmony for self and loved ones."
+        ],
+        "ko": [
+          "따뜻하고 감성적이며 주변인들을 잘 챙긴다.",
+          "삶의 디폴트 대응방식은 주변인들과 조화를 추구하는 것이다.",
+          "감정적으로 익숙하고 안정적인 상태로 주변을 화합시키려고 한다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "Quiet intensity, relational depth seeker.",
+          "Reads emotions and motives beneath the surface.",
+          "Connects through insight and emotional presence — not chatter.",
+          "Diplomacy through depth, not surface smoothing."
+        ],
+        "ko": [
+          "존재감이 강렬하지만, 겉은 조용하고 신중하다.",
+          "상황을 읽고, 말보다 관찰과 느낌이 먼저다.",
+          "쉽게 드러내지 않지만 내부에는 늘 에너지와 판단이 흐르고 있다.",
+          "상대의 깊은 내면을 감지하며 무의식을 침투하는 방식의 사교술을 추구한다.",
+          "심연의 외교가 삶의 기본 대처술이다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "Dreamy, soft aura; quirky self-expression.",
+          "Dislikes discord and longs to dissolve tension into harmony.",
+          "Seeks unity by softening boundaries — blending hearts rather than dividing them."
+        ],
+        "ko": [
+          "독특한 이미지에, 몽환적인 감성의 소유자이다.",
+          "불화를 싫어하며, 주변을 조화롭게 융화시키고 싶어한다.",
+          "유독 모두의 경계를 녹여내리는 방식의 화합을 추구한다."
+        ]
+      }
+    },
+    "Mercury": {
+      "Aries": {
+        "en": [
+          "Acts on instinct first, thoughts racing just behind.",
+          "Breaks situations apart mentally while moving forward.",
+          "When challenged, seeks a logical angle to push through.",
+          "Speech and action take turns leaping ahead, negotiating balance.",
+          "Quiet tension inside: “I can’t afford to be wrong.”"
+        ],
+        "ko": [
+          "행동이 먼저 나가지만, 동시에 상황을 머리로 분해하고 계산하려 든다.",
+          "문제 앞에서는 논리와 전략으로 돌파구를 찾는다.",
+          "말과 행동이 번갈아 앞서며 균형을 탐색한다.",
+          "속에서는 “틀리면 안 된다”는 초조함이 미세하게 깔린다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "Clear presence, confident tone.",
+          "Yet inside, constantly analyzing the situation.",
+          "Under stress, feels compelled to explain, clarify, correct misunderstandings.",
+          "Sometimes over-explains and later cringes about it."
+        ],
+        "ko": [
+          "존재감이 뚜렷하며, 외적으로 자신감이 넘쳐 보인다.",
+          "그러나, 속으로는 상황을 분석하는 경향이 강하다.",
+          "위기 상황에서는 “설명해서 오해를 없애야 한다”는 본능이 발현된다.",
+          "하지만, 종종 이로 인해 말이 과해져서 스스로 민망해지기도 한다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "Lively, enthusiastic, mentally adventurous.",
+          "When in an uncomfortable situation, reacts impulsively—lightness and seriousness collide.",
+          "Still, steps back mentally to re-interpret the situation.",
+          "Once insight lands, returns to optimism and movement."
+        ],
+        "ko": [
+          "유쾌하고 열정적이며 낙천적이다.",
+          "불편하면 일단 튀어나가 보는 편이고, 진지함과 가벼움이 롤러코스터처럼 섞인다.",
+          "속으로는 한 발짝 떨어져서 상황을 분석하는 경향이 강하다.",
+          "분석을 통해 상황을 해석하면, 다시 쾌활한 자아로 돌아온다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "Calm surface, slow and steady mental accumulation beneath.",
+          "Thoughts and judgments come carefully, only after verification.",
+          "In crisis, builds logic brick by brick, grounding in facts.",
+          "Chooses precision over speed, reality over speculation."
+        ],
+        "ko": [
+          "차분해 보이지만, 머릿속은 정보와 계산이 느리게 축적된다.",
+          "말과 판단도 신중하며, 검증된 것만 받아들인다.",
+          "위기에서는 논리를 단단히 다지고 근거를 쌓는다.",
+          "비약보다 현실 감각, 속도보다 정확을 택한다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "When anxious, thoughts accelerate.",
+          "Explains, organizes, categorizes to regain control.",
+          "Can dig deeply into details—sometimes too compulsively."
+        ],
+        "ko": [
+          "불안해지면 말과 생각이 더 빨리 돌아간다.",
+          "설명하고 정리하며 스스로 컨트롤하려 한다.",
+          "디테일을 다소 강박적으로 파고들 수 있다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "Quiet, responsible, steady thinker.",
+          "Moves with precision and restraint; emotion steps aside for logic.",
+          "Enters control mode immediately when something's off.",
+          "Cuts away noise — clarity equals survival.",
+          "High-density focus, rather than explosive force."
+        ],
+        "ko": [
+          "고지식하지만 책임감 있고 신뢰가는 이미지이다.",
+          "조용히, 그러나 정확하고 냉정하게 움직인다.",
+          "문제가 보이면 망설임 없이 잘라낸다 — 정리=생존이라는 감각이 존재한다.",
+          "폭발적 에너지 대신, 고밀도의 추진력으로 밀어붙인다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "Sharp information radar, fast conversational mind.",
+          "Analysis → organization → expression flows naturally.",
+          "In crisis, interprets through data and logic first.",
+          "Feels safest when something can be understood.",
+          "Motto: “I can act once I understand.”"
+        ],
+        "ko": [
+          "정보 감각이 날카롭고, 대화 속도가 빠르다.",
+          "분석·정리·표현이 자연스럽게 연결된다.",
+          "위기에서는 논리와 지식으로 상황을 해석한다.",
+          "감정보다 사실과 가능성을 먼저 파악한다.",
+          "속에는 “일단 이해해야 움직일 수 있다”는 마음이 있다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "Graceful, socially tuned thinking style.",
+          "Avoids discomfort, yet analyzes deeply behind the scenes.",
+          "When balance breaks, shifts to explanation + reasoning mode.",
+          "Speech stays kind, but precision and speed sharpen.",
+          "Tries to avoid misunderstanding, even while calculating internally."
+        ],
+        "ko": [
+          "조화롭고 세련된 이미지와 태도를 갖추었다.",
+          "주변의 평판이 좋지만, 그 누구도 불편하게 하지 않으려 하는 강박이 있다.",
+          "균형이 깨지면 분석 + 이유 설명 모드로 안정을 찾는다.",
+          "감정보다 논리로 상황을 정돈하려 하고 말이 친절한데 약간 빠르고 정확해진다.",
+          "“오해 없게” 애쓰지만 속으로는 꽤 계산 중일 때가 있다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "Immediately shifts into analysis under pressure.",
+          "Logic precedes emotion; organizes thoughts before acting.",
+          "Outwardly gives precise answers while mentally reconstructing.",
+          "Quick, objective decisions, adjusting through dialogue."
+        ],
+        "ko": [
+          "위기 상황에서 즉시 정보 분석을 시작한다.",
+          "감정보다 논리와 분석이 우선, 행동에 옮기기 전 먼저 생각을 정리한다.",
+          "표면적으로 정확한 대답을 하지만, 속으로는 상황을 재구성한다.",
+          "빠르게 객관적인 판단을 내리고, 상대와 소통을 통해 조정한다.",
+          "결국 분석을 통한 해결을 추구한다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "Empathetic, intuitive, but surprisingly analytical.",
+          "When something unexpected hits, analyzes first, feels second.",
+          "Emotionally rich, but first response is “let me figure this out.”"
+        ],
+        "ko": [
+          "사람 마음을 잘 읽고 공감력이 뛰어나지만, 의외로 분석력이 뛰어나다.",
+          "예상 밖의 일이 일어날 때, 감정을 정리하기보다는 상황을 먼저 분석한다.",
+          "감성은 풍부하지만, 1차적 반응은 객관적 분석 시도로 시작된다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "Quiet intensity; listens and observes before speaking.",
+          "Perception works underneath every moment.",
+          "Hidden stream of judgment and intuition running inside.",
+          "Always analyzing the undercurrent and motive."
+        ],
+        "ko": [
+          "존재감이 강렬하지만, 겉은 조용하고 신중하다.",
+          "상황을 읽고, 말보다 관찰과 느낌이 먼저다.",
+          "쉽게 드러내지 않지만 내부에는 늘 에너지와 판단이 흐르고 있다.",
+          "속으로는 늘 상황을 분석하려고 하는 경향이 강하다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "Dreamy presence, intuitive mind.",
+          "Blends gut feeling and analysis seamlessly in crisis.",
+          "Tone stays gentle while thoughts cut sharply beneath.",
+          "Even when emotional, quietly gathers clues and finds the thread."
+        ],
+        "ko": [
+          "독특한 이미지에, 몽환적인 감성의 소유자이다.",
+          "직관과 분석이 섞인 방식으로 위기를 해석한다.",
+          "말은 부드럽지만 생각은 날카롭게 흐른다.",
+          "감정이 흔들려도, 결국 정보 조각들을 조용히 연결해 해답을 낸다."
+        ]
+      }
+    },
+    "Moon": {
+      "Aries": {
+        "en": [
+          "Emotion rises quickly and moves straight to action.",
+          "Acts on feelings of the moment, sometimes shifting direction with mood.",
+          "In stress, reacts first, processes later.",
+          "Instinct: protect self by staying one step ahead emotionally."
+        ],
+        "ko": [
+          "겉은 직선적이지만, 감정의 반응 속도가 빠르다.",
+          "순간순간의 느낌이 행동을 이끈다.",
+          "위기에서는 의지보다 감정의 에너지가 먼저 솟는다.",
+          "돌진이지만, 감정의 물결 속에서 방향이 바뀔 수도 있다.",
+          "속으로는 “내가 상처받기 전에 먼저 움직인다”는 마음이 있다."
+        ]
+      },
+      "Leo": {
+        "en": [
+          "Seems confident, but feelings react immediately when hurt.",
+          "May try to appear strong or proud, then disappear to regain footing.",
+          "Big feelings behind a composed face.",
+          "Sometimes goes overboard trying to protect their emotions."
+        ],
+        "ko": [
+          "평소엔 당당한 듯해도, 상처 입으면 감정이 바로 반응한다.",
+          "속상하면 자기 존재를 더 크게 보여주려 하다가 잠수를 타기도 한다.",
+          "화려한 표현 뒤에 울컥하는 감정이 있다.",
+          "때때로 감정적 자기방어가 과해지기도 한다."
+        ]
+      },
+      "Sagittarius": {
+        "en": [
+          "Naturally upbeat and hopeful.",
+          "When stirred emotionally, may laugh it off, wander, or seek space.",
+          "Recovers quickly, moving between romantic gloom and bright optimism.",
+          "Easily returns to a hopeful sense that things can improve."
+        ],
+        "ko": [
+          "유쾌하고 열정적이며 낙천적이다.",
+          "감정이 들뜨고 흔들리면 웃다가도 갑자기 멍해진다. 소란을 피해 멀리 걸어버릴 때도 있다.",
+          "마음 복구는 빠르지만 그 사이 낭만적인 비관과 과장된 희망을 오간다.",
+          "“그래도 잘 될 거야”로 돌아오는 편이다."
+        ]
+      },
+      "Taurus": {
+        "en": [
+          "Feels safest in steady, familiar emotional environments.",
+          "Calm on the surface, sensitive underneath.",
+          "In difficulty, leans on routine, comfort, and trusted people.",
+          "Fears losing stability more than the change itself."
+        ],
+        "ko": [
+          "편안함과 안정이 가장 자연스러운 보호막이다.",
+          "감정이 잔잔하고, 변화보다는 지속을 바란다.",
+          "위기에서는 익숙한 방식과 관계에 의지한다.",
+          "밖에서 보기엔 태평하지만 내면은 쉽게 불안정해진다.",
+          "속에는 “지금 가진 안정이 깨질까 두렵다”는 마음이 숨어 있다."
+        ]
+      },
+      "Virgo": {
+        "en": [
+          "Composed outside, sensitive inside.",
+          "Emotion hits quietly but stays active for a long time.",
+          "Subtle tension shows — a tightened tone, a still expression.",
+          "Remembers what affected them, even if never mentioned outwards."
+        ],
+        "ko": [
+          "차분해 보이지만 속은 섬세하며 소심한 구석이 있다.",
+          "감정이 건드려지면 겉은 담담한데 속은 한참 반응한다.",
+          "순간적으로 예민해지고 표정이 살짝 굳는다.",
+          "상대가 눈치 못 챌수도 있지만 상처를 마음속에 오래 저장된다."
+        ]
+      },
+      "Capricorn": {
+        "en": [
+          "Emotionally controlled on the outside.",
+          "In stress, scans feelings quietly and stabilizes from within.",
+          "Rarely shows inner turbulence, though it takes effort to stay composed.",
+          "Feels responsible for holding emotional structure."
+        ],
+        "ko": [
+          "고지식하지만 책임감 있고 신뢰가는 이미지이다.",
+          "겉으로는 단단하지만, 위기 상황에서는 감정 지형부터 스캔한다.",
+          "내·외부 동요를 빠르게 감지하고, 흐름을 안정시키려 한다.",
+          "직접 표현하지는 않지만, 정서적 균형에 상당한 정신적 에너지를 소모한다.",
+          "표정은 차분해도, 내면은 출렁인다."
+        ]
+      },
+      "Gemini": {
+        "en": [
+          "Light and curious emotionally, but sensitive to subtle shifts.",
+          "Thought and feeling mix; mood can change quickly.",
+          "Under stress, mind and emotions move at once.",
+          "Feels safe when the atmosphere makes sense and communication stays open."
+        ],
+        "ko": [
+          "가볍고 명랑해 보이지만 감정의 미세한 진동에 민감하다.",
+          "기분과 생각이 얽혀 움직이며, 정서적 호기심도 크다.",
+          "위기 시에는 언어와 감정이 동시에 흔들릴 수 있다.",
+          "안정되면 정서적 소통 능력이 강하게 발휘된다.",
+          "내면엔 “느낌과 공기가 맞아야 안심된다”는 마음이 있다."
+        ]
+      },
+      "Libra": {
+        "en": [
+          "Values emotional balance and mutual ease.",
+          "Avoids conflict, tries to resolve discomfort gracefully.",
+          "When upset, stays polite, yet feelings ripple below the surface.",
+          "Holds disappointment quietly, without drama."
+        ],
+        "ko": [
+          "조화롭고 세련된 이미지와 태도를 갖추었다.",
+          "주변의 평판이 좋지만, 그 누구도 불편하게 하지 않으려 하는 강박이 있다.",
+          "균형이 깨지면 분석 + 이유 설명 모드로 안정을 찾는다.",
+          "감정이 건드려지면 말투는 부드러운데 안쪽에서 섬세한 파동이 일어난다.",
+          "서운함을 정중하게 간직하는 스타일이다."
+        ]
+      },
+      "Aquarius": {
+        "en": [
+          "Appears cool; inside can shift fast.",
+          "Feels deeply but processes through distance and clarity.",
+          "In stress, steps back to organize emotions before engaging.",
+          "Prefers managing feelings privately rather than displaying them."
+        ],
+        "ko": [
+          "표면은 차갑지만, 내면은 감정이 요동친다.",
+          "감정은 잘 드러내지 않지만, 속으로는 민감하고 빠르게 반응한다.",
+          "위기 때는 감정을 즉시 정리하고, 외부와 거리 두며 대처한다.",
+          "표정은 여전히 차분하지만, 속마음은 불안정함을 감추려 노력한다.",
+          "감정의 흐름을 조용히 관리하려 한다."
+        ]
+      },
+      "Cancer": {
+        "en": [
+          "Highly sensitive and protective of inner world.",
+          "Withdraws when hurt, needing time alone to settle emotions.",
+          "First instinct is to retreat and regain emotional security."
+        ],
+        "ko": [
+          "감정적으로 섬세하고 민감하다.",
+          "쉽게 상처받으며, 상처받으면 혼자만의 동굴 속으로 침수한다.",
+          "어려운 일이 생길 때 가장 즉각적인 반응은 후퇴하여 감정을 가라앉히는 것이다."
+        ]
+      },
+      "Scorpio": {
+        "en": [
+          "Reserved outside, intense inside.",
+          "Reads emotional atmosphere before responding.",
+          "Feels deeply, even if expression stays calm.",
+          "Inner reactions are vivid, but tightly held."
+        ],
+        "ko": [
+          "존재감이 강렬하지만, 겉은 조용하고 신중하다.",
+          "상황을 읽고, 말보다 관찰과 느낌이 먼저다.",
+          "쉽게 드러내지 않지만 내부에는 늘 에너지와 판단이 흐르고 있다.",
+          "직관이 매우 강렬하지만, 내면이 그만큼 자주 요동치고는 한다.",
+          "겉으로는 평온해 보이지만 속은 굉장히 생생하고 민감하게 반응할 때가 많다."
+        ]
+      },
+      "Pisces": {
+        "en": [
+          "Soft, receptive emotional field.",
+          "Feels first, interprets through intuition.",
+          "In stress, senses mood and responds gently rather than logically.",
+          "May look unsure, but finds direction through feeling, not force."
+        ],
+        "ko": [
+          "독특한 이미지에, 몽환적인 감성의 소유자이다.",
+          "감정과 감수성이 예민하지만, 이는 나침반처럼 움직인다.",
+          "위기에서는 말보다 감정선이 먼저 반응하고, 그 분위기를 읽어 대응한다.",
+          "흔들리는 것 같아 보여도, 감정 흐름 속에서 해결책을 찾는다."
+        ]
+      }
+    }
+  },
+
+  "house_questions": {
+    "Saturn": {
+      "1": {
+        "en": [
+          "Quiet self-monitoring of image and behavior.",
+          "Feels pressure to appear composed and consistent.",
+          "Takes personal identity seriously.",
+          "Seen as responsible and self-contained."
+        ],
+        "ko": [
+          "자기 이미지와 태도를 늘 은근히 점검하고 규제한다.",
+          "'나답게 보일까', '흔들리면 안 된다'는 부담이 늘 존재한다.",
+          "자기 이미지/역할에 책임감을 느낀다.",
+          "사람들에게 책임감 있는 사람으로 보인다."
+        ]
+      },
+      "2": {
+        "en": [
+          "Weight around security, money, and resources.",
+          "Moves slowly and conservatively to build stability.",
+          "Prefers reliable methods over risk.",
+          "Protects what is hard-earned; avoids unnecessary loss."
+        ],
+        "ko": [
+          "돈, 가치, 생존, 안정감에 대해 늘 내적 무게를 느낀다.",
+          "내가 가진 것을 잃을까 조심하고 천천히 쌓으려 한다.",
+          "느리지만 확실한 방법을 선호한다.",
+          "리스크를 경계하며, 안전중시적이다."
+        ]
+      },
+      "3": {
+        "en": [
+          "Measures words; communication feels consequential.",
+          "Dislikes speaking lightly or without structure.",
+          "Needs mental clarity and solid reasoning to feel secure.",
+          "Thinks before engaging — internal checklist first."
+        ],
+        "ko": [
+          "말 한마디, 정보의 무게를 생각한다.",
+          "‘가볍게 말하면 안 된다’는 느낌이 깔려 있다.",
+          "지식/사고 체계가 탄탄해야 마음이 편하다.",
+          "대화 이전에 머리 속 체크리스트가 있다."
+        ]
+      },
+      "4": {
+        "en": [
+          "Feels the need for a strong inner foundation.",
+          "Responsibility tied to family, roots, or private life.",
+          "Can be controlling or guarded in close emotional space.",
+          "Hesitates to expose vulnerability."
+        ],
+        "ko": [
+          "내 마음의 집이 단단해야 한다고 생각한다.",
+          "가족/기원 영역에 책임감 or 무게가 있다.",
+          "가까운 관계에서 통제가 강해진다.",
+          "내면을 드러내는 데 경계가 있다."
+        ]
+      },
+      "5": {
+        "en": [
+          "Joy, creativity, and affection run through a filter of caution.",
+          "Resists wastefulness or emotional excess.",
+          "Prefers prepared expression over spontaneity.",
+          "Sensitive to failure in love or creative effort."
+        ],
+        "ko": [
+          "즐거움·창조성·애정 표현에 ‘괜찮을까?’가 끼어든다.",
+          "즐거움에도 규칙이 필요하다.",
+          "감정적 과장/허세/헛된 낭비를 경계한다.",
+          "즉흥보다 준비된 표현을 선호한다.",
+          "사랑/창작의 실패를 두려워한다."
+        ]
+      },
+      "6": {
+        "en": [
+          "Systems, routine, and competence matter deeply.",
+          "Default mindset: Do it properly.",
+          "Views errors and inefficiency as risks.",
+          "Pushes through fatigue to maintain standards."
+        ],
+        "ko": [
+          "일·몸·습관·능률을 시스템화한다.",
+          "“제대로 해야 한다”가 기본값.",
+          "실수·결함을 위험요소로 본다.",
+          "피로를 인식해도 책임을 유지하려 한다."
+        ]
+      },
+      "7": {
+        "en": [
+          "Relationships are commitments, not a pastime.",
+          "Slow to choose, careful about trust.",
+          "Values loyalty, agreements, and clear roles.",
+          "Tests reliability before fully engaging."
+        ],
+        "ko": [
+          "관계에서 책임/약속/역할을 중시한다.",
+          "상대 선택에 신중하고 느리다.",
+          "가벼운 교류보다 신뢰/계약 우선.",
+          "관계에서 경계심·테스트가 있다."
+        ]
+      },
+      "8": {
+        "en": [
+          "Approaches deep bonds with gravity and self-protection.",
+          "Highly sensitive to breached trust.",
+          "Has fears and obcession towards death and the afterlife.",
+          "Shares inner life selectively, with conditions and boundaries.",
+          "Fears exposure, yet seeks profound connection."
+        ],
+        "ko": [
+          "깊은 유대에 들어가면 진지해지고 조심스러워진다.",
+          "신뢰 손상에 극도로 예민하다.",
+          "죽음에 대한 두려움과 집착이 있는 편이다.",
+          "내밀한 것 공유에 통제와 조건이 있다.",
+          "'완전한 합일'을 두려워하면서도 통제한다."
+        ]
+      },
+      "9": {
+        "en": [
+          "Takes beliefs and meaning seriously.",
+          "Suspicious of shallow certainty.",
+          "Prefers structured, grounded growth over blind expansion.",
+          "Needs philosophical or ethical stability to feel safe."
+        ],
+        "ko": [
+          "가벼운 확신을 꺼리고, 생각의 기반이 탄탄해야 마음이 놓인다.",
+          "미래·가치관·철학을 진지하게 다룬다.",
+          "확장에도 책임감과 구조로 접근한다."
+        ]
+      },
+      "10": {
+        "en": [
+          "Strong sense of duty around role and achievement.",
+          "Reputation and results feel weighty, not optional.",
+          "Internal belief: “I must stand solid and deliver.”",
+          "Fears visible failure more than hardship."
+        ],
+        "ko": [
+          "역할과 목표에서 가장 큰 부담을 느낀다.",
+          "성과, 평판, 위치가 가볍지 않다.",
+          "“내가 제대로 서 있어야 한다”는 책임감이 깊다.",
+          "성과를 “보여줘야 한다”는 긴장이 큰 편이다.",
+          "역할 수행 실패를 가장 두려워한다."
+        ]
+      },
+      "11": {
+        "en": [
+          "Cautious about alliances and future plans.",
+          "Chooses companions intentionally; quality over crowd.",
+          "Concerned with structure and purpose in groups.",
+          "Seeks people who are reliable long-term."
+        ],
+        "ko": [
+          "집단/목표/미래 설계에 신중하다.",
+          "누구와, 어떤 구조로 함께하는지가 중요.",
+          "단순한 친목보다 '함께 갈 사람'을 본다."
+        ]
+      },
+      "12": {
+        "en": [
+          "Carries subtle pressure without clear source.",
+          "Responsibility accumulates silently, almost unconsciously.",
+          "Background tension or vigilance toward “not slipping.”",
+          "Self-monitoring that’s hard to articulate; instinctive restraint."
+        ],
+        "ko": [
+          "명확히 설명되지 않는 부담감/기대가 스며 있다.",
+          "책임감이 ‘나도 모르게’ 축적된다.",
+          "막연한 불안이 ‘배경 긴장’ 형태로 존재.",
+          "정확히 설명되지 않는 자기검열.",
+          "“흐트러지면 안 된다”는 마음이 무의식 속에 늘 존재한다."
+        ]
+      }
+    },
+    "Chiron": {
+      "1": {
+        "en": [
+          "A wound tied to identity and self-presentation.",
+          "Feels exposed or “not quite right” when revealing self.",
+          "Swings between over-assertion and withdrawal.",
+          "Often carries sensitivity about appearance or outer perception."
+        ],
+        "ko": [
+          "자신이 세상에 드러나는 모습과 정체성이 상처로 다가온다.",
+          "자아정체성 그 자체에 컴플렉스가 존재하며,",
+          "'나'를 외부에 드러내는 게 늘 어딘가 어색하게 느껴진다.",
+          "그래서 과하게 당당한 척 자기과장을 하거나 위축되기 쉽다.",
+          "외모 컴플렉스와 연관."
+        ]
+      },
+      "2": {
+        "en": [
+          "A wound tied to worth, security, and belongings.",
+          "Background fear of losing stability or not being “enough.”",
+          "A harsh inner voice about value and usefulness.",
+          "Hurt around self-worth is a lifelong theme."
+        ],
+        "ko": [
+          "가치관이나 물질에 관련된 상처가 존재한다.",
+          "내가 가진 걸 잃을것 같은 불안이 늘 배경음으로 존재한다.",
+          "자신이 쓸모 없고 부족한 사람이라는 내면 음성이 존재한다.",
+          "자존감에 관한 상처와 연관."
+        ]
+      },
+      "3": {
+        "en": [
+          "Pain around communication or early learning.",
+          "Experiences of feeling unheard, silenced, or “not allowed” to speak.",
+          "Words from others cut deeper than expected.",
+          "Voice and confidence in expression are healing paths."
+        ],
+        "ko": [
+          "소통, 학습, 형제 관계에서 상처 경험이 존재한다.",
+          "말이 막히거나, 말할 자격을 박탈당한 느낌이 존재한다.",
+          "다른 것보다 유독 타인의 말에 상처를 잘 받는 편이다."
+        ]
+      },
+      "4": {
+        "en": [
+          "Emotional roots carry ache or instability.",
+          "Wounds connected to family, belonging, or early nurturing.",
+          "A persistent feeling of being unanchored or unseen at the core.",
+          "Emotional security and safety are lifelong work."
+        ],
+        "ko": [
+          "성장환경에서 부모관계 관련 상처가 깊다.",
+          "내면에 버림받음, 소속되지 못한 느낌이 늘 존재한다.",
+          "정서적 뿌리 자체가 늘 아픈 느낌이다."
+        ]
+      },
+      "5": {
+        "en": [
+          "A wound around love, joy, and self-expression.",
+          "Fear of not being lovable or chosen.",
+          "Romance and creativity can trigger old vulnerability.",
+          "Pleasure is meaningful, but also emotionally charged."
+        ],
+        "ko": [
+          "사랑과 표현의 영역에 상처가 존재한다.",
+          "사랑받지 못하는 존재라는 상처와 연관이 깊다.",
+          "가벼운 연애여도 사랑은 늘 그 자체로 어딘가 아픔을 자극한다."
+        ]
+      },
+      "6": {
+        "en": [
+          "Pain tied to usefulness, effort, or consistency.",
+          "Fear of inadequacy or being discarded if imperfect.",
+          "Can turn into perfectionism or over-work.",
+          "Healing comes through accepting limits and being “enough” as is."
+        ],
+        "ko": [
+          "부족하면 버려질 것 같은 아픔이 존재한다.",
+          "일, 건강, 실용성 부분에서 결핍과 불안이 늘 존재한다.",
+          "강박적 완벽주의와 워커홀릭적 기질로 발현되기 쉽다."
+        ]
+      },
+      "7": {
+        "en": [
+          "A wound around closeness and partnership.",
+          "Deep bonds can feel both necessary and threatening.",
+          "May expect too much from others—or give too much and feel hurt.",
+          "Learning balanced reciprocity is key."
+        ],
+        "ko": [
+          "친밀한 관계에서의 상처를 나타낸다.",
+          "우정 사랑 막론하고 깊은 관계는 그 자체로 상처를 자극한다.",
+          "긴밀한 관계에서 상대에게 과도한 기대를 가지다 상처를 받거나,",
+          "가까운 사람에게 너무 허용적이어서 상처를 받기도 한다."
+        ]
+      },
+      "8": {
+        "en": [
+          "Pain in intimacy, trust, loss, or deep merging.",
+          "Fears exposure or vulnerability, yet longs for true connection.",
+          "Themes around sexuality, shared resources, or emotional merging.",
+          "Transformation through trust and boundaries."
+        ],
+        "ko": [
+          "성, 돈, 상실, 합일, 죽음 등 심층 영역에서 상처가 존재한다.",
+          "타인과의 심리적 융합이나 성적 결합에 불안이 존재한다.",
+          "상대와의 합일을 두려워하면서도 갈망한다."
+        ]
+      },
+      "9": {
+        "en": [
+          "A wound in belief, meaning, or worldview.",
+          "Faith or ideals may have felt betrayed or collapsed.",
+          "Skeptical yet searching—doubt and longing coexist.",
+          "Healing through building a personal philosophy."
+        ],
+        "ko": [
+          "철학, 종교 공부, 신념에 대한 혼란과 회의감을 나타낸다.",
+          "자신의 세계관에 관한 믿음이 배신당한 상처가 존재한다.",
+          "진리의 존재 여부에 냉소하지만, 그럼에도 더 큰 진리를 갈구한다."
+        ]
+      },
+      "10": {
+        "en": [
+          "Pain around recognition, success, or public role.",
+          "Feeling unseen or never “good enough” in achievement.",
+          "Deep desire to prove worth, yet fear of failing visibly.",
+          "Career and legacy become healing arenas."
+        ],
+        "ko": [
+          "사회적 성취, 커리어, 평판에 대한 상처가 존재한다.",
+          "'나는 뭘 해도 인정받을 수 없다'는 내적 목소리가 존재한다.",
+          "사회적 인정에 관한 욕구와 결핍으로 발현된다."
+        ]
+      },
+      "11": {
+        "en": [
+          "A wound around belonging in groups or communities.",
+          "Frequent sense of being an outsider, even when included.",
+          "Simultaneous pride in uniqueness and longing to belong.",
+          "Healing through finding true allies and purpose-based connection."
+        ],
+        "ko": [
+          "집단에 소속되지 못한다는 상처가 존재한다.",
+          "우정, 공동체 등, '모두'에서 홀로 이방인인 감각이 늘 존재한다.",
+          "'남들과 다른 나'에 대한 도취와 집단에 소속되고 싶은 욕구가 공존한다."
+        ]
+      },
+      "12": {
+        "en": [
+          "A diffuse, hard-to-name kind of ache.",
+          "Wounds that feel ancient, invisible, or unconscious.",
+          "Sensitive intuition, porous emotional boundaries.",
+          "Healing through rest, inner work, and gentle surrender."
+        ],
+        "ko": [
+          "왜 아픈지도 어디서부터 아픈지조차 모르는 아픔이 존재한다.",
+          "무의식 깊은 곳에 영혼 구조 자체에 새겨진 원형적 상처.",
+          "영적 감수성이나 직관이 좋은 편이며, 불면증이 있을 수도 있다."
+        ]
+      }
+    }
+  }
+}

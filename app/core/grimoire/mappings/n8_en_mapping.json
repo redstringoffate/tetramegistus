@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "stamper": "A2",
+    "ayanamsa": "B5",
+    "h_sys": "B6",
+    "arabic_ruler": "B7"
+  },
+  "columns": {
+    "minor_asteroids": "B",
+    "tropical": "C",
+    "sidereal": "D",
+    "draconic": "E",
+    "ketunic": "F",
+    "arabic_lots": "G",
+    "fixed_stars": "I"
+  },
+  "degree_rows": {
+    "Aries": { "start": 11, "end": 40, "shrink": 41 },
+    "Taurus": { "start": 42, "end": 71, "shrink": 72 },
+    "Gemini": { "start": 73, "end": 102, "shrink": 103 },
+    "Cancer": { "start": 104, "end": 133, "shrink": 134 },
+    "Leo": { "start": 135, "end": 164, "shrink": 165 },
+    "Virgo": { "start": 166, "end": 195, "shrink": 196 },
+    "Libra": { "start": 197, "end": 226, "shrink": 227 },
+    "Scorpio": { "start": 228, "end": 257, "shrink": 258 },
+    "Sagittarius": { "start": 259, "end": 288, "shrink": 289 },
+    "Capricorn": { "start": 290, "end": 319, "shrink": 320 },
+    "Aquarius": { "start": 321, "end": 350, "shrink": 351 },
+    "Pisces": { "start": 352, "end": 381, "shrink": 382 }
+  }
+}

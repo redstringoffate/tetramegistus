@@ -1,0 +1,380 @@
+/* app/static/world/citrinitas/modules/c2_shin.css */
+
+:root {
+    /* 🚀 시안색을 지우고 Shin 전용 붉은 네온/핏빛 테마로 통일 */
+    --c1-shin-red: #f51a1a; /* 강렬한 네온 레드 (버튼, 호버, 중요 포인트) */
+    --c1-shin-dark-red: #9A1005; /* 묵직한 핏빛 레드 (테두리, 텍스트) */
+    --c1-shin-bg-tint: rgba(245, 26, 26, 0.1); /* 은은한 붉은 배경 하이라이트 */
+    --c1-cyan: #49dce1;
+    /* 🚨 수정/추가: 다크 애저(Dark Azure) 색상 정의 (강력한 신비주의적 블루) */
+    --c1-dark-azure: #9A1005; 
+    --c1-bg-dark: #000;
+    --c1-border: #333; 
+    --c1-gray: #888;
+    --c1-light-gray: #ccc;
+    --c1-error: #ff4c4c;
+    --c1-font: ui-monospace, SFMono-Regular, Consolas, 'Cascadia Code', monospace;
+}
+
+#shin-app {
+    font-family: var(--c1-font);
+    color: var(--c1-light-gray);
+}
+
+/* --- Layout & State Utilities --- */
+.shin-hidden { display: none !important; }
+.shin-mt-15 { margin-top: 15px; }
+.shin-mt-20 { margin-top: 20px; }
+.shin-mt-30 { margin-top: 30px; }
+
+.shin-step {
+    display: none;
+    padding: 20px 0;
+}
+.shin-step.active {
+    display: block;
+}
+
+.shin-btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* --- Typography & Headers --- */
+.ritual-title {
+    font-size: 1.0rem !important;
+    font-weight: 600 !important;
+    color: var(--c1-cyan) !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 2rem !important;
+}
+
+.shin-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.shin-result-title {
+    margin-bottom: 0;
+    color: var(--c1-shin-red);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(245, 26, 26, 0.3); /* 은은한 붉은 광채 */
+}
+
+/* ─── 🚨 수정: Base Form CSS (c1-* 시리즈) ─── */
+.c1-module-container * { box-sizing: border-box; }
+.c1-module-container { display: flex; flex-direction: column; gap: 15px; font-family: var(--c1-font); }
+.c1-form-group { display: flex; flex-direction: column; gap: 4px; }
+.c1-coord-label { font-size: 0.8rem; color: var(--c1-gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+.c1-date-row { display: flex; gap: 10px; }
+
+/* 🚨 수정: 드롭다운(select) 및 입력창(input) 스타일 */
+.c1-select, .c1-input {
+    /* 기존: background: rgba(255, 255, 255, 0.05); border: 1px solid var(--c1-border); color: #fff; */
+    
+    /* 🚨 수정된 스타일: 연회색 배경 + 다크 애저 폰트 */
+    background: #fab4e4; 
+    border: 1px solid #b091ef; /* 연회색 배경에 맞게 테두리색 조정 */
+    color: var(--c1-dark-azure); 
+    
+    padding: 10px; font-family: var(--c1-font); font-size: 1rem;
+    outline: none; transition: border-color 0.2s; border-radius: 4px;
+}
+
+/* 🚨 추가: 드롭다운 내 <option> 요소 스타일 (브라우저 기본 렌더링 수정용) */
+.c1-select option {
+    background: var(--c1-light-gray-bg);
+    color: var(--c1-dark-azure);
+}
+
+.c1-select:focus, .c1-input:focus { border-color: var(--c1-cyan); }
+.full-width { width: 100%; }
+.c1-city-search-container { position: relative; }
+
+/* 🚨 수정: 도시 검색 결과창 규격을 Aleph와 동일하게 맞춤 */
+.c1-city-results {
+    position: absolute; top: 100%; left: 0; right: 0; 
+    max-height: 200px;
+    overflow-y: auto; z-index: 1000; display: none;
+
+    /* Aleph 스타일 복구: 배경, 테두리 */
+    background: #111;
+    border: 1px solid var(--c1-border); 
+    border-top: none; 
+}
+
+/* 🚨 수정: 도시 검색 결과 아이템 스타일 규격을 Aleph와 동일하게 맞춤 (색상은 유지) */
+.c1-result-item { 
+    /* Aleph 규격: 패딩, 폰트사이즈, 줄간격 */
+    padding: 10px; 
+    font-size: 0.95rem;
+    line-height: 1.4;
+
+    cursor: pointer; 
+    border-bottom: 1px solid #222; 
+    transition: background 0.2s; 
+}
+/* 🚨 변경 후 (아래처럼 교체) */
+.c1-result-item:hover,
+.c1-result-item.active { 
+    background: rgba(73, 220, 225, 0.1); 
+}
+
+.c1-manual-toggle {
+    text-align: right; font-size: 0.8rem; color: var(--c1-gray);
+    cursor: pointer; margin-top: 5px; text-decoration: underline;
+}
+.c1-manual-toggle:hover { color: var(--c1-cyan); }
+.c1-manual-panel {
+    margin-top: 10px; padding: 15px; background: rgba(0, 0, 0, 0.3);
+    border: 1px dashed var(--c1-border); display: flex; flex-direction: column; gap: 10px;
+}
+.c1-coord-block { display: flex; flex-direction: column; gap: 5px; }
+.c1-sub-label { font-size: 0.75rem; color: var(--c1-gray); text-transform: uppercase; }
+.c1-coord-inputs { display: flex; align-items: center; gap: 5px; }
+.c1-sign-toggle { display: flex; border: 1px solid var(--c1-border); border-radius: 4px; overflow: hidden; }
+.c1-sign-btn { padding: 5px 10px; cursor: pointer; background: #000; color: #fff; transition: all 0.15s ease; }
+.c1-sign-btn.active { background: #fff; color: #000; font-weight: bold; }
+.c1-input-int, .c1-input-dec {
+    /* input이지만 숫자입력기이므로 연회색/다크애저 스타일 적용 (JS에서 조정이 필요할 수 있음) */
+    background: transparent; border: none; border-bottom: 1px solid #555;
+    color: #fff; font-family: var(--c1-font); font-size: 1rem; text-align: center;
+    padding: 4px; outline: none; transition: border-color 0.2s;
+}
+.c1-input-int { width: 40px; }
+.c1-input-dec { width: 60px; }
+.c1-input-int:focus, .c1-input-dec:focus { border-bottom: 1px solid #fff; }
+.c1-dot { color: #888; }
+/* ------------------------------------------- */
+
+/* --- Question Area --- */
+.q-block {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid var(--c1-border);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.q-title {
+    color: var(--c1-cyan);
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.q-narrative {
+    color: var(--c1-gray);
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.q-option-block {
+    border-top: 1px dashed var(--c1-border);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.q-archetype {
+    color: #89a8f5;
+    font-size: 1.0rem;
+    margin-bottom: 8px;
+}
+
+.q-desc {
+    color: var(--c1-light-gray);
+    font-size: 0.8rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* --- Radio Buttons (O / X / ?) --- */
+.shin-radio-group {
+    display: flex;
+    gap: 15px;
+}
+.shin-radio-group input[type="radio"] {
+    display: none;
+}
+.shin-radio-label {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border: 1px solid var(--c1-border);
+    border-radius: 4px;
+    color: var(--c1-gray);
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+.shin-radio-label:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+input[type="radio"][value="O"]:checked + .shin-radio-label,
+input[type="radio"][value="?"]:checked + .shin-radio-label {
+    border-color: var(--c1-cyan);
+    color: var(--c1-cyan);
+    background: rgba(73, 220, 225, 0.1);
+}
+input[type="radio"][value="X"]:checked + .shin-radio-label {
+    border-color: #f60e0e;
+    color: #f60e0e;
+    background: rgba(73, 220, 225, 0.1);
+}
+
+/* --- Result Area --- */
+.shin-res-label {
+    color: var(--c1-gray);
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.shin-res-blocks {
+    font-family: var(--c1-font);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* 🚀 결과 블록 전체 컨테이너 */
+.shin-result-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 3px solid var(--c1-cyan);
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* 줄바꿈 간격 조절 */
+}
+
+/* 🚀 시간 라인 (불릿 + 시간) */
+.shin-res-time-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+/* 🚀 커스텀 가능한 불릿 포인트 (*) */
+.shin-bullet {
+    color: #f60e0e; /* 불릿 색상 */
+    font-size: 1.2rem;     /* 불릿 크기 */
+    font-weight: bold;
+    margin-right: 8px;     /* 시간 텍스트와의 간격 */
+    line-height: 1;
+}
+
+.shin-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: -1.8rem; /* 🚀 이거 하나로 타이틀과 RESULTS 사이 빈 공간을 훅 좁힘! */
+}
+
+.shin-result-time {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* 🚀 Arudha 및 Ascendant 텍스트 라인 */
+.shin-res-line {
+    font-size: 0.9rem;
+    padding-left: 18px; /* 위에 있는 불릿 포인트(*) 크기만큼 들여쓰기 */
+}
+
+.shin-res-arudha {
+    color: #b091ef;
+}
+
+.shin-res-asc {
+    color: #999; /* Asc 라인은 살짝 더 어둡게 처리해서 대비를 줌 */
+}
+
+.shin-error-text {
+    color: var(--c1-error);
+    font-weight: bold;
+    font-style: italic;
+    font-size: 0.7rem;
+}
+
+/* 1. 🚨 추가: Date 드롭다운과 Location 라벨 사이 3mm(약 12px) 간격 띄우기 */
+/* .c1-form-group 블록 사이에 마진을 추가해서 공간을 확보합니다 */
+.c1-form-group + .c1-form-group {
+    margin-top: 12px; 
+}
+
+
+/* ------------------------------------------- */
+/* 기존에 있던 버튼 CSS (.cyber-btn, .cyber-btn:hover, .cyber-btn-outline 등) 싹 다 지우고 아래로 교체 */
+/* ------------------------------------------- */
+
+
+/* --- 🚨 수정: 사이버네틱 버튼 공통 스타일 (Initiate, Back, Next 모두 적용) --- */
+.cyber-btn, .cyber-btn-outline {
+    background: rgba(10, 10, 15, 0.6); /* 어두운 반투명 배경 */
+    border-radius: 3px solid var(--c1-cyan); /* 시안색 테두리 */
+    color: var(--c1-cyan); /* 시안색 텍스트 */
+    padding: 12px;
+    font-size: 1.0rem;
+    font-family: var(--c1-font);
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    transition: all 0.3s ease;
+    
+    /* 기본 상태에서도 미세하게 뿜어져 나오는 네온 박스 섀도우 */
+    box-shadow: 0 0 8px rgba(73, 220, 225, 0.15), inset 0 0 5px rgba(73, 220, 225, 0.1);
+}
+
+/* 🚀 사이버네틱 Hover 이펙트 (마우스 올렸을 때 발광) */
+.cyber-btn:hover, .cyber-btn-outline:hover {
+    background: #f51a1a !important; /* 배경색이 시안빛으로 일렁임 */
+    border-radius: 3px !important;
+    border-color: #fff !important; /* 테두리가 퓨어 화이트로 발광 */
+    color: #fff !important; /* 텍스트 화이트 점등 */
+    
+    /* 안팎으로 강렬하게 터지는 네온 글로우 */
+    box-shadow: 0 0 15px rgba(73, 220, 225, 0.6), inset 0 0 10px rgba(73, 220, 225, 0.3);
+    /* 글자 자체에도 빛 번짐 효과 (Text Shadow) */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 15px var(--c1-cyan);
+    
+    /* 살짝 위로 떠오르는 물리적 피드백 */
+    transform: translateY(-1px); 
+}
+
+/* ⚡ 클릭(Active) 시 눌리는 이펙트 */
+.cyber-btn:active, .cyber-btn-outline:active {
+    transform: translateY(1px); /* 꾹 눌리는 느낌 */
+    box-shadow: 0 0 5px rgba(73, 220, 225, 0.3), inset 0 0 8px rgba(73, 220, 225, 0.4);
+    text-shadow: none;
+}
+
+/* ==========================================================
+   🚀 타이틀과 입력창(Date/Location) 사이 여백 싱크 맞추기
+   ========================================================== */
+.ritual-header {
+    margin-bottom: 2rem;
+}
+
+.ritual-header .ritual-title {
+    margin-bottom: 0 !important; /* 중첩된 마진 제거 */
+}
+
+#step-1-input.shin-step {
+    padding-top: 0 !important; /* 범인: 위쪽 20px 패딩 강제 제거 */
+}

@@ -1,0 +1,458 @@
+/* a5.css - ASPECTUS Module (v19.2.3 Integrated Patch) */
+
+.a5-schema {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    color: #e0e0e0;
+    width: 100%;
+}
+
+/* 1. Header & Controls */
+.schema-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 20px;
+}
+
+#method-switch-container {
+    margin-top: 0px !important; /* 🚀 15px -> 8px로 축소 (약 0.5cm 느낌) */
+    margin-bottom: 10px;        /* 하단 여백 확보 */
+}
+
+.module-title {
+    display: block;
+    width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    font-size: 1.5rem !important; 
+    font-weight: 600 !important;
+    letter-spacing: 3px;        
+    line-height: 1.0;
+    text-transform: uppercase;
+    color: #000 !important;    
+    margin: 20px 0 50px 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* 1. Header & Controls - N2 Benchmarking Edition */
+
+.dichotomy-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px; /* N2 스타일의 여백 확보 */
+}
+
+.dicho-label {
+    /* N2 Principia 특유의 얇고 날카로운 폰트 설정 이식 */
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+    font-size: 0.65rem !important; /* 0.8rem에서 0.65rem으로 축소 (얇쌍함의 핵심) */
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* 미세한 자간 확장 */
+    transition: 0.2s ease;
+    user-select: none;
+}
+
+.dicho-label.active {
+    /* N5 고유의 Cyan Blue 대신 N2의 정체성인 글로우 효과 적용 */
+    color: #49dce1 !important; /* UNUS/INTERSECTUS 고유색 유지 */
+    font-weight: normal !important; /* 굵게 만들지 않아야 얇은 미학이 유지됨 */
+    text-shadow: 0 0 5px #49dce1, 0 0 10px rgba(73, 220, 225, 0.5); /* 폰트 글로우 핵심 */
+}
+
+.toggle-switch {
+    width: 34px !important;  /* 40px -> 34px로 축소 */
+    height: 16px !important; /* 20px -> 16px로 축소 */
+    background: #111;
+    border: 1px solid #444;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-knob {
+    width: 12px !important;  /* 14px -> 12px */
+    height: 12px !important; /* 14px -> 12px */
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px; /* 내부 여백 미세 조정 */
+    left: 2px;
+    transition: 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.toggle-knob.right {
+    left: 18px !important; /* 스위치 축소에 따른 이동 거리 조정 */
+    background: #49dce1;   /* 핸들 색상도 Cyan Blue로 통일 */
+    box-shadow: 0 0 8px #49dce1;
+}
+
+/* System Selectors (Intersectus Mode) */
+.system-selectors {
+    display: none; /* JS에서 제어 */
+    align-items: center; /* 🚀 모든 요소를 수직 중앙 정렬하여 ✕ 아이콘 고정 */
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #222;
+    margin: 20px 0;
+}
+
+.sel-icon {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1;
+    margin-top: 15px; /* 🚀 레이블 높이를 고려한 미세 조정 */
+    user-select: none;
+}
+
+/* a5.css - Intersectus ENTER 버튼 디자인 수복 */
+
+.enter-btn {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid #49dce1;
+    color: #49dce1;
+    
+    /* 🚀 N5 미학 벤치마킹 */
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 8px 25px;            /* 🚀 더 길고 균형 잡힌 비율 */
+    text-transform: uppercase;
+    
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.enter-btn:hover {
+    background: #49dce1;
+    color: #000;
+    box-shadow: 0 0 15px rgba(73, 220, 225, 0.4); /* 🚀 A5 고유 광원 효과 */
+}
+
+.sel-group label {
+    display: block;
+    font-size: 0.7rem;
+    color: #888;
+    margin-bottom: 4px;
+}
+.system-selectors select {
+    background: #000; color: #fff;
+    border: 1px solid #555;
+    padding: 4px 8px;
+    font-family: inherit;
+    width: 120px;
+}
+
+.spacer-50 { height: 50px; }
+
+/* 2. Patterns Table */
+/* a5.css - PATTERNS & ASPECTS 소제목 수복 */
+
+.section-title {
+    /* 🏛️ N4 Arcana(.category-label & .materia-title) 규격 융합 */
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    font-size: 0.85rem !important; 
+    font-weight: 600 !important;      /* 🚀 얇은 느낌 제거를 위한 굵기 강화 */
+    letter-spacing: 3px !important;   /* 🚀 N4 특유의 넓은 자간 적용 */
+    text-transform: uppercase !important;
+    line-height: 1.0 !important;
+
+    /* 💎 A5 고유 정체성 유지 */
+    color: #49dce1 !important; 
+    border-left: 2px solid #49dce1 !important;
+    padding-left: 12px !important;
+    margin-bottom: 20px !important;
+    margin-top: 30px !important;
+}
+
+/* 2. Patterns 표 10줄 고정 및 스크롤 바둑판 구현 */
+.patterns-container {
+    height: 200px; /* N5 규격 */
+    overflow: auto;
+    border: 1px solid #222;
+    background: rgba(0, 0, 0, 0.4); /* N5 배경 */
+    margin-top: 15px;
+}
+
+/* 3. 우측 세로 스크롤바 커스텀 (Obnoxious White 방지) */
+.patterns-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.patterns-container::-webkit-scrollbar-thumb {
+    background: #333; /* 차분한 회색 */
+    border-radius: 3px;
+}
+
+.patterns-container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* 호버 시 약간 밝게 */
+}
+
+.a5-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.a5-table th {
+    text-align: left;
+    border-bottom: 1px solid #555;
+    padding: 8px;
+    color: #666;
+    font-weight: normal;
+}
+
+.a5-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #222;
+}
+
+.shape-name {
+    font-weight: bold;
+    color: #fff;
+    cursor: help;
+    text-decoration: underline dotted #666;
+}
+.shape-name:hover { color: #49dce1; } 
+/* 4. Shape 버튼 스타일 (Celestial Bodies와 동일한 규격) */
+.shape-btn {
+    width: 100%;
+    text-align: left;
+    background: #000 !important; /* 🚀 검은 배경 강제 */
+    border: none !important;
+    color: #fff !important;      /* 🚀 흰색 폰트 강제 */
+    padding: 8px 10px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: normal;
+    cursor: pointer;
+    transition: 0.1s;
+    text-decoration: underline dotted #444; 
+}
+
+.shape-btn:hover {
+    background: rgba(73, 220, 225, 0.05);
+    color: #49dce1;
+}
+
+.shape-btn.active {
+    background-color: #49dce1 !important;
+    color: #000 !important;
+    font-weight: bold;
+}
+
+/* 3. Aspects Explorer (Horizontal Line & Scroll Fix) */
+
+.aspect-tabs {
+    display: inline-flex;
+    border: 1px solid #333;
+    background: #000 !important; /* 🚀 탭 바 배경 검정 */
+    gap: 0;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: #000 !important; /* 🚀 개별 버튼 배경 검정 */
+    border: none;
+    border-right: 1px solid #222;
+    color: #fff !important;      /* 🚀 폰트 흰색 */
+    padding: 8px 20px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.2s;
+    text-transform: uppercase;
+}
+
+.tab-btn:last-child { border-right: none; }
+.aspect-tabs .tab-btn.active {
+    background-color: #49dce1 !important; /* DDS Green */
+    color: #000 !important;
+    font-weight: bold;
+    border: 1px solid #49dce1;
+    box-shadow: 0 0 10px rgba(124, 255, 155, 0.4);
+}
+
+.aspect-explorer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.col-header {
+    padding: 10px;
+    font-size: 0.75rem;
+    color: #555;
+    text-align: center;
+    border-bottom: 1px solid #222;
+    text-transform: uppercase;
+}
+
+/* 🔑 [핵심]: 컬럼 높이 고정 및 흘러내림 방지 */
+.aspect-explorer .col-content {
+    height: 376px;         /* 헌법 v19.2 규격 높이 */
+    overflow-y: auto;      
+    overflow-x: hidden;    
+    border: 1px solid #222;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0;            /* 가로 선이 꽉 차도록 패딩 제거 */
+}
+
+/* 🔑 [수복]: Celestial Bodies 스크롤바(Obnoxious White) 제거 */
+#col-bodies .col-content {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+#col-bodies .col-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* 🔑 [수복]: Aspects & Objects 눈에 안 띄는 회색 스크롤바 */
+#col-aspects .col-content::-webkit-scrollbar,
+#col-objects .col-content::-webkit-scrollbar {
+    width: 4px;
+}
+#col-aspects .col-content::-webkit-scrollbar-thumb,
+#col-objects .col-content::-webkit-scrollbar-thumb {
+    background: #333;      /* 차분한 회색 */
+    border-radius: 4px;
+}
+
+/* 🔑 [수복]: 가로 구분선(Horizontal Bar) 및 버튼 스타일 */
+.explorer-btn {
+    text-align: left;
+    background: #000 !important; /* 🚀 버튼 배경 검정 */
+    border: none;
+    border-bottom: 1px solid #222;
+    color: #fff !important;      /* 🚀 폰트 흰색 */
+    padding: 10px 15px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.1s;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.explorer-btn:hover {
+    background: rgba(73, 220, 225, 0.05);
+}
+.explorer-btn:hover:not(.active) {
+    background: rgba(73, 220, 225, 0.1) !important;
+    color: #49dce1 !important;
+}
+
+#list-objects .explorer-btn {
+    color: #ccc !important; /* Objects는 요청하신 대로 약간 흐린 흰색 */
+}
+#list-aspects .explorer-btn {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    letter-spacing: 1px;
+}
+
+/* 🚀 [수복]: Objects 항목 (가는 폰트) */
+#list-objects .explorer-btn {
+    color: #ccc !important;      /* 약간 더 차분한 흰색 */
+}
+
+/* 🟢 [v19.2 Patch]: 활성화 상태 (DDS Green) */
+.explorer-btn.active {
+    background-color: #49dce1 !important; /* Cyan Blue 유지 */
+    color: #000 !important;              /* 검은 폰트 유지 */
+    font-weight: bold !important;
+}
+.explorer-btn.dimmed {
+    opacity: 0.3;
+    pointer-events: none; 
+}
+
+.orb-value {
+    font-size: 0.75rem;
+    color: #777;
+}
+
+.aspect-group-label {
+    font-size: 0.7rem;
+    color: #444;
+    margin: 15px 0 5px 0;
+    padding-left: 15px;
+    text-transform: uppercase;
+}
+
+/* Tooltip & Other Assets */
+.a5-tooltip {
+    position: fixed;
+    background: rgba(0,0,0,0.95);
+    border: 1px solid #fff;
+    color: #eee;
+    padding: 12px;
+    font-size: 0.8rem;
+    max-width: 250px;
+    display: none;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.placeholder-text {
+    text-align: center;
+    color: #444;
+    margin-top: 50px;
+    font-style: italic;
+}
+
+/* a5.css - A6(MULTIPLICATIO) 비주얼 로직 완전 이식 */
+
+/* 🚀 [A6 Visual Logic]: 버튼 내부 요소 양끝 정렬 */
+.explorer-btn {
+    width: 100%;
+    text-align: left;
+    background: #000 !important;
+    border: none;
+    border-bottom: 1px solid #111;
+    color: #fff !important;
+    padding: 12px 15px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    
+    /* 🔑 핵심: Flexbox 양끝 정렬 (숫자를 오른쪽으로 밀어냄) */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            
+    
+    overflow: hidden; 
+    box-sizing: border-box; 
+    transition: 0.1s;
+}
+
+/* 🚀 [A6 Visual Logic]: 이름 텍스트가 길 경우 생략 처리 */
+.explorer-btn span:first-child {
+    flex: 1; 
+    min-width: 0; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+}
+
+/* 🚀 [A6 Visual Logic]: 숫자 태그 기본 속성 */
+.count-tag {
+    flex-shrink: 0; 
+    white-space: nowrap;
+}
+
+/* 🚀 [A6 Visual Logic]: Active 상태 전이 (반전 효과) */
+/* 버튼이 활성화(Cyan Blue)되면 숫자의 배경을 어둡게 만들어 가독성을 확보합니다. */
+.explorer-btn.active .count-tag {
+    background: rgba(0, 0, 0, 0.2) !important;
+    color: #000 !important;
+    font-weight: bold;
+}

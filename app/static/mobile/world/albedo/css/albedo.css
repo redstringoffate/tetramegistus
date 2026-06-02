@@ -1,0 +1,30 @@
+/* 📱 Mobile Albedo Theme */
+#stage-container.stage-albedo .page-content {
+  background: #f0f0f0;
+  color: #000;
+}
+
+#stage-container.stage-albedo .page-content h1,
+#stage-container.stage-albedo .page-content p,
+#stage-container.stage-albedo .page-content button {
+  color: #000;
+}
+
+#stage-container.stage-albedo .page-content button {
+  background: #ffffff;
+  border: 1px solid #ccc;
+}
+
+/* 🚀 밝은 배경에 맞춘 어두운 푸터 선과 텍스트 */
+#stage-container.stage-albedo .m-content-footer {
+  border-top: 1px dashed rgba(0, 0, 0, 0.2) !important;
+}
+
+#stage-container.stage-albedo .m-content-footer .credits {
+  color: #555 !important;
+}
+
+#stage-container.stage-albedo .m-content-footer a {
+  color: #333 !important; /* 알베도에서는 검은 텍스트가 어울림 */
+  font-weight: bold;
+}

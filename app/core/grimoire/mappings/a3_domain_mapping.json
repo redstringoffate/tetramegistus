@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "ascendant": "B4",
+    "midheaven": "B5",
+    "sys_tab": "B6",
+    "ayanamsa": "C6",
+    "h_sys": "B7"
+  },
+  "houses": {
+    "1": { "info": "B", "range": "C", "planets": "D", "asteroids": "E", "hermetic": "F", "row_start": 10 },
+    "2": { "info": "B", "range": "C", "planets": "D", "asteroids": "E", "hermetic": "F", "row_start": 11 },
+    "3": { "info": "B", "range": "C", "planets": "D", "asteroids": "E", "hermetic": "F", "row_start": 12 },
+    "4": { "info": "B", "range": "C", "planets": "D", "asteroids": "E", "hermetic": "F", "row_start": 13 },
+    "5": { "info": "B", "range": "C", "planets": "D", "asteroids": "E", "hermetic": "F", "row_start": 14 },
+    "6": { "info": "B", "range": "C", "planets": "D", "asteroids": "E", "hermetic": "F", "row_start": 15 },
+    "7": { "info": "B", "range": "C", "planets": "D", "asteroids": "E", "hermetic": "F", "row_start": 16 },
+    "8": { "info": "B", "range": "C", "planets": "D", "asteroids": "E", "hermetic": "F", "row_start": 17 },
+    "9": { "info": "B", "range": "C", "planets": "D", "asteroids": "E", "hermetic": "F", "row_start": 18 },
+    "10": { "info": "B", "range": "C", "planets": "D", "asteroids": "E", "hermetic": "F", "row_start": 19 },
+    "11": { "info": "B", "range": "C", "planets": "D", "asteroids": "E", "hermetic": "F", "row_start": 20 },
+    "12": { "info": "B", "range": "C", "planets": "D", "asteroids": "E", "hermetic": "F", "row_start": 21 }
+  }
+}

@@ -1,0 +1,182 @@
+/* static/mobile/world/citrinitas/modules/c2_mem.css */
+
+.m-c1-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.m-c1-option-card {
+    border: 1px solid #444;
+    background: #050505;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.15s ease;
+    color: #aaa;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    border-radius: 4px;
+    text-align: left;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 터치 시 색상 반전 (Hover 대용) */
+.m-c1-option-card:active {
+    border-color: #49dce1;
+    background: #49dce1;
+    color: #000;
+    font-weight: bold;
+}
+
+.m-scn-scene {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    border: 1px solid #49dce1;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* 🚀 [수복]: 모바일 배경 이미지 완벽 중앙 정렬 및 블러 테두리 울음(치우침 착시) 방지 */
+.m-scn-bg {
+    position: absolute; 
+    top: 0; left: 0; right: 0; bottom: 0;
+    
+    /* 1. X축, Y축 모두 완벽한 중앙으로 렌더링 강제 */
+    background-size: cover !important; 
+    background-position: center center !important; 
+    background-repeat: no-repeat !important;
+    
+    opacity: 0; 
+    filter: blur(15px);
+    
+    /* 2. Scale을 살짝 키워서 블러 테두리가 화면 밖으로 나가게 함 (치우침 착시 완벽 제거) */
+    transform: scale(1.1); 
+    transform-origin: center center;
+    
+    transition: opacity 1.5s ease-out, filter 2s ease-out;
+}
+
+.m-scn-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 1.5s ease-in-out;
+}
+
+.m-scn-content {
+    position: relative; z-index: 10;
+    padding: 25px 20px;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* 애니메이션 트리거 */
+.m-scn-scene.revealed .m-scn-bg { opacity: 1; filter: blur(0px); }
+.m-scn-scene.veiled .m-scn-overlay { background: rgba(0, 0, 0, 0.8); }
+.m-scn-scene.veiled .m-scn-content { opacity: 1; }
+
+/* 테마 커스텀 (어둠 / 빛) */
+.m-scn-scene.m-theme-dark .m-scn-bg { background-color: #000; background-image: none !important; }
+.m-scn-scene.m-theme-dark .m-scn-content { color: #fff !important; }
+.m-scn-scene.m-theme-light .m-scn-bg { background-color: #fff !important; background-image: none !important; }
+.m-scn-scene.m-theme-light.veiled .m-scn-overlay { background: rgba(255, 255, 255, 0.85); }
+.m-scn-scene.m-theme-light .m-scn-content { color: #000; text-shadow: none; }
+.m-scn-scene .m-c1-option-card { background: rgba(0, 0, 0, 0.6); border-color: rgba(73, 220, 225, 0.4); }
+.m-scn-scene.m-theme-light .m-c1-option-card { background: rgba(255, 255, 255, 0.6); border-color: #888; color: #333; }
+.m-scn-scene.m-theme-light .m-c1-option-card:active { background: #49dce1; border-color: #49dce1; color: #000; }
+
+/* 텍스트 포맷팅 */
+.m-scene-title {
+    color: #49dce1;
+    font-size: 1.1rem;
+    margin-top: 0; margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.m-scn-scene.m-theme-light .m-scene-title { color: #000; }
+
+.m-scene-instruction { color: #888 !important; font-size: 0.75rem; margin-bottom: 25px; }
+.m-scene-narrative {
+    font-size: 0.85rem; font-style: italic; line-height: 1.6;
+    margin-bottom: 25px; color: #ccc !important;
+}
+.m-scn-scene.m-theme-light .m-scene-narrative { color: #333; }
+
+/* ==========================================================
+   [ מ ] Mem : Manual Entry Panel (Black & White Theme)
+   ========================================================== */
+
+/* 1. 토글 버튼 우측 정렬 */
+#mem-app .m-c1-manual-toggle {
+    text-align: right !important;
+    display: block !important;
+    color: #888 !important;
+}
+
+#mem-app .m-c1-manual-toggle:active {
+    color: #fff !important; 
+}
+
+/* 2. 매뉴얼 입력 패널 컨테이너 (B&W) */
+#mem-app .m-c1-manual-panel {
+    background: #474747 !important;
+    border: 1px solid #444 !important; 
+    padding: 15px !important;
+    margin-top: 10px !important;
+    border-radius: 4px !important;
+}
+
+/* 3. 서브 라벨 */
+#mem-app .m-c1-sub-label {
+    color: #aaa !important;
+}
+
+/* 4. +/- 방향 전환 버튼 (핵심 B&W 포인트) */
+#mem-app .m-c1-sign-group {
+    border: 1px solid #fff !important; 
+}
+
+#mem-app .m-c1-sign-btn {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+#mem-app .m-c1-sign-btn.active {
+    background: #fff !important;
+    color: #000 !important;
+    font-weight: bold !important;
+}
+
+#mem-app .m-c1-sign-btn:not(.active):active {
+    background: #222 !important;
+}
+
+/* 5. 위도/경도 숫자 입력칸 */
+#mem-app .m-c1-input-int, 
+#mem-app .m-c1-input-dec {
+    border-bottom: 1px solid #555 !important;
+    color: #fff !important;
+}
+
+#mem-app .m-c1-input-int:focus, 
+#mem-app .m-c1-input-dec:focus {
+    border-bottom: 1px solid #fff !important; 
+}
+
+#mem-app .m-c1-dot {
+    color: #fff !important;
+    font-weight: bold !important;
+}
+
+/* 6. Timezone 드롭다운 덮어쓰기 */
+#mem-app .m-c1-select {
+    border: 1px solid #555 !important;
+    background-color: #0a0a0a !important;
+    color: #fff !important;
+}
+
+#mem-app .m-c1-select:focus {
+    border-color: #fff !important;
+}

@@ -1,0 +1,48 @@
+{% extends "mobile/world/shell/base.html" %}
+
+{% block content %}
+<div class="m-main-display">
+    {% if not active_module %}
+        <div class="m-stage-header">
+            <h1>{{ stage | upper }}</h1>
+            <p class="m-stage-desc">
+                {% if stage == 'nigredo' %}The world begins in Nigredo.
+                {% elif stage == 'albedo' %}The whitening of matter.
+                {% elif stage == 'citrinitas' %}The dawning of gold.
+                {% elif stage == 'rubedo' %}The final reddening.
+                {% endif %}
+            </p>
+        </div>
+    {% else %}
+
+        <div id="m-global-time-lock" class="m-hidden" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #050505; z-index: 1000; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; box-sizing: border-box;">
+            <svg viewBox="0 0 24 24" width="48" height="48" stroke="#ff4b4b" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <h3 style="color:#ff4b4b; margin: 0 0 10px 0; letter-spacing: 2px;">TIME UNKNOWN</h3>
+            <p style="color:#888; font-size: 0.85rem; line-height: 1.5;">This module requires a precise time of birth.<br>Calculation is locked.</p>
+        </div>
+
+        <div class="m-module-content" id="m-global-mod-content" data-active-module="{{ active_module }}">
+            {% include "mobile/world/" + stage + "/modules/" + active_module + ".html" ignore missing with context %}
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<div class="m-module-menu">
+    {% for module in modules %}
+        <div class="m-mod-item-wrapper">
+            <a href="?module={{ module.id }}" 
+               class="m-mod-item {{ 'active' if active_module == module.id else 'inactive' }}"
+               data-mod-id="{{ module.id }}">
+                <span class="m-mod-id">{{ module.id | upper }}</span>
+                <span class="m-mod-title">{{ module.title }}</span>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

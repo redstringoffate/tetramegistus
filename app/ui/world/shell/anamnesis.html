@@ -1,0 +1,213 @@
+{% extends "world/shell/base.html" %}
+
+{% block content %}
+<style>
+    .anamnesis-container {
+        max-width: 800px;
+        margin-left: 10px;
+        padding-top: 0px;
+    }
+
+    .page-title {
+        font-family: inherit;
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: rgb(3, 234, 252);
+        margin-bottom: 50px;
+        text-shadow: 0 0 10px rgba(3, 234, 252, 0.5);
+    }
+
+    /* Reset Section */
+    .reset-section {
+        margin-bottom: 80px;
+    }
+
+    .section-label {
+        color: #7CFF9B;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .input-group label {
+        width: 180px;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    .input-group input {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #333;
+        color: #7CFF9B;
+        outline: none;
+        width: 200px;
+        font-family: inherit;
+        padding: 5px;
+    }
+
+    .error-msg {
+        color: #ff4444;
+        font-size: 0.75rem;
+        margin-left: 180px;
+        margin-top: 5px;
+        height: 1rem;
+        font-family: 'JetBrains Mono', monospace;
+        opacity: 0.8;
+        transition: color 0.3s ease;
+    }
+
+    .reset-btn {
+        margin-top: 15px;
+        margin-left: 320px;
+        background: transparent;
+        border: 1px solid #444;
+        color: #555;
+        padding: 5px 20px;
+        cursor: pointer;
+        font-family: inherit;
+        transition: all 0.3s;
+    }
+
+    .reset-btn:hover {
+        border-color: #7CFF9B;
+        color: #7CFF9B;
+        text-shadow: 0 0 5px rgba(124, 255, 155, 0.5);
+    }
+
+    /* Code Section */
+    .code-section {
+        margin-top: 20px;
+    }
+
+    .code-label {
+        font-size: 0.75rem;
+        color: #444;
+        margin-bottom: 8px;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+    }
+
+    .master-code {
+        display: inline-block;
+        font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+        font-size: 0.95rem; 
+        font-weight: 500;
+        color: #7CFF9B;
+        letter-spacing: 0.05em;
+        cursor: help;
+        position: relative;
+        opacity: 0.85;
+    }
+
+    /* 🔑 수정: 일회용 및 갱신 경고 시각화 */
+    .master-code:hover::after {
+        content: "Disposable. Will renew immediately after bypass.";
+        position: absolute;
+        left: 0;
+        top: 25px;
+        width: max-content;
+        padding: 0;
+        background: transparent;
+        border: none;
+        color: #ff4b4b; /* 경고를 위한 Red 계열 */
+        font-size: 0.7rem;
+        font-style: italic;
+        z-index: 1000;
+        text-shadow: 0 0 8px rgba(255, 75, 75, 0.6);
+        pointer-events: none;
+        animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="anamnesis-container">
+    <h1 class="page-title">Anamnesis Core</h1>
+
+    <div class="reset-section">
+        <div class="section-label">Password Reset</div>
+        <div class="input-group">
+            <label>Current Password:</label>
+            <input type="password" id="current-pw" autocomplete="off">
+        </div>
+        <div class="input-group">
+            <label>New Password:</label>
+            <input type="password" id="new-pw" autocomplete="off">
+        </div>
+        
+        <div id="pw-error" class="error-msg"></div>
+        
+        <button class="reset-btn" id="reset-trigger">Reset</button>
+    </div>
+
+    <div class="code-section">
+        <div class="code-label">16-digit master key (Disposable)</div>
+        <div class="master-code">
+            {{ user_master_key if user_master_key else "XXXX-XXXX-XXXX-XXXX" }}
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('reset-trigger').addEventListener('click', async () => {
+    const currentPw = document.getElementById('current-pw').value;
+    const newPw = document.getElementById('new-pw').value;
+    const errorDiv = document.getElementById('pw-error');
+    
+    errorDiv.innerText = "";
+    errorDiv.style.color = "#ff4444"; 
+
+    if (!currentPw || !newPw) {
+        errorDiv.innerText = "Error: Null values detected.";
+        return;
+    }
+
+    if (newPw.length < 8) {
+        errorDiv.innerText = "Error: Input sequence too short (min 8).";
+        return;
+    }
+
+    try {
+        const formData = new FormData();
+        formData.append('current_pw', currentPw);
+        formData.append('new_pw', newPw);
+
+        const response = await fetch('/api/auth/reset-password', {
+            method: 'POST',
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.status === "success") {
+            errorDiv.style.color = "rgb(3, 234, 252)";
+            errorDiv.innerText = result.message;
+            
+            document.getElementById('current-pw').value = "";
+            document.getElementById('new-pw').value = "";
+
+            setTimeout(() => {
+                errorDiv.innerText = "";
+                // 🔑 비밀번호 변경 시 키가 갱신되었으므로 페이지 새로고침 유도 또는 텍스트 업데이트 로직 필요 시 추가
+                window.location.reload(); 
+            }, 1500);
+
+        } else {
+            errorDiv.innerText = result.message;
+        }
+    } catch (err) {
+        errorDiv.innerText = "Error: Connection to core lost.";
+        console.error(err);
+    }
+});
+</script>
+{% endblock %}

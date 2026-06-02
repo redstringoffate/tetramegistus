@@ -1,0 +1,326 @@
+/* static/world/albedo/modules/a9.css */
+@import "/static/world/nigredo/modules/n9.css"; /* N9의 기본 차트 레이아웃 상속 */
+
+/* =========================================================
+   🚀 [A9 전용 마스터 컨트롤 패널]: N9과 완전히 독립된 독자적 변수
+   ========================================================= */
+:root {
+    /* ↕️ 세로 폭 (모든 줄 공통 높이 및 하단 선 두께) */
+    --a9-h-row: 35px;
+    --a9-h-line: 3px;
+
+    /* ↔️ 가로 폭 (하위 1칸 기준 폭 -> 상위 제목은 이 폭의 합산으로 자동 팽창함) */
+    --a9-w-date: 110px;    /* Date (날짜) 컬럼 */
+    --a9-w-age: 50px;      /* Age 컬럼 (Jyotish) */
+    
+    /* 공유 폭 (Davison & Synastry 공통) */
+    --a9-w-zr: 35px;       /* ZR 하위 레벨 (L1, L2, L3) 1칸의 폭 */
+    --a9-w-trs: 35px;      /* Transits 기호 1칸의 폭 */
+
+    /* 🛡️ Davison 전용 폭 */
+    --a9-w-fir-dav: 70px;  /* Firdaria M / S (Davison) */
+    --a9-w-prof-dav: 100px; /* Profections P (Davison) */
+
+    /* ⚔️ Synastry 전용 폭 (Davison과 완전히 독립됨) */
+    --a9-w-fir-syn: 45px;  /* Firdaria M / S (Synastry) */
+    --a9-w-prof-syn: 40px; /* Profections P (Synastry) */
+
+    /* ☸️ Jyotish 전용 폭 (L1, L2, L3 폭의 합이 상단 A, CONIUNCTIO, B 폭을 결정) */
+    --a9-w-jyo: 30px;
+}
+
+/* =========================================================
+   🚀 [Theme Override]: Albedo Black Title & Cyan Accents
+   ========================================================= */
+.a9-title {
+    display: block;
+    width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    font-size: 1.5rem !important; 
+    font-weight: 600 !important;
+    letter-spacing: 3px;        
+    line-height: 1.0;
+    text-transform: uppercase;
+    color: #000 !important;    
+    margin: 20px 0 50px 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.cyan-knob { background-color: #49dce1 !important; }
+.dicho-label.active {
+    color: #49dce1 !important;
+    text-shadow: 0 0 5px #49dce1, 0 0 10px rgba(73, 220, 225, 0.5) !important;
+}
+
+/* 현재 날짜 하이라이트 (Cyan) */
+.n9-today-row td {
+    border-top: 2px solid #49dce1 !important;
+    border-bottom: 2px solid #49dce1 !important;
+    background-color: rgba(73, 220, 225, 0.1) !important;
+    box-shadow: inset 0 0 15px rgba(73, 220, 225, 0.3) !important;
+}
+.n9-today-row td:first-child { border-left: 2px solid #49dce1 !important; }
+.n9-today-row td:last-child { border-right: 2px solid #49dce1 !important; }
+
+/* 🌟 Date 컬럼 전용 오버라이드: 뒤가 비치는 것을 차단 (Cyan 테마 톤다운) */
+.n9-today-row td.n9-date-col {
+    background-color: #051a1c !important; /* 투명도 없는 Solid Dark Cyan */
+    box-shadow: inset 0 0 15px rgba(73, 220, 225, 0.3), 3px 0 10px -1px rgba(0,0,0, 0.8) !important;
+}
+
+/* 🚀 [Synastry Colors]: A (Red) & B (Blue) */
+.th-syn-a { color: #C71A03 !important; font-weight: bold; }
+.th-syn-b { color: #1809C7 !important; font-weight: bold; }
+.th-syn-dav { color: #49dce1 !important; font-weight: bold; } /* Coniunctio */
+
+/* 🚀 [Veil Effects]: 아직 태어나지 않은 자의 시간 */
+.a9-veil-cell {
+    background-color: #050505 !important;
+    color: transparent !important;
+    border-color: #050505 !important; /* 테두리 지움 */
+    position: relative;
+    z-index: 1;
+}
+
+/* 장막 끝자락의 텍스트 연출 */
+.veil-text-box {
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+    font-family: serif;
+    font-style: italic;
+    font-size: 0.65rem;
+    pointer-events: none;
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+.veil-light { color: #ffffff; text-shadow: 0 0 5px rgba(255,255,255,0.8); }
+.veil-consummatum { color: #ff4444; text-shadow: 0 0 5px rgba(255,0,0,0.8); }
+
+/* N9 스타일의 전체화면 로딩 오버레이 (색상만 Cyan으로 변경) */
+#a9-loading {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.88);
+    display: none;
+    align-items: center; 
+    justify-content: center;
+    z-index: 10000; 
+    backdrop-filter: blur(8px); 
+    transition: opacity 0.4s ease;
+}
+
+.a9-loading-text {
+    color: #49dce1;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(73, 220, 225, 0.6);
+    animation: n9Pulse 2s infinite ease-in-out;
+}
+
+/* =========================================================
+   🚀 [Table Layout 핵심]: 가로 스크롤 & 자동 팽창 로직
+   ========================================================= */
+.a9-chronomantia {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    color: #e0e0e0;
+    width: 100%;
+}
+
+/* =========================================================
+   🚀 [Height Sync Fix]: Zodiac / Jyotish 차트 시작 높이 통일
+   ========================================================= */
+/* 컨트롤 박스의 높이를 55px로 고정하여 내부 버튼이 바뀌어도 테이블 위치가 덜컹거리지 않게 락다운 */
+.a9-chronomantia .n9-controls-wrapper {
+    height: 55px !important;
+    min-height: 55px !important;
+    max-height: 55px !important;
+    box-sizing: border-box;
+    justify-content: flex-start !important; 
+    margin-bottom: 10px !important;
+}
+
+/* Ayanamsa 바가 투명해진 상태로 몰래 여백을 파먹는 현상 원천 차단 */
+#a9-ayanamsa-bar.hidden {
+    display: none !important; 
+}
+
+/* 스위치 간격 통일 */
+#a9-dicho-switch {
+    margin-bottom: 0 !important;
+}
+#a9-sub-switch, #a9-ayanamsa-bar {
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
+}
+
+.a9-table-container {
+    flex: 1;
+    overflow: auto; 
+    border-top: 1px solid #333;
+    position: relative;
+    background: #020202;
+    max-height: 750px; 
+    box-shadow: inset 0 0 20px #000;
+    scrollbar-width: thin;
+    scrollbar-color: #333 #000;
+}
+
+.a9-table-container::-webkit-scrollbar { width: 6px; height: 6px; }
+.a9-table-container::-webkit-scrollbar-track { background: #000; }
+.a9-table-container::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+.a9-table-container::-webkit-scrollbar-thumb:hover { background: #444; }
+
+/* 🌟 A9 레이아웃: auto를 통해 컬럼 합산에 의한 팽창 유도 */
+.a9-table, #a9-timeline-table {
+    width: max-content !important; 
+    min-width: 100% !important;
+    table-layout: auto !important; 
+    font-size: 0.75rem;
+    white-space: nowrap;
+    border-collapse: separate !important;
+    border-spacing: 0;
+    background-color: #000;
+}
+
+/* 세로 높이 강제 통일 & 박스 사이징 */
+#a9-timeline-table th, #a9-timeline-table td {
+    height: var(--a9-h-row) !important;
+    box-sizing: border-box !important;
+    padding: 8px 10px;
+    border: 1px solid #222;
+    text-align: center;
+}
+
+/* =========================================================
+   🚀 [가로 폭 일괄 적용]: A9 변수 맵핑
+   ========================================================= */
+/* Date / Age */
+#a9-timeline-table .n9-date-col-header, #a9-timeline-table .n9-date-col { width: var(--a9-w-date) !important; min-width: var(--a9-w-date) !important; max-width: var(--a9-w-date) !important; }
+#a9-timeline-table .th-age, #a9-timeline-table .n9-cell-age { width: var(--a9-w-age) !important; min-width: var(--a9-w-age) !important; max-width: var(--a9-w-age) !important; }
+
+/* 공통 (ZR, Transit) */
+#a9-timeline-table .th-spirit, #a9-timeline-table .th-fortune, #a9-timeline-table .th-eros, #a9-timeline-table .n9-cell-zr { width: var(--a9-w-zr) !important; min-width: var(--a9-w-zr) !important; max-width: var(--a9-w-zr) !important; }
+#a9-timeline-table .th-transit, #a9-timeline-table .n9-cell-transit { width: var(--a9-w-trs) !important; min-width: var(--a9-w-trs) !important; max-width: var(--a9-w-trs) !important; }
+
+/* Davison 전용 (기본 클래스) */
+#a9-timeline-table .th-firdaria, #a9-timeline-table .n9-cell-firdaria { width: var(--a9-w-fir-dav) !important; min-width: var(--a9-w-fir-dav) !important; max-width: var(--a9-w-fir-dav) !important; }
+#a9-timeline-table .th-prof, #a9-timeline-table .n9-cell-prof { width: var(--a9-w-prof-dav) !important; min-width: var(--a9-w-prof-dav) !important; max-width: var(--a9-w-prof-dav) !important; }
+
+/* 🚀 Synastry 전용 (a9.js에서 부여할 커스텀 클래스) */
+#a9-timeline-table .syn-fir { width: var(--a9-w-fir-syn) !important; min-width: var(--a9-w-fir-syn) !important; max-width: var(--a9-w-fir-syn) !important; }
+#a9-timeline-table .syn-prof { width: var(--a9-w-prof-syn) !important; min-width: var(--a9-w-prof-syn) !important; max-width: var(--a9-w-prof-syn) !important; }
+
+/* 🚀 Jyotish 전용 */
+#a9-timeline-table .th-mahadasha, #a9-timeline-table .th-antardasha, #a9-timeline-table .th-pratyantardasha,
+#a9-timeline-table .n9-cell-dasha-l1, #a9-timeline-table .n9-cell-dasha-l2, #a9-timeline-table .n9-cell-dasha-l3 { 
+    width: var(--a9-w-jyo) !important; min-width: var(--a9-w-jyo) !important; max-width: var(--a9-w-jyo) !important; 
+}
+
+
+/* =========================================================
+   🚀 [Header Sticky & Bleed 방지]
+   ========================================================= */
+#a9-table-head tr th {
+    position: sticky;
+    background-color: #000 !important;
+    border-bottom: 1px solid #333 !important;
+    border-right: 1px solid #333 !important;
+    z-index: 40; 
+    background-clip: padding-box; 
+}
+
+/* 3단 헤더 높이 자동 계산 */
+#a9-table-head tr:nth-child(1) th { top: 0; }
+#a9-table-head tr:nth-child(2) th { top: var(--a9-h-row); }
+#a9-table-head tr:nth-child(3) th { top: calc(var(--a9-h-row) * 2); box-shadow: 0 1px 0 0 #333; }
+
+/* 🚀 Date 컬럼 스크롤 관통(Bleed) 방지 */
+.n9-date-col-header {
+    position: sticky !important;
+    left: 0 !important;
+    top: 0 !important;
+    z-index: 1000 !important; 
+    background-color: #000 !important;
+    border-right: 2px solid #444 !important;
+    border-bottom: 2px solid #444 !important;
+    background-clip: padding-box; 
+}
+
+.n9-date-col {
+    position: sticky !important;
+    left: 0 !important;
+    z-index: 900 !important; 
+    background-color: #000 !important;
+    border-right: 2px solid #444 !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    background-clip: padding-box;
+    box-shadow: 4px 0 8px -2px rgba(0,0,0, 0.8) !important;
+}
+
+/* 일반 데이터 셀 Z-index 조정 */
+#a9-timeline-table tbody td:not(.n9-date-col) { z-index: 1; position: relative; }
+
+/* =========================================================
+   🎨 [Color Lines & 중복 제거]
+   ========================================================= */
+#a9-table-head tr th.th-spirit::after,
+#a9-table-head tr th.th-fortune::after,
+#a9-table-head tr th.th-eros::after,
+#a9-table-head tr th.th-firdaria::after,
+#a9-table-head tr th.th-prof::after,
+#a9-table-head tr th.th-transit::after,
+#a9-table-head tr th.th-mahadasha::after,
+#a9-table-head tr th.th-antardasha::after,
+#a9-table-head tr th.th-pratyantardasha::after,
+.th-syn-a::after, .th-syn-b::after, .th-syn-dav::after {
+    content: ""; 
+    position: absolute;
+    bottom: -1px; /* 🌟 테두리선 겹침 방지하여 얇고 선명하게 유지 */
+    left: 0; 
+    right: 0; 
+    height: var(--a9-h-line); /* 🌟 마스터 패널 변수 적용 */
+    z-index: 10;
+}
+
+/* =========================================================
+   🚀 [A9 Header & Button Color Customization]
+   ========================================================= */
+
+/* 1. 대제목 전용 색상 클래스 */
+.th-white-title { color: #ffffff !important; } /* ZR, Firdaria용 */
+.th-red-title   { color: #FF2906 !important; } /* Profections용 */
+.th-gray-title  { color: #888888 !important; } /* Transits 전용 */
+
+/* 2. Synastry 모드 대제목 고유색 복구 */
+.th-spirit-title  { color: #47FFEA !important; } /* Spirit Aqua */
+.th-fortune-title { color: #FFFB03 !important; } /* Fortune Yellow */
+.th-eros-title    { color: #FF6CD6 !important; } /* Eros Pink */
+
+/* 3. Date 구역 Duodecim 버튼 (Transits와 같은 회색) */
+.n9-seg-btn {
+    color: #000 !important; /* 기본 상태: 회색 */
+    border: 1px solid #333 !important;
+    background: #9E9E9E !important;;
+    transition: all 0.2s ease;
+}
+
+.n9-seg-btn.active {
+    color: #9E9E9E !important; /* 활성화: Cyan Blue (Albedo 테마) */
+    border-color: #49dce1 !important;
+    text-shadow: 0 0 8px rgba(73, 220, 225, 0.6);
+    background: rgba(73, 220, 225, 0.05);
+}
+
+.n9-seg-btn:hover:not(.active) {
+    border-color: #666 !important;
+    color: #bbb !important;
+}

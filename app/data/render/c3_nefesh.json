@@ -1,0 +1,3577 @@
+{
+  "title": {
+    "en": "[ נפש ] NEFESH : The Silent Altar",
+    "ko": "[ נפש ] NEFESH : 침묵의 제단"
+  },
+  "system_messages": {
+    "instruction_subconscious": {
+      "en": "Read the narrative and choose the sensation that immediately draws you in.",
+      "ko": "머리로 생각하지 말고, 본능적으로 끌리거나 가장 강렬하게 다가오는 감각을 선택해 주세요."
+    }
+  },
+
+  "subconscious_questions": {
+    "scn_prologue": {
+      "title": { "en": "The Pool of Tears", "ko": "눈물의 웅덩이" },
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "You do not know how long you have been crying.",
+          "The tears do not stop.",
+          "There is no reason you can name.",
+          " ",
+          "A cold sensation gathers at your feet.",
+          "Looking down,",
+          "you see a shallow pool formed from your own tears.",
+          " ",
+          "Only then does a thought arise.",
+          "…Why was I crying?",
+          "…",
+          "Who am I."
+        ],
+        "ko": [
+          "언제부터 울고 있었는지는 알 수 없다.",
+          "그저 계속해서,",
+          "이유도 모른 채 눈물이 흐르고 있었다.",
+          " ",
+          "발끝에 닿는 차가운 감각.",
+          "고개를 내려다보자,",
+          "눈물이 고여 작은 웅덩이를 이루고 있다.",
+          " ",
+          "그제야 생각이 스친다.",
+          "…나는 왜 울고 있었지?",
+          "…",
+          "나는, 누구지."
+        ]
+      }
+    },
+    
+    "scn_transition": {
+      "title": { "en": "The Ripple", "ko": "파동" },
+      "bg_image": "pool.png",
+      "narrative": {
+        "en": [
+          "You try to take a step.",
+          "An unfounded certainty tells you that you cannot stay here.",
+          " ",
+          "But—",
+          "the moment you try to move,",
+          "your gaze is drawn downward again.",
+          " ",
+          "The pool.",
+          "What seemed to be only water a moment ago,",
+          "now feels different."
+        ],
+        "ko": [
+          "당신은 한 걸음을 떼려 한다.",
+          "이곳에 계속 머물 수 없다는,",
+          "이유 없는 확신이 스친다.",
+          " ",
+          "하지만—",
+          "발을 옮기려는 순간,",
+          "시선이 다시 아래로 끌린다.",
+          " ",
+          "웅덩이.",
+          "조금 전까지는 그저 물처럼 보였던 그것이,",
+          "지금은 다르게 느껴진다."
+        ]
+      }
+    },
+    
+    "scn_deep_pull": {
+      "title": { "en": "The Unseen Depth", "ko": "보이지 않는 깊이" },
+      "bg_image": "pool.png",
+      "narrative": {
+        "en": [
+          "You try to look away,",
+          "but your eyes do not follow.",
+          " ",
+          "There is nothing in it—",
+          "and yet,",
+          "something deep within your chest begins to press downward."
+        ],
+        "ko": [
+          "눈을 떼려 해도,",
+          "쉽게 떨어지지 않는다.",
+          " ",
+          "그 안에는 아무것도 담겨 있지 않은 것 같은데—",
+          "이상하게도,",
+          "가슴 깊은 곳이 무겁게 짓눌린다."
+        ]
+      }
+    },
+
+    "purushartha_q1": {
+      "title": { "en": "The Sensation", "ko": "감각의 결" },
+      "bg_image": "pool.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "It leans toward—"
+        ],
+        "ko": [
+          "그 감각은,",
+          "어디에 가장 가까운가."
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "something that should have been done",
+          "ko": "해야 했던 어떤 것에 대한 잔상"
+        },
+        "opt2": {
+          "en": "something that once had weight in your hands",
+          "ko": "손에 쥐고 있었던 무언가에 대한 무게"
+        },
+        "opt3": {
+          "en": "something that was reached, but could not remain",
+          "ko": "닿았지만 끝내 머물지 않았던 순간"
+        },
+        "opt4": {
+          "en": "something that never belonged to anything at all",
+          "ko": "애초에 그 어떤 것에도 속하지 않았던 감각"
+        }
+      }
+    },
+
+    "scn_tear": {
+      "title": { "en": "A Drop", "ko": "한 방울" },
+      "bg_image": "ripple.png",
+      "narrative": {
+        "en": [
+          "A single drop falls from your eye,",
+          "spreading across the surface of the pool.",
+          " ",
+          "Only after the ripple fades",
+          "do you lift your gaze."
+        ],
+        "ko": [
+          "눈에서 떨어진 한 방울이",
+          "웅덩이 위로 번지며",
+          "잔잔한 일렁임을 남긴다.",
+          " ",
+          "그 미세한 파동이 사라지고 나서야,",
+          "당신은 비로소 시선을 떼어낸다."
+        ]
+      }
+    },
+
+    "scn_light": {
+      "title": { "en": "The Faint Glow", "ko": "희미한 빛" },
+      "bg_image": "light.png",
+      "narrative": {
+        "en": [
+          "There—",
+          "something faint glows within the darkness.",
+          " ",
+          "It was not there before.",
+          "Or perhaps,",
+          "you simply did not see it.",
+          " ",
+          "The light does not flicker.",
+          "It remains,",
+          "neither distant nor close."
+        ],
+        "ko": [
+          "고개를 든 순간—",
+          "어둠 속 어딘가에",
+          "희미한 빛이 깃들어 있는 것이 보인다.",
+          " ",
+          "조금 전까지는 없었던 것처럼.",
+          " ",
+          "그 빛은 흔들리지 않는다.",
+          "아주 멀지도,",
+          "그렇다고 가까운 것도 아닌 거리에서",
+          "가만히 머물러 있다."
+        ]
+      }
+    },
+
+    "scn_approach": {
+      "title": { "en": "Approaching", "ko": "다가감" },
+      "bg_image": "light.png",
+      "narrative": {
+        "en": [
+          "You move toward it.",
+          " ",
+          "With each step,",
+          "the darkness begins to take shape."
+        ],
+        "ko": [
+          "당신은 망설이지 않고",
+          "그쪽으로 걸음을 옮긴다.",
+          " ",
+          "걸음이 이어질수록,",
+          "주변의 어둠은 조금씩 형태를 갖추기 시작한다."
+        ]
+      }
+    },
+
+    "scn_space": {
+      "title": { "en": "The Space", "ko": "공간" },
+      "bg_image": "light2.png",
+      "narrative": {
+        "en": [
+          "A space.",
+          "Enclosed,",
+          "yet not entirely closed.",
+          " ",
+          "A cave,",
+          "or a room—",
+          "you cannot tell.",
+          " ",
+          "It simply exists,",
+          "within reach of your breath.",
+          " ",
+          "At its end,",
+          "the light grows clearer."
+        ],
+        "ko": [
+          "공간.",
+          "닫혀 있는 듯하면서도,",
+          "어딘가로 열려 있는 느낌.",
+          " ",
+          "동굴인지,",
+          "방인지,",
+          "구분할 수는 없지만—",
+          " ",
+          "숨이 닿는 범위 안에서",
+          "조용히 존재하고 있다.",
+          " ",
+          "그 끝에서,",
+          "빛이 조금 더 또렷해진다."
+        ]
+      }
+    },
+
+    "scn_tree": {
+      "title": { "en": "The Tree", "ko": "나무" },
+      "bg_image": "fruit.png",
+      "narrative": {
+        "en": [
+          "You step inside.",
+          "A quiet, dim glow fills the space.",
+          "It feels contained,",
+          "yet not confined.",
+          " ",
+          "At the center—",
+          "a tree."
+        ],
+        "ko": [
+          "당신은 그 안으로 들어선다.",
+          "은은한 빛이 감도는 공간.",
+          "아늑한 것 같지만,",
+          "이상하게도 답답하지 않다.",
+          " ",
+          "그 중심에—",
+          "나무가 있다."
+        ]
+      }
+    },
+
+    "scn_fruit": {
+      "title": { "en": "The Fruit", "ko": "붉은 열매" },
+      "bg_image": "fruit2.png",
+      "narrative": {
+        "en": [
+          "Not small.",
+          "Branches extend outward,",
+          "bearing fruit.",
+          " ",
+          "Red.",
+          "So vivid",
+          "that everything else seems to pause."
+        ],
+        "ko": [
+          "낮지 않은 높이.",
+          "가지마다 열매가 맺혀 있다.",
+          " ",
+          "붉다.",
+          "너무 선명해서,",
+          "오히려 다른 감각이 잠시 멈춘다."
+        ]
+      }
+    },
+
+    "scn_hunger": {
+      "title": { "en": "Hunger", "ko": "허기" },
+      "bg_image": "hand.png",
+      "narrative": {
+        "en": [
+          "And then—",
+          "you notice it.",
+          " ",
+          "Hunger.",
+          "A sensation that was not there before,",
+          "now rising sharply within you."
+        ],
+        "ko": [
+          "그 순간—",
+          "당신은 깨닫는다.",
+          " ",
+          "허기.",
+          "이전에는 없었던 감각이,",
+          "갑작스럽게 몸 안에서 올라온다.",
+          "설명할 수 없을 만큼 선명하게."
+        ]
+      }
+    },
+
+    "scn_bite": {
+      "title": { "en": "The Bite", "ko": "입을 맞추다" },
+      "bg_image": "hand2.png",
+      "narrative": {
+        "en": [
+          "There is no thought.",
+          "Your hand moves first.",
+          "You reach.",
+          " ",
+          "The surface is smooth,",
+          "faintly warm.",
+          " ",
+          "Without hesitation,",
+          "you bring it closer.",
+          "You bite."
+        ],
+        "ko": [
+          "당신은 생각하지 않는다.",
+          "손이 먼저 움직인다.",
+          "열매에 닿는다.",
+          " ",
+          "표면은 매끄럽고,",
+          "미묘하게 따뜻하다.",
+          " ",
+          "망설임 없이,",
+          "당신은 그것을 입에 댄다.",
+          "한 입 베어문다."
+        ]
+      }
+    },
+
+    "purushartha_q2": {
+      "title": { "en": "The Taste", "ko": "혀끝의 감각" },
+      "bg_image": "fruit3.png",
+      "narrative": {
+        "en": [
+          "The taste—"
+        ],
+        "ko": [
+          "그 맛은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "like water boiled too long, leaving no taste at all",
+          "ko": "오래 끓인 물처럼 아무런 맛도 나지 않는다"
+        },
+        "opt2": {
+          "en": "an overwhelming bitterness, thick enough to numb the tongue",
+          "ko": "혀가 마비될 정도로 짙고 무거운 쓴맛"
+        },
+        "opt3": {
+          "en": "an unbearable sweetness, dense enough to feel destructive",
+          "ko": "혀가 떨어질 듯할 정도로 과도하게 농축된 단맛"
+        },
+        "opt4": {
+          "en": "something that disappears the moment it touches your mouth",
+          "ko": "입에 닿는 순간, 맛 자체가 사라져 버린다"
+        }
+      }
+    },
+
+    "scn_distortion": {
+      "title": { "en": "Dissonance", "ko": "위화감" },
+      "bg_image": "dissonance.png",
+      "narrative": {
+        "en": [
+          "The moment you bite—",
+          "something begins to feel wrong.",
+          " ",
+          "Not suddenly.",
+          "Slowly,",
+          "but unmistakably.",
+          " ",
+          "A sense that",
+          "this is not where you are meant to be."
+        ],
+        "ko": [
+          "열매를 베어문 직후—",
+          "설명할 수 없는 위화감이 스며든다.",
+          " ",
+          "이곳이",
+          "자신이 있어야 할 자리가 아니라는 감각.",
+          " ",
+          "갑작스럽지 않다.",
+          "느리게,",
+          "그러나 확실하게 퍼진다."
+        ]
+      }
+    },
+
+    "scn_amnesia": {
+      "title": { "en": "Forgotten", "ko": "잊어버린 것" },
+      "bg_image": "dissonance.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "Something is missing.",
+          "Something important.",
+          "Something you once knew—",
+          "but can no longer reach.",
+          " ",
+          "It presses inward.",
+          "Quietly.",
+          "You lift your head."
+        ],
+        "ko": [
+          "무언가를 잊고 있다.",
+          "중요한 것.",
+          "아주 오래 전부터 알고 있었던 것인데—",
+          "지금은 떠올릴 수 없는 것.",
+          " ",
+          "그 감각이",
+          "가슴 깊숙한 곳을 조여온다.",
+          "당신은 고개를 든다."
+        ]
+      }
+    },
+
+    "scn_gone": {
+      "title": { "en": "Vanished", "ko": "사라지다" },
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "The tree is gone.",
+          "Without a trace.",
+          " ",
+          "You stop.",
+          "You look down."
+        ],
+        "ko": [
+          "나무가 없다.",
+          "조금 전까지 분명히 있었던 것이,",
+          "흔적도 없이 사라져 있다.",
+          " ",
+          "당신은 멈춘다.",
+          "손을 내려다본다."
+        ]
+      }
+    },
+
+    "scn_bird": {
+      "title": { "en": "The Bird", "ko": "작은 새" },
+      "bg_image": "feather.png",
+      "narrative": {
+        "en": [
+          "In your hand,",
+          "instead of the fruit—",
+          "something small.",
+          " ",
+          "A newborn bird.",
+          "No feathers.",
+          "Bare."
+        ],
+        "ko": [
+          "그 안에는,",
+          "열매 대신",
+          "작은 것이 있다.",
+          " ",
+          "털조차 나지 않은,",
+          "갓 태어난 새."
+        ]
+      }
+    },
+
+    "scn_dying": {
+      "title": { "en": "Fading", "ko": "꺼져가는 숨" },
+      "bg_image": "feather.png",
+      "narrative": {
+        "en": [
+          "Its body trembles, barely.",
+          "A breath.",
+          "Another.",
+          "Then— nothing.",
+          " ",
+          "You do not move.",
+          "You only watch.",
+          " ",
+          "The warmth fades.",
+          "The stillness settles."
+        ],
+        "ko": [
+          "미약하게, 몸이 떨리고 있다.",
+          "숨이 이어진다.",
+          "끊어진다.",
+          " ",
+          "당신은 아무것도 하지 못한다.",
+          "그저, 지켜본다.",
+          " ",
+          "마지막 숨이 멎는다.",
+          "움직임이 멈춘다.",
+          "온기가 빠르게 식어간다."
+        ]
+      }
+    },
+
+    "purushartha_q3": {
+      "title": { "en": "The Void", "ko": "공백" },
+      "bg_image": "feather.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "When it is completely still,",
+          "something rises within you.",
+          " ",
+          "You feel—"
+        ],
+        "ko": [
+          "그것이 완전히 고요해졌을 때,",
+          "당신 안에서",
+          "어떤 것이 올라온다.",
+          " ",
+          "가장 가까운 것은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "something inside abruptly cut off",
+          "ko": "안쪽에서 무언가가 그대로 끊겨버린 느낌"
+        },
+        "opt2": {
+          "en": "what was aligned slipping out of place",
+          "ko": "붙어 있던 것이 어긋나며 틀어진 상태"
+        },
+        "opt3": {
+          "en": "the moment feeling like something already repeated",
+          "ko": "방금의 장면이 낯설지 않은 반복처럼 느껴짐"
+        },
+        "opt4": {
+          "en": "not even being sure if anything is in your hand",
+          "ko": "손 안이 비어 있는지조차 분명하지 않음"
+        }
+      }
+    },
+
+    "scn_sin": {
+      "title": { "en": "The Sin", "ko": "죄인" },
+      "bg_image": "sin.png",
+      "narrative": {
+        "en": [
+          "You break.",
+          " ",
+          "“…I am tainted by sin.”",
+          " ",
+          "There is no reason.",
+          "Only—",
+          "as if it had already been decided."
+        ],
+        "ko": [
+          "당신은 무너진다.",
+          " ",
+          "“…나는 죄인이다.”",
+          " ",
+          "이유를 알 수 없다.",
+          "그저,",
+          "이미 그렇게 정해져 있는 것처럼."
+        ]
+      }
+    },
+
+    "scn_contamination": {
+      "title": { "en": "The Stain", "ko": "오염" },
+      "bg_image": "karma.png",
+      "narrative": {
+        "en": [
+          "“I was only born—”",
+          "The words do not follow.",
+          " ",
+          "“Then why…”",
+          "You look down at your hands.",
+          "They should be clean.",
+          " ",
+          "But—",
+          "the sense of something on them does not leave."
+        ],
+        "ko": [
+          "“나는 그저 태어났을 뿐인데—”",
+          "말이 이어지지 않는다.",
+          " ",
+          "“어째서…”",
+          "손을 내려다본다.",
+          "깨끗해야 할 손.",
+          " ",
+          "하지만—",
+          "무언가가 묻어 있는 것 같은 감각이 사라지지 않는다."
+        ]
+      }
+    },
+
+    "scn_karma": {
+      "title": { "en": "Karma", "ko": "업보" },
+      "bg_image": "karma.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "You close your eyes.",
+          "There is no need to see.",
+          "It is already known.",
+          " ",
+          "You—",
+          "have done nothing,",
+          "and yet—",
+          "stand at the center",
+          "of something that has already taken place."
+        ],
+        "ko": [
+          "눈을 감는다.",
+          "보지 않아도,",
+          "이미 알고 있는 것처럼.",
+          " ",
+          "나는,",
+          "아무것도 하지 않은 존재이면서—",
+          "이미 지나간 어떤 일의 중심에 서 있다."
+        ]
+      }
+    },
+    "scn_blank": {
+      "title": { "en": "Blank", "ko": "공백" },
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          " "
+        ],
+        "ko": [
+          " "
+        ]
+      }
+    },
+
+    "scn_walk": {
+      "title": { "en": "Walking", "ko": "걸음" },
+      "bg_image": "walk.png",
+      "narrative": {
+        "en": [
+          "You are walking.",
+          "You do not know since when.",
+          " ",
+          "Your head remains lowered.",
+          "Your steps are all that remain."
+        ],
+        "ko": [
+          "당신은 걷고 있다.",
+          "언제부터였는지는 알 수 없다.",
+          " ",
+          "고개를 들지 않은 채,",
+          "자신의 발걸음만을 바라보며."
+        ]
+      }
+    },
+
+    "scn_doubt": {
+      "title": { "en": "Doubt", "ko": "의문" },
+      "bg_image": "doubt.png",
+      "narrative": {
+        "en": [
+          "—",
+          "Something is wrong.",
+          "A thought passes.",
+          " ",
+          "…it was not you.",
+          "Then—",
+          "why."
+        ],
+        "ko": [
+          "—",
+          "이상하다.",
+          "생각이 스친다.",
+          " ",
+          "…그것은 내가 죽인 것이 아니었다.",
+          "그런데—",
+          "왜."
+        ]
+      }
+    },
+
+    "scn_anger": {
+      "title": { "en": "Anger", "ko": "분노" },
+      "bg_image": "anger.png",
+      "narrative": {
+        "en": [
+          "Something shifts.",
+          "The weight lifts—",
+          "and something else rises in its place.",
+          " ",
+          "What had been held down.",
+          "Anger."
+        ],
+        "ko": [
+          "감각이 바뀐다.",
+          "무거운 것이 걷히고,",
+          "그 자리에 다른 것이 차오른다.",
+          " ",
+          "억눌린 채로 쌓여 있던 것.",
+          "분노."
+        ]
+      }
+    },
+
+    "scn_walking": {
+      "title": { "en": "Arrival", "ko": "도달" },
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "You do not stop.",
+          "The steps continue.",
+          " ",
+          "At some point,",
+          "you are inside."
+        ],
+        "ko": [
+          "당신은 멈추지 않는다.",
+          "걸음은 계속된다.",
+          " ",
+          "어느 순간,",
+          "당신은 그 안에 서 있다."
+        ]
+      }
+    },
+
+    "scn_stone": {
+      "title": { "en": "Stone", "ko": "돌의 공간" },
+      "bg_image": "temple.png",
+      "narrative": {
+        "en": [
+          "Stone.",
+          "A measured space.",
+          "Balanced.",
+          " ",
+          "Nothing unnecessary.",
+          "Everything",
+          "placed within an order."
+        ],
+        "ko": [
+          "돌로 이루어진 공간.",
+          "균형 잡힌 구조.",
+          "불필요한 것은 없다.",
+          " ",
+          "모든 것이",
+          "어떤 질서에 따라 놓여 있다."
+        ]
+      }
+    },
+
+    "scn_temple": {
+      "title": { "en": "The Temple", "ko": "신전" },
+      "bg_image": "temple.png",
+      "bg_effect": "closeup",
+      "narrative": {
+        "en": [
+          "A temple.",
+          "The door is closed.",
+          "It does not move.",
+          " ",
+          "You do not know why,",
+          "but you understand.",
+          " ",
+          "Something must be done here."
+        ],
+        "ko": [
+          "신전.",
+          "문은 닫혀 있다.",
+          "움직이지 않는다.",
+          " ",
+          "이유는 알 수 없지만,",
+          "당신은 알고 있다.",
+          " ",
+          "여기에서,",
+          "무언가를 해야 한다."
+        ]
+      }
+    },
+
+    "scn_ritual": {
+      "title": { "en": "Compliance", "ko": "순응" },
+      "bg_image": "altar.png",
+      "narrative": {
+        "en": [
+          "You comply.",
+          "There is no refusal in you.",
+          " ",
+          "You take the wood.",
+          "No hesitation.",
+          "No thought.",
+          "As if it were already known.",
+          " ",
+          "One by one,",
+          "you stack them."
+        ],
+        "ko": [
+          "순응한다.",
+          "거부할 수 없다는 것을 알고 있기 때문에.",
+          " ",
+          "당신은 장작을 집어 든다.",
+          "손이 망설이지 않는다.",
+          "생각하지 않는다.",
+          "이미 알고 있는 것처럼.",
+          " ",
+          "하나씩, 쌓는다."
+        ]
+      }
+    },
+
+    "scn_fire": {
+      "title": { "en": "Ignition", "ko": "점화" },
+      "bg_image": "fire.png",
+      "narrative": {
+        "en": [
+          "You set it alight.",
+          "The flame returns.",
+          " ",
+          "Quiet—",
+          "but exact."
+        ],
+        "ko": [
+          "불을 붙인다.",
+          "불길이 살아난다.",
+          " ",
+          "조용히,",
+          "그러나 정확하게."
+        ]
+      }
+    },
+
+    "numerology_q4": {
+      "title": { "en": "The Flame's Order", "ko": "불꽃의 질서" },
+      "bg_image": "fire.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "The flame does not hold a fixed shape.",
+          "Yet—",
+          "there is order in its movement.",
+          " ",
+          "What appears first—"
+        ],
+        "ko": [
+          "불꽃은 일정한 형태를 갖지 않는다.",
+          "그러나—",
+          "그 움직임에는",
+          "어떤 질서가 있다.",
+          " ",
+          "당신의 눈에 가장 먼저 들어오는 것은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "a single current pushing forward",
+          "ko": "하나의 방향으로 계속 밀려 나아가는 흐름"
+        },
+        "opt2": {
+          "en": "a split that returns and joins again",
+          "ko": "둘로 갈라졌다가 다시 맞물리는 움직임"
+        },
+        "opt3": {
+          "en": "a sequence extending as it continues",
+          "ko": "이어지며 점점 커지는 연속된 전개"
+        },
+        "opt4": {
+          "en": "a form that holds without change",
+          "ko": "형태를 유지한 채 흔들리지 않는 고정된 상태"
+        },
+        "opt5": {
+          "en": "a break that shifts without pattern",
+          "ko": "끊어지듯 튀며 예측할 수 없이 바뀌는 움직임"
+        },
+        "opt6": {
+          "en": "a motion aligning into balance",
+          "ko": "서로 맞춰지듯 균형을 이루며 반복되는 패턴"
+        },
+        "opt7": {
+          "en": "a flow folding inward",
+          "ko": "안쪽으로 말려들며 깊어지는 흐름"
+        },
+        "opt8": {
+          "en": "a force gathering in density",
+          "ko": "축적되듯 점점 강해지는 밀도"
+        },
+        "opt9": {
+          "en": "a movement closing into completion",
+          "ko": "하나의 완성된 형태로 닫히는 움직임"
+        }
+      }
+    },
+
+    "scn_ram": {
+      "title": { "en": "The Ram", "ko": "숫양" },
+      "bg_image": "ram.png",
+      "narrative": {
+        "en": [
+          "A low cry breaks the stillness behind you.",
+          "You turn.",
+          " ",
+          "There, bound to a post, stands a ram—",
+          "as if it had been waiting,",
+          "as if it had always been meant for this place.",
+          " ",
+          "It does not struggle.",
+          "It does not resist."
+        ],
+        "ko": [
+          "뒤편의 정적을 깨며,",
+          "낮은 울음소리가 울린다.",
+          "당신은 고개를 돌린다.",
+          " ",
+          "기둥에 묶인 숫양이 서 있다—",
+          "마치 기다리고 있었던 것처럼,",
+          "마치 처음부터 이곳에 놓여 있었던 것처럼.",
+          " ",
+          "몸부림치지 않는다.",
+          "저항하지도 않는다."
+        ]
+      }
+    },
+
+    "scn_altar": {
+      "title": { "en": "To the Altar", "ko": "제단으로" },
+      "bg_image": "ram.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "You approach.",
+          "There is no hesitation in your movement.",
+          "Your hands move with a familiarity you cannot explain,",
+          "as though this has been done before,",
+          "many times,",
+          "without memory.",
+          " ",
+          "You lead it forward.",
+          "To the altar."
+        ],
+        "ko": [
+          "당신은 다가간다.",
+          "움직임에는 망설임이 없다.",
+          "손은 설명할 수 없는 익숙함을 따라 움직인다.",
+          " ",
+          "기억은 없지만,",
+          "이미 여러 번 반복된 것처럼.",
+          " ",
+          "당신은 그것을 이끈다.",
+          "제단 앞으로."
+        ]
+      }
+    },
+
+    "scn_killing": {
+      "title": { "en": "The Blade", "ko": "칼날" },
+      "bg_image": "dagger.png",
+      "narrative": {
+        "en": [
+          "A blade rests there.",
+          "Long. Narrow.",
+          "Placed with intention.",
+          " ",
+          "You take it.",
+          "The motion follows without thought."
+        ],
+        "ko": [
+          "그곳에 칼이 놓여 있다.",
+          "길고, 얇다.",
+          "의도된 자리.",
+          " ",
+          "당신은 그것을 집는다.",
+          "동작은 생각 없이 이어진다."
+        ]
+      }
+    },
+
+    "scn_sacrifice": {
+      "title": { "en": "The Blood", "ko": "피의 의식" },
+      "bg_image": "blood.png",
+      "narrative": {
+        "en": [
+          "The cut is clean.",
+          "A sudden warmth—",
+          "blood rising, spilling.",
+          " ",
+          "You catch it in the vessel beside you.",
+          "Your hand enters the bowl.",
+          " ",
+          "When you lift it,",
+          "it is already marked in red."
+        ],
+        "ko": [
+          "절개는 정확하다.",
+          "순간적인 온기—",
+          "피가 솟아오른다.",
+          "흘러내린다.",
+          " ",
+          "당신은 옆에 놓인 그릇에 그것을 받는다.",
+          "손을 담근다.",
+          " ",
+          "꺼낼 때,",
+          "이미 붉게 물들어 있다."
+        ]
+      }
+    },
+
+    "scn_blood": {
+      "title": { "en": "The Offering", "ko": "흩뿌림" },
+      "bg_image": "ritual.png",
+      "narrative": {
+        "en": [
+          "You scatter it across the altar.",
+          "The act continues.",
+          "Unbroken.",
+          " ",
+          "You prepare the offering.",
+          "Place it into the flame."
+        ],
+        "ko": [
+          "당신은 그것을 제단 위에 흩뿌린다.",
+          "의식은 계속된다.",
+          "끊기지 않는다.",
+          " ",
+          "당신은 제물을 다듬는다.",
+          "불 위에 올린다."
+        ]
+      }
+    },
+
+    "scn_burn": {
+      "title": { "en": "The Burning", "ko": "타오름" },
+      "bg_image": "fire2.png",
+      "narrative": {
+        "en": [
+          "It burns.",
+          "Slowly at first, then with certainty.",
+          " ",
+          "Form gives way.",
+          "Flesh disappears.",
+          "What remains is structure."
+        ],
+        "ko": [
+          "타오른다.",
+          "처음에는 천천히, 이내 확실하게.",
+          " ",
+          "형태가 무너진다.",
+          "살은 사라진다.",
+          "남는 것은 구조다."
+        ]
+      }
+    },
+
+    "scn_bone": {
+      "title": { "en": "Fragments", "ko": "뼈와 파편" },
+      "bg_image": "bone.png",
+      "narrative": {
+        "en": [
+          "Bone.",
+          "Fragments.",
+          " ",
+          "You begin to clear them.",
+          "Not out of thought,",
+          "but because the act must be completed."
+        ],
+        "ko": [
+          "뼈.",
+          "파편.",
+          " ",
+          "당신은 그것을 치워낸다.",
+          "생각해서가 아니라,",
+          "의식이 끝나야 하기 때문에."
+        ]
+      }
+    },
+
+    "scn_unbroken": {
+      "title": { "en": "Intact", "ko": "온전한 조각" },
+      "bg_image": "bone.png",
+      "bg_effect": "closeup",
+      "narrative": {
+        "en": [
+          "As the ash shifts beneath your hand,",
+          "you notice something.",
+          " ",
+          "It has not burned.",
+          "It has not broken.",
+          " ",
+          "Among the remains,",
+          "something small persists.",
+          "Intact."
+        ],
+        "ko": [
+          "재가 손 아래에서 흩어지는 순간,",
+          "당신은 무언가를 발견한다.",
+          " ",
+          "타지 않았다.",
+          "부서지지도 않았다.",
+          " ",
+          "잔해 속에서,",
+          "작은 것이 남아 있다.",
+          "온전한 채로."
+        ]
+      }
+    },
+
+    "numerology_q5": {
+      "title": { "en": "The Fragment", "ko": "파편의 형태" },
+      "bg_image": "bone.png",
+      "bg_effect": "closeup_blur",
+      "narrative": {
+        "en": [
+          "As you look more closely,",
+          "what holds your attention is—"
+        ],
+        "ko": [
+          "자세히 들여다보자,",
+          "당신의 시선이 머무는 것은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "a small milky pearl, still perfectly rounded beneath the ash",
+          "ko": "재 속에서도 둥근 윤곽을 잃지 않은, 유백빛의 작은 진주"
+        },
+        "opt2": {
+          "en": "a fragment of ivory, its natural grain intact, the cut edge pale and clean",
+          "ko": "결이 살아 있는 상아 조각, 잘린 단면만 희게 드러나 있다"
+        },
+        "opt3": {
+          "en": "a crystal shard lined with fractures, each crack holding a trace of light",
+          "ko": "금이 여러 갈래로 퍼져 있지만, 그 틈마다 빛이 고여 있는 수정 파편"
+        },
+        "opt4": {
+          "en": "a small polished bone piece, simple in form, yet unnervingly exact",
+          "ko": "매끈하게 깎인 작은 뼈패, 단순한 형태인데도 이상할 만큼 반듯하다"
+        },
+        "opt5": {
+          "en": "a thin shell fragment, sharp at the edge, hollow at the center, its curve still unbroken",
+          "ko": "가장자리가 얇고 날카로운 조개 껍질 조각, 중심은 비어 있으나 곡선만은 온전하다"
+        },
+        "opt6": {
+          "en": "several unlike fragments fitted together, as if chance had made them into one form",
+          "ko": "서로 다른 파편 몇 개가 맞물려, 우연히 하나의 형상을 이루고 있는 조각"
+        },
+        "opt7": {
+          "en": "a small opening in a black stone, so deep that its end cannot be seen",
+          "ko": "검은 돌 한가운데 난 작은 구멍, 안쪽이 지나치게 깊어 끝이 보이지 않는다"
+        },
+        "opt8": {
+          "en": "an unrefined piece of metal, rough with impurity, yet heavy in the hand",
+          "ko": "불순물이 그대로 박힌 금속 덩어리, 거칠지만 손에 올리면 묵직하게 가라앉는다"
+        },
+        "opt9": {
+          "en": "a worn fragment, its original form nearly lost, yet one faint marking still remains",
+          "ko": "거의 닳아 형태를 잃었지만, 문양 같은 흔적 하나만은 끝까지 남아 있는 조각"
+        }
+      }
+    },
+
+    "scn_key": {
+      "title": { "en": "The Key", "ko": "열쇠" },
+      "bg_image": "key.png",
+      "narrative": {
+        "en": [
+          "You pick it up.",
+          "The moment it touches your hand,",
+          "it shifts— without resistance.",
+          " ",
+          "A golden key.",
+          " ",
+          "As if you have always known,",
+          "you walk toward the door.",
+          "You insert it."
+        ],
+        "ko": [
+          "당신은 그것을 집어 든다.",
+          "손에 닿는 순간,",
+          "그 물건은 아무런 저항도 없이 형태를 바꾼다.",
+          " ",
+          "황금빛 열쇠.",
+          " ",
+          "이미 알고 있었던 것처럼,",
+          "당신은 문 앞으로 걸어간다.",
+          "열쇠를 꽂는다."
+        ]
+      }
+    },
+
+    "numerology_q6": {
+      "title": { "en": "The Open Door", "ko": "열린 문" },
+      "bg_image": "white",
+      "narrative": {
+        "en": [
+          "Click.",
+          " ",
+          "The door opens.",
+          "Beyond it, the sky unfolds.",
+          "What you see is—"
+        ],
+        "ko": [
+          "철컥.",
+          " ",
+          "문이 열린다.",
+          "밖이 보인다.",
+          "당신의 눈에 들어오는 하늘은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "a sky just before full light, the direction already set though brightness has not yet arrived",
+          "ko": "막 떠오르기 직전의 빛이 퍼져 있는 하늘, 아직 완전히 밝아지지 않았지만 방향은 분명하다"
+        },
+        "opt2": {
+          "en": "a soft, diffused morning light, where even shadows do not fall sharply",
+          "ko": "부드럽게 확산된 아침빛, 그림자조차 날카롭지 않은 고른 밝기"
+        },
+        "opt3": {
+          "en": "a dry midday sky, the sun high, everything revealed with clarity",
+          "ko": "태양이 이미 높이 떠, 모든 것이 선명하게 드러나는 건조한 낮의 하늘"
+        },
+        "opt4": {
+          "en": "a still expanse of light, uniform, without movement",
+          "ko": "움직임 없이 고요하게 펼쳐진, 균일한 빛의 하늘"
+        },
+        "opt5": {
+          "en": "a shifting sky, clouds breaking and reforming under restless wind",
+          "ko": "바람에 의해 구름이 빠르게 흩어지고 다시 모이는, 일정하지 않은 하늘"
+        },
+        "opt6": {
+          "en": "layered clouds, light filtering through in quiet intervals",
+          "ko": "여러 겹의 구름이 겹쳐져, 틈 사이로 빛이 규칙적으로 스며드는 하늘"
+        },
+        "opt7": {
+          "en": "a dim sky with depth, as if something sinks beneath its surface",
+          "ko": "빛이 충분하지 않음에도 깊이가 느껴지는, 아래로 가라앉는 듯한 하늘"
+        },
+        "opt8": {
+          "en": "dark clouds split by harsh light, contrast sharply defined",
+          "ko": "먹구름 사이로 강한 빛이 뚫고 나오며, 대비가 극단적으로 갈리는 하늘"
+        },
+        "opt9": {
+          "en": "a sky where light and darkness are no longer distinct, held in a single state",
+          "ko": "빛과 어둠이 거의 구분되지 않은 채, 하나의 상태로 이어진 하늘"
+        }
+      }
+    },
+
+    "scn_recalling": {
+      "title": { "en": "Recollection", "ko": "회상" },
+      "bg_image": "white",
+      "narrative": {
+        "en": [
+          "Stepping out from the temple, you lift your eyes to the sky and remain still.",
+          " ",
+          "What just passed already begins to recede like a dream,",
+          "and yet one feeling grows clearer rather than fading.",
+          " ",
+          "Something returns.",
+          "Not as a discovery,",
+          "but as the recognition of something you had always known."
+        ],
+        "ko": [
+          "신전 밖으로 나온 당신은 한동안 아무 말 없이 하늘을 올려다본다.",
+          " ",
+          "방금 전까지의 일들이 전부 꿈처럼 멀어지는데도,",
+          "이상하게도 어떤 감각 하나만은 오히려 더 또렷해진다.",
+          " ",
+          "잊고 있었던 것이 돌아오는 느낌.",
+          "무언가를 처음 깨닫는 것이 아니라,",
+          "원래 알고 있었던 것을 다시 알아보는 듯한 감각."
+        ]
+      }
+    },
+
+    "pada_q7": {
+      "title": { "en": "The Realization", "ko": "완성된 감각" },
+      "bg_image": "recalling.png",
+      "narrative": {
+        "en": [
+          "And then—",
+          "it surfaces, without warning.",
+          " ",
+          "“Ah…”",
+          " ",
+          "What follows does not form into words,",
+          "yet it is unmistakably complete.",
+          " ",
+          "The sensation—"
+        ],
+        "ko": [
+          "그리고—",
+          "설명할 틈도 없이 떠오른다.",
+          " ",
+          "“…아.”",
+          " ",
+          "말로 정리되지는 않지만,",
+          "이미 완성된 것처럼 분명하다.",
+          " ",
+          "그 감각은—"
+        ]
+      },
+      "options_pool": [
+        {
+          "set_id": "set1",
+          "options": {
+            "pada1": {
+              "en": "not turning away from what must be done",
+              "ko": "끝내 해야 할 일을 외면하지 않는 것"
+            },
+            "pada2": {
+              "en": "giving form to beauty and what can be held",
+              "ko": "아름다움과 안정을 형태로 만들어내는 것"
+            },
+            "pada3": {
+              "en": "moving through the world by sensing and responding",
+              "ko": "보고, 느끼고, 반응하며 흐르는 것"
+            },
+            "pada4": {
+              "en": "never fully belonging, quietly drifting apart",
+              "ko": "어디에도 완전히 속하지 않은 채, 조용히 멀어지는 것"
+            }
+          }
+        },
+        {
+          "set_id": "set2",
+          "options": {
+            "pada1": {
+              "en": "standing at the center without surrendering one’s own light",
+              "ko": "스스로의 빛을 잃지 않은 채 중심에 서 있는 것"
+            },
+            "pada2": {
+              "en": "understanding and shaping the world through structure and precision",
+              "ko": "질서와 정밀함으로 세계를 이해하고 다루는 것"
+            },
+            "pada3": {
+              "en": "yielding to love, desire, and the fullness of the moment",
+              "ko": "사랑과 매혹, 그리고 순간의 충만에 몸을 맡기는 것"
+            },
+            "pada4": {
+              "en": "cutting through all ties and returning, alone, to oneself",
+              "ko": "모든 얽힘을 끊고, 홀로 자신에게로 돌아가는 것"
+            }
+          }
+        },
+        {
+          "set_id": "set3",
+          "options": {
+            "pada1": {
+              "en": "aligning with a greater order and walking a single path",
+              "ko": "더 큰 질서에 자신을 맞추며 하나의 길 위에 서 있는 것"
+            },
+            "pada2": {
+              "en": "enduring, accumulating, and building what does not collapse",
+              "ko": "버티고 쌓아 올리며 무너지지 않을 것을 만드는 것"
+            },
+            "pada3": {
+              "en": "holding a quiet, enduring sense of fullness that does not fade",
+              "ko": "사라지지 않고 오래 남는 충만의 감각을 지니는 것"
+            },
+            "pada4": {
+              "en": "moving beyond the self and dissolving into a greater whole",
+              "ko": "자신을 넘어 더 큰 전체 속으로 스며드는 것"
+            }
+          }
+        }
+      ]
+    },
+
+    "scn_unconscious": {
+      "title": { "en": "Fading", "ko": "흐려짐" },
+      "bg_image": "recalling.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "Before the feeling can fully settle,",
+          "your awareness begins to fade.",
+          " ",
+          "Even as you try to hold onto it,",
+          "it slips away from your grasp."
+        ],
+        "ko": [
+          "그 감각이 사라지기도 전에,",
+          "의식이 서서히 흐려진다.",
+          " ",
+          "붙잡으려 해도,",
+          "이미 손에서 빠져나가고 있는 것처럼."
+        ]
+      }
+    },
+
+    "scn_dejavu": {
+      "title": { "en": "The Return", "ko": "기시감" },
+      "bg_image": "light3.png",
+      "narrative": {
+        "en": [
+          "You are back— standing where you began.",
+          " ",
+          "The cold sensation at your feet.",
+          "The gathered water.",
+          "The pool of tears.",
+          " ",
+          "What you just knew",
+          "remains somewhere, without form."
+        ],
+        "ko": [
+          "눈을 뜨자, 당신은 다시 그 자리에 서 있다.",
+          " ",
+          "발끝에 닿는 차가운 감각.",
+          "고여 있는 물.",
+          "눈물의 웅덩이.",
+          " ",
+          "조금 전까지의 기억은",
+          "형태를 잃은 채",
+          "어딘가에 남아 있다."
+        ]
+      }
+    },
+
+    "scn_end": {
+      "title": { "en": "The Light", "ko": "빛" },
+      "bg_image": "white",
+      "bg_effect": "flash_white",
+      "narrative": {
+        "en": [
+          "You lift your gaze.",
+          "The light remains.",
+          " ",
+          "Like something that does not need explanation.",
+          " ",
+          "You reach toward it."
+        ],
+        "ko": [
+          "당신은 고개를 든다.",
+          "빛은 그 자리에 있다.",
+          " ",
+          "설명할 수 없는 확신처럼.",
+          " ",
+          "당신은,",
+          "그쪽으로 손을 뻗는다."
+        ]
+      },
+      "options": {
+        "reach_out": {
+          "en": "[ Reach out ]",
+          "ko": "[ 손을 뻗는다 ]"
+        }
+      }
+    }
+  },
+  "interpretations": {
+    "main_purushartha": {
+      "Dharma": {
+        "en": [
+          "The direction is already set in place.",
+          "Even if it turns away, it returns to the same line.",
+          "Movement outside that flow does not hold for long."
+        ],
+        "ko": [
+          "방향은 이미 정해진 채로 놓여 있다.",
+          "돌아서려 해도, 다시 그 선 위로 돌아온다.",
+          "그 흐름에서 벗어난 움직임은 오래 지속되지 않는다."
+        ]
+      },
+      "Artha": {
+        "en": [
+          "Only what is held remains.",
+          "What passes through the hand does not take form.",
+          "Only what accumulates carries weight."
+        ],
+        "ko": [
+          "붙잡히는 것만이 남는다.",
+          "손을 스쳐 지나간 것은 형태를 갖지 못한다.",
+          "쌓인 것만이 무게를 가진다."
+        ]
+      },
+      "Kama": {
+        "en": [
+          "Attraction moves first.",
+          "Before reason, the senses shape the direction.",
+          "Only within that flow does fullness briefly remain."
+        ],
+        "ko": [
+          "끌림이 먼저 움직인다.",
+          "이유보다 앞서, 감각이 방향을 만든다.",
+          "그 흐름 속에서만 충만이 잠시 머문다."
+        ]
+      },
+      "Moksha": {
+        "en": [
+          "What was held no longer stays in the hand.",
+          "Distinctions blur, and boundaries lose their force.",
+          "What remains is not emptiness, but another state."
+        ],
+        "ko": [
+          "쥐고 있던 것이 더 이상 손에 남지 않는다.",
+          "구분은 흐려지고, 경계는 힘을 잃는다.",
+          "남는 것은 비어 있음이 아니라, 다른 상태다."
+        ]
+      }
+    },
+
+    "pada_purushartha": {
+      "Dharma": {
+        "en": "The movement gathers into a single direction, and follows it without hesitation.",
+        "ko": "그 흐름은 끝내 한 방향으로 모이며, 망설임 없이 그 선을 따른다."
+      },
+      "Artha": {
+        "en": "Within it, what remains becomes clear, and what can be held stays in place.",
+        "ko": "그 가운데에서 남는 것이 분명해지고, 손에 쥘 것은 자연히 남는다."
+      },
+      "Kama": {
+        "en": "The movement continues as attraction, and the senses lean toward it without resistance.",
+        "ko": "그 흐름은 끌림으로 이어지며, 감각은 거부 없이 그쪽으로 기운다."
+      },
+      "Moksha": {
+        "en": "At its end, what was held loses its force, and slips away without struggle.",
+        "ko": "그 끝에서 붙잡고 있던 것은 힘을 잃고, 조용히 손을 떠난다."
+      }
+    },
+
+    "planets": {
+      "Ketu": {
+        "en": [
+          "What was continuous falls away, leaving an unspoken residue.",
+          "It is not gone, but remains in a state that can no longer be held."
+        ],
+        "ko": [
+          "이어지던 결이 조용히 끊어지고, 남은 것은 설명되지 않는 잔향이다.",
+          "사라진 것이 아니라, 더 이상 붙잡히지 않는 상태로 남는다."
+        ]
+      },
+      "Venus": {
+        "en": [
+          "Different qualities align into a single state.",
+          "An unseen attunement continues, even misalignment is absorbed into the flow."
+        ],
+        "ko": [
+          "서로 다른 결이 자연스럽게 맞물리며 하나의 상태를 이룬다.",
+          "보이지 않는 조율이 이어지며, 어긋남조차 흐름 안에 포함된다."
+        ]
+      },
+      "Sun": {
+        "en": [
+          "The center reveals itself, and all else arranges around it.",
+          "The light does not explain, yet it establishes order."
+        ],
+        "ko": [
+          "중심은 드러나며, 다른 모든 것은 그 주위를 기준으로 자리를 잡는다.",
+          "그 빛은 설명되지 않지만, 그 자체로 질서를 형성한다."
+        ]
+      },
+      "Moon": {
+        "en": [
+          "What stirs within continues outward into form.",
+          "The trace of sensation remains, shaping what follows."
+        ],
+        "ko": [
+          "안쪽에서 먼저 흔들린 것이 바깥의 형태로 이어진다.",
+          "감각의 잔향이 남아, 드러난 것 이후에도 흐름을 남긴다."
+        ]
+      },
+      "Mars": {
+        "en": [
+          "Accumulated force pushes forward without pause.",
+          "It leaves no reason behind, only outcome."
+        ],
+        "ko": [
+          "쌓인 힘은 멈추지 않고 방향을 밀어낸다.",
+          "그 흐름은 이유를 남기지 않고, 결과로만 드러난다."
+        ]
+      },
+      "Rahu": {
+        "en": [
+          "An unfamiliar pattern seeps in, distorting and expanding the flow.",
+          "Attraction precedes reason, and the direction grows beyond itself."
+        ],
+        "ko": [
+          "낯선 결이 스며들며, 기존의 흐름을 비틀어 확장시킨다.",
+          "끌림은 이유보다 앞서고, 그 방향은 점점 더 커진다."
+        ]
+      },
+      "Jupiter": {
+        "en": [
+          "A single pattern expands beyond itself into a wider context.",
+          "Each part reconnects, placed within a greater order."
+        ],
+        "ko": [
+          "하나의 결은 그 자리에 머물지 않고 더 큰 맥락으로 번진다.",
+          "각 부분은 다시 연결되며, 더 넓은 질서 속에 놓인다."
+        ]
+      },
+      "Saturn": {
+        "en": [
+          "Form holds only within limitation, and what remains is what has endured.",
+          "What does not pass through accumulates, becoming structure."
+        ],
+        "ko": [
+          "형태는 한계 안에서만 유지되며, 남는 것은 견뎌낸 것들이다.",
+          "통과하지 못한 것은 쌓여 구조가 된다."
+        ]
+      },
+      "Mercury": {
+        "en": [
+          "The flow continues, linking what was separate.",
+          "Within it, meaning does not stay fixed, but keeps shifting."
+        ],
+        "ko": [
+          "흐름은 끊기지 않고 이어지며, 다른 것들을 서로 엮는다.",
+          "그 사이에서 의미는 고정되지 않고 계속해서 바뀐다."
+        ]
+      }
+    },
+
+    "sabian": {
+      "ashwini_1": {
+        "aries_1": { 
+          "en": "A woman rises out of the water, a seal rises and embraces her.", 
+          "ko": "물에서 올라오는 여인, 그녀를 껴안는 물개" 
+        },
+        "aries_2": { 
+          "en": "A comedian entertaining a group.", 
+          "ko": "무리를 즐겁게 하는 희극 배우" 
+        },
+        "aries_3": { 
+          "en": "A cameo profile of a man, in the outline of his country.", 
+          "ko": "국토의 윤곽 안에 새겨진 남자의 카메오 뒷모습" 
+        },
+        "aries_4": { 
+          "en": "Two lovers strolling through a secluded walk.", 
+          "ko": "은밀한 산책길을 거니는 두 연인" 
+        }
+      },
+      "ashwini_2": {
+        "aries_4": { 
+          "en": "Two lovers strolling through a secluded walk.", 
+          "ko": "은밀한 산책길을 거니는 두 연인" 
+        },
+        "aries_5": { 
+          "en": "A triangle with wings.", 
+          "ko": "날개 달린 삼각형" 
+        },
+        "aries_6": { 
+          "en": "A square brightly lighted on one side.", 
+          "ko": "한쪽 면이 밝게 빛나는 사각형" 
+        },
+        "aries_7": { 
+          "en": "A man successfully expressing himself in two realms at once.", 
+          "ko": "두 세계에서 동시에 자신을 표현하는 남자" 
+        }
+      },
+      "ashwini_3": {
+        "aries_7": { 
+          "en": "A man successfully expressing himself in two realms at once.", 
+          "ko": "두 세계에서 동시에 자신을 표현하는 남자" 
+        },
+        "aries_8": { 
+          "en": "A large hat with streamers flying, facing east.", 
+          "ko": "동쪽을 향한, 리본이 흩날리는 큰 모자" 
+        },
+        "aries_9": { 
+          "en": "A crystal gazer.", 
+          "ko": "수정 구슬을 들여다보는 예언가" 
+        },
+        "aries_10": { 
+          "en": "A man teaching new forms for old symbols", 
+          "ko": "오래된 상징에 새로운 형태를 가르치는 남자" 
+        }
+      },
+      "ashwini_4": {
+        "aries_11": { 
+          "en": "The president of the country", 
+          "ko": "국가의 대통령" 
+        },
+        "aries_12": { 
+          "en": "A flock of wild geese", 
+          "ko": "야생 기러기 떼" 
+        },
+        "aries_13": { 
+          "en": "An unsuccessful bomb explosion.", 
+          "ko": "실패한 폭탄 폭발" 
+        },
+        "aries_14": { 
+          "en": "A serpent coiling near a man and a woman.", 
+          "ko": "남자와 여자 가까이 또아리를 튼 뱀" 
+        }
+      },
+
+      "bharani_1": {
+        "aries_14": { 
+          "en": "A serpent coiling near a man and a woman.", 
+          "ko": "남자와 여자 가까이 또아리를 튼 뱀"  
+        },
+        "aries_15": { 
+          "en": "An Indian weaving a blanket.", 
+          "ko": "담요를 짜는 원주민" 
+        },
+        "aries_16": { 
+          "en": "Brownies dancing in the setting sun.", 
+          "ko": "석양 속에서 춤추는 브라우니 요정들" 
+        },
+        "aries_17": { 
+          "en": "Two prim spinsters.", 
+          "ko": "얌전한 노처녀 두 명" 
+        }
+      },
+      "bharani_2": {
+        "aries_17": { 
+          "en": "Two prim spinsters.", 
+          "ko": "얌전한 노처녀 두 명" 
+        },
+        "aries_18": { 
+          "en": "An empty hammock.", 
+          "ko": "비어 있는 해먹" 
+        },
+        "aries_19": { 
+          "en": "The magic carpet.", 
+          "ko": "마법의 양탄자" 
+        },
+        "aries_20": { 
+          "en": "A young girl feeding birds in the winter.", 
+          "ko": "겨울철, 새들에게 먹이를 주는 소녀" 
+        }
+      },
+      "bharani_3": {
+        "aries_21": { 
+          "en": "A pugilist entering the ring.", 
+          "ko": "링에 들어서는 권투 선수" 
+        },
+        "aries_22": { 
+          "en": "The gate to the garden of desire.", 
+          "ko": "욕망의 정원으로 들어가는 문" 
+        },
+        "aries_23": { 
+          "en": "Woman in pastels carrying a heavy and valuable but veiled load.", 
+          "ko": "파스텔색 옷을 입은 여인, 무겁고 귀하지만 베일에 싸인 짐을 나르다" 
+        },
+        "aries_24": { 
+          "en": "An open window and a net curtain blowing into a cornucopia.", 
+          "ko": "열린 창문, 풍요의 뿔로 흘러드는 망사 커튼" 
+        }
+      },
+      "bharani_4": {
+        "aries_24": { 
+          "en": "An open window and a net curtain blowing into a cornucopia.", 
+          "ko": "열린 창문, 풍요의 뿔로 흘러드는 망사 커튼" 
+        },
+        "aries_25": { 
+          "en": "A double promise.", 
+          "ko": "이중 약속" 
+        },
+        "aries_26": { 
+          "en": "A man possessed of more gifts than he can hold.", 
+          "ko": "들 수 없을 만큼 많은 선물을 품은 남자" 
+        },
+        "aries_27": { 
+          "en": "A lost opportunity is regained in the imagination.", 
+          "ko": "상상 속에서 되찾아지는 잃어버린 기회" 
+        }
+      },
+
+      "krittika_1": {
+        "aries_27": { 
+          "en": "A lost opportunity is regained in the imagination.", 
+          "ko": "상상 속에서 되찾아지는 잃어버린 기회"  
+        },
+        "aries_28": { 
+          "en": "A large disappointed audience.", 
+          "ko": "실망한 큰 관중" 
+        },
+        "aries_29": { 
+          "en": "A celestial choir singing.", 
+          "ko": "노래하는 천상의 합창단" 
+        },
+        "aries_30": { 
+          "en": "A duck pond and its brood.", 
+          "ko": "오리 연못과 그 새끼들" 
+        }
+      },
+      "krittika_2": {
+        "taurus_1": { 
+          "en": "A clear mountain stream.", 
+          "ko": "맑은 산속 시냇물" 
+        },
+        "taurus_2": { 
+          "en": "An electrical storm.", 
+          "ko": "번개를 동반한 폭풍" 
+        },
+        "taurus_3": { 
+          "en": "Steps up to a lawn blooming with clover.", 
+          "ko": "클로버가 만발한 잔디밭으로 이어지는 계단" 
+        },
+        "taurus_4": { 
+          "en": "The rainbow's pot of gold.", 
+          "ko": "무지개의 끝에 있는 황금단지" 
+        }
+      },
+      "krittika_3": {
+        "taurus_4": { 
+          "en": "The rainbow's pot of gold.", 
+          "ko": "무지개의 끝에 있는 황금단지" 
+        },
+        "taurus_5": { 
+          "en": "A window at an open grave.", 
+          "ko": "열린 무덤 앞에 선 과부" 
+        },
+        "taurus_6": { 
+          "en": "A bridge being built across a gorge.", 
+          "ko": "협곡을 가로지르며 세워지는 다리" 
+        },
+        "taurus_7": { 
+          "en": "A woman of Samaria.", 
+          "ko": "사마리아 여인" 
+        }
+      },
+      "krittika_4": {
+        "taurus_7": { 
+          "en": "A woman of Samaria.", 
+          "ko": "사마리아 여인"
+        },
+        "taurus_8": { 
+          "en": "A sleigh without snow.", 
+          "ko": "눈 없는 썰매" 
+        },
+        "taurus_9": { 
+          "en": "A Christmas tree decorated.", 
+          "ko": "장식된 크리스마스트리" 
+        },
+        "taurus_10": { 
+          "en": "A red Cross nurse.", 
+          "ko": "적십자 간호사" 
+        }
+      },
+      "rohini_1": {
+        "taurus_11": { 
+          "en": "A woman sprinkling flowers.", 
+          "ko": "꽃에 물을 뿌리는 여인"  
+        },
+        "taurus_12": { 
+          "en": "Window Shoppers", 
+          "ko": "진열창 앞을 지나가는 사람들" 
+        },
+        "taurus_13": { 
+          "en": "A man handling baggage.", 
+          "ko": "짐을 다루는 남자"  
+        },
+        "taurus_14": { 
+          "en": "Shellfish groping and children playing.", 
+          "ko": "더듬거리는 조개류와 놀고 있는 아이들" 
+        }
+      },
+      "rohini_2": {
+        "taurus_14": { 
+          "en": "Shellfish groping and children playing.", 
+          "ko": "더듬거리는 조개류와 놀고 있는 아이들" 
+        },
+        "taurus_15": { 
+          "en": "A man muffled up with a rakish silk hat.", 
+          "ko": "망사 실크 모자를 눌러쓰고 잔뜩 싸맨 남자" 
+        },
+        "taurus_16": { 
+          "en": "An old man attempting vainly to reveal the Mysteries.", 
+          "ko": "신비를 드러내려 애쓰는 노인" 
+        },
+        "taurus_17": { 
+          "en": "A battle between the swords and the torches.", 
+          "ko": "검과 횃불 사이의 전투" 
+        }
+      },
+      "rohini_3": {
+        "taurus_17": { 
+          "en": "A battle between the swords and the torches.", 
+          "ko": "검과 횃불 사이의 전투" 
+        },
+        "taurus_18": { 
+          "en": "A woman holding a bag out of a window.", 
+          "ko": "창문 밖으로 가방을 내미는 여인" 
+        },
+        "taurus_19": { 
+          "en": "A newly formed continent.", 
+          "ko": "새롭게 형성된 대륙" 
+        },
+        "taurus_20": { 
+          "en": "Wind, clouds and haste.", 
+          "ko": "바람, 구름, 그리고 서두름" 
+        }
+      },
+      "rohini_4": {
+        "taurus_21": { 
+          "en": "A finger pointing in an open book.", 
+          "ko": "펼쳐진 책 위를 가리키는 손가락" 
+        },
+        "taurus_22": { 
+          "en": "White dove over troubled waters.", 
+          "ko": "격랑 위를 나는 흰 비둘기" 
+        },
+        "taurus_23": { 
+          "en": "A jewellery shop.", 
+          "ko": "보석 가게" 
+        },
+        "taurus_24": { 
+          "en": "A mounted Indian with scalp locks.", 
+          "ko": "두피술 머리를 한, 말을 탄 원주민" 
+        }
+      },
+      "mrigashira_1": {
+        "taurus_24": { 
+          "en": "A mounted Indian with scalp locks.", 
+          "ko": "두피술 머리를 한, 말을 탄 원주민" 
+        },
+        "taurus_25": { 
+          "en": "A large well-kept public park.", 
+          "ko": "잘 관리된 넓은 공원" 
+        },
+        "taurus_26": { 
+          "en": "A Spaniard serenading his senorita.", 
+          "ko": "연인을 위해 세레나데를 부르는 스페인 남자" 
+        },
+        "taurus_27": { 
+          "en": "An old native woman selling beads.", 
+          "ko": "구슬을 파는 원주민 노파" 
+        }      
+      },
+      "mrigashira_2": {
+        "taurus_27": { 
+          "en": "An old native woman selling beads.", 
+          "ko": "구슬을 파는 원주민 노파" 
+        },
+        "taurus_28": { 
+          "en": "A woman pursued by mature romance.", 
+          "ko": "원숙한 사랑에 쫒기는 여인" 
+        },
+        "taurus_29": { 
+          "en": "Two cobblers working at a table.", 
+          "ko": "탁자에서 일하는 구두 수선공 두 사람" 
+        },
+        "taurus_30": { 
+          "en": "A peacock parading on an ancient lawn.", 
+          "ko": "고풍스러운 잔디밭을 거니는 공작새" 
+        }
+      },
+      "mrigashira_3": {
+        "gemini_1": { 
+          "en": "A glass bottomed boat in still water.", 
+          "ko": "잔잔한 물 위 유리 바닥 보트" 
+        },
+        "gemini_2": { 
+          "en": "Santa Claus filling stockings furtively.", 
+          "ko": "몰래 양말을 채우는 산타클로스" 
+        },
+        "gemini_3": { 
+          "en": "The garden of the Tuileries.", 
+          "ko": "튈르리 정원" 
+        },
+        "gemini_4": { 
+          "en": "Holly and mistletoe.", 
+          "ko": "호랑가시나무와 겨우살이" 
+        }
+      },
+      "mrigashira_4": {
+        "gemini_4": { 
+          "en": "Holly and mistletoe.", 
+          "ko": "호랑가시나무와 겨우살이" 
+        },
+        "gemini_5": { 
+          "en": "A radical magazine.", 
+          "ko": "급진적인 잡지" 
+        },
+        "gemini_6": { 
+          "en": "Drilling for oil.", 
+          "ko": "석유 시추" 
+        },
+        "gemini_7": { 
+          "en": "An old-fashioned well.", 
+          "ko": "고풍스러운 우물" 
+        }
+      },  
+      "ardra_1": {
+        "gemini_7": { 
+          "en": "An old-fashioned well.", 
+          "ko": "고풍스러운 우물" 
+        },
+        "gemini_8": { 
+          "en": "An industrial strike.", 
+          "ko": "노동자 파업" 
+        },
+        "gemini_9": { 
+          "en": "A quiver filled with arrows.", 
+          "ko": "화살로 가득 찬 화살통" 
+        },
+        "gemini_10": { 
+          "en": "An airplane falling.", 
+          "ko": "추락하는 비행기" 
+        }
+      },
+      "ardra_2": {
+        "gemini_11": { 
+          "en": "A new path of realism in experience.", 
+          "ko": "경험 속 현실주의의 새로운 길" 
+        },
+        "gemini_12": { 
+          "en": "A Topsy saucily asserting herself.", 
+          "ko": "당돌하게 자기 주장을 하는 톱시" 
+        },
+        "gemini_13": { 
+          "en": "A great musician at his piano.", 
+          "ko": "피아노 앞에 선 위대한 음악가" 
+        },
+        "gemini_14": { 
+          "en": "A conversation by telepathy.", 
+          "ko": "텔레파시로 나누는 대화" 
+        }      
+      },
+      "ardra_3": {
+        "gemini_14": { 
+          "en": "A conversation by telepathy.", 
+          "ko": "텔레파시로 나누는 대화" 
+        },
+        "gemini_15": { 
+          "en": "Two Dutch children talking.", 
+          "ko": "대화 중인 두 네덜란드 아이들" 
+        },
+        "gemini_16": { 
+          "en": "A woman suffragist haranguing.", 
+          "ko": "연설하는 여성 참정권 운동가" 
+        },
+        "gemini_17": { 
+          "en": "The head of health dissolved into the head of mentality.", 
+          "ko": "육체주도성이 정신주도성으로 융해된다" 
+        }
+      },
+      "ardra_4": {
+        "gemini_17": { 
+          "en": "The head of health dissolved into the head of mentality.", 
+          "ko": "육체주도성이 정신주도성으로 융해된다" 
+        },
+        "gemini_18": { 
+          "en": "Two Chinese men talking Chinese.", 
+          "ko": "중국어로 대화하는 두 명의 중국인" 
+        },
+        "gemini_19": { 
+          "en": "A large archaic volume.", 
+          "ko": "커다란 고서" 
+        },
+        "gemini_20": { 
+          "en": "A cafeteria.", 
+          "ko": "카페테리아" 
+        }
+      },
+      "punarvasu_1": {
+        "gemini_21": { 
+          "en": "A labour demonstration.", 
+          "ko": "노동 시위" 
+        },
+        "gemini_22": { 
+          "en": "A barn dance.", 
+          "ko": "헛간 무도회" 
+        },
+        "gemini_23": { 
+          "en": "Three fledglings in a nest high in a tree.", 
+          "ko": "나무 꼭대기 둥지 속 세 마리 새끼새" 
+        },
+        "gemini_24": { 
+          "en": "Children skating on ice.", 
+          "ko": "얼음 위에서 스케이트 타는 아이들" 
+        }
+      },
+      "punarvasu_2": {
+        "gemini_24": { 
+          "en": "Children skating on ice.", 
+          "ko": "얼음 위에서 스케이트 타는 아이들" 
+        },
+        "gemini_25": { 
+          "en": "A man trimming palms.", 
+          "ko": "야자수를 다듬는 남자" 
+        },
+        "gemini_26": { 
+          "en": "Winter frost in the woods.", 
+          "ko": "숲 속 겨울 서리" 
+        },
+        "gemini_27": { 
+          "en": "A gypsy coming out of the forest.", 
+          "ko": "숲에서 나오는 집시" 
+        }
+      },
+      "punarvasu_3": {
+        "gemini_27": { 
+          "en": "A gypsy coming out of the forest.", 
+          "ko": "숲에서 나오는 집시" 
+        },
+        "gemini_28": { 
+          "en": "A man declared bankrupt.", 
+          "ko": "파산을 선고받은 남자" 
+        },
+        "gemini_29": { 
+          "en": "The first mockingbird in spring.", 
+          "ko": "봄의 첫 흉내지빠귀" 
+        },
+        "gemini_30": { 
+          "en": "Bathing beauties.", 
+          "ko": "수영복 미인들" 
+        }
+      },
+      "punarvasu_4": {
+        "cancer_1": { 
+          "en": "A furled and unfurled flag displayed from a vessel.", 
+          "ko": "배에 접힌 깃발과 펼쳐진 깃발이 드러나 있다" 
+        },
+        "cancer_2": { 
+          "en": "A man suspended over a vast level place.", 
+          "ko": "광활한 평지 위에 떠 있는 남자" 
+        },
+        "cancer_3": { 
+          "en": "A man all bundled up in fur leading a shaggy deer.", 
+          "ko": "털가죽으로 꽁꽁 싸맨 남자가 덥수룩한 사슴을 이끄는 모습" 
+        },
+        "cancer_4": { 
+          "en": "A cat arguing with a mouse.", 
+          "ko": "쥐와 언쟁하는 고양이" 
+        }
+      },
+      "pushya_1": {
+        "cancer_4": { 
+          "en": "A cat arguing with a mouse.", 
+          "ko": "쥐와 언쟁하는 고양이" 
+        },
+        "cancer_5": { 
+          "en": "An automobile is wrecked by a train.", 
+          "ko": "자동차가 기차에 의해 파괴됨" 
+        },
+        "cancer_6": { 
+          "en": "Game birds feathering in their nests.", 
+          "ko": "사냥조들이 둥지를 꾸미는 중" 
+        },
+        "cancer_7": { 
+          "en": "Two fairies on a moonlit night.", 
+          "ko": "달빛 밤 속 두 요정" 
+        }
+      },
+      "pushya_2": {
+        "cancer_7": { 
+          "en": "Two fairies on a moonlit night.", 
+          "ko": "달빛 밤 속 두 요정" 
+        },
+        "cancer_8": { 
+          "en": "Rabbits dressed in clothes and on parade.", 
+          "ko": "옷을 입고 행진하는 토끼들" 
+        },
+        "cancer_9": { 
+          "en": "A tiny, nude miss reaching in the water for a fish.", 
+          "ko": "물속에서 물고기를 잡으려는 벌거벗은 작은 소녀" 
+        },
+        "cancer_10": { 
+          "en": "A large diamond not completely cut.", 
+          "ko": "완전히 세공되지 않은 큰 다이아몬드" 
+        }
+      },
+      "pushya_3": {
+        "cancer_11": { 
+          "en": "A clown making grimaces.", 
+          "ko": "익살스러운 표정을 짓는 광대" 
+        },
+        "cancer_12": { 
+          "en": "Chinese woman nusing a baby with a message.", 
+          "ko": "메시지를 품은 아이를 돌보는 중국 여인" 
+        },
+        "cancer_13": { 
+          "en": "One hand slightly flexed with a very prominent thumb.", 
+          "ko": "엄지가 도드라진 채 살짝 굽혀진 손" 
+        },
+        "cancer_14": { 
+          "en": "A very old man facing a vast dark space to the northeast.", 
+          "ko": "북동쪽의 광막한 어둠을 응시하는 아주 늙은 남자" 
+        }
+      },
+      "pushya_4": {
+        "cancer_14": { 
+          "en": "A very old man facing a vast dark space to the northeast.", 
+          "ko": "북동쪽의 광막한 어둠을 응시하는 아주 늙은 남자" 
+        },
+        "cancer_15": { 
+          "en": "A group of people who have overeaten and enjoyed it.", 
+          "ko": "과식하고 만족해하는 사람들의 무리" 
+        },
+        "cancer_16": { 
+          "en": "A man before a square with a manuscript roll before him.", 
+          "ko": "사각형 앞에 서서 고문서를 마주한 남자" 
+        },
+        "cancer_17": { 
+          "en": "The germ grows into knowledge and life.", 
+          "ko": "씨앗이 자라 지식과 생명이 되다" 
+        }
+      },
+      "ashlesha_1": {
+        "cancer_17": { 
+          "en": "The germ grows into knowledge and life.", 
+          "ko": "씨앗이 자라 지식과 생명이 되다" 
+        },
+        "cancer_18": { 
+          "en": "A hen scratching for her chicks.", 
+          "ko": "병아리를 위해 흙을 파는 어미닭" 
+        },
+        "cancer_19": { 
+          "en": "A priest performing a marriage ceremony.", 
+          "ko": "결혼식을 집전하는 사제" 
+        },
+        "cancer_20": { 
+          "en": "Gondoliers in a serenade.", 
+          "ko": "세레나데를 부르는 공돌라 사공들" 
+        }
+      },
+      "ashlesha_2": {
+        "cancer_21": { 
+          "en": "A Prima Donna singing.", 
+          "ko": "노래하는 프리마돈나" 
+        },
+        "cancer_22": { 
+          "en": "A woman awaiting a sailboat.", 
+          "ko": "범선을 기다리는 여인" 
+        },
+        "cancer_23": { 
+          "en": "The meeting of a literary society.", 
+          "ko": "문학회 모임" 
+        },
+        "cancer_24": { 
+          "en": "A woman and two men on a bit of sunlit land facing South.", 
+          "ko": "남쪽을 바라보며 햇살 속에 선 여인과 두 남자" 
+        }
+      },
+      "ashlesha_3": {
+        "cancer_24": { 
+          "en": "A woman and two men on a bit of sunlit land facing South.", 
+          "ko": "남쪽을 바라보며 햇살 속에 선 여인과 두 남자" 
+        },
+        "cancer_25": { 
+          "en": "Dark shadow or mantle thrown suddenly over the shoulder.", 
+          "ko": "오른쪽 어깨 위로 갑자기 드리워진 어두운 망토 혹은 그림자" 
+        },
+        "cancer_26": { 
+          "en": "Contentment and happiness in luxury, people reading on davenports.", 
+          "ko": "호사스러운 안락함 속에서 소파에 기대 책을 읽는 사람들" 
+        },
+        "cancer_27": { 
+          "en": "A storm in a canyon.", 
+          "ko": "협곡 속의 폭풍우" 
+        }
+      },
+      "ashlesha_4": {
+        "cancer_27": { 
+          "en": "A storm in a canyon.", 
+          "ko": "협곡 속의 폭풍우" 
+        },
+        "cancer_28": { 
+          "en": "A modern Pocahontas.", 
+          "ko": "현대판 포카혼타스" 
+        },
+        "cancer_29": { 
+          "en": "A muse weighing twins.", 
+          "ko": "쌍둥이를 저울질하는 뮤즈" 
+        },
+        "cancer_30": { 
+          "en": "A Daughter of the American Revolution.", 
+          "ko": "미국 독립혁명의 딸" 
+        }
+      },
+      "magha_1": {
+        "leo_1": { 
+          "en": "A case of apoplexy.", 
+          "ko": "졸도 발작 사례" 
+        },
+        "leo_2": { 
+          "en": "An epidemic of mumps.", 
+          "ko": "유행성 이하선염(볼거리)의 창궐" 
+        },
+        "leo_3": { 
+          "en": "A woman having her hair bobbed.", 
+          "ko": "머리를 짧게 자르는 여성" 
+        },
+        "leo_4": { 
+          "en": "Man formally dressed and a deer with its horns folded.", 
+          "ko": "정장 차림의 남성과 뿔을 억누른 사슴" 
+        }
+      },
+      "magha_2": {
+        "leo_4": { 
+          "en": "Man formally dressed and a deer with its horns folded.", 
+          "ko": "정장 차림의 남성과 뿔을 억누른 사슴" 
+        },
+        "leo_5": { 
+          "en": "Rock formations at the edege of a precipice.", 
+          "ko": "절벽 끝의 암석 지층" 
+        },
+        "leo_6": { 
+          "en": "An old fashioned woman and an up-to date girl.", 
+          "ko": "고풍스러운 여인과 현대적인 소녀" 
+        },
+        "leo_7": { 
+          "en": "The constellations in the sky.", 
+          "ko": "천체의 별자리들" 
+        }
+      },
+      "magha_3": {
+        "leo_7": { 
+          "en": "The constellations in the sky.", 
+          "ko": "천체의 별자리들" 
+        },
+        "leo_8": { 
+          "en": "A Bolshevik propagandist.", 
+          "ko": "볼셰비키 선동가" 
+        },
+        "leo_9": { 
+          "en": "Glass blowers.", 
+          "ko": "유리 세공사들" 
+        },
+        "leo_10": { 
+          "en": "Early morning dew.", 
+          "ko": "이른 아침의 이슬" 
+        }
+      },
+      "magha_4": {
+        "leo_11": { 
+          "en": "Children on a swing in a huge oak tree.", 
+          "ko": "커다란 참나무 그네에 탄 아이들" 
+        },
+        "leo_12": { 
+          "en": "An evening lawn party.", 
+          "ko": "저녁의 잔디밭 파티" 
+        },
+        "leo_13": { 
+          "en": "An old sea captain.", 
+          "ko": "노(老) 선장" 
+        },
+        "leo_14": { 
+          "en": "The human soul awaiting opportunity for expression.", 
+          "ko": "표현의 기회를 기다리는 인간의 영혼" 
+        }
+      },
+
+      "purva_phalguni_1": {
+        "leo_14": { 
+          "en": "The human soul awaiting opportunity for expression.", 
+          "ko": "표현의 기회를 기다리는 인간의 영혼" 
+        },
+        "leo_15": { 
+          "en": "A pagent.", 
+          "ko": "야외 행렬극" 
+        },
+        "leo_16": { 
+          "en": "Sunshine just after a storm.", 
+          "ko": "폭풍 직후의 햇살" 
+        },
+        "leo_17": { 
+          "en": "A non-vested church choir.", 
+          "ko": "제복 없이 노래하는 교회 성가대" 
+        }
+      },
+      "purva_phalguni_2": {
+        "leo_17": { 
+          "en": "A non-vested church choir.", 
+          "ko": "제복 없이 노래하는 교회 성가대" 
+        },
+        "leo_18": { 
+          "en": "A teacher of chemistry.", 
+          "ko": "화학을 가르치는 교사" 
+        },
+        "leo_19": { 
+          "en": "A houseboat party.", 
+          "ko": "하우스보트에서의 파티" 
+        },
+        "leo_20": { 
+          "en": "The Zuni sun worshippers.", 
+          "ko": "주니 족의 태양 숭배자들" 
+        }
+      },
+      "purva_phalguni_3": {
+        "leo_21": { 
+          "en": "Chickens intoxicated.", 
+          "ko": "취해 비틀거리는 닭들" 
+        },
+        "leo_22": { 
+          "en": "A carrier pidgeon.", 
+          "ko": "전서구" 
+        },
+        "leo_23": { 
+          "en": "A bareback rider.", 
+          "ko": "안장 없이 타는 기수" 
+        },
+        "leo_24": { 
+          "en": "An untidy unkempt man.", 
+          "ko": "흐트러지고 단정치 못한 남자" 
+        }
+      },
+      "purva_phalguni_4": {
+        "leo_24": { 
+          "en": "An untidy unkempt man.", 
+          "ko": "흐트러지고 단정치 못한 남자" 
+        },
+        "leo_25": { 
+          "en": "A large camel crossing the desert.", 
+          "ko": "사막을 건너는 큰 낙타" 
+        },
+        "leo_26": { 
+          "en": "A rainbow.", 
+          "ko": "무지개" 
+        },
+        "leo_27": { 
+          "en": "Daybreak", 
+          "ko": "새벽" 
+        }
+      },
+
+      "uttara_phalguni_1": {
+        "leo_27": { 
+          "en": "Daybreak", 
+          "ko": "새벽" 
+        },
+        "leo_28": { 
+          "en": "Many little birds on the limb of a large tree.", 
+          "ko": "큰 나뭇가지 위의 작은 새들" 
+        },
+        "leo_29": { 
+          "en": "A mermaid.", 
+          "ko": "인어" 
+        },
+        "leo_30": { 
+          "en": "An unsealed letter.", 
+          "ko": "봉인되지 않은 편지" 
+        }
+      },
+      "uttara_phalguni_2": {
+        "virgo_1": { 
+          "en": "A man's head.", 
+          "ko": "한 남자의 머리" 
+        },
+        "virgo_2": { 
+          "en": "A large white cross upraised.", 
+          "ko": "높이 들어올려진 큰 흰 십자가" 
+        },
+        "virgo_3": { 
+          "en": "Two angels bringing protection.", 
+          "ko": "보호를 내려주는 두 천사" 
+        },
+        "virgo_4": { 
+          "en": "A colored child playing with white children.", 
+          "ko": "백인 아이들과 노는 유색인 아이" 
+        }
+      },
+      "uttara_phalguni_3": {
+        "virgo_4": { 
+          "en": "A colored child playing with white children.", 
+          "ko": "백인 아이들과 노는 유색인 아이" 
+        },
+        "virgo_5": { 
+          "en": "A man dreaming of fairies.", 
+          "ko": "요정 꿈을 꾸는 남자" 
+        },
+        "virgo_6": { 
+          "en": "A merry-go-round.", 
+          "ko": "회전목마" 
+        },
+        "virgo_7": { 
+          "en": "A harem.", 
+          "ko": "하렘" 
+        }
+      },
+      "uttara_phalguni_4": {
+        "virgo_7": { 
+          "en": "A harem.", 
+          "ko": "하렘" 
+        },
+        "virgo_8": { 
+          "en": "First dancing instruction.", 
+          "ko": "첫 무용수업" 
+        },
+        "virgo_9": { 
+          "en": "A man makes a futuristic drawing.", 
+          "ko": "미래적 설계를 그리는 남자" 
+        },
+        "virgo_10": { 
+          "en": "Two heads looking out and beyond the shadows.", 
+          "ko": "그림자 너머를 응시하는 두 개의 머리" 
+        }
+      },
+      "hasta_1": {
+        "virgo_11": { 
+          "en": "A boy moulded in his mother's aspirations for him.", 
+          "ko": "어머니의 열망에 따라 빚어진 소년" 
+        },
+        "virgo_12": { 
+          "en": "A bride with her veil snatched away.", 
+          "ko": "면사포가 벗겨진 채 드러난 신부" 
+        },
+        "virgo_13": { 
+          "en": "A strong hand supplanting political hysteria.", 
+          "ko": "정치적 광기를 게압하는 강한 손" 
+        },
+        "taurus_14": { 
+          "en": "A family tree.", 
+          "ko": "가계도" 
+        }
+      },
+      "hasta_2": {
+        "virgo_14": { 
+          "en": "A family tree.", 
+          "ko": "가계도" 
+        },
+        "virgo_15": { 
+          "en": "An ornamental handkerchief.", 
+          "ko": "장식용 손수건" 
+        },
+        "virgo_16": { 
+          "en": "An orangutan.", 
+          "ko": "오랑우탄" 
+        },
+        "virgo_17": { 
+          "en": "A volcanic in eruption.", 
+          "ko": "분출 중인 화산" 
+        }
+      },
+      "hasta_3": {
+        "virgo_17": { 
+          "en": "A volcanic in eruption.", 
+          "ko": "분출 중인 화산" 
+        },
+        "virgo_18": { 
+          "en": "An Ouija board.", 
+          "ko": "위자(Ouija) 보드" 
+        },
+        "virgo_19": { 
+          "en": "A swimming race.", 
+          "ko": "수영 경기" 
+        },
+        "virgo_20": { 
+          "en": "An automobile caravan.", 
+          "ko": "자동차 행렬" 
+        }
+      },
+      "hasta_4": {
+        "virgo_21": { 
+          "en": "A girl's basketball team.", 
+          "ko": "여자 농구팀" 
+        },
+        "virgo_22": { 
+          "en": "A royal coat of arms.", 
+          "ko": "왕실 문장" 
+        },
+        "virgo_23": { 
+          "en": "An animal trainer.", 
+          "ko": "동물 조련사" 
+        },
+        "virgo_24": { 
+          "en": "Mary and her white lamb.", 
+          "ko": "메리와 그녀의 흰 양" 
+        }
+      },
+      "chitra_1": {
+        "virgo_24": { 
+          "en": "Mary and her white lamb.", 
+          "ko": "메리와 그녀의 흰 양" 
+        },
+        "virgo_25": { 
+          "en": "A flag at half-mast.", 
+          "ko": "절반쯤 내려진 추모의 깃발" 
+        },
+        "virgo_26": { 
+          "en": "A boy with a censer.", 
+          "ko": "향로를 든 소년" 
+        },
+        "virgo_27": { 
+          "en": "Grandes Dames at tea.", 
+          "ko": "차를 마시는 부인들" 
+        }      
+      },
+      "chitra_2": {
+        "virgo_27": { 
+          "en": "Grandes Dames at tea.", 
+          "ko": "차를 마시는 부인들" 
+        },
+        "virgo_28": { 
+          "en": "A bald-headed man.", 
+          "ko": "대머리 남자" 
+        },
+        "virgo_29": { 
+          "en": "A man gaining secret knowledge from a paper he is reading.", 
+          "ko": "문서에서 숨겨진 진실을 발견하는 남자" 
+        },
+        "virgo_30": { 
+          "en": "A false call unheard in attention to immediate service.", 
+          "ko": "긴급한 봉사에 몰두하느라 듣지 못한 거짓된 부름" 
+        }
+      },
+      "chitra_3": {
+        "libra_1": { 
+          "en": "A butterfly made perfect by a dart through it.", 
+          "ko": "표본 핀에 찔려 완전해진 나비" 
+        },
+        "libra_2": { 
+          "en": "The light of the sixth race transmuted to the seventh.", 
+          "ko": "여섯 번째 인류의 빛이 일곱 번째로 승화된다" 
+        },
+        "libra_3": { 
+          "en": "The dawn of a new day, everything changed.", 
+          "ko": "새로운 날의 여명, 모든 것이 바뀐 순간" 
+        },
+        "libra_4": { 
+          "en": "A group around a campfire.", 
+          "ko": "모닥불 주위에 모인 사람들" 
+        }
+      },
+      "chitra_4": {
+        "libra_4": { 
+          "en": "A group around a campfire.", 
+          "ko": "모닥불 주위에 모인 사람들" 
+        },
+        "libra_5": { 
+          "en": "A man teaching the true inner knowledge.", 
+          "ko": "참된 내면의 지식을 가르치는 남자" 
+        },
+        "libra_6": { 
+          "en": "The ideals of a man abundantly crystallised.", 
+          "ko": "한 남자의 이상이 구체적인 형상으로 맺히다" 
+        },
+        "libra_7": { 
+          "en": "A woman feeding chickens and protecting them from the hawks.", 
+          "ko": "닭에게 모이를 주며 매로부터 보호하는 여인" 
+        }
+      },  
+      "swati_1": {
+        "libra_7": { 
+          "en": "A woman feeding chickens and protecting them from the hawks.", 
+          "ko": "닭에게 모이를 주며 매로부터 보호하는 여인" 
+        },
+        "libra_8": { 
+          "en": "A blazing fireplace in a deserted house.", 
+          "ko": "버려진 집 속 타오르는 벽난로" 
+        },
+        "libra_9": { 
+          "en": "Three old masters hanging in an art gallery.", 
+          "ko": "미술관에 걸린 세 명의 거장 작품들" 
+        },
+        "libra_10": { 
+          "en": "A canoe approaching safety through dangerous waters.", 
+          "ko": "위험한 물살을 지나 안전에 다다르는 카누" 
+        }
+      },
+      "swati_2": {
+        "libra_11": { 
+          "en": "A professor peering ofer his glasses.", 
+          "ko": "안경 너머로 바라보는 교수" 
+        },
+        "libra_12": { 
+          "en": "Miners are emerging from a mine.", 
+          "ko": "광부들이 광산에서 나오는 중" 
+        },
+        "libra_13": { 
+          "en": "Children blowing soap bubbles.", 
+          "ko": "비누방울을 불고 있는 아이들" 
+        },
+        "libra_14": { 
+          "en": "A noon siesta.", 
+          "ko": "정오의 낮잠" 
+        }      
+      },
+      "swati_3": {
+        "libra_14": { 
+          "en": "A noon siesta.", 
+          "ko": "정오의 낮잠" 
+        },
+        "libra_15": { 
+          "en": "Circular paths.", 
+          "ko": "원형의 궤도들" 
+        },
+        "libra_16": { 
+          "en": "A boat landing washed away.", 
+          "ko": "휩쓸려 사라진 선착장" 
+        },
+        "libra_17": { 
+          "en": "A retired sea captain.", 
+          "ko": "은퇴한 해상 선장" 
+        }
+      },
+      "swati_4": {
+        "libra_17": { 
+          "en": "A retired sea captain.", 
+          "ko": "은퇴한 해상 선장" 
+        },
+        "libra_18": { 
+          "en": "Two men placed under arrest.", 
+          "ko": "체포된 두 남자" 
+        },
+        "libra_19": { 
+          "en": "A gang of robbers in hiding.", 
+          "ko": "숨어 있는 강도단" 
+        },
+        "libra_20": { 
+          "en": "A Jewish rabbi.", 
+          "ko": "유대인 랍비" 
+        }
+      },
+      "vishakha_1": {
+        "libra_21": { 
+          "en": "A crowd upon the beach.", 
+          "ko": "해변에 모인 군중" 
+        },
+        "libra_22": { 
+          "en": "A child giving birds a drink at a fountain.", 
+          "ko": "분수에서 새에게 물을 주는 아이" 
+        },
+        "libra_23": { 
+          "en": "Chanticleer.", 
+          "ko": "샹티클레어" 
+        },
+        "libra_24": { 
+          "en": "A third wing on the left side of a butterfly.", 
+          "ko": "좌측에서 솟아난 나비의 세 번째 날개" 
+        }
+      },
+      "vishakha_2": {
+        "libra_24": { 
+          "en": "A third wing on the left side of a butterfly.", 
+          "ko": "좌측에서 솟아난 나비의 세 번째 날개" 
+        },
+        "libra_25": { 
+          "en": "Information in the symbol of an autumn leaf.", 
+          "ko": "가을 잎의 상징" 
+        },
+        "libra_26": { 
+          "en": "An eagle and a large white dove turning one into the other.", 
+          "ko": "독수리와 흰 비둘기가 서로로 변하는 중" 
+        },
+        "libra_27": { 
+          "en": "An airplane hovering overhead.", 
+          "ko": "머리 위를 맴도는 비행기" 
+        }
+      },
+      "vishakha_3": {
+        "libra_27": { 
+          "en": "An airplane hovering overhead.", 
+          "ko": "머리 위를 맴도는 비행기" 
+        },
+        "libra_28": { 
+          "en": "A man in the midst of brightening influences.", 
+          "ko": "밝아지는 기운 속에 서 있는 남자" 
+        },
+        "libra_29": { 
+          "en": "Humanity seeking to bridge the span of knowledge.", 
+          "ko": "지식의 간극을 메우려는 인류" 
+        },
+        "libra_30": { 
+          "en": "Three mounds of knowledge on a philosopher's head.", 
+          "ko": "철학자의 머리 위에 솟아오른 세 개의 지식 언덕" 
+        }
+      },
+      "vishakha_4": {
+        "scorpio_1": { 
+          "en": "A crowded sight-seeing bus.", 
+          "ko": "관광버스" 
+        },
+        "scorpio_2": { 
+          "en": "A broken bottle and spilled perfume.", 
+          "ko": "깨진 병과 쏟아진 향수" 
+        },
+        "scorpio_3": { 
+          "en": "A house-raising party.", 
+          "ko": "공동으로 집을 세우는 행사" 
+        },
+        "scorpio_4": { 
+          "en": "A youth holding a lighted candle.", 
+          "ko": "불 켜진 촛불을 든 청년" 
+        }
+      },
+      "anuradha_1": {
+        "scorpio_4": { 
+          "en": "A youth holding a lighted candle.", 
+          "ko": "불 켜진 촛불을 든 청년" 
+        },
+        "scorpio_5": { 
+          "en": "A massive, rocky shore.", 
+          "ko": "거대한 바위 해안" 
+        },
+        "scorpio_6": { 
+          "en": "A gold rush.", 
+          "ko": "골드 러시" 
+        },
+        "scorpio_7": { 
+          "en": "Deep-sea divers.", 
+          "ko": "심해 잠수부들" 
+        }
+      },
+      "anuradha_2": {
+        "scorpio_7": { 
+          "en": "Deep-sea divers.", 
+          "ko": "심해 잠수부들" 
+        },
+        "scorpio_8": { 
+          "en": "The moon shining across a lake.", 
+          "ko": "호수를 가로질러 비추는 달빛" 
+        },
+        "scorpio_9": { 
+          "en": "Dental work.", 
+          "ko": "치과 치료" 
+        },
+        "scorpio_10": { 
+          "en": "A fellowship supper.", 
+          "ko": "교제의 만찬" 
+        }
+      },
+      "anuradha_3": {
+        "scorpio_11": { 
+          "en": "A drowning man rescued.", 
+          "ko": "구조된 익사 직전의 남자" 
+        },
+        "scorpio_12": { 
+          "en": "An embassy ball.", 
+          "ko": "대사관 무도회" 
+        },
+        "scorpio_13": { 
+          "en": "An inventor experimenting.", 
+          "ko": "실험 중인 발명가" 
+        },
+        "scorpio_14": { 
+          "en": "Telephone lineman at work.", 
+          "ko": "전화선을 설치하는 기술자들" 
+        }
+      },
+      "anuradha_4": {
+        "scorpio_14": { 
+          "en": "Telephone lineman at work.", 
+          "ko": "전화선을 설치하는 기술자들" 
+        },
+        "scorpio_15": { 
+          "en": "Children playing around five mounds of sand.", 
+          "ko": "다섯 개 모래 언덕 주위에서 노는 아이들" 
+        },
+        "scorpio_16": { 
+          "en": "A girl's face breaking into a smile.", 
+          "ko": "미소로 번지는 소녀의 얼굴" 
+        },
+        "scorpio_17": { 
+          "en": "A woman, the father of her own child.", 
+          "ko": "자기 아이의 '아버지'인 여성" 
+        }
+      },
+      "jyeshtha_1": {
+        "scorpio_17": { 
+          "en": "A woman, the father of her own child.", 
+          "ko": "자기 아이의 '아버지'인 여성" 
+        },
+        "scorpio_18": { 
+          "en": "A woods rich in autumn coloring.", 
+          "ko": "가을빛이 짙은 숲" 
+        },
+        "scorpio_19": { 
+          "en": "A parrot listening and then talking.", 
+          "ko": "듣고 나서 말하는 앵무새" 
+        },
+        "scorpio_20": { 
+          "en": "Woman drawing two dark curtains aside.", 
+          "ko": "두 겹의 어두운 커튼을 겆히는 여성" 
+        }
+      },
+      "jyeshtha_2": {
+        "scorpio_21": { 
+          "en": "A soldier derelict in his duty.", 
+          "ko": "임무를 져버린 병사" 
+        },
+        "scorpio_22": { 
+          "en": "Hunters starting out for ducks.", 
+          "ko": "오리 사냥에 나서는 사냥꾼들" 
+        },
+        "scorpio_23": { 
+          "en": "A rabbit metamorphosed into a fairy.", 
+          "ko": "요정으로 변한 토끼" 
+        },
+        "scorpio_24": { 
+          "en": "Crowds coming down the mountain to listen to one man.", 
+          "ko": "한 사람의 말을 들으러 산에서 내려오는 군중" 
+        }
+      },
+      "jyeshtha_3": {
+        "scorpio_24": { 
+          "en": "Crowds coming down the mountain to listen to one man.", 
+          "ko": "한 사람의 말을 들으러 산에서 내려오는 군중" 
+        },
+        "scorpio_25": { 
+          "en": "An x-ray.", 
+          "ko": "엑스레이" 
+        },
+        "scorpio_26": { 
+          "en": "Indians making camp.", 
+          "ko": "야영지를 만드는 원주민들" 
+        },
+        "scorpio_27": { 
+          "en": "A military band on the march.", 
+          "ko": "행진 중인 군악대" 
+        }
+      },
+      "jyeshtha_4": {
+        "scorpio_27": { 
+          "en": "A military band on the march.", 
+          "ko": "행진 중인 군악대" 
+        },
+        "scorpio_28": { 
+          "en": "The king of the fairies approaching his domain.", 
+          "ko": "자신의 영토로 다가가는 요정들의 왕" 
+        },
+        "scorpio_29": { 
+          "en": "An Indian woman pleading to her chief for the lives of her children.", 
+          "ko": "자녀들의 생명을 위해 족장에게 애원하는 원주민 여성" 
+        },
+        "scorpio_30": { 
+          "en": "The Halloween jester.", 
+          "ko": "핼러윈 광대" 
+        }
+      },
+      "mula_1": {
+        "sagittarius_1": { 
+          "en": "A Grand Army of the Republic campfire.", 
+          "ko": "공화국 대군의 모닥불 모임" 
+        },
+        "sagittarius_2": { 
+          "en": "The ocean covered with whitecaps.", 
+          "ko": "흰 포말로 뒤덮힌 바다" 
+        },
+        "sagittarius_3": { 
+          "en": "Two men playing chess.", 
+          "ko": "체스를 두는 두 남자" 
+        },
+        "sagittarius_4": { 
+          "en": "A little child learning to walk.", 
+          "ko": "걷기를 배우는 어린 아이" 
+        }
+      },
+      "mula_2": {
+        "sagittarius_4": { 
+          "en": "A little child learning to walk.", 
+          "ko": "걷기를 배우는 어린 아이" 
+        },
+        "sagittarius_5": { 
+          "en": "An old owl up in a tree.", 
+          "ko": "나무 위의 늙은 올빼미" 
+        },
+        "sagittarius_6": { 
+          "en": "A game of cricket.", 
+          "ko": "크리켓 경기" 
+        },
+        "sagittarius_7": { 
+          "en": "Cupid knocking at the door.", 
+          "ko": "문을 두드리는 큐피드" 
+        }
+      },
+      "mula_3": {
+        "sagittarius_7": { 
+          "en": "Cupid knocking at the door.", 
+          "ko": "문을 두드리는 큐피드" 
+        },
+        "sagittarius_8": { 
+          "en": "Rocks and the things forming therein.", 
+          "ko": "암석과 그 속에서 형성되는 것들" 
+        },
+        "sagittarius_9": { 
+          "en": "A mother with her children on the stairs.", 
+          "ko": "계단 위 어머니와 아이들" 
+        },
+        "sagittarius_10": { 
+          "en": "A golden haired 'goddess of opportunity'.", 
+          "ko": "금발의 기회의 여신" 
+        }
+      },
+      "mula_4": {
+        "sagittarius_11": { 
+          "en": "The lamp of physical enlightenment at the left temple.", 
+          "ko": "왼쪽 관자놀이에 빛나는 육체 자각의 등불" 
+        },
+        "sagittarius_12": { 
+          "en": "A flag that runs into an eagle that crows.", 
+          "ko": "수탉처럼 우는 독수리로 변하는 깃발" 
+        },
+        "sagittarius_13": { 
+          "en": "A widow's past is brought to the light.", 
+          "ko": "과거가 드러나는 과부" 
+        },
+        "sagittarius_14": { 
+          "en": "The Pyramids and the Sphinx.", 
+          "ko": "피라미드와 스핑크스" 
+        }
+      },
+
+      "purva_ashadha_1": {
+        "sagittarius_14": { 
+          "en": "The Pyramids and the Sphinx.", 
+          "ko": "피라미드와 스핑크스" 
+        },
+        "sagittarius_15": { 
+          "en": "The groundhog looking for its shadow.", 
+          "ko": "그림자를 살피는 마멋" 
+        },
+        "sagittarius_16": { 
+          "en": "Sea gulls watching a ship.", 
+          "ko": "배를 바라보는 갈매기들" 
+        },
+        "sagittarius_17": { 
+          "en": "An Easter sunrise service.", 
+          "ko": "부활절 일출 예배" 
+        }
+      },
+      "purva_ashadha_2": {
+        "sagittarius_17": { 
+          "en": "An Easter sunrise service.", 
+          "ko": "부활절 일출 예배" 
+        },
+        "sagittarius_18": { 
+          "en": "Tiny children in sunbonnets.", 
+          "ko": "햇볕모자를 쓴 작은 아이들" 
+        },
+        "sagittarius_19": { 
+          "en": "Pelicans moving their habitat.", 
+          "ko": "서식지를 옮기는 펠리컨들" 
+        },
+        "sagittarius_20": { 
+          "en": "Men cutting through ice.", 
+          "ko": "얼음을 가르며 나아가는 사람들" 
+        }
+      },
+      "purva_ashadha_3": {
+        "sagittarius_21": { 
+          "en": "A child and a dog with borrowed eyeglasses.", 
+          "ko": "빌린 안경을 쓴 아이와 개" 
+        },
+        "sagittarius_22": { 
+          "en": "A Chinese laundry.", 
+          "ko": "중국 세탁소" 
+        },
+        "sagittarius_23": { 
+          "en": "Immigrants entering.", 
+          "ko": "입국 중인 이민자들" 
+        },
+        "sagittarius_24": { 
+          "en": "A bluebird standing at the door of the house.", 
+          "ko": "집 문 앞에 선 푸른새" 
+        }
+      },
+      "purva_ashadha_4": {
+        "sagittarius_24": { 
+          "en": "A bluebird standing at the door of the house.", 
+          "ko": "집 문 앞에 선 푸른새" 
+        },
+        "sagittarius_25": { 
+          "en": "A chubby boy on a hobbyhorse.", 
+          "ko": "목마를 탄 뚱뚱한 소년" 
+        },
+        "sagittarius_26": { 
+          "en": "A flag-bearer.", 
+          "ko": "깃발을 든 사람" 
+        },
+        "sagittarius_27": { 
+          "en": "A sculptor.", 
+          "ko": "조각가" 
+        }
+      },
+
+      "uttara_ashadha_1": {
+        "sagittarius_27": { 
+          "en": "A sculptor.", 
+          "ko": "조각가" 
+        },
+        "sagittarius_28": { 
+          "en": "An old bridge over a beautiful stream.", 
+          "ko": "아름다운 시냇물 위의 오래된 다리" 
+        },
+        "sagittarius_29": { 
+          "en": "A fat boy mowing the lawn.", 
+          "ko": "잔디를 깎는 뚱뚱한 소년" 
+        },
+        "sagittarius_30": { 
+          "en": "The Pope.", 
+          "ko": "교황" 
+        }
+      },
+      "uttara_ashadha_2": {
+        "capricorn_1": { 
+          "en": "An Indian chief demanding recognitions.", 
+          "ko": "인정을 요구하는 추장" 
+        },
+        "capricorn_2": { 
+          "en": "Three stained-glass windows, one damaged by bombardment.", 
+          "ko": "폭격으로 하나가 파손된 세 개의 스테인드글라스 창문" 
+        },
+        "capricorn_3": { 
+          "en": "The human soul receptive to growth and understanding.", 
+          "ko": "성장과 이해에 열려 있는 인간의 영혼" 
+        },
+        "capricorn_4": { 
+          "en": "A party entering a large canoe.", 
+          "ko": "큰 카누에 오르는 일행" 
+        }
+      },
+      "uttara_ashadha_3": {
+        "capricorn_4": { 
+          "en": "A party entering a large canoe.", 
+          "ko": "큰 카누에 오르는 일행" 
+        },
+        "capricorn_5": { 
+          "en": "Indians rowing a canoe and dancing a war dance.", 
+          "ko": "카누를 저으며 전쟁 춤을 추는 원주민들" 
+        },
+        "capricorn_6": { 
+          "en": "A dark archway and ten logs at the bottom.", 
+          "ko": "바닥에 나무통 열 개가 놓인 어두운 아치형 통로" 
+        },
+        "capricorn_7": { 
+          "en": "A veiled prophet of power.", 
+          "ko": "베일에 싸인 강력한 예언자" 
+        }
+      },
+      "uttara_ashadha_4": {
+        "capricorn_7": { 
+          "en": "A veiled prophet of power.", 
+          "ko": "베일에 싸인 강력한 예언자" 
+        },
+        "capricorn_8": { 
+          "en": "Birds in the house singing happily.", 
+          "ko": "집 안에서 즐겁게 노래하는 새들" 
+        },
+        "capricorn_9": { 
+          "en": "An angel carrying a harp.", 
+          "ko": "하프를 든 천사" 
+        },
+        "capricorn_10": { 
+          "en": "An albatross feeding from the hand.", 
+          "ko": "손에서 먹이를 받는 알바트로스" 
+        }
+      },
+      "shravana_1": {
+        "capricorn_11": { 
+          "en": "A large group of pheasants.", 
+          "ko": "큰 꿩 무리" 
+        },
+        "capricorn_12": { 
+          "en": "A student of nature lecturing.", 
+          "ko": "자연에 대해 강의하는 학생" 
+        },
+        "capricorn_13": { 
+          "en": "A fire worshipper.", 
+          "ko": "불을 숭배하는 자" 
+        },
+        "capricorn_14": { 
+          "en": "Ancient bas-relief carved in granite.", 
+          "ko": "화강암에 새겨진 고대의 형상" 
+        }
+      },
+      "shravana_2": {
+        "capricorn_14": { 
+          "en": "Ancient bas-relief carved in granite.", 
+          "ko": "화강암에 새겨진 고대의 형상" 
+        },
+        "capricorn_15": { 
+          "en": "Many toys in the children's ward of a hospital.", 
+          "ko": "병원 소아병동에 놓인 많은 장난감들" 
+        },
+        "capricorn_16": { 
+          "en": "Boys and girls in gymnasium suits.", 
+          "ko": "체육복을 입은 소년소녀들" 
+        },
+        "capricorn_17": { 
+          "en": "A girl surreptitiously bathing in the nude.", 
+          "ko": "몰래 벌거벗고 목욕하는 소녀" 
+        }
+      },
+      "shravana_3": {
+        "capricorn_17": { 
+          "en": "A girl surreptitiously bathing in the nude.", 
+          "ko": "몰래 벌거벗고 목욕하는 소녀" 
+        },
+        "capricorn_18": { 
+          "en": "The Union Jack.", 
+          "ko": "유니언 잭 (영국 국기)" 
+        },
+        "capricorn_19": { 
+          "en": "A child of about five carrying a huge shopping bag.", 
+          "ko": "커다란 쇼핑백을 든 다섯 살쯤 되는 아이" 
+        },
+        "capricorn_20": { 
+          "en": "A hidden choir singing.", 
+          "ko": "보이지 않는 합창단의 노래" 
+        }
+      },
+      "shravana_4": {
+        "capricorn_21": { 
+          "en": "A relay race.", 
+          "ko": "릴레이 경주" 
+        },
+        "capricorn_22": { 
+          "en": "A general accepting defeat gracefully.", 
+          "ko": "패배를 품위 있게 받아들이는 장군" 
+        },
+        "capricorn_23": { 
+          "en": "Two awards for bravery in war.", 
+          "ko": "전쟁에서의 용맹함으로 받은 두 개의 훈장" 
+        },
+        "capricorn_24": { 
+          "en": "A woman entering a convent.", 
+          "ko": "수녀원에 들어가는 여성" 
+        }
+      },
+      "dhanishta_1": {
+        "capricorn_24": { 
+          "en": "A woman entering a convent.", 
+          "ko": "수녀원에 들어가는 여성" 
+        },
+        "capricorn_25": { 
+          "en": "An oriental rug dealer.", 
+          "ko": "동양 융단 상인" 
+        },
+        "capricorn_26": { 
+          "en": "A water sprite.", 
+          "ko": "물의 정령" 
+        },
+        "capricorn_27": { 
+          "en": "A mountain pilgrimage.", 
+          "ko": "산으로 떠나는 순례" 
+        }      
+      },
+      "dhanishta_2": {
+        "capricorn_27": { 
+          "en": "A mountain pilgrimage.", 
+          "ko": "산으로 떠나는 순례" 
+        },
+        "capricorn_28": { 
+          "en": "A large aviary.", 
+          "ko": "커다란 새장" 
+        },
+        "capricorn_29": { 
+          "en": "A woman reading tea leaves.", 
+          "ko": "잣잎 점을 보는 여성" 
+        },
+        "capricorn_30": { 
+          "en": "A secret business conferences.", 
+          "ko": "비밀스러운 사업 회의" 
+        }
+      },
+      "dhanishta_3": {
+        "aquarius_1": { 
+          "en": "An old adobe mission.", 
+          "ko": "오래된 어도비 선교소" 
+        },
+        "aquarius_2": { 
+          "en": "An unexpected thunderstorm.", 
+          "ko": "뜻밖의 천둥번개" 
+        },
+        "aquarius_3": { 
+          "en": "A deserter from the navy.", 
+          "ko": "해군에서 탈영한 자" 
+        },
+        "aquarius_4": { 
+          "en": "A hindu healer.", 
+          "ko": "힌두 치유자" 
+        }
+      },
+      "dhanishta_4": {
+        "aquarius_4": { 
+          "en": "A hindu healer.", 
+          "ko": "힌두 치유자" 
+        },
+        "aquarius_5": { 
+          "en": "A council of ancestors.", 
+          "ko": "조상들의 회의" 
+        },
+        "aquarius_6": { 
+          "en": "A performer of a mystery play.", 
+          "ko": "신비극을 공연하는 배우" 
+        },
+        "aquarius_7": { 
+          "en": "A child born of an eggshell.", 
+          "ko": "달걀껍질에서 태어난 아이" 
+        }
+      },  
+      "shatabhisha_1": {
+        "aquarius_7": { 
+          "en": "A child born of an eggshell.", 
+          "ko": "달걀껍질에서 태어난 아이" 
+        },
+        "aquarius_8": { 
+          "en": "Beautifully gowned wax figures.", 
+          "ko": "아름다운 의상을 입은 밀랍 인형들" 
+        },
+        "aquarius_9": { 
+          "en": "A flag turned into an eagle.", 
+          "ko": "독수리로 변한 깃발" 
+        },
+        "aquarius_10": { 
+          "en": "A popularity that proves ephemeral.", 
+          "ko": "잠시뿐임이 드러난 인기" 
+        }
+      },
+      "shatabhisha_2": {
+        "aquarius_11": { 
+          "en": "Man tête-à-tête with his inspiration.", 
+          "ko": "영감과 마주 앉은 남자" 
+        },
+        "aquarius_12": { 
+          "en": "People on stairs graduated upwards.", 
+          "ko": "위로 향해 계단을 오르는 사람들" 
+        },
+        "aquarius_13": { 
+          "en": "A barometer.", 
+          "ko": "기압계" 
+        },
+        "aquarius_14": { 
+          "en": "A train entering a tunnel.", 
+          "ko": "터널로 들어가는 기차" 
+        }      
+      },
+      "shatabhisha_3": {
+        "aquarius_14": { 
+          "en": "A train entering a tunnel.", 
+          "ko": "터널로 들어가는 기차" 
+        },
+        "aquarius_15": { 
+          "en": "Two lovebirds sitting on a fence.", 
+          "ko": "울타리에 나란히 앉아 있는 한 쌍의 사랑앵무" 
+        },
+        "aquarius_16": { 
+          "en": "A big businessman at his desk.", 
+          "ko": "책상에 앉은 대기업가" 
+        },
+        "aquarius_17": { 
+          "en": "A watchdog standing guard.", 
+          "ko": "보초 서는 감시견" 
+        }
+      },
+      "shatabhisha_4": {
+        "aquarius_17": { 
+          "en": "A watchdog standing guard.", 
+          "ko": "보초 서는 감시견" 
+        },
+        "aquarius_18": { 
+          "en": "A man unmasked.", 
+          "ko": "가면을 벗은 남자" 
+        },
+        "aquarius_19": { 
+          "en": "A forest fire quenched.", 
+          "ko": "진압된 산불" 
+        },
+        "aquarius_20": { 
+          "en": "A big white dove, a message bearer.", 
+          "ko": "소식을 전하는 커다란 흰 비둘기" 
+        }
+      },
+      "purva_bhadrapada_1": {
+        "aquarius_21": { 
+          "en": "Woman disappointed, disillusioned.", 
+          "ko": "실망하고 환멸에 빠진 여성" 
+        },
+        "aquarius_22": { 
+          "en": "A rug placed on a floor for children to play.", 
+          "ko": "아이들을 위해 깔린 놀이용 러그" 
+        },
+        "aquarius_23": { 
+          "en": "A big bear sitting down and waving all its paws.", 
+          "ko": "앉아서 모든 발을 흔드는 큰 곰" 
+        },
+        "aquarius_24": { 
+          "en": "Man turning his back on his passions teaches from his experience.", 
+          "ko": "열정을 등지고 경험에서 가르침을 전하는 남자" 
+        }
+      },
+      "purva_bhadrapada_2": {
+        "aquarius_24": { 
+          "en": "Man turning his back on his passions teaches from his experience.", 
+          "ko": "열정을 등지고 경험에서 가르침을 전하는 남자" 
+        },
+        "aquarius_25": { 
+          "en": "A butterfly with the right wing more perfectly formed.", 
+          "ko": "오른쪽 날개가 더 완벽하게 형성된 나비" 
+        },
+        "aquarius_26": { 
+          "en": "A hydrometer.", 
+          "ko": "비중계" 
+        },
+        "aquarius_27": { 
+          "en": "An ancient pottery bowl filled with fresh violets.", 
+          "ko": "신선한 제비꽃이 담긴 고대 도기 그릇" 
+        }
+      },
+      "purva_bhadrapada_3": {
+        "aquarius_27": { 
+          "en": "An ancient pottery bowl filled with fresh violets.", 
+          "ko": "신선한 제비꽃이 담긴 고대 도기 그릇" 
+        },
+        "aquarius_28": { 
+          "en": "A tree feiled and sawed.", 
+          "ko": "베어지고 톱질된 나무" 
+        },
+        "aquarius_29": { 
+          "en": "Butterfly emerging from a chrysalis.", 
+          "ko": "번데기에서 나오는 나비" 
+        },
+        "aquarius_30": { 
+          "en": "The field of Ardath in bloom.", 
+          "ko": "꽃이 만발한 아르닷의 들판" 
+        }
+      },
+      "purva_bhadrapada_4": {
+        "pisces_1": { 
+          "en": "A public market.", 
+          "ko": "공공시장" 
+        },
+        "pisces_2": { 
+          "en": "A squirrel hiding from hunters.", 
+          "ko": "사냥꾼을 피해 숨은 다람쥐" 
+        },
+        "pisces_3": { 
+          "en": "A petrified forests.", 
+          "ko": "화석이 된 숲" 
+        },
+        "pisces_4": { 
+          "en": "Heavy car traffic on a narrow isthmus.", 
+          "ko": "좁은 지협 위의 심한 차량 정체" 
+        }
+      },
+      "uttara_bhadrapada_1": {
+        "pisces_4": { 
+          "en": "Heavy car traffic on a narrow isthmus.", 
+          "ko": "좁은 지협 위의 심한 차량 정체" 
+        },
+        "pisces_5": { 
+          "en": "A church bazaar.", 
+          "ko": "교회 바자회" 
+        },
+        "pisces_6": { 
+          "en": "Officers on dress parade.", 
+          "ko": "제복을 갖춰 입은 장교들의 열병식" 
+        },
+        "pisces_7": { 
+          "en": "A cross lying on the rocks.", 
+          "ko": "바위 위에 놓인 십자가" 
+        }
+      },
+      "uttara_bhadrapada_2": {
+        "pisces_7": { 
+          "en": "A cross lying on the rocks.", 
+          "ko": "바위 위에 놓인 십자가" 
+        },
+        "pisces_8": { 
+          "en": "A girl blowing a bugle.", 
+          "ko": "나팔을 부는 소녀" 
+        },
+        "pisces_9": { 
+          "en": "A jockey.", 
+          "ko": "경마 기수" 
+        },
+        "pisces_10": { 
+          "en": "An aviator in the clouds.", 
+          "ko": "구름 속의 비행사" 
+        }
+      },
+      "uttara_bhadrapada_3": {
+        "pisces_11": { 
+          "en": "Man seeking illumination.", 
+          "ko": "깨달음을 추구하는 사람들" 
+        },
+        "pisces_12": { 
+          "en": "An examination of initiates.", 
+          "ko": "입문자들에 대한 시험" 
+        },
+        "pisces_13": { 
+          "en": "A sword in the museum.", 
+          "ko": "박물관 안의 검" 
+        },
+        "pisces_14": { 
+          "en": "A lady in fox fur.", 
+          "ko": "여우털 코트를 입은 숙녀" 
+        }
+      },
+      "uttara_bhadrapada_4": {
+        "pisces_14": { 
+          "en": "A lady in fox fur.", 
+          "ko": "여우털 코트를 입은 숙녀" 
+        },
+        "pisces_15": { 
+          "en": "An officer preparing to drill his men.", 
+          "ko": "병사 훈련을 준비하는 장교" 
+        },
+        "pisces_16": { 
+          "en": "The flow of inspiration.", 
+          "ko": "영감의 흐름" 
+        },
+        "pisces_17": { 
+          "en": "An Easter promenade.", 
+          "ko": "부활절 거리 행진" 
+        }
+      },
+      "revati_1": {
+        "pisces_17": { 
+          "en": "An Easter promenade.", 
+          "ko": "부활절 거리 행진" 
+        },
+        "pisces_18": { 
+          "en": "A gigantic tent.", 
+          "ko": "거대한 천막" 
+        },
+        "pisces_19": { 
+          "en": "A master instructing his pupil.", 
+          "ko": "제자를 가르치는 스승" 
+        },
+        "pisces_20": { 
+          "en": "A table set for an evening meal.", 
+          "ko": "저녁식사를 위해 차려진 식탁" 
+        }
+      },
+      "revati_2": {
+        "pisces_21": { 
+          "en": "A little white lamb, a child and a Chinese servant.", 
+          "ko": "하얀 어린 양, 아이, 그리고 중국인 하인" 
+        },
+        "pisces_22": { 
+          "en": "A man bringing down the new law from Sinai.", 
+          "ko": "시나이 산에서 새 율법을 가져오는 남자" 
+        },
+        "pisces_23": { 
+          "en": "Spiritist phenomena.", 
+          "ko": "심령 현상" 
+        },
+        "pisces_24": { 
+          "en": "An inhibited island.", 
+          "ko": "사람이 사는 섬" 
+        }
+      },
+      "revati_3": {
+        "pisces_24": { 
+          "en": "An inhibited island.", 
+          "ko": "사람이 사는 섬" 
+        },
+        "pisces_25": { 
+          "en": "The purging of the priesthood.", 
+          "ko": "성직자의 정화" 
+        },
+        "pisces_26": { 
+          "en": "A new moon that divides its influences.", 
+          "ko": "영향을 나누는 신월" 
+        },
+        "pisces_27": { 
+          "en": "A harvest moon.", 
+          "ko": "추수의 달" 
+        }
+      },
+      "revati_4": {
+        "pisces_27": { 
+          "en": "A harvest moon.", 
+          "ko": "추수의 달" 
+        },
+        "pisces_28": { 
+          "en": "A fertile garden under the full moon.", 
+          "ko": "보름달 아래 비옥한 정원" 
+        },
+        "pisces_29": { 
+          "en": "A prism.", 
+          "ko": "프리즘" 
+        },
+        "pisces_30": { 
+          "en": "The Great Stone Face.", 
+          "ko": "위대한 석상의 얼굴" 
+        }
+      }
+    }
+  }
+}

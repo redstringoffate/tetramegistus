@@ -1,0 +1,77 @@
+/* =========================================
+   📱 Mobile Grimoire Layout (Sync with Mypage)
+========================================= */
+.m-grimoire-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    /* 🚀 1. 마이페이지와 동일하게 상단 여백을 없애고 왼쪽 여백만 10px로 맞춤 */
+    padding: 20px 10px; 
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.m-page-title {
+    font-family: inherit;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: rgb(3, 234, 252);
+    
+    /* 🚀 2. 마이페이지 타이틀과 동일한 하단 여백(40px) 적용 */
+    margin-bottom: 40px; 
+    text-shadow: 0 0 10px rgba(3, 234, 252, 0.5);
+}
+
+.m-stage-group {
+    width: 100%;
+    /* 🚀 3. 마이페이지 섹션 간격(10px)과 동일하게 유지 */
+    margin-bottom: 15px; 
+}
+
+.m-stage-trigger {
+    display: flex;
+    width: 100%;
+    
+    /* 🚀 4. 원흉이었던 과도한 위아래 패딩(18px)을 대폭 축소하여 간격 좁힘 */
+    padding: 5px 0; 
+    
+    text-align: left;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #7CFF9B;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent; 
+}
+
+/* 🚀 터치 시 이동 효과 (마이페이지 active와 유사한 피드백) */
+.m-stage-trigger:active {
+    transform: translateX(15px);
+    opacity: 0.5; /* 마이페이지 링크 터치 시 흐려지는 느낌 추가 */
+}
+
+/* 🌑 NIGREDO (Ash / Deep Purple Glow) */
+.m-glow-nigredo:active {
+    color: #b388ff; 
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); 
+}
+
+/* 🌕 ALBEDO (Cyan / Silver Glow) */
+.m-glow-albedo:active {
+    color: #ffffff; 
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); 
+}
+
+/* ☀️ CITRINITAS (Gold / Yellow Glow) */
+.m-glow-citrinitas:active {
+    color: #ffff00; 
+    text-shadow: 0 0 15px rgba(255, 255, 0, 0.8); 
+}
+
+/* 🩸 RUBEDO (Crimson / Red Glow) */
+.m-glow-rubedo:active {
+    color: #ff0000; 
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}

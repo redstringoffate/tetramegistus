@@ -1,0 +1,412 @@
+/* static/world/nigredo/modules/n8.css */
+
+.n8-codex-tenebris {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    background: transparent;
+    color: #e0e0e0;
+    width: 100%;
+}
+
+.codex-item.clickable {
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.codex-item.clickable:hover {
+    filter: brightness(1.5);
+    text-decoration: underline;
+}
+
+:root {
+    /* 천체 분류별 색상 */
+    --c-planet: #06F8FF;       /* 10행성 */
+    --c-major: #54FF5F;        /* Major Asteroids */
+    --c-node: #C164FF;         /* Lilith & Nodes */
+    --c-fate: #ce93d8;         /* Fates */
+    --c-hermetic: #FC09CA;     /* Hermetic Lots */
+    --c-vertex: #fff59d;       /* Vertex (Yellow) */
+    --c-syzygy: #2B32FF;       /* Syzygy */
+    --c-angle: #1507ED;       /* Angles */
+    --c-cusp: #555555;         /* Cusps  */
+    
+    --h-veil-1:  rgba(255, 51, 0, 0.12);      /* 1H */
+    --h-veil-2:  rgba(255, 102, 0, 0.12);    /* 2H */
+    --h-veil-3:  rgba(255, 124, 128, 0.12);    /* 3H */
+    --h-veil-4:  rgba(255, 102, 153, 0.12);  /* 4H */
+    --h-veil-5:  rgba(255, 102, 204, 0.12);    /* 5H */
+    --h-veil-6:  rgba(255, 102, 255, 0.12);    /* 6H */
+    --h-veil-7:  rgba(204, 153, 255, 0.12);  /* 7H */
+    --h-veil-8:  rgba(153, 153, 255, 0.12);       /* 8H */
+    --h-veil-9:  rgba(102, 153, 255, 0.12);    /* 9H */
+    --h-veil-10: rgba(0, 102, 255, 0.12);         /* 10H */
+    --h-veil-11: rgba(0, 51, 204, 0.12);    /* 11H */
+    --h-veil-12: rgba(0, 51, 153, 0.12);      /* 12H */
+    
+    /* 사비안 라인 (Sabian Line) 색상 */
+    --line-minor: #2A69B5;      /* Minor/Arabic (어두운 회색) */
+    --line-major: #49dce1;    /* Major (밝은 녹색) */
+    --glow-major: rgba(124, 255, 155, 0.4);
+}
+
+.p-planet { color: var(--c-planet); }
+.p-major { color: var(--c-major); }
+.p-node { color: var(--c-node); font-style: italic; }
+.p-fate { color: var(--c-fate); }
+.p-lot, .lot-hermetic { color: var(--c-hermetic); }
+.p-vertex { color: var(--c-vertex); }
+.p-syzygy { color: var(--c-syzygy); font-weight: bold; }
+.p-angle { color: var(--c-angle); font-weight: 900; text-transform: uppercase; }
+.p-cusp { color: var(--c-cusp); font-size: 0.8em; }
+.p-minor { color: #888; } /* 일반 소행성 *
+
+/* 🚀 [Lord Highlighting]: 빛나는 권위 (Day/Hour Lord) */
+
+/* static/world/nigredo/modules/n8.css */
+
+/* ... (기존 상단 코드 유지) ... */
+
+/* 🚀 [Lord Highlighting]: Simple Additive System */
+
+/* 1. Hour Lord: 오직 "Glow"만 담당 (색상 변경 X) */
+.lord-hour {
+    text-shadow: 
+        0 0 5px #C4FFFC, 
+        0 0 10px #C4FFFC, 
+        0 0 15px #C4FFFC, 
+        0 0 20px #C4FFFC !important; 
+        
+    /* z-index는 Glow가 다른 글자를 가리지 않게 하기 위함 */
+    position: relative;
+    z-index: 5;
+}
+
+/* 2. Day Lord: 오직 "Extra Bold"만 담당 (색상 변경 X) */
+.lord-day {
+    font-weight: 900 !important;
+}
+
+.star-marker {
+    color: #ffd700; /* 금색 별 */
+    margin-left: 2px;
+    font-weight: normal;
+}
+.star-marker b {
+    color: #ff4444; /* Royal/Spica는 붉은색 강조 (선택사항) */
+    font-weight: 900;
+}
+
+.codex-item {
+    margin-bottom: 2px;
+}
+
+.bg-house-1  { background-color: var(--h-veil-1) !important; }
+.bg-house-2  { background-color: var(--h-veil-2) !important; }
+.bg-house-3  { background-color: var(--h-veil-3) !important; }
+.bg-house-4  { background-color: var(--h-veil-4) !important; }
+.bg-house-5  { background-color: var(--h-veil-5) !important; }
+.bg-house-6  { background-color: var(--h-veil-6) !important; }
+.bg-house-7  { background-color: var(--h-veil-7) !important; }
+.bg-house-8  { background-color: var(--h-veil-8) !important; }
+.bg-house-9  { background-color: var(--h-veil-9) !important; }
+.bg-house-10 { background-color: var(--h-veil-10) !important; }
+.bg-house-11 { background-color: var(--h-veil-11) !important; }
+.bg-house-12 { background-color: var(--h-veil-12) !important; }
+
+/* 🚀 [Sabian Line System]: 사비안 넘버 우측의 시각적 지표 */
+/* Sticky Column(Sabian Number) 내부에 절대 위치로 배치됩니다 */
+.sabian-line-box {
+    position: absolute;
+    right: 0; 
+    top: 0; 
+    bottom: 0;
+    width: 6px; /* 줄 영역 너비 */
+    display: flex;
+    flex-direction: row-reverse; /* 오른쪽 끝에서부터 쌓임 */
+}
+
+/* 굵은 줄 (Planets/Angles 등 Major) */
+.s-line-thick {
+    width: 3px;
+    background: var(--line-major);
+    height: 100%;
+}
+
+/* 얇은 줄 (Minor Asteroids/Arabic Lots) */
+.s-line-thin {
+    width: 2px;
+    background: var(--line-minor);
+    height: 100%;
+}
+
+.ayanamsa-switch-module {
+    display: inline-flex;
+    border: 1px solid #333; /* N3 Outer Border */
+    background: #000;
+    margin-bottom: 10px;
+    /* width: fit-content; <--- N3에는 이 속성이 없으므로 제거하여 레이아웃 흐름에 맡김 */
+}
+
+.ayan-tab { 
+    background: transparent; 
+    border: none; 
+    border-right: 1px solid #222; /* N2 Separator */
+    color: #555; /* N2 Inactive Color */
+    padding: 4px 14px; /* N2 Padding */
+    font-size: 0.7rem; /* N2 Font Size */
+    cursor: pointer; 
+    font-family: inherit;
+    text-transform: capitalize;
+}
+.ayan-tab:last-child { border-right: none; }
+.ayan-tab:hover { color: #aaa; }
+.ayan-tab.active { 
+    background: #333 !important; /* N2 Active Background */
+    color: #fff !important; /* N2 Active Text (White) */
+    font-weight: normal; 
+}
+
+/* Header Controls Layout */
+.controls-row {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* 아야남사와 토글 사이 간격 */
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+/* 🚀 [N2 Style Switch Module] */
+.n8-dichotomy-module {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* 텍스트와 스위치 사이 간격 */
+    position: relative;
+    cursor: help; /* 툴팁 암시 */
+}
+
+/* Labels (Text) */
+.dicho-label {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.65rem;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    user-select: none;
+    font-weight: 600;
+}
+
+/* Active States */
+.dicho-label.active#label-trad {
+    color: #ffd700; /* Gold */
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.dicho-label.active#label-mod {
+    color: #b388ff; /* Purple */
+    text-shadow: 0 0 8px rgba(179, 136, 255, 0.6);
+}
+
+/* The Switch Track */
+.toggle-switch {
+    width: 34px;
+    height: 16px;
+    background: #000;
+    border: 1px solid #444;
+    border-radius: 8px; /* 캡슐 형태 */
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.n8-dichotomy-module:hover .toggle-switch {
+    border-color: #666;
+}
+
+/* The Knob (Circle) */
+.toggle-knob {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 2px; /* Left Position (Traditional) */
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    
+    /* Default (Traditional) Color: Gold */
+    background: #ffd700;
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+/* Right Position (Modern) */
+.toggle-knob.right {
+    left: 18px; /* Move Right */
+    background: #b388ff; /* Purple */
+    box-shadow: 0 0 6px rgba(179, 136, 255, 0.5);
+}
+
+/* 🚀 [Tooltip on Hover] */
+.n8-dichotomy-module::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%; /* 위쪽에 표시 */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    border: 1px solid #333;
+    color: #888;
+    padding: 4px 8px;
+    font-size: 0.65rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 100;
+    border-radius: 2px;
+}
+
+.n8-dichotomy-module:hover::after {
+    opacity: 1;
+}
+
+/* 테이블 래퍼: 거대한 360행을 위한 스크롤 설정 */
+.codex-table-wrapper {
+    width: 100%;
+    height: 80vh; /* 세로 스크롤 확보 */
+    overflow: auto; /* 가로/세로 스크롤 자동 생성 */
+    border: 1px solid #222;
+    scrollbar-width: thin;
+    scrollbar-color: #333 #000;
+}
+
+.module-title {
+    display: block; width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    font-size: 1.5rem !important; font-weight: 600 !important;
+    letter-spacing: 3px; line-height: 1.0;
+    text-transform: uppercase; color: #fff !important;
+    margin: 20px 0 50px 0 !important; padding: 0 !important;
+    border: none !important;
+}
+
+.n8-table {
+    border-collapse: collapse;
+    width: max-content; /* 🚀 내용물이 길면 부모를 뚫고 나가 가로 스크롤 유발 */
+    min-width: 100%;
+    table-layout: fixed;
+}
+
+.col-sabian-symbol {
+    min-width: 400px; /* 충분한 공간 확보 */
+    white-space: normal !important; /* 심볼 설명은 길면 줄바꿈 허용 */
+    color: #aaa;
+    font-style: italic;
+}
+
+/* 1. [The Anchor] Top-Left Corner (Sabian Number Title) - 왕좌의 자리 */
+/* 이 셀은 가로로도, 세로로도 절대 움직이지 않습니다. */
+.n8-table th.sticky-col {
+    position: sticky;
+    left: 0;
+    top: 0;
+    
+    /* 🚀 [Highest Layer]: 모든 요소 중 가장 위에 뜹니다 */
+    z-index: 40 !important;
+    
+    /* 디자인: 좌측 데이터 기둥과 동일한 검은색 배경 */
+    background: #000 !important; 
+    color: #fff !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    /* 경계선: 기둥의 견고함 표현 */
+    border-right: 2px solid #333;
+    border-bottom: 2px solid #333;
+    
+    /* 🚀 [Shadow]: 오른쪽(헤더 쪽)과 아래쪽(데이터 쪽) 모두에 그림자를 드리워 "덮는" 느낌 */
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+/* 2. [Header Row] Column Names - 좌측 기둥 뒤로 숨어야 함 */
+.n8-table th {
+    position: sticky;
+    top: 0;
+    
+    /* 🚀 [Mid Layer]: 코너(40)보다 낮아야 함 */
+    z-index: 20; 
+    min-width: 120px; /* 충분한 공간 확보 */
+    background: #080808; 
+    color: #7CFF9B;
+    font-weight: normal;
+    text-transform: uppercase;
+    
+    border-bottom: 2px solid #333;
+    /* 그림자 제거 (코너 그림자와 충돌 방지) */
+    box-shadow: none; 
+}
+
+/* 3. [Left Pillar] Sabian Number Data - 좌측 기둥 */
+.n8-table td.sticky-col {
+    position: sticky;
+    left: 0;
+    z-index: 30;
+    background: #000 !important;
+    border-right: 2px solid #222;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.8);
+    /* 🚀 Line Box 배치를 위해 relative 필수 */
+    overflow: hidden; /* 줄이 셀 밖으로 튀어나가지 않게 */
+}
+
+/* 4. [Base Layer] General Content */
+.n8-table td {
+    position: relative;
+    z-index: 1; /* 가장 바닥 */
+    
+    padding: 8px 12px;
+    border: 1px solid #111;
+    font-size: 0.75rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* 🚀 [Sabian Number Sticky]: 첫 번째 열 고정 및 디자인 */
+.sticky-col {
+    position: sticky;
+    left: 0;
+    background: #000 !important;
+    z-index: 10;
+    width: 120px;
+    color: #fff !important;
+    font-weight: bold;
+    border-right: 2px solid #333 !important;
+}
+
+/* 🚀 [Elemental Coloring]: 4원소 색상 (사용자 커스텀 가능) */
+.elem-fire { color: #FC4036 !important; text-shadow: 0 0 5px rgba(255, 82, 82, 0.4); } /* Aries, Leo, Sag */
+.elem-earth { color: #ffd740 !important; text-shadow: 0 0 5px rgba(255, 215, 64, 0.4); } /* Taurus, Virgo, Cap (Yellow) */
+.elem-air { color: #e0e0e0 !important; } /* Gemini, Libra, Aqua (White/Grey) */
+.elem-water { color: #36D9F5 !important; text-shadow: 0 0 5px rgba(68, 138, 255, 0.4); } /* Cancer, Scorpio, Pisces (Blue) */
+
+/* 🚀 [Sign Border]: 별자리가 바뀌는 지점에 얇은 경계선 추가 (Aries 30 뒤에) */
+.sign-boundary {
+    border-bottom: 2px solid #7CFF9B !important;
+}
+
+/* Arabic Lots 컬러 코딩 클래스 */
+.lot-item { cursor: pointer; padding: 2px 4px; border-radius: 2px; }
+.lot-item.red { color: #ff4444; }
+.lot-item.green { color: #49dce1; }
+.lot-item.yellow { color: #ffd700; }
+.lot-item.purple { color: #b388ff; }
+.lot-item.navy { color: #4488ff; }
+.lot-item.blue { color: #80d8ff; }
+.lot-item.black { color: #888; text-decoration: underline; }
+
+/* Popover 디자인 (A6 벤치마킹) */
+.lot-popover-box {
+    position: absolute; display: none; z-index: 10000;
+    width: 250px; background: rgba(0,0,0,0.95);
+    border: 1px solid #444; padding: 12px; font-size: 0.8rem;
+    color: #ccc; line-height: 1.4; pointer-events: none;
+}

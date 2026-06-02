@@ -1,0 +1,94 @@
+/* 암흑 침식 진행 중인 상태 (8초에 걸쳐 서서히 투명해짐) */
+.침식_진행중 {
+  opacity: 0;
+  transition: opacity 8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  pointer-events: none;
+}
+
+/* 터치를 떼서 침식이 취소될 때 (빠르게 원래대로 복구) */
+.침식_취소 {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* 숨겨진 16자리 입력창 및 열쇠 아이콘 전용 스타일 */
+#ritual-gateway {
+  position: absolute;
+  top: 60%; /* 폰트 비율에 맞춰 위치 살짝 상향 조정 */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+#key-icon {
+  font-size: 2.5rem;
+  color: #e6e6e6; /* 순백색보다 살짝 톤다운된 고급스러운 흰색 */
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 2s ease, filter 0.5s ease;
+  filter: drop-shadow(0 0 8px rgba(230, 230, 230, 0.4)); /* 흰색 광원 */
+  margin-bottom: 2rem;
+}
+
+#key-icon.revealed {
+  opacity: 1;
+}
+
+/* 열쇠 활성화 상태 (터치 시 더 밝은 흰빛) */
+#key-icon.activated {
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+}
+
+/* 📱 PC 포맷 이식: 4개 분리형 입력 구역 컨테이너 */
+#pc-like-entry-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 확실한 중앙 정렬 */
+  gap: 0.3rem; /* 모바일 환경을 고려해 칸 사이 간격을 살짝 줄임 */
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease, transform 1s ease;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+#pc-like-entry-zone.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* 📱 글자 낑김 현상 완벽 해결: 각 4자리 입력 박스 스타일 */
+.core-segment {
+  width: 3.8rem; /* 모바일 화면에 맞춘 최적화된 너비 */
+  height: 2.8rem;
+  background: transparent;
+  border: 1px solid #1f5f3a;
+  color: #7CFF9B;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.9rem; /* 폰트 사이즈 축소 (기존 1.2rem -> 0.9rem) */
+  text-align: center;
+  letter-spacing: 0.05em; /* 자간 축소로 글자들이 부딪히지 않게 함 */
+  padding: 0; /* 브라우저 기본 내부 여백(Padding)을 0으로 만들어 공간 최대 확보 */
+  border-radius: 4px; /* 모바일 특유의 약간의 둥근 모서리 */
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 포커스 시 테두리 빛남 효과 */
+.core-segment:focus {
+  border-color: #7CFF9B;
+  box-shadow: 0 0 10px rgba(124, 255, 155, 0.3);
+}
+
+/* 칸 사이의 하이픈(-) */
+.segment-dash {
+  color: #1f5f3a;
+  font-size: 1rem;
+  font-weight: bold;
+}

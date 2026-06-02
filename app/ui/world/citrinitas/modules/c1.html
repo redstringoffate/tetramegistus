@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="/static/world/citrinitas/modules/c1.css">
+
+<div class="c1-tabula">
+    
+    <div class="module-title">TABULA</div>
+
+    <div class="c1-controls-wrapper">
+        <div class="row-top">
+            <button id="btn-open-c1-settings" class="c1-settings-btn" onclick="c1_openModal('settings')">
+                <span style="font-size:1.2em; line-height:0;">⚙</span> SYSTEM SETTINGS
+            </button>
+        </div>
+
+        <div class="row-middle">
+            <div class="c1-data-management-box">
+                <div class="dm-group">
+                    <span class="dm-label">MANAGE DATA</span>
+                    <div class="dm-buttons">
+                        <button class="c1-icon-btn red-glow" onclick="c1_openModal('add_natal')" title="Add Natal">+</button>
+                        <button class="c1-icon-btn red-glow" onclick="c1_openModal('add_conj')" title="Add Conjunction">×</button>
+                        <button class="c1-icon-btn red-glow" onclick="c1_openModal('edit_list')" title="Edit Data">※</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sort-switch-module">
+                <div class="sort-label active" data-mode="seed" onclick="c1_setSort('seed')">SEED</div>
+                <div style="color:#333;">|</div>
+                <div class="sort-label" data-mode="system" onclick="c1_setSort('system')">SYSTEM</div>
+            </div>
+        </div>
+
+        <div class="row-bottom">
+            <div id="c1-ayanamsa-nav" class="ayanamsa-switch-module"></div>
+
+            <div class="n8-dichotomy-module" id="c1-dicho-switch">
+                <span class="dicho-label active" id="c1-label-trad">Traditional</span>
+                <div class="toggle-switch">
+                    <div class="toggle-knob" id="c1-dicho-knob"></div>
+                </div>
+                <span class="dicho-label" id="c1-label-mod">Modern</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="codex-table-wrapper">
+        <table class="n8-table" id="c1-grid-table">
+            <thead>
+                <tr id="c1-head-row">
+                    <th class="sticky-col">SABIAN NUMBER</th>
+                    <th class="empty-state-header">...</th> 
+                    <th>SABIAN SYMBOL</th>
+                </tr>
+            </thead>
+            <tbody id="c1-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<div id="c1-loading" class="c1-loading-overlay">
+    <div class="c1-loading-text">
+        Rendering Tabula<span class="c1-loading-dots">.......</span>
+    </div>
+</div>
+
+<div id="c1-modal-overlay" class="c1-modal-overlay" style="display: none;">
+    <div class="c1-modal-window">
+        <div class="c1-modal-header" id="c1-modal-title">TITLE</div>
+        <div class="c1-modal-body" id="c1-modal-content"></div>
+        <div class="c1-modal-footer">
+            <button class="c1-btn-confirm" id="c1-btn-confirm">CONFIRM</button>
+            <button class="c1-btn-return" onclick="c1_closeModal()">RETURN</button>
+        </div>
+    </div>
+</div>
+
+<template id="tpl-c1-add-natal">
+    {% include "world/citrinitas/modules/c1_add_natal.html" %}
+</template>
+
+<template id="tpl-c1-add-conjunction">
+    {% include "world/citrinitas/modules/c1_add_conjunction.html" %}
+</template>
+
+<template id="tpl-c1-edit-list">
+    {% include "world/citrinitas/modules/c1_edit_list.html" %}
+</template>
+
+<template id="tpl-c1-settings">
+    {% include "world/citrinitas/modules/c1_settings.html" %}
+</template>
+
+<script src="/static/world/citrinitas/modules/c1.js"></script>

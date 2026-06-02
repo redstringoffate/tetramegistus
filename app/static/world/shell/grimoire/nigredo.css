@@ -1,0 +1,139 @@
+/* static/world/shell/grimoire/nigredo.css */
+
+.grimoire-archive-container {
+    background: transparent; /* 🚀 투명 배경으로 변경 */
+    color: #e0e0e0;
+    padding: 0px;
+    font-family: inherit;
+}
+
+.archive-title {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(179, 136, 255, 0.5);
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.archive-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 리스트 간격 */
+    margin-bottom: 50px;
+}
+
+/* 데이터가 없을 때의 디자인 */
+.empty-grimoire {
+    color: #555;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* 리스트 아이템 디자인 */
+.archive-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: fit-content;
+}
+
+/* 🚀 이쁜 불릿 포인트 (연금술 느낌의 십자별) */
+.archive-item::before {
+    content: '✦'; 
+    color: #b388ff;
+    margin-right: 15px;
+    font-size: 1rem;
+    text-shadow: 0 0 5px #b388ff;
+    transition: transform 0.3s ease;
+}
+
+/* Hover 애니메이션 */
+.archive-item:hover {
+    color: #b388ff;
+    transform: translateX(10px);
+}
+
+.archive-item:hover::before {
+    transform: scale(1.3);
+}
+
+/* 돌아가기 버튼 디자인 (아카이브 박스 형태) */
+.btn-return {
+    display: inline-block;
+    background: transparent;
+    color: #777;
+    border: 1px solid #555; /* 🚀 명확한 박스 테두리 생성 */
+    padding: 8px 16px;      /* 🚀 박스 안쪽 여백 추가 */
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Hover 시 보라색 발광 테마 적용 */
+.btn-return:hover {
+    color: #7CFF9B;
+    border-color: #7CFF9B; /* 테두리도 보라색으로 변경 */
+    text-shadow: 0 0 8px rgba(179, 136, 255, 0.8);
+    /* 🚀 안팎으로 은은하게 퍼지는 보라빛 박스 글로우 추가 */
+    box-shadow: 0 0 10px rgba(179, 136, 255, 0.4), inset 0 0 8px rgba(179, 136, 255, 0.2); 
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Nigredo Archive Action Buttons & Layout
+   ───────────────────────────────────────────────────────────── */
+.archive-row {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 70px; /* 이름과 아이콘 사이의 간격 */
+    padding-right: 20px;
+}
+
+.archive-actions {
+    display: flex;
+    gap: 10px;
+    opacity: 0; /* 평소에는 숨김 */
+    transition: opacity 0.3s ease;
+}
+
+/* 마우스를 올렸을 때 액션 버튼들이 나타남 */
+.archive-row:hover .archive-actions {
+    opacity: 1; 
+}
+
+/* 아이콘 버튼 기본 스타일 */
+.btn-grimoire-action {
+    background: transparent;
+    border: 1px solid #444;
+    color: #666;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* 📥 다운로드 버튼 Hover (Nigredo 보라색) */
+.btn-grimoire-action.btn-download:hover {
+    color: #b388ff;
+    border-color: #b388ff;
+    background: rgba(179, 136, 255, 0.1);
+    box-shadow: 0 0 8px rgba(179, 136, 255, 0.4);
+}
+
+/* 🗑️ 삭제 버튼 Hover (경고의 붉은색) */
+.btn-grimoire-action.btn-delete:hover {
+    color: #ff5252;
+    border-color: #ff5252;
+    background: rgba(255, 82, 82, 0.1);
+    box-shadow: 0 0 8px rgba(255, 82, 82, 0.4);
+}

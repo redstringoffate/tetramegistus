@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="/static/world/albedo/modules/a3.css">
+
+<div class="a3-ordinatio">
+    <h1 class="materia-title">ORDINATIO</h1>
+
+    <div class="control-row method-toggle-row" style="margin-bottom: 15px; display: flex; align-items: center; gap: 30px;">
+        
+        <div class="dichotomy-module">
+            <span class="dicho-label active" id="label-method-composite">Composite</span>
+            <div class="toggle-switch" onclick="switchOrdinatioMethod()">
+                <div class="toggle-knob" id="method-knob"></div>
+            </div>
+            <span class="dicho-label" id="label-method-davison">Davison</span>
+        </div>
+
+        <div class="dichotomy-module" id="anti-composite-wrapper" style="opacity: 1; transition: opacity 0.3s;">
+            <span class="dicho-label active" id="label-anti-off">Composite</span>
+            <div class="toggle-switch" onclick="switchAntiComposite()">
+                <div class="toggle-knob" id="anti-knob"></div>
+            </div>
+            <span class="dicho-label" id="label-anti-on">Anti-Composite</span>
+        </div>
+
+    </div>
+
+    <div class="angles-bar">
+        <div class="angle-slot">Asc: <span class="val" id="val-asc">-</span></div>
+        <div class="angle-slot">MC: <span class="val" id="val-mc">-</span></div>
+    </div>
+
+    <div class="control-row main-toggle-row">
+        <div class="dichotomy-module main-toggle">
+            <span class="dicho-label active" id="label-mode-cusp">Cusp</span>
+            <div class="toggle-switch" onclick="switchOrdinatioMode()">
+                <div class="toggle-knob" id="ordinatio-mode-knob"></div>
+            </div>
+            <span class="dicho-label" id="label-mode-domain">Domain</span>
+        </div>
+    </div>
+
+    <nav class="system-switch-module" id="ordinatio-system-nav">
+        <button class="sys-tab active" data-sys="tropical" onclick="switchOrdinatioSystem('tropical')">Tropical</button>
+        <button class="sys-tab" data-sys="sidereal" onclick="switchOrdinatioSystem('sidereal')">Sidereal</button>
+        <button class="sys-tab" data-sys="draconic" onclick="switchOrdinatioSystem('draconic')">Draconic</button>
+        <button class="sys-tab" data-sys="ketunic" title="South Node at Aries 0°" onclick="switchOrdinatioSystem('ketunic')">Ketunic</button>
+    </nav>
+
+    <div class="sub-options-vault">
+        <div class="sidereal-controls" id="ordinatio-sidereal-panel">
+            <nav class="ayanamsa-switch-module">
+                {% set ayanamsas = [('Lahiri', 'Lahiri'), ('Raman', 'Raman'), ('KP', 'KP'), ('Fagan-Bradley', 'Fagan-Bradley'), ('Yukteswar', 'Yukteswar')] %}
+                {% for id, full_name in ayanamsas %}
+                <button class="ayan-tab" data-ayan="{{ id|lower }}" onclick="switchAyanamsa('{{ id|lower }}')">{{ id }}</button>
+                {% endfor %}
+            </nav>
+
+            <div class="dichotomy-module" id="ordinatio-lagna-toggle" style="display: none;">
+                <span class="dicho-label active" id="label-zodiac">Zodiac</span>
+                <div class="toggle-switch" onclick="switchLagnaView()">
+                    <div class="toggle-knob" id="lagna-knob"></div>
+                </div>
+                <span class="dicho-label" id="label-lagna">Lagna</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="a3-content">
+        <table class="a3-chart-table" id="ordinatio-table">
+            <thead>
+                </thead>
+            <tbody id="ordinatio-tbody">
+                </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/static/world/albedo/modules/a3.js?v=999"></script>

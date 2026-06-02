@@ -1,0 +1,145 @@
+body.godmode-sanctuary {
+    background: #000; 
+    color: #3cff8f; 
+    margin: 0;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    opacity: 0;
+    animation: voidDissolveIn 1.5s forwards ease-out;
+}
+
+@keyframes voidDissolveIn {
+    0% { opacity: 0; filter: blur(20px); }
+    100% { opacity: 1; filter: none; } /* 🚀 핵심: blur(0px)를 none으로 바꿔서 fixed 붕괴를 막습니다 */
+}
+
+.god-nav {
+    height: auto; 
+    border-bottom: 1px solid #3cff8f;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.god-title { font-size: 1rem; font-weight: bold; }
+.return-btn { background: transparent; border: 1px solid #ff5050; color: #ff5050; padding: 6px 12px; cursor: pointer; font-size: 0.75rem; border-radius: 4px;}
+.return-btn:active { color: #ffe600; border-color: #ffe600; box-shadow: 0 0 10px rgba(255, 230, 0, 0.4); }
+
+/* 🚀 모바일 전용 수직 레이아웃 (Stack) */
+.god-layout { 
+    display: flex; 
+    flex-direction: column; 
+    height: auto; 
+    min-height: calc(100vh - 60px); 
+}
+
+.god-sidebar {
+    width: 100%; 
+    border-bottom: 1px dashed #1a1a1a; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.tree-root { cursor: pointer; margin-bottom: 15px; font-size: 1.2rem; font-weight: bold;}
+.tree-root:active { text-shadow: 0 0 8px #3cff8f; }
+
+.tree-sub { padding-left: 15px; margin-top: 10px; }
+.tree-folder { cursor: pointer; color: #888; margin: 12px 0; font-size: 1rem; }
+.tree-folder:active { color: #3cff8f; }
+
+.tree-deep { padding-left: 20px; border-left: 1px solid #1a1a1a; }
+
+.god-main { 
+    flex: 1; 
+    padding: 20px; 
+    background: #050505; 
+    box-sizing: border-box; 
+    min-height: 50vh;
+}
+.initial-msg { color: #444; text-align: center; margin-top: 20%; font-size: 0.9rem;}
+
+/* 리스트 아이템 디자인 */
+.browser-header { font-size: 1.2rem; margin-bottom: 20px; border-bottom: 1px solid #1a1a1a; padding-bottom: 10px; color: #fff;}
+.entity-item { margin-bottom: 20px; }
+.entity-title { cursor: pointer; font-size: 1.1rem; color: #3cff8f; padding: 5px 0;}
+.entity-title:active { text-shadow: 0 0 10px rgba(60, 255, 143, 0.6); }
+
+.entity-langs { padding-left: 15px; margin-top: 8px; border-left: 1px dashed #333; margin-left: 8px; }
+.lang-bullet { cursor: pointer; color: #777; font-size: 0.95rem; padding: 8px 0; }
+.lang-bullet:active { color: #fff; text-decoration: underline; }
+
+.delete-root { color: #ff5050; }
+.delete-item-wrapper { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1a1a1a; padding-bottom: 10px; margin-bottom: 15px; }
+.delete-x { color: #555; font-size: 1.5rem; padding: 0 10px; }
+.delete-x:active { color: #ff5050; text-shadow: 0 0 15px rgba(255, 80, 80, 1); }
+
+/* 모달 오버레이 */
+/* 모달 오버레이 (화면 정중앙 강제 고정 결계) */
+.ritual-overlay { 
+    position: fixed !important; 
+    top: 0 !important; 
+    left: 0 !important; 
+    width: 100vw !important; 
+    height: 100vh !important; /* 🚀 inset: 0 대신 절대적인 화면 크기 부여 */
+    z-index: 99999 !important; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    background: rgba(0,0,0,0.85); 
+    backdrop-filter: blur(10px);
+}
+.red-void { background: rgba(20, 0, 0, 0.9) !important; }
+.green-void { background: rgba(0, 15, 5, 0.9) !important; }
+.blue-void { background: rgba(0, 10, 20, 0.9) !important; }
+
+/* 모바일 규격 사이즈 제한 */
+.ritual-box { text-align: center; padding: 25px 20px; width: 85%; max-width: 320px; border: 1px solid #3cff8f; background: #000; box-shadow: 0 0 30px rgba(60,255,143,0.15); font-family: inherit; box-sizing: border-box;}
+.ritual-box[style*="border-color: #ff5050"] { box-shadow: 0 0 30px rgba(255,0,0,0.15); }
+.ritual-box[style*="border-color: #0088ff"] { box-shadow: 0 0 30px rgba(0,136,255,0.15); }
+
+.ritual-text { font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 20px; text-transform: lowercase; }
+.ritual-input { background: transparent; border: 1px solid #3cff8f; color: #3cff8f; padding: 12px; width: 100%; text-align: center; outline: none; font-size: 1.1rem; letter-spacing: 5px; box-sizing: border-box; }
+.red-input { border-color: #ff5050 !important; color: #ff5050 !important; }
+.green-input { text-align: left; letter-spacing: 2px; }
+
+.delete-btn-group { display: flex; justify-content: center; gap: 20px; margin-top: 15px;}
+.void-btn { background: transparent; border: none; font-family: inherit; font-size: 1rem; padding: 10px; text-transform: lowercase; cursor: pointer; }
+.void-btn.yes { color: #555; }
+.void-btn.yes:active { color: #ff5050; }
+.void-btn.no { color: #3cff8f; }
+
+.ritual-footer { margin-top: 15px; color: #801a1a; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: lowercase; }
+
+.folder-select-group { display: flex; flex-direction: column; gap: 10px; width: 100%; margin: 0 auto; }
+.folder-btn { background: transparent; border: 1px solid #1a1a1a; color: #888; padding: 15px 10px; text-align: left; font-size: 1rem; width: 100%; box-sizing: border-box;}
+.sub-folder-btn { margin-left: 15px; width: calc(100% - 15px); }
+
+.create-input-group { display: flex; align-items: center; gap: 10px; margin-top: 30px; }
+.create-submit-btn { background: transparent; border: 1px solid #3cff8f; color: #3cff8f; width: 45px; height: 45px; font-size: 1.5rem; }
+
+.create-warning { color: #ff5050; font-size: 0.75rem; margin-top: 10px; opacity: 0; }
+.ritual-freeze { pointer-events: none; filter: brightness(0.8); }
+
+/* 🚀 모바일 터치 전용 핀 리스트 (드래그 대신 상하 화살표 사용) */
+.pin-root { color: #0088ff !important; font-size: 1.1rem !important; margin-bottom: 20px !important; }
+.pin-category-title { color: #555; font-size: 0.75rem; letter-spacing: 1px; margin: 15px 0 8px 0; }
+
+.pin-item {
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(0, 136, 255, 0.05); border: 1px solid #0088ff;
+    color: #fff; font-size: 0.95rem; padding: 10px; margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.pin-controls { display: flex; flex-direction: column; gap: 5px; margin-right: 15px;}
+.pin-up, .pin-down { color: #0088ff; font-size: 1.2rem; padding: 5px; line-height: 0.5;}
+.pin-up:active, .pin-down:active { color: #00f7ff; }
+
+.pin-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pin-delete { color: #ff5050; font-size: 1.2rem; padding: 5px 10px; }
+
+.add-pin-btn { background: transparent; border: 1px dashed #0088ff; color: #0088ff; width: 100%; padding: 12px; font-size: 0.9rem; margin-top: 10px; }
+.pin-search-list { max-height: 40vh; overflow-y: auto; text-align: left; border: 1px solid #111; background: #0a0a0a; border-radius: 4px;}
+.pin-search-item { padding: 15px 10px; border-bottom: 1px solid #1a1a1a; color: #aaa; font-size: 1rem; }

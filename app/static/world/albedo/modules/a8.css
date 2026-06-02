@@ -1,0 +1,760 @@
+/* static/world/nigredo/modules/n8.css */
+
+/* 🚀 [A8 Specific Colors]: Source Distinction via Headers */
+/* Parent A (Warm/Red), Parent B (Cool/Blue), Davison (Purple), Composite (Green) */
+/* static/world/albedo/modules/a8.css */
+
+/* ... (:root 변수 정의 부분은 그대로 유지) ... */
+
+/* 🚀 [A8 Specific Colors]: Header Border Sync with Sabian Lines */
+/* a8.js에서 생성하는 클래스명(src-seed, src-partner...)에 맞춰 수정했습니다. */
+/* border-bottom 색상을 :root의 --line-X 변수와 연결하여 완벽하게 통일합니다. */
+
+/* 1. Parent A (Seed) */
+th.src-seed { 
+    color: #ff8a80 !important;               /* 텍스트: 가독성을 위해 밝은 톤 유지 */
+    border-bottom: 3px solid var(--line-seed) !important; /* 밑줄: Sabian Line 색상 변수 사용 */
+}
+
+/* 2. Parent B (Partner) */
+th.src-partner { 
+    color: #80d8ff !important; 
+    border-bottom: 3px solid var(--line-partner) !important; 
+}
+
+/* 3. Davison */
+th.src-davison { 
+    color: #ea80fc !important; 
+    border-bottom: 3px solid var(--line-davison) !important; 
+}
+
+/* 4. Composite */
+th.src-composite { 
+    color: #b9f6ca !important; 
+    border-bottom: 3px solid var(--line-composite) !important; 
+}
+
+/* ... (나머지 모달, 레이아웃 스타일들은 그대로 유지) ... */
+
+/* 1. Modal Overlay & Window (N1 Style) */
+.lucis-modal-overlay {
+    display: none; position: fixed; top: 0; left: 0; 
+    width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9);
+    z-index: 9999; backdrop-filter: blur(2px);
+}
+
+.lucis-modal-window {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: fit-content; min-width: 480px; background: #000; border: 1px solid #7CFF9B;
+    box-shadow: 0 0 20px rgba(124, 255, 155, 0.1); padding: 25px;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+/* static/world/albedo/modules/a8.css */
+
+.codex-item.clickable {
+    cursor: pointer;
+}
+
+.codex-item.clickable:hover {
+    filter: brightness(1.3);
+    text-decoration: underline;
+}
+
+.lucis-modal-header {
+    font-size: 1.1rem; color: #7CFF9B; border-bottom: 1px solid #333;
+    padding-bottom: 15px; margin-bottom: 25px; text-transform: uppercase;
+    letter-spacing: 2px; text-align: center; font-weight: normal;
+}
+
+/* 🚀 [Setting Row]: 타이틀과 컨트롤 그룹의 분리 */
+#-rows-container {
+    display: flex;
+    flex-direction: column;
+    width: fit-content; /* 가장 넓은 버튼 바(Davison)의 너비를 따름 */
+}
+
+/* ... (나머지 스타일들 유지) ... */
+
+.system-row {
+    margin-bottom: 30px; 
+    display: flex; 
+    flex-direction: column; 
+    width: 100%; /* 🚀 부모 컨테이너의 너비를 꽉 채워 토글 위치를 우측 끝으로 고정 */
+}
+.system-header {
+    display: flex;
+    justify-content: space-between; /* 🚀 타이틀(좌) --- 토글(우) */
+    align-items: center;
+    width: 100%; 
+    margin-bottom: 10px;
+}
+
+.system-title { 
+    font-size: 0.85rem; color: #888; text-transform: uppercase; 
+    letter-spacing: 1px; margin-bottom: 12px;
+}
+
+/* 🚀 [Control Group]: 버튼 바(좌) + 토글(우) */
+.system-controls-wrapper {
+    display: flex; flex-direction: column; 
+    align-items: flex-end; /* 🚀 그림처럼 토글을 버튼바 우측 끝에 맞춤 */
+    width: fit-content;
+}/* static/world/albedo/modules/a8.js */
+
+function renderLucisGrid() {
+    const columns = calculateColumns(); 
+    renderHeader(document.getElementById('codex-head-row'), columns);
+
+    for (let i = 0; i < 360; i++) {
+        const tr = document.querySelector(`tr[data-abs-deg="${i}"]`);
+        if (!tr) continue;
+
+        const sticky = tr.firstElementChild;
+        tr.innerHTML = '';
+        tr.appendChild(sticky);
+
+        const rowData = STATE.codexData ? STATE.codexData[i] : null;
+
+        columns.forEach(col => {
+            const td = document.createElement('td');
+            const entityData = rowData ? rowData[col.entity] : null;
+            let items = entityData ? entityData[col.sub] || [] : [];
+            
+            // 🚀 [수복 1]: 하우스 배경색(Tint) 적용
+            // col.sub가 'tropical'이면 'tropical_h', 'main'이면 'main_h' 인덱스를 찾음
+            const hKey = `${col.sub}_h`;
+            const hIdx = entityData ? entityData[hKey] : 0;
+            if (hIdx > 0) {
+                td.className = `bg-house-${hIdx}`;
+            }
+
+            // 🚀 [수복 2]: Arabic Lots 전용 렌더러 분기
+            if (col.sub === 'arabic_lots') {
+                renderArabicCell(td, items);
+            } else {
+                renderCell(td, items);
+            }
+            tr.appendChild(td);
+        });
+
+        // 사비안 심볼 및 줄 긋기 로직 유지...
+        const symTd = document.createElement('td');
+        symTd.className = 'col-sabian-symbol';
+        if (STATE.sabianSymbols && STATE.sabianSymbols[i]) {
+            symTd.textContent = STATE.sabianSymbols[i][STATE.lang] || STATE.sabianSymbols[i]['en'];
+        }
+        tr.appendChild(symTd);
+        updateLucisLine(sticky, rowData, columns);
+    }
+}
+
+.lot-item.red { color: #ff4444 !important; }
+.lot-item.green { color: #49dce1 !important; }
+.lot-item.yellow { color: #ffd700 !important; }
+.lot-item.purple { color: #b388ff !important; }
+.lot-item.navy { color: #4488ff !important; }
+.lot-item.blue { color: #80d8ff !important; }
+.lot-item.black { color: #888 !important; text-decoration: underline; }
+
+/* Dichotomy Toggle 스타일 (더 작고 날렵하게) */
+.system-toggle { 
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+    margin-bottom: 8px; /* 버튼 바 바로 위 */
+}
+.st-label { font-size: 0.6rem; color: #444; font-weight: bold; }
+.st-label.active { color: #7CFF9B; }
+.st-track {
+    width: 24px; height: 10px; background: #000;
+    border: 1px solid #333; border-radius: 5px; position: relative;
+}
+.st-knob {
+    width: 6px; height: 6px; background: #444;
+    border-radius: 50%; position: absolute; top: 1px; left: 2px; transition: 0.2s;
+}
+.st-track.on { border-color: #7CFF9B; }
+.st-track.on .st-knob { left: 14px; background: #7CFF9B; box-shadow: 0 0 5px #7CFF9B; }
+
+/* ─────────────────────────────────────────────────────────────
+   🚀 [BUTTON VISUAL]: Append/Edit Seed Style (벤치마킹 적용)
+   ───────────────────────────────────────────────────────────── */
+
+.sub-options {
+    display: flex; gap: 0 !important; 
+    border: 1px solid #49dce1;
+    background: #000; width: fit-content;
+}
+
+.sub-btn {
+    background: #000 !important; border: none !important;
+    border-right: 1px solid #7CFF9B !important;
+    color: #444 !important; 
+    /* 🚀 크기 축소: padding 8->5, font 0.75->0.7 */
+    padding: 5px 12px; 
+    font-family: inherit; font-size: 0.7rem; font-weight: 500 !important;
+    text-transform: uppercase; cursor: pointer; transition: 0.2s;
+    white-space: nowrap;
+}
+
+.sub-btn:last-child { 
+    border-right: none !important; 
+}
+
+.sub-btn.active {
+    color: #7CFF9B !important;
+    text-shadow: 0 0 8px rgba(124, 255, 155, 0.6);
+}
+.sub-btn:hover:not(.active) { color: #888; background: #0a0a0a !important; }
+
+/* Footer & Button */
+.lucis-modal-footer {
+    display: flex; justify-content: flex-start; /* 좌측 정렬 */
+    margin-top: 10px; border-top: 1px solid #222; padding-top: 20px;
+}
+
+.btn-confirm {
+    background: #000 !important; /* 🚀 검은 배경 */
+    border: 1px solid #7CFF9B !important; /* 🚀 얇은 녹색 테두리 */
+    color: #7CFF9B !important; /* 🚀 녹색 텍스트 */
+    padding: 6px 20px; cursor: pointer; font-family: inherit;
+    font-size: 0.8rem; text-transform: uppercase;
+    transition: 0.2s;
+}
+.btn-confirm:hover { 
+    background: rgba(124, 255, 155, 0.1) !important; 
+    box-shadow: 0 0 10px rgba(124, 255, 155, 0.3); 
+}
+
+/* 🚀 [Header Controls Layout] */
+.a8-controls-wrapper {
+    margin-bottom: 20px;
+    padding: 0 !important;
+}
+
+/* SYSTEM SETTINGS 버튼 스타일 */
+.btn-sys-settings {
+    background: #000;
+    border: 1px solid #7CFF9B; /* Nigredo Green 테두리 */
+    color: #7CFF9B;
+    /* 투박함 제거: 패딩 축소, 폰트 굵기 정상화 */
+    padding: 5px 12px; 
+    font-size: 0.75rem; 
+    font-weight: normal; 
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+    transition: 0.2s;
+}
+
+/* Seed/System Sort Switch */
+.sort-switch-module {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #000;
+    padding: 4px 12px;
+    border: 1px solid #333; /* 기본 테두리 */
+    
+    /* ✨ 요청하신 푸른 글로우 효과 (여기에만 적용) */
+    box-shadow: 0 0 15px rgba(73, 220, 225, 0.4); 
+    border-color: rgba(73, 220, 225, 0.6);
+    
+    transition: 0.3s;
+}
+
+/* 내부 텍스트 스타일 (심플하게 유지) */
+.sort-label {
+    font-size: 0.7rem;
+    color: #555;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+/* 활성 상태 텍스트 색상 (Cyan) */
+.sort-label.active {
+    color: #49dce1;
+    text-shadow: 0 0 5px rgba(73, 220, 225, 0.6);
+    font-weight: bold;
+}
+
+/* 구분선 색상 */
+.sort-switch-module span:nth-child(2) {
+    color: #444;
+}
+
+.n8-codex-tenebris {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    background: transparent;
+    color: #e0e0e0;
+    width: 100%;
+}
+
+.controls-row:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+:root {
+    /* 천체 분류별 색상 */
+    --c-planet: #06F8FF;       /* 10행성 */
+    --c-major: #54FF5F;        /* Major Asteroids */
+    --c-node: #C164FF;         /* Lilith & Nodes */
+    --c-fate: #ce93d8;         /* Fates */
+    --c-hermetic: #FC09CA;     /* Hermetic Lots */
+    --c-vertex: #fff59d;       /* Vertex (Yellow) */
+    --c-syzygy: #2B32FF;       /* Syzygy */
+    --c-angle: #1507ED;       /* Angles */
+    --c-cusp: #555555;         /* Cusps  */
+    
+    --h-veil-1:  rgba(255, 51, 0, 0.12);      /* 1H */
+    --h-veil-2:  rgba(255, 102, 0, 0.12);    /* 2H */
+    --h-veil-3:  rgba(255, 124, 128, 0.12);    /* 3H */
+    --h-veil-4:  rgba(255, 102, 153, 0.12);  /* 4H */
+    --h-veil-5:  rgba(255, 102, 204, 0.12);    /* 5H */
+    --h-veil-6:  rgba(255, 102, 255, 0.12);    /* 6H */
+    --h-veil-7:  rgba(204, 153, 255, 0.12);  /* 7H */
+    --h-veil-8:  rgba(153, 153, 255, 0.12);       /* 8H */
+    --h-veil-9:  rgba(102, 153, 255, 0.12);    /* 9H */
+    --h-veil-10: rgba(0, 102, 255, 0.12);         /* 10H */
+    --h-veil-11: rgba(0, 51, 204, 0.12);    /* 11H */
+    --h-veil-12: rgba(0, 51, 153, 0.12);      /* 12H */
+    
+    /* 사비안 라인 (Sabian Line) 색상 */
+    --line-minor: #2A69B5;      /* Minor/Arabic (어두운 회색) */
+    --line-seed: #ff5252;           /* Parent A (Warm/Red) */
+    --line-partner: #40c4ff;        /* Parent B (Cool/Blue) */
+    --line-davison: #e040fb;        /* Davison (Purple) */
+    --line-composite: #69f0ae;      /* Composite/Anti (Green) */
+
+    /* 데이터 존재 시 숫자 강조 색상 */
+    --glow-data: rgba(255, 255, 255, 0.6);
+}
+
+.p-planet { color: var(--c-planet); }
+.p-major { color: var(--c-major); }
+.p-node { color: var(--c-node); font-style: italic; }
+.p-fate { color: var(--c-fate); }
+.p-lot, .lot-hermetic { color: var(--c-hermetic); }
+.p-vertex { color: var(--c-vertex); }
+.p-syzygy { color: var(--c-syzygy); font-weight: bold; }
+.p-angle { color: var(--c-angle); font-weight: 900; text-transform: uppercase; }
+.p-cusp { color: var(--c-cusp); font-size: 0.8em; }
+.p-minor { color: #888; } /* 일반 소행성 *
+
+/* 🚀 [Lord Highlighting]: 빛나는 권위 (Day/Hour Lord) */
+
+/* 1. Hour Lord: 오직 "Glow"만 담당 (색상 변경 X) */
+.lord-hour {
+    text-shadow: 
+        0 0 5px #C4FFFC, 
+        0 0 10px #C4FFFC, 
+        0 0 15px #C4FFFC, 
+        0 0 20px #C4FFFC !important; 
+        
+    /* z-index는 Glow가 다른 글자를 가리지 않게 하기 위함 */
+    position: relative;
+    z-index: 5;
+}
+
+/* 2. Day Lord: 오직 "Extra Bold"만 담당 (색상 변경 X) */
+.lord-day {
+    font-weight: 900 !important;
+}
+
+.star-marker {
+    color: #ffd700; /* 금색 별 */
+    margin-left: 2px;
+    font-weight: normal;
+}
+.star-marker b {
+    color: #ff4444; /* Royal/Spica는 붉은색 강조 (선택사항) */
+    font-weight: 900;
+}
+
+.codex-item {
+    margin-bottom: 2px;
+}
+
+.bg-house-1  { background-color: var(--h-veil-1) !important; }
+.bg-house-2  { background-color: var(--h-veil-2) !important; }
+.bg-house-3  { background-color: var(--h-veil-3) !important; }
+.bg-house-4  { background-color: var(--h-veil-4) !important; }
+.bg-house-5  { background-color: var(--h-veil-5) !important; }
+.bg-house-6  { background-color: var(--h-veil-6) !important; }
+.bg-house-7  { background-color: var(--h-veil-7) !important; }
+.bg-house-8  { background-color: var(--h-veil-8) !important; }
+.bg-house-9  { background-color: var(--h-veil-9) !important; }
+.bg-house-10 { background-color: var(--h-veil-10) !important; }
+.bg-house-11 { background-color: var(--h-veil-11) !important; }
+.bg-house-12 { background-color: var(--h-veil-12) !important; }
+
+/* 🚀 [Sabian Line System]: 사비안 넘버 우측의 시각적 지표 */
+/* Sticky Column(Sabian Number) 내부에 절대 위치로 배치됩니다 */
+.sabian-line-box {
+    position: absolute;
+    right: 0; 
+    top: 0; 
+    bottom: 0;
+    width: auto;
+    display: flex;
+    flex-direction: row-reverse; /* 기둥 경계선(오른쪽)부터 왼쪽으로 쌓임 */
+    gap: 0px;
+    pointer-events: none; /* 텍스트 선택 방해 금지 */
+}
+
+/* 굵은 줄 (Planets/Angles 등 Major) */
+.s-line-thick {
+    width: 3px;
+    height: 100%;
+    /* 기본 배경색 제거 (개별 클래스에서 정의) */
+}
+
+/* 얇은 줄 (Minor Asteroids/Arabic Lots) */
+.s-line-thin {
+    width: 2px;
+    background: var(--line-minor) !important; /* #555555 (Dark Grey) */
+    height: 100%;
+}
+
+.s-line-seed      { background: var(--line-seed) !important; }      /* Parent A (Red) */
+.s-line-partner   { background: var(--line-partner) !important; }   /* Parent B (Blue) */
+.s-line-davison   { background: var(--line-davison) !important; }   /* Davison (Purple) */
+.s-line-composite { background: var(--line-composite) !important; } /* Composite (Green) */
+
+.ayanamsa-switch-module {
+    display: inline-flex;
+    border: 1px solid #333; /* N3 Outer Border */
+    background: #000;
+    margin-bottom: 10px;
+    /* width: fit-content; <--- N3에는 이 속성이 없으므로 제거하여 레이아웃 흐름에 맡김 */
+}
+
+.ayan-tab { 
+    background: transparent; 
+    border: none; 
+    border-right: 1px solid #222; /* N2 Separator */
+    color: #555; /* N2 Inactive Color */
+    padding: 4px 14px; /* N2 Padding */
+    font-size: 0.7rem; /* N2 Font Size */
+    cursor: pointer; 
+    font-family: inherit;
+    text-transform: capitalize;
+}
+.ayan-tab:last-child { border-right: none; }
+.ayan-tab:hover { color: #aaa; }
+.ayan-tab.active { 
+    background: #333 !important; /* N2 Active Background */
+    color: #fff !important; /* N2 Active Text (White) */
+    font-weight: normal; 
+}
+
+/* Header Controls Layout */
+.controls-row {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* 아야남사와 토글 사이 간격 */
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+.controls-row:first-child {
+    display: flex;
+    justify-content: space-between; /* 좌: Settings, 우: Sort Switch */
+    align-items: center;
+    margin-bottom: 20px; /* 줄 사이 간격 */
+}
+
+/* 🚀 [N2 Style Switch Module] */
+.n8-dichotomy-module {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* 텍스트와 스위치 사이 간격 */
+    position: relative;
+    cursor: help; /* 툴팁 암시 */
+}
+
+/* Labels (Text) */
+.dicho-label {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.65rem;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    user-select: none;
+    font-weight: 600;
+}
+
+/* Active States */
+.dicho-label.active#label-trad {
+    color: #ffd700; /* Gold */
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.dicho-label.active#label-mod {
+    color: #b388ff; /* Purple */
+    text-shadow: 0 0 8px rgba(179, 136, 255, 0.6);
+}
+
+/* The Switch Track */
+.toggle-switch {
+    width: 34px;
+    height: 16px;
+    background: #000;
+    border: 1px solid #444;
+    border-radius: 8px; /* 캡슐 형태 */
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.n8-dichotomy-module:hover .toggle-switch {
+    border-color: #666;
+}
+
+/* The Knob (Circle) */
+.toggle-knob {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 2px; /* Left Position (Traditional) */
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    
+    /* Default (Traditional) Color: Gold */
+    background: #ffd700;
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+/* Right Position (Modern) */
+.toggle-knob.right {
+    left: 18px; /* Move Right */
+    background: #b388ff; /* Purple */
+    box-shadow: 0 0 6px rgba(179, 136, 255, 0.5);
+}
+
+/* 🚀 [Tooltip on Hover] */
+.n8-dichotomy-module::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%; /* 위쪽에 표시 */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    border: 1px solid #333;
+    color: #888;
+    padding: 4px 8px;
+    font-size: 0.65rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 100;
+    border-radius: 2px;
+}
+
+.n8-dichotomy-module:hover::after {
+    opacity: 1;
+}
+
+/* 테이블 래퍼: 거대한 360행을 위한 스크롤 설정 */
+.codex-table-wrapper {
+    width: 100%;
+    height: 80vh; /* 세로 스크롤 확보 */
+    overflow: auto; /* 가로/세로 스크롤 자동 생성 */
+    background: #000;
+    border: 1px solid #222;
+    scrollbar-width: thin;
+    scrollbar-color: #333 #000;
+}
+
+.module-title {
+    display: block; width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    font-size: 1.5rem !important; font-weight: 600 !important;
+    letter-spacing: 3px; line-height: 1.0;
+    text-transform: uppercase; color: #000 !important;
+    margin: 20px 0 50px 0 !important; padding: 0 !important;
+    border: none !important;
+}
+
+.n8-table {
+    /* collapse 모드에서는 sticky 헤더의 border-bottom이 스크롤 시 가려질 수 있음 */
+    border-collapse: separate !important; 
+    border-spacing: 0 !important; /* 셀 간격 0으로 설정하여 collapse처럼 보이게 함 */
+    
+    width: max-content;
+    min-width: 100%;
+    table-layout: fixed;
+}
+
+.col-sabian-symbol {
+    min-width: 400px; /* 충분한 공간 확보 */
+    white-space: normal !important; /* 심볼 설명은 길면 줄바꿈 허용 */
+    color: #aaa;
+    font-style: italic;
+}
+
+/* 1. [The Anchor] Top-Left Corner (Sabian Number Title) - 왕좌의 자리 */
+/* 이 셀은 가로로도, 세로로도 절대 움직이지 않습니다. */
+.n8-table th.sticky-col {
+    position: sticky;
+    left: 0;
+    top: 0;
+    
+    /* 🚀 [Highest Layer]: 모든 요소 중 가장 위에 뜹니다 */
+    z-index: 40 !important;
+    
+    /* 디자인: 좌측 데이터 기둥과 동일한 검은색 배경 */
+    background: #000 !important; 
+    color: #fff !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    /* 경계선: 기둥의 견고함 표현 */
+    border-right: 2px solid #333;
+    border-bottom: 2px solid #333;
+    
+    /* 🚀 [Shadow]: 오른쪽(헤더 쪽)과 아래쪽(데이터 쪽) 모두에 그림자를 드리워 "덮는" 느낌 */
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+/* 2. [Header Row] Column Names - 좌측 기둥 뒤로 숨어야 함 */
+.n8-table th {
+    position: sticky;
+    top: 0;
+    
+    /* 🚀 [Mid Layer]: 코너(40)보다 낮아야 함 */
+    z-index: 20; 
+    min-width: 120px; /* 충분한 공간 확보 */
+    background: #080808; 
+    color: #7CFF9B;
+    font-weight: normal;
+    text-transform: uppercase;
+    
+    border-bottom: 2px solid #333;
+    /* 그림자 제거 (코너 그림자와 충돌 방지) */
+    box-shadow: none; 
+}
+
+/* 3. [Left Pillar] Sabian Number Data - 좌측 기둥 */
+.n8-table td.sticky-col {
+    position: sticky;
+    left: 0;
+    z-index: 30;
+    background: #000 !important;
+    overflow: hidden; /* 줄이 셀 밖으로 삐져나가지 않게 절단 */
+}
+
+/* 4. [Base Layer] General Content */
+.n8-table td {
+    position: relative;
+    z-index: 1; /* 가장 바닥 */
+    
+    padding: 8px 12px;
+    border: 1px solid #111;
+    font-size: 0.75rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* 🚀 [Sabian Number Sticky]: 첫 번째 열 고정 및 디자인 */
+.sticky-col {
+    position: sticky;
+    left: 0;
+    background: #000 !important;
+    z-index: 10;
+    width: 120px;
+    color: #fff !important;
+    font-weight: bold;
+    border-right: 2px solid #333 !important;
+}
+
+/* 🚀 [Elemental Coloring]: 4원소 색상 (사용자 커스텀 가능) */
+.elem-fire { color: #FC4036 !important; text-shadow: 0 0 5px rgba(255, 82, 82, 0.4); } /* Aries, Leo, Sag */
+.elem-earth { color: #ffd740 !important; text-shadow: 0 0 5px rgba(255, 215, 64, 0.4); } /* Taurus, Virgo, Cap (Yellow) */
+.elem-air { color: #e0e0e0 !important; } /* Gemini, Libra, Aqua (White/Grey) */
+.elem-water { color: #36D9F5 !important; text-shadow: 0 0 5px rgba(68, 138, 255, 0.4); } /* Cancer, Scorpio, Pisces (Blue) */
+
+/* 🚀 [Sign Border]: 별자리가 바뀌는 지점에 얇은 경계선 추가 (Aries 30 뒤에) */
+.sign-boundary {
+    border-bottom: 2px solid #7CFF9B !important;
+}
+
+/* Arabic Lots 컬러 코딩 클래스 */
+.lot-item { cursor: pointer; padding: 2px 4px; border-radius: 2px; }
+.lot-item.red { color: #ff4444; }
+.lot-item.green { color: #49dce1; }
+.lot-item.yellow { color: #ffd700; }
+.lot-item.purple { color: #b388ff; }
+.lot-item.navy { color: #4488ff; }
+.lot-item.blue { color: #80d8ff; }
+.lot-item.black { color: #888; text-decoration: underline; }
+
+/* Popover 디자인 (A6 벤치마킹) */
+.lot-popover-box {
+    position: absolute; display: none; z-index: 10000;
+    width: 250px; background: rgba(0,0,0,0.95);
+    border: 1px solid #444; padding: 12px; font-size: 0.8rem;
+    color: #ccc; line-height: 1.4; pointer-events: none;
+}
+
+/* static/world/albedo/modules/a8.css */
+
+.sticky-col {
+    /* 기존 스타일 유지  */
+    transition: box-shadow 0.2s ease, color 0.2s ease;
+}
+
+/* 🚀 데이터 존재 시 숫자 발광 (가독성 확보) */
+.sticky-col.has-data {
+    color: #fff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* 별자리 경계선(30도)과 겹칠 경우 보조 */
+.sign-boundary {
+    border-bottom: 2px solid #7CFF9B !important;
+}
+
+/* static/world/albedo/modules/a8.css */
+
+/* 🚀 로딩 오버레이 스타일 */
+#lucis-loading-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: none; /* 기본 숨김 */
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(4px); /* 배경 블러 */
+}
+
+.loader-text {
+    color: #7CFF9B;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(124, 255, 155, 0.5);
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* 🚀 그리드 영역 딤 효과 */
+.dimmed-blur {
+    filter: grayscale(0.5) brightness(0.5);
+    pointer-events: none; /* 로딩 중 조작 방지 */
+    transition: filter 0.3s ease;
+}

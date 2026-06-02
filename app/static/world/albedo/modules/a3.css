@@ -1,0 +1,404 @@
+/* static/world/nigredo/modules/n3.css — v3.0 Structural Styling */
+
+/* 1. Identity (Inherit N2 Theme) */
+#stage-container.stage-albedo .a3-ordinatio {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    color: #49dce1 !important;
+}
+
+#stage-container.stage-albedo .materia-title {
+    font-size: 1.5rem; 
+    color: #49dce1; 
+    margin-bottom: 50px !important; 
+    letter-spacing: 3px; 
+    font-weight: 600;
+}
+
+/* 2. Top Bar (Angles) - Left Aligned */
+#stage-container.stage-albedo .angles-bar {
+    display: flex; 
+    justify-content: flex-start; /* 🔑 좌측 정렬 */
+    gap: 60px; 
+    margin-bottom: 5px;
+    font-size: 0.9rem; 
+    color: #000000;
+    padding-left: 5px;
+}
+#stage-container.stage-albedo .angle-slot .val { 
+    color: #888; 
+    margin-left: 10px; 
+    font-weight: bold; 
+}
+
+/* 3. Controls & Toggles */
+#stage-container.stage-albedo .main-toggle-row { 
+    display: flex; 
+    justify-content: flex-start; 
+    margin-bottom: 10px; 
+}
+
+#stage-container.stage-albedo .dichotomy-module { display: flex; align-items: center; gap: 12px; }
+#stage-container.stage-albedo .dicho-label { font-size: 0.7rem; color: #666; text-transform: uppercase; transition: 0.2s; }
+#stage-container.stage-albedo .dicho-label.active { color: #49dce1; font-weight: bold; text-shadow: 0 0 5px #49dce1; }
+
+#stage-container.stage-albedo .toggle-switch { 
+    width: 34px; height: 16px; background: #111; border: 1px solid #444; border-radius: 8px; position: relative; cursor: pointer; 
+}
+#stage-container.stage-albedo .toggle-knob { 
+    width: 12px; height: 12px; background: #333; border-radius: 50%; position: absolute; top: 1px; left: 2px; transition: 0.2s ease; 
+}
+#stage-container.stage-albedo .toggle-knob.right { 
+    left: 18px; background: #49dce1; box-shadow: 0 0 8px #7CFF9B; 
+}
+
+#stage-container.stage-albedo .system-switch-module { display: inline-flex; border: 1px solid #49dce1; background: #000; overflow: hidden; margin-bottom: 10px; }
+#stage-container.stage-albedo .sys-tab {
+    background: transparent; border: none; border-right: 1px solid rgba(124, 255, 155, 0.4);
+    color: #49dce1; padding: 8px 24px; font-size: 0.8rem; cursor: pointer; transition: 0.2s; font-family: inherit;
+}
+#stage-container.stage-albedo .sys-tab:last-child { border-right: none; }
+#stage-container.stage-albedo .sys-tab.active { background: #49dce1 !important; color: #000 !important; font-weight: bold; }#stage-container.stage-nigredo .sys-tab { 
+    background: transparent; border: none; border-right: 1px solid rgba(124, 255, 155, 0.4); 
+    color: #49dce1; padding: 8px 24px; font-size: 0.8rem; cursor: pointer; text-transform: uppercase; 
+}
+#stage-container.stage-albedo .sys-tab:last-child { border-right: none; }
+#stage-container.stage-albedo .sys-tab.active { background: #49dce1 !important; color: #000 !important; font-weight: bold; }
+
+/* 4. Sidereal Vault */
+#stage-container.stage-albedo .sub-options-vault { height: 50px; display: flex; align-items: center; margin-bottom: 20px; }
+#stage-container.stage-albedo .sidereal-controls { 
+    display: flex; align-items: center; gap: 50px; 
+    visibility: hidden; opacity: 0; pointer-events: none; transition: opacity 0.3s; 
+}
+#stage-container.stage-albedo .sidereal-controls.manifested { visibility: visible; opacity: 1; pointer-events: auto; }
+
+#stage-container.stage-albedo .ayanamsa-switch-module { display: inline-flex; border: 1px solid #333; background: #000; }
+#stage-container.stage-albedo .ayan-tab { 
+    background: transparent; border: none; border-right: 1px solid #222; 
+    color: #555; padding: 4px 14px; font-size: 0.7rem; cursor: pointer; 
+}
+#stage-container.stage-albedo .ayan-tab.active { background: #333 !important; color: #eee !important; }
+
+/* 5. Table Styling */
+#stage-container.stage-albedo .a3-chart-table { 
+    width: 100%; 
+    /* 🔑 핵심: 테이블이 찌그러지지 않도록 최소 너비를 강제합니다. */
+    min-width: 1100px; 
+    border-collapse: collapse; 
+    margin-bottom: 50px; 
+    table-layout: fixed; 
+}
+
+#stage-container.stage-albedo .a3-chart-table.mode-cusp {
+    min-width: 1100px; /* Cusp Mode Scroll Trigger */
+}
+#stage-container.stage-albedo .a3-chart-table.mode-domain {
+    min-width: 1220px; /* 🚀 [Fix]: Domain Mode Scroll Trigger (확장됨) */
+}
+#stage-container.stage-albedo .a3-chart-table.mode-lagna {
+    min-width: 1100px;
+}
+
+#stage-container.stage-albedo .a3-chart-table th { 
+    text-align: left; padding: 10px; border-bottom: 1px solid rgba(124, 255, 155, 0.2); 
+    font-size: 0.7rem; color: #888; text-transform: uppercase; 
+}
+#stage-container.stage-albedo .a3-chart-table tbody {
+    background-color: #000;
+}
+#stage-container.stage-albedo .a3-chart-table td { 
+    padding: 12px 10px; border-bottom: 1px solid rgba(124, 255, 155, 0.05); 
+    font-size: 0.85rem; color: #FFFFFF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
+}
+#stage-container.stage-albedo .a3-chart-table tbody tr:hover { background: rgba(124, 255, 155, 0.05); }
+
+/* 🚀 [Center Alignment Logic] */
+/* 1. Range (Common for both modes - 3rd Column) */
+#stage-container.stage-albedo .a3-chart-table th:nth-child(3), 
+#stage-container.stage-albedo .a3-chart-table td:nth-child(3) {
+    text-align: center !important;
+}
+
+/* 2. Divisions (Cusp Mode Only - Columns 4,5,6,7) */
+#stage-container.stage-albedo .a3-chart-table.mode-cusp th:nth-child(4),
+#stage-container.stage-albedo .a3-chart-table.mode-cusp td:nth-child(4),
+#stage-container.stage-albedo .a3-chart-table.mode-cusp th:nth-child(5),
+#stage-container.stage-albedo .a3-chart-table.mode-cusp td:nth-child(5),
+#stage-container.stage-albedo .a3-chart-table.mode-cusp th:nth-child(6),
+#stage-container.stage-albedo .a3-chart-table.mode-cusp td:nth-child(6),
+#stage-container.stage-albedo .a3-chart-table.mode-cusp th:nth-child(7),
+#stage-container.stage-albedo .a3-chart-table.mode-cusp td:nth-child(7) {
+    text-align: center !important;
+}
+
+/* Column Specifics */
+#stage-container.stage-albedo .cell-info { color: #49dce1; }
+#stage-container.stage-albedo .cell-range { color: #fff; text-align: center; }
+#stage-container.stage-albedo .cell-content { white-space: normal !important; font-size: 0.8rem; line-height: 1.4; color: #ddd; }
+#stage-container.stage-albedo .cell-sabian { white-space: normal !important; font-style: italic; opacity: 0.7; font-size: 0.75rem; }
+#stage-container.stage-albedo .cell-center { text-align: center !important; }
+
+/* Fixed Stars (N2 Style) */
+/* Tier Specifics */
+/* 👑 Royal: Crown (Gold) */
+.fs-royal {
+    color: #FFD700;
+    font-weight: 900;
+}
+.fs-royal::before { content: "♛"; }
+
+/* ✨ Spica: Sparkle (Blue-White) */
+.fs-spica {
+    color: #00FFFF;
+    font-weight: 900;
+}
+.fs-spica::before { content: "✨"; }
+
+/* ⭐ Major: Big Star (White) */
+.fs-major {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+}
+.fs-major::before { content: "✯"; }
+
+/* ✶ Traditional: Six-point Star (Silver) */
+.fs-traditional {
+    color: #C0C0C0;
+    font-size: 1.1rem;
+}
+.fs-traditional::before { content: "✶"; }
+
+/* • Common: Small Star (Grey) */
+.fs-common {
+    color: #808080;
+    font-size: 0.9rem;
+}
+.fs-common::before { content: "*"; }
+
+
+/* A3 Ordinatio Anaretic Styling */
+#stage-container.stage-albedo .a3-chart-table td.text-anaretic {
+    color: #EB3324 !important; /* 강력한 붉은색 */
+    text-shadow: none !important;
+    font-weight: 900 !important;
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.5)); /* 가독성 확보 */
+}
+
+/* 팝업창 기본 스타일이 없을 경우 대비 (n2.css와 동일하게) */
+.fs-popover-box {
+    position: absolute;
+    width: 320px;
+    background: rgba(0, 0, 0, 0.98);
+    border: 1px solid #7CFF9B;
+    box-shadow: 0 0 30px rgba(124, 255, 155, 0.3);
+    padding: 15px;
+    z-index: 99999;
+    color: #7CFF9B;
+    font-family: ui-monospace, monospace;
+    display: none;
+    border-radius: 4px;
+}
+
+.fs-popover-box.active { display: block; }
+
+.fs-title {
+    font-size: 1.1rem;
+    font-weight: 900;
+    border-bottom: 1px solid #49dce1;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    color: #49dce1;
+}
+
+.fs-content {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.fs-constellation {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.fs-close-hint {
+    margin-top: 15px;
+    font-size: 0.7rem;
+    color: #555;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+/* A. CUSP MODE (8 Columns) */
+/* 1:Name, 2:Info, 3:Range, 4:Duad, 5:Dod, 6:Decan, 7:Bd, 8:Sabian */
+#stage-container.stage-albedo .a3-chart-table.mode-cusp th:nth-child(1) { width: 140px; } /* Cusps */
+#stage-container.stage-albedo .a3-chart-table.mode-cusp th:nth-child(2) { width: 200px; } /* Info */
+#stage-container.stage-albedo .a3-chart-table.mode-cusp th:nth-child(3) { width: 90px; }  /* Range */
+#stage-container.stage-albedo .a3-chart-table.mode-cusp th:nth-child(4) { width: 45px; }  /* Duad */
+#stage-container.stage-albedo .a3-chart-table.mode-cusp th:nth-child(5) { width: 45px; }  /* Dod */
+#stage-container.stage-albedo .a3-chart-table.mode-cusp th:nth-child(6) { width: 45px; }  /* Decan */
+#stage-container.stage-albedo .a3-chart-table.mode-cusp th:nth-child(7) { width: 45px; }  /* Bd */
+#stage-container.stage-albedo .a3-chart-table.mode-cusp th:nth-child(8) { width: 490px; }  /* Sabian (나머지) */
+
+/* B. DOMAIN MODE (Total ~1200px) */
+/* 1:House, 2:Info, 3:Range, 4:Planets, 5:Asteroids, 6:Hermetic */
+#stage-container.stage-albedo .a3-chart-table.mode-domain th:nth-child(1) { width: 90px; }
+#stage-container.stage-albedo .a3-chart-table.mode-domain th:nth-child(2) { width: 170px; }
+#stage-container.stage-albedo .a3-chart-table.mode-domain th:nth-child(3) { width: 90px; }
+#stage-container.stage-albedo .a3-chart-table.mode-domain th:nth-child(4) { width: 290px; } /* 🚀 Expanded */
+#stage-container.stage-albedo .a3-chart-table.mode-domain th:nth-child(5) { width: 290px; } /* 🚀 Expanded */
+#stage-container.stage-albedo .a3-chart-table.mode-domain th:nth-child(6) { width: 290px; } /* 🚀 Expanded (Fill remaining) */
+
+/* C. LAGNA MODE (3 Columns) */
+/* 1:Lagna, 2:Zodiac, 3:House */
+#stage-container.stage-albedo .a3-chart-table.mode-lagna th:nth-child(1) { width: 160px; }
+#stage-container.stage-albedo .a3-chart-table.mode-lagna th:nth-child(2) { width: 470px; }
+#stage-container.stage-albedo .a3-chart-table.mode-lagna th:nth-child(3) { width: 470px; }
+
+#stage-container.stage-albedo .a3-chart-table td.text-anaretic {
+    color: #EB3324 !important;
+    text-shadow: none !important; /* Glow 제거하여 선명도 확보 */
+    font-weight: 900 !important;
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.5)); /* 가독성용 미세 그림자 */
+}
+
+/* 🔥 Fire: Hot Pink / Magenta Red */
+.glow-fire { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #F71831, 
+        0 0 10px #F71831, 
+        0 0 20px #F71831, 
+        0 0 30px #F71831; 
+}
+
+/* 🌍 Earth: Golden Amber */
+.glow-earth { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #FFB933, 
+        0 0 10px #FFB933, 
+        0 0 20px #FFB933, 
+        0 0 30px #FFB933; 
+}
+
+/* 🌬️ Air: Pure White / Silver (차가운 느낌) */
+.glow-air { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #E6E6E6, 
+        0 0 10px #E6E6E6, 
+        0 0 20px #E6E6E6, 
+        0 0 30px #E6E6E6; 
+}
+
+/* 💧 Water: Electric Cyan / Deep Blue (형광 느낌) */
+.glow-water { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #0168FC, 
+        0 0 10px #0168FC, 
+        0 0 20px #0168FC, 
+        0 0 30px #0168FC; 
+}
+
+/* Planets (7행성) - Thick & Distinct */
+
+/* ♄ Saturn: Yellow / Ochre */
+.glow-saturn { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FFF200,
+        0 0 8px #FFF200, 
+        0 0 10px #FFF200,
+        0 0 15px #FFF200, 
+        0 0 20px #FFF200,
+        0 0 30px #FFF200; 
+}
+
+/* ♃ Jupiter: Neon Green */
+.glow-jupiter { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #47BD5A,
+        0 0 8px #47BD5A, 
+        0 0 10px #47BD5A,
+        0 0 15px #47BD5A, 
+        0 0 20px #47BD5A,
+        0 0 25px #47BD5A, 
+        0 0 30px #47BD5A; 
+}
+
+/* ♂ Mars: Deep Crimson Red */
+.glow-mars { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #F50000, 
+        0 0 8px #F50000,
+        0 0 10px #F50000, 
+        0 0 15px #F50000,  
+        0 0 20px #F50000,
+        0 0 25px #F50000,
+        0 0 30px #F50000, 
+        0 0 35px #F50000; 
+}
+
+/* ☉ Sun: Orange Gold */
+.glow-sun { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FC55CE, 
+        0 0 8px #FC55CE,
+        0 0 10px #FC55CE, 
+        0 0 15px #FC55CE,  
+        0 0 20px #FC55CE,
+        0 0 30px #FC55CE,
+        0 0 35px #FC55CE, 
+        0 0 40px #FC55CE; 
+}
+
+/* ♀ Venus: Grey */
+.glow-venus { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #999999, 
+        0 0 8px #999999,
+        0 0 10px #999999,
+        0 0 12px #999999, 
+        0 0 14px #999999,
+        0 0 17px #999999, 
+        0 0 20px #999999, 
+        0 0 22px #999999,
+        0 0 25px #999999,
+        0 0 28px #999999, 
+        0 0 30px #999999; 
+}
+
+/* ☿ Mercury: Cyan Blue */
+.glow-mercury { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #341DFC,
+        0 0 8px #341DFC, 
+        0 0 10px #341DFC,
+        0 0 15px #341DFC, 
+        0 0 20px #341DFC,
+        0 0 25px #341DFC, 
+        0 0 30px #341DFC; 
+}
+
+/* ☽ Moon: White Silver */
+.glow-moon { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FFB9FA,
+        0 0 8px #FFB9FA, 
+        0 0 10px #FFB9FA,
+        0 0 15px #FFB9FA, 
+        0 0 20px #FFB9FA,
+        0 0 25px #FFB9FA, 
+        0 0 30px #FFB9FA; 
+}

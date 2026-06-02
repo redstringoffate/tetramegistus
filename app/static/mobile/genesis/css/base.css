@@ -1,0 +1,116 @@
+/* Mobile Genesis (Prima Materia) Global Reset */
+
+html, body {
+    margin: 0; padding: 0; width: 100%; height: 100%;
+    background-color: #030805; /* 심연의 검은색 */
+    color: #7CFF9B;
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Courier New", monospace;
+    overflow: hidden; 
+}
+
+/* 안 보여야 할 것들을 확실히 숨기는 투명망토 */
+.hidden-element, .hidden-trigger {
+    display: none !important;
+}
+
+/* 중앙 정렬 코어 */
+.void {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    height: 100%; width: 100%; position: relative;
+}
+
+#materia-core {
+    display: flex; flex-direction: column; align-items: center;
+}
+
+/* 🚀 잃어버렸던 제목 스타일 복구 */
+#materia-core h1 {
+    font-size: 2.5rem;
+    font-weight: normal;
+    color: #7CFF9B;
+    text-shadow: 0 0 15px rgba(124, 255, 155, 0.5);
+    margin-bottom: 30px;
+    letter-spacing: 0.05em;
+}
+
+/* 🚀 깡통이었던 버튼 스타일 복구 */
+#form-me {
+    background: rgba(10, 20, 15, 0.8);
+    border: 1px solid #1f5f3a;
+    color: #7CFF9B;
+    padding: 14px 28px;
+    font-family: inherit;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+#form-me:active {
+    background: #1f5f3a;
+    color: #000;
+    box-shadow: 0 0 20px rgba(124, 255, 155, 0.4);
+}
+
+/* =========================================
+   👁️ 1. 패시브 글리치 (가만히 있을 때 5초마다 찌릿)
+========================================= */
+@keyframes passive-glitch {
+    0%, 92%, 100% { transform: none; opacity: 1; text-shadow: 0 0 15px rgba(124, 255, 155, 0.5); }
+    94% { transform: translate(-2px, 2px); text-shadow: 2px 0 0 rgba(255, 0, 0, 0.7), -2px 0 0 rgba(0, 255, 0, 0.7); }
+    96% { transform: translate(2px, -2px); text-shadow: -2px 0 0 rgba(255, 0, 0, 0.7), 2px 0 0 rgba(0, 255, 0, 0.7); }
+    98% { transform: translate(-1px, -1px); opacity: 0.8; }
+}
+
+#materia-core h1 {
+    position: relative; /* 아래 ::before, ::after의 기준점 */
+    animation: passive-glitch 5s infinite; /* 5초 주기 패시브 발동 */
+}
+
+/* =========================================
+   ⚡ 2. 액티브 크랙 (버튼 클릭 시 텍스트가 대각선으로 쪼개짐)
+========================================= */
+#materia-core h1.cracked {
+    animation: none !important; /* 갈라질 땐 패시브 중지 */
+    color: transparent !important; /* 원본 글자 숨김 */
+    text-shadow: none !important;
+}
+
+/* 가짜 글자 2개를 겹쳐서 위/아래로 잘라낼 준비 */
+#materia-core h1.cracked::before,
+#materia-core h1.cracked::after {
+    content: attr(data-text); /* JS에서 넘겨준 글자를 그대로 복사 */
+    position: absolute;
+    top: 0; left: 0; width: 100%;
+    color: #7CFF9B; 
+}
+
+/* 윗부분: 대각선으로 자르고 왼쪽 위로 살짝 비틀기 */
+#materia-core h1.cracked::before {
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 65%);
+    transform: translate(-3px, -2px) rotate(-2deg);
+    text-shadow: -2px -2px 0 rgba(255, 0, 0, 0.6), 0 0 15px rgba(124, 255, 155, 0.8);
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 아랫부분: 대각선으로 자르고 오른쪽 아래로 살짝 비틀기 */
+#materia-core h1.cracked::after {
+    clip-path: polygon(0 65%, 100% 35%, 100% 100%, 0 100%);
+    transform: translate(3px, 2px) rotate(2deg);
+    text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.6), 0 0 15px rgba(124, 255, 155, 0.8);
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 쩍 갈라질 때 배경 전체가 번쩍이는 섬광/암전 효과 */
+@keyframes crack-flash {
+    0% { filter: brightness(1) contrast(1); }
+    5% { filter: brightness(2.5) contrast(1.5) hue-rotate(45deg); }
+    15% { filter: brightness(0.8) contrast(1.2); }
+    100% { filter: brightness(0.3) contrast(1.5) blur(1px); }
+}
+
+.cracked-flash {
+    animation: crack-flash 2s forwards;
+}

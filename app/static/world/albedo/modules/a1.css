@@ -1,0 +1,117 @@
+/* static/world/albedo/modules/a1.css */
+.a1-container {
+    padding: 10px 20px;
+    font-family: 'Consolas', monospace !important;
+}
+
+.coniunctio-title {
+    color: #49dce1; /* n1의 연두색 대신 사이안 블루  */
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+.section-label {
+    color: #666; /* 흰 배경이므로 조금 더 어두운 회색 */
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.materia-dropdown {
+    width: 100%;
+    max-width: 400px;
+    background: #fff; /* Albedo 테마: 화이트 배경 */
+    color: #000; /* 블랙 텍스트 */
+    border: 1.5px solid #49dce1;
+    padding: 5px 10px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2349dce1' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 13px;
+}
+
+.davison-result-area {
+    margin-top: 30px;
+    padding: 15px;
+    border-top: 1px dashed #49dce1;
+    color: #000;
+}
+
+.result-label {
+    font-size: 0.7rem;
+    color: #49dce1;
+    margin-bottom: 5px;
+}
+
+.result-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.materia-section { 
+    margin-bottom: 15px; /* 시드 창 사이 한 줄 정도의 간격 확보 */
+}
+
+.symbol-btn.union-btn {
+    background: #000; /* 블랙 바디 */
+    color: #fff;      /* 화이트 심볼 (+) */
+    border: 1px solid #000;
+    width: 32px;
+    height: 22px;
+    transition: all 0.2s ease;
+}
+
+.symbol-btn.union-btn:hover {
+    background: rgba(73, 220, 225, 0.1);
+    box-shadow: 0 0 10px rgba(73, 220, 225, 0.4);
+}
+
+/* 결과 영역 정렬 */
+.davison-result-area {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #49dce1;
+}
+
+/* -------------------------------------------
+   A1 Seed Pagination UI (<< < > >>)
+------------------------------------------- */
+.a1-pagination {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0;
+    white-space: nowrap;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 1.05rem;
+    font-weight: bold;
+    user-select: none;
+}
+
+.a1-pagination .page-btn {
+    cursor: pointer;
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+.a1-pagination .page-btn.active {
+    color: #49dce1;
+    text-shadow: 0 0 5px rgba(73, 220, 225, 0.4);
+}
+
+.a1-pagination .page-btn.disabled {
+    color: #ccc; /* Albedo 테마(흰 배경)에 맞게 밝게 조정 */
+    text-shadow: none;
+    cursor: default;
+}
+
+.a1-pagination .page-info {
+    color: #666;
+    font-size: 0.8rem;
+    font-weight: normal;
+    text-shadow: none;
+}

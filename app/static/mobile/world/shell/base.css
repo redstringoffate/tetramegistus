@@ -1,0 +1,451 @@
+/* Mobile World Global Reset */
+
+html, body {
+    margin: 0; padding: 0; width: 100%; height: 100%;
+    background: #050505;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+    overflow: hidden; 
+}
+
+/* 상단 탭 */
+.mobile-top-bar {
+    position: fixed; top: 0; left: 0; width: 100%; height: 50px;
+    display: flex; z-index: 1000;
+}
+.m-stage {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    font-weight: bold; text-decoration: none; font-size: 1.1rem; letter-spacing: 0.1em;
+}
+.m-stage-i   { background: #111; color: #fff; }
+.m-stage-ii  { background: #e6e6e6; color: #000; }
+.m-stage-iii { background: #ffe600; color: #000; }
+.m-stage-iv  { background: #e00000; color: #fff; }
+
+/* 🚀 [핵심]: 배경을 바닥까지 팽팽하게 당기는 레이아웃 (mobile-stage-container 아님!) */
+#stage-container {
+    position: fixed;
+    top: 50px;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.page-content {
+    position: absolute;
+    top: 0;
+    bottom: 0; 
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    padding: 40px 20px 60px 20px; 
+    box-sizing: border-box;
+}
+
+.m-stage-header h1 {
+    margin: 0 0 10px 0 !important;
+    font-size: 2.2rem;
+    font-family: inherit;
+    font-weight: normal;
+}
+
+.m-stage-desc { margin: 0; font-size: 0.9rem; opacity: 0.7; }
+
+/* 푸터 */
+.m-content-footer { margin-top: 50px; padding: 20px 0; border-top: 1px dashed rgba(124, 255, 155, 0.2); text-align: left; }
+.credits { font-size: 0.75rem; color: #666; font-family: ui-monospace, Consolas, monospace; }
+.credit-label { opacity: 0.7; }
+.credit-link { color: #49dce1; text-decoration: none; margin-left: 5px; }
+
+/* 미닫이문 */
+#mobile-drawer {
+    position: fixed; top: 50px; right: 0; width: 260px; bottom: 0;
+    background: rgba(10, 15, 12, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    border-left: 1px solid rgba(124, 255, 155, 0.2); transform: translateX(100%); z-index: 2000;
+    box-shadow: -15px 0 40px rgba(0,0,0,0.9);
+}
+#t-handle {
+    position: absolute; left: -40px; top: 40%; width: 40px; height: 100px; 
+    background: linear-gradient(135deg, #0a120d 0%, #1a3021 100%);
+    border: 2px solid #1f5f3a; border-right: none; border-radius: 20px 0 0 20px; 
+    box-shadow: inset 3px 0 8px rgba(60, 255, 143, 0.3), -5px 0 15px rgba(0,0,0,0.8);
+    display: flex; align-items: center; justify-content: center;
+    user-select: none; -webkit-user-select: none; touch-action: none; 
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, rgba(60, 255, 143, 0.05) 5px, rgba(60, 255, 143, 0.05) 6px);
+}
+.t-rune { font-family: 'Times New Roman', serif; font-size: 1.6rem; font-weight: bold; color: #3cff8f; text-shadow: 0 0 10px rgba(60, 255, 143, 0.8), 0 0 20px rgba(60, 255, 143, 0.4); }
+.drawer-content { padding: 25px 20px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
+.drawer-utility { display: flex; gap: 10px; margin-bottom: 30px; }
+.drawer-btn { background: rgba(0,0,0,0.5); border: 1px solid #1f5f3a; color: #7CFF9B; padding: 8px 12px; font-family: inherit; font-size: 0.85rem; border-radius: 4px; flex: 1; }
+.nav-label { font-size: 0.7rem; color: #666; letter-spacing: 3px; margin-bottom: 15px; }
+.m-mod-item { display: block; padding: 12px 0; text-decoration: none; border-bottom: 1px dashed rgba(124, 255, 155, 0.1); }
+.m-mod-item.inactive { color: #888; }
+.m-mod-item.active { color: #49dce1; font-weight: bold; border-left: 3px solid #49dce1; padding-left: 10px; }
+.m-mod-id { font-size: 0.7rem; opacity: 0.5; margin-right: 10px; }
+.drawer-footer { margin-top: 15px; padding-top: 10px; text-align: right; }
+.inquiry-link { color: rgb(150, 245, 255); font-size: 0.8rem; text-decoration: none; }
+
+/* ===================================================
+   💀 Reincarnate 9초 롱프레스 의식 (Ritual)
+=================================================== */
+
+/* 1. 화면 암전 레이어 */
+#ritual-dimmer {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: #000; opacity: 0; pointer-events: none; z-index: 1500;
+    transition: opacity 0.5s ease; /* 취소 시 빠르게 밝아짐 */
+}
+
+/* 9초 동안 서서히 암흑으로 침식됨 */
+#ritual-dimmer.charging {
+    opacity: 0.95; 
+    transition: opacity 9s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* 2. T 북마크의 형광 폭주 */
+#t-handle {
+    transition: box-shadow 0.5s ease, border-color 0.5s ease;
+}
+#t-handle .t-rune {
+    transition: text-shadow 0.5s ease, color 0.5s ease;
+}
+
+#t-handle.charging {
+    box-shadow: 
+        inset 0 0 20px #3cff8f, 
+        -5px 0 30px #3cff8f, 
+        0 0 80px #3cff8f !important;
+    border-color: #3cff8f !important;
+    transition: box-shadow 9s ease-in, border-color 9s ease-in !important;
+}
+
+#t-handle.charging .t-rune {
+    color: #fff;
+    text-shadow: 0 0 20px #fff, 0 0 40px #3cff8f, 0 0 60px #3cff8f;
+    transition: color 9s ease-in, text-shadow 9s ease-in;
+}
+
+/* ===================================================
+   📱 Mobile Settings Pure Architecture
+=================================================== */
+
+/* 🚀 숨김 상태 프로토콜 */
+.hidden-sidebar {
+    display: none !important;
+}
+
+/* 세팅 컨테이너 서랍 규격 */
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.settings-body {
+    padding-left: 10px;
+}
+
+.settings-group {
+    margin-bottom: 25px;
+}
+
+/* ===================================================
+   📱 Mobile Settings Accordion & Cyan Blue Radio Protocol
+=================================================== */
+
+/* 1. 아코디언 기본 옵션들을 닫힘(none) 상태로 지정 */
+.settings-options {
+    display: none; 
+    margin-bottom: 25px;
+}
+
+/* 아코디언 타이틀 구조 */
+.settings-group-title {
+    color: #666;
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed rgba(124, 255, 155, 0.1);
+    padding-bottom: 5px;
+    user-select: none;
+}
+.settings-group-title:active { color: #3cff8f; }
+
+/* 2. 화살표 기본 상태 (닫혀있으므로 -90도 회전시켜 두기) */
+.acc-arrow {
+    font-size: 0.6rem;
+    display: inline-block; /* transform 회전 적용을 위해 필수 */
+    transform: rotate(-90deg);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.settings-body {
+    padding-left: 10px;
+}
+
+.settings-group {
+    margin-bottom: 25px;
+}
+
+.settings-radio-label {
+    display: flex;
+    align-items: center;
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* 3. 🔘 라디오 버튼 순수 커스텀 (회색 원형 고정) */
+.settings-radio-label input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #555; /* 미선택 상태: 회색 동그라미 */
+    border-radius: 50%;
+    margin-right: 12px;
+    cursor: pointer;
+    position: relative;
+    background: transparent;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+/* 선택되었을 때 외곽 테두리도 Cyan Blue로 변화 및 은은한 발광 */
+.settings-radio-label input[type="radio"]:checked {
+    border-color: #49dce1;
+    box-shadow: 0 0 8px rgba(73, 220, 225, 0.3);
+}
+
+/* 4. 🎯 선택되었을 때 내부에 생성될 Cyan Blue 점 */
+.settings-radio-label input[type="radio"]::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* 기본 상태는 크기 0 */
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #49dce1; /* 정밀한 Cyan Blue 매핑 */
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 체크되면 내부 점 스케일을 1로 확장 */
+.settings-radio-label input[type="radio"]:checked::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Settings 버튼 활성화(불켜짐) 상태 */
+button#btn-settings.active {
+    color: #000 !important;
+    background-color: #3cff8f !important;
+    border-color: #3cff8f !important;
+    box-shadow: 0 0 12px rgba(60, 255, 143, 0.5), 0 0 25px rgba(60, 255, 143, 0.2) !important;
+    font-weight: bold !important;
+}
+
+/* ===================================================
+   💀 Reincarnate 9초 롱프레스 의식 (완전 격리 버전)
+=================================================== */
+
+/* 🚀 [독립 격리]: 부모의 영향을 받지 않도록 최상위로 띄움 */
+#reincarnate-overlay {
+    position: fixed !important; 
+    inset: 0 !important; 
+    background: rgba(0,0,0,0.95) !important; /* 칠흑 배경 확실하게 */
+    z-index: 9999999 !important; /* 최상위 결계 */
+    display: flex !important; 
+    align-items: center !important; 
+    justify-content: center !important;
+    opacity: 1 !important; 
+    transition: opacity 0.3s ease !important;
+}
+
+#reincarnate-overlay.hidden-element {
+    opacity: 0 !important; 
+    pointer-events: none !important;
+}
+
+.reincarnate-box {
+    background: #030805 !important; /* 원래 의도하신 그 색 */
+    border: 1px solid #1f5f3a !important; 
+    padding: 30px !important;
+    min-width: 280px !important; 
+    text-align: center !important; 
+    border-radius: 4px !important;
+    box-shadow: 0 0 20px rgba(60, 255, 143, 0.2) !important;
+    margin: 0 !important; /* 외부 영향 차단 */
+}
+
+.reincarnate-title {
+    color: #3cff8f !important; 
+    font-size: 1rem !important; 
+    letter-spacing: 0.14em !important; 
+    margin-bottom: 25px !important; 
+    font-family: monospace !important;
+}
+
+.reincarnate-actions button {
+    background: transparent !important; 
+    border: 1px solid #3cff8f !important; 
+    color: #3cff8f !important; 
+    padding: 10px 24px !important; 
+    cursor: pointer !important; 
+    font-family: monospace !important; 
+    font-size: 0.9rem !important; 
+    margin: 0 5px !important;
+    transition: all 0.2s !important;
+}
+
+.reincarnate-actions button:active { 
+    background: #3cff8f !important; 
+    color: #000 !important; 
+}
+
+/* ===================================================
+   🚀 [Global Radar]: 상단 탭 & 서랍 모듈 N 마커 전역 결계
+=================================================== */
+.m-global-n-marker {
+    position: absolute;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    width: 15px; 
+    height: 15px;
+    background-color: #3cff8f; /* PC 버전의 네온 그린 */
+    border-radius: 2px;
+    color: #000; 
+    font-family: ui-monospace, Consolas, monospace; 
+    font-size: 0.65rem; 
+    font-weight: 900;
+    box-shadow: 0 0 5px #3cff8f, 0 0 12px rgba(60, 255, 143, 0.7);
+    pointer-events: none; 
+    z-index: 50;
+}
+
+/* 상단 스테이지 탭(IV) 마커 위치 */
+.tab-marker { 
+    top: 6px; 
+    left: 6px; 
+}
+
+/* 서랍 모듈(R1) 마커 위치 */
+.drawer-marker { 
+    left: -18px; 
+    top: 40%; 
+    transform: translateY(-50%); 
+}
+
+/* =========================================================
+   🔒 [Time Unknown] 모바일 사이드바 자물쇠 UI
+========================================================= */
+.m-mod-item.is-time-locked {
+    opacity: 0.5 !important;
+    color: #888 !important;
+    text-decoration: none !important; /* 끔찍한 줄긋기 삭제 */
+}
+
+/* 모듈 이름 옆에 붉은색 자물쇠 SVG 삽입 */
+.m-mod-item.is-time-locked .m-mod-title::after {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 8px;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" stroke="%23ff4b4b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>') no-repeat center center;
+    background-size: contain;
+    vertical-align: middle;
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+/* =========================================================
+   🚀 [Global Grimoire] 전역 그리모어 플로팅 버튼 미학
+========================================================= */
+.grimoire-float-btn {
+    position: fixed;
+    top: 60px;
+    right: 15px;
+    z-index: 1400 !important;
+    background: transparent !important; /* 까만 박스 완전 제거 */
+    border: none !important;            /* 투박한 테두리 제거 */
+    outline: none !important;
+    color: #49dce1 !important;          /* 완벽한 Cyan Blue */
+    padding: 4px;                       /* 터치 영역을 위한 최소 여백 */
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* 모바일 터치 하이라이트 깜빡임 제거 */
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* SVG 아이콘 자체에 가벼운 빛망울 (어느 배경에서든 잘 보이도록 결계) */
+.grimoire-float-btn svg {
+    filter: drop-shadow(0 0 3px rgba(73, 220, 225, 0.5));
+    transition: filter 0.2s ease;
+}
+
+/* 스마트폰 터치 시 쫀득하게 압축되는 물리 피드백 및 발광 */
+.grimoire-float-btn:active {
+    transform: scale(0.85); 
+}
+.grimoire-float-btn:active svg {
+    filter: drop-shadow(0 0 12px rgba(73, 220, 225, 1)); 
+}
+
+/* =========================================================
+   🚀 [Grimoire Inscription] 모바일 애니메이션 UI 수복
+========================================================= */
+.inscribe-text {
+    color: #7CFF9B;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important; 
+    letter-spacing: 0.4em;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 8px rgba(73, 220, 225, 0.5);
+}
+
+.inscribe-bar-wrap {
+    width: 260px; /* 모바일에 맞게 축소 */
+    height: 20px; 
+    border: 2px solid #1a5153;
+    padding: 3px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.inscribe-bar-fill {
+    height: 100%; 
+    width: 0%;
+    background: #7CFF9B;
+    box-shadow: 0 0 12px rgba(73, 220, 225, 0.6);
+    transition: width 0.1s linear;
+}
+
+.inscribe-percentage {
+    position: absolute; 
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    font-size: 0.8rem; 
+    font-weight: bold; 
+    letter-spacing: 0.1em;
+    mix-blend-mode: difference; 
+    z-index: 2;
+}
+
+.inscribe-done {
+    position: absolute; 
+    color: #49dce1;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    letter-spacing: 0.3em; 
+    font-size: 1.1rem;
+    opacity: 0; 
+    text-shadow: 0 0 15px rgba(73, 220, 225, 0.8);
+    transition: opacity 0.4s ease;
+}

@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/static/mobile/world/nigredo/modules/n8.css?v=4">
+
+<div class="m-n8-container">
+    <h2 class="m-materia-title">CODEX TENEBRIS</h2>
+
+    <div class="m-connected-tabs m-ayan-tabs" id="n8-ayanamsa-bar" style="margin-bottom: 10px;"></div>
+
+    <div class="m-anti-switch-module" style="margin-bottom: 20px;">
+        <div class="m-dichotomy-module"
+             ontouchstart="showToggleTooltip('n8-dicho-tooltip', 'TRADITIONAL', 'MODERN', N8_STATE.dichotomy === 'traditional')"
+             ontouchend="hideToggleTooltip('n8-dicho-tooltip')">
+            <span class="m-dicho-label active" id="n8-label-trad">TRAD</span>
+            <div class="m-toggle-switch" onclick="switchN8Dichotomy()">
+                <div class="m-toggle-knob" id="n8-dicho-knob"></div>
+            </div>
+            <span class="m-dicho-label" id="n8-label-mod">MODERN</span>
+        </div>
+        <div class="m-toggle-tooltip" id="n8-dicho-tooltip" style="left: 40px; transform: translateY(-100%);"></div>
+    </div>
+
+    <div class="m-n8-table-wrapper" id="n8-table-container">
+        <table class="m-n8-table" id="n8-timeline-table">
+            <thead id="n8-table-head">
+                <tr>
+                    <th class="sticky-col sticky-corner">DEGREE</th>
+                    <th>MINOR ASTEROIDS</th>
+                    <th>TROPICAL</th>
+                    <th>SIDEREAL</th>
+                    <th>DRACONIC</th>
+                    <th>KETUNIC</th>
+                    <th id="th-arabic-lots">ARABIC</th>
+                    <th class="col-sabian-symbol">SABIAN SYMBOL</th>
+                </tr>
+            </thead>
+            <tbody id="n8-table-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<div id="m-n8-toast" class="m-toast-hidden"></div>
+
+<div id="m-n8-popover" class="fs-popover-box"></div>
+
+<script src="/static/mobile/world/nigredo/modules/n8.js?v=4"></script>

@@ -1,0 +1,92 @@
+{
+    "D1": {
+        "amsa": "Rasi",
+        "en": "Root Chart. Represents the physical body, general destiny, and the overall structure of life.",
+        "ko": "라시(Rasi). 전체 인생의 구조와 육체, 그리고 전반적인 운명을 나타내는 근본 차트입니다."
+    },
+    "D2": {
+        "amsa": "Hora",
+        "en": "Wealth and Resources. Represents liquid assets, family wealth, and the sustainment of the physical body.",
+        "ko": "호라(Hora). 재정, 유동 자산, 그리고 풍요의 근본을 나타냅니다."
+    },
+    "D3": {
+        "amsa": "Drekkana",
+        "en": "Siblings and Courage. Represents the flow of mental energy, physical strength, and relationships with siblings.",
+        "ko": "드레카나(Drekkana). 형제자매, 신체의 힘과 체질, 그리고 정신적 에너지의 흐름을 상징합니다."
+    },
+    "D4": {
+        "amsa": "Chaturthamsa",
+        "en": "Fortune and Assets. Represents landed property, inner peace, happiness, and fixed assets.",
+        "ko": "차투르탐사(Chaturthamsa). 부동산, 고정 자산, 그리고 내적 안정과 편안함(Sukha)을 의미합니다."
+    },
+    "D6": {
+        "amsa": "Shashtamsa",
+        "en": "Struggle and Health. Represents enemies, litigation, acute illness, and the capacity for hard labor.",
+        "ko": "샤슈탐사(Shashtamsa). 투쟁, 반복되는 문제, 노동, 그리고 급성 질환과 건강을 나타냅니다."
+    },
+    "D7": {
+        "amsa": "Saptamsa",
+        "en": "Progeny and Creation. Represents children, grandchildren, and one's creative legacy.",
+        "ko": "삽탐사(Saptamsa). 자녀 운, 손자, 그리고 창조적인 산물을 상징합니다."
+    },
+    "D8": {
+        "amsa": "Ashtamsa",
+        "en": "Crisis and Transformation. Represents sudden changes, longevity, hidden energies, and karmic shifts.",
+        "ko": "아슈탐사(Ashtamsa). 위기, 변형, 카르마적 변화, 비밀, 그리고 숨은 힘을 의미합니다."
+    },
+    "D9": {
+        "amsa": "Navamsa",
+        "en": "Marriage and Dharma. Represents the spouse, partnerships, and the true inner strength of planets.",
+        "ko": "나밤사(Navamsa). 행성의 진정한 힘, 결혼, 파트너십, 그리고 영적인 의무를 나타냅니다."
+    },
+    "D10": {
+        "amsa": "Dasamsa",
+        "en": "Career and Status. Represents professional achievements, public reputation, and social standing.",
+        "ko": "다샴사(Dashamsa). 직업 적성, 사회적 명성, 그리고 공적인 성취를 상징합니다."
+    },
+    "D12": {
+        "amsa": "Dwadasamsa",
+        "en": "Parents and Ancestry. Represents ancestral karma, parental lineage, and genetic heritage.",
+        "ko": "드와다샴사(Dwadasamsa). 부모, 조상, 가족적 카르마, 그리고 가문의 축복과 장애를 의미합니다."
+    },
+    "D16": {
+        "amsa": "Shodasamsa",
+        "en": "Vehicles and Comfort. Represents luxuries, conveyances, and the happiness derived from material possessions.",
+        "ko": "쇼다샴사(Shodasamsa). 차량, 탈것, 집, 그리고 물질적 편안함(Sukha)을 나타냅니다."
+    },
+    "D20": {
+        "amsa": "Vimshamsa",
+        "en": "Spiritual Progress. Represents devotional activities, meditation, and the blessings of deities.",
+        "ko": "빔샴사(Vimshamsa). 영적 카르마, 내면의 집중력, 그리고 전생 수행의 흔적을 상징합니다."
+    },
+    "D24": {
+        "amsa": "Chaturvimsamsa",
+        "en": "Knowledge and Education. Represents academic achievements, learning capacity, and specialized skills.",
+        "ko": "차투르빔샴사(Chaturvimsamsa). 교육 능력, 학문적 성취, 그리고 지적 재능을 의미합니다."
+    },
+    "D27": {
+        "amsa": "Nakshatramsa",
+        "en": "Subconscious Strengths. Represents intuitive abilities and the subtle strength of the mind.",
+        "ko": "나크샤트람사(Nakshatramsa). 잠재의식의 강점, 직관력, 그리고 정신의 미묘한 힘을 나타냅니다."
+    },
+    "D30": {
+        "amsa": "Trimsamsa",
+        "en": "Misfortune and Shadows. Represents psychological shadows, chronic illness, and karmic obstacles.",
+        "ko": "트림샴사(Trimsamsa). 심리적 그림자, 죄, 장애, 그리고 질병의 카르마적 시초를 의미합니다."
+    },
+    "D40": {
+        "amsa": "Khavedamsa",
+        "en": "Matrilineal Karma. Represents auspicious and inauspicious effects from the mother's lineage.",
+        "ko": "카베담사(Khavedamsa). 모계 쪽의 카르마와 그로 인한 길흉을 나타냅니다."
+    },
+    "D45": {
+        "amsa": "Akshavedamsa",
+        "en": "Patrilineal Karma. Represents the deep-seated karma inherited from the father's side.",
+        "ko": "악샤베담사(Akshavedamsa). 부계 쪽의 카르마와 깊이 뿌리박힌 유전을 상징합니다."
+    },
+    "D60": {
+        "amsa": "Shashtiamsa",
+        "en": "Past Life Karma. The summary of all past actions, indicating the root cause of current life events.",
+        "ko": "샤슈티암사(Shashtiamsa). 태생적 카르마의 총체이자 모든 과거 행위의 결산을 의미합니다."
+    }
+}

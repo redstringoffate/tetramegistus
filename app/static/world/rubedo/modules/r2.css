@@ -1,0 +1,290 @@
+/* app/static/world/rubedo/modules/r2.css */
+
+/* N4 메인 모듈 대제목 뼈대 규격 이식 (색상은 건드리지 않음) */
+.r2-main-title {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+}
+
+.r2-grid-6x2, .r2-grid-10x3 {
+    display: grid;
+    background: #000;
+    border: 1px solid #000;
+    gap: 1px;
+    width: fit-content;
+    margin-left: 0; /* 좌측 정렬 유지 */
+}
+
+.matrix-unit {
+    margin-bottom: 1.5rem; /* 유닛 간 전체 간격은 유지 */
+}
+
+.matrix-label-black {
+    /* 🟢 폰트 사이즈 축소 및 블랙 색상 유지 */
+    font-size: 0.65rem !important; 
+    color: #000 !important;
+    font-weight: 600 !important;
+    letter-spacing: 3px !important;
+    
+    /* 🟢 소제목과 버튼 사이를 더 가깝게 밀착 */
+    margin-bottom: 0.3rem !important; 
+    text-align: left;
+    text-transform: uppercase;
+}
+
+/* 격자 상단 여백 제거 확인 */
+.r2-grid-6x2, .r2-grid-10x3 {
+    display: grid;
+    background: #000;
+    border: 1px solid #000;
+    gap: 1px;
+    width: fit-content;
+    margin-top: 0 !important; /* 위쪽 여백 원천 차단 */
+}
+
+/* 격자 폭 및 정렬 */
+.r2-grid-6x2 { grid-template-columns: repeat(6, 70px); } 
+.r2-grid-10x3 { grid-template-columns: repeat(10, 45px); }
+
+.grid-cell {
+    background: #000;
+    color: #3cff8f;
+    border: 1px solid rgba(60, 255, 143, 0.2);
+    height: 36px; /* 🔑 징그럽지 않게 높이 축소 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 1.1rem; /* 🔑 폰트 사이즈 한 단계 축소 */
+    cursor: pointer;
+}
+
+/* 💡 Hover Effect (Sign 모드용 및 기본 피드백) */
+.grid-cell:hover {
+    background: rgba(60, 255, 143, 0.15);
+    border-color: #3cff8f;
+}
+
+/* 💡 Active State: Principia 활성 탭 */
+.grid-cell.active {
+    background: #3cff8f !important;
+    color: #000 !important;
+    font-weight: bold;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
+}
+
+/* Dichotomy Switch 수복 스타일 */
+.dichotomy-module { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; font-size: 0.7rem}
+.toggle-switch { width: 34px; height: 16px; background: #000; border: 1px solid #000; border-radius: 8px; position: relative; cursor: pointer; }
+.toggle-knob { width: 12px; height: 12px; background: #3cff8f; border-radius: 50%; position: absolute; top: 1px; left: 2px; transition: 0.2s; }
+.toggle-knob.right { left: 18px; }
+
+@keyframes pulseGlow {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.3; }
+}
+
+.god-mode-active .grid-cell.active {
+    box-shadow: 0 0 15px #7CFF9B !important;
+    border-color: #7CFF9B !important;
+}
+
+/* app/static/world/rubedo/modules/r2.css 맨 아래 */
+
+.ritual-shell-overlay {
+    position: fixed; 
+    inset: 0; 
+    background: rgba(0, 0, 0, 0.85); /* base.html과 동일한 암전 효과 */
+    display: none; 
+    align-items: flex-start; /* 🔑 중앙 정렬에서 상단 정렬로 변경 */
+    justify-content: center; 
+    z-index: 99999; 
+    padding-top: 100px; /* 🔑 상단 여백 설정 */
+}
+
+.ritual-shell-box {
+    background: #000; 
+    border: 1px solid #3cff8f; /* Reincarnate의 시그니처 컬러 */
+    padding: 28px 36px; 
+    min-width: 360px; 
+    text-align: center; 
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.ritual-shell-title {
+    color: #3cff8f; 
+    font-size: 0.85rem; 
+    letter-spacing: 0.14em; 
+    margin-bottom: 20px; 
+    text-transform: lowercase;
+}
+
+.ritual-shell-input {
+    background: transparent; 
+    border: 1px solid #3cff8f; 
+    color: #3cff8f; 
+    padding: 8px; 
+    width: 85%; 
+    text-align: center; 
+    outline: none; 
+    font-family: inherit;
+}
+
+.ritual-shell-footer {
+    margin-top: 15px;
+}
+
+.ritual-shell-status {
+    color: #1a5a3a; 
+    font-size: 0.65rem; 
+    letter-spacing: 0.1em; 
+    text-transform: lowercase;
+}
+
+/* ⏳ 종료 시퀀스: 블러 + 페이드 아웃 (2초) */
+.ritual-shell-overlay.closing {
+    animation: ritualDissolve 2s forwards ease-in;
+    pointer-events: none; /* 애니메이션 도중 클릭 방지 */
+}
+
+@keyframes ritualDissolve {
+    0% {
+        opacity: 1;
+        filter: blur(0px);
+    }
+    100% {
+        opacity: 0;
+        filter: blur(20px); /* 🔑 점차 흐려짐 */
+    }
+}
+
+/* app/static/world/rubedo/modules/r2.css 맨 아래 */
+
+.dissolve-out {
+    animation: dissolveTransition 1.2s forwards ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes dissolveTransition {
+    0% { 
+        opacity: 1; 
+        filter: blur(0px);
+        transform: scale(1);
+    }
+    100% { 
+        opacity: 0; 
+        filter: blur(20px); /* 흩어지는 입자 효과를 위해 blur 값을 높임 */
+    }
+}
+
+/* 🚀 [GRIMOIRE UI]: 플로팅 세이브 버튼 (Cyan Blue) */
+.grimoire-pdf-btn {
+    position: static;
+    top: 20px;
+    right: 20px;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    color: #49dce1 !important; /* Cyan Blue */
+    cursor: pointer;
+    z-index: 100;
+    padding: 0;
+    line-height: 0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.grimoire-pdf-btn svg {
+    width: 22px;
+    height: 22px;
+    filter: drop-shadow(0 0 2px rgba(73, 220, 225, 0.4));
+    transition: all 0.2s ease;
+}
+
+.grimoire-pdf-btn:hover svg {
+    filter: drop-shadow(0 0 10px rgba(73, 220, 225, 1)); /* Cyan Glow 증폭 */
+    transform: scale(1.15);
+}
+
+.grimoire-pdf-btn:active {
+    transform: translateY(2px) scale(0.9);
+}
+
+/* 🚀 [GRIMOIRE RITUAL]: 인스크라이빙 오버레이 및 프로그레스 바 (DDS Green) */
+.inscribe-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9); /* 심연의 검은색 */
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: none; /* 기본 숨김 */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.inscribe-text {
+    color: #7CFF9B; /* DDS Green */
+    font-family: 'JetBrains Mono', 'Consolas', monospace !important;
+    letter-spacing: 0.5em;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(124, 255, 155, 0.5);
+}
+
+.inscribe-bar-wrap {
+    width: 400px;
+    height: 4px; /* 날렵한 라인 형태 */
+    background: rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.inscribe-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: #7CFF9B;
+    box-shadow: 0 0 15px rgba(124, 255, 155, 0.8);
+    transition: width 0.1s linear;
+}
+
+.inscribe-percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-family: 'JetBrains Mono', 'Consolas', monospace !important;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    mix-blend-mode: difference; /* 바가 차오를 때 글자색 반전 효과 */
+    z-index: 2;
+}
+
+.inscribe-done {
+    position: absolute;
+    color: #49dce1;
+    font-family: 'JetBrains Mono', 'Consolas', monospace !important;
+    letter-spacing: 0.3em;
+    font-size: 1.2rem;
+    opacity: 0;
+    text-shadow: 0 0 15px rgba(73, 220, 225, 0.8);
+    transition: opacity 0.4s ease;
+}
+
+#theory-title {
+    position: relative;
+    display: inline-flex; /* 🚀 텍스트 길이에 딱 맞게 박스를 형성 */
+    align-items: center;  /* 🚀 수직 중앙 정렬 (선상 일치) */
+    gap: 15px;           /* 🚀 제목과 버튼 사이의 간격 */
+    margin-bottom: 20px;
+    padding-right: 0;    /* 기존 absolute용 패딩 제거 */
+}

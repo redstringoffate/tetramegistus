@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="/static/world/albedo/modules/a8.css">
+
+<div class="n8-codex-tenebris">
+    
+    <div class="module-title">CODEX LUCIS</div>
+
+    <div class="a8-controls-wrapper" style="margin-bottom: 20px; padding: 0 20px;">
+        
+        <div class="controls-row" style="margin-bottom: 10px; justify-content: flex-start;">
+            
+            <button id="btn-open-settings" class="btn-sys-settings">
+                <span style="font-size:1.2em; line-height:0;">⚙</span> SYSTEM SETTINGS
+            </button>
+
+            <div class="sort-switch-module" style="margin-left: 15px;">
+                <div class="sort-label active" data-mode="seed">SEED</div>
+                <div style="color:#333;">|</div>
+                <div class="sort-label" data-mode="system">SYSTEM</div>
+            </div>
+
+        </div>
+
+        <div class="controls-row" style="display: flex; justify-content: space-between; align-items: center;">
+            
+            <div id="ayanamsa-nav-container" class="ayanamsa-switch-module"></div>
+
+            <div class="n8-dichotomy-module" id="dicho-switch" data-tooltip="Arabic Lots Ruler">
+                <span class="dicho-label active" id="label-trad">Traditional</span>
+                <div class="toggle-switch">
+                    <div class="toggle-knob" id="dicho-knob"></div>
+                </div>
+                <span class="dicho-label" id="label-mod">Modern</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="codex-table-wrapper">
+        <table class="n8-table" id="lucis-table">
+            <thead>
+                <tr id="codex-head-row">
+                    <th class="sticky-col">SABIAN NUMBER</th>
+                    <th>LOADING...</th>
+                </tr>
+            </thead>
+            <tbody id="codex-body">
+                </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div id="settings-modal" class="lucis-modal-overlay">
+    <div class="lucis-modal-window">
+        <div class="lucis-modal-header">SYSTEM CONFIGURATION</div>
+        
+        <div id="settings-rows-container"></div>
+
+        <div class="lucis-modal-footer">
+            <button id="btn-confirm-settings" class="a8-confirm-btn">CONFIRM</button>
+        </div>
+    </div>
+</div>
+
+<template id="tpl-a8-settings">
+    {% include "world/albedo/modules/a8_settings.html" %}
+</template>
+
+<div id="lot-meaning-popover" class="lot-popover-box"></div>
+
+<script src="/static/world/albedo/modules/a8.js" defer></script>

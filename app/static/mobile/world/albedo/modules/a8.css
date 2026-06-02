@@ -1,0 +1,219 @@
+/* static/mobile/world/albedo/modules/a8.css */
+
+:root {
+    --c-planet: #06F8FF;       
+    --c-major: #54FF5F;        
+    --c-node: #C164FF;         
+    --c-fate: #ce93d8;         
+    --c-hermetic: #FC09CA;     
+    --c-vertex: #fff59d;       
+    --c-syzygy: #2B32FF;       
+    --c-angle: #1507ED;        
+    --c-cusp: #555555;         
+
+    --h-veil-1:  rgba(255, 51, 0, 0.15); 
+    --h-veil-2:  rgba(255, 102, 0, 0.15); 
+    --h-veil-3:  rgba(255, 124, 128, 0.15); 
+    --h-veil-4:  rgba(255, 102, 153, 0.15); 
+    --h-veil-5:  rgba(255, 102, 204, 0.15); 
+    --h-veil-6:  rgba(255, 102, 255, 0.15); 
+    --h-veil-7:  rgba(204, 153, 255, 0.15); 
+    --h-veil-8:  rgba(153, 153, 255, 0.15); 
+    --h-veil-9:  rgba(102, 153, 255, 0.15); 
+    --h-veil-10: rgba(0, 102, 255, 0.15); 
+    --h-veil-11: rgba(0, 51, 204, 0.15); 
+    --h-veil-12: rgba(0, 51, 153, 0.15);
+
+    --line-composite: #54FF5F;
+    --line-davison: #ea80fc;
+    --line-seed: #ff8a80;
+    --line-partner: #80d8ff;
+}
+
+/* 🚀 [수복]: 전체 배경 검은색 강제 지정 삭제 (기본 테마 존중) */
+.m-a8-container { padding: 10px 0; font-family: 'Consolas', 'Monaco', monospace !important; color: #49dce1; }
+.m-materia-title { color: #49dce1; font-size: 1.1rem; font-weight: normal; margin-bottom: 20px; letter-spacing: 1px; text-align: center; }
+
+/* 1. 상단 컨트롤러 (슬릭하고 얇은 디자인) */
+.m-a8-top-row { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-bottom: 12px; width: 100%; height: 26px; }
+
+.m-btn-sys-settings {
+    flex: none; width: auto; padding: 0 14px; height: 100%; 
+    background: rgba(73, 220, 225, 0.05); border: 1px solid #49dce1; color: #49dce1; 
+    font-family: 'Consolas', 'Monaco', monospace !important; font-size: 0.65rem; font-weight: bold; letter-spacing: 0.5px;
+    border-radius: 4px; cursor: pointer; transition: 0.2s;
+    display: flex; align-items: center; justify-content: center; 
+    -webkit-tap-highlight-color: transparent; box-sizing: border-box;
+}
+.m-btn-sys-settings:active { background: rgba(73, 220, 225, 0.15); }
+
+/* 🚀 [진짜 원인 수복]: SEED/SYSTEM 토글 태평양 팽창 완전 차단 */
+.m-sort-switch-module { 
+    flex: none; width: 120px; height: 100%; /* Settings 버튼과 동일한 26px 높이 핏 */
+    display: flex; background: #000; border: 1px solid #49dce1; border-radius: 4px; overflow: hidden; align-items: center; box-sizing: border-box;
+}
+.m-sort-btn {
+    background: transparent; border: none; color: #49dce1; flex: 1; height: 100%;
+    font-size: 0.65rem; font-weight: bold; cursor: pointer; transition: 0.2s;
+    margin: 0; padding: 0; display: flex; align-items: center; justify-content: center;
+}
+/* HTML에 하드코딩된 line-height: 34px 강제 무력화 */
+.m-sort-switch-module > div { line-height: 1 !important; }
+.m-sort-btn.active { background: #49dce1 !important; color: #000 !important; text-shadow: none; font-weight: 900; }
+
+.m-ayan-tabs { margin-bottom: 15px; height: 26px; display: flex; }
+.m-connected-tabs { display: flex; border: 1px solid #49dce1; background: #000; border-radius: 4px; overflow: hidden; width: 100%; margin: 0 auto; height: 26px; }
+.m-connected-tabs .m-tab { 
+    flex: 1; padding: 0; margin: 0; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: transparent; border: none; border-right: 1px solid rgba(73, 220, 225, 0.3); color: #49dce1; font-size: 0.65rem; text-transform: uppercase; cursor: pointer; transition: 0.2s; 
+    font-family: 'Consolas', monospace !important; line-height: 1; box-sizing: border-box;
+}
+.m-connected-tabs .m-tab:last-child { border-right: none; }
+.m-connected-tabs .m-tab.active { background: #49dce1 !important; color: #000 !important; font-weight: bold !important; }
+button { font-family: 'Consolas', 'Monaco', monospace !important; }
+
+.m-sort-switch-module { flex: 0.7; display: flex; background: #000; border: 1px solid #49dce1; border-radius: 4px; overflow: hidden; align-items: stretch; }
+.m-sort-btn {
+    background: transparent; border: none; color: #49dce1; flex: 1;
+    font-size: 0.65rem; font-weight: bold; cursor: pointer; transition: 0.2s;
+    border-right: 1px solid rgba(73, 220, 225, 0.3);
+}
+.m-sort-btn:last-child { border-right: none; }
+.m-sort-btn.active { background: #49dce1 !important; color: #000 !important; text-shadow: none; font-weight: 900; }
+
+/* 토글 & Ayanamsa */
+.m-anti-switch-module { position: relative; display: flex; justify-content: flex-start; }
+.m-dichotomy-module { display: flex; align-items: center; gap: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.m-dicho-label { font-size: 0.65rem; color: #444; transition: 0.2s; user-select: none; letter-spacing: 1px; font-weight: bold; }
+.m-dicho-label.active { color: #49dce1; text-shadow: 0 0 8px rgba(73, 220, 225, 0.6); }
+
+.m-toggle-switch { width: 36px; height: 16px; background: #111; border: 1px solid #49dce1; border-radius: 10px; position: relative; }
+.m-toggle-knob { width: 10px; height: 10px; background: #49dce1; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: left 0.3s ease; box-shadow: 0 0 5px rgba(73, 220, 225, 0.8); }
+.m-toggle-knob.right { left: 22px; }
+
+.m-connected-tabs { display: flex; border: 1px solid #49dce1; background: #000; border-radius: 4px; overflow: hidden; width: 100%; margin: 0 auto; }
+.m-connected-tabs .m-tab { flex: 1; background: transparent; border: none; border-right: 1px solid rgba(73, 220, 225, 0.3); color: #49dce1; padding: 8px 0; font-size: 0.65rem; text-align: center; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
+.m-connected-tabs .m-tab:last-child { border-right: none; }
+.m-connected-tabs .m-tab.active { background: #49dce1 !important; color: #000 !important; font-weight: bold !important; }
+
+/* 2. 테이블 코어 구조 (2-Tier Sticky 계층 수복) */
+.m-a8-table-wrapper { width: 100%; overflow: auto; -webkit-overflow-scrolling: touch; border-top: 2px solid #222; border-bottom: 2px solid #222; max-height: 60vh; background: #000; position: relative; }
+.m-a8-table { width: max-content; min-width: 100%; border-collapse: separate; border-spacing: 0; background: #000; font-size: 0.68rem; table-layout: auto; }
+.m-a8-table th, .m-a8-table td { padding: 8px 6px; border-right: 1px solid #161616; text-align: center; vertical-align: middle; white-space: nowrap; box-sizing: border-box; }
+
+.m-a8-table th { background: #050505; font-weight: bold; position: sticky; z-index: 20; border-bottom: 2px solid #222; }
+.m-a8-table thead tr:first-child th { top: 0; height: 30px; border-bottom: none; z-index: 25; }
+.m-a8-table thead tr:nth-child(2) th { top: 30px; height: 26px; z-index: 24; box-shadow: 0 4px 8px rgba(0,0,0,0.5); }
+.m-a8-table th.sticky-corner { z-index: 40 !important; left: 0; top: 0 !important; background: #000 !important; color: #fff; border-right: 2px solid #333; box-shadow: 4px 4px 10px rgba(0,0,0,0.9); height: 56px; }
+.m-a8-table td.sticky-col { position: sticky; left: 0; z-index: 30; background: #000 !important; color: #888; font-weight: bold; border-right: 2px solid #333; box-shadow: 4px 0 10px rgba(0,0,0,0.9); width: 85px; min-width: 85px; text-align: left; padding-left: 10px; overflow: hidden; }
+.m-a8-table td.sticky-col.has-data { color: #fff !important; text-shadow: 0 0 8px rgba(73, 220, 225, 0.8); }
+
+.codex-item { margin-bottom: 4px; cursor: pointer; padding: 2px 4px; border-radius: 4px; transition: background 0.2s; display: block; width: fit-content; margin-left: auto; margin-right: auto; }
+.codex-item:active { background: rgba(73, 220, 225, 0.2); }
+
+.lot-item { padding: 3px 5px; border-radius: 4px; display: block; width: fit-content; margin: 0 auto 4px auto; }
+.lot-item.red { color: #ff4444; } .lot-item.green { color: #49dce1; } .lot-item.yellow { color: #ffd700; } .lot-item.purple { color: #b388ff; } .lot-item.navy { color: #4488ff; } .lot-item.blue { color: #80d8ff; } .lot-item.black { color: #888; text-decoration: underline; }
+
+/* 🚀 [수복]: 뒤가 비치지 않도록 투명도(rgba) 제거하고 솔리드 배경 적용 */
+th.src-composite { color: #fff !important; background: #050505 !important; border-bottom: 3px solid var(--line-composite) !important; }
+th.src-davison { color: #fff !important; background: #050505 !important; border-bottom: 3px solid var(--line-davison) !important; }
+th.src-seed { color: #fff !important; background: #050505 !important; border-bottom: 3px solid var(--line-seed) !important; }
+th.src-partner { color: #fff !important; background: #050505 !important; border-bottom: 3px solid var(--line-partner) !important; }
+
+.elem-fire { color: #FC4036 !important; } .elem-earth { color: #ffd740 !important; } .elem-air { color: #e0e0e0 !important; } .elem-water { color: #36D9F5 !important; }
+.star-marker { color: #ffd700; margin-left: 2px; } .star-marker b { color: #ff4444; font-weight: 900; }
+.col-sabian-symbol { min-width: 300px; max-width: none; white-space: normal !important; color: #888; font-style: italic; text-align: left !important; line-height: 1.4; border-bottom: 1px solid #161616; }
+.sign-boundary td { border-bottom: 2px solid #49dce1 !important; }
+
+.p-planet { color: var(--c-planet); } .p-major { color: var(--c-major); } .p-node { color: var(--c-node); font-style: italic; } .p-fate { color: var(--c-fate); } .p-lot, .lot-hermetic { color: var(--c-hermetic); } .p-vertex { color: var(--c-vertex); } .p-syzygy { color: var(--c-syzygy); font-weight: bold; } .p-angle { color: var(--c-angle); font-weight: 900; } .p-cusp { color: var(--c-cusp); font-size: 0.8em; } .p-minor { color: #555; }
+
+/* 3. Toast & Popover */
+.m-toast-hidden { transform: translateY(100%); opacity: 0; pointer-events: none; }
+#m-a8-toast { position: fixed; bottom: 0; left: 0; width: 100%; box-sizing: border-box; background: rgba(5, 12, 15, 0.96); border-top: 1px solid #49dce1; color: #fff; padding: 15px 20px; font-size: 0.8rem; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 9999; box-shadow: 0 -4px 20px rgba(0,0,0,0.6); backdrop-filter: blur(6px); padding-bottom: calc(15px + env(safe-area-inset-bottom)); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+.fs-popover-box { position: fixed !important; top: 50% !important; left: 50% !important; bottom: auto !important; transform: translate(-50%, -50%) !important; width: 85%; max-height: 45vh; background: rgba(0, 0, 0, 0.96); border: 1px solid #49dce1; box-shadow: 0 0 35px rgba(73, 220, 225, 0.25); padding: 20px; z-index: 99999; color: #49dce1; overflow-y: auto; display: none; border-radius: 6px; backdrop-filter: blur(10px); }
+.fs-popover-box.active { display: block; }
+
+/* 4. Settings Modal (버튼바 정렬 수복) */
+.m-lucis-modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.82); display: none; align-items: center; justify-content: center; z-index: 99999; backdrop-filter: blur(5px); }
+.m-lucis-modal-overlay.active { display: flex; }
+.m-lucis-modal-window { width: 92%; max-height: 82vh; background: #030303; border: 1px solid #49dce1; border-radius: 6px; box-shadow: 0 0 30px rgba(73, 220, 225, 0.3); display: flex; flex-direction: column; overflow: hidden; }
+.m-lucis-modal-header { background: #000; color: #49dce1; font-weight: bold; font-size: 0.8rem; text-align: center; padding: 14px 0; border-bottom: 1px solid #1a1a1a; letter-spacing: 1px; }
+.m-lucis-modal-footer { padding: 12px; border-top: 1px solid #1a1a1a; background: #000; text-align: center; }
+.m-a8-confirm-btn { width: 100%; background: #000; border: 1px solid #49dce1; color: #49dce1; padding: 11px 0; font-size: 0.75rem; font-weight: bold; border-radius: 4px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.m-a8-confirm-btn:active { background: #49dce1; color: #000; }
+
+.m-a8-settings-wrapper { padding: 15px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box; }
+.m-a8-setting-item { background: #080808; border: 1px solid #181818; padding: 14px; border-radius: 4px; }
+.m-a8-setting-item.active-node { border-color: rgba(73, 220, 225, 0.25); }
+.m-a8-setting-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.m-a8-setting-title { font-size: 0.75rem; font-weight: bold; color: #fff; letter-spacing: 0.5px; }
+
+/* 4. Settings Modal 내부 옵션 (CSS Grid 기반 Connected Tabs 구조) */
+.m-a8-btn-group { display: grid; border: 1px solid #49dce1; border-radius: 4px; overflow: hidden; width: 100%; }
+.m-a8-btn-group.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.m-a8-btn-group.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.m-a8-opt-btn { background: #000; border: none; border-right: 1px solid rgba(73, 220, 225, 0.3); border-bottom: 1px solid rgba(73, 220, 225, 0.3); color: #49dce1; padding: 10px 0; font-size: 0.65rem; font-weight: bold; cursor: pointer; transition: 0.2s; border-radius: 0; text-align: center; }
+.m-a8-btn-group.grid-3 .m-a8-opt-btn:nth-child(3n) { border-right: none; }
+.m-a8-btn-group.grid-3 .m-a8-opt-btn:nth-last-child(-n+3) { border-bottom: none; }
+.m-a8-btn-group.grid-2 .m-a8-opt-btn:nth-child(2n) { border-right: none; }
+.m-a8-btn-group.grid-2 .m-a8-opt-btn { border-bottom: none; }
+
+.m-a8-opt-btn.active { background: #49dce1 !important; color: #000 !important; text-shadow: none; }
+
+/* 🚀 [Sabian Column 우측 컬러 라인 수복] */
+.sabian-line-box { position: absolute; right: 0; top: 0; bottom: 0; display: flex; flex-direction: row-reverse; }
+.s-line-thick { width: 4px; height: 100%; }
+.s-line-thin { width: 2px; background: #555; height: 100%; margin-right: 1px; }
+.s-line-composite { background: var(--line-composite); }
+.s-line-davison { background: var(--line-davison); }
+.s-line-seed { background: var(--line-seed); }
+.s-line-partner { background: var(--line-partner); }
+
+/* 5. 🚀 [수복]: A10 스타일 루시스 로딩 오버레이 (초기 진입용) */
+#lucis-loading-overlay { 
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100dvh; 
+    background: rgba(0, 0, 0, 0.95); display: flex; align-items: center; justify-content: center; 
+    z-index: 999999; backdrop-filter: blur(8px); transition: opacity 0.5s ease; 
+}
+.lucis-loading-text { 
+    color: #7CFF9B; font-family: 'Consolas', monospace; font-size: 1.2rem; font-weight: bold; 
+    letter-spacing: 4px; text-shadow: 0 0 15px rgba(73, 220, 225, 0.6); 
+    animation: lucisPulse 2s infinite ease-in-out; text-transform: uppercase;
+}
+@keyframes lucisPulse { 0% { opacity: 0.5; text-shadow: 0 0 5px rgba(73, 220, 225, 0.3); } 50% { opacity: 1; text-shadow: 0 0 20px rgba(73, 220, 225, 0.8); } 100% { opacity: 0.5; text-shadow: 0 0 5px rgba(73, 220, 225, 0.3); } }
+
+/* =========================================
+   🚀 [수복 1]: 하우스 배경색 강제 주입
+========================================= */
+.bg-house-1 { background-color: var(--h-veil-1) !important; } 
+.bg-house-2 { background-color: var(--h-veil-2) !important; } 
+.bg-house-3 { background-color: var(--h-veil-3) !important; } 
+.bg-house-4 { background-color: var(--h-veil-4) !important; } 
+.bg-house-5 { background-color: var(--h-veil-5) !important; } 
+.bg-house-6 { background-color: var(--h-veil-6) !important; } 
+.bg-house-7 { background-color: var(--h-veil-7) !important; } 
+.bg-house-8 { background-color: var(--h-veil-8) !important; } 
+.bg-house-9 { background-color: var(--h-veil-9) !important; } 
+.bg-house-10 { background-color: var(--h-veil-10) !important; } 
+.bg-house-11 { background-color: var(--h-veil-11) !important; } 
+.bg-house-12 { background-color: var(--h-veil-12) !important; }
+
+/* =========================================
+   🚀 [수복 2 & 3]: 모달 및 로딩 Z-index 절대 방어선
+========================================= */
+.m-lucis-modal-overlay { 
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
+    background: rgba(0, 0, 0, 0.82); display: none; align-items: center; justify-content: center; 
+    z-index: 20000 !important;
+    backdrop-filter: blur(5px); 
+}
+
+#lucis-loading-overlay { 
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100dvh; 
+    background: rgba(0, 0, 0, 0.95); display: flex; align-items: center; justify-content: center; 
+    z-index: 20000 !important; /* 세이브 아이콘보다 무조건 위로 */
+    backdrop-filter: blur(8px); transition: opacity 0.5s ease; 
+}

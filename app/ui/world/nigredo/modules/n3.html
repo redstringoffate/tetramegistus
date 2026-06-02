@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/static/world/nigredo/modules/n3.css">
+
+<div class="n3-domus">
+    <h1 class="materia-title">DOMUS</h1>
+
+    <div class="angles-bar">
+        <div class="angle-slot">Asc: <span class="val" id="val-asc">-</span></div>
+        <div class="angle-slot">MC: <span class="val" id="val-mc">-</span></div>
+    </div>
+
+    <div class="control-row main-toggle-row">
+        <div class="dichotomy-module main-toggle">
+            <span class="dicho-label active" id="label-mode-cusp">Cusp</span>
+            <div class="toggle-switch" onclick="switchDomusMode()">
+                <div class="toggle-knob" id="domus-mode-knob"></div>
+            </div>
+            <span class="dicho-label" id="label-mode-domain">Domain</span>
+        </div>
+    </div>
+
+    <nav class="system-switch-module" id="domus-system-nav">
+        <button class="sys-tab active" data-sys="tropical" onclick="switchDomusSystem('tropical')">Tropical</button>
+        <button class="sys-tab" data-sys="sidereal" onclick="switchDomusSystem('sidereal')">Sidereal</button>
+        <button class="sys-tab" data-sys="draconic" onclick="switchDomusSystem('draconic')">Draconic</button>
+        <button class="sys-tab" data-sys="ketunic" title="South Node at Aries 0°" onclick="switchDomusSystem('ketunic')">Ketunic</button>
+    </nav>
+
+    <div class="sub-options-vault">
+        <div class="sidereal-controls" id="sidereal-controls-panel">
+            <nav class="ayanamsa-switch-module">
+                {% set ayanamsas = [('Lahiri', 'Lahiri'), ('Raman', 'Raman'), ('KP', 'KP'), ('Fagan-Bradley', 'Fagan-Bradley'), ('Yukteswar', 'Yukteswar')] %}
+                {% for id, full_name in ayanamsas %}
+                <button class="ayan-tab" data-ayan="{{ id|lower }}" onclick="switchAyanamsa('{{ id|lower }}')">{{ id }}</button>
+                {% endfor %}
+            </nav>
+
+            <div class="dichotomy-module" id="lagna-view-toggle" style="display: none;">
+                <span class="dicho-label active" id="label-zodiac">Zodiac</span>
+                <div class="toggle-switch" onclick="switchLagnaView()">
+                    <div class="toggle-knob" id="lagna-knob"></div>
+                </div>
+                <span class="dicho-label" id="label-lagna">Lagna</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="n3-content">
+        <table class="n3-chart-table" id="domus-table">
+            <thead>
+                </thead>
+            <tbody id="domus-tbody">
+                </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/static/world/nigredo/modules/n3.js?v=999"></script>

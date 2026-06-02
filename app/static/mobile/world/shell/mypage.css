@@ -1,0 +1,134 @@
+/* =========================================
+   📱 Mobile Mypage Layout (Cleaner Left Align)
+========================================= */
+.m-cell-container {
+    display: flex;
+    flex-direction: column;
+    /* 🚀 작성자님 의도대로 왼쪽 정렬 고수 */
+    align-items: flex-start; 
+    padding-left: 10px; /* 전체적인 왼쪽 여백 확보 */
+    box-sizing: border-box;
+}
+
+.m-cell-title {
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #7CFF9B;
+    margin-bottom: 40px; 
+    text-align: left;
+    position: relative; /* 아이디 절대 배치를 위한 기준점 */
+    user-select: none;
+    -webkit-user-select: none;
+    text-shadow: 
+        0 0 10px rgba(0, 128, 0, 0.7),    
+        0 0 20px rgba(0, 100, 80, 0.5);
+    width: auto; /* 텍스트 크기만큼만 차지 */
+}
+
+/* 🚀 [me] 텍스트 자체를 의미하는 클래스 */
+.m-me-text {
+    display: inline-block;
+    position: relative;
+    z-index: 2; /* 아이디보다 위에 오도록 */
+}
+
+/* 터치 시 나타나는 User ID 힌트 (최종 수복) */
+.m-userid-display {
+    font-size: 0.75rem;
+    color: #949294;
+    font-family: Consolas, monospace;
+    opacity: 0;
+    
+    /* 🚀 [킹받음 해결 핵심]: 절대 배치로 레이아웃 흐름에서 제외 */
+    position: absolute;
+    left: 0;  
+    white-space: nowrap; /* 아이디가 줄바꿈되지 않도록 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 0 10px rgba(3, 234, 252, 0.5);
+    z-index: 1;
+    pointer-events: none; /* 클릭 방해 금지 */
+    
+    transform: translateY(-5px); 
+}
+
+/* 아이디가 보일 때 (Visible) */
+.m-userid-display.visible {
+    opacity: 1;
+    /* 🚀 원래 위치로 스르륵 내려옴. 이때 레이아웃에 영향 안 줌! */
+    transform: translateY(0); 
+}
+
+/* 🚀 [간격 좁히기]: 링크 섹션 간격 조정 */
+.m-cell-section {
+    margin-bottom: 10px; 
+    text-align: left;
+    width: 100%;
+}
+
+.m-section-title {
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgb(3, 234, 252);
+    text-decoration: none;
+    transition: opacity 0.2s;
+    display: inline-block;
+}
+.m-section-title:active { opacity: 0.5; font-weight: 900; }
+
+.m-logout-container { 
+    margin-top: 50px; /* 로그아웃 간격도 살짝 조정 */
+    text-align: left;
+    width: 100%;
+}
+.m-logout-btn {
+    background: transparent;
+    border: none;
+    color: #555;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 0;
+}
+
+/* =========================================
+   👁️ Mobile Panopticon Ritual UI
+========================================= */
+.ritual-shell-overlay {
+    position: fixed; inset: 0; 
+    background: rgba(0, 0, 0, 0.9); 
+    display: none; align-items: flex-start; justify-content: center; 
+    z-index: 99999; padding-top: 35%; /* 모바일 키보드가 올라올 공간 확보 */
+}
+
+.ritual-shell-box {
+    background: #000; border: 1px solid #603cff; 
+    padding: 25px 20px; 
+    width: 85%; max-width: 320px; /* 모바일 폭에 맞춤 */
+    box-sizing: border-box; text-align: center; 
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.ritual-shell-title {
+    color: #603cff; font-size: 0.8rem; letter-spacing: 0.1em; 
+    margin-bottom: 20px; text-transform: lowercase;
+}
+
+.ritual-shell-input {
+    background: transparent; border: 1px solid #603cff; 
+    color: #603cff; padding: 10px; width: 100%; box-sizing: border-box;
+    text-align: center; outline: none; font-family: inherit; letter-spacing: 5px;
+}
+
+.ritual-shell-footer { margin-top: 15px; }
+.ritual-shell-status { color: #1a5a3a; font-size: 0.65rem; }
+
+/* 애니메이션 및 스텔스 */
+.ritual-shell-overlay.closing { animation: ritualDissolve 1s forwards ease-in; pointer-events: none; }
+@keyframes ritualDissolve { 0% { opacity: 1; } 100% { opacity: 0; } }
+
+.dissolve-out { animation: dissolveTransition 1.2s forwards ease-in-out; pointer-events: none; }
+@keyframes dissolveTransition { 0% { opacity: 1; filter: blur(0px); } 100% { opacity: 0; filter: blur(20px); } }
+
+.ritual-shell-overlay.stealth-mode { background: transparent !important; }
+.ritual-shell-overlay.stealth-mode .ritual-shell-box { opacity: 0.001 !important; }

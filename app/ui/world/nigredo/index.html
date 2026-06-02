@@ -1,0 +1,41 @@
+{% extends "world/shell/base.html" %}
+
+{% block content %}
+<div class="stage-header">
+    <h1>NIGREDO</h1>
+    <p>The world begins in Nigredo.</p>
+</div>
+
+<div class="module-wrapper">
+    {% for module in modules %}
+    <div class="module-container" id="container-{{ module.id }}">
+        {% include "world/nigredo/" + module.id + ".html" ignore missing %}
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    /* 인라인에 있던 레이아웃 로직만 CSS로 옮겼습니다. 
+       나머지 미학(색상, 테마)은 이미 존재하는 stage별 외부 CSS가 처리합니다. 
+    */
+    .stage-header {
+        margin-bottom: 60px;
+    }
+
+    .module-wrapper {
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+        gap: 30px; 
+        align-items: start;
+    }
+
+    .module-container {
+        min-height: 100px;
+        transition: border-color 0.3s ease;
+    }
+
+    .module-container:hover {
+        border-color: #333;
+    }
+</style>
+{% endblock %}

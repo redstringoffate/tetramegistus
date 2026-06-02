@@ -1,0 +1,330 @@
+{
+  "Advancement": {
+    "name": "Advancement",
+    "category": "green",
+    "meaning": {
+      "en": "Method of advancing beyond limits",
+      "ko": "한계 너머로 전진하는 방식"
+    }
+  },
+  "Authority": {
+    "name": "Authority",
+    "category": "purple",
+    "meaning": {
+      "en": "Respect derived from moderation",
+      "ko": "절제됨에서 비롯되는 존경"
+    }
+  },
+  "Business Partnerships": {
+    "name": "Business Partnerships",
+    "category": "green",
+    "meaning": {
+      "en": "Form of public cooperation with others",
+      "ko": "타자와의 공적 협업이 드러나는 형태"
+    }
+  },
+  "Compulsion": {
+    "name": "Compulsion",
+    "category": "yellow",
+    "meaning": {
+      "en": "Form of intellectual/mental obsession",
+      "ko": "지적/정신적 강박이 드러나는 형태"
+    }
+  },
+  "Courage, Violence & Combat": {
+    "name": "Courage, Violence & Combat",
+    "category": "red",
+    "meaning": {
+      "en": "Way courage and aggression manifest",
+      "ko": "용기와 공격성이 드러나는 방식"
+    }
+  },
+  "Death (al-Tabari 1)": {
+    "name": "Death (al-Tabari 1)",
+    "category": "black",
+    "meaning": {
+      "en": "Point of reaching the threshold of death",
+      "ko": "죽음의 문턱에 도달하는 시점"
+    }
+  },
+  "Death Point (Emerson)": {
+    "name": "Death Point (Emerson)",
+    "category": "black",
+    "meaning": {
+      "en": "Point where presence disappears from this world (Midheaven-based)",
+      "ko": "내 존재가 세상에서 사라지는 시점 (MC기반)"
+    }
+  },
+  "Delusion": {
+    "name": "Delusion",
+    "category": "yellow",
+    "meaning": {
+      "en": "How self-illusions and delusions come forth",
+      "ko": "착각과 망상이 찾아오는 형태"
+    }
+  },
+  "Destiny": {
+    "name": "Destiny",
+    "category": "navy",
+    "meaning": {
+      "en": "The restrictions toward one's drive imposed by the world",
+      "ko": "세상이 내 drive에 가하는 재제의 형태"
+    }
+  },
+  "Enemies (Olympiodorus A)": {
+    "name": "Enemies (Olympiodorus A)",
+    "category": "red",
+    "meaning": {
+      "en": "How collective unconscious reacts to one's presence",
+      "ko": "집단 무의식이 내게 반응하는 방식"
+    }
+  },
+  "Enemies (Firmicus)": {
+    "name": "Enemies (Firmicus)",
+    "category": "red",
+    "meaning": {
+      "en": "Form of aggression towards one's will imposed by the world",
+      "ko": "세상이 내 의지를 공격하는 형태"
+    }
+  },
+  "Enemies (Hermes)": {
+    "name": "Enemies (Hermes)",
+    "category": "red",
+    "meaning": {
+      "en": "How collective unconscious reacts to my presence",
+      "ko": "집단 무의식이 내게 반응하는 방식"
+    }
+  },
+  "Enemies (Laurentianus)": {
+    "name": "Enemies (Laurentianus)",
+    "category": "red",
+    "meaning": {
+      "en": "The restrictions toward one's will imposed by the world",
+      "ko": "세상이 내 지성에 가하는 재제"
+    }
+  },
+  "Enemies (Olympiodorus B)": {
+    "name": "Enemies (Olympiodorus B)",
+    "category": "red",
+    "meaning": {
+      "en": "How one's drive gets thwarted by the ego",
+      "ko": "내 drive가 자아에 의해 좌절되는 형태"
+    }
+  },
+  "Enemies (Olympiodorus C)": {
+    "name": "Enemies (Olympiodorus C)",
+    "category": "red",
+    "meaning": {
+      "en": "The way hostility manifests when love dissipates from the soul",
+      "ko": "의지/사고에서 애정이 사라질 때 드러나는 적의"
+    }
+  },
+  "Fame and Reputation": {
+    "name": "Fame and Reputation",
+    "category": "purple",
+    "meaning": {
+      "en": "How the public reputation manifests",
+      "ko": "공적 명성이 드러나는 형태"
+    }
+  },
+  "Fatality (Hourglass)": {
+    "name": "Fatality (Hourglass)",
+    "category": "red",
+    "meaning": {
+      "en": "How the ego collapses under responsibility and limits",
+      "ko": "책임과 한계에 자아가 무너지는 방식"
+    }
+  },
+  "If an Event Will Come About": {
+    "name": "If an Event Will Come About",
+    "category": "green",
+    "meaning": {
+      "en": "How expectations manifest",
+      "ko": "예상이 현상화되는 형태"
+    }
+  },
+  "If an Outcome Will be Useful": {
+    "name": "If an Outcome Will be Useful",
+    "category": "green",
+    "meaning": {
+      "en": "Form of meaningful results",
+      "ko": "유의미한 결과의 형태"
+    }
+  },
+  "Increase (Pomegranate)": {
+    "name": "Increase (Pomegranate)",
+    "category": "green",
+    "meaning": {
+      "en": "How fortune's expansion manifests",
+      "ko": "운의 확장이 드러나는 방식"
+    }
+  },
+  "Life (Male)": {
+    "name": "Life (Male)",
+    "category": "blue",
+    "meaning": {
+      "en": "The Animus self",
+      "ko": "아니무스(Animus)적 자아"
+    }
+  },
+  "Life (Female)": {
+    "name": "Life (Female)",
+    "category": "blue",
+    "meaning": {
+      "en": "The Anima self",
+      "ko": "아니마(Anima)적 자아"
+    }
+  },
+  "Madness": {
+    "name": "Madness",
+    "category": "yellow",
+    "meaning": {
+      "en": "How madness arrives",
+      "ko": "광기가 찾아오는 형태"
+    }
+  },
+  "Mind and Captivity": {
+    "name": "Mind and Captivity",
+    "category": "blue",
+    "meaning": {
+      "en": "Form of the intellect",
+      "ko": "지성의 형태"
+    }
+  },
+  "Miracles": {
+    "name": "Miracles",
+    "category": "green",
+    "meaning": {
+      "en": "How miracles manifest",
+      "ko": "기적이 구현되는 형태"
+    }
+  },
+  "Misunderstanding": {
+    "name": "Misunderstanding",
+    "category": "red",
+    "meaning": {
+      "en": "How one becomes misunderstood",
+      "ko": "사람들이 나를 오해하는 방식"
+    }
+  },
+  "Need & Desire": {
+    "name": "Need & Desire",
+    "category": "blue",
+    "meaning": {
+      "en": "Craving and necessity of intellect/spirit",
+      "ko": "지성/정신의 갈망과 필요"
+    }
+  },
+  "Office & King": {
+    "name": "Office & King",
+    "category": "purple",
+    "meaning": {
+      "en": "Field/Method where public authority manifests",
+      "ko": "내 공적 권위가 구현되는 분야/방식"
+    }
+  },
+  "Prejudice": {
+    "name": "Prejudice",
+    "category": "blue",
+    "meaning": {
+      "en": "Form of preconceived notions",
+      "ko": "선입견의 형태"
+    }
+  },
+  "Prosperity": {
+    "name": "Prosperity",
+    "category": "navy",
+    "meaning": {
+      "en": "How one flourishes",
+      "ko": "번성의 형상"
+    }
+  },
+  "Repression": {
+    "name": "Repression",
+    "category": "blue",
+    "meaning": {
+      "en": "How responsibility suppresses the subconscious",
+      "ko": "책임과 의무가 무의식을 억누르는 형태"
+    }
+  },
+  "Revelation": {
+    "name": "Revelation",
+    "category": "green",
+    "meaning": {
+      "en": "Form where truth is revealed",
+      "ko": "진실이 드러나는 형태"
+    }
+  },
+  "Rumors": {
+    "name": "Rumors",
+    "category": "red",
+    "meaning": {
+      "en": "How rumors manifests",
+      "ko": "구설수가 드러나는 방식/형태"
+    }
+  },
+  "Stability": {
+    "name": "Stability",
+    "category": "blue",
+    "meaning": {
+      "en": "Form of instinctive stability",
+      "ko": "본능적인 안정의 형태"
+    }
+  },
+  "Sudden Parting": {
+    "name": "Sudden Parting",
+    "category": "red",
+    "meaning": {
+      "en": "Abrupt separation",
+      "ko": "급격한 헤어짐"
+    }
+  },
+  "Temperament": {
+    "name": "Temperament",
+    "category": "blue",
+    "meaning": {
+      "en": "Innate disposition",
+      "ko": "타고난 기질"
+    }
+  },
+  "Those Suddenly Elevated": {
+    "name": "Those Suddenly Elevated",
+    "category": "purple",
+    "meaning": {
+      "en": "Form of sudden rise when limits disappear",
+      "ko": "운에서 한계가 사라질 때 급부상하는 형태"
+    }
+  },
+  "Transformation (Point of Sonia)": {
+    "name": "Transformation (Point of Sonia)",
+    "category": "green",
+    "meaning": {
+      "en": "How the innate will metamorphosizes",
+      "ko": "근원에 새겨진 신념이 변화하는 형태"
+    }
+  },
+  "Vanity": {
+    "name": "Vanity",
+    "category": "blue",
+    "meaning": {
+      "en": "Form of prideful charm",
+      "ko": "오만한 매력의 형태"
+    }
+  },
+  "War (al-Tabari)": {
+    "name": "War (al-Tabari)",
+    "category": "blue",
+    "meaning": {
+      "en": "Form of opposition untainted by compulsiveness",
+      "ko": "충동이 배제된 대립의 형태"
+    }
+  },
+  "Work of Truth": {
+    "name": "Work of Truth",
+    "category": "navy",
+    "meaning": {
+      "en": "The mission of truth revealed from the soul",
+      "ko": "내면의 열기에서 드러나는 진실의 사명"
+    }
+  }
+}

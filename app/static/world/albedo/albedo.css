@@ -1,0 +1,15 @@
+#stage-container.stage-albedo .page-content {
+  background: #f0f0f0;
+  color: #000;
+}
+
+#stage-container.stage-albedo .page-content h1,
+#stage-container.stage-albedo .page-content p,
+#stage-container.stage-albedo .page-content button {
+  color: #000;
+}
+
+#stage-container.stage-albedo .page-content button {
+  background: #ffffff;
+  border: 1px solid #ccc;
+}

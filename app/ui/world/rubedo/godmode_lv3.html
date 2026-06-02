@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>God Mode Lv3 - Tetramegistus</title>
+    <link rel="stylesheet" href="/static/world/rubedo/godmode_lv3/godmode_lv3.css">
+</head>
+<body class="godmode-sanctuary">
+
+    <nav class="god-nav">
+        <div class="god-title">GOD MODE LV3: Demiurgos</div>
+        <button class="return-btn" onclick="location.href='/world/nigredo'">RETURN TO TETRAMEGISTUS</button>
+    </nav>
+
+    <div class="god-layout">
+        <aside class="god-sidebar">
+            
+            <div class="tree-root pin-root" onclick="PinUI.toggle()">! Pin</div>
+            <div id="pin-tree" class="tree-sub" style="display: none; margin-bottom: 30px;">
+                <div class="pin-category-title">HERMETICUM PINS (<span id="pin-count-hermeticum">0</span>/5)</div>
+                <div id="pin-list-hermeticum"></div>
+                <button class="add-pin-btn" id="btn-add-pin-hermeticum" onclick="PinUI.openAddModal('hermeticum')">+ add pin</button>
+
+                <div class="pin-category-title" style="margin-top:25px;">ARCHIVUM PINS (<span id="pin-count-archivum">0</span>/5)</div>
+                <div id="pin-list-archivum"></div>
+                <button class="add-pin-btn" id="btn-add-pin-archivum" onclick="PinUI.openAddModal('archivum')">+ add pin</button>
+            </div>
+
+            <div class="tree-root" onclick="CreateUI.open()">+ Create</div>
+            
+            <div class="tree-root" onclick="GodUI.toggleEdit()">* Edit</div>
+            <div id="edit-tree" class="tree-sub" style="display: none;">
+                
+                <div class="tree-folder" onclick="GodUI.showBrowser('r1', 'hermeticum'); GodUI.toggleFolder('r1-sub')">📁 R1 HERMETICUM</div>
+                <div id="r1-sub" class="tree-deep" style="display: none;">
+                    <div class="tree-folder" onclick="GodUI.showBrowser('r1', 'archivum')">📁 ARCHIVUM</div>
+                </div>
+                
+                <div class="tree-folder" onclick="GodUI.showBrowser('r2', 'sign')">📁 R2 Sign</div>
+                
+                <div class="tree-folder" onclick="GodUI.toggleFolder('r2-symbol-sub')">📁 R2 Symbol</div>
+                <div id="r2-symbol-sub" class="tree-deep" style="display: none;">
+                    </div>
+                
+            </div>
+
+            <div style="height: 40px;"></div> 
+            <div class="tree-root delete-root" onclick="GodUI.toggleDelete()">* Delete</div>
+            <div id="delete-tree" class="tree-sub" style="display: none;">
+                <div class="tree-folder" onclick="GodUI.showBrowser('r1', 'hermeticum', 'DELETE')">📁 R1 HERMETICUM</div>
+                <div class="tree-folder" onclick="GodUI.showBrowser('r1', 'archivum', 'DELETE')">📁 ARCHIVUM</div>
+            </div>
+
+        </aside>
+
+        <main class="god-main" id="editor-zone">
+            <div class="initial-msg">Select an entity to transmute or create a new one.</div>
+        </main>
+    </div>
+
+    <div id="create-overlay" class="ritual-overlay green-void" style="display: none;">
+        <div class="ritual-box create-box">
+            
+            <div id="create-step-1">
+                <div class="ritual-text">Index Location</div>
+                <div class="folder-select-group">
+                    <button class="folder-btn" onclick="CreateUI.selectLocation('hermeticum')">📁 Hermeticum</button>
+                    <button class="folder-btn sub-folder-btn" onclick="CreateUI.selectLocation('archivum')">📁 Archivum</button>
+                </div>
+                <div style="text-align: right; margin-top: 30px;">
+                    <button class="void-btn yes" onclick="CreateUI.hide()">cancel</button>
+                </div>
+            </div>
+
+            <div id="create-step-2" style="display: none;">
+                <div class="ritual-text">Create Index</div>
+                <div class="create-input-group">
+                    <input type="text" id="create-index-input" class="ritual-input green-input" placeholder="new_index_name" autocomplete="off">
+                    <button class="create-submit-btn" onclick="CreateUI.confirm()">+</button>
+                </div>
+                <div id="create-warning" class="create-warning">the same article already exists.</div>
+                <div style="text-align: right; margin-top: 30px;">
+                    <button class="void-btn yes" onclick="CreateUI.goBack()">back</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="delete-overlay" class="ritual-overlay red-void" style="display: none;">
+        <div class="ritual-box">
+            <div id="delete-label" class="ritual-text">will you delete this scroll?</div>
+            
+            <div id="delete-actions" class="delete-btn-group">
+                <button class="void-btn yes" onclick="DeleteUI.proceed()">yes</button>
+                <button class="void-btn no" onclick="DeleteUI.hide()">no</button>
+            </div>
+
+            <input type="password" id="delete-otp-input" class="ritual-input" style="display: none;" autocomplete="off" maxlength="6">
+            
+            <div id="delete-footer" class="ritual-footer" style="display: none;">source: destruction_protocol</div>
+        </div>
+    </div>
+
+    <div id="pin-add-overlay" class="ritual-overlay blue-void" style="display: none;">
+        <div class="ritual-box create-box" style="border-color: #0088ff; box-shadow: 0 0 40px rgba(0, 136, 255, 0.15); width: 400px;">
+            <div class="ritual-text" style="color: #00f7ff;">Select scroll to pin</div>
+            <div id="pin-search-list" class="pin-search-list"></div>
+            <div style="text-align: right; margin-top: 20px;">
+                <button class="void-btn yes" style="color:#0088ff;" onclick="PinUI.closeAddModal()">cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="pin-undo-overlay" class="ritual-overlay blue-void" style="display: none;">
+        <div class="ritual-box" style="border-color: #0088ff;">
+            <div class="ritual-text" style="color: #00f7ff;">will you undo this pin?</div>
+            <div class="delete-btn-group">
+                <button class="void-btn yes" onclick="PinUI.confirmUndo()">yes</button>
+                <button class="void-btn no" style="color:#00f7ff;" onclick="PinUI.closeUndoModal()">no</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/world/rubedo/godmode_lv3/godmode_lv3.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "comp_type": "B5",
+    "sys_tab": "B6",
+    "ayanamsa": "C6"
+  },
+  "planets": {
+    "Sun": { "info": "B10", "ruler": "C10", "dignity": "D10", "house": "E10", "duad": "F10", "dodeca": "G10", "decan": "H10", "bounds": "I10", "sabian": "J10", "row_start": 10 },
+    "Moon": { "info": "B11", "ruler": "C11", "dignity": "D11", "house": "E11", "duad": "F11", "dodeca": "G11", "decan": "H11", "bounds": "I11", "sabian": "J11", "row_start": 11 },
+    "Mercury": { "info": "B12", "ruler": "C12", "dignity": "D12", "house": "E12", "duad": "F12", "dodeca": "G12", "decan": "H12", "bounds": "I12", "sabian": "J12", "row_start": 12 },
+    "Venus": { "info": "B13", "ruler": "C13", "dignity": "D13", "house": "E13", "duad": "F13", "dodeca": "G13", "decan": "H13", "bounds": "I13", "sabian": "J13", "row_start": 13 },
+    "Mars": { "info": "B14", "ruler": "C14", "dignity": "D14", "house": "E14", "duad": "F14", "dodeca": "G14", "decan": "H14", "bounds": "I14", "sabian": "J14", "row_start": 14 },
+    "Jupiter": { "info": "B15", "ruler": "C15", "dignity": "D15", "house": "E15", "duad": "F15", "dodeca": "G15", "decan": "H15", "bounds": "I15", "sabian": "J15", "row_start": 15 },
+    "Saturn": { "info": "B16", "ruler": "C16", "dignity": "D16", "house": "E16", "duad": "F16", "dodeca": "G16", "decan": "H16", "bounds": "I16", "sabian": "J16", "row_start": 16 },
+    "Uranus": { "info": "B17", "ruler": "C17", "dignity": "D17", "house": "E17", "duad": "F17", "dodeca": "G17", "decan": "H17", "bounds": "I17", "sabian": "J17", "row_start": 17 },
+    "Neptune": { "info": "B18", "ruler": "C18", "dignity": "D18", "house": "E18", "duad": "F18", "dodeca": "G18", "decan": "H18", "bounds": "I18", "sabian": "J18", "row_start": 18 },
+    "Pluto": { "info": "B19", "ruler": "C19", "dignity": "D19", "house": "E19", "duad": "F19", "dodeca": "G19", "decan": "H19", "bounds": "I19", "sabian": "J19", "row_start": 19 }
+  },
+  "asteroids": {
+    "Chiron": { "info": "B22", "ruler": "C22", "dignity": "D22", "house": "E22", "duad": "F22", "dodeca": "G22", "decan": "H22", "bounds": "I22", "sabian": "J22", "row_start": 22 },
+    "Ceres": { "info": "B23", "ruler": "C23", "dignity": "D23", "house": "E23", "duad": "F23", "dodeca": "G23", "decan": "H23", "bounds": "I23", "sabian": "J23", "row_start": 23 },
+    "Juno": { "info": "B24", "ruler": "C24", "dignity": "D24", "house": "E24", "duad": "F24", "dodeca": "G24", "decan": "H24", "bounds": "I24", "sabian": "J24", "row_start": 24 },
+    "Pallas": { "info": "B25", "ruler": "C25", "dignity": "D25", "house": "E25", "duad": "F25", "dodeca": "G25", "decan": "H25", "bounds": "I25", "sabian": "J25", "row_start": 25 },
+    "Vesta": { "info": "B26", "ruler": "C26", "dignity": "D26", "house": "E26", "duad": "F26", "dodeca": "G26", "decan": "H26", "bounds": "I26", "sabian": "J26", "row_start": 26 },
+    "Eros": { "info": "B27", "ruler": "C27", "dignity": "D27", "house": "E27", "duad": "F27", "dodeca": "G27", "decan": "H27", "bounds": "I27", "sabian": "J27", "row_start": 27 },
+    "Psyche": { "info": "B28", "ruler": "C28", "dignity": "D28", "house": "E28", "duad": "F28", "dodeca": "G28", "decan": "H28", "bounds": "I28", "sabian": "J28", "row_start": 28 }
+  },
+  "lilith_nodes": {
+    "Mean Lilith": { "info": "B31", "ruler": "C31", "dignity": "D31", "house": "E31", "duad": "F31", "dodeca": "G31", "decan": "H31", "bounds": "I31", "sabian": "J31", "row_start": 31 },
+    "True Lilith": { "info": "B32", "ruler": "C32", "dignity": "D32", "house": "E32", "duad": "F32", "dodeca": "G32", "decan": "H32", "bounds": "I32", "sabian": "J32", "row_start": 32 },
+    "Asteroid Lilith": { "info": "B33", "ruler": "C33", "dignity": "D33", "house": "E33", "duad": "F33", "dodeca": "G33", "decan": "H33", "bounds": "I33", "sabian": "J33", "row_start": 33 },
+    "Rahu": { "info": "B34", "ruler": "C34", "dignity": "D34", "house": "E34", "duad": "F34", "dodeca": "G34", "decan": "H34", "bounds": "I34", "sabian": "J34", "row_start": 34 },
+    "North Node (t)": { "info": "B35", "ruler": "C35", "dignity": "D35", "house": "E35", "duad": "F35", "dodeca": "G35", "decan": "H35", "bounds": "I35", "sabian": "J35", "row_start": 35 },
+    "Ketu": { "info": "B36", "ruler": "C36", "dignity": "D36", "house": "E36", "duad": "F36", "dodeca": "G36", "decan": "H36", "bounds": "I36", "sabian": "J36", "row_start": 36 },
+    "South Node (t)": { "info": "B37", "ruler": "C37", "dignity": "D37", "house": "E37", "duad": "F37", "dodeca": "G37", "decan": "H37", "bounds": "I37", "sabian": "J37", "row_start": 37 }
+  },
+  "fates": {
+    "Moira": { "info": "B40", "ruler": "C40", "dignity": "D40", "house": "E40", "duad": "F40", "dodeca": "G40", "decan": "H40", "bounds": "I40", "sabian": "J40", "row_start": 40 },
+    "Klotho": { "info": "B41", "ruler": "C41", "dignity": "D41", "house": "E41", "duad": "F41", "dodeca": "G41", "decan": "H41", "bounds": "I41", "sabian": "J41", "row_start": 41 },
+    "Lachesis": { "info": "B42", "ruler": "C42", "dignity": "D42", "house": "E42", "duad": "F42", "dodeca": "G42", "decan": "H42", "bounds": "I42", "sabian": "J42", "row_start": 42 },
+    "Atropos": { "info": "B43", "ruler": "C43", "dignity": "D43", "house": "E43", "duad": "F43", "dodeca": "G43", "decan": "H43", "bounds": "I43", "sabian": "J43", "row_start": 43 }
+  }
+}

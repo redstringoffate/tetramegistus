@@ -1,0 +1,157 @@
+/* app/static/world/citrinitas/modules/c3_yechidah.css */
+
+:root {
+    --c3-primary: #85d0d6;        /* C3 공통 옥색 (타이틀용) */
+    --yechidah-primary: #f2e29f;  /* Yechidah 시그니처 옐로우/골드 (결과창 등) */
+    --yechidah-saber-green: #7CFF9B;  
+    --c1-border: #333; 
+    --c1-font: ui-monospace, SFMono-Regular, Consolas, 'Cascadia Code', monospace;
+}
+
+#yechidah-app { font-family: var(--c1-font); color: #fff; }
+.ritual-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+
+/* 1. 타이틀 색상을 C3 공통 옥색으로 복구 */
+.ritual-title { font-size: 1.0rem !important; font-weight: 600 !important; color: var(--c3-primary) !important; letter-spacing: 3px !important; text-transform: uppercase !important; margin: 0 !important; }
+
+/* ==========================================================
+   🎨 인라인 스타일 격리 유틸리티
+   ========================================================== */
+.yechidah-bg-black { background-color: #000 !important; background-image: none !important; }
+.yechidah-bg-white { background-color: #fff !important; background-image: none !important; }
+.yechidah-overlay-dark { background: rgba(0, 0, 0, 0.7) !important; }
+
+/* ==========================================================
+   🎬 씬 컨테이너 (밝기 대폭 수정)
+   ========================================================== */
+.scn-scene {
+    position: relative;
+    width: 100%;
+    min-height: 480px;
+    border: 1px solid var(--c1-border);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.scn-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover; 
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease-out, filter 2s ease-out, transform 3s ease-in-out;
+}
+
+.scn-scene.effect-blur .scn-bg { filter: blur(8px); transform: scale(1.05); }
+
+.scn-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0); 
+    transition: background 1.5s ease-in-out;
+    z-index: 5;
+}
+
+.scn-content {
+    position: relative; 
+    z-index: 10;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.scene-narrative {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    margin: 0 !important;
+    font-size: 0.9rem !important; 
+    font-style: italic; 
+    line-height: 1.8;
+    color: #f5f5f5 !important; /* 텍스트 톤업 */
+    text-align: center;
+    /* 텍스트 가독성을 위해 테두리 그림자 강화 */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================================
+   선택지 및 버튼 래퍼
+   ========================================================== */
+.c1-options-grid { display: flex; flex-direction: column; gap: 12px; max-width: 600px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+.scn-options-wrapper { padding: 0 40px 40px 40px; width: 100%; box-sizing: border-box; }
+.scn-options-wrapper .cyber-btn { align-self: flex-end; margin: 20px 0 0 0 !important; }
+
+/* 2. 배경 투명도 1.0 원본 보존 & 오버레이 먹물 대폭 걷어냄 */
+.scn-scene.revealed .scn-bg { opacity: 1; } 
+.scn-scene.veiled .scn-overlay { background: rgba(0, 0, 0, 0.25); } 
+.scn-scene.veiled .scn-content { opacity: 1; }
+
+.c1-option-card {
+    border: 1px solid var(--c1-border);
+    background: rgba(5, 5, 5, 0.7);
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #aaa;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.c1-option-card:hover {
+    border-color: var(--yechidah-primary);
+    background: rgba(242, 226, 159, 0.15);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.cyber-btn {
+    appearance: none; -webkit-appearance: none;
+    background-color: rgba(0, 0, 0, 0.6) !important; color: #fff !important; 
+    border: 1px solid var(--yechidah-saber-green) !important; 
+    padding: 10px 24px; font-family: var(--c1-font); font-size: 0.85rem; 
+    cursor: pointer; transition: border-color 0.2s ease-in-out; 
+    font-weight: bold; letter-spacing: 2px; border-radius: 2px; 
+    box-shadow: none !important; margin: 20px auto 0 auto; display: block;
+}
+.cyber-btn:hover { border-color: var(--yechidah-primary) !important; background-color: rgba(0, 0, 0, 0.8) !important; }
+
+.yechidah-intro-text {
+    display: inline-block; font-size: 0.8rem; font-style: italic; color: #555; 
+    cursor: pointer; letter-spacing: 4px; transition: all 0.4s ease-in-out; padding: 10px 20px;
+}
+.yechidah-intro-text:hover { color: #fff; border-bottom: 1px solid var(--yechidah-primary); text-shadow: 0 0 8px var(--yechidah-primary); }
+
+/* ==========================================================
+   🔮 최종 신탁 결과 영역 (3단 텍스트 중앙 정렬)
+   ========================================================== */
+.yechidah-result-container {
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    gap: 0; width: 100%; max-width: 800px; margin: 0 auto; box-sizing: border-box; padding: 40px 20px;
+}
+
+.yechidah-revelation-block {
+    width: 100%; text-align: center; padding: 30px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* 1. Sephiroth Typography */
+.y-title-sephiroth { color: #f2e29f; font-size: 2.0rem; letter-spacing: 6px; font-weight: bold; margin: 0 0 15px 0; text-transform: uppercase; text-shadow: 0 0 10px rgba(242, 226, 159, 0.3); }
+.y-desc-sephiroth { color: #e2e1dc; font-size: 1.0rem; line-height: 1.6; font-style: italic; word-break: keep-all; }
+
+/* 2. Path Typography */
+.y-title-path { color: #85d0d6; font-size: 1.6rem; letter-spacing: 4px; font-weight: bold; margin: 0 0 15px 0; text-transform: uppercase; text-shadow: 0 0 10px rgba(133, 208, 214, 0.3); }
+.y-desc-path { color: #b8e2e5; font-size: 0.9rem; line-height: 1.6; word-break: keep-all; }
+
+/* 3. Triangle Typography */
+.y-title-triangle { color: #ff6b6b; font-size: 1.4rem; letter-spacing: 3px; font-weight: bold; margin: 0 0 15px 0; text-transform: uppercase; text-shadow: 0 0 10px rgba(255, 107, 107, 0.3); }
+.y-desc-triangle { color: #ffb3b3; font-size: 0.85rem; line-height: 1.6; word-break: keep-all; }

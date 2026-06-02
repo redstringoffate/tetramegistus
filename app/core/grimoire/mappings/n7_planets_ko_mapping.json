@@ -1,0 +1,30 @@
+{
+  "metadata": { "stamper": "A2", "sys_tab": "B4", "ayanamsa": "B5" },
+  "timestamps_row": 7,
+  "columns": {
+    "Sun": "B",
+    "Moon": "C",
+    "Mercury": "D",
+    "Venus": "E",
+    "Mars": "F",
+    "Jupiter": "G",
+    "Saturn": "H",
+    "Uranus": "I",
+    "Neptune": "J",
+    "Pluto": "K"
+  },
+  "degree_rows": {
+    "Aries": { "start": 9, "end": 38, "shrink": 39 },
+    "Taurus": { "start": 40, "end": 69, "shrink": 70 },
+    "Gemini": { "start": 71, "end": 100, "shrink": 101 },
+    "Cancer": { "start": 102, "end": 131, "shrink": 132 },
+    "Leo": { "start": 133, "end": 162, "shrink": 163 },
+    "Virgo": { "start": 164, "end": 193, "shrink": 194 },
+    "Libra": { "start": 195, "end": 224, "shrink": 225 },
+    "Scorpio": { "start": 226, "end": 255, "shrink": 256 },
+    "Sagittarius": { "start": 257, "end": 286, "shrink": 287 },
+    "Capricorn": { "start": 288, "end": 317, "shrink": 318 },
+    "Aquarius": { "start": 319, "end": 348, "shrink": 349 },
+    "Pisces": { "start": 350, "end": 379, "shrink": 380 }
+  }
+}

@@ -1,0 +1,84 @@
+<div class="c1-module-container">
+    
+    <div class="c1-person-switch-row">
+        <div class="c1-person-switch-box">
+            <div class="c1-switch-label active" id="btn-p1" onclick="c1_switchPerson(1)">PERSON 1</div>
+            <div class="c1-switch-divider">|</div>
+            <div class="c1-switch-label" id="btn-p2" onclick="c1_switchPerson(2)">PERSON 2</div>
+        </div>
+    </div>
+
+    <div class="c1-form-group">
+        <div class="c1-coord-label" id="lbl-name">NAME (1)</div>
+        <input type="text" id="c1-conj-name" class="c1-input full-width" placeholder="Enter Designation" autocomplete="off">
+    </div>
+
+    <div class="c1-form-group">
+        <div class="c1-coord-label">DATE</div>
+        <div class="c1-date-row">
+            <select id="c1-conj-y" class="c1-select"></select>
+            <select id="c1-conj-m" class="c1-select"></select>
+            <select id="c1-conj-d" class="c1-select"></select>
+        </div>
+    </div>
+
+    <div class="c1-form-group">
+        <div class="c1-coord-label">TIME</div>
+        <div class="c1-time-row">
+            <select id="c1-conj-h" class="c1-select"></select>
+            <select id="c1-conj-min" class="c1-select"></select>
+            <select id="c1-conj-s" class="c1-select"></select>
+        </div>
+        
+        <div class="c1-unknown-row">
+            <input type="checkbox" id="c1-conj-unknown">
+            <label for="c1-conj-unknown" class="c1-unknown-label">Time Unknown</label>
+        </div>
+    </div>
+
+    <div class="c1-form-group">
+        <div class="c1-coord-label">LOCATION</div>
+        
+        <input id="c1-conj-city-search" class="c1-input full-width" placeholder="Search city" autocomplete="off">
+        <div id="c1-conj-city-results" class="c1-dropdown-results"></div>
+
+        <button type="button" id="c1-conj-manual-toggle" class="c1-text-btn">Manual Entry ▾</button>
+
+        <div id="c1-conj-manual-panel" style="display:none;">
+            
+            <div class="c1-coord-block">
+                <div class="c1-sub-label">Latitude</div>
+                <div class="c1-coord-row">
+                    <div class="c1-sign-group">
+                        <div class="c1-sign-btn active" data-target="lat" data-sign="+">+</div>
+                        <div class="c1-sign-btn" data-target="lat" data-sign="-">−</div>
+                    </div>
+                    <input id="c1-conj-lat-int" class="c1-input-int" placeholder="00">
+                    <span class="c1-dot">.</span>
+                    <input id="c1-conj-lat-dec" class="c1-input-dec" placeholder="0000">
+                </div>
+            </div>
+
+            <div class="c1-coord-block">
+                <div class="c1-sub-label">Longitude</div>
+                <div class="c1-coord-row">
+                    <div class="c1-sign-group">
+                        <div class="c1-sign-btn active" data-target="lng" data-sign="+">+</div>
+                        <div class="c1-sign-btn" data-target="lng" data-sign="-">−</div>
+                    </div>
+                    <input id="c1-conj-lng-int" class="c1-input-int" placeholder="000">
+                    <span class="c1-dot">.</span>
+                    <input id="c1-conj-lng-dec" class="c1-input-dec" placeholder="0000">
+                </div>
+            </div>
+
+            <div class="c1-coord-block">
+                <div class="c1-sub-label">Timezone</div>
+                <select id="c1-conj-tz" class="c1-select full-width"></select>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="c1-conj-tooltip" class="c1-tooltip"></div>
+</div>

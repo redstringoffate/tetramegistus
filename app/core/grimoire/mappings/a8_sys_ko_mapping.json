@@ -1,0 +1,50 @@
+{
+    "metadata": {
+        "davison_stamp": "A2",
+        "seed_a_stamp": "A3",
+        "seed_b_stamp": "A4",
+        "ayanamsa": "B5",
+        "h_sys": "B6",
+        "arabic_ruler": "B7"
+    },
+    "matrix_layout": {
+        "cols": {
+            
+            "davison_minor_asteroids": "B",
+            "seed_minor_asteroids": "C",
+            "partner_minor_asteroids": "D",
+            "composite_main": "E",
+            "composite_anti": "F",
+            "davison_tropical": "G",
+            "seed_tropical": "H",
+            "partner_tropical": "I",
+            "davison_sidereal": "J",
+            "seed_sidereal": "K",
+            "partner_sidereal": "L",
+            "davison_draconic": "M",            
+            "seed_draconic": "N",
+            "partner_draconic": "O",
+            "davison_ketunic": "P",
+            "seed_ketunic": "Q",
+            "partner_ketunic": "R",
+            "davison_arabic_lots": "S",
+            "seed_arabic_lots": "T",
+            "partner_arabic_lots": "U",
+            "fixed_stars": "W"
+        },
+        "rows": {
+            "Aries 1": 11, "Aries 2": 12, "Aries 3": 13, "Aries 4": 14, "Aries 5": 15, "Aries 6": 16, "Aries 7": 17, "Aries 8": 18, "Aries 9": 19, "Aries 10": 20, "Aries 11": 21, "Aries 12": 22, "Aries 13": 23, "Aries 14": 24, "Aries 15": 25, "Aries 16": 26, "Aries 17": 27, "Aries 18": 28, "Aries 19": 29, "Aries 20": 30, "Aries 21": 31, "Aries 22": 32, "Aries 23": 33, "Aries 24": 34, "Aries 25": 35, "Aries 26": 36, "Aries 27": 37, "Aries 28": 38, "Aries 29": 39, "Aries 30": 40, "Aries Shrink": 41,
+            "Taurus 1": 42, "Taurus 2": 43, "Taurus 3": 44, "Taurus 4": 45, "Taurus 5": 46, "Taurus 6": 47, "Taurus 7": 48, "Taurus 8": 49, "Taurus 9": 50, "Taurus 10": 51, "Taurus 11": 52, "Taurus 12": 53, "Taurus 13": 54, "Taurus 14": 55, "Taurus 15": 56, "Taurus 16": 57, "Taurus 17": 58, "Taurus 18": 59, "Taurus 19": 60, "Taurus 20": 61, "Taurus 21": 62, "Taurus 22": 63, "Taurus 23": 64, "Taurus 24": 65, "Taurus 25": 66, "Taurus 26": 67, "Taurus 27": 68, "Taurus 28": 69, "Taurus 29": 70, "Taurus 30": 71, "Taurus Shrink": 72,
+            "Gemini 1": 73, "Gemini 2": 74, "Gemini 3": 75, "Gemini 4": 76, "Gemini 5": 77, "Gemini 6": 78, "Gemini 7": 79, "Gemini 8": 80, "Gemini 9": 81, "Gemini 10": 82, "Gemini 11": 83, "Gemini 12": 84, "Gemini 13": 85, "Gemini 14": 86, "Gemini 15": 87, "Gemini 16": 88, "Gemini 17": 89, "Gemini 18": 90, "Gemini 19": 91, "Gemini 20": 92, "Gemini 21": 93, "Gemini 22": 94, "Gemini 23": 95, "Gemini 24": 96, "Gemini 25": 97, "Gemini 26": 98, "Gemini 27": 99, "Gemini 28": 100, "Gemini 29": 101, "Gemini 30": 102, "Gemini Shrink": 103,
+            "Cancer 1": 104, "Cancer 2": 105, "Cancer 3": 106, "Cancer 4": 107, "Cancer 5": 108, "Cancer 6": 109, "Cancer 7": 110, "Cancer 8": 111, "Cancer 9": 112, "Cancer 10": 113, "Cancer 11": 114, "Cancer 12": 115, "Cancer 13": 116, "Cancer 14": 117, "Cancer 15": 118, "Cancer 16": 119, "Cancer 17": 120, "Cancer 18": 121, "Cancer 19": 122, "Cancer 20": 123, "Cancer 21": 124, "Cancer 22": 125, "Cancer 23": 126, "Cancer 24": 127, "Cancer 25": 128, "Cancer 26": 129, "Cancer 27": 130, "Cancer 28": 131, "Cancer 29": 132, "Cancer 30": 133, "Cancer Shrink": 134,
+            "Leo 1": 135, "Leo 2": 136, "Leo 3": 137, "Leo 4": 138, "Leo 5": 139, "Leo 6": 140, "Leo 7": 141, "Leo 8": 142, "Leo 9": 143, "Leo 10": 144, "Leo 11": 145, "Leo 12": 146, "Leo 13": 147, "Leo 14": 148, "Leo 15": 149, "Leo 16": 150, "Leo 17": 151, "Leo 18": 152, "Leo 19": 153, "Leo 20": 154, "Leo 21": 155, "Leo 22": 156, "Leo 23": 157, "Leo 24": 158, "Leo 25": 159, "Leo 26": 160, "Leo 27": 161, "Leo 28": 162, "Leo 29": 163, "Leo 30": 164, "Leo Shrink": 165,
+            "Virgo 1": 166, "Virgo 2": 167, "Virgo 3": 168, "Virgo 4": 169, "Virgo 5": 170, "Virgo 6": 171, "Virgo 7": 172, "Virgo 8": 173, "Virgo 9": 174, "Virgo 10": 175, "Virgo 11": 176, "Virgo 12": 177, "Virgo 13": 178, "Virgo 14": 179, "Virgo 15": 180, "Virgo 16": 181, "Virgo 17": 182, "Virgo 18": 183, "Virgo 19": 184, "Virgo 20": 185, "Virgo 21": 186, "Virgo 22": 187, "Virgo 23": 188, "Virgo 24": 189, "Virgo 25": 190, "Virgo 26": 191, "Virgo 27": 192, "Virgo 28": 193, "Virgo 29": 194, "Virgo 30": 195, "Virgo Shrink": 196,
+            "Libra 1": 197, "Libra 2": 198, "Libra 3": 199, "Libra 4": 200, "Libra 5": 201, "Libra 6": 202, "Libra 7": 203, "Libra 8": 204, "Libra 9": 205, "Libra 10": 206, "Libra 11": 207, "Libra 12": 208, "Libra 13": 209, "Libra 14": 210, "Libra 15": 211, "Libra 16": 212, "Libra 17": 213, "Libra 18": 214, "Libra 19": 215, "Libra 20": 216, "Libra 21": 217, "Libra 22": 218, "Libra 23": 219, "Libra 24": 220, "Libra 25": 221, "Libra 26": 222, "Libra 27": 223, "Libra 28": 224, "Libra 29": 225, "Libra 30": 226, "Libra Shrink": 227,
+            "Scorpio 1": 228, "Scorpio 2": 229, "Scorpio 3": 230, "Scorpio 4": 231, "Scorpio 5": 232, "Scorpio 6": 233, "Scorpio 7": 234, "Scorpio 8": 235, "Scorpio 9": 236, "Scorpio 10": 237, "Scorpio 11": 238, "Scorpio 12": 239, "Scorpio 13": 240, "Scorpio 14": 241, "Scorpio 15": 242, "Scorpio 16": 243, "Scorpio 17": 244, "Scorpio 18": 245, "Scorpio 19": 246, "Scorpio 20": 247, "Scorpio 21": 248, "Scorpio 22": 249, "Scorpio 23": 250, "Scorpio 24": 251, "Scorpio 25": 252, "Scorpio 26": 253, "Scorpio 27": 254, "Scorpio 28": 255, "Scorpio 29": 256, "Scorpio 30": 257, "Scorpio Shrink": 258,
+            "Sagittarius 1": 259, "Sagittarius 2": 260, "Sagittarius 3": 261, "Sagittarius 4": 262, "Sagittarius 5": 263, "Sagittarius 6": 264, "Sagittarius 7": 265, "Sagittarius 8": 266, "Sagittarius 9": 267, "Sagittarius 10": 268, "Sagittarius 11": 269, "Sagittarius 12": 270, "Sagittarius 13": 271, "Sagittarius 14": 272, "Sagittarius 15": 273, "Sagittarius 16": 274, "Sagittarius 17": 275, "Sagittarius 18": 276, "Sagittarius 19": 277, "Sagittarius 20": 278, "Sagittarius 21": 279, "Sagittarius 22": 280, "Sagittarius 23": 281, "Sagittarius 24": 282, "Sagittarius 25": 283, "Sagittarius 26": 284, "Sagittarius 27": 285, "Sagittarius 28": 286, "Sagittarius 29": 287, "Sagittarius 30": 288, "Sagittarius Shrink": 289,
+            "Capricorn 1": 290, "Capricorn 2": 291, "Capricorn 3": 292, "Capricorn 4": 293, "Capricorn 5": 294, "Capricorn 6": 295, "Capricorn 7": 296, "Capricorn 8": 297, "Capricorn 9": 298, "Capricorn 10": 299, "Capricorn 11": 300, "Capricorn 12": 301, "Capricorn 13": 302, "Capricorn 14": 303, "Capricorn 15": 304, "Capricorn 16": 305, "Capricorn 17": 306, "Capricorn 18": 307, "Capricorn 19": 308, "Capricorn 20": 309, "Capricorn 21": 310, "Capricorn 22": 311, "Capricorn 23": 312, "Capricorn 24": 313, "Capricorn 25": 314, "Capricorn 26": 315, "Capricorn 27": 316, "Capricorn 28": 317, "Capricorn 29": 318, "Capricorn 30": 319, "Capricorn Shrink": 320,
+            "Aquarius 1": 321, "Aquarius 2": 322, "Aquarius 3": 323, "Aquarius 4": 324, "Aquarius 5": 325, "Aquarius 6": 326, "Aquarius 7": 327, "Aquarius 8": 328, "Aquarius 9": 329, "Aquarius 10": 330, "Aquarius 11": 331, "Aquarius 12": 332, "Aquarius 13": 333, "Aquarius 14": 334, "Aquarius 15": 335, "Aquarius 16": 336, "Aquarius 17": 337, "Aquarius 18": 338, "Aquarius 19": 339, "Aquarius 20": 340, "Aquarius 21": 341, "Aquarius 22": 342, "Aquarius 23": 343, "Aquarius 24": 344, "Aquarius 25": 345, "Aquarius 26": 346, "Aquarius 27": 347, "Aquarius 28": 348, "Aquarius 29": 349, "Aquarius 30": 350, "Aquarius Shrink": 351,
+            "Pisces 1": 352, "Pisces 2": 353, "Pisces 3": 354, "Pisces 4": 355, "Pisces 5": 356, "Pisces 6": 357, "Pisces 7": 358, "Pisces 8": 359, "Pisces 9": 360, "Pisces 10": 361, "Pisces 11": 362, "Pisces 12": 363, "Pisces 13": 364, "Pisces 14": 365, "Pisces 15": 366, "Pisces 16": 367, "Pisces 17": 368, "Pisces 18": 369, "Pisces 19": 370, "Pisces 20": 371, "Pisces 21": 372, "Pisces 22": 373, "Pisces 23": 374, "Pisces 24": 375, "Pisces 25": 376, "Pisces 26": 377, "Pisces 27": 378, "Pisces 28": 379, "Pisces 29": 380, "Pisces 30": 381, "Pisces Shrink": 382
+        }
+    }
+}

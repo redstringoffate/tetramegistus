@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "day_lord": "B4",
+    "hour_lord": "B5",
+    "sys_tab": "B6",
+    "house_sys": "B7",
+    "fixed_star_orb": "B8",
+    "ayanamsa": "C6"
+  },
+  "planets": {
+    "Sun": { "row_start": 12 },
+    "Moon": { "row_start": 13 },
+    "Mercury": { "row_start": 14 },
+    "Venus": { "row_start": 15 },
+    "Mars": { "row_start": 16 },
+    "Jupiter": { "row_start": 17 },
+    "Saturn": { "row_start": 18 },
+    "Uranus": { "row_start": 19 },
+    "Neptune": { "row_start": 20 },
+    "Pluto": { "row_start": 21 }
+  },
+  "asteroids": {
+    "Chiron": { "row_start": 25 },
+    "Ceres": { "row_start": 26 },
+    "Juno": { "row_start": 27 },
+    "Pallas": { "row_start": 28 },
+    "Vesta": { "row_start": 29 },
+    "Eros": { "row_start": 30 },
+    "Psyche": { "row_start": 31 }
+  },
+  "lilith_nodes": {
+    "Mean Lilith": { "row_start": 35 },
+    "True Lilith": { "row_start": 36 },
+    "Asteroid Lilith": { "row_start": 37 },
+    "North Node (m)": { "row_start": 38 },
+    "North Node (t)": { "row_start": 39 },
+    "South Node (m)": { "row_start": 40 },
+    "South Node (t)": { "row_start": 41 }
+  },
+  "fates": {
+    "Moira": { "row_start": 45 },
+    "Klotho": { "row_start": 46 },
+    "Lachesis": { "row_start": 47 },
+    "Atropos": { "row_start": 48 }
+  }
+}

@@ -1,0 +1,226 @@
+/* app/static/world/citrinitas/modules/c3_nefesh.css */
+
+:root {
+    --c4-primary: #85d0d6; 
+    --c4-saber-green: #7CFF9B; 
+    --c4-cyber-cyan: #49dce1; 
+    --c1-border: #333; 
+    --c1-font: ui-monospace, SFMono-Regular, Consolas, 'Cascadia Code', monospace;
+}
+
+#nefesh-app { font-family: var(--c1-font); color: #fff; }
+.ritual-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.ritual-title { font-size: 1.0rem !important; font-weight: 600 !important; color: var(--c4-primary) !important; letter-spacing: 3px !important; text-transform: uppercase !important; margin: 0 !important; }
+
+/* ==========================================================
+   🎬 씬 컨테이너 (밑단 검은색 확장 제거, 100% 꽉 차는 이미지)
+   ========================================================== */
+.scn-scene {
+    position: relative;
+    width: 100%;
+    min-height: 480px; /* 고정 최소 높이 보장 */
+    border: 1px solid var(--c1-border);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden; /* 블러나 줌인 효과가 삐져나가지 않게 컷 */
+    background-color: #000;
+}
+
+.scn-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0; /* 전체 꽉 채움 */
+    background-size: cover; 
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease-out, filter 2s ease-out, transform 3s ease-in-out;
+}
+
+/* 🚀 동적 이미지 이펙트 (JSON의 bg_effect 연동) */
+.scn-scene.effect-blur .scn-bg { filter: blur(8px); transform: scale(1.05); }
+.scn-scene.effect-closeup .scn-bg { transform: scale(1.2); }
+.scn-scene.effect-closeup_blur .scn-bg { transform: scale(1.2); filter: blur(8px); }
+.scn-scene.effect-flash_white .scn-bg { background-color: #fff; background-image: none !important; }
+
+.scn-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0); /* 기본 투명 */
+    transition: background 1.5s ease-in-out;
+    z-index: 5;
+}
+
+.scn-content {
+    position: relative; 
+    z-index: 10;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.scene-narrative {
+    flex-grow: 1; /* 텍스트 영역이 남는 공간을 다 차지하며 수직 중앙정렬 유지 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    margin: 0 !important;
+    
+    font-size: 0.9rem !important; 
+    font-style: italic; 
+    line-height: 1.8;
+    color: #cce7e8 !important;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+/* ==========================================================
+   선택지 및 버튼 래퍼
+   ========================================================== */
+.c1-options-grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.scn-options-wrapper {
+    padding: 0 40px 40px 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.scn-options-wrapper .cyber-btn {
+    align-self: flex-end; 
+    margin: 20px 0 0 0 !important; 
+}
+
+/* 애니메이션 트리거 */
+.scn-scene.revealed .scn-bg { opacity: 0.7; } /* 원본 이미지가 너무 밝을 수 있으니 살짝 낮춤 */
+.scn-scene.veiled .scn-overlay { background: rgba(0, 0, 0, 0.65); } 
+.scn-scene.veiled .scn-content { opacity: 1; }
+
+/* 텍스트 및 선택지 */
+.c1-option-card {
+    border: 1px solid var(--c1-border);
+    background: rgba(5, 5, 5, 0.7);
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #aaa;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.c1-option-card:hover {
+    border-color: var(--c4-primary);
+    background: rgba(133, 208, 214, 0.1);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================
+   🚀 사이버펑크 버튼 및 인트로 문구
+   ========================================================== */
+.cyber-btn {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #000 !important; 
+    color: #fff !important; 
+    border: 1px solid var(--c4-saber-green) !important; 
+    padding: 10px 24px; 
+    font-family: var(--c1-font);
+    font-size: 0.85rem; 
+    cursor: pointer;
+    transition: border-color 0.2s ease-in-out; 
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 2px; 
+    box-shadow: none !important; 
+    margin: 20px auto 0 auto;
+    display: block;
+}
+
+.cyber-btn:hover {
+    border-color: var(--c4-cyber-cyan) !important; 
+}
+
+.nefesh-intro-text {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-style: italic; 
+    color: #555; 
+    cursor: pointer;
+    letter-spacing: 4px;
+    transition: all 0.4s ease-in-out;
+    padding: 10px 20px;
+}
+
+.nefesh-intro-text:hover {
+    color: #fff;
+    border-bottom: 1px solid var(--c4-saber-green); 
+    text-shadow: 0 0 8px var(--c4-saber-green);
+}
+
+/* ==========================================================
+   🔮 최종 결과 렌더링 영역 (은사 텍스트)
+   ========================================================== */
+.ritual-result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px; 
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 50px 20px;
+}
+
+.c4-final-title {
+    color: var(--c4-saber-green); 
+    font-size: 1.6rem; 
+    letter-spacing: 4px; 
+    text-transform: uppercase; 
+    font-weight: bold; 
+    margin: 0 0 5px 0; 
+}
+
+.c4-final-subtitle {
+    color: var(--c4-cyber-cyan);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin: 0 0 20px 0;
+}
+
+.c4-interpretation-panel {
+    max-width: 650px;
+    text-align: left;
+    padding: 25px 35px;
+    background: #000 !important; 
+    border: 1px solid var(--c1-border);
+    border-radius: 4px;
+    margin-top: 15px; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); 
+}
+
+.c4-interpretation-panel p {
+    font-size: 0.85rem;
+    color: #f2f2f2 !important; 
+    line-height: 1.8;
+    margin: 0 0 15px 0 !important;
+    font-style: italic; 
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 8px rgba(200, 220, 255, 0.4);
+    word-break: keep-all; 
+}
+
+.c4-interpretation-panel p:last-child { margin-bottom: 0 !important; }

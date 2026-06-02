@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/static/world/albedo/modules/a1.css">
+
+<div class="a1-container">
+    <h2 class="coniunctio-title">Coniunctio</h2>
+
+    <section class="materia-section">
+        <label class="section-label">Select seed_1</label>
+        <div class="dropdown-container">
+            <select id="seed-selector-1" class="materia-dropdown" onchange="handleSeed1Change()">
+                </select>
+        </div>
+    </section>
+
+    <section class="materia-section" id="section-seed-2">
+        <label class="section-label">Select seed_2</label>
+        <div class="dropdown-container">
+            <select id="seed-selector-2" class="materia-dropdown" onchange="handleSeed2Change()">
+                <option value="" disabled selected>Waiting for Seed 1...</option>
+            </select>
+        </div>
+    </section>
+
+
+
+    <section class="materia-actions">
+        <div class="action-row">
+            <span class="action-text">Manifest Union</span>
+            <button class="symbol-btn union-btn" onclick="manifestDavison()">+</button>
+        </div>
+    </section>
+</div>
+
+
+    <div class="davison-result-area">
+        <div class="result-label">Coniunctio Seed:</div>
+        <div id="davison-summary" class="result-text">-</div>
+    </div>
+
+<script src="/static/world/albedo/modules/a1.js"></script>

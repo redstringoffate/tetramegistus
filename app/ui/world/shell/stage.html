@@ -1,0 +1,68 @@
+{% extends "world/shell/base.html" %}
+
+{# 1. 🟢 메인 콘텐츠 영역 #}
+{% block content %}
+<link rel="stylesheet" href="/static/world/shell/stage.css">
+
+<div id="stage-meta-data" data-stage="{{ stage }}" data-active-module="{{ active_module }}" style="display: none;"></div>
+
+<div class="main-display" style="position: relative;">
+    
+    <button id="btn-inscribe" class="grimoire-float-btn" title="Inscribe to Grimoire">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+            <polyline points="7 3 7 8 15 8"></polyline>
+        </svg>
+    </button>
+
+    {% if not active_module %}
+        <div class="stage-header">
+            <h1>{{ stage | upper }}</h1>
+            <p class="stage-desc">
+                {% if stage == 'nigredo' %}The world begins in Nigredo.
+                {% elif stage == 'albedo' %}The whitening of matter.
+                {% elif stage == 'citrinitas' %}The dawning of gold.
+                {% elif stage == 'rubedo' %}The final reddening.
+                {% endif %}
+            </p>
+        </div>
+    {% else %}
+        <div class="module-page-content">
+            {% include "world/" + stage + "/modules/" + active_module + ".html" ignore missing with context %}
+        </div>
+    {% endif %}
+</div>
+
+<div id="inscribe-overlay" class="inscribe-overlay">
+    <div class="inscribe-text" id="inscribe-status">Inscribing...</div>
+    <div class="inscribe-bar-wrap" id="inscribe-bar-container">
+        <div id="inscribe-fill" class="inscribe-bar-fill"></div>
+        <span id="inscribe-percentage" class="inscribe-percentage">0%</span>
+    </div>
+    <div id="inscribe-done" class="inscribe-done">Inscribed.</div>
+</div>
+{% endblock %}
+
+{# 2. 🟡 우측 네비게이션 사이드바 #}
+{% block sidebar %}
+<div class="side-navigation">
+    <div class="nav-label" style="color: #666; font-weight: 600;">MODULES</div>
+    
+    <div class="module-menu">
+        {% for module in modules %}
+        <div class="mod-item-wrapper">
+            <a href="?module={{ module.id }}" 
+               class="mod-item {{ 'active' if active_module == module.id else 'inactive' }}"
+               data-mod-id="{{ module.id }}">
+                <span class="mod-id">{{ module.id | upper }}</span>
+                <span class="mod-title">{{ module.title }}</span>
+            </a>
+            <div class="custom-tooltip"></div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="/static/world/shell/stage.js"></script>
+{% endblock %}

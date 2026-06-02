@@ -1,0 +1,138 @@
+.m-grimoire-archive-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    width: 100%;
+    /* 🚀 min-height: 100vh; 삭제 완료 (푸터 여백 최적화) */
+}
+
+.m-archive-title {
+    font-family: inherit;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(179, 136, 255, 0.5);
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.m-archive-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.m-empty-grimoire {
+    color: #555;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+/* 🚀 무빙워크 및 레이아웃 철벽 방어 (Rubedo와 동일) */
+.m-archive-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* 🌟 무빙워크에 타지 않는 독립된 고정 아이콘 (니그레도 테마색) */
+.m-archive-icon {
+    flex-shrink: 0;
+    color: #b388ff;
+    margin-right: 12px;
+    font-size: 1rem;
+    text-shadow: 0 0 5px #b388ff;
+}
+
+/* 🚀 텍스트 철창 */
+.m-archive-title-wrapper {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    margin-right: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.m-archive-item {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+/* 🚨 .m-archive-item::before 중복 아이콘 삭제 완료 */
+
+.m-archive-item:active {
+    color: #b388ff;
+}
+
+/* 🚀 액션 버튼 및 구역 방어 */
+.m-archive-actions {
+    flex-shrink: 0;
+    display: flex;
+    gap: 8px;
+}
+
+.m-btn-action {
+    background: transparent;
+    border: 1px solid #444;
+    color: #666;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.m-btn-action.m-btn-download:active {
+    color: #b388ff; border-color: #b388ff;
+    background: rgba(179, 136, 255, 0.1);
+}
+
+.m-btn-action.m-btn-delete:active {
+    color: #ff5252; border-color: #ff5252;
+    background: rgba(255, 82, 82, 0.1);
+}
+
+.m-btn-return {
+    display: inline-block;
+    background: transparent;
+    color: #777;
+    border: 1px solid #555;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.2s;
+    border-radius: 4px;
+    -webkit-tap-highlight-color: transparent;
+    margin-bottom: 30px; /* 🚀 푸터 끌어올림용 여백 */
+}
+
+.m-btn-return:active {
+    color: #7CFF9B;
+    border-color: #7CFF9B;
+    box-shadow: 0 0 10px rgba(179, 136, 255, 0.4), inset 0 0 8px rgba(179, 136, 255, 0.2); 
+}
+
+/* 📺 무빙워크 발동 엔진 */
+.marquee-active { animation: marqueeBounce linear infinite alternate; }
+@keyframes marqueeBounce {
+    0%, 15% { transform: translateX(0); }
+    85%, 100% { transform: translateX(var(--scroll-dist)); }
+}

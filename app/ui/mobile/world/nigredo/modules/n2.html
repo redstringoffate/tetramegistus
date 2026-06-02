@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/static/mobile/world/nigredo/modules/n2.css?v=3">
+
+<div class="m-n2-container">
+    <h2 class="m-materia-title">PRINCIPIA</h2>
+
+    <div class="m-lordship-bar" id="m-n2-lords" style="display: flex; justify-content: center; margin-bottom: 20px;">
+        <div class="m-lord-slot" style="text-align: center;">
+            Day Lord:<br>
+            <span class="m-val" id="day-lord" style="margin-left: 0; display: inline-block; margin-top: 4px;">-</span>
+        </div>
+        <div class="m-lord-slot" style="margin-left: 40px; text-align: center;">
+            Hour Lord:<br>
+            <span class="m-val" id="hour-lord" style="margin-left: 0; display: inline-block; margin-top: 4px;">-</span>
+        </div>
+    </div>
+
+    <div class="m-connected-tabs">
+        <button class="m-tab" data-sys="tropical" onclick="switchN2System('tropical')">Tropical</button>
+        <button class="m-tab" data-sys="sidereal" onclick="switchN2System('sidereal')">Sidereal</button>
+        <button class="m-tab" data-sys="draconic" onclick="switchN2System('draconic')">Draconic</button>
+        <button class="m-tab" data-sys="ketunic" onclick="switchN2System('ketunic')">Ketunic</button>
+    </div>
+
+    <div id="m-sidereal-vault" class="m-hidden">
+        <div class="m-connected-tabs m-ayan-tabs">
+            <button class="m-tab" data-ayan="lahiri" onclick="switchN2Ayanamsa('lahiri')">Lahiri</button>
+            <button class="m-tab" data-ayan="raman" onclick="switchN2Ayanamsa('raman')">Raman</button>
+            <button class="m-tab" data-ayan="kp" onclick="switchN2Ayanamsa('kp')">KP</button>
+            <button class="m-tab" data-ayan="fagan-bradley" onclick="switchN2Ayanamsa('fagan-bradley')">Fagan</button>
+            <button class="m-tab" data-ayan="yukteswar" onclick="switchN2Ayanamsa('yukteswar')">Yukteswar</button>
+        </div>
+        
+        <div class="m-anti-switch-module" style="margin-bottom: 20px; justify-content: center; padding-left: 0;" id="m-view-toggle">
+            <div class="m-dichotomy-module"
+                 ontouchstart="showToggleTooltip('view-tooltip', 'ZODIAC', 'NAKSHATRA', N2_STATE.view !== 'nakshatra')"
+                 ontouchend="hideToggleTooltip('view-tooltip')">
+                <span class="m-dicho-label active" id="label-view-zod">ZOD</span>
+                <div class="m-toggle-switch" onclick="switchN2View()">
+                    <div class="m-toggle-knob" id="view-knob"></div>
+                </div>
+                <span class="m-dicho-label" id="label-view-nak">NAK</span>
+            </div>
+            <div class="m-toggle-tooltip" id="view-tooltip" style="left: 50%; transform: translate(-50%, -100%);"></div>
+        </div>
+    </div>
+
+    <div class="m-cat-grid" id="m-cat-grid-zodiac">
+        <button class="m-tab cat-btn active" data-cat="planets" onclick="switchN2Category('planets')">Planets</button>
+        <button class="m-tab cat-btn" data-cat="asteroids" onclick="switchN2Category('asteroids')">Asteroids</button>
+        <button class="m-tab cat-btn" data-cat="lilith" onclick="switchN2Category('lilith')">Lilith & Nodes</button>
+        <button class="m-tab cat-btn" data-cat="fates" onclick="switchN2Category('fates')">Fates</button>
+    </div>
+
+    <div class="m-cat-grid" id="m-cat-grid-nakshatra" style="display:none;">
+        <button class="m-tab cat-btn" data-cat="grahas" onclick="switchN2Category('grahas')">Grahas</button>
+        <button class="m-tab cat-btn" data-cat="angles" onclick="switchN2Category('angles')">Angles</button>
+    </div>
+
+    <div id="m-n2-cards-container" class="m-card-container"></div>
+</div>
+
+<div id="m-n2-toast" class="m-toast-hidden"></div>
+<div id="fs-popover" class="fs-popover-box" style="display:none;"></div>
+
+<script src="/static/mobile/world/nigredo/modules/n2.js?v=3"></script>

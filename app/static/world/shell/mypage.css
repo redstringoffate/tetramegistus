@@ -1,0 +1,177 @@
+.cell-container {
+    max-width: 800px;
+    margin-left: 10px;
+    padding-top: 0px; 
+}
+
+/* My Page: 텍스트 쉐도우 및 광원 효과 */
+.cell-title {
+    font-family: inherit;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: #7CFF9B;
+    margin-bottom: 40px;
+    /* 겹겹이 쌓은 '어두운 녹색' 광원 */
+    text-shadow: 
+        0 0 10px rgba(0, 128, 0, 0.7),    
+        0 0 20px rgba(0, 100, 80, 0.5),   
+        0 0 40px rgba(0, 50, 50, 0.8),    
+        0 0 70px rgba(3, 234, 252, 0.15); 
+}
+
+.cell-section {
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-family: inherit;
+    font-size: 1.00rem;
+    font-weight: 700;
+    color: rgb(3, 234, 252);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.section-title:hover {
+    opacity: 0.8;
+    text-shadow: 0 0 10px rgba(3, 234, 252, 0.7);
+    transform: translateX(5px);
+}
+
+/* 🔑 로그아웃 섹션 스타일 */
+.logout-container {
+    margin-top: 60px;
+    padding-top: 20px;
+    max-width: 400px;
+}
+
+.logout-btn {
+    background: transparent;
+    border: none;
+    color: #444;
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logout-btn:hover {
+    color: #888;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* 🔑 [me] 툴팁 특수 스타일 */
+.me-tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: help; 
+}
+
+.me-tooltip-wrapper::after {
+    content: attr(data-userid); 
+    position: absolute;
+    bottom: 130%; 
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0, 30, 30, 0.95);
+    color: #03eafc;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-family: 'Consolas', monospace; 
+    border: 1px solid rgba(3, 234, 252, 0.5);
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 0 15px rgba(3, 234, 252, 0.3);
+    pointer-events: none;
+    z-index: 100;
+}
+
+.me-tooltip-wrapper:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(50%) translateY(0);
+}
+
+/* =========================================
+   [ Panopticon Ritual UI ] - R2 Style
+========================================= */
+
+.ritual-shell-overlay {
+    position: fixed; 
+    inset: 0; 
+    background: rgba(0, 0, 0, 0.85); 
+    display: none; 
+    align-items: flex-start; 
+    justify-content: center; 
+    z-index: 99999; 
+    padding-top: 100px;
+}
+
+.ritual-shell-box {
+    background: #000; 
+    border: 1px solid #603cff; 
+    padding: 28px 36px; 
+    min-width: 360px; 
+    text-align: center; 
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.ritual-shell-title {
+    color: #603cff; 
+    font-size: 0.85rem; 
+    letter-spacing: 0.14em; 
+    margin-bottom: 20px; 
+    text-transform: lowercase;
+}
+
+.ritual-shell-input {
+    background: transparent; 
+    border: 1px solid #603cff; 
+    color: #603cff; 
+    padding: 8px; 
+    width: 85%; 
+    text-align: center; 
+    outline: none; 
+    font-family: inherit;
+    letter-spacing: 5px;
+}
+
+.ritual-shell-footer { margin-top: 15px; }
+.ritual-shell-status { color: #1a5a3a; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: lowercase; }
+
+.ritual-shell-overlay.closing {
+    animation: ritualDissolve 2s forwards ease-in;
+    pointer-events: none;
+}
+
+@keyframes ritualDissolve {
+    0% { opacity: 1; filter: blur(0px); }
+    100% { opacity: 0; filter: blur(20px); }
+}
+
+.dissolve-out {
+    animation: dissolveTransition 1.2s forwards ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes dissolveTransition {
+    0% { opacity: 1; filter: blur(0px); transform: scale(1); }
+    100% { opacity: 0; filter: blur(20px); }
+}
+
+/* 🚀 완벽한 투명창 (포커스 증발 방지용) */
+.ritual-shell-overlay.stealth-mode {
+    background: transparent !important;
+}
+.ritual-shell-overlay.stealth-mode .ritual-shell-box {
+    opacity: 0.001 !important; 
+}

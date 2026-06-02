@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/static/mobile/world/rubedo/modules/r1.css?v=34">
+
+<div class="r1-hermeticum-system">
+    <h1 class="r1-main-title">CORPUS HERMETICUM</h1>
+
+    <div class="r1-option-vault">
+        <div class="dichotomy-module">
+            <span class="dicho-label active" id="label-chrono">Chronos</span>
+            <div class="toggle-switch" onclick="R1.switchSort()">
+                <div class="toggle-knob" id="r1-sort-knob"></div>
+            </div>
+            <span class="dicho-label" id="label-alpha">Logos</span>
+        </div>
+    </div>
+
+    <div class="r1-list-viewport">
+        <div class="r1-row sticky-folder" id="archivum-folder" onclick="R1.toggleArchivum()">
+            <span class="row-icon" id="archivum-icon">🗀</span>
+            <span class="row-title" id="archivum-title">ARCHIVUM</span>
+            <span class="row-meta" id="archivum-meta">data repository</span>
+        </div>
+
+        <div id="r1-article-list"></div>
+    </div>
+</div>
+
+<div id="inscribe-overlay" class="inscribe-overlay">
+    <div class="inscribe-text" id="inscribe-status">INSCRIBING ARCHIVE...</div>
+    <div class="inscribe-bar-wrap" id="inscribe-bar-container">
+        <div class="inscribe-bar-fill" id="inscribe-fill"></div>
+        <div class="inscribe-percentage" id="inscribe-percentage">0%</div>
+    </div>
+</div>
+
+<script src="/static/mobile/world/rubedo/modules/r1.js?v=35"></script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tetramegistus - Recall Seed</title>
+    <link rel="stylesheet" href="/static/mobile/world/nigredo/modules/append.css">
+</head>
+<body>
+    <div class="m-append-void">
+        <div class="m-recall-banner">RECALL_SEED</div>
+
+        <h2 class="m-input-title">Seed Designation</h2>
+        <input id="name" class="m-append-input" placeholder="Target Name" autocomplete="off" tabindex="0">
+
+        <h2 class="m-input-title">Threshold of Arrival</h2>
+        <div class="m-select-row">
+            <select id="year" class="m-append-select"></select>
+            <select id="month" class="m-append-select"></select>
+            <select id="day" class="m-append-select"></select>
+        </div>
+
+        <h2 class="m-input-title">Hour of Incarnation</h2>
+        <div class="m-select-row" id="time-inputs">
+            <select id="hour" class="m-append-select"></select>
+            <select id="minute" class="m-append-select"></select>
+            <select id="second" class="m-append-select"></select>
+        </div>
+        
+        <div class="m-unknown-row">
+            <input type="checkbox" id="time-unknown" class="m-append-checkbox">
+            <label for="time-unknown" class="m-unknown-label">Time Unknown</label>
+        </div>
+
+        <div class="m-mode-switcher">
+            <input type="radio" name="m-entry-mode" id="m-mode-search" checked>
+            <label for="m-mode-search">Search city</label>
+            <input type="radio" name="m-entry-mode" id="m-mode-manual">
+            <label for="m-mode-manual">Manual entry</label>
+        </div>
+
+        <div id="m-search-box-group">
+            <input id="city-search" class="m-append-input" placeholder="Search City..." autocomplete="off">
+            <div id="city-results" class="m-city-results-box"></div>
+        </div>
+
+        <div id="manual-panel" class="m-manual-panel">
+            <div class="m-coord-block">
+                <div class="m-coord-label">Latitude</div>
+                <div class="m-coord-row">
+                    <div class="m-sign-group">
+                        <button type="button" class="m-sign-btn m-active" data-target="lat" data-sign="+">+</button>
+                        <button type="button" class="m-sign-btn" data-target="lat" data-sign="-">−</button>
+                    </div>
+                    <input id="lat-int" class="m-append-input m-coord-int" placeholder="00" inputmode="numeric">
+                    <span class="m-coord-dot">.</span>
+                    <input id="lat-dec" class="m-append-input m-coord-dec" placeholder="0000" inputmode="numeric">
+                </div>
+            </div>
+
+            <div class="m-coord-block">
+                <div class="m-coord-label">Longitude</div>
+                <div class="m-coord-row">
+                    <div class="m-sign-group">
+                        <button type="button" class="m-sign-btn m-active" data-target="lon" data-sign="+">+</button>
+                        <button type="button" class="m-sign-btn" data-target="lon" data-sign="-">−</button>
+                    </div>
+                    <input id="lon-int" class="m-append-input m-coord-int" placeholder="000" inputmode="numeric">
+                    <span class="m-coord-dot">.</span>
+                    <input id="lon-dec" class="m-append-input m-coord-dec" placeholder="0000" inputmode="numeric">
+                </div>
+            </div>
+
+            <div class="m-coord-block">
+                <div class="m-coord-label">Timezone</div>
+                <select id="tz-select" class="m-append-select m-tz-select"></select>
+            </div>
+        </div>
+
+        <div class="m-action-row">
+            <button id="incarnate" class="m-manifest-btn">MANIFEST</button>
+            <a href="/world/nigredo?module=n1" class="m-return-btn">RETURN</a>
+        </div>
+
+        <div id="sign-tooltip" class="m-stage-tooltip"></div>
+    </div>
+
+    <div id="manifest-overlay" class="m-manifest-overlay m-hidden-element">
+        <div class="m-manifest-veil"></div>
+        <div class="m-manifest-box">
+            <div class="m-manifest-title">CONIUNCTIO MAXIMA</div>
+            <div class="m-manifest-subtitle">anchoring cosmic seed into the matrix...</div>
+        </div>
+    </div>
+
+    <script src="/static/mobile/world/nigredo/modules/append.js?v=3"></script>
+</body>
+</html>

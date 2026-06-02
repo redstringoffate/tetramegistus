@@ -1,0 +1,491 @@
+{% extends "genesis/templates/base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/world/nigredo/modules/append.css">
+
+<div class="void">
+    <div style="color: #7CFF9B; font-size: 0.85rem; letter-spacing: 0.2em; margin-bottom: 2rem;">REINSCRIBE_SEED</div>
+
+    <h2>Seed Designation</h2>
+    <input id="name" placeholder="Target Name" tabindex="0">
+
+    <h2>Threshold of Arrival</h2>
+    <div class="date-row">
+        <select id="year"></select>
+        <select id="month"></select>
+        <select id="day"></select>
+    </div>
+
+    <h2>Hour of Incarnation</h2>
+    <div class="date-row" id="time-inputs">
+        <select id="hour"></select>
+        <select id="minute"></select>
+        <select id="second"></select>
+    </div>
+    
+    <div class="unknown-row">
+        <input type="checkbox" id="time-unknown" onchange="toggleTime(this)">
+        <label for="time-unknown" class="unknown-label">Time Unknown</label>
+    </div>
+
+    <h2>Point of Emergence</h2>
+    <input id="city-search" placeholder="Search city" tabindex="0" autocomplete="off">
+    <div id="city-results"></div>
+
+    <div class="spacer-sm"></div>
+    <div id="manual-tz-area" style="margin-bottom: 1rem;">
+        <select id="tz-select" class="materia-dropdown" style="width: 100%; max-width: 300px; display: none;"></select>
+    </div>
+
+    <button id="manual-toggle" onclick="toggleManual()">Manual Entry ▾</button>
+
+    <div id="manual-panel" style="display: none;">
+        <div class="coord-block">
+            <div class="coord-label">Latitude</div>
+            <div class="coord-row">
+                <div class="sign-group">
+                    <div class="sign-btn active" data-target="lat" data-sign="+">+</div>
+                    <div class="sign-btn" data-target="lat" data-sign="-">−</div>
+                </div>
+                <input id="lat-int" class="coord-int" placeholder="00">
+                <span class="coord-dot">.</span>
+                <input id="lat-dec" class="coord-dec" placeholder="0000">
+            </div>
+        </div>
+        <div class="coord-block">
+            <div class="coord-label">Longitude</div>
+            <div class="coord-row">
+                <div class="sign-group">
+                    <div class="sign-btn active" data-target="lon" data-sign="+">+</div>
+                    <div class="sign-btn" data-target="lon" data-sign="-">−</div>
+                </div>
+                <input id="lon-int" class="coord-int" placeholder="000">
+                <span class="coord-dot">.</span>
+                <input id="lon-dec" class="coord-dec" placeholder="0000">
+            </div>
+        </div>
+    </div>
+
+    <div class="action-row">
+        <button id="incarnate" onclick="saveSeedUpdate()">REINSCRIBE</button>
+        <a href="/world/nigredo?module=n1" class="return-btn">RETURN</a>
+    </div>
+
+    <div id="sign-tooltip" class="stage-tooltip"></div>
+</div>
+
+<script>
+    const SEED_ID = decodeURIComponent("{{ seed_id }}");
+    let manualOpen = false;
+    let latSign = "+", lonSign = "+";
+    let cities = {}; 
+    let activeIndex = -1, currentResults = [];
+    let loadedIdx = null; 
+    let originalName = null;
+    let pendingLocation = null; 
+
+    const tzNames = {
+        "-10": "HST", "-8": "PST", "-7": "MST", "-6": "CST", "-5": "EST",
+        "0": "UTC/GMT", "+1": "CET", "+2": "EET", "+3": "MSK", "+5.5": "IST",
+        "+7": "WIB", "+8": "CST/SGT", "+9": "KST/JST", "+10": "AEST", "+12": "NZST"
+    };
+
+    async function initCityEngine() {
+        try {
+            const response = await fetch("/api/cities");
+            cities = await response.json();
+        } catch (err) { console.error("City Engine failed to ignite."); }
+    }
+
+    function initSelectors() {
+        const yr = document.getElementById('year'), mo = document.getElementById('month'), dy = document.getElementById('day');
+        const hr = document.getElementById('hour'), mi = document.getElementById('minute'), sc = document.getElementById('second');
+        const tz = document.getElementById('tz-select');
+        const nowYear = new Date().getFullYear();
+
+        for (let i = nowYear + 1; i >= 1900; i--) yr.add(new Option(i, i));
+        const fill = (el, start, end) => { 
+            for (let i = start; i <= end; i++) el.add(new Option(String(i).padStart(2, '0'), i)); 
+        };
+        fill(mo, 1, 12); fill(dy, 1, 31);
+        fill(hr, 0, 23); fill(mi, 0, 59); fill(sc, 0, 59);
+
+        for (let i = -12; i <= 14; i++) {
+            const opt = document.createElement("option");
+            opt.value = i;
+            const offsetStr = (i >= 0 ? "+" : "") + i;
+            const friendly = tzNames[offsetStr] || "";
+            opt.textContent = `UTC${offsetStr}${friendly ? ` (${friendly})` : ""}`;
+            if (i === 9) opt.selected = true;
+            tz.appendChild(opt);
+        }
+    }
+
+    function playUpdateRitual() {
+        const toast = document.createElement("div");
+        toast.textContent = "the seed has been reinscribed";
+        toast.style.cssText = `
+            position:fixed; bottom:10%; left:50%; transform:translateX(-50%);
+            color:#49dce1; font-family:Consolas,monospace; font-size:0.8rem;
+            letter-spacing:0.15em; border:1px solid #1f5f3a; padding:0.3rem 1.0rem;
+            background:#050505; z-index:9999; opacity:0; transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        `;
+        document.body.appendChild(toast);
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                toast.style.opacity = "1"; 
+                toast.style.bottom = "12%"; 
+            });
+        });
+
+        setTimeout(() => {
+            toast.style.opacity = "0";
+            setTimeout(() => { window.location.replace("/world/nigredo?module=n1"); }, 400);
+        }, 1600);
+    }
+
+    function renderCityResults() {
+        const resultsDiv = document.getElementById("city-results");
+        resultsDiv.innerHTML = "";
+        currentResults.forEach((d, i) => {
+            const div = document.createElement("div");
+            div.className = "city-item";
+            div.textContent = d.label;
+            if (i === activeIndex) div.classList.add("active");
+            div.onclick = () => selectCity(i);
+            resultsDiv.appendChild(div);
+        });
+    }
+
+    function selectCity(index) {
+        const d = currentResults[index];
+        if (!d) return;
+        pendingLocation = { label: d.label, lat: d.lat, lng: d.lon || d.lng, tz: d.tz };
+        document.getElementById('city-search').value = d.label;
+        document.getElementById('city-results').innerHTML = "";
+        activeIndex = -1; currentResults = [];
+    }
+
+    /**
+     * 🔑 [Ritual of Inscription]: SEED_ID를 기반으로 데이터를 인양하여 필드를 채웁니다.
+     * v15.6: 비회원/회원 및 로컬/서버 데이터를 모두 추적하여 튕김 현상을 원천 차단합니다.
+     */
+    async function loadSeedData() {
+        let data = null;
+
+        // 🚀 [1순위]: 현재 활성화된 씨앗(active_seed)에서 즉시 인양
+        // n1.js가 로컬 데이터를 지웠더라도 active_seed에는 현재 편집하려는 정보가 남아있습니다.
+        try {
+            const activeRaw = localStorage.getItem("active_seed");
+            if (activeRaw) {
+                const activeData = JSON.parse(activeRaw);
+                // 요청한 SEED_ID와 활성 씨앗의 인덱스가 일치하는지 확인
+                if (String(activeData.idx) === String(SEED_ID)) {
+                    data = activeData;
+                }
+            }
+        } catch (e) { console.warn("[EDIT] Active context recovery failed."); }
+
+        // 🚀 [2순위]: 비회원용 로컬 [me] 데이터 직접 확인
+        if (!data && SEED_ID === "0") {
+            try {
+                const meRaw = localStorage.getItem("tetramegistus.me");
+                if (meRaw) data = JSON.parse(meRaw);
+            } catch (e) {}
+        }
+
+        const isLocal = SEED_ID.startsWith("LOCAL_");
+        const localTargetName = SEED_ID.replace("LOCAL_", "");
+
+        // 🚀 [3순위]: 로컬 스토리지 전체 스캔 (나머지 시드들)
+        if (!data) {
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (["active_seed", "session", "current_seed_idx", "current_seed_text"].includes(key)) continue;
+                
+                try {
+                    const localData = JSON.parse(localStorage.getItem(key));
+                    if (isLocal) {
+                        if (localData && (key === localTargetName || localData.name === localTargetName)) {
+                            data = localData; break;
+                        }
+                    } else if (localData && String(localData.idx) === String(SEED_ID)) {
+                        data = localData; break;
+                    }
+                } catch (e) { continue; }
+            }
+        }
+
+        // 🚀 [4순위]: 서버 데이터 요청 (위의 모든 로컬 탐색이 실패했을 때만 최후의 수단으로 실행)
+        if (!data && !isLocal && !isNaN(SEED_ID)) {
+            try {
+                const res = await fetch(`/api/natal/detail/${SEED_ID}`);
+                if (res.ok) {
+                    data = await res.json();
+                }
+            } catch (e) {
+                console.error("--- [SERVER LINK SEVERED] ---");
+            }
+        }
+
+        // 🚀 [Void Safety]: 모든 경로에서 데이터를 찾지 못했을 때만 n1으로 튕겨냄
+        if (!data) {
+            console.warn(`[EDIT] Seed ${SEED_ID} not found. Returning to n1...`);
+            return (location.href = "/world/nigredo?module=n1");
+        }
+
+        // ─────────────────────────────────────────────────────────
+        // 4. [Data Manifestation]: 찾은 데이터를 화면 필드에 안착
+        // ─────────────────────────────────────────────────────────
+        loadedIdx = data.idx;
+        originalName = data.name;
+        
+        const nameInp = document.getElementById('name');
+        nameInp.value = data.name || "";
+        
+        // [me] 시드는 이름을 고정함
+        if (loadedIdx === 0 || data.name === "[me]") {
+            nameInp.readOnly = true; 
+            nameInp.style.opacity = "0.7"; 
+            nameInp.style.cursor = "not-allowed";
+        }
+
+        // 날짜 세팅
+        if (data.birth_date) {
+            const d = data.birth_date.split('-');
+            document.getElementById('year').value = parseInt(d[0]);
+            document.getElementById('month').value = parseInt(d[1]);
+            document.getElementById('day').value = parseInt(d[2]);
+        }
+
+        // 시간 세팅
+        if (data.is_unknown_time || data.birth_time === "Unknown") {
+            document.getElementById('time-unknown').checked = true;
+            toggleTime({ checked: true });
+        } else if (data.birth_time) {
+            const t = data.birth_time.split(':');
+            document.getElementById('hour').value = parseInt(t[0]);
+            document.getElementById('minute').value = parseInt(t[1]);
+            document.getElementById('second').value = parseInt(t[2] || 0);
+        }
+
+        // 장소 및 타임존 세팅
+        document.getElementById('city-search').value = data.location || "";
+        if (data.timezone !== undefined) {
+            document.getElementById('tz-select').value = data.timezone;
+        }
+
+        // 수동 입력(Manual Entry) 상태 복구
+        if (data.location === "Manual Entry" && data.lat !== undefined) {
+            if (!manualOpen) toggleManual(); 
+            
+            const lat = Math.abs(data.lat);
+            const lng = Math.abs(data.lng);
+            
+            document.getElementById('lat-int').value = Math.floor(lat);
+            document.getElementById('lat-dec').value = (lat % 1).toFixed(4).substring(2);
+            document.getElementById('lon-int').value = Math.floor(lng);
+            document.getElementById('lon-dec').value = (lng % 1).toFixed(4).substring(2);
+            
+            updateSignBtn("lat", data.lat >= 0 ? "+" : "-");
+            updateSignBtn("lon", data.lng >= 0 ? "+" : "-");
+        } else {
+            pendingLocation = { 
+                label: data.location, 
+                lat: data.lat, 
+                lng: data.lng, 
+                tz: data.timezone 
+            };
+        }
+    }
+
+    function toggleManual() {
+        manualOpen = !manualOpen;
+        document.getElementById('manual-panel').style.display = manualOpen ? 'block' : 'none';
+        document.getElementById('tz-select').style.display = manualOpen ? 'block' : 'none';
+        if (manualOpen) {
+            document.getElementById('city-search').value = "Manual Entry";
+        } else if (document.getElementById('city-search').value === "Manual Entry") {
+            document.getElementById('city-search').value = "";
+        }
+    }
+
+    function updateSignBtn(target, sign) {
+        document.querySelectorAll(`.sign-btn[data-target="${target}"]`).forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.sign === sign);
+        });
+        if (target === "lat") latSign = sign; else lonSign = sign;
+    }
+
+    function toggleTime(cb) {
+        const timeInputs = document.getElementById('time-inputs');
+        timeInputs.style.opacity = cb.checked ? "0.15" : "1";
+        timeInputs.style.pointerEvents = cb.checked ? "none" : "auto";
+    }
+
+    async function saveSeedUpdate() {
+        const nameInput = document.getElementById('name').value.trim();
+        if (!nameInput) {
+            alert("Seed Designation required.");
+            return;
+        }
+
+        const isUnknown = document.getElementById('time-unknown').checked;
+        const birthDate = `${document.getElementById('year').value}-${document.getElementById('month').value.padStart(2,'0')}-${document.getElementById('day').value.padStart(2,'0')}`;
+        const birthTime = isUnknown ? "Unknown" : `${document.getElementById('hour').value.padStart(2,'0')}:${document.getElementById('minute').value.padStart(2,'0')}:${document.getElementById('second').value.padStart(2,'0')}`;
+
+        let finalLat, finalLng, finalTz, locLabel;
+
+        if (manualOpen) {
+            locLabel = "Manual Entry";
+            const latV = parseInt(document.getElementById('lat-int').value || 0) + parseFloat("0." + (document.getElementById('lat-dec').value || "0"));
+            const lonV = parseInt(document.getElementById('lon-int').value || 0) + parseFloat("0." + (document.getElementById('lon-dec').value || "0"));
+            finalLat = (latSign === "-" ? -1 : 1) * latV;
+            finalLng = (lonSign === "-" ? -1 : 1) * lonV;
+            finalTz = document.getElementById('tz-select').value;
+        } else {
+            const currentText = document.getElementById('city-search').value.trim();
+            if (!currentText || !pendingLocation || currentText !== pendingLocation.label) {
+                alert("Location Omitted: Point of Emergence required.");
+                document.getElementById('city-search').focus();
+                return false;
+            }
+            locLabel = pendingLocation.label; 
+            finalLat = pendingLocation.lat; 
+            finalLng = pendingLocation.lng; 
+            finalTz = pendingLocation.tz;
+        }
+
+        const updateData = {
+            idx: loadedIdx, 
+            name: nameInput, 
+            birth_date: birthDate, 
+            birth_time: birthTime,
+            location: locLabel, 
+            lat: finalLat, 
+            lng: finalLng, 
+            timezone: finalTz,
+            is_unknown_time: isUnknown, 
+            has_body: 1, 
+            is_seed: 1
+        };
+
+        const incarnateBtn = document.getElementById('incarnate');
+        if (incarnateBtn) incarnateBtn.disabled = true;
+
+        // ─────────────────────────────────────────────────────────
+        // 1. [로컬 업데이트]: 회원/비회원 공통 (Anchor [me] 전용 로직)
+        // ─────────────────────────────────────────────────────────
+        if (loadedIdx === 0 || nameInput === "[me]") {
+            // [me] 시드는 항상 특정 키와 쿠키에 동기화
+            localStorage.setItem("tetramegistus.me", JSON.stringify(updateData));
+            
+            const setC = (n,v) => document.cookie = `${n}=${encodeURIComponent(v)}; path=/; SameSite=Lax`;
+            setC("temp_birth_date", birthDate); 
+            setC("temp_birth_time", birthTime); 
+            setC("temp_location", locLabel);
+
+            // 현재 활성 씨앗 정보도 즉시 갱신
+            localStorage.setItem("active_seed", JSON.stringify(updateData));
+        } else {
+            // 일반 시드: 로컬 스토리지 이름 관리
+            if (originalName && originalName !== nameInput) {
+                localStorage.removeItem(originalName);
+            }
+            localStorage.setItem(nameInput, JSON.stringify(updateData));
+        }
+
+        // ─────────────────────────────────────────────────────────
+        // 2. [서버 동기화]: 로그인 세션이 있을 때만 실행 (비회원 튕김 방지)
+        // ─────────────────────────────────────────────────────────
+        const sessionUser = document.cookie.split('; ').find(row => row.startsWith('session_user_id='));
+
+        // SEED_ID가 숫자(0 포함)이고 로그인 상태일 때만 서버 업데이트 시도
+        if (!isNaN(SEED_ID) && sessionUser) {
+            try {
+                const res = await fetch(`/api/natal/update/${SEED_ID}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(updateData)
+                });
+                
+                if (res.ok) {
+                    playUpdateRitual();
+                } else {
+                    alert("Ritual failed to reach the server. Local copy preserved.");
+                    if (incarnateBtn) incarnateBtn.disabled = false;
+                }
+            } catch (e) {
+                console.error("Transmission error:", e);
+                // 네트워크 에러 시에도 로컬은 저장되었으므로 리츄얼 실행
+                playUpdateRitual();
+            }
+        } else {
+            // 비회원(Guest)이거나 로컬 전용 시드인 경우 즉시 리츄얼 실행
+            playUpdateRitual();
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        initCityEngine();
+        initSelectors();
+        loadSeedData();
+
+        const cityInp = document.getElementById('city-search');
+
+        cityInp.oninput = (e) => {
+            const q = e.target.value.trim().toLowerCase();
+            if (manualOpen && q !== "manual entry") toggleManual();
+            if (!q || q === "manual entry") { 
+                document.getElementById("city-results").innerHTML = ""; 
+                return; 
+            }
+            currentResults = Object.values(cities).filter(c => c.label.toLowerCase().includes(q)).slice(0, 8);
+            activeIndex = -1; 
+            renderCityResults();
+        };
+
+        cityInp.addEventListener("keydown", (e) => {
+            if (!currentResults.length) return;
+            if (e.key === "ArrowDown") {
+                e.preventDefault();
+                activeIndex = (activeIndex + 1) % currentResults.length;
+                renderCityResults();
+            } 
+            else if (e.key === "ArrowUp") {
+                e.preventDefault();
+                activeIndex = (activeIndex - 1 + currentResults.length) % currentResults.length;
+                renderCityResults();
+            } 
+            else if (e.key === "Enter") {
+                e.preventDefault();
+                if (activeIndex >= 0) selectCity(activeIndex);
+            }
+        });
+
+        document.querySelectorAll('.sign-btn').forEach(btn => {
+            btn.onclick = () => updateSignBtn(btn.dataset.target, btn.dataset.sign);
+            
+            // 🛡️ [수복]: 방위(N/S/E/W) 호버 가이드 복구
+            btn.addEventListener("mousemove", e => {
+                const sign = btn.dataset.sign, target = btn.dataset.target;
+                const tooltip = document.getElementById("sign-tooltip");
+                if (!tooltip) return;
+                tooltip.textContent = (target === "lat") ? (sign === "+" ? "North" : "South") : (sign === "+" ? "East" : "West");
+                tooltip.style.left = e.clientX + 15 + "px"; 
+                tooltip.style.top = e.clientY + 15 + "px";
+                tooltip.style.display = "block";
+                tooltip.style.opacity = 1;
+            });
+            btn.addEventListener("mouseleave", () => {
+                const tooltip = document.getElementById("sign-tooltip");
+                if (tooltip) {
+                    tooltip.style.opacity = 0;
+                    tooltip.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

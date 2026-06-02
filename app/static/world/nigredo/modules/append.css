@@ -1,0 +1,53 @@
+/* 1. Genesis 기본 레이아웃 및 입력창 */
+.date-row { display: flex; gap: 0.4rem; }
+.date-row select { flex: 1; width: auto; text-align: center; }
+
+/* 🔑 [수복]: form_me의 순정 미학 이식 (화살표 복구) */
+.void input, .void select {
+    background-color: #000 !important; /* 투명 대신 검정 배경으로 안정감 확보 */
+    border: 1px solid #1f5f3a; 
+    color: #7CFF9B !important; 
+    padding: 0.4rem; 
+    outline: none; 
+    font-family: inherit;
+    /* 🛡️ appearance 속성을 제거하여 브라우저 기본 화살표를 다시 노출합니다. */
+}
+
+/* 🔑 [수복]: 드롭다운 내부 옵션(option) 배경색 오염 방지 */
+.void select option {
+    background-color: #000;
+    color: #7CFF9B;
+}
+
+.void input:focus, .void select:focus { border-color: #49dce1; }
+
+/* 2. 도시 검색 및 결과 리스트 */
+#city-results { margin-top: 0.4rem; border: 1px solid #1f5f3a; background: #050505; max-height: 200px; overflow-y: auto; }
+.city-item { padding: 0.35rem 0.6rem; cursor: pointer; font-size: 0.8rem; border-bottom: 1px solid #0b1a12; }
+.city-item:hover, .city-item.active { background: #0b1a12; color: #b6ffd0; }
+
+/* 3. 🔑 수동 패널 및 배타적 모드 연출 */
+#manual-panel { display: none; margin-top: 0.6rem; }
+.coord-block { margin-bottom: 0.8rem; }
+.coord-label { font-size: 0.75rem; color: #6be68c; margin-bottom: 0.25rem; }
+.coord-row { display: flex; gap: 0.4rem; align-items: center; }
+.sign-group { display: flex; }
+.sign-btn { width: 2.2rem; text-align: center; border: 1px solid #1f5f3a; cursor: pointer; user-select: none; transition: 0.2s; }
+.sign-btn.active { border-color: #7CFF9B; color: #b6ffd0; }
+.coord-int { width: 4rem; text-align: center; }
+.coord-dec { width: 5rem; text-align: center; }
+
+/* 4. Time Unknown 연출 */
+.unknown-row { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.8rem; }
+#time-unknown { appearance: none; -webkit-appearance: none; width: 1rem; height: 1rem; border: 1px solid #1f5f3a; background: black; cursor: pointer; }
+#time-unknown:checked { background: #7CFF9B; }
+.unknown-label { font-size: 0.75rem; color: rgb(73, 220, 225); cursor: pointer; }
+#time-inputs.disabled { opacity: 0.15; pointer-events: none; }
+
+/* 5. 액션 버튼 및 툴팁 */
+.action-row { display: flex; justify-content: flex-start; align-items: center; gap: 2rem; margin-top: 3.5rem; }
+#incarnate { background: transparent; border: 1px solid #1f5f3a; color: #7CFF9B; padding: 0.5rem 1.8rem; cursor: pointer; font-family: inherit; letter-spacing: 0.1em; transition: all 0.2s; }
+#incarnate:hover { border-color: #49dce1; color: #49dce1; }
+.return-btn { color: #666; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; cursor: pointer; }
+.return-btn:hover { color: #ff4d4d; }
+.stage-tooltip { position: fixed; font-size: 0.65rem; color: rgb(73, 220, 225); opacity: 0; pointer-events: none; z-index: 9999; }

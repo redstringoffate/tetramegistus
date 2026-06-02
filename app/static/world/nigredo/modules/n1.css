@@ -1,0 +1,268 @@
+/* n1.css */
+.n1-container {
+    padding: 10px 20px;
+    /* VS Code 스타일 폰트 고정 및 렌더링 최적화 */
+    font-family: 'Consolas', 'Monaco', 'Menlo', 'source-code-pro', monospace !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+.materia-title {
+    color: #7CFF9B;
+    font-size: 1.1rem; /* 살짝 축소 */
+    font-weight: normal;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+.section-label, .action-text {
+    color: #888;
+    font-size: 0.75rem; /* 더 작고 예리하게 */
+    margin-bottom: 8px;
+    display: block;
+}
+
+.materia-section { margin-bottom: 25px; }
+
+/* 🟦 드롭다운: 크기 축소 및 예리한 테두리 */
+.materia-dropdown {
+    width: 100%;
+    max-width: 400px; /* 가로 길이 제한 */
+    background: #000;
+    color: #49dce1;
+    border: 1.5px solid #49dce1; /* 선을 더 가늘게 */
+    padding: 5px 10px; /* 패딩 축소로 높이 최적화 */
+    font-family: inherit;
+    font-size: 0.8rem; /* 폰트 크기 조정 */
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    
+    /* 굵은 화살표(v) */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2349dce1' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 13px;
+}
+
+/* 드롭다운 내부 옵션 배경색 고정 (윈도우 크롬 대응) */
+.materia-dropdown option {
+    background-color: #0c0c0c;
+    color: #49dce1;
+}
+
+.action-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.action-text { 
+    width: 100px; /* 간격 최적화 */
+    margin-bottom: 0; 
+}
+
+/* n1.css - Symbol Buttons 정밀 튜닝 */
+
+.symbol-btn {
+    background: #000;
+    color: #49dce1; /* 글자색 파란색 */
+    border: 1px solid #49dce1; /* 기본 테두리를 얇은 파란색으로 고정 */
+    border-radius: 2px;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85rem;
+    
+    /* 애니메이션 속도 조절 */
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+/* 🟦 Hover: 테두리가 더 밝게 빛나며 네온 효과 */
+.symbol-btn:hover {
+    background: rgba(73, 220, 225, 0.1); /* 미세한 파란 배경 */
+    border-color: #7CFF9B; /* 테두리만 살짝 연두색 포인트 (선택 사항, 파란색 유지 원하시면 #49dce1) */
+    box-shadow: 0 0 10px rgba(73, 220, 225, 0.6); /* 예리한 파란 광채 */
+    transform: translateY(-0.5px); /* 미세하게 떠오름 */
+}
+
+/* 🖱️ Click (Active): 쫀득하게 눌리는 효과 */
+.symbol-btn:active {
+    background: rgba(73, 220, 225, 0.2);
+    transform: translateY(1px) scale(0.96); /* 실제 버튼을 누르는 깊이감 */
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.8); /* 안쪽 그림자로 눌림 표현 */
+    border-color: #49dce1;
+    transition: all 0.05s;
+}
+
+/* 폼 입력창 등과 일관성을 위해 포커스 시에도 파란색 유지 */
+.symbol-btn:focus {
+    border-color: #49dce1;
+}
+.secondary { margin-top: 10px; }
+
+
+/* 🔑 [수복]: Delete Seed 전용 버튼 스타일 (image_823032.png 기반) */
+.symbol-btn.delete {
+    color: #ff4b4b !important; /* 붉은색 심볼 */
+    border: 1px solid #442222; /* 어두운 붉은 테두리 */
+}
+
+/* 🟥 Hover: 붉은색 네온 글로우 효과 */
+.symbol-btn.delete:hover {
+    background: rgba(255, 75, 75, 0.1);
+    border-color: #ff4b4b;
+    box-shadow: 0 0 10px rgba(255, 75, 75, 0.6); /* 예리한 붉은 광채 */
+    color: #ff7676;
+}
+
+/* 🖱️ Click: 붉은색 압축 효과 */
+.symbol-btn.delete:active {
+    background: rgba(255, 75, 75, 0.2);
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+/* -------------------------------------------
+   Seed Pagination UI (<< < > >>)
+------------------------------------------- */
+#seed-pagination {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* 🚀 [수복]: 가로 배치되므로 위/오른쪽 여백을 없애고 줄바꿈을 방지합니다. */
+    margin: 0;
+    margin-left: 25px;
+    white-space: nowrap;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 1.05rem;
+    font-weight: bold;
+    user-select: none;
+}
+
+.page-btn {
+    cursor: pointer;
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+.page-btn.active {
+    color: #49dce1;
+    text-shadow: 0 0 5px rgba(73, 220, 225, 0.4);
+}
+
+.page-btn.disabled {
+    color: #444;
+    text-shadow: none;
+    cursor: default;
+}
+
+.page-info {
+    color: #666;
+    font-size: 0.8rem;
+    font-weight: normal;
+    text-shadow: none;
+}
+
+/* -------------------------------------------
+   Lv1: Akashic Records (Red Void Theme)
+------------------------------------------- */
+.akashic-box {
+    border-color: #ff4b4b !important;
+}
+
+.akashic-title {
+    color: #ff4b4b !important;
+}
+
+.akashic-input {
+    border-color: #ff4b4b !important;
+    color: #ff4b4b !important;
+}
+
+.akashic-status {
+    color: #a83232 !important;
+}
+
+/* 진입 성공 시 화면이 붉은 심연으로 물드는 이펙트 */
+body.akashic-awakening {
+    transition: all 0.8s ease !important;
+    box-shadow: inset 0 0 120px rgba(255, 75, 75, 0.35) !important;
+}
+
+/* -------------------------------------------
+   Ritual Shell Base Structure (From R2)
+------------------------------------------- */
+.ritual-shell-overlay {
+    position: fixed; 
+    inset: 0; 
+    background: rgba(0, 0, 0, 0.85); 
+    display: none; 
+    align-items: flex-start; 
+    justify-content: center; 
+    z-index: 99999; 
+    padding-top: 100px; 
+}
+
+.ritual-shell-box {
+    background: #000; 
+    border: 1px solid #3cff8f; 
+    padding: 28px 36px; 
+    min-width: 360px; 
+    text-align: center; 
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.ritual-shell-title {
+    color: #3cff8f; 
+    font-size: 0.85rem; 
+    letter-spacing: 0.14em; 
+    margin-bottom: 20px; 
+    text-transform: lowercase;
+}
+
+.ritual-shell-input {
+    background: transparent; 
+    border: 1px solid #3cff8f; 
+    color: #3cff8f; 
+    padding: 8px; 
+    width: 85%; 
+    text-align: center; 
+    outline: none; 
+    font-family: inherit;
+}
+
+.ritual-shell-footer {
+    margin-top: 15px;
+}
+
+.ritual-shell-status {
+    color: #1a5a3a; 
+    font-size: 0.65rem; 
+    letter-spacing: 0.1em; 
+    text-transform: lowercase;
+}
+
+/* ⏳ 종료 시퀀스 애니메이션 */
+.ritual-shell-overlay.closing {
+    animation: ritualDissolve 2s forwards ease-in;
+    pointer-events: none; 
+}
+
+@keyframes ritualDissolve {
+    0% { opacity: 1; filter: blur(0px); }
+    100% { opacity: 0; filter: blur(20px); }
+}
+
+/* 💥 최종 돌파 시 화면 붕괴 애니메이션 */
+.dissolve-out {
+    animation: dissolveTransition 1.2s forwards ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes dissolveTransition {
+    0% { opacity: 1; filter: blur(0px); transform: scale(1); }
+    100% { opacity: 0; filter: blur(20px); }
+}

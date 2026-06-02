@@ -1,0 +1,262 @@
+/* N4 ARCANA: Strict N2 Inheritance */
+
+/* 1. Base Identity (N2 Clone) */
+#stage-container.stage-nigredo .n4-arcana {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    color: #D8C8FF !important; /* Lavender Theme */
+}
+
+#stage-container.stage-nigredo .materia-title {
+    font-size: 1.5rem; 
+    color: #D8C8FF; 
+    margin-bottom: 50px !important; 
+    letter-spacing: 3px; 
+    text-transform: uppercase; 
+    font-weight: 600;
+}
+
+/* 2. Control Panels (Exact N2 Logic) */
+#stage-container.stage-nigredo .lordship-bar { 
+    display: flex; 
+    align-items: center;  
+    gap: 60px;            
+    margin-bottom: 10px; 
+    font-size: 0.8rem; 
+    color: #bfa1e6; /* Softer Lavender */
+    opacity: 0.9;
+    flex-wrap: nowrap;    
+}
+
+#stage-container.stage-nigredo .lord-slot { width: auto; flex-shrink: 0; white-space: nowrap; }
+#stage-container.stage-nigredo .lord-slot .val { color: #fff; margin-left: 5px; font-weight: 600; text-transform: uppercase; }
+
+#stage-container.stage-nigredo .system-switch-module { 
+    display: inline-flex; 
+    border: 1px solid #D8C8FF; 
+    background: #000; 
+    overflow: hidden; 
+    margin-bottom: 40px; /* N2 Spacing */
+}
+
+#stage-container.stage-nigredo .sys-tab {
+    background: transparent; 
+    border: none; 
+    border-right: 1px solid rgba(192, 139, 247, 0.4);
+    color: #D8C8FF; 
+    padding: 8px 24px; 
+    font-size: 0.8rem; 
+    cursor: pointer; 
+    transition: 0.2s; 
+    font-family: inherit;
+    text-transform: uppercase;
+}
+#stage-container.stage-nigredo .sys-tab:last-child { border-right: none; }
+#stage-container.stage-nigredo .sys-tab.active { 
+    background: #D8C8FF !important; 
+    color: #000 !important; 
+    font-weight: bold; 
+}
+
+/* 3. Table Layout (Exact N2 Specs) */
+#stage-container.stage-nigredo .category-label { 
+    font-size: 0.85rem; 
+    color: #D8C8FF; 
+    border-left: 2px solid #D8C8FF; 
+    padding-left: 12px; 
+    margin: 0px 0 5px 0 !important; 
+    letter-spacing: 2px; 
+    text-transform: uppercase;
+}
+
+#stage-container.stage-nigredo .n4-chart-table { 
+    width: 100% !important; 
+    table-layout: fixed !important; 
+    border-collapse: collapse !important; 
+    margin-bottom: 35px !important; 
+}
+
+#stage-container.stage-nigredo .n4-chart-table th { 
+    text-align: left; 
+    font-size: 0.65rem; 
+    color: #666 !important;
+    padding: 12px 10px; 
+    border-bottom: 1px solid rgba(192, 139, 247, 0.2); 
+    text-transform: uppercase; 
+    font-family: inherit !important;
+    opacity: 0.7;
+}
+
+#stage-container.stage-nigredo .n4-chart-table td { 
+    padding: 12px 10px; 
+    border-bottom: 1px solid rgba(192, 139, 247, 0.05); 
+    color: #D8C8FF; 
+    font-size: 0.8rem; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+/* 4. Cells */
+#stage-container.stage-nigredo .cell-body { font-weight: bold; }
+#stage-container.stage-nigredo .cell-info { color: #bfa1e6 !important; }
+#stage-container.stage-nigredo .cell-center { text-align: center !important; }
+#stage-container.stage-nigredo .cell-sabian { 
+    white-space: normal !important; 
+    font-style: italic; 
+    opacity: 0.7; 
+    font-size: 0.75rem; 
+    word-break: keep-all; 
+    color: #ddd !important;
+}
+
+#stage-container.stage-nigredo .n4-chart-table tbody tr:hover { background: rgba(192, 139, 247, 0.05); }
+
+/* 5. Glow Effects (Re-defined for Arcana context if needed, or reuse N2 classes in JS) */
+/* We will reuse N2 classes in JS to ensure exact match, but define colors here just in case */
+
+/* 2. Anaretic Degree (Absolute Priority - Solid Red) */
+/* 🔑 [FIX]: ID 경로(#stage-container...)를 포함시켜 기본 녹색 설정을 확실하게 덮어씁니다. */
+#stage-container.stage-nigredo .n4-chart-table td.text-anaretic {
+    color: #EB3324 !important;
+    text-shadow: none !important; /* Glow 제거하여 선명도 확보 */
+    font-weight: 900 !important;
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.5)); /* 가독성용 미세 그림자 */
+}
+
+/* 🔥 Fire: Hot Pink / Magenta Red */
+.glow-fire { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #F71831, 
+        0 0 10px #F71831, 
+        0 0 20px #F71831, 
+        0 0 30px #F71831; 
+}
+
+/* 🌍 Earth: Golden Amber */
+.glow-earth { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #FFB933, 
+        0 0 10px #FFB933, 
+        0 0 20px #FFB933, 
+        0 0 30px #FFB933; 
+}
+
+/* 🌬️ Air: Pure White / Silver (차가운 느낌) */
+.glow-air { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #E6E6E6, 
+        0 0 10px #E6E6E6, 
+        0 0 20px #E6E6E6, 
+        0 0 30px #E6E6E6; 
+}
+
+/* 💧 Water: Electric Cyan / Deep Blue (형광 느낌) */
+.glow-water { 
+    color: #7CFF9B !important; 
+    text-shadow: 
+        0 0 5px #0168FC, 
+        0 0 10px #0168FC, 
+        0 0 20px #0168FC, 
+        0 0 30px #0168FC; 
+}
+
+/* Planets (7행성) - Thick & Distinct */
+
+/* ♄ Saturn: Yellow / Ochre */
+.glow-saturn { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FFF200,
+        0 0 8px #FFF200, 
+        0 0 10px #FFF200,
+        0 0 15px #FFF200, 
+        0 0 20px #FFF200,
+        0 0 30px #FFF200; 
+}
+
+/* ♃ Jupiter: Neon Green */
+.glow-jupiter { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #47BD5A,
+        0 0 8px #47BD5A, 
+        0 0 10px #47BD5A,
+        0 0 15px #47BD5A, 
+        0 0 20px #47BD5A,
+        0 0 25px #47BD5A, 
+        0 0 30px #47BD5A; 
+}
+
+/* ♂ Mars: Deep Crimson Red */
+.glow-mars { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #F50000, 
+        0 0 8px #F50000,
+        0 0 10px #F50000, 
+        0 0 15px #F50000,  
+        0 0 20px #F50000,
+        0 0 25px #F50000,
+        0 0 30px #F50000, 
+        0 0 35px #F50000; 
+}
+
+/* ☉ Sun: Orange Gold */
+.glow-sun { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FC55CE, 
+        0 0 8px #FC55CE,
+        0 0 10px #FC55CE, 
+        0 0 15px #FC55CE,  
+        0 0 20px #FC55CE,
+        0 0 30px #FC55CE,
+        0 0 35px #FC55CE, 
+        0 0 40px #FC55CE; 
+}
+
+/* ♀ Venus: Grey */
+.glow-venus { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #999999, 
+        0 0 8px #999999,
+        0 0 10px #999999,
+        0 0 12px #999999, 
+        0 0 14px #999999,
+        0 0 17px #999999, 
+        0 0 20px #999999, 
+        0 0 22px #999999,
+        0 0 25px #999999,
+        0 0 28px #999999, 
+        0 0 30px #999999; 
+}
+
+/* ☿ Mercury: Cyan Blue */
+.glow-mercury { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #341DFC,
+        0 0 8px #341DFC, 
+        0 0 10px #341DFC,
+        0 0 15px #341DFC, 
+        0 0 20px #341DFC,
+        0 0 25px #341DFC, 
+        0 0 30px #341DFC; 
+}
+
+/* ☽ Moon: White Silver */
+.glow-moon { 
+    color: #7CFF9B !important;
+    text-shadow: 
+        0 0 5px #FFB9FA,
+        0 0 8px #FFB9FA, 
+        0 0 10px #FFB9FA,
+        0 0 15px #FFB9FA, 
+        0 0 20px #FFB9FA,
+        0 0 25px #FFB9FA, 
+        0 0 30px #FFB9FA; 
+}

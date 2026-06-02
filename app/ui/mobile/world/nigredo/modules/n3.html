@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="/static/mobile/world/nigredo/modules/n3.css?v=16">
+
+<div class="m-n3-container">
+    <h2 class="m-materia-title">DOMUS</h2>
+
+    <div class="m-lordship-bar" id="m-n3-angles" style="display: flex; justify-content: center; margin-bottom: 20px;">
+        <div class="m-lord-slot" style="text-align: center;">
+            Asc:<br>
+            <span class="m-val" id="val-asc" style="margin-left: 0; display: inline-block; margin-top: 4px; color: #fff;">-</span>
+        </div>
+        <div class="m-lord-slot" style="margin-left: 40px; text-align: center;">
+            MC:<br>
+            <span class="m-val" id="val-mc" style="margin-left: 0; display: inline-block; margin-top: 4px; color: #fff;">-</span>
+        </div>
+    </div>
+
+    <div id="domus-chart-wrapper" style="width: 100%; display: flex; justify-content: center; margin-bottom: 20px;"></div>
+
+    <div class="m-anti-switch-module" style="margin-bottom: 20px; justify-content: center; padding-left: 0;">
+        <div class="m-dichotomy-module"
+             ontouchstart="showToggleTooltip('mode-tooltip', 'CUSP MODE', 'DOMAIN MODE', N3_STATE.mode !== 'domain')"
+             ontouchend="hideToggleTooltip('mode-tooltip')">
+            <span class="m-dicho-label active" id="label-mode-cusp">CUSP</span>
+            <div class="m-toggle-switch" onclick="switchN3Mode()">
+                <div class="m-toggle-knob" id="mode-knob"></div>
+            </div>
+            <span class="m-dicho-label" id="label-mode-domain">DOMAIN</span>
+        </div>
+        <div class="m-toggle-tooltip" id="mode-tooltip" style="left: 50%; transform: translate(-50%, -100%);"></div>
+    </div>
+
+    <div class="m-connected-tabs">
+        <button class="m-tab" data-sys="tropical" onclick="switchN3System('tropical')">Tropical</button>
+        <button class="m-tab" data-sys="sidereal" onclick="switchN3System('sidereal')">Sidereal</button>
+        <button class="m-tab" data-sys="draconic" onclick="switchN3System('draconic')">Draconic</button>
+        <button class="m-tab" data-sys="ketunic" onclick="switchN3System('ketunic')">Ketunic</button>
+    </div>
+
+    <div id="m-sidereal-vault" class="m-hidden">
+        <div class="m-connected-tabs m-ayan-tabs">
+            <button class="m-tab" data-ayan="lahiri" onclick="switchN3Ayanamsa('lahiri')">Lahiri</button>
+            <button class="m-tab" data-ayan="raman" onclick="switchN3Ayanamsa('raman')">Raman</button>
+            <button class="m-tab" data-ayan="kp" onclick="switchN3Ayanamsa('kp')">KP</button>
+            <button class="m-tab" data-ayan="fagan-bradley" onclick="switchN3Ayanamsa('fagan-bradley')">Fagan</button>
+            <button class="m-tab" data-ayan="yukteswar" onclick="switchN3Ayanamsa('yukteswar')">Yukteswar</button>
+        </div>
+        
+        <div class="m-anti-switch-module" style="display: none; margin-bottom: 20px; justify-content: center; padding-left: 0;" id="m-view-toggle">
+            <div class="m-dichotomy-module"
+                 ontouchstart="showToggleTooltip('view-tooltip', 'ZODIAC VIEW', 'LAGNA VIEW', N3_STATE.view !== 'lagna')"
+                 ontouchend="hideToggleTooltip('view-tooltip')">
+                <span class="m-dicho-label active" id="label-view-zod">ZODIAC</span>
+                <div class="m-toggle-switch" onclick="switchN3View()">
+                    <div class="m-toggle-knob" id="view-knob"></div>
+                </div>
+                <span class="m-dicho-label" id="label-view-lagna">LAGNA</span>
+            </div>
+            <div class="m-toggle-tooltip" id="view-tooltip" style="left: 50%; transform: translate(-50%, -100%);"></div>
+        </div>
+    </div>
+
+    <div id="m-n3-cards-container" class="m-card-container"></div>
+
+    <div id="m-n3-table-container" class="m-a10-table-wrapper" style="display: none;">
+        <table class="m-a10-table">
+            <colgroup id="m-n3-colgroup">
+                <col style="width: 70px;">  
+                <col style="width: 150px;"> 
+                <col style="width: 100px;">  
+                <col style="width: 150px;">  
+                <col style="width: 150px;">  
+                <col style="width: 150px;">  
+            </colgroup>
+            <thead id="m-n3-thead"></thead>
+            <tbody id="m-n3-tbody"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<div id="m-n3-toast" class="m-toast-hidden"></div>
+<div id="fs-popover" class="fs-popover-box" style="display:none;"></div>
+
+<script src="/static/mobile/world/nigredo/modules/n3.js?v=19"></script>

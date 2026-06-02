@@ -1,0 +1,162 @@
+/* C1 SYSTEM SETTINGS STYLING (A8 Visual Logic) */
+:root {
+    --c1-cyan: #49dce1;
+    --c1-green: #7CFF9B; /* A8 DDS Green */
+    --c1-bg-dark: #000;
+    --c1-border: #333; 
+    --c1-font: ui-monospace, SFMono-Regular, Consolas, 'Cascadia Code', monospace;
+}
+
+/* 🚀 모달 크기 확장 */
+#c1-modal-overlay .c1-modal-window {
+    width: 680px !important;
+    max-width: 95vw;
+}
+
+/* 🚀 [NEW]: Footer Layout Adjustment (띄워내기) */
+#c1-modal-overlay .c1-modal-footer {
+    margin-top: 10px !important;      /* 본문과의 간격 */
+    padding-top: 20px !important;     /* 구분선과의 간격 (확보) */
+    border-top: 1px solid #1f5f3a !important; /* 구분선 색상 */
+    display: flex !important;
+    justify-content: flex-end !important; /* 우측 정렬 (Confirm 위치) */
+}
+
+/* CONFIRM 버튼 스타일 (A8/C1 공통) */
+#c1-modal-overlay #c1-btn-confirm {
+    background: #000 !important;
+    border: 1px solid var(--c1-cyan) !important;
+    color: var(--c1-cyan) !important;
+    padding: 6px 24px !important;
+    font-family: var(--c1-font) !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.1em !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    display: block !important; /* 강제 표시 */
+}
+
+#c1-modal-overlay #c1-btn-confirm:hover {
+    background: rgba(73, 220, 225, 0.15) !important;
+    box-shadow: 0 0 10px rgba(73, 220, 225, 0.4) !important;
+    color: #fff !important;
+}
+
+.c1-module-container {
+    padding: 5px;
+    color: #eee;
+    font-family: var(--c1-font);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.c1-settings-header-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 10px 10px;
+    border-bottom: 1px solid #1f1f1f;
+    color: #666;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+.c1-settings-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    max-height: 500px;
+    padding-top: 15px;
+    padding-right: 5px;
+}
+
+/* Row Styling */
+.c1-setting-item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #1f1f1f;
+    padding-bottom: 15px;
+}
+
+/* Header */
+.c1-setting-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.c1-setting-title { color: var(--c1-cyan); font-weight: bold; font-size: 0.9rem; }
+.c1-setting-type { font-size: 0.7rem; color: #555; margin-left: 8px; }
+
+/* Toggle Switch (Cyan) */
+.c1-toggle-wrapper { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.c1-toggle-label { font-size: 0.65rem; color: #444; font-weight: bold; transition: 0.2s; }
+.c1-toggle-label.active { color: var(--c1-cyan); text-shadow: 0 0 5px rgba(73, 220, 225, 0.5); }
+
+.c1-track {
+    width: 30px; height: 12px; background: #000;
+    border: 1px solid #333; border-radius: 6px; position: relative; transition: 0.2s;
+}
+.c1-knob {
+    width: 8px; height: 8px; background: #444;
+    border-radius: 50%; position: absolute; top: 1px; left: 2px; transition: 0.2s;
+}
+.c1-track.on { border-color: var(--c1-cyan); }
+.c1-track.on .c1-knob { left: 18px; background: var(--c1-cyan); box-shadow: 0 0 5px var(--c1-cyan); }
+
+/* Options Area */
+.c1-options-area {
+    display: flex; flex-direction: column; gap: 8px;
+    padding-left: 20px; transition: opacity 0.3s;
+}
+.c1-options-area.disabled { opacity: 0.3; pointer-events: none; }
+
+.c1-sub-row { display: flex; align-items: center; gap: 15px; }
+.c1-sub-label {
+    font-size: 0.7rem; color: #888; min-width: 80px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+}
+
+/* 🚀 [A8 Logic]: Button Group Styling */
+.c1-btn-group {
+    display: flex;
+    width: fit-content;
+    border: 1px solid var(--c1-cyan);
+    border-radius: 2px;
+    overflow: hidden;
+    background: #000;
+}
+
+.c1-opt-btn {
+    background: #000 !important;
+    border: 1px solid #49dce1 !important; /* Nigredo Green 테두리 */
+    color: #999999 !important;
+    /* 투박함 제거: 패딩 축소, 폰트 굵기 정상화 */
+    padding: 5px 12px; 
+    font-size: 0.75rem; 
+    font-weight: normal; 
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+    transition: 0.2s;
+}
+
+.c1-opt-btn:last-child { border-right: none; }
+
+.c1-opt-btn:hover {
+    background: rgba(73, 220, 225, 0.1);
+    color: var(--c1-cyan); /* Hover hint */
+}
+
+/* 🌟 [ACTIVE STATE]: A8 DDS Green Logic */
+.c1-opt-btn.active {
+    background: rgba(124, 255, 155, 0.15) !important; /* Green Tint */
+    color: var(--c1-green) !important; /* #7CFF9B */
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(124, 255, 155, 0.6);
+}
+

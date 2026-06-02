@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "stamper": "A2",
+    "sys_a": "B4",
+    "sys_b": "B5"
+  },
+  "patterns": {
+    "row_start": 10,
+    "cols": { "shape": "A", "p1": "B", "i1": "C", "p2": "D", "i2": "E", "p3": "F", "i3": "G", "p4": "H", "i4": "I", "p5": "J", "i5": "K", "p6": "L", "i6": "M" }
+  },
+  "aspects_layout": {
+    "cols": { "body": "A", "aspect": "B", "body_info": "C", "object": "D", "object_info": "E", "orb": "F" },
+    "rows": {
+      "Sun": 18, "Moon": 19, "Mercury": 20, "Venus": 21, "Mars": 22, "Jupiter": 23, "Saturn": 24, "Uranus": 25, "Neptune": 26, "Pluto": 27,
+      "Chiron": 30, "Ceres": 31, "Juno": 32, "Pallas": 33, "Vesta": 34, "Asteroid Eros": 35, "Psyche": 36,
+      "Rahu": 39, "Ketu": 40, "Mean Lilith": 41, "True Lilith": 42, "Asteroid Lilith": 43,
+      "Moira": 46, "Klotho": 47, "Lachesis": 48, "Atropos": 49,
+      "Fortune": 52, "Spirit": 53, "Necessity": 54, "Necessity (v)": 55, "Eros": 56, "Eros (v)": 57, "Courage": 58, "Victory": 59, "Nemesis": 60,
+      "Vertex": 62, "Anti-Vertex": 63, "Syzygy": 64
+    }
+  }
+}

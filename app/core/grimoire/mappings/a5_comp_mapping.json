@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "stamper1": "A2",
+    "stamper2": "A3"
+  },
+  "patterns": {
+    "row_start": 8,
+    "cols": { "shape": "A", "p1": "B", "i1": "C", "p2": "D", "i2": "E", "p3": "F", "i3": "G", "p4": "H", "i4": "I", "p5": "J", "i5": "K", "p6": "L", "i6": "M" }
+  },
+  "aspects_layout": {
+    "cols": { "body": "A", "aspect": "B", "body_info": "C", "object": "D", "object_info": "E", "orb": "F" },
+    "rows": {
+      "Sun": 16, "Moon": 17, "Mercury": 18, "Venus": 19, "Mars": 20, "Jupiter": 21, "Saturn": 22, "Uranus": 23, "Neptune": 24, "Pluto": 25,
+      "Chiron": 28, "Ceres": 29, "Juno": 30, "Pallas": 31, "Vesta": 32, "Asteroid Eros": 33, "Psyche": 34,
+      "Rahu": 37, "Ketu": 38, "Mean Lilith": 39, "True Lilith": 40, "Asteroid Lilith": 41,
+      "Moira": 44, "Klotho": 45, "Lachesis": 46, "Atropos": 47
+    }
+  }
+}

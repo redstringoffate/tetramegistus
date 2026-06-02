@@ -1,0 +1,234 @@
+📖 TETRAMEGISTUS — ABSOLUTE STRUCTURE (v25)
+(THE CITRINITAS AWAKENING & ENDGAME PROTOCOL)
+
+본 문서는 TETRAMEGISTUS 프로젝트의 과거(Accomplished), 현재(Current), 그리고 미래(Future)를 관통하는 절대적인 설계도이자 헌법이다. 새로운 노드(Node)는 이 문서를 최우선 컨텍스트로 로드하여 한 치의 오차 없이 작업을 계승한다.
+
+이 문서는:
+- 검증 대상이 아니며
+- 토론 대상이 아니며
+- 해석 또는 요약의 대상이 아니다.
+
+
+════════════════════════════════
+0. THE GENESIS OF v25 (현재 상황 및 성과)
+════════════════════════════════
+
+1. Rubedo(R1, R2) 시스템 구축 완료
+	-R1 (Archivum): 텍스트 아카이브 시스템 구축. hermeticum 본문과 그 하위 폴더인 archivum의 계층 구조를 프론트엔드 트리 UI에 완벽히 구현.
+	-R2 (Sabian Symbols): 12별자리(Sign) 및 360도 도수(Symbol) 시스템 구축. 황도 12궁 정석 순서 정렬 및 도수별 자연스러운 숫자 정렬(1, 2, 10...) 로직 수복 완료.
+
+2. God Mode 1-4 완료
+
+3. 모바일 ver. 작업을 yechidah이외 전부 완료
+
+4. C3 (ILLUMINATIO) 현황
+	-c3_ruach.json 및 비주얼 노벨 스타일 렌더링 엔진 구축 완료.
+	-Pending: 3_yechidah 모듈은 현재 미완성 상태(Stub/WIP)로 남아있음.
+
+5. env 이동 완료
+
+
+════════════════════════════════
+1. PHYSICAL DIRECTORY TREE
+════════════════════════════════
+
+app/
+├─ main.py                              # ⚡ 전력 배전반: FastAPI 가동 및 CORS/미들웨어 설정
+├─ core/                                # 🏛️ 가시적 법칙의 원천 (Pure Logic Engine)
+│  ├─ database.py                       # 🗄️ SQLite Connection 및 무결성 강제
+│  ├─ astrology/                        # 🌌 점성학 연산 성역
+│  │  ├─ c3_mystic_tools.py             # (NEW) C3 공통 RNG 도구함 (다이스, 코인 등)
+│  │  └─ c3_illumination.py             # (NEW) C3 무의식 가중치 및 최종 계시 연산 엔진
+│  └─ grimoire/                         # 📚 Grimoire Archive 엔진 (Excel 연성)
+│     ├─ styler.py, stamper.py          # 🎨 엑셀 서식 및 🪪 Seed 정보 인젝터
+│     ├─ compilers/                     # 🛠️ N2~N9, A2~A10 엑셀 컴파일러 (연성 완료)
+│     └─ mappings/                      # 📍 셀 좌표 JSON 룰셋 모음 (연성 완료)
+├─ api/                                 # 🔌 외부 인터페이스 (Router & Controller)
+│  ├─ astrology.py                      # 🛰️ 천문 연산 API 라우터
+│  ├─ godmode.py                     # 👁️ God Mode 마스터 컨트롤러 (Tree 조회 및 파괴 API)
+│  ├─ theory.py                      # 📕 Library: JSON Dispatcher (Sabian/Symbol/Sign 리더)
+│  └─ grimoire.py                       # 📚 Grimoire 마스터 라우터 (Save/Delete/Read/Download)
+├─ templates_excel/                     # 📊 Grimoire 엑셀 원본 템플릿 (백지 상태)
+│  ├─ nigredo/                          # N2, N2_nak 등 (완료)
+│  └─ albedo/                           # A2, A2_nak, A2_comp, A8~A10 등 (완료)
+├─ data/                                # 🏺 의미 체계 성소 & 유저 데이터
+│  ├─ render/                           # Frontend Rendering Assets [cite: 14, 15]
+│  │  ├─ c2_mem.json, c2_shin.json      # C2 설문 데이터
+│  │  ├─ c3_ruach.json                  # (NEW) C3 Ruach 내러티브 및 해석 데이터
+│  │  └─ sabian.json, arabic_lots.json  # 📜 Sabian & Lots Symbols
+│  └─ theory/                        # 📜 지식 체계 본문
+│     ├─ hermeticum/                 # R1: CORPUS HERMETICUM
+│     │  ├─ index/, en/, ko/         # 본문 데이터
+│     │  └─ archivum/                # 📂 Archivum (R1 하위 폴더 구조)
+│     └─ sabian/                     # R2: SABIAN SYMBOLS
+│        ├─ sign/                    # 별자리 데이터 (Aries ~ Pisces)
+│        └─ symbol/                  # 360도 도수 데이터 ({sign}/index/1.json 등)rubedo/)
+├─ ui/                         # 🌍 연금술적 자치 회로 (HTML Templates)
+│  ├─ world/shell/                      # 🐚 Framework (base.html) 및 Grimoire 뷰어 UI (reader.html 등)
+│  ├─ world/nigredo/                    # 🌑 분해(Nigredo) UI (n2~n9 완료)
+│  ├─ world/albedo/                     # ⚪ 정화(Albedo) UI (a1~a10 완료)
+│  ├─ world/citrinitas/                 # 🟡 변환(Citrinitas) UI
+│  │  ├─ index.html, routes.py          # Stage Entry 및 라우터 (C2, C3 동적 라우팅 포함)
+│  │  └─ modules/
+│  │     ├─ c1.html, c1_settings.html   # Tabula Main View 및 설정
+│  │     ├─ c1_add_natal.html           # Add Data Modal (C1 폼 원본)
+│  │     ├─ c1_add_conjunction.html     # Add Synastry Modal
+│  │     ├─ c2.html                     # 🔯 C2 HORA OCCULTA 메인 뷰 (의식 선택기)
+│  │     ├─ c2_aleph.html               # C2 [א] Planetary Lord Rectification 폼 & 설문 UI
+│  │     ├─ c2_mem.html, c2_shin.html   # C2 [מ] Dasha Chandra, [ש] Arudha Ascendant (Stubs)
+│  │     ├─ c3.html                     # 🔯 C3 ILLUMINATIO 메인 뷰 (영혼 단계 선택기)
+│  │     ├─ c3_nefesh.html              # C3 [נפש] Nefesh UI (Stub)
+│  │     ├─ c3_ruach.html               # C3 [רוח] Ruach UI
+│  │     ├─ c3_neshamah.html            # C3 [נשמה] Neshamah UI (Stub)
+│  │     ├─ c3_chayah.html              # C3 [חיה] Chayah UI
+│  │     └─ c3_yechidah.html            # C3 [יחידה] Yechidah UI
+│  └─ world/rubedo/
+│     ├─ index.html, routes.py       # Rubedo Stage 진입점
+│     ├─ modules/r1.html, r2.html    # R1/R2 Viewer UI
+│     └─ godmode.html                # 👁️ God Mode Lv2 통합 관리 프레임
+├─ static/                              # 💎 불변의 자산 (Client-side Assets)
+│  ├─ world/shell/                      # 🌐 Global State Manager 및 Grimoire UI 컨트롤
+│  ├─ world/nigredo/modules/            # 🧪 Nigredo Scripts (n2~n9 완료)
+│  ├─ world/albedo/modules/             # ⚖️ Albedo Scripts (a1~a8 완료)
+│  ├─ world/citrinitas/                 # 🟡 변환(Citrinitas) UI 
+│  │  ├─ modules/
+│  │  │  ├─ c2.html, c2_aleph.html, c2_mem.html, c2_shin.html # C2 완료
+│  │  │  ├─ c3.html                     # 🔯 C3 ILLUMINATIO 메인 뷰 (영혼 단계 선택기)
+│  │  │  ├─ c3_nefesh.html              # C3 [נפש] Nefesh UI (Jyotish/Dream)
+│  │  │  ├─ c3_ruach.html               # C3 [רוח] Ruach UI (Runes/Garden)
+│  │  │  ├─ c3_neshamah.html            # C3 [נשמה] Neshamah UI (Tarot/Gypsy)
+│  │  │  ├─ c3_chayah.html              # C3 [חיה] Chayah UI (Jyotish/Banquet)
+│  │  │  └─ c3_yechidah.html            # C3 [יחידה] Yechidah UI (Kabbalah/Desert)
+│  └─ world/rubedo/                     # 🔴 완성(Rubedo) UI
+├─ static/                              # 💎 불변의 자산 (Client-side Assets)
+│  ├─ world/citrinitas/modules/         # ⚡ Citrinitas Scripts
+│  │  ├─ c2_mem.js, c2_mem.css          # C2 Mem 프론트엔드 로직 (C3 렌더링 벤치마크 기준)
+│  │  ├─ c3.js, c3.css                  # C3 페이지 이동 상태 동기화 및 시안 블루 테마
+│  │  └─  c3_ruach.js, c3_ruach.css      # (NEW) C3 Ruach 렌더링 로직 (비주얼 노벨 스타일)
+│  └─ world/rubedo/godmode/
+│     ├─ godmode.js                  # ⚙️ 트리 렌더링, 정렬, 삭제 Ritual 로직 (R2 순서 강제)
+│     └─ godmode.css                 # 🎨 DDS Green(Edit) & Red Void(Delete) 테마
+├─ .env                              # 🔐 보안 결계 키 (OTP_SECRET, LAYER1_KEY 포함)
+└─ tetramegistus.db                     # 🗄️ Main Database                     # 🗄️ Main Database
+
+
+════════════════════════════════
+[추가] 1. PHYSICAL DIRECTORY TREE (Mobile Parallelism)
+════════════════════════════════
+본 프로젝트는 어설픈 반응형(Responsive) CSS에 의존하지 않으며, PC와 모바일 환경을 디렉토리 층위에서부터 완전히 분리하는 '독립된 평행 우주(Parallel Universe)' 방식을 채택한다. [cite_start]Python 라우터는 모바일 접속 시 `mobile/` 하위의 템플릿을 렌더링한다[cite: 106].
+
+├─ ui/
+[cite_start]│  ├─ world/                        # PC 환경 (Desktop) UI [cite: 106]
+│  └─ mobile/world/                 # 📱 모바일(Mobile) 전용 UI
+│     ├─ shell/                     # 모바일 공통 레이아웃 (base.html, stage.html 등)
+│     ├─ nigredo/, albedo/, citrinitas/, rubedo/ # 모바일 스테이지 뷰 및 모듈 프래그먼트
+│     └─ rubedo/godmode_lv3/        # 모바일 관리자 패널 및 에디터 (godmode_lv3.html, godmode_editor.html)
+├─ static/
+[cite_start]│  ├─ world/                        # PC 환경 (Desktop) Assets [cite: 111]
+│  └─ mobile/world/                 # 📱 모바일(Mobile) 전용 Assets (JS/CSS)
+│     ├─ shell/                     # 모바일 공통 스크립트 (world.js 등)
+│     ├─ {stage}/modules/           # 각 스테이지별 모바일 독립 스타일 및 로직
+│     └─ rubedo/godmode_lv3/        # 모바일 에디터 전용 터치/모달 스크립트 및 UI 규격
+│  └─ sounds/	#sound effect 폴더
+
+════════════════════════════════
+[추가] EXECUTION PRINCIPLES (Mobile Sub-rules)
+════════════════════════════════
+- Touch-Native Interaction: 모바일 환경에서는 Hover나 Drag & Drop 이벤트를 절대 사용하지 않는다. (예: 롱프레스 Context Menu, 상/하 화살표 탭을 통한 Pin 배열 스와핑으로 대체).
+- Tactical Touch Protocol: 물리 키보드가 없는 모바일의 God Mode (Ritual) 진입은 PC의 단축키(Ctrl+Shift+숫자) 대신, 특정 UI 요소의 '다이얼식 연속 탭(Tap) + 지정된 시간의 침묵(Silence)'을 조합한 터치 시퀀스로 대체한다.
+- Mobile Safari Parsing Strictness: JS에서 Date() 파싱 시 모바일 브라우저(Safari 등)의 에러(Invalid Date)를 방지하기 위해, 날짜 문자열의 공백은 무조건 'T'로, '/'는 '-'로 강제 치환(`replace`)한 후 연산한다.
+- Overlay & Fixed Safe-Zone: 모바일에서 팝업(Modal/Overlay)을 띄울 때 부모 요소의 CSS 애니메이션에 `filter` 속성이 잔류하면 `position: fixed`가 붕괴된다. 애니메이션 종료 후 반드시 `filter: none;`을 선언하여 모달이 화면 정중앙을 유지하도록 결계를 친다.
+
+════════════════════════════════
+2. THE CITRINITAS ARCHITECTURE ( C3 구조)
+════════════════════════════════
+
+C3: ILLUMINATIO (영혼의 조명) - "다크 판타지 인터랙티브 노벨 + 오컬트 시뮬레이터" 
+단순한 심리테스트를 넘어, 카발라의 영혼 5단계(Five Levels of the Soul)를 모티브로 한 심화 분석 시스템.
+- ⚙️ 하이브리드 엔진 시스템: 
+  리플레이성 확보를 위해 프론트엔드에서는 무의식 질문(가중치 1.5)과 가짜 질문(가중치 0)을 은폐하며, 백엔드 엔진이 동적으로 가짜 질문에 RNG(Random Number Generator) 다이스를 굴려 '운명적 우연(Synchronicity)'을 구현한다.
+
+- 🌌 5단계 서사 구조 (The Narrative Arc):
+  [נפש] Nefesh (Malkuth/Moon) - Jyotish/Karmic 테마. 무겁고 지친 잠(Nigredo)에 빠져 꿈속에서 잊힌 목적을 찾는 서사.
+  [רוח] Ruach (Tiferet/Venus) - Elder Futhark Runes 테마. 에덴/엘프의 빛의 정원을 거닐다 3개의 모음문자(Aleph/Mem/Shin)와 행성의 계시를 얻고 깨달음을 얻으며 떠나는 서사.
+  [נשמה] Neshamah (Binah/Saturn) - Alefbet-Tarot 테마. 황야의 천막 속 괴팍한 집시 노파. 질문의 무게(연애/돈/영성)에 따라 전개와 스프레드(Celtic Cross, Tree of Life 등)가 완전히 달라지는 동적 NPC 시스템. (노파의 정체는 Yechidah의 대천사 메타트론임이 암시됨)
+  [חיה] Chayah (Chokmah/Jupiter) - Jyotish/Graha 테마. Nefesh의 후속편. 성공한 연회의 주인공(Citrinitas)이 테라스에서 공허를 느끼며 대우주적 관점으로 확장되는 서사.
+  [יחידה] Yechidah (Kether/Sun) - 22 Paths (Kabbalah) 테마. Neshamah의 후속편. 사막을 방황하다 탈진한 끝에 대천사(신성)의 음성을 듣는 종교적이고 엄숙한 서사.
+
+Nefesh   — The path remembers before you do.
+Ruach    — What is seen does not remain.
+Neshamah — You only see what agrees to be seen.
+Chayah   — What overflows was never yours.
+Yechidah — What speaks is not the one who listens.
+
+════════════════════════════════
+3. THE ENDGAME PROTOCOL (남은 최종 과제)
+════════════════════════════════
+
+1. C3 ILLUMINATIO
+	- Yechidah 만들기 + 모바일화
+
+2. Deployment & Optimization
+  - Migration: Dockerfile 기반 컨테이너화 작업.
+  - sqlite에서 postgresql로 이전? (테트라메기스투스는 하루 최소 1만명은 수용 가능해야함)
+
+Flutter 웹/앱 동시개발
+Cloudflare page 프론트엔드
+Next.js + Capacitor
+
+Plain text
+Next.js
+    │
+    ▼
+정적 웹파일 생성
+    │
+    ▼
+Capacitor
+    │
+ ┌──┴──┐
+ ▼     ▼
+Android  iOS
+
+Plain text
+Cloudflare(프론트엔드)
+      │
+      ▼
+Next.js
+      │
+      ▼
+Supabase(백엔드)
+      │
+      ▼
+PostgreSQL
+웹 출시
+↓
+사용자 확보
+↓
+Capacitor 추가
+↓
+Android/iOS 앱 출시
+
+Next.js, Capacitor 웹/앱 동시개발
+Supabase 백엔드
+Cloudflare page 프론트엔드
+
+════════════════════════════════
+4. EXECUTION PRINCIPLES
+════════════════════════════════
+
+-Structural Integrity: 데이터 경로(app/data/)와 로직 경로(app/core/)의 층위를 엄격히 분리하여 관리함.
+	-CSS Segregation: css는 철저히 css 파일에 분리되는게 원칙이며, html/js에 css가 섞이지 말아야 함.
+-Strict Localization: 언어 설정 변경 시 즉시 모든 이론적 텍스트가 해당 언어로 치환되어야 함.
+-Minimalist Repair: 복잡한 에러 수정 시 문법적 땜질이 아닌 데이터 타입(float, int)과 흐름의 근본 원인을 먼저 파악함.
+-Conservative Execution: 의욕 앞선 대규모 수정은 금지하며, 각 수복 단계는 현황 데이터와의 호환성을 최우선으로 고려한다.
+
+
+════════════════════════════════
+5. CHANGE PROTOCOL
+════════════════════════════════
+
+이 헌법을 개정하거나 다음 노드로 이동할 경우:
+1. v26 선언.
+2. 본 문서를 기점으로 새 노드에서 전체 문서를 재작성하여 계보를 잇는다.
+
+[TETRAMEGISTUS — ABSOLUTE STRUCTURE v25 Enforced]

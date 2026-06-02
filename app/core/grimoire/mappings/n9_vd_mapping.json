@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "A2": { "field": "stamper" }
+  },
+  "timeline": {
+    "start_row": 19,
+    "columns": {
+      "A": { "data_key": "date", "format": "YYYY-MM-DD" },
+      "B": { "data_key": "l1" },
+      "C": { "data_key": "l2" },
+      "D": { "data_key": "l3" },
+      "E": { "data_key": "age" }
+    }
+  }
+}

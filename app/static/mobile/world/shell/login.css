@@ -1,0 +1,259 @@
+/* ===================================================
+   📱 Mobile Login Styles (Nigredo Surgery Remaster)
+=================================================== */
+
+.m-auth-wrapper { 
+    display: flex; flex-direction: column; align-items: center; justify-content: center; 
+    height: 100%; padding: 20px; box-sizing: border-box;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('/static/assets/visuals/bg_login_grim.jpg') no-repeat center center; 
+    background-size: cover;
+    z-index: 1; 
+}
+
+.m-auth-container { 
+    width: 100%; max-width: 360px; 
+    background: transparent !important; 
+    border: none !important;
+    padding: 0 !important;
+    transition: opacity 0.5s; box-sizing: border-box; 
+    box-shadow: none !important;
+}
+.m-auth-container.dimmed { opacity: 0.05; pointer-events: none; }
+
+.m-auth-title { 
+    font-size: 1.8rem; color: #7CFF9B; letter-spacing: 0.2em; text-align: center; 
+    margin: 0 0 35px 0;
+    text-shadow: 0 0 10px rgba(0, 128, 0, 0.6), 0 0 30px rgba(0, 50, 50, 0.4); 
+}
+
+.m-auth-fields {
+    border: 2px solid #7CFF9B !important;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.7) !important;
+    box-shadow: 0 0 15px rgba(60, 255, 143, 0.2);
+    margin-bottom: 25px;
+    overflow: hidden; 
+}
+
+.m-input-group { display: flex; flex-direction: column; }
+
+/* 🚀 [최종 강제 수복]: 어떤 찌꺼기 CSS가 있어도 무조건 보이게 강제함 */
+.m-input-group label { 
+    display: block !important; 
+    color: #7CFF9B !important; 
+    font-size: 0.85rem !important; 
+    font-family: 'JetBrains Mono', monospace !important; 
+    padding: 16px 16px 0 16px !important; 
+    margin: 0 !important;
+    text-align: left !important;
+    opacity: 1 !important;
+}
+
+.m-input-group input { 
+    background: transparent !important; 
+    border: none !important; 
+    border-bottom: 1px solid rgba(124, 255, 155, 0.2) !important;
+    color: #fff !important; 
+    padding: 8px 16px 16px 16px !important; 
+    font-size: 0.9rem; outline: none; 
+    font-family: 'JetBrains Mono', monospace; 
+    width: 100%; box-sizing: border-box; 
+    border-radius: 0;
+}
+.m-input-group:last-child input { border-bottom: none !important; }
+.m-input-group input:focus { color: rgb(150, 245, 255) !important; }
+
+.m-submit-btn { 
+    width: 100%; 
+    background: linear-gradient(135deg, #0a120d 0%, #1a3021 100%); 
+    border: 2px solid #1f5f3a; color: #7CFF9B; 
+    padding: 15px; 
+    font-size: 1.2rem; 
+    border-radius: 4px; cursor: pointer; 
+    margin-top: 5px; 
+    transition: 0.3s; 
+    font-family: 'JetBrains Mono', monospace; 
+    font-weight: normal; 
+    text-transform: uppercase; letter-spacing: 2px;
+}
+.m-submit-btn:active { background: #7CFF9B; color: #000; }
+
+.m-reset-submit-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    padding: 10px;
+    letter-spacing: 1px;
+}
+
+.m-auth-footer { text-align: right; margin-top: 15px; } 
+.m-forgot-text { 
+    color: #666; font-size: 0.85rem; cursor: pointer; 
+    transition: color 0.3s;
+}
+.m-forgot-text:active { color: rgb(3, 234, 252); }
+
+.m-error-msg { 
+    color: #ff4b4b; text-align: center; margin: -15px 0 15px 0; 
+    font-size: 0.85rem; height: 1.1rem; opacity: 0; transition: opacity 0.3s; 
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* ===================================================
+   📱 [최종 정화]: Anamnesis 6자리 인증 레이어 (모바일 키보드 완벽 대응)
+=================================================== */
+.m-intrusion-overlay { 
+    display: none; 
+    position: fixed; 
+    inset: 0; 
+    z-index: 2000; /* 🚀 상단 탭바(1000)보다 높게 설정해서 팝업이 절대 안 씹히게 보호 */
+    width: 100%; 
+    height: 100%; 
+    padding: 20px; 
+    box-sizing: border-box; 
+    
+    /* 🚀 키보드가 올라올 때 화면이 찌그러지지 않도록 상단에서 15% 띄워 고정 */
+    align-items: flex-start; 
+    justify-content: center; 
+    padding-top: 15vh; 
+    
+    background: rgba(0, 0, 0, 0.85); 
+}
+
+.m-ritual-box { 
+    width: 100%; 
+    max-width: 320px; 
+    background: rgba(5, 10, 8, 0.95); 
+    border: 1px solid #7CFF9B; 
+    padding: 30px 20px; 
+    border-radius: 4px; 
+    box-shadow: 0 0 20px rgba(124, 255, 155, 0.3); 
+    box-sizing: border-box;
+}
+
+.m-anamnesis-title { 
+    color: #7CFF9B; 
+    font-size: 1.6rem; 
+    letter-spacing: 0.15em; 
+    margin: 0 0 25px 0; 
+    text-align: center; 
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.m-input-ritual { 
+    display: flex; 
+    gap: 10px; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#verify-code { 
+    flex: 1; 
+    background: #000; 
+    border: 1px solid #333; 
+    color: #7cdeff; 
+    padding: 12px; 
+    font-size: 0.9rem; 
+    text-align: center; 
+    outline: none; 
+    border-radius: 4px; 
+    min-width: 0; 
+    font-family: 'JetBrains Mono', monospace; 
+}
+#verify-code:focus { border-color: #7CFF9B; }
+
+.m-ritual-btn { 
+    background: #0f2b1a; 
+    border: 1px solid #7CFF9B; 
+    color: #7CFF9B; 
+    padding: 0 20px; 
+    font-size: 1.4rem; 
+    border-radius: 4px; 
+    font-family: 'JetBrains Mono', monospace;
+    cursor: pointer;
+    flex-shrink: 0; /* 🚀 인풋창이 아무리 길어져도 버튼이 찌그러지지 않도록 방어 */
+}
+
+/* ===================================================
+   📱 [복구]: 비밀번호 찾기 팝업 및 마이그레이션 성공 애니메이션
+=================================================== */
+
+/* Popups (Forgot Password) */
+.blur-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 1100; }
+.m-mini-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #000; border: 1px solid #7CFF9B; padding: 30px 20px; width: 90%; max-width: 320px; box-sizing: border-box; z-index: 1200; border-radius: 4px; box-shadow: 0 0 15px rgba(60, 255, 143, 0.3); }
+.m-close-icon { position: absolute; top: 0px; right: 10px; color: #7CFF9B; font-size: 1.8rem; cursor: pointer; }
+.m-popup-content label { display: block !important; color: #7CFF9B !important; margin-bottom: 10px; font-size: 0.9rem; }
+.m-popup-content input { width: 100%; box-sizing: border-box; background: #000; border: 1px solid #333; color: #7CFF9B; padding: 12px; margin-bottom: 15px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; }
+
+/* Migration Success Animation */
+.migration-success-overlay { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; }
+.migration-success-veil { position: absolute; inset: 0; background: rgba(0,0,0,0.95); }
+.migration-success-text { 
+    position: relative; 
+    color: rgb(3, 234, 252); 
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 1.2rem; 
+    letter-spacing: 0.2em; 
+    opacity: 0; 
+    transition: opacity 0.5s; 
+    text-shadow: 0 0 15px rgba(3, 234, 252, 0.7); 
+    z-index: 10000; 
+    text-align: center;
+}
+
+/* ===================================================
+   👁️ [LV4 ANAMNESIS]: Mypage(Panopticon) 스타일 동기화
+=================================================== */
+.m-intrusion-overlay.lv4-void {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95) !important; /* 칠흑 배경 */
+    z-index: 9999999 !important;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 35%; /* 키보드 공간 확보 */
+}
+
+.m-ritual-box.lv4-box {
+    background: #000 !important;
+    border: 1px solid #e00000 !important; /* Mypage는 보라색, Lv4는 빨간색 */
+    padding: 25px 20px;
+    width: 85%;
+    max-width: 320px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 0; /* Tetramegistus 특유의 각진 미학 */
+    box-shadow: 0 0 20px rgba(224, 0, 0, 0.15) !important;
+}
+
+.m-anamnesis-title.lv4-title {
+    color: #e00000 !important;
+    font-size: 0.8rem !important; /* Mypage 규격에 맞게 축소 */
+    letter-spacing: 0.1em;
+    margin: 0 0 20px 0;
+    text-transform: lowercase; /* Mypage 특유의 소문자 감성 */
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.lv4-label {
+    color: #4a0000 !important; /* 평소엔 어둡게 (Mypage status 규격) */
+    font-family: ui-monospace, Consolas, monospace !important;
+    font-size: 0.65rem !important;
+    text-align: center;
+    margin-top: 15px;
+    display: block;
+}
+
+.lv4-input {
+    background: transparent !important; /* 흰색 배경 박멸 */
+    border: 1px solid #e00000 !important;
+    color: #e00000 !important;
+    padding: 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    outline: none !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+    letter-spacing: 5px !important; /* 비밀번호 별표가 겹치지 않게 */
+}

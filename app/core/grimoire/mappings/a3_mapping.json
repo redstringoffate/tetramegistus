@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "ascendant": "B4",
+    "midheaven": "B5",
+    "sys_tab": "B6",
+    "ayanamsa": "C6",
+    "h_sys": "B7",
+    "fixed_star_orb": "B8"
+  },
+  "houses": {
+    "1": { "info": "B", "ruler": "C", "ruler_info": "D", "dignity": "E", "range": "F", "duad": "G", "dodeca": "H", "decan": "I", "bounds": "J", "sabian": "K", "star_name": "L", "star_info": "M", "star_orb": "N", "row_start": 11 },
+    "2": { "info": "B", "ruler": "C", "ruler_info": "D", "dignity": "E", "range": "F", "duad": "G", "dodeca": "H", "decan": "I", "bounds": "J", "sabian": "K", "star_name": "L", "star_info": "M", "star_orb": "N", "row_start": 12 },
+    "3": { "info": "B", "ruler": "C", "ruler_info": "D", "dignity": "E", "range": "F", "duad": "G", "dodeca": "H", "decan": "I", "bounds": "J", "sabian": "K", "star_name": "L", "star_info": "M", "star_orb": "N", "row_start": 13 },
+    "4": { "info": "B", "ruler": "C", "ruler_info": "D", "dignity": "E", "range": "F", "duad": "G", "dodeca": "H", "decan": "I", "bounds": "J", "sabian": "K", "star_name": "L", "star_info": "M", "star_orb": "N", "row_start": 14 },
+    "5": { "info": "B", "ruler": "C", "ruler_info": "D", "dignity": "E", "range": "F", "duad": "G", "dodeca": "H", "decan": "I", "bounds": "J", "sabian": "K", "star_name": "L", "star_info": "M", "star_orb": "N", "row_start": 15 },
+    "6": { "info": "B", "ruler": "C", "ruler_info": "D", "dignity": "E", "range": "F", "duad": "G", "dodeca": "H", "decan": "I", "bounds": "J", "sabian": "K", "star_name": "L", "star_info": "M", "star_orb": "N", "row_start": 16 },
+    "7": { "info": "B", "ruler": "C", "ruler_info": "D", "dignity": "E", "range": "F", "duad": "G", "dodeca": "H", "decan": "I", "bounds": "J", "sabian": "K", "star_name": "L", "star_info": "M", "star_orb": "N", "row_start": 17 },
+    "8": { "info": "B", "ruler": "C", "ruler_info": "D", "dignity": "E", "range": "F", "duad": "G", "dodeca": "H", "decan": "I", "bounds": "J", "sabian": "K", "star_name": "L", "star_info": "M", "star_orb": "N", "row_start": 18 },
+    "9": { "info": "B", "ruler": "C", "ruler_info": "D", "dignity": "E", "range": "F", "duad": "G", "dodeca": "H", "decan": "I", "bounds": "J", "sabian": "K", "star_name": "L", "star_info": "M", "star_orb": "N", "row_start": 19 },
+    "10": { "info": "B", "ruler": "C", "ruler_info": "D", "dignity": "E", "range": "F", "duad": "G", "dodeca": "H", "decan": "I", "bounds": "J", "sabian": "K", "star_name": "L", "star_info": "M", "star_orb": "N", "row_start": 20 },
+    "11": { "info": "B", "ruler": "C", "ruler_info": "D", "dignity": "E", "range": "F", "duad": "G", "dodeca": "H", "decan": "I", "bounds": "J", "sabian": "K", "star_name": "L", "star_info": "M", "star_orb": "N", "row_start": 21 },
+    "12": { "info": "B", "ruler": "C", "ruler_info": "D", "dignity": "E", "range": "F", "duad": "G", "dodeca": "H", "decan": "I", "bounds": "J", "sabian": "K", "star_name": "L", "star_info": "M", "star_orb": "N", "row_start": 22 }
+  }
+}

@@ -1,0 +1,28 @@
+{% extends "world/shell/base.html" %}
+
+{% block content %}
+<div class="stage-header">
+    <h1>CITRINITAS</h1>
+    <p>The dawn of the golden light.</p>
+</div>
+
+<div class="module-wrapper">
+    {% for module in modules %}
+    <div class="module-container" id="container-{{ module.id }}">
+        {% include "world/citrinitas/" + module.id + ".html" ignore missing %}
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    .stage-header { margin-bottom: 60px; }
+    .module-wrapper {
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+        gap: 30px; 
+        align-items: start;
+    }
+    .module-container { min-height: 100px; transition: border-color 0.3s ease; }
+    .module-container:hover { border-color: #333; }
+</style>
+{% endblock %}

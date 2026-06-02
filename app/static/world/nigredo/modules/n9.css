@@ -1,0 +1,509 @@
+/* static/world/nigredo/modules/n9.css */
+@import "/static/world/nigredo/modules/n2.css";
+
+:root {
+    /* ↕️ 세로 폭 (모든 줄 공통 높이) */
+    --h-row: 35px;
+    --h-line: 3px; /* 🚀 이제 이 선 두께가 정확하게 작동합니다 */
+
+    /* ↔️ 가로 폭 (하위 1칸 기준 폭 -> 상위 제목은 이 폭의 합산으로 자동 팽창함) */
+    --w-date: 110px;    /* Date (날짜) 컬럼 */
+    --w-age: 50px;
+    --w-zr: 35px;       /* ZR 하위 레벨 (L1, L2, L3) 1칸의 폭 */
+    --w-fir: 70px;      /* Firdaria 하위 레벨 (Main, Sub) 1칸의 폭 */
+    --w-prof: 100px;     /* Profections 폭 (A9 Synastry에선 자동으로 반반 쪼개짐) */
+    --w-trs: 35px;      /* Transits 기호 1칸의 폭 */
+    --w-jyo: 150px;      /* Jyotish Dasha 하위 레벨 (L1, L2, L3) 1칸의 폭 */
+}
+
+.n9-chronomantia {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    color: #e0e0e0;
+    width: 100%;
+}
+
+.n9-chronomantia td {
+    background-color: #000;
+    border-bottom: 1px solid #222;
+    border-right: 1px solid #222;
+    box-sizing: border-box;
+}
+
+/* 🚀 [Layout Fix]: Header Area Left Align */
+.n9-header-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 20px;
+}
+
+.n9-chronomantia .materia-title {
+    display: block;
+    width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    font-size: 1.5rem !important; 
+    font-weight: 600 !important;
+    letter-spacing: 3px;        
+    line-height: 1.0;
+    text-transform: uppercase;
+    color: #fff !important;    
+    margin: 20px 0 50px 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* 2. Controls Wrapper */
+.n9-controls-wrapper {
+    margin-bottom: 10px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 0px; 
+    min-height: 30px; 
+    justify-content: flex-end; 
+}
+
+/* 3. Dichotomy Switch (A8/C1 Style Port) */
+.n9-dichotomy-module {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px; 
+}
+
+.dicho-label.active,
+.dicho-label.active-jyotish {
+    color: #7CFF9B !important; 
+    font-weight: normal !important;
+    text-shadow: 0 0 5px #49dce1, 0 0 10px rgba(73, 220, 225, 0.5) !important;
+    transition: 0.2s ease;
+}
+
+.dicho-label {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+    font-size: 0.65rem !important; 
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px; 
+    transition: 0.2s ease;
+    user-select: none;
+}
+.dicho-label.active {
+    color: #7CFF9B !important; 
+    font-weight: normal !important; 
+    text-shadow: 0 0 5px #49dce1, 0 0 10px rgba(73, 220, 225, 0.5) !important; 
+}
+
+.toggle-switch {
+    width: 34px !important;  
+    height: 16px !important; 
+    background: #222;
+    border: 1px solid #555;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-knob {
+    width: 12px !important;  
+    height: 12px !important; 
+    background: #888;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px !important; 
+    left: 2px;
+    transition: 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* 4. Ayanamsa Bar (N2 Style) */
+.n9-ayanamsa-container {
+    display: inline-flex; 
+    border: 1px solid #333;
+    background: #000;
+    border-radius: 2px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+.n9-ayanamsa-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.n9-aya-btn {
+    background: transparent;
+    border: none;
+    border-right: 1px solid #333;
+    color: #666;
+    padding: 4px 12px;
+    font-family: inherit;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.n9-aya-btn:last-child { border-right: none; }
+.n9-aya-btn:hover { color: #aaa; background: #111; }
+.n9-aya-btn.active {
+    background: #333 !important; 
+    color: #eee !important; 
+}
+
+/* 5. Table Container */
+.n9-table-container {
+    flex: 1;
+    overflow: auto; 
+    border-top: 1px solid #333;
+    position: relative;
+    background: #020202;
+    max-height: 750px; 
+    box-shadow: inset 0 0 20px #000;
+    
+    scrollbar-width: thin;
+    scrollbar-color: #333 #000;
+}
+
+.n9-table-container::-webkit-scrollbar {
+    width: 6px; 
+}
+.n9-table-container::-webkit-scrollbar-track {
+    background: #000; 
+}
+.n9-table-container::-webkit-scrollbar-thumb {
+    background: #333; 
+    border-radius: 3px;
+}
+.n9-table-container::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+.n9-table {
+    table-layout: auto !important; 
+    width: max-content !important; 
+    min-width: 100% !important;    
+    border-collapse: separate !important;
+    border-spacing: 0;
+    background-color: #000;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+.n9-table thead {
+    z-index: 200; 
+}
+.n9-table th, .n9-table td {
+    height: var(--h-row) !important;
+    box-sizing: border-box !important;
+    padding: 8px 10px;
+    border: 1px solid #222;
+    text-align: center;
+}
+
+.n9-table thead th:first-child {
+    z-index: 300; 
+    left: 0;
+    position: sticky;
+}
+
+/* 1. 테이블 기본 구조 */
+#n9-result-table {
+    border-collapse: separate !important; 
+    border-spacing: 0;
+    width: 100%;
+    table-layout: fixed; 
+    background-color: #000;
+}
+
+/* 2. 상단 헤더 3단 고정 */
+#n9-table-head tr th {
+    position: sticky;
+    background-color: #000 !important;
+    z-index: 40; 
+    background-clip: padding-box; 
+    border-bottom: 1px solid #333;
+    border-right: 1px solid #333;
+}
+
+#n9-table-head tr:nth-child(1) th { top: 0; }
+#n9-table-head tr:nth-child(2) th { top: var(--h-row); }
+#n9-table-head tr:nth-child(3) th { top: calc(var(--h-row) * 2); box-shadow: 0 1px 0 0 #333; }
+
+#n9-table-head tr th.th-spirit,
+#n9-table-head tr th.th-fortune,
+#n9-table-head tr th.th-eros,
+#n9-table-head tr th.th-firdaria,
+#n9-table-head tr th.th-prof,
+#n9-table-head tr th.th-transit,
+#n9-table-head tr th.th-mahadasha,
+#n9-table-head tr th.th-antardasha,
+#n9-table-head tr th.th-pratyantardasha {
+    position: sticky !important;
+}
+
+/* =========================================================
+   🎨 [Color Lines & Theme]: 이중 테두리 및 충돌 완전 제거
+   ========================================================= */
+.th-spirit::after, .th-fortune::after, .th-eros::after, 
+.th-firdaria::after, .th-prof::after, .th-transit::after,
+.th-mahadasha::after, .th-antardasha::after, .th-pratyantardasha::after {
+    content: ""; 
+    position: absolute;
+    bottom: -1px; 
+    left: 0; 
+    right: 0; 
+    height: var(--h-line); /* 🚀 이제 중복 없이 이 높이만 적용됩니다 */
+    z-index: 10;
+}
+
+.th-spirit::after { background-color: #47FFEA; }
+.th-fortune::after { background-color: #FFFB03; }
+.th-eros::after    { background-color: #FF6CD6; }
+.th-firdaria::after { background-color: #2FFF04; }
+.th-prof::after    { background-color: #FF2906; }
+.th-transit::after { background-color: #808080; }
+.th-mahadasha::after { background-color: #8700FF; }
+.th-antardasha::after { background-color: #BE75FF; }
+.th-pratyantardasha::after { background-color: #EBD4FF; }
+
+
+/* 4. 좌상단 코너 (DATE/버튼 영역) */
+.n9-date-col-header {
+    position: sticky !important;
+    left: 0 !important;
+    top: 0 !important;
+    z-index: 1000 !important; 
+    background-color: #000 !important;
+    background-clip: padding-box; 
+    border-right: 2px solid #444 !important;
+    border-bottom: 2px solid #444 !important;
+    min-width: 100px;
+    padding: 5px !important;
+}
+
+/* 5. 좌측 날짜(DATE) 컬럼 고정 */
+.n9-date-col {
+    position: sticky !important;
+    left: 0 !important;
+    z-index: 900 !important; 
+    background-color: #000 !important;
+    border-right: 2px solid #444 !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    background-clip: padding-box;
+    box-shadow: 4px 0 8px -2px rgba(0,0,0, 0.8) !important;
+}
+
+/* 일반 데이터 셀 */
+.n9-cell-zr, .n9-cell-transit, .n9-cell-firdaria, .n9-cell-prof {
+    z-index: 1; 
+    position: relative;
+}
+
+/* ZR Header Colors */
+.th-spirit-head { color: #47FFEA !important; text-shadow: 0 0 5px rgba(71, 255, 234, 0.3); }
+.th-fortune-head { color: #FFFB03 !important; text-shadow: 0 0 5px rgba(255, 251, 3, 0.3); }
+.th-eros-head { color: #FF6CD6 !important; text-shadow: 0 0 5px rgba(255, 108, 214, 0.3); }
+
+/* Transit Planet Colors */
+.transit-symbol-ju { color: #47BD5A; } 
+.transit-symbol-sa { color: #FFF200; } 
+.transit-symbol-ur { color: #06FDF2; } 
+.transit-symbol-ne { color: #1D89F2; } 
+.transit-symbol-pl { color: #6C11BD; } 
+
+/* 🚀 Header Hierarchy Colors (이중 테두리 제거 핵심) */
+.th-top-cat { background: #000; color: #fff; font-size: 0.8rem; border-bottom: 1px solid #333 !important; }
+.th-mid-cat { background: #050505; color: #aaa; font-size: 0.75rem; border-bottom: 1px solid #333 !important; }
+.th-bot-cat { background: #080808; color: #888; font-size: 0.7rem; border-bottom: 1px solid #333 !important; }
+
+/* 🚀 Bottom Text Colors for Categories (테두리 색 찌꺼기 완벽 제거) */
+.th-spirit { color: #47FFEA; }
+.th-fortune { color: #FFFB03; }
+.th-eros    { color: #FF6CD6; }
+.th-firdaria { color: #2FFF04; }
+.th-prof    { color: #FF2906; }
+.th-transit { color: #808080; }
+.th-mahadasha { color: #8700FF; }
+.th-antardasha { color: #BE75FF; }
+.th-pratyantardasha { color: #EBD4FF; }
+
+.n9-header-date-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    color: #888;
+}
+
+.n9-seg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.n9-seg-row {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 2px;
+}
+
+.n9-seg-btn {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #666;
+    font-size: 9px;
+    padding: 2px 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 2px;
+}
+
+.n9-seg-btn:hover {
+    background: #333;
+    color: #fff;
+    border-color: #7CFF9B; 
+    box-shadow: 0 0 5px rgba(124, 255, 155, 0.3);
+}
+
+.n9-seg-btn.active {
+    background: #7CFF9B !important;
+    color: #000 !important;
+    border-color: #7CFF9B;
+    font-weight: bold;
+}
+
+/* LB (Loosing of Bonds) 전용 글로우 테두리 */
+.n9-cell-lb {
+    border: 1px solid rgba(255, 0, 0, 0.5) !important;
+    box-shadow: inset 0 0 8px rgba(255, 0, 0, 0.3), 0 0 5px rgba(255, 0, 0, 0.2);
+    position: relative;
+}
+
+/* 현재 날짜 행 하이라이트 */
+.n9-today-row td {
+    border-top: 2px solid #7CFF9B !important;
+    border-bottom: 2px solid #7CFF9B !important;
+    background-color: rgba(124, 255, 155, 0.12) !important;
+    box-shadow: inset 0 0 15px rgba(124, 255, 155, 0.4) !important;
+}
+
+.n9-today-row td:first-child { border-left: 2px solid #7CFF9B !important; }
+.n9-today-row td:last-child { border-right: 2px solid #7CFF9B !important; }
+
+/* Date 컬럼 전용 오버라이드: Bleed-through 방지 */
+.n9-today-row td.n9-date-col {
+    background-color: #0A1C10 !important; 
+    box-shadow: inset 0 0 15px rgba(124, 255, 155, 0.4), 3px 0 10px -1px rgba(0,0,0, 0.8) !important; 
+}
+
+/* 🔥 Fire */
+.glow-fire { 
+    color: #7CFF9B !important; 
+    text-shadow: 0 0 5px #F71831, 0 0 10px #F71831, 0 0 20px #F71831, 0 0 30px #F71831; 
+}
+/* 🌍 Earth */
+.glow-earth { 
+    color: #7CFF9B !important; 
+    text-shadow: 0 0 5px #FFB933, 0 0 10px #FFB933, 0 0 20px #FFB933, 0 0 30px #FFB933; 
+}
+/* 🌬️ Air */
+.glow-air { 
+    color: #7CFF9B !important; 
+    text-shadow: 0 0 5px #E6E6E6, 0 0 10px #E6E6E6, 0 0 20px #E6E6E6, 0 0 30px #E6E6E6; 
+}
+/* 💧 Water */
+.glow-water { 
+    color: #7CFF9B !important; 
+    text-shadow: 0 0 5px #0168FC, 0 0 10px #0168FC, 0 0 20px #0168FC, 0 0 30px #0168FC; 
+}
+
+/* Planets (7행성) */
+.glow-saturn { color: #7CFF9B !important; text-shadow: 0 0 5px #FFF200, 0 0 8px #FFF200, 0 0 10px #FFF200, 0 0 15px #FFF200, 0 0 20px #FFF200, 0 0 30px #FFF200; }
+.glow-jupiter { color: #7CFF9B !important; text-shadow: 0 0 5px #47BD5A, 0 0 8px #47BD5A, 0 0 10px #47BD5A, 0 0 15px #47BD5A, 0 0 20px #47BD5A, 0 0 25px #47BD5A, 0 0 30px #47BD5A; }
+.glow-mars { color: #7CFF9B !important; text-shadow: 0 0 5px #F50000, 0 0 8px #F50000, 0 0 10px #F50000, 0 0 15px #F50000, 0 0 20px #F50000, 0 0 25px #F50000, 0 0 30px #F50000, 0 0 35px #F50000; }
+.glow-sun { color: #7CFF9B !important; text-shadow: 0 0 5px #FC55CE, 0 0 8px #FC55CE, 0 0 10px #FC55CE, 0 0 15px #FC55CE, 0 0 20px #FC55CE, 0 0 30px #FC55CE, 0 0 35px #FC55CE, 0 0 40px #FC55CE; }
+.glow-venus { color: #7CFF9B !important; text-shadow: 0 0 5px #999999, 0 0 8px #999999, 0 0 10px #999999, 0 0 12px #999999, 0 0 14px #999999, 0 0 17px #999999, 0 0 20px #999999, 0 0 22px #999999, 0 0 25px #999999, 0 0 28px #999999, 0 0 30px #999999; }
+.glow-mercury { color: #7CFF9B !important; text-shadow: 0 0 5px #341DFC, 0 0 8px #341DFC, 0 0 10px #341DFC, 0 0 15px #341DFC, 0 0 20px #341DFC, 0 0 25px #341DFC, 0 0 30px #341DFC; }
+.glow-moon { color: #7CFF9B !important; text-shadow: 0 0 5px #FFB9FA, 0 0 8px #FFB9FA, 0 0 10px #FFB9FA, 0 0 15px #FFB9FA, 0 0 20px #FFB9FA, 0 0 25px #FFB9FA, 0 0 30px #FFB9FA; }
+.glow-ketu { color: #7CFF9B !important; text-shadow: 0 0 5px #FFFFFF, 0 0 8px #FFFFFF, 0 0 10px #FFFFFF, 0 0 15px #FFFFFF, 0 0 20px #FFFFFF, 0 0 25px #FFFFFF, 0 0 30px #FFFFFF; }
+.glow-rahu { color: #7CFF9B !important; text-shadow: 0 0 5px #6AFFDD, 0 0 8px #6AFFDD, 0 0 10px #6AFFDD, 0 0 15px #6AFFDD, 0 0 20px #6AFFDD, 0 0 25px #6AFFDD, 0 0 30px #6AFFDD; }
+
+/* 🚀 [Effect]: N9 Loading Overlay */
+#n9-loading {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.88); 
+    display: none; 
+    align-items: center; 
+    justify-content: center;
+    z-index: 10000; 
+    backdrop-filter: blur(8px); 
+    transition: opacity 0.4s ease;
+}
+
+.n9-loading-text {
+    color: #7CFF9B; 
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(124, 255, 155, 0.6);
+    animation: n9Pulse 2s infinite ease-in-out;
+}
+
+@keyframes n9Pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* 🚀 [Effect]: N9 Global Hover Tooltip */
+#n9-hover-tooltip {
+    position: fixed;
+    z-index: 20000; 
+    background: rgba(5, 5, 5, 0.95);
+    border: 1px solid #333;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.9);
+    color: #e0e0e0;
+    padding: 10px 14px;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.8rem;
+    white-space: pre; 
+    line-height: 1.5;
+    pointer-events: none; 
+    display: none; 
+    backdrop-filter: blur(4px);
+}
+
+/* =========================================================
+   🚀 [가로 폭 일괄 적용]: 변수를 이용한 모듈식 크기 할당
+   ========================================================= */
+/* 1. Date 폭 */
+.n9-date-col-header, .n9-date-col {
+    width: var(--w-date) !important; min-width: var(--w-date) !important; max-width: var(--w-date) !important;
+}
+/* 2. Age 폭 (Jyotish) */
+.th-top-cat.th-age, .n9-age-col-header, .n9-cell-age {
+    width: var(--w-age) !important; min-width: var(--w-age) !important; max-width: var(--w-age) !important;
+}
+/* 3. ZR (L1, L2, L3) 폭 */
+.th-bot-cat.th-spirit, .th-bot-cat.th-fortune, .th-bot-cat.th-eros, .n9-cell-zr {
+    width: var(--w-zr) !important; min-width: var(--w-zr) !important; max-width: var(--w-zr) !important;
+}
+/* 4. Firdaria 폭 */
+.th-bot-cat.th-firdaria, .n9-cell-firdaria {
+    width: var(--w-fir) !important; min-width: var(--w-fir) !important; max-width: var(--w-fir) !important;
+}
+/* 5. Profections 폭 */
+.th-top-cat.th-prof, .th-bot-cat.th-prof, .n9-cell-prof {
+    width: var(--w-prof) !important; min-width: var(--w-prof) !important; max-width: var(--w-prof) !important;
+}
+/* 6. Transits 폭 */
+.th-bot-cat.th-transit, .n9-cell-transit {
+    width: var(--w-trs) !important; min-width: var(--w-trs) !important; max-width: var(--w-trs) !important;
+}
+/* 7. Jyotish 폭 (최소폭 보장 + 화면 꽉 차게 3등분 자동 팽창) */
+.th-bot-cat.th-mahadasha, .th-bot-cat.th-antardasha, .th-bot-cat.th-pratyantardasha,
+.n9-cell-dasha-l1, .n9-cell-dasha-l2, .n9-cell-dasha-l3 {
+    width: auto !important; min-width: var(--w-jyo) !important; max-width: none !important;
+}

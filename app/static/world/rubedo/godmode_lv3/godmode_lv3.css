@@ -1,0 +1,485 @@
+/* app/static/world/rubedo/godmode_lv3/godmode_lv3.css */
+
+body.godmode-sanctuary {
+    background: #000; 
+    color: #3cff8f; 
+    margin: 0;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    opacity: 0;
+    animation: voidDissolveIn 1.5s forwards ease-out;
+}
+
+@keyframes voidDissolveIn {
+    0% {
+        opacity: 0;
+        filter: blur(20px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
+/* ... (이하 기존 코드 유지) ... */
+
+.god-nav {
+    height: 60px; border-bottom: 1px solid #3cff8f;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
+}
+
+.god-layout { display: flex; height: calc(100vh - 60px); }
+
+.god-sidebar {
+    width: 300px; border-right: 1px solid #1a1a1a; padding: 20px;
+    overflow-y: auto;
+}
+
+.tree-root { cursor: pointer; margin-bottom: 15px; font-size: 1.1rem; }
+.tree-root:hover { text-shadow: 0 0 8px #3cff8f; }
+
+.tree-sub { padding-left: 15px; margin-top: 10px; }
+.tree-folder { cursor: pointer; color: #888; margin: 8px 0; font-size: 0.9rem; }
+.tree-folder:hover { color: #3cff8f; }
+
+.tree-deep { padding-left: 20px; border-left: 1px solid #1a1a1a; }
+.tree-deeper { padding-left: 20px; }
+
+.god-main { flex: 1; padding: 40px; background: #050505; }
+.initial-msg { color: #444; text-align: center; margin-top: 20%; }
+
+/* app/static/world/rubedo/godmode/godmode.css */
+
+.return-btn {
+    background: transparent; 
+    border: 1px solid #ff5050; 
+    color: #ff5050;
+    padding: 6px 12px; 
+    cursor: pointer; 
+    font-size: 0.75rem;
+    transition: all 0.3s ease; /* 🚀 부드러운 색상 전환을 위한 트랜지션 */
+}
+
+/* 🚀 Hover: 색상 반전 + 붉은색 광원(Glow) 효과 */
+.return-btn:hover {
+    color: #ffe600;
+    border-color: #ffe600;
+    text-shadow: 0 0 8px rgba(255, 230, 0, 0.8);
+    box-shadow: 0 0 10px rgba(255, 230, 0, 0.4), inset 0 0 8px rgba(255, 230, 0, 0.2); 
+}
+
+/* app/static/world/rubedo/godmode/godmode.css 맨 아래 추가 */
+
+/* 🚀 파일 리스트 (tree-item) 디자인 */
+.tree-item {
+    cursor: pointer;
+    color: #888; /* 기본은 은은한 회색 */
+    font-size: 0.85rem;
+    margin: 8px 0;
+    padding-left: 10px;
+    transition: all 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 글 제목이 너무 길면 ... 처리 */
+}
+
+/* 마우스 올리면 하얗게 빛남 */
+.tree-item:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* 파일이 없을 때의 공허한 텍스트 */
+.tree-empty {
+    color: #333;
+    font-size: 0.75rem;
+    font-style: italic;
+    padding-left: 10px;
+    margin: 8px 0;
+    letter-spacing: 1px;
+}
+
+/* app/static/world/rubedo/godmode/godmode.css 맨 아래 추가 */
+
+/* 우측 브라우저 헤더 */
+.browser-header { font-size: 1.5rem; margin-bottom: 30px; border-bottom: 1px solid #1a1a1a; padding-bottom: 10px; color: #fff;}
+
+/* 일반 글 리스트 */
+.entity-item { margin-bottom: 15px; }
+.entity-title { cursor: pointer; font-size: 1.1rem; color: #3cff8f; transition: all 0.2s; }
+.entity-title:hover { text-shadow: 0 0 10px rgba(60, 255, 143, 0.6); }
+
+/* en / ko 언어 불릿 포인트 */
+.entity-langs { padding-left: 20px; margin-top: 8px; border-left: 1px dashed #333; margin-left: 8px; }
+.lang-bullet { cursor: pointer; color: #777; font-size: 0.9rem; padding: 4px 0; transition: color 0.2s; }
+.lang-bullet:hover { color: #fff; text-decoration: underline; }
+
+/* 12별자리 폴더 바둑판 그리드 */
+.folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; }
+.big-folder { 
+    padding: 20px 10px; border: 1px solid #1a1a1a; text-align: center; 
+    cursor: pointer; color: #888; font-size: 0.9rem; transition: all 0.2s;
+}
+.big-folder:hover { background: #111; border-color: #3cff8f; color: #3cff8f; }
+
+/* =========================================
+   [ Lv2: Destruction (Delete Mode) ]
+========================================= */
+
+/* 사이드바 * Delete 글자 */
+.delete-root {
+    color: #ff5050;
+    transition: all 0.3s;
+}
+.delete-root:hover {
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+/* 글 리스트 항목 플렉스 정렬 (X 아이콘 우측 고정) */
+.delete-item-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* ✖ 아이콘 디자인 */
+.delete-x {
+    color: #555;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    transition: all 0.2s;
+}
+.delete-x:hover {
+    color: #ff5050;
+    text-shadow: 0 0 15px rgba(255, 80, 80, 1);
+    transform: scale(1.2);
+}
+
+/* --- 붉은 결계 팝업창 (Red Void) --- */
+.red-void {
+    background: rgba(20, 0, 0, 0.9) !important; /* 붉은빛이 도는 어둠 */
+    backdrop-filter: blur(15px);
+    animation: bloodFadeIn 0.4s ease-out forwards; /* 🚀 애니메이션 추가됨 */
+}
+.red-void .ritual-text {
+    color: #ff5050;
+    text-shadow: 0 0 10px rgba(255, 80, 80, 0.5);
+}
+.red-input {
+    color: #ff5050 !important;
+    border-bottom: 1px solid #ff5050 !important;
+}
+
+/* Yes / No 버튼 */
+.delete-btn-group {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+.void-btn {
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.void-btn.yes { color: #555; }
+.void-btn.yes:hover { color: #ff5050; text-shadow: 0 0 10px #ff5050; }
+.void-btn.no { color: #3cff8f; }
+.void-btn.no:hover { color: #3cf2ff; text-shadow: 0 0 10px #3cf2ff; }
+
+/* =========================================
+   [ 삭제 의식 팝업창 (Ritual Overlay) 뼈대 - R2 규격 완전 이식 ]
+========================================= */
+.ritual-overlay {
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100vw; height: 100vh;
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ritual-box {
+    text-align: center;
+    padding: 28px 36px; /* 🚀 R2 규격 완벽 일치 */
+    min-width: 360px;
+    border: 1px solid #ff5050;
+    background: #000;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
+    animation: ritualMaterialize 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.ritual-text {
+    color: #ff5050;
+    font-size: 0.85rem;     /* 🚀 R2 타이틀 사이즈 */
+    letter-spacing: 0.14em; /* 🚀 R2 특유의 자간 */
+    margin-bottom: 20px;
+    text-transform: lowercase; /* 🚀 R2 감성 (소문자 강제) */
+}
+
+/* 🚀 Yes / No 버튼도 R2 텍스트 감성으로 조정 */
+.delete-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.void-btn {
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: lowercase;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.void-btn.yes { color: #555; }
+.void-btn.yes:hover { color: #ff5050; text-shadow: 0 0 10px #ff5050; }
+.void-btn.no { color: #3cff8f; }
+.void-btn.no:hover { color: #3cf2ff; text-shadow: 0 0 10px #3cf2ff; }
+
+/* 🚀 R2의 네모 박스 형태 완벽 이식 */
+.ritual-input {
+    background: transparent;
+    border: 1px solid #ff5050 !important;
+    color: #ff5050 !important;
+    padding: 8px;
+    width: 85%;
+    text-align: center;
+    outline: none;
+    font-family: inherit;
+    font-size: 1rem;
+    letter-spacing: 5px; /* 점(●) 사이 간격을 살짝 띄움 */
+    margin: 0 auto;
+    display: block;
+}
+
+/* 🚀 하단 source 텍스트 (R2 이식) */
+.ritual-footer {
+    margin-top: 15px;
+    color: #801a1a; /* 피가 마른 듯한 어두운 붉은색 */
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+    display: none; /* 초기엔 숨김 */
+}
+
+/* 애니메이션 유지 */
+@keyframes bloodFadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes ritualMaterialize {
+    0% { opacity: 0; filter: blur(15px); transform: scale(0.9) translateY(20px); }
+    100% { opacity: 1; filter: blur(0px); transform: scale(1) translateY(0); }
+}
+
+/* =========================================
+   [ Scrollbar of the Void ] 
+========================================= */
+
+/* Firefox 전용 얇은 스크롤바 설정 */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #1a1a1a transparent;
+}
+
+/* Webkit (Chrome, Edge, Safari) 전용 얇고 매끄러운 스크롤바 */
+::-webkit-scrollbar {
+    width: 6px;  /* 세로 스크롤바의 얇기 */
+    height: 6px; /* 가로 스크롤바의 얇기 */
+}
+
+/* 스크롤바가 굴러가는 궤도 (투명하게 처리하여 배경에 스며들게 함) */
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+/* 스크롤바 손잡이 (어두운 흑연색) */
+::-webkit-scrollbar-thumb {
+    background: #1a1a1a; 
+    border-radius: 10px; /* 끝부분을 둥글고 부드럽게 깎음 */
+}
+
+/* 손잡이에 마우스를 올렸을 때 (살짝만 밝아져서 상호작용 피드백 제공) */
+::-webkit-scrollbar-thumb:hover {
+    background: #333333; 
+}
+
+/* =========================================
+   [ Lv3: Creation (The Genesis Popup) ]
+========================================= */
+
+/* 창조의 초록색 결계 */
+.green-void {
+    background: rgba(0, 15, 5, 0.9) !important; 
+}
+.create-box {
+    border-color: #3cff8f;
+    box-shadow: 0 0 40px rgba(60, 255, 143, 0.15);
+}
+.create-box .ritual-text {
+    color: #3cff8f;
+    text-shadow: 0 0 10px rgba(60, 255, 143, 0.5);
+    margin-bottom: 25px;
+}
+
+/* 폴더 선택 버튼 (Step 1) */
+.folder-select-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 80%;
+    margin: 0 auto;
+}
+.folder-btn {
+    background: transparent;
+    border: 1px solid #1a1a1a;
+    color: #888;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.folder-btn:hover {
+    border-color: #3cff8f;
+    color: #3cff8f;
+    background: rgba(60, 255, 143, 0.05);
+}
+.sub-folder-btn {
+    margin-left: 20px; /* Archivum 들여쓰기 */
+    width: calc(100% - 20px);
+}
+
+/* 인덱스 입력 및 + 버튼 (Step 2) */
+.create-input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 60px !important;    /* 🚀 타이틀(create index)로부터 입력창을 훌쩍 아래로 밀어냅니다 */
+    margin-bottom: 10px !important; /* 🚀 아래쪽 버튼/경고창과의 간격도 확보합니다 */
+}
+.green-input {
+    border-color: #3cff8f !important;
+    color: #3cff8f !important;
+    text-align: left; /* 중앙 정렬 대신 좌측 정렬 */
+    padding-left: 15px;
+    letter-spacing: 2px;
+}
+.create-submit-btn {
+    background: transparent;
+    border: 1px solid #3cff8f;
+    color: #3cff8f;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.create-submit-btn:hover {
+    background: #3cff8f;
+    color: #000;
+    box-shadow: 0 0 10px #3cff8f;
+}
+
+/* 중복 경고 문구 */
+.create-warning {
+    color: #ff5050;
+    font-size: 0.7rem;
+    margin-top: 10px;
+    letter-spacing: 0.05em;
+    opacity: 0; /* 평소엔 투명함 */
+    transition: opacity 0.3s;
+}
+
+/* godmode_lv3.css 맨 아래 추가 */
+
+/* 🚀 전이 중일 때의 고정 효과 (Freeze) */
+.ritual-freeze {
+    pointer-events: none; /* 클릭 방지 */
+    filter: brightness(0.8);
+    border-color: #3cff8f !important;
+    box-shadow: 0 0 60px rgba(60, 255, 143, 0.3) !important;
+    animation: ritualPulse 1.5s infinite alternate; /* 은은한 박동 효과 */
+}
+
+@keyframes ritualPulse {
+    from { opacity: 1; filter: blur(0px) brightness(0.8); }
+    to { opacity: 0.8; filter: blur(1px) brightness(0.6); }
+}
+
+/* 비활성화된 입력창 스타일 */
+.green-input:disabled {
+    background: transparent;
+    border-color: #1a1a1a !important;
+    color: #1a663a !important;
+}
+
+/* =========================================
+   [ Lv3: Pin System ]
+========================================= */
+.pin-root {
+    color: #0088ff !important;
+    font-size: 0.85rem !important; /* 더 작은 폰트 */
+    margin-bottom: 20px !important;
+    transition: all 0.2s !important;
+}
+.pin-root:hover {
+    color: #00f7ff !important;
+    text-shadow: 0 0 8px #00f7ff !important;
+}
+
+.pin-category-title {
+    color: #555; font-size: 0.75rem; letter-spacing: 1px; margin: 15px 0 8px 0;
+}
+
+.pin-item {
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(0, 136, 255, 0.05); border: 1px solid transparent;
+    color: #ccc; font-size: 0.85rem; padding: 6px 8px; margin-bottom: 5px;
+    border-radius: 4px; transition: all 0.2s;
+}
+.pin-item:hover { border-color: #0088ff; color: #fff; }
+
+.pin-drag-handle { cursor: grab; color: #555; padding-right: 10px; font-weight: bold; }
+.pin-drag-handle:active { cursor: grabbing; color: #00f7ff; }
+
+.pin-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: default; }
+.pin-delete { cursor: pointer; color: #555; padding-left: 10px; font-size: 0.9rem; }
+.pin-delete:hover { color: #ff5050; text-shadow: 0 0 8px #ff5050; transform: scale(1.2); }
+
+/* Add Pin Button & Hover Warning */
+.add-pin-btn {
+    background: transparent; border: 1px dashed #0088ff; color: #0088ff;
+    width: 100%; padding: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;
+    border-radius: 4px; transition: all 0.2s; margin-top: 5px; position: relative;
+}
+.add-pin-btn:hover:not(:disabled) {
+    background: rgba(0, 136, 255, 0.15); text-shadow: 0 0 5px #0088ff;
+}
+.add-pin-btn:disabled {
+    border-color: #333; color: #444; cursor: not-allowed;
+}
+.add-pin-btn:disabled:hover::after {
+    content: 'There are already 5 pins.';
+    position: absolute; top: -30px; left: 50%; transform: translateX(-50%);
+    background: #111; border: 1px solid #ff5050; color: #ff5050;
+    padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; white-space: nowrap;
+    box-shadow: 0 0 10px rgba(255,0,0,0.3); pointer-events: none; z-index: 10;
+}
+
+/* Blue Void (Pin Modals) */
+.blue-void { background: rgba(0, 10, 20, 0.9) !important; }
+.pin-search-list { max-height: 300px; overflow-y: auto; text-align: left; border: 1px solid #111; background: #0a0a0a; border-radius: 4px;}
+.pin-search-item { padding: 10px; border-bottom: 1px solid #1a1a1a; cursor: pointer; color: #aaa; font-size: 0.9rem; transition: 0.2s; }
+.pin-search-item:hover { color: #00f7ff; background: rgba(0, 136, 255, 0.15); }

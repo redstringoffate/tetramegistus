@@ -1,0 +1,88 @@
+/* static/mobile/world/nigredo/modules/n5.css */
+
+.m-n5-container {
+    padding: 10px 0;
+    font-family: 'Consolas', 'Monaco', monospace !important;
+    color: #7CFF9B;
+}
+
+.m-materia-title {
+    color: #7CFF9B; font-size: 1.1rem; font-weight: normal; 
+    margin-bottom: 20px; letter-spacing: 0.5px; text-align: center;
+}
+
+/* Switches & Toggles */
+.m-anti-switch-module { position: relative; display: flex; justify-content: flex-start; padding-left: 20px; }
+.m-dichotomy-module { display: flex; align-items: center; gap: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.m-dicho-label { font-size: 0.65rem; color: #666; transition: 0.2s; user-select: none; letter-spacing: 1px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important; text-transform: uppercase; }
+.m-dicho-label.active { color: #7CFF9B; font-weight: bold; text-shadow: 0 0 8px rgba(124, 255, 155, 0.6); }
+
+.m-toggle-switch { width: 36px; height: 18px; background: #111; border: 1px solid #7CFF9B; border-radius: 10px; position: relative; }
+.m-toggle-knob { width: 12px; height: 12px; background: #7CFF9B; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: left 0.3s ease; box-shadow: 0 0 5px rgba(124, 255, 155, 0.8); }
+.m-toggle-knob.right { left: 20px; }
+
+/* System Selectors (Intersectus) */
+.m-system-selectors { background: rgba(255, 255, 255, 0.03); border: 1px solid #222; border-radius: 4px; padding: 15px; margin-bottom: 20px; }
+.m-sel-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; gap: 10px; }
+.m-sel-col { flex: 1; display: flex; flex-direction: column; }
+.m-sel-col label { font-size: 0.65rem; color: #888; margin-bottom: 5px; text-transform: uppercase; }
+.m-n5-select { background: #050505; border: 1px solid #444; color: #7CFF9B; padding: 8px; font-family: inherit; font-size: 0.75rem; border-radius: 4px; outline: none; appearance: none; width: 100%; }
+.m-n5-select:focus { border-color: #7CFF9B; box-shadow: 0 0 5px rgba(124, 255, 155, 0.5); }
+.m-sel-x { color: #555; font-size: 0.8rem; padding-top: 15px; }
+.m-enter-btn { width: 100%; background: #000; border: 1px solid #7CFF9B; color: #7CFF9B; padding: 10px 0; font-family: inherit; font-weight: bold; cursor: pointer; border-radius: 4px; }
+.m-enter-btn:active { background: #7CFF9B; color: #000; }
+
+/* View Switcher (N4 Style) */
+.m-system-switch-module { display: flex; border: 1px solid #7CFF9B; background: #000; margin-bottom: 25px; border-radius: 4px; overflow: hidden; width: calc(100% - 40px); margin: 0 auto 25px auto; }
+.m-sys-tab { flex: 1; background: transparent; border: none; border-right: 1px solid rgba(124, 255, 155, 0.4); color: #7CFF9B; padding: 10px; font-size: 0.8rem; font-family: inherit; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
+.m-sys-tab:last-child { border-right: none; }
+.m-sys-tab.active { background: #7CFF9B !important; color: #000 !important; font-weight: bold !important; }
+
+/* Grids (Shapes / Categories) */
+.m-cat-grid { display: grid; border: 1px solid #7CFF9B; border-radius: 4px; background: #000; width: calc(100% - 40px); margin: 0 auto 20px auto; overflow: hidden; }
+.m-cat-grid .m-tab { background: transparent; border: none; border-right: 1px solid rgba(124, 255, 155, 0.4); border-bottom: 1px solid rgba(124, 255, 155, 0.4); color: #7CFF9B; padding: 12px 5px; font-size: 0.7rem; text-align: center; font-family: inherit; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
+.m-cat-grid .m-tab:nth-child(3n) { border-right: none; } /* For Shapes Grid (3 cols) */
+.m-cat-grid .m-tab.active { background: #7CFF9B !important; color: #000 !important; font-weight: bold !important; }
+.m-cat-grid .m-tab.locked { background-color: #111 !important; color: #555 !important; border-color: #222 !important; opacity: 0.6 !important; pointer-events: auto; }
+
+/* Transposed Table */
+.m-n5-table-wrapper { width: 100%; overflow: auto; -webkit-overflow-scrolling: touch; border-top: 2px solid #222; border-bottom: 2px solid #222; max-height: 65vh; background: #000; position: relative; margin-top: 10px; }
+.m-n5-table { width: max-content; min-width: 100%; border-collapse: separate; border-spacing: 0; background: #000; font-size: 0.75rem; table-layout: auto; }
+.m-n5-table th, .m-n5-table td { padding: 12px 15px; border-right: 1px solid #161616; border-bottom: 1px solid #161616; text-align: center; vertical-align: middle; white-space: nowrap; box-sizing: border-box; }
+.m-n5-table th { background: #050505; color: #7F7F7F; font-weight: bold; position: sticky; top: 0; z-index: 20; border-bottom: 2px solid #333; }
+.m-n5-table th.sticky-corner { z-index: 40 !important; left: 0; background: #000 !important; color: #fff; border-right: 2px solid #333; box-shadow: 4px 4px 10px rgba(0,0,0,0.9); width: 40px; min-width: 40px; }
+.m-n5-table td.sticky-col { position: sticky; left: 0; z-index: 30; background: #000 !important; color: #fff; font-weight: bold; border-right: 2px solid #333; box-shadow: 4px 0 10px rgba(0,0,0,0.9); width: 40px; min-width: 40px; }
+.m-n5-clickable-td { cursor: pointer; transition: background 0.2s; }
+.m-n5-clickable-td:active { background: rgba(124, 255, 155, 0.1); }
+
+/* Details & Cards */
+.m-card-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed rgba(124, 255, 155, 0.2); padding-bottom: 10px; margin: 0 20px 10px 20px; }
+.m-card-title { font-weight: bold; font-size: 0.95rem; color: #fff; display: flex; align-items: center; gap: 6px;}
+
+.m-placeholder { text-align: center; color: #444; margin-top: 30px; font-size: 0.75rem; text-transform: uppercase; font-style: italic; }
+
+/* Dropdown & Aspects List (N6 Clone) */
+.m-custom-dropdown { position: relative; width: calc(100% - 40px); margin: 0 auto 15px auto; }
+.m-dropdown-selected { background: #050505; border: 1px solid rgba(124, 255, 155, 0.4); padding: 12px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; color: #fff; cursor: pointer; font-size: 0.85rem; }
+.m-dropdown-selected::after { content: '▼'; font-size: 0.7rem; color: #7CFF9B; }
+.m-dropdown-list { position: absolute; top: 100%; left: 0; width: 100%; background: #000; border: 1px solid #333; max-height: 250px; overflow-y: auto; z-index: 100; border-radius: 4px; margin-top: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.9); }
+.m-dropdown-item { padding: 12px; border-bottom: 1px solid #111; font-size: 0.85rem; cursor: pointer; display: flex; justify-content: space-between; }
+.m-dropdown-item.dimmed { opacity: 0.3; pointer-events: none; }
+.m-dropdown-item:active { background: rgba(124, 255, 155, 0.1); }
+
+.m-n5-aspects-wrapper { display: flex; width: 100%; justify-content: space-between; gap: 5px; padding: 0 20px; box-sizing: border-box; }
+.m-aspect-col { flex: 1; display: flex; flex-direction: column; border: 1px solid #222; border-radius: 4px; background: #050505; overflow: hidden; height: 45vh; }
+.m-col-narrow { flex: 0.81; }
+.m-aspect-header { background: #111; color: #7F7F7F; font-size: 0.65rem; font-weight: bold; text-align: center; padding: 8px 0; border-bottom: 1px solid #333; letter-spacing: 0.5px; flex-shrink: 0; }
+.m-aspect-body { padding: 5px; overflow-y: auto; display: flex; flex-direction: column; gap: 5px; flex: 1; }
+.m-asp-item { padding: 8px 10px; background: #000; border: 1px solid #1a1a1a; border-radius: 4px; text-align: left; line-height: 1.4; display: flex; flex-direction: column; gap: 4px; cursor: pointer; transition: 0.2s; }
+.m-asp-item:active { background: rgba(124, 255, 155, 0.1); }
+.m-asp-item.active { background: rgba(124, 255, 155, 0.15); border-color: #7CFF9B; }
+.m-asp-item-center { align-items: center; justify-content: center; text-align: center; height: 100%; border: none; background: transparent; color: #555; }
+
+/* Modal & Toasts */
+.m-toast-hidden { transform: translateY(100%); opacity: 0; pointer-events: none; }
+#m-n5-toast { position: fixed; bottom: 0; left: 0; width: 100%; box-sizing: border-box; background: rgba(5, 15, 20, 0.95); border-top: 1px solid #7CFF9B; color: #fff; padding: 15px 20px; font-size: 0.8rem; line-height: 1.4; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 9999; box-shadow: 0 -4px 15px rgba(0,0,0,0.5); backdrop-filter: blur(5px); padding-bottom: calc(15px + env(safe-area-inset-bottom)); text-align: center; }
+
+.fs-popover-box { position: fixed !important; top: 50% !important; left: 50% !important; bottom: auto !important; transform: translate(-50%, -50%) !important; width: 85%; max-height: 60vh; background: rgba(0, 0, 0, 0.95); border: 1px solid #7CFF9B; box-shadow: 0 0 30px rgba(124, 255, 155, 0.2); padding: 20px; z-index: 99999; color: #7CFF9B; overflow-y: auto; display: none; border-radius: 8px; }
+.fs-popover-box.active { display: block; }

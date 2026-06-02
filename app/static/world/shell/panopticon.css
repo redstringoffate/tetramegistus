@@ -1,0 +1,507 @@
+/* app/static/world/shell/panopticon.css */
+
+:root {
+    --pano-cyan: #54f5fb; /* A2 Original Cyan */
+    --pano-cyan-dark: #29a0a5;
+    --pano-cyan-glow: rgba(73, 220, 225, 0.4);
+    --pano-dark: #733efb;
+    --pano-bg: #f2f7f8;
+    --pano-nav-bg: #ffffff;
+
+    --chart-grid-color: #f0f0f0;
+    --chart-tick-color: #aaaaaa;
+    --chart-label-color: #999999;
+    --chart-point-bg: #ffffff;
+    --chart-font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+body.panopticon-sanctuary {
+    background: var(--pano-bg);
+    color: #111;
+    margin: 0;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* 🚀 God Mode Lv3 네비게이션바 규격 */
+.pano-nav {
+    height: 60px;
+    background: var(--pano-nav-bg);
+    border-bottom: 1px solid var(--pano-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.pano-nav-title {
+    color: var(--pano-cyan);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px var(--pano-cyan-glow);
+}
+
+.pano-return-btn {
+    background: transparent;
+    border: 1px solid var(--pano-cyan);
+    color: var(--pano-cyan);
+    padding: 6px 18px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+
+.pano-return-btn:hover {
+    color: var(--pano-cyan);
+    border-color: var(--pano-cyan);
+    text-shadow: 0 0 8px rgba(73, 220, 225, 0.8);
+    box-shadow: 0 0 10px rgba(73, 220, 225, 0.4), inset 0 0 8px rgba(73, 220, 225, 0.2); 
+}
+
+/* 🚀 레이아웃 및 헤더 */
+.pano-layout { flex: 1; display: flex; flex-direction: column; overflow-y: auto; }
+
+.pano-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding: 40px 60px;
+}
+
+.today-box { border-left: 5px solid var(--pano-cyan); padding-left: 25px; }
+.today-label { font-size: 0.8rem; color: #777; letter-spacing: 2px; }
+.today-value { font-size: 3rem; font-weight: 900; color: var(--pano-cyan); display: block; margin-top: 5px; }
+
+/* 🚀 A2 스타일 Dichotomy 토글 */
+.dichotomy-container { display: flex; align-items: center; gap: 12px; }
+.dicho-label { font-size: 0.7rem; color: #888; text-transform: uppercase; transition: 0.2s; }
+.dicho-label.active { color: var(--pano-dark); font-weight: bold; text-shadow: 0 0 1px var(--pano-cyan-glow); }
+
+.dicho-switch {
+    width: 34px; height: 16px; 
+    background: #111; 
+    border: 1px solid #444; 
+    border-radius: 8px; position: relative; cursor: pointer; 
+}
+.dicho-knob {
+    width: 12px; height: 12px; 
+    background: #333; 
+    border-radius: 50%; position: absolute; top: 1px; left: 2px; transition: 0.2s ease; 
+}
+.dicho-switch.active { background: #333; box-shadow: 0 0 10px var(--pano-cyan-glow); }
+.dicho-switch.active .dicho-knob { 
+    left: 18px; 
+    background: #111; 
+    box-shadow: 0 0 8px #137275;
+}
+
+/* 🚀 커스텀 버튼 탭 (Underline -> Square) */
+.pano-main-area { padding: 0 60px 60px 60px; }
+
+.custom-tab-bar {
+    display: flex; gap: 40px; border-bottom: 2px solid #ddd;
+    margin-bottom: 25px; padding-bottom: 8px;
+}
+
+.custom-tab-item {
+    font-size: 1rem; font-weight: 700; color: #999;
+    cursor: pointer; padding: 6px 15px; transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.custom-tab-item.active {
+    color: var(--pano-cyan);
+    border: 1px solid var(--pano-cyan); /* 활성화 시 사각 박스 */
+    background: white;
+}
+
+/* 🚀 A2 스타일 Day/Week/Month (Stage.css 벤치마킹) */
+.a2-style-tabs {
+    display: flex; border: 1px solid var(--pano-cyan);
+    width: fit-content; margin-bottom: 30px;
+}
+
+.a2-tab-btn {
+    padding: 6px 20px; border: none; background: white;
+    color: var(--pano-cyan); font-size: 0.8rem; font-weight: 700;
+    cursor: pointer; border-right: 1px solid var(--pano-cyan);
+}
+.a2-tab-btn:last-child { border-right: none; }
+.a2-tab-btn.active { background: var(--pano-cyan); color: white; }
+
+/* 차트 카드 */
+.chart-wrapper {
+    background: white; border: 1px solid #e0e6e8;
+    padding: 30px; height: 450px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+}
+
+/* 🚀 데이터 테이블 (CSS 완벽 격리) */
+.pano-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background: var(--pano-white);
+}
+
+.pano-data-table th {
+    padding: 14px 12px;
+    border-bottom: 2px solid var(--pano-cyan);
+    text-align: left;
+    color: #888;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.pano-data-table th.col-anima,
+.pano-data-table th.col-total {
+    text-align: right;
+}
+
+.pano-data-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+}
+
+.pano-data-table td.col-date {
+    font-weight: bold;
+    color: #333;
+}
+
+.pano-data-table td.col-chronos {
+    color: #777;
+}
+
+.pano-data-table td.col-anima {
+    text-align: right;
+    color: #555;
+}
+
+.pano-data-table td.col-total {
+    text-align: right;
+    color: var(--pano-cyan);
+    font-weight: 800;
+}
+
+/* 🚀 Chronos 전용 Date Picker */
+.chronos-date-wrapper {
+    margin-bottom: 20px;
+}
+
+.pano-date-picker {
+    background: var(--pano-white);
+    border: 1px solid var(--pano-cyan);
+    color: var(--pano-cyan-dark);
+    padding: 6px 14px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(56, 194, 199, 0.1);
+    transition: all 0.2s;
+}
+
+.pano-date-picker:hover, .pano-date-picker:focus {
+    box-shadow: 0 2px 15px rgba(56, 194, 199, 0.3);
+    background: var(--pano-bg);
+}
+
+/* 🚀 Terra (Country Distribution) UI */
+.terra-wrapper {
+    padding: 10px 20px;
+    overflow-y: auto;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.terra-header {
+    font-size: 1.1rem; 
+    font-weight: 800; 
+    color: var(--pano-cyan);
+    margin-bottom: 25px; 
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 10px;
+}
+
+.terra-item {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 20px;
+}
+
+.terra-flag {
+    font-size: 2rem; 
+    margin-right: 15px; 
+    width: 40px; 
+    text-align: center;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.terra-info { 
+    flex: 1; 
+}
+
+.terra-name-row {
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 5px;
+}
+
+.terra-name { 
+    font-weight: 800; 
+    color: #444; 
+    font-size: 0.95rem; 
+}
+
+.terra-pct { 
+    color: var(--pano-cyan); 
+    font-size: 0.9rem; 
+    font-weight: 800; 
+}
+
+.terra-count-row {
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    margin-bottom: 8px;
+}
+
+.terra-eye { 
+    font-size: 0.8rem; 
+    color: #bbb; 
+}
+
+.terra-count { 
+    font-size: 0.85rem; 
+    color: #777; 
+    font-weight: bold; 
+}
+
+/* 🚀 막대 프로그레스 바 */
+.terra-bar-bg {
+    width: 100%; 
+    height: 6px; 
+    background: #e9e9e9; 
+    border-radius: 3px; 
+    overflow: hidden;
+}
+
+.terra-bar-fill {
+    height: 100%; 
+    background: var(--pano-cyan); 
+    border-radius: 3px;
+    transition: width 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 0 8px rgba(56, 194, 199, 0.5);
+}
+
+/* 🚀 Infra 테이블 전용 CSS 격리 */
+.infra-period-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--pano-cyan);
+    margin-bottom: 15px;
+}
+
+.pano-data-table th.col-infra-module {
+    text-align: left;
+}
+
+.pano-data-table th.col-infra-numero,
+.pano-data-table th.col-infra-chronos {
+    text-align: right;
+}
+
+.pano-data-table td.col-infra-module {
+    font-weight: bold;
+    color: #444;
+}
+
+.pano-data-table td.col-infra-numero {
+    text-align: right;
+    color: var(--pano-cyan);
+    font-weight: bold;
+}
+
+.pano-data-table td.col-infra-chronos {
+    text-align: right;
+    color: #777;
+}
+
+/* 🚀 Chart Wrapper 높이 강제 지정 (차트 껍데기 규격) */
+.chart-wrapper {
+    background: var(--pano-white); border: 1px solid #eee;
+    padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    height: 500px;
+}
+
+/* 🚀 Infra & 일반 통계 테이블 전용 CSS 격리 (반드시 추가!) */
+.pano-data-table {
+    width: 100%; border-collapse: collapse; margin-top: 25px; background: var(--pano-white);
+}
+.pano-data-table th {
+    padding: 14px 12px; border-bottom: 2px solid var(--pano-cyan); text-align: left;
+    color: #888; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+}
+.pano-data-table td { padding: 14px 12px; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+
+/* 각 열별 정렬 및 컬러 매핑 */
+.pano-data-table td.col-date, .pano-data-table td.col-infra-module { font-weight: bold; color: #444; }
+
+/* 🚀 헤더 중앙 정렬 */
+.pano-data-table th.col-chronos, .pano-data-table th.col-infra-chronos,
+.pano-data-table th.col-anima, .pano-data-table th.col-total, .pano-data-table th.col-infra-numero { text-align: center; }
+
+/* 🚀 데이터 중앙 정렬 */
+.pano-data-table td.col-chronos, .pano-data-table td.col-infra-chronos { color: #777; text-align: center; }
+.pano-data-table td.col-anima { text-align: center; color: #555; }
+.pano-data-table td.col-total, .pano-data-table td.col-infra-numero { text-align: center; color: var(--pano-cyan); font-weight: 800; }
+
+.infra-period-label {
+    font-size: 1rem; font-weight: bold; color: var(--pano-cyan); margin-bottom: 15px;
+}
+
+/* 🚀 업데이트 시간 표기 디자인 */
+.update-time {
+    font-size: 0.75rem;
+    color: #999;
+    margin-left: 12px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+/* 🚀 Rubedo 전용 UI */
+.rubedo-switch-container {
+    margin-bottom: 0px;
+    padding: 10px 0;
+    /* border-top: 1px dashed #ddd; 👈 이 줄을 완전히 삭제해! */
+}
+
+.sub-dicho { transform: scale(0.9); transform-origin: left; }
+
+/* 아코디언 스타일 */
+.accordion-header { cursor: pointer; transition: background 0.2s; }
+.accordion-header:hover { background: #f9fdfd; }
+.acc-icon { display: inline-block; transition: transform 0.2s; font-size: 0.7rem; color: var(--pano-cyan); }
+
+.accordion-content { background: #fcfcfc; }
+.acc-inner-wrap { padding: 10px 40px; border-left: 2px solid var(--pano-cyan); margin: 10px 0; }
+.acc-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem; }
+.acc-title { color: #666; font-weight: 500; }
+.acc-stat { color: #999; }
+.acc-stat b { color: var(--pano-cyan); }
+
+/* 🚀 새로 추가된 Calendar & Time Controls 레이아웃 CSS */
+.time-control-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    margin-bottom: 25px;
+}
+
+/* 탭의 마진을 제거하여 캘린더 아이콘과 수직 센터를 맞춤 */
+.time-control-wrapper .a2-style-tabs {
+    margin-bottom: 0; 
+}
+
+/* Chronos 처럼 달력만 있는 경우 마진 조절 */
+.chronos-only-wrapper {
+    margin-bottom: 25px;
+}
+
+.custom-calendar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 플랫피커 캘린더 호출을 위한 SVG 아이콘 */
+.calendar-icon {
+    width: 24px;
+    height: 24px;
+    stroke: var(--pano-cyan);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.calendar-icon:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 5px var(--pano-cyan-glow));
+}
+
+/* 글로벌하게 출력될 날짜 텍스트 (e.g. 2026.05.15. (♀) As of 23:51) */
+.calendar-label {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--pano-cyan);
+    letter-spacing: 0.5px;
+}
+
+/* 🚀 이전의 잔재 완전 소각 처리 */
+.terra-header,
+.infra-period-label {
+    display: none !important;
+}
+
+/* 🚀 달력에서 주(Week) 단위 선택 시 Row 하이라이트 효과 */
+.flatpickr-day.inRange,
+.flatpickr-day.prevMonthDay.inRange,
+.flatpickr-day.nextMonthDay.inRange,
+.flatpickr-day.today.inRange,
+.flatpickr-day.prevMonthDay.today.inRange,
+.flatpickr-day.nextMonthDay.today.inRange,
+.flatpickr-day:hover,
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.nextMonthDay:hover,
+.flatpickr-day:focus,
+.flatpickr-day.prevMonthDay:focus,
+.flatpickr-day.nextMonthDay:focus {
+    background: var(--pano-cyan-glow);
+    border-color: transparent;
+    cursor: pointer;
+}
+
+/* ===================================================
+   📱 Mobile Responsiveness (Panopticon Optimization)
+=================================================== */
+@media (max-width: 768px) {
+    /* 1. 🚀 좌우 60px의 거대한 여백을 15px로 압축하여 공간 확보 */
+    .pano-nav { padding: 0 15px; }
+    .pano-header { padding: 25px 15px; }
+    .pano-main-area { padding: 0 15px 30px 15px; }
+
+    /* 2. 🚀 상단 네비게이션 텍스트 다이어트 */
+    .pano-nav-title { font-size: 0.75rem; letter-spacing: 1px; }
+    .pano-return-btn { font-size: 0.65rem; padding: 4px 8px; }
+
+    /* 3. 🚀 탭(Nigredo~Grimoire 등) 가로 스와이프 활성화 */
+    /* 좁은 화면에서 억지로 줄바꿈되지 않고, 손가락으로 밀어서 볼 수 있게 만듦 */
+    .custom-tab-bar {
+        gap: 15px;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+    }
+    .custom-tab-bar::-webkit-scrollbar { display: none; } /* 스크롤바 숨김 */
+
+    /* 4. 🚀 테이블 여백 및 글씨 크기 최적화 */
+    .pano-data-table th, .pano-data-table td {
+        padding: 10px 5px;
+        font-size: 0.8rem;
+    }
+
+    /* 5. 🚀 차트 및 기타 요소 규격 축소 */
+    .chart-wrapper { height: 300px; padding: 15px; }
+    .today-value { font-size: 2.2rem; }
+    .calendar-label { font-size: 0.9rem; }
+}

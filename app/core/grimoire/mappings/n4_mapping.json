@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "sect": "B4",
+    "h_sys": "B5",
+    "syzygy_type": "A24"
+  },
+  "arcana": {
+    "Fortune": { "row": 9, "info": "B", "house": "C", "duad": "D", "dodeca": "E", "decan": "F", "bounds": "G", "sabian": "H" },
+    "Spirit": { "row": 10, "info": "B", "house": "C", "duad": "D", "dodeca": "E", "decan": "F", "bounds": "G", "sabian": "H" },
+    "Necessity": { "row": 11, "info": "B", "house": "C", "duad": "D", "dodeca": "E", "decan": "F", "bounds": "G", "sabian": "H" },
+    "Necessity (v)": { "row": 12, "info": "B", "house": "C", "duad": "D", "dodeca": "E", "decan": "F", "bounds": "G", "sabian": "H" },
+    "Eros": { "row": 13, "info": "B", "house": "C", "duad": "D", "dodeca": "E", "decan": "F", "bounds": "G", "sabian": "H" },
+    "Eros (v)": { "row": 14, "info": "B", "house": "C", "duad": "D", "dodeca": "E", "decan": "F", "bounds": "G", "sabian": "H" },
+    "Courage": { "row": 15, "info": "B", "house": "C", "duad": "D", "dodeca": "E", "decan": "F", "bounds": "G", "sabian": "H" },
+    "Victory": { "row": 16, "info": "B", "house": "C", "duad": "D", "dodeca": "E", "decan": "F", "bounds": "G", "sabian": "H" },
+    "Nemesis": { "row": 17, "info": "B", "house": "C", "duad": "D", "dodeca": "E", "decan": "F", "bounds": "G", "sabian": "H" },
+    "Vertex": { "row": 20, "info": "B", "house": "C", "duad": "D", "dodeca": "E", "decan": "F", "bounds": "G", "sabian": "H" },
+    "Anti-Vertex": { "row": 21, "info": "B", "house": "C", "duad": "D", "dodeca": "E", "decan": "F", "bounds": "G", "sabian": "H" },
+    "Syzygy": { "row": 24, "info": "B", "house": "C", "duad": "D", "dodeca": "E", "decan": "F", "bounds": "G", "sabian": "H" }
+  }
+}

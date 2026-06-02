@@ -1,0 +1,204 @@
+/* static/mobile/world/citrinitas/modules/c3_chayah.css */
+
+:root {
+    --c3-primary: #85d0d6;
+    --c3-saber-green: #7CFF9B;
+    --c3-cyber-cyan: #49dce1;
+    --c3-saber-red: #ff3333;
+    --c3-spica-blue: #3388ff;
+    --c1-border: #333; 
+    --c1-font: ui-monospace, SFMono-Regular, Consolas, 'Cascadia Code', monospace;
+}
+
+.m-c1-app-container { font-family: var(--c1-font); color: #fff; width: 100%; }
+
+/* ==========================================================
+   [ 0 ] 🔮 모바일 전용 전체화면 Pulse 이펙트 영역 (Stacking Context 완전 탈출)
+   ========================================================== */
+.m-chayah-pulse-container {
+    position: fixed !important; 
+    top: 0 !important; 
+    left: 0 !important; 
+    width: 100vw !important; 
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.98) !important; /* 거의 완전한 흑색으로 스테이지 탭 암전 */
+    display: flex !important; 
+    align-items: center !important; 
+    justify-content: center !important;
+    z-index: 2147483647 !important; /* 브라우저가 허용하는 최대 z-index 값 */
+    backdrop-filter: blur(10px); 
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.m-chayah-pulse-container.active {
+    opacity: 1;
+    pointer-events: all !important; /* 발동 중엔 다른 모든 터치 원천 차단 */
+}
+
+.m-chayah-pulse-text {
+    font-family: var(--c1-font);
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 20px;
+    transform: translateY(-10vh);
+    animation: mChayahPulse 2s infinite ease-in-out;
+}
+
+@keyframes mChayahPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* ==========================================================
+   [ 1 ] 🔮 인트로 영역 (Nefesh/Ruach 동기화)
+   ========================================================== */
+.m-chayah-intro-text {
+    display: block; 
+    font-size: 0.85rem; 
+    font-style: italic; 
+    color: #888; 
+    text-align: center; 
+    padding: 30px 10px; 
+    letter-spacing: 2px;
+    -webkit-tap-highlight-color: transparent;
+}
+.m-chayah-intro-text:active { 
+    color: #fff; 
+    text-shadow: 0 0 8px var(--c3-saber-green); 
+    border-bottom: 1px solid var(--c3-saber-green);
+}
+
+/* ==========================================================
+   [ 2 ] 🎨 인라인 스타일 격리용 유틸리티 (모바일)
+   ========================================================== */
+.m-chayah-bg-black { background-color: #000 !important; background-image: none !important; }
+.m-chayah-bg-white { background-color: #fff !important; background-image: none !important; }
+.m-chayah-bg-crimson { background-color: #3a0000 !important; background-image: none !important; }
+.m-chayah-bg-grey { background-color: #1a1a1a !important; background-image: none !important; }
+.m-chayah-overlay-dark { background: rgba(0, 0, 0, 0.7) !important; }
+
+/* ==========================================================
+   [ 3 ] 🎬 모바일 씬 템플릿 (상하 분할)
+   ========================================================== */
+.m-scn-scene {
+    display: flex; flex-direction: column; width: 100%;
+    border: 1px solid var(--c1-border); border-radius: 4px;
+    margin-bottom: 20px; background-color: #000; overflow: hidden;
+}
+
+.m-scn-visual-area {
+    position: relative; width: 100%; height: 220px; 
+    border-bottom: 1px solid #222; overflow: hidden;
+}
+
+.m-scn-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover !important; background-position: center center !important;
+    background-repeat: no-repeat !important; opacity: 0;
+    transform: scale(1.1); transform-origin: center center;
+    transition: opacity 2s ease-out, filter 2s ease-out, transform 3s ease-in-out;
+}
+
+.m-scn-scene.effect-blur .m-scn-bg { filter: blur(8px); transform: scale(1.15); }
+
+.m-scn-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0); transition: background 1.5s ease-in-out; z-index: 5;
+}
+
+.m-scn-scene.revealed .m-scn-bg { opacity: 0.85; }
+.m-scn-scene.veiled .m-scn-overlay { background: rgba(0, 0, 0, 0.5); } 
+.m-scn-scene.veiled .m-scn-content { opacity: 1; }
+
+.m-scn-content {
+    padding: 25px 20px; display: flex; flex-direction: column;
+    opacity: 0; transition: opacity 1.5s ease-in-out; min-height: 250px;
+}
+
+.m-scene-narrative {
+    flex-grow: 1; font-size: 0.9rem !important; font-style: italic; 
+    line-height: 1.6; color: #cce7e8 !important; text-align: center; margin: 0 0 25px 0 !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+.m-scene-narrative p { margin: 0 0 10px 0; }
+
+/* 선택지 버튼 (Hover 제거 -> Active 교체) */
+.m-c1-options-grid { display: flex; flex-direction: column; gap: 12px; width: 100%; box-sizing: border-box; }
+.m-c1-option-card {
+    border: 1px solid var(--c1-border); background: #050505;
+    padding: 15px; color: #aaa; font-size: 0.85rem; line-height: 1.4; text-align: center;
+    border-radius: 4px; transition: 0.15s; -webkit-tap-highlight-color: transparent;
+}
+.m-c1-option-card:active { border-color: var(--c3-primary); background: rgba(133, 208, 214, 0.1); color: #fff; font-weight: bold; transform: translateY(1px); }
+
+.m-cyber-btn {
+    appearance: none; -webkit-appearance: none; background-color: #000 !important; 
+    color: #fff !important; border: 1px solid var(--c3-saber-green) !important; 
+    padding: 12px; font-family: var(--c1-font); font-size: 0.9rem; font-weight: bold;
+    text-transform: uppercase; border-radius: 4px; width: 100%; transition: 0.1s; margin-top: 15px; box-shadow: none !important;
+}
+.m-cyber-btn:active { border-color: var(--c3-cyber-cyan) !important; background: var(--c3-cyber-cyan) !important; color: #000 !important; }
+
+/* ==========================================================
+   🔮 최종 신탁 결과 영역 (Nefesh 모바일 규격 100% 일치)
+   ========================================================== */
+.m-ritual-result-container {
+    padding: 30px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.m-chayah-final-title {
+    color: var(--c3-saber-green); 
+    font-size: 1.6rem; 
+    letter-spacing: 4px; 
+    text-transform: uppercase; 
+    font-weight: bold; 
+    margin: 0 0 10px 0; 
+}
+
+.m-chayah-final-subtitle {
+    color: var(--c3-cyber-cyan) !important; 
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin: 0 0 25px 0;
+    text-transform: uppercase;
+}
+
+.m-chayah-interpretation-panel {
+    text-align: left;
+    padding: 20px;
+    background: #050505 !important; 
+    border: 1px solid var(--c1-border);
+    border-radius: 4px;
+    margin-bottom: 25px; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.m-chayah-desc-star {
+    font-size: 0.85rem;
+    color: var(--c3-primary) !important; 
+    line-height: 1.6;
+    margin: 0 0 20px 0 !important;
+    font-style: italic; 
+    word-break: keep-all; 
+}
+
+.m-chayah-desc-graha {
+    font-size: 0.85rem;
+    color: #F2F2F2 !important; 
+    line-height: 1.6;
+    margin: 20px 0 0 0 !important;
+    padding-top: 15px; 
+    border-top: 1px dashed var(--c1-border); 
+    font-style: italic; 
+    word-break: keep-all; 
+}

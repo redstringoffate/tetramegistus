@@ -1,0 +1,254 @@
+/* static/mobile/world/citrinitas/modules/c3_neshamah.css */
+
+:root {
+    --c3-primary: #85d0d6;
+    --c3-saber-green: #7CFF9B;
+    --c3-cyber-cyan: #49dce1;
+    --c3-saber-red: #ff3333;
+    --c3-spica-blue: #3388ff;
+    --c3-saturn-gold: #ffaa00;
+    --c1-border: #333; 
+    --c1-font: ui-monospace, SFMono-Regular, Consolas, 'Cascadia Code', monospace;
+}
+
+.m-c1-app-container { font-family: var(--c1-font); color: #fff; width: 100%; }
+
+/* ---------------------------------------------------
+   [ 0 ] 🔮 인트로 영역 (Nefesh/Ruach 동기화 - 태평양 제거)
+--------------------------------------------------- */
+.m-neshamah-intro-text {
+    display: block; 
+    font-size: 0.85rem; 
+    font-style: italic; 
+    color: #888; 
+    text-align: center; 
+    padding: 30px 10px; 
+    letter-spacing: 2px;
+    -webkit-tap-highlight-color: transparent;
+}
+.m-neshamah-intro-text:active { 
+    color: #fff; 
+    text-shadow: 0 0 8px var(--c3-cyber-cyan); 
+}
+
+/* ---------------------------------------------------
+   [ 1 ] 🎬 모바일 씬 템플릿 (상하 분할)
+--------------------------------------------------- */
+.m-scn-scene {
+    display: flex; flex-direction: column; width: 100%;
+    border: 1px solid var(--c1-border); border-radius: 4px;
+    margin-bottom: 20px; background-color: #000; overflow: hidden;
+}
+
+.m-scn-visual-area {
+    position: relative; width: 100%; height: 220px; 
+    border-bottom: 1px solid #222; overflow: hidden;
+}
+
+.m-scn-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover !important; background-position: center center !important;
+    background-repeat: no-repeat !important; opacity: 0;
+    transform: scale(1.1); transform-origin: center center;
+    transition: opacity 2s ease-out, filter 2s ease-out, transform 3s ease-in-out;
+}
+
+.m-scn-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0); transition: background 1.5s ease-in-out; z-index: 5;
+}
+
+.m-scn-scene.revealed .m-scn-bg { opacity: 0.85; }
+.m-scn-scene.veiled .m-scn-overlay { background: rgba(0, 0, 0, 0.4); } 
+.m-scn-scene.veiled .m-scn-content { opacity: 1; }
+
+.m-scn-content {
+    padding: 25px 20px; display: flex; flex-direction: column;
+    opacity: 0; transition: opacity 1.5s ease-in-out; min-height: 250px;
+}
+
+.m-scene-narrative {
+    flex-grow: 1; font-size: 0.9rem !important; font-style: italic; 
+    line-height: 1.6; color: #cce7e8 !important; text-align: center; margin: 0 0 25px 0 !important;
+}
+.m-scene-narrative p { margin: 0 0 10px 0; color: #ffffff !important; text-shadow: 1px 1px 4px rgba(0, 0, 0, 1), 0 0 12px rgba(0, 0, 0, 0.9) !important; }
+
+/* 선택지 버튼 */
+.m-c1-options-grid { display: flex; flex-direction: column; gap: 12px; width: 100%; box-sizing: border-box; }
+.m-c1-option-card {
+    border: 1px solid var(--c1-border); background: #050505;
+    padding: 15px; color: #aaa; font-size: 0.85rem; line-height: 1.4; text-align: center;
+    border-radius: 4px; transition: 0.15s; -webkit-tap-highlight-color: transparent;
+}
+.m-c1-option-card:active { border-color: var(--c3-primary); background: rgba(133, 208, 214, 0.1); color: #fff; font-weight: bold; }
+
+.m-cyber-btn {
+    appearance: none; -webkit-appearance: none; background-color: #000 !important; 
+    color: #fff !important; border: 1px solid var(--c3-saber-green) !important; 
+    padding: 12px; font-family: var(--c1-font); font-size: 0.9rem; font-weight: bold;
+    text-transform: uppercase; border-radius: 4px; width: 100%; transition: 0.1s; margin-top: 15px; box-shadow: none !important;
+}
+.m-cyber-btn:active { border-color: var(--c3-cyber-cyan) !important; background: var(--c3-cyber-cyan) !important; color: #000 !important; }
+
+/* ---------------------------------------------------
+   [ 2 ] 🃏 타로 카드 외형 & 글리프
+--------------------------------------------------- */
+.m-neshamah-tarot-card {
+    background: #000; border: 1px solid var(--c1-border); border-radius: 2px;
+    display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+    transition: all 0.2s; user-select: none; box-sizing: border-box;
+}
+.m-neshamah-tarot-card:active { border-color: var(--c3-cyber-cyan); box-shadow: 0 0 12px rgba(73, 220, 225, 0.3); }
+
+.m-card-size-focus { width: 145px; height: 225px; padding: 12px 6px; }
+.m-card-size-focus .t-roman { font-size: 1.1rem; color: var(--c3-primary); font-weight: bold; }
+.m-card-size-focus .t-title { font-size: 0.75rem; color: #fff; text-transform: uppercase; letter-spacing: 1.5px; text-align: center; margin-top: 2px; }
+.m-card-size-focus .t-main-glyph { font-size: 4.0rem; margin: auto 0; text-shadow: 0 0 20px currentColor; line-height: 1; }
+.m-card-size-focus .t-sub-glyph { font-size: 1.4rem; margin-top: 5px; }
+
+/* 글리프 컬러 */
+.glyph-fool { color: #fff; text-shadow: 0 0 15px #fff; }
+.glyph-mother-shin { color: #ff4444; } .glyph-mother-mem { color: #4488ff; } .glyph-mother-aleph { color: #ffffaa; } 
+.glyph-element-fire { color: #F71831; } .glyph-element-earth { color: #FFB933; } .glyph-element-air { color: #E6E6E6; } .glyph-element-water { color: #0168FC; }
+.glyph-planet-mars { color: #F50000 !important; text-shadow: 0 0 10px #F50000; }
+.glyph-planet-mercury { color: #341DFC !important; text-shadow: 0 0 10px #341DFC; }
+.glyph-planet-jupiter { color: #47BD5A !important; text-shadow: 0 0 10px #47BD5A; }
+.glyph-planet-venus { color: #999999 !important; text-shadow: 0 0 10px #999999; }
+.glyph-planet-saturn { color: #FFF200 !important; text-shadow: 0 0 10px #FFF200; }
+.glyph-planet-sun { color: #FC55CE !important; text-shadow: 0 0 10px #FC55CE; }
+.glyph-planet-moon { color: #FFB9FA !important; text-shadow: 0 0 10px #FFB9FA; }
+.glyph-planet-uranus { color: #00F0FF !important; text-shadow: 0 0 10px #00F0FF; }
+.glyph-planet-neptune { color: #7000FF !important; text-shadow: 0 0 10px #7000FF; }
+.glyph-planet-pluto { color: #880000 !important; text-shadow: 0 0 10px #880000; }
+.glyph-planet-north_node { color: #FFFFFF !important; text-shadow: 0 0 10px #FFFFFF; }
+.glyph-planet-south_node { color: #555555 !important; text-shadow: 0 0 10px #555555; }
+
+/* ---------------------------------------------------
+   [ 3 ] 📱 모바일 대시보드 (7:3 상단 좌우 분할 구조)
+--------------------------------------------------- */
+.m-dashboard-top-section { 
+    display: flex; 
+    flex-direction: row; /* 세로(column)에서 가로(row)로 복구 */
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* 좌우 간격 축소 */
+    border-bottom: 1px solid var(--c1-border); 
+    padding-bottom: 20px; 
+    margin-bottom: 20px; 
+}
+
+/* 좌측 미니맵 70% */
+.m-dashboard-minimap { 
+    width: 65%; /* 미니맵 자체 크기가 있으므로 최소 65% 확보 */
+    display: flex; 
+    justify-content: center; 
+}
+
+/* 우측 리스트 30% (또는 남은 공간) */
+.m-dashboard-list-container { 
+    flex: 1; /* 남은 공간 모두 차지 (약 35%) */
+    max-height: 180px; /* 높이를 조금 더 확보 */
+    overflow-y: auto; 
+    padding-right: 5px; 
+    scrollbar-width: thin; 
+    scrollbar-color: #333 #111; 
+    border: 1px solid #222; 
+    border-radius: 4px; 
+}
+
+.m-drawn-cards-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 2px; /* 간격 극단적 압축 */
+}
+
+.m-list-item { 
+    padding: 8px 10px; /* 패딩 최소화 */
+    background: rgba(20,20,20,0.8); 
+    border-bottom: 1px solid #222; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; /* 번호와 이름 간격 축소 */
+    font-size: 0.7rem; /* 폰트 사이즈 극단적 축소 (0.85 -> 0.7) */
+    color: #888; 
+    -webkit-tap-highlight-color: transparent; 
+}
+.m-list-item:last-child { border-bottom: none; }
+.m-list-item.active { 
+    background: rgba(124, 255, 155, 0.1); 
+    color: var(--c3-saber-green); 
+    font-weight: bold; 
+    border-left: 2px solid var(--c3-saber-green); 
+}
+
+.m-list-pos { 
+    width: 15px; /* 공간 더 좁게 */
+    text-align: right; 
+}
+
+/* (이하 하단 결과 패널 코드는 기존과 동일하게 유지) */
+.m-neshamah-result-panel { display: flex; flex-direction: column; gap: 20px; background: #050505; padding: 20px 15px; border: 1px solid var(--c1-border); border-radius: 4px; box-sizing: border-box; }
+.m-panel-top-zone { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; cursor: pointer; }
+.m-panel-bottom-zone { width: 100%; display: flex; flex-direction: column; text-align: center; }
+.m-toggle-decode-hint { font-size: 0.7rem; color: #555; margin-top: 15px; letter-spacing: 2px; text-transform: uppercase; }
+.m-panel-top-zone:active .m-toggle-decode-hint { color: var(--c3-cyber-cyan); }
+.m-card-wrapper-script .m-neshamah-tarot-card { border-color: var(--c1-border); }
+.m-card-wrapper-core .m-neshamah-tarot-card { border-color: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.3); background: #111; }
+.m-render-pos-header { font-size: 0.95rem; font-weight: bold; margin: 0 0 15px 0; letter-spacing: 1px; color: var(--c3-primary); }
+.m-neshamah-layer-paragraph { display: block; margin-bottom: 16px; line-height: 1.6; text-align: left; padding: 0 10px; }
+.script-layer-mother, .core-layer-mother { color: #fea6ff !important; font-size: 0.9rem; }
+.script-layer-double, .core-layer-double { color: #73ff9b !important; font-size: 0.9rem; }
+.script-layer-simple, .core-layer-simple { color: #49dce1 !important; font-size: 0.9rem; }
+.script-layer-numerology, .core-layer-numerology { color: #ceef86 !important; font-size: 0.85rem; font-style: italic; }
+.script-layer-fool, .core-layer-fool { color: #e2e8f0 !important; font-size: 0.9rem; font-style: italic; background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 4px; }
+.data-missing { color: #ff3333 !important; font-size: 0.85rem; letter-spacing: 1px; text-align: center; }
+
+/* ---------------------------------------------------
+   [ 4 ] 🗺️ 스프레드 미니맵 기하학 좌표계
+--------------------------------------------------- */
+.m-spread-minimap-container { position: relative; width: 100%; max-width: 280px; height: 280px; margin: 0 auto; }
+.m-spread-minimap-container .mini-pos { position: absolute; transform: translate(-50%, -50%); border: 1px dashed #555; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #555; width: 30px; height: 45px; background: transparent; -webkit-tap-highlight-color: transparent; }
+.m-spread-minimap-container .mini-pos.active { border: 1px solid var(--c3-saber-green) !important; background: var(--c3-saber-green) !important; color: #000 !important; font-weight: bold !important; z-index: 99 !important; }
+
+.m-spread-minimap-container .board-pos-celtic-1 { left: 40%; top: 50%; z-index: 10; }
+.m-spread-minimap-container .board-pos-celtic-2 { left: 40%; top: 50%; transform: translate(-50%, -50%) rotate(90deg); z-index: 11; }
+.board-pos-celtic-3 { left: 40%; top: 85%; } .board-pos-celtic-4 { left: 15%; top: 50%; } .board-pos-celtic-5 { left: 40%; top: 15%; } .board-pos-celtic-6 { left: 65%; top: 50%; } .board-pos-celtic-7 { left: 85%; top: 85%; } .board-pos-celtic-8 { left: 85%; top: 61%; } .board-pos-celtic-9 { left: 85%; top: 38%; } .board-pos-celtic-10{ left: 85%; top: 15%; }
+.m-neshamah-tol-board { height: 320px; }
+.board-pos-tol-1 { left: 50%; top: 10%; z-index: 10; } .board-pos-tol-2 { left: 75%; top: 20%; z-index: 11; } .board-pos-tol-3 { left: 25%; top: 20%; z-index: 11; } .board-pos-tol-11{ left: 50%; top: 32%; z-index: 5; opacity: 0.6; border-style: dotted !important; } .board-pos-tol-4 { left: 75%; top: 45%; z-index: 12; } .board-pos-tol-5 { left: 25%; top: 45%; z-index: 12; } .board-pos-tol-6 { left: 50%; top: 55%; z-index: 13; } .board-pos-tol-7 { left: 75%; top: 70%; z-index: 14; } .board-pos-tol-8 { left: 25%; top: 70%; z-index: 14; } .board-pos-tol-9 { left: 50%; top: 80%; z-index: 15; } .board-pos-tol-10{ left: 50%; top: 97%; z-index: 16; }
+.board-pos-horseshoe-1 { left: 10%; top: 80%; } .board-pos-horseshoe-2 { left: 20%; top: 50%; } .board-pos-horseshoe-3 { left: 32%; top: 27%; } .board-pos-horseshoe-4 { left: 50%; top: 8%; } .board-pos-horseshoe-5 { left: 68%; top: 27%; } .board-pos-horseshoe-6 { left: 80%; top: 50%; } .board-pos-horseshoe-7 { left: 90%; top: 80%; }
+.board-pos-graha-1 { left: 25%; top: 25%; } .board-pos-graha-2 { left: 50%; top: 25%; } .board-pos-graha-3 { left: 75%; top: 25%; } .board-pos-graha-4 { left: 25%; top: 50%; } .board-pos-graha-5 { left: 50%; top: 50%; } .board-pos-graha-6 { left: 75%; top: 50%; } .board-pos-graha-7 { left: 25%; top: 75%; } .board-pos-graha-8 { left: 50%; top: 75%; } .board-pos-graha-9 { left: 75%; top: 75%; }
+.m-neshamah-triadic-board { height: 150px; } .board-pos-triadic-1 { left: 30%; top: 50%; } .board-pos-triadic-2 { left: 50%; top: 50%; } .board-pos-triadic-3 { left: 70%; top: 50%; }
+.m-neshamah-duad-board { height: 150px; } .board-pos-duad-1 { left: 40%; top: 50%; } .board-pos-duad-2 { left: 60%; top: 50%; }
+.m-neshamah-single-board { height: 150px; } .board-pos-single-1 { left: 50%; top: 50%; }
+
+/* ==========================================================
+   🔮 [ C3 TOOLS ] ASTRODICE & RUACH-STYLE WICCAN RUNE
+   ========================================================== */
+.m-panel-vertical-zone { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
+.m-tool-visual-top-area { display: flex; justify-content: center; align-items: center; width: 100%; margin-bottom: 15px; }
+.m-tool-title-label { text-align: center; font-size: 1.05rem; letter-spacing: 3px; color: #fff; font-weight: bold; text-transform: uppercase; }
+.m-ritual-divider { width: 60%; border: 0; height: 1px; background: linear-gradient(to right, transparent, var(--c3-saber-green), transparent); margin: 20px 0; opacity: 0.6; }
+
+.m-astrodice-container { display: flex; justify-content: center; align-items: center; gap: 15px; }
+.m-dice-item {
+    width: 65px; height: 65px; display: flex; justify-content: center; align-items: center;
+    font-size: 2.8rem; background-color: #000 !important; border: 1px solid var(--c1-border) !important;
+    border-radius: 2px; font-family: var(--c1-font), "Segoe UI Symbol", Arial, sans-serif !important;
+}
+.m-panel-vertical-zone:active .m-dice-item { border-color: var(--c3-cyber-cyan) !important; }
+.m-h-dice { color: #cccccc !important; font-family: var(--c1-font) !important; font-size: 2.0rem; font-weight: bold; }
+
+.m-ruach-style-rune-stone {
+    width: 85px; height: 100px; display: flex; align-items: center; justify-content: center;
+    background-color: #050505 !important; border: 1px solid var(--c3-saber-green) !important;
+    border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%;
+    box-shadow: inset 0 0 12px rgba(124, 255, 155, 0.1) !important; 
+}
+.m-panel-vertical-zone:active .m-ruach-style-rune-stone { border-color: var(--c3-cyber-cyan) !important; box-shadow: inset 0 0 20px rgba(73, 220, 225, 0.2), 0 0 10px rgba(73, 220, 225, 0.1) !important; }
+.m-rune-glyph-core { display: flex; align-items: center; justify-content: center; font-size: 3.0rem; color: #fff; font-family: "Segoe UI Symbol", Arial, sans-serif !important; line-height: 1; text-shadow: 0 0 10px rgba(255,255,255,0.4); transform: translateY(-3px); }
+
+.script-layer-planet, .core-layer-planet { color: #73ff9b !important; font-size: 0.85rem; font-style: italic; }
+.script-layer-house, .core-layer-house { color: #dddddd !important; font-size: 0.85rem; font-style: italic; }
+.script-layer-zodiac, .core-layer-zodiac { color: #49dce1 !important; font-size: 0.8rem; font-style: italic; }
+.script-layer-rune, .core-layer-rune { color: var(--c3-primary) !important; font-size: 0.85rem; font-style: italic; line-height: 1.8; text-align: center; }

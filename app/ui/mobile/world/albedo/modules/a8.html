@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="/static/mobile/world/albedo/modules/a8.css?v=12">
+
+<div class="m-a8-container">
+    <h2 class="m-materia-title">CODEX LUCIS</h2>
+
+    <div class="m-a8-controls-wrapper">
+        
+        <div class="m-a8-top-row">
+            <button id="btn-open-settings" class="m-btn-sys-settings" onclick="openA8SettingsModal()">
+                ⚙ SYSTEM SETTINGS
+            </button>
+            <div class="m-connected-tabs m-sort-tabs">
+                <button class="m-tab active" id="btn-sort-seed" onclick="switchA8SortMode('seed')">SEED</button>
+                <button class="m-tab" id="btn-sort-system" onclick="switchA8SortMode('system')">SYSTEM</button>
+            </div>
+        </div>
+
+        <div class="m-connected-tabs m-ayan-tabs" id="a8-ayanamsa-bar" style="margin-bottom: 15px;"></div>
+
+        <div class="m-anti-switch-module" style="margin-bottom: 15px;">
+            <div class="m-dichotomy-module"
+                 ontouchstart="showToggleTooltip('a8-dicho-tooltip', 'TRADITIONAL', 'MODERN', A8_STATE.dichotomy === 'traditional')"
+                 ontouchend="hideToggleTooltip('a8-dicho-tooltip')">
+                <span class="m-dicho-label active" id="a8-label-trad">TRAD</span>
+                <div class="m-toggle-switch" onclick="switchA8Dichotomy()">
+                    <div class="m-toggle-knob" id="a8-dicho-knob"></div>
+                </div>
+                <span class="m-dicho-label" id="a8-label-mod">MODERN</span>
+            </div>
+            <div class="m-toggle-tooltip" id="a8-dicho-tooltip" style="left: 40px; transform: translateY(-100%);"></div>
+        </div>
+    </div>
+
+    <div class="m-a8-table-wrapper" id="a8-table-container">
+        <table class="m-a8-table" id="lucis-timeline-table">
+            <thead id="a8-table-head"></thead>
+            <tbody id="a8-table-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<div id="m-a8-toast" class="m-toast-hidden"></div>
+<div id="m-a8-popover" class="fs-popover-box"></div>
+
+<div id="m-a8-settings-modal" class="m-lucis-modal-overlay">
+    <div class="m-lucis-modal-window">
+        <div class="m-lucis-modal-header">SYSTEM CONFIGURATION</div>
+        <div id="m-a8-settings-list" class="m-a8-settings-wrapper"></div>
+        <div class="m-lucis-modal-footer">
+            <button class="m-a8-confirm-btn" onclick="closeA8SettingsModal()">CONFIRM</button>
+        </div>
+    </div>
+</div>
+
+<div id="lucis-loading-overlay">
+    <div class="lucis-loading-text">MANIFESTING LUCIS...</div>
+</div>
+
+<script src="/static/mobile/world/albedo/modules/a8.js?v=12"></script>

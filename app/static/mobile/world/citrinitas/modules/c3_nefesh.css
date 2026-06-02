@@ -1,0 +1,161 @@
+/* static/mobile/world/citrinitas/modules/c3_nefesh.css */
+
+.m-c1-app-container {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    color: #fff;
+    width: 100%;
+}
+
+/* 🎬 씬 컨테이너 (상하 분할 레이아웃) */
+.m-scn-scene {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: #000;
+    overflow: hidden;
+}
+
+/* 🖼️ 상단: 이미지 영역 (가로 모바일 비율 유지) */
+.m-scn-visual-area {
+    position: relative;
+    width: 100%;
+    height: 220px; /* 모바일에서 이미지가 가장 예쁘게 잡히는 높이 */
+    border-bottom: 1px solid #222;
+    overflow: hidden;
+}
+
+.m-scn-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover !important; 
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    opacity: 0;
+    transform: scale(1.1); /* 블러 경계 쏠림 방지 */
+    transform-origin: center center;
+    transition: opacity 2s ease-out, filter 2s ease-out, transform 3s ease-in-out;
+}
+
+.m-scn-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0); 
+    transition: background 1.5s ease-in-out;
+    z-index: 5;
+}
+
+/* 🚀 동적 이미지 이펙트 */
+.m-scn-scene.effect-blur .m-scn-bg { filter: blur(8px); transform: scale(1.15); }
+.m-scn-scene.effect-closeup .m-scn-bg { transform: scale(1.25); }
+.m-scn-scene.effect-closeup_blur .m-scn-bg { transform: scale(1.25); filter: blur(8px); }
+.m-scn-scene.effect-flash_white .m-scn-bg { background-color: #fff; background-image: none !important; }
+
+/* 애니메이션 트리거 */
+.m-scn-scene.revealed .m-scn-bg { opacity: 0.85; }
+.m-scn-scene.veiled .m-scn-overlay { background: rgba(0, 0, 0, 0.2); } 
+.m-scn-scene.veiled .m-scn-content { opacity: 1; }
+
+/* 📝 하단: 텍스트 및 선택지 영역 */
+.m-scn-content {
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    min-height: 250px;
+}
+
+.m-scene-narrative {
+    flex-grow: 1;
+    font-size: 0.9rem !important; 
+    font-style: italic; 
+    line-height: 1.6;
+    color: #cce7e8 !important;
+    text-align: center;
+    margin: 0 0 25px 0 !important;
+}
+
+/* 선택지 버튼 그리드 */
+.m-c1-options-grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    width: 100%; 
+}
+
+.m-c1-option-card {
+    border: 1px solid #333;
+    background: #050505;
+    padding: 15px;
+    color: #aaa;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: center;
+    border-radius: 4px;
+    transition: 0.15s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.m-c1-option-card:active {
+    border-color: #85d0d6; 
+    background: #85d0d6;
+    color: #000;
+    font-weight: bold;
+}
+
+.m-cyber-btn {
+    background-color: #000 !important; 
+    color: #fff !important; 
+    border: 1px solid #7CFF9B !important; 
+    padding: 12px; 
+    font-family: inherit;
+    font-size: 0.9rem; 
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px; 
+    width: 100%;
+    transition: 0.1s;
+}
+.m-cyber-btn:active {
+    border-color: #49dce1 !important; 
+    background: #49dce1 !important;
+    color: #000 !important;
+}
+
+.m-nefesh-intro-text {
+    display: block;
+    font-size: 0.85rem;
+    font-style: italic; 
+    color: #888; 
+    text-align: center;
+    padding: 30px 10px;
+    letter-spacing: 2px;
+}
+.m-nefesh-intro-text:active { color: #fff; }
+
+/* 🔮 최종 결과 렌더링 영역 */
+.m-ritual-result-container {
+    padding: 30px 15px;
+    text-align: center;
+}
+.m-c4-final-title { color: #7CFF9B; font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; }
+.m-c4-final-subtitle { color: #49dce1 !important; font-size: 1rem; margin-bottom: 25px; }
+
+.m-c4-interpretation-panel {
+    text-align: left;
+    padding: 20px;
+    background: #050505; 
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin-bottom: 25px; 
+}
+.m-c4-interpretation-panel p {
+    font-size: 0.85rem;
+    color: #ddd !important; 
+    line-height: 1.6;
+    margin-bottom: 12px;
+    font-style: italic; 
+}
+.m-c4-interpretation-panel p:last-child { margin-bottom: 0; }

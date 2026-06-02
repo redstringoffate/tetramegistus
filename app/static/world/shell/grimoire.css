@@ -1,0 +1,68 @@
+/* static/world/shell/grimoire.css */
+
+.grimoire-container {
+    max-width: 800px;
+    margin-left: 10px;
+    padding-top: 20px;
+}
+
+.page-title {
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: rgb(3, 234, 252);
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(3, 234, 252, 0.5);
+}
+
+.stage-group {
+    margin-bottom: 2px;
+}
+
+.stage-trigger {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 12px 0;
+    text-align: left;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #7CFF9B; /* DDS 녹색 */
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none; /* a 태그 기본 밑줄 제거 */
+}
+
+/* 공통 Hover 애니메이션 (이동만 처리) */
+.stage-trigger:hover {
+    transform: translateX(10px);
+}
+
+/* 🌑 NIGREDO (Ash / Deep Purple Glow) */
+.stage-trigger.glow-nigredo:hover {
+    color: #b388ff; 
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
+}
+
+/* 🌕 ALBEDO (Cyan / Silver Glow) */
+.stage-trigger.glow-albedo:hover {
+    color: #ffffff; 
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
+}
+
+/* ☀️ CITRINITAS (Gold / Yellow Glow) */
+.stage-trigger.glow-citrinitas:hover {
+    color: #ffff00; 
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.8); 
+}
+
+/* 🩸 RUBEDO (Crimson / Red Glow) */
+.stage-trigger.glow-rubedo:hover {
+    color: #ff0000; 
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}

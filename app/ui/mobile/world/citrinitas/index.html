@@ -1,0 +1,32 @@
+{% extends "mobile/world/shell/base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/mobile/world/citrinitas/css/citrinitas.css?v=12">
+{% endblock %}
+
+{% block content %}
+{% if not active_module %}
+<div class="m-stage-header">
+    <h1>CITRINITAS</h1>
+    <p class="m-stage-desc">The dawning of gold.</p>
+</div>
+{% endif %}
+
+{% if active_module %}
+<div class="m-module-content">
+    {% include "mobile/world/citrinitas/modules/" + active_module + ".html" ignore missing with context %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block sidebar %}
+<div class="m-module-menu">
+    {% for module in modules %}
+    <div class="m-mod-item-wrapper">
+        <a href="?module={{ module.id }}" class="m-mod-item {{ 'active' if active_module == module.id else 'inactive' }}" data-mod-id="{{ module.id }}">
+            <span class="m-mod-id">{{ module.id | upper }}</span><span class="m-mod-title">{{ module.title }}</span>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

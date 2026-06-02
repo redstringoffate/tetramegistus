@@ -1,0 +1,100 @@
+/* static/mobile/world/citrinitas/modules/c2_shin.css */
+
+.m-shin-hidden { display: none !important; }
+
+/* ─── 🚨 Shin 고유 테마 덮어쓰기 (Input & Manual Panel) ─── */
+#shin-app .m-c1-select, #shin-app .m-c1-input {
+    background: #fab4e4 !important; 
+    border: 1px solid #b091ef !important; 
+    color: #9A1005 !important; 
+    font-weight: bold;
+}
+#shin-app .m-c1-select:focus, #shin-app .m-c1-input:focus { border-color: #f51a1a !important; }
+
+#shin-app .m-c1-manual-toggle:active { color: #f51a1a !important; }
+#shin-app .m-c1-manual-panel { background: rgba(0, 0, 0, 0.3) !important; border-color: #555 !important; }
+
+#shin-app .m-c1-sign-group { border-color: #555 !important; }
+#shin-app .m-c1-sign-btn { background: #111 !important; color: #888 !important; }
+#shin-app .m-c1-sign-btn.active { background: #fff !important; color: #000 !important; font-weight: bold !important; }
+
+#shin-app .m-c1-input-int, #shin-app .m-c1-input-dec { color: #fff !important; border-color: #555 !important; }
+#shin-app .m-c1-input-int:focus, #shin-app .m-c1-input-dec:focus { border-color: #f51a1a !important; }
+
+/* ─── 버튼 테마 (Red Neon) ─── */
+.m-btn-shin-action {
+    border-color: #f51a1a !important;
+    color: #f51a1a !important;
+    box-shadow: 0 0 8px rgba(245, 26, 26, 0.15), inset 0 0 5px rgba(245, 26, 26, 0.1) !important;
+}
+.m-btn-shin-action:active {
+    background: #f51a1a !important;
+    color: #000 !important;
+    box-shadow: 0 0 15px rgba(245, 26, 26, 0.6) !important;
+}
+
+.m-cyber-btn-outline {
+    background: #050505; border: 1px solid #555; color: #888;
+    padding: 12px; font-family: inherit; font-size: 0.9rem; font-weight: bold;
+    text-transform: uppercase; cursor: pointer; border-radius: 4px;
+}
+.m-cyber-btn-outline:active { background: #333; color: #fff; }
+
+.m-shin-btn-group { display: flex; gap: 10px; margin-top: 20px; }
+
+/* ─── Question Blocks ─── */
+.m-q-block {
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid #333;
+    padding: 20px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.m-q-title { color: #49dce1; font-size: 1.05rem; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; }
+.m-q-narrative { color: #aaa; font-size: 0.85rem; margin-bottom: 25px; font-style: italic; line-height: 1.5; }
+
+.m-q-option-block { border-top: 1px dashed #444; padding-top: 15px; margin-top: 15px; }
+.m-q-archetype { color: #89a8f5; font-size: 0.95rem; font-weight: bold; margin-bottom: 8px; }
+.m-q-desc { color: #ccc; font-size: 0.8rem; font-style: italic; line-height: 1.5; margin-bottom: 15px; }
+
+/* ─── Radio Buttons (O / X / ?) ─── */
+.m-shin-radio-group { display: flex; gap: 10px; }
+.m-shin-radio-group input[type="radio"] { display: none; }
+.m-shin-radio-label {
+    flex: 1; text-align: center; padding: 12px 0; border: 1px solid #444;
+    border-radius: 4px; color: #888; font-weight: bold; font-size: 1rem;
+    transition: 0.15s; background: #0a0a0a;
+}
+.m-shin-radio-label:active { background: #222; }
+
+/* 체크 상태 강제 반전 (!important) */
+input[type="radio"][value="O"]:checked + .m-shin-radio-label,
+input[type="radio"][value="?"]:checked + .m-shin-radio-label {
+    border-color: #49dce1 !important;
+    color: #000 !important;
+    background: #49dce1 !important;
+}
+input[type="radio"][value="X"]:checked + .m-shin-radio-label {
+    border-color: #f51a1a !important;
+    color: #fff !important;
+    background: #f51a1a !important;
+}
+
+/* ─── Results Area ─── */
+.m-shin-result-header { border-bottom: 1px dashed #f51a1a; padding-bottom: 10px; margin-bottom: 20px; }
+.m-shin-result-title { color: #f51a1a; font-size: 1.2rem; font-weight: bold; text-align: center; text-shadow: 0 0 8px rgba(245, 26, 26, 0.4); margin: 0; }
+.m-shin-res-label { color: #888; margin-bottom: 10px; font-size: 0.8rem; letter-spacing: 1px; }
+
+.m-shin-result-item {
+    margin-bottom: 15px; padding: 15px 10px; border-left: 3px solid #f51a1a;
+    background: rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; gap: 8px;
+}
+.m-shin-res-time-line { display: flex; align-items: center; margin-bottom: 5px; }
+.m-shin-bullet { color: #f51a1a; font-size: 1.2rem; font-weight: bold; margin-right: 8px; line-height: 1; }
+.m-shin-result-time { color: #fff; font-weight: bold; font-size: 1.05rem; letter-spacing: 1px; }
+
+.m-shin-res-line { font-size: 0.8rem; line-height: 1.4; padding-left: 15px; }
+.m-shin-res-arudha { color: #b091ef; }
+.m-shin-res-asc { color: #999; }
+.m-shin-error-text { color: #ff4c4c; font-weight: bold; font-style: italic; font-size: 0.8rem; text-align: center; display: block; margin-top: 20px; }

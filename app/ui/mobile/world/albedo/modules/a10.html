@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/static/mobile/world/albedo/modules/a10.css?v=2">
+
+<div class="m-a10-container">
+    <h2 class="m-materia-title">RESONANTIA</h2>
+
+    <div class="m-anti-switch-module">
+        <div class="m-dichotomy-module">
+            <span class="m-dicho-label active" id="m-label-comp" data-full="COMPOSITE">COMP</span>
+            <div class="m-toggle-switch" onclick="MobileA10.switchMode()">
+                <div class="m-toggle-knob" id="m-anti-knob"></div>
+            </div>
+            <span class="m-dicho-label" id="m-label-anti" data-full="ANTI-COMPOSITE">ANTI</span>
+        </div>
+    </div>
+
+    <div class="m-connected-tabs" id="m-sys-tabs">
+        <button class="m-tab active" data-sys="tropical" onclick="MobileA10.switchSystem('tropical')">Tropical</button>
+        <button class="m-tab" data-sys="sidereal" onclick="MobileA10.switchSystem('sidereal')">Sidereal</button>
+        <button class="m-tab" data-sys="draconic" onclick="MobileA10.switchSystem('draconic')">Draconic</button>
+        <button class="m-tab" data-sys="ketunic" onclick="MobileA10.switchSystem('ketunic')">Ketunic</button>
+    </div>
+
+    <div class="m-connected-tabs m-ayan-tabs m-hidden" id="m-ayan-tabs">
+        <button class="m-tab active" data-ayan="lahiri" onclick="MobileA10.switchAyan('lahiri')">Lahiri</button>
+        <button class="m-tab" data-ayan="raman" onclick="MobileA10.switchAyan('raman')">Raman</button>
+        <button class="m-tab" data-ayan="kp" onclick="MobileA10.switchAyan('kp')">KP</button>
+        <button class="m-tab" data-ayan="fagan" onclick="MobileA10.switchAyan('fagan')">Fagan</button>
+        <button class="m-tab" data-ayan="yukteswar" onclick="MobileA10.switchAyan('yukteswar')">Yukteswar</button>
+    </div>
+
+    <div class="m-cat-grid" id="m-cat-tabs">
+        <button class="m-tab active" data-cat="planets" onclick="MobileA10.switchCategory('planets')">Planets</button>
+        <button class="m-tab" data-cat="asteroids" onclick="MobileA10.switchCategory('asteroids')">Asteroids</button>
+        <button class="m-tab" data-cat="lilith" onclick="MobileA10.switchCategory('lilith')">Lilith & Nodes</button>
+        <button class="m-tab" data-cat="fates" onclick="MobileA10.switchCategory('fates')">Fates</button>
+        <button class="m-tab" data-cat="angles" onclick="MobileA10.switchCategory('angles')">Angles</button>
+        <button class="m-tab" data-cat="hermetic" id="m-tab-hermetic" onclick="MobileA10.switchCategory('hermetic')">Hermetic</button>
+    </div>
+
+    <div class="m-a10-table-wrapper">
+        <table class="m-a10-table" id="m-a10-table">
+            <colgroup id="m-a10-colgroup"></colgroup>
+            <thead id="m-a10-thead"></thead>
+            <tbody id="m-a10-tbody"></tbody>
+        </table>
+    </div>
+</div>
+
+<div id="m-toggle-tooltip" class="m-toggle-tooltip"></div>
+<div id="m-a10-toast" class="m-toast-hidden"></div>
+
+<div id="m-a10-loading">
+    <div class="m-hieros-bg"></div>
+    <div class="m-hieros-text">HIEROS GAMOS</div>
+</div>
+
+<script src="/static/mobile/world/albedo/modules/a10.js?v=5"></script>

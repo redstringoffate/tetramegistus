@@ -1,0 +1,235 @@
+/* static/world/shell/login.css */
+
+/* =========================================================
+   1. 원본 레이아웃 및 인증 게이트 스타일 (1px도 안 건드림)
+========================================================= */
+.auth-gate-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 550px;
+    padding: 40px;
+    transition: opacity 0.5s ease;
+}
+
+.auth-container.dimmed {
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.auth-title {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    letter-spacing: 0.3em;
+    text-align: center;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    white-space: nowrap;
+}
+
+.input-row label {
+    min-width: 140px;
+    color: var(--text-dim);
+}
+
+.input-row input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #333;
+    color: #7CFF9B;
+    padding: 8px 5px;
+    outline: none;
+    flex-grow: 1;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.submit-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: #666;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    color: #7CFF9B;
+    border-color: #7CFF9B;
+}
+
+/* 팝업 오버레이 및 미니 팝업 */
+.blur-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 150;
+    display: none;
+}
+
+.mini-popup {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    border: 1px solid #7CFF9B;
+    padding: 45px 40px 40px 40px;
+    z-index: 200;
+    min-width: 500px;
+    box-shadow: 0 0 40px rgba(0,0,0,1), 0 0 15px rgba(124, 255, 155, 0.2);
+}
+
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #7CFF9B;
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+    user-select: none;
+    transition: transform 0.2s;
+}
+
+.close-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Anamnesis (인증) 레이어 */
+.intrusion-overlay {
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    transition: opacity 0.5s ease;
+}
+
+.anamnesis-title {
+    color: #7CFF9B;
+    cursor: help;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    letter-spacing: 0.15em;
+}
+
+.input-ritual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.input-ritual input {
+    background: transparent;
+    border: 1px solid #7CFF9B;
+    color: #7CFF9B;
+    padding: 12px;
+    text-align: center;
+    width: 260px;
+    outline: none;
+    font-family: 'JetBrains Mono', monospace;
+    transition: border-color 0.3s ease;
+}
+
+.ritual-submit-btn {
+    background: transparent;
+    border: 1px solid #7CFF9B;
+    color: #7CFF9B;
+    padding: 11px 16px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    line-height: 1;
+}
+
+.ritual-submit-btn:hover {
+    background: rgba(124, 255, 155, 0.1);
+    box-shadow: 0 0 10px rgba(124, 255, 155, 0.3);
+}
+
+/* =========================================================
+   2. JS에서 뽑아낸 성공 오버레이 스타일
+========================================================= */
+.migration-success-overlay {
+    position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; pointer-events: none;
+}
+.migration-success-veil {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px);
+}
+.migration-success-text {
+    position: relative; color: rgb(3, 234, 252); font-family: Consolas, 'JetBrains Mono', monospace;
+    font-size: 0.84rem; letter-spacing: 0.2em; text-shadow: 0 0 10px rgba(3, 234, 252, 0.5); opacity: 0; transition: opacity 0.3s ease;
+}
+
+/* 🚀 login.html에서 긁어낸 인라인 스타일 추출본 */
+
+.auth-footer-links {
+    text-align: center; 
+    margin-top: 30px;
+}
+
+.forgot-pw-text {
+    color: #444; 
+    text-decoration: underline; 
+    cursor: pointer; 
+    font-size: 0.8rem;
+}
+
+.error-msg {
+    color: #ff4b4b; 
+    text-align: center; 
+    margin-top: 15px; 
+    font-size: 0.8rem; 
+    height: 20px; 
+    transition: opacity 0.3s ease;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0 !important;
+}
+
+/* html에 style="display: none;" 으로 있던 것들 기본 숨김 처리 */
+.intrusion-overlay, .mini-popup {
+    display: none;
+}
+
+/* =========================================================
+   3. 🚀 [God Mode 4] R2 의식 쉘 (딥 그린 네온 디자인 복붙)
+========================================================= */
+.ritual-shell-overlay {
+    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); display: none; 
+    align-items: flex-start; justify-content: center; z-index: 99999; padding-top: 100px; 
+}
+.ritual-shell-box {
+    background: #000; border: 1px solid #d83cff; padding: 28px 36px; min-width: 360px; 
+    text-align: center; font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+.ritual-shell-title {
+    color: #d83cff; font-size: 0.85rem; letter-spacing: 0.14em; margin-bottom: 20px; text-transform: lowercase;
+}
+.ritual-shell-input {
+    background: transparent; border: 1px solid #d83cff; color: #d83cff; padding: 8px; 
+    width: 85%; text-align: center; outline: none; font-family: inherit;
+}
+.ritual-shell-footer { margin-top: 15px; }
+.ritual-shell-status { color: #531a5a; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: lowercase; }
+.ritual-shell-overlay.closing { animation: ritualDissolve 2s forwards ease-in; pointer-events: none; }
+
+@keyframes ritualDissolve {
+    0% { opacity: 1; filter: blur(0px); }
+    100% { opacity: 0; filter: blur(20px); }
+}

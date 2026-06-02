@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="/static/mobile/world/citrinitas/modules/c2_aleph.css?v=1">
+<link rel="stylesheet" href="/static/mobile/world/citrinitas/modules/c2_mem.css?v=3">
+
+<div class="m-aleph-container" id="mem-app">
+    <div class="m-ritual-header">
+        <h3 class="m-ritual-title">[ מ ] DASHA CHANDRA</h3>
+    </div>
+
+    <!-- Step 1: Input -->
+    <div id="step-1-input" class="m-c1-module-container">
+        <div class="m-c1-form-group">
+            <label class="m-c1-coord-label">Date</label>
+            <div class="m-c1-date-row">
+                <select id="mem-date-y" class="m-c1-select"></select>
+                <select id="mem-date-m" class="m-c1-select"></select>
+                <select id="mem-date-d" class="m-c1-select"></select>
+            </div>
+        </div>
+
+        <div class="m-c1-form-group">
+            <label class="m-c1-coord-label">Location</label>
+            <div class="m-c1-city-search-container">
+                <input type="text" id="mem-city-search" class="m-c1-input m-full-width" placeholder="Search City..." autocomplete="off">
+                <div id="mem-city-results" class="m-c1-city-results"></div>
+            </div>
+            
+            <div id="mem-manual-toggle" class="m-c1-manual-toggle">or Manual Entry ▾</div>
+
+            <div id="mem-manual-panel" class="m-c1-manual-panel" style="display: none;">
+                <div class="m-c1-coord-block">
+                    <div class="m-c1-sub-label">Latitude</div>
+                    <div class="m-c1-coord-row">
+                        <div class="m-c1-sign-group">
+                            <button class="m-c1-sign-btn active" data-target="lat" data-sign="+">N</button>
+                            <button class="m-c1-sign-btn" data-target="lat" data-sign="-">S</button>
+                        </div>
+                        <input id="mem-lat-int" class="m-c1-input-int" placeholder="00" type="number">
+                        <span class="m-c1-dot">.</span>
+                        <input id="mem-lat-dec" class="m-c1-input-dec" placeholder="0000" type="number">
+                    </div>
+                </div>
+                
+                <div class="m-c1-coord-block">
+                    <div class="m-c1-sub-label">Longitude</div>
+                    <div class="m-c1-coord-row">
+                        <div class="m-c1-sign-group">
+                            <button class="m-c1-sign-btn active" data-target="lng" data-sign="+">E</button>
+                            <button class="m-c1-sign-btn" data-target="lng" data-sign="-">W</button>
+                        </div>
+                        <input id="mem-lng-int" class="m-c1-input-int" placeholder="000" type="number">
+                        <span class="m-c1-dot">.</span>
+                        <input id="mem-lng-dec" class="m-c1-input-dec" placeholder="0000" type="number">
+                    </div>
+                </div>
+
+                <div class="m-c1-coord-block" style="margin-top: 15px;">
+                    <div class="m-c1-sub-label">Timezone</div>
+                    <select id="mem-tz" class="m-c1-select m-full-width"></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-c1-form-group age-group" style="margin-top: 10px;">
+            <label class="m-c1-coord-label">Current Age</label>
+            <select id="mem-age" class="m-c1-select m-full-width"></select>
+        </div>
+        
+        <button class="m-cyber-btn m-full-width btn-manifest" style="margin-top: 20px;" onclick="Mem.manifestTimeline()">MANIFEST</button>
+    </div>
+
+    <!-- Step 3: Questions -->
+    <div id="step-3-questions" class="m-step-hidden" style="display: none;">
+        <div id="q-render-area"></div>
+    </div>
+
+    <!-- Step 4: Results -->
+    <div id="step-4-results" class="m-step-hidden" style="display: none;">
+        <div class="m-result-content">
+            <div id="res-mem-content"></div>
+        </div>
+        <button class="m-cyber-btn m-full-width m-btn-restart" style="margin-top: 30px;" onclick="location.reload()">RESTART RITUAL</button>
+    </div>
+</div>

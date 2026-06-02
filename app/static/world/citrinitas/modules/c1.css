@@ -1,0 +1,613 @@
+/* Import A8 Styles to ensure identical look on main screen */
+@import "/static/world/albedo/modules/a8.css";
+
+/* 🚀 C1 Main Layout Overrides */
+.c1-tabula {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    width: 100%;
+}
+
+/* Row 1: System Settings (Top) */
+.row-top {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Row 2: Manage Data (Left) & Seed/System (Right) */
+.row-middle {
+    display: flex;
+    justify-content: space-between; /* 좌우 끝 정렬 */
+    align-items: flex-end; /* 바닥 기준 정렬 */
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+/* Row 3: Ayanamsa & Dichotomy */
+.row-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.c1-controls-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.controls-row-top {
+    display: flex; justify-content: flex-start;
+}
+
+/* 🚀 [FIX]: Middle Row - 붙여서 배치 & 안전장치 추가 */
+.controls-row-middle {
+    display: flex; 
+    /* 양 끝 정렬(space-between) -> 좌측 정렬(flex-start)로 변경하여 서로 붙임 */
+    justify-content: flex-start; 
+    align-items: center; 
+    
+    /* 두 요소 사이의 간격 */
+    gap: 15px; 
+    
+    width: 100%;
+    
+    /* 🛡️ [Monitor Safety]: 화면이 너무 좁아지면 
+       Seed/System 버튼이 찌그러지지 않고 자연스럽게 아랫줄로 내려감 */
+    flex-wrap: wrap; 
+}
+
+.controls-row-bottom {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* static/world/citrinitas/modules/c1.css (Bottom) */
+
+/* 🚀 Dichotomy Switch Styling */
+
+/* 1. 스위치 노브 애니메이션 */
+#c1-dicho-knob {
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* 2. 텍스트 활성 상태 (요청대로 Gold/Purple이 아닌 C1 Cyan 테마 유지) */
+#c1-label-trad.active, 
+#c1-label-mod.active {
+    color: #183536 !important; /* C1 Cyan */
+    text-shadow: 0 0 5px rgba(73, 220, 225, 0.6);
+    font-weight: bold;
+}
+
+/* 비활성 텍스트 */
+#c1-label-trad, #c1-label-mod {
+    color: #444;
+    transition: 0.2s;
+}
+
+/* 3. 툴팁 줄바꿈 허용 */
+.n8-dichotomy-module::after {
+    white-space: pre; 
+}
+
+/* 1. Add/Edit Data Control Box (Sketch Design) */
+.c1-data-management-box {
+    display: flex; /* Flex로 변경하여 내부 정렬 제어 */
+    align-items: center;
+    background: #050505;
+    
+    border: 1px solid rgba(255, 68, 68, 0.8);
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.2);
+    
+    padding: 4px 20px;
+    height: 22px; /* 높이 고정 (Seed System과 맞추기 위함) */
+    
+    /* 🚀 박스 자체의 크기 설정 (라벨과 버튼이 벌어질 공간 확보) */
+    min-width: 225px; 
+}
+
+.dm-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 🚀 [FIX]: 좌측 정렬로 변경 (벌어짐 방지) */
+    gap: 55px; /* 라벨과 버튼 사이 간격 */
+    width: 100%;
+}
+
+.dm-buttons {
+    display: flex;
+    gap: 8px;
+    white-space: nowrap; /* 🚀 [FIX]: 버튼들 절대 줄바꿈 안 되게 고정 */
+}
+
+.dm-label {
+    font-size: 0.7rem;
+    color: #aaa;
+    letter-spacing: 1px;
+    min-width: 70px;
+    white-space: nowrap; /* 🚀 라벨 줄바꿈 방지 */
+}
+
+.dm-divider {
+    width: 1px;
+    height: 15px;
+    background: #333;
+    margin: 0 20px;
+}
+
+.c1-icon-btn {
+    background: #000;
+    color: #49dce1; /* Cyan Text */
+    border: 1px solid #49dce1; /* Cyan Border */
+    border-radius: 2px;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85rem;
+    line-height: 1;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+/* 🟦 Hover: N1 네온 효과 */
+.c1-icon-btn:hover {
+    background: rgba(73, 220, 225, 0.1); 
+    border-color: #7CFF9B; /* Green Accent on Hover */
+    box-shadow: 0 0 10px rgba(73, 220, 225, 0.6); 
+    transform: translateY(-0.5px);
+    color: #49dce1;
+}
+
+/* 🖱️ Active: 클릭 효과 */
+.c1-icon-btn:active {
+    background: rgba(73, 220, 225, 0.2);
+    transform: translateY(1px) scale(0.96);
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.8);
+    border-color: #49dce1;
+}
+
+/* System Settings Button (A8 Style maintained but refined) */
+.c1-settings-btn {
+    background: #000;
+    border: 1px solid #7CFF9B;
+    color: #7CFF9B;
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: 1px;
+    display: flex; align-items: center; gap: 6px;
+    transition: 0.2s;
+    margin-right: auto;
+}
+.c1-settings-btn:hover {
+    background: rgba(124, 255, 155, 0.1);
+    box-shadow: 0 0 10px rgba(124, 255, 155, 0.3);
+}
+
+.c1-icon-btn.red-glow {
+    background: #000;
+    color: #ff4444; /* Red Text */
+    border: 1px solid #ff4444; /* Red Border */
+    border-radius: 2px;
+    width: 30px; height: 20px;
+    font-size: 0.85rem; line-height: 1;
+    cursor: pointer;
+    display: flex; justify-content: center; align-items: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+.c1-icon-btn.red-glow:hover {
+    background: rgba(255, 68, 68, 0.1); 
+    border-color: #ff8888; /* Lighter Red Accent */
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.6); 
+    transform: translateY(-0.5px);
+    color: #ff8888;
+}
+
+.c1-icon-btn.red-glow:active {
+    background: rgba(255, 68, 68, 0.2);
+    transform: translateY(1px) scale(0.96);
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.8);
+    border-color: #ff4444;
+}
+
+.c1-btn-spacer {
+    width: 30px; /* .c1-icon-btn width */
+    height: 20px;
+    visibility: hidden;
+}
+
+/* 2. Modal Styles (Cyan Theme Zone #49dce1) */
+.c1-modal-overlay {
+    display: none; position: fixed; top: 0; left: 0; 
+    width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9);
+    z-index: 10000; backdrop-filter: blur(2px);
+    justify-content: center; align-items: center;
+}
+
+.c1-modal-window {
+    width: 500px; max-height: 85vh;
+    background: #000;
+    border: 1px solid #49dce1; /* Cyan Border */
+    box-shadow: 0 0 25px rgba(73, 220, 225, 0.15);
+    display: flex; flex-direction: column;
+    padding: 20px;
+}
+
+.c1-modal-header {
+    font-size: 1.1rem; color: #49dce1; 
+    border-bottom: 1px solid #1f5f3a;
+    padding-bottom: 15px; margin-bottom: 20px;
+    text-align: center; letter-spacing: 2px;
+}
+
+.c1-modal-body {
+    flex: 1; overflow-y: auto;
+    padding-right: 5px;
+}
+/* Scrollbar for modal */
+.c1-modal-body::-webkit-scrollbar { width: 4px; }
+.c1-modal-body::-webkit-scrollbar-thumb { background: #49dce1; }
+
+.c1-modal-footer {
+    margin-top: 20px; pt: 15px; border-top: 1px solid #1f5f3a;
+    display: flex; justify-content: space-between;
+}
+
+/* Buttons in Modal */
+.c1-btn-confirm {
+    background: transparent; border: 1px solid #49dce1;
+    color: #49dce1; padding: 6px 20px; cursor: pointer;
+    font-family: inherit; font-weight: bold;
+    transition: 0.2s;
+}
+.c1-btn-confirm:hover { background: #49dce1; color: #000; }
+
+.c1-btn-return {
+    background: transparent; border: none; color: #666;
+    cursor: pointer; font-family: inherit; font-size: 0.8rem;
+}
+.c1-btn-return:hover { color: #aaa; }
+
+/* 3. Form Elements (Append/Edit) */
+.c1-form-row { margin-bottom: 0px; }
+.c1-label { display: block; color: #49dce1; font-size: 0.7rem; margin-bottom: 5px; }
+.c1-input, .c1-select {
+    width: 100%; background: #000; border: 1px solid #1f5f3a;
+    color: #7CFF9B; padding: 6px; font-family: inherit; outline: none;
+}
+.c1-input:focus { border-color: #49dce1; }
+
+/* Tabs for Conjunction */
+.c1-tabs { display: flex; border-bottom: 1px solid #1f5f3a; margin-bottom: 15px; }
+.c1-tab {
+    flex: 1; background: transparent; border: none; color: #555;
+    padding: 8px; cursor: pointer; border-bottom: 2px solid transparent;
+}
+.c1-tab.active { color: #49dce1; border-bottom-color: #49dce1; }
+
+/* Edit List Style */
+.c1-list-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px; border-bottom: 1px solid #222;
+}
+.c1-item-name { color: #eee; }
+.c1-item-type { font-size: 0.7rem; color: #666; margin-left: 8px; }
+.c1-action-btn {
+    background: transparent; border: 1px solid #333; color: #666;
+    padding: 2px 6px; cursor: pointer; margin-left: 5px; font-size: 0.7rem;
+}
+.c1-action-btn:hover { border-color: #49dce1; color: #49dce1; }
+
+/* ─────────────────────────────────────────────────────────────
+   🚀 A8 Style Port for C1 (Presentation Layer)
+   ───────────────────────────────────────────────────────────── */
+
+/* 1. Item Layout (Vertical Stacking) */
+.c1-item-row {
+    display: block; /* 가로 나열 방지 -> 세로 스택 */
+    margin-bottom: 2px;
+    line-height: 1.3;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.c1-item-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* 2. Coloring Logic (A8/Engine Classes) */
+:root {
+    /* 천체 분류별 색상 */
+    --c-planet: #06F8FF;       /* 10행성 */
+    --c-major: #54FF5F;        /* Major Asteroids */
+    --c-node: #C164FF;         /* Lilith & Nodes */
+    --c-fate: #ce93d8;         /* Fates */
+    --c-hermetic: #FC09CA;     /* Hermetic Lots */
+    --c-vertex: #fff59d;       /* Vertex (Yellow) */
+    --c-syzygy: #2B32FF;       /* Syzygy */
+    --c-angle: #1507ED;       /* Angles */
+    --c-cusp: #555555;         /* Cusps  */
+    
+    --h-veil-1:  rgba(255, 51, 0, 0.12);      /* 1H */
+    --h-veil-2:  rgba(255, 102, 0, 0.12);    /* 2H */
+    --h-veil-3:  rgba(255, 124, 128, 0.12);    /* 3H */
+    --h-veil-4:  rgba(255, 102, 153, 0.12);  /* 4H */
+    --h-veil-5:  rgba(255, 102, 204, 0.12);    /* 5H */
+    --h-veil-6:  rgba(255, 102, 255, 0.12);    /* 6H */
+    --h-veil-7:  rgba(204, 153, 255, 0.12);  /* 7H */
+    --h-veil-8:  rgba(153, 153, 255, 0.12);       /* 8H */
+    --h-veil-9:  rgba(102, 153, 255, 0.12);    /* 9H */
+    --h-veil-10: rgba(0, 102, 255, 0.12);         /* 10H */
+    --h-veil-11: rgba(0, 51, 204, 0.12);    /* 11H */
+    --h-veil-12: rgba(0, 51, 153, 0.12);      /* 12H */
+
+    /* 🚀 50 Shades of C1 (User Defined) */
+    --c1-color-0: #FF2602; /* 쨍한 레드 */
+    --c1-color-1: #0AFFEF; /* 쨍한 azure */
+    --c1-color-2: #99FF05; /* 강한 라임 */
+    --c1-color-3: #E814FF; /* 쨍한 pinkish-purple */
+    --c1-color-4: #0ACC05; /* 형광빛 약간 도는 이끼톤 */
+    --c1-color-5: #FF0366; /* 불타는 마젠타 */
+    --c1-color-6: #FF9104; /* 벽돌 주황색 */
+    --c1-color-7: #0755FF; /* 쨍한 파란색 */
+    --c1-color-8: #FDFF08; /* 쨍한 개나리색 */
+    --c1-color-9: #B76EFF; /* 부드러운 퍼플, 그러나 체도는 약간 있는 */
+    --c1-color-10: #544DA1; /* 남회색 */
+    --c1-color-11: #68D4FF; /* baby blue */
+    --c1-color-12: #992314; /* burgundy */
+    --c1-color-13: #FDC1FF; /* 연보라색 */
+    --c1-color-14: #FCB8D6; /* 딸기우유색 */
+    --c1-color-15: #D8FCB6; /* 연한 연두색 */
+    --c1-color-16: #FCF7D6; /* beige? */
+    --c1-color-17: #A8FFF3; /* 푸른 옥색 */
+    --c1-color-18: #04FF6D; /* 약간 체도 있는 에메랄드 */
+    --c1-color-19: #FCA992; /* 연어색 */
+    --c1-color-20: #996635; /* milk chocolate */
+    --c1-color-21: #B2F0AB; /* 옥색 */
+    --c1-color-22: #4A3DB0; /* navy */
+    --c1-color-23: #EDEDED; /* dusty white? */
+    --c1-color-24: #68FFE0; /* 바다색 */
+    --c1-color-25: #FF64C5; /* 채도 있는 분홍 */
+    --c1-color-26: #39B570; /* 어두운 에메랄드색 */
+    --c1-color-27: #E1FDFF; /* light sky blue */
+    --c1-color-28: #F5A831; /* 칙칙한 당근색 */
+    --c1-color-29: #C49D76; /* 쿨 베이지-brown? */
+    --c1-color-30: #B5478C; /* plum */
+    --c1-color-31: #AB88FF; /* 남색 톤 약간 도는 적당히 밝은 보라색 */
+    --c1-color-32: #288559; /* 미역색 */
+    --c1-color-33: #817F26; /* 좀 과하게 익은 올리브색 */
+    --c1-color-34: #1C8EFF; /* 파란색 */
+    --c1-color-35: #F4EEFF; /* 엄청 연한 라일락색 */
+    --c1-color-36: #CC4366; /* 칙칙한 마젠타? */
+    --c1-color-37: #BAD6D6; /* 수체화 물통의 썩은 물색 연한 ver. */
+    --c1-color-38: #795FA3; /* 포도색 */
+    --c1-color-39: #3D83D6; /* 채도 있는 차분한 블루 */
+    --c1-color-40: #A33387; /* 마이구미색 */
+    --c1-color-41: #5D6E24; /* 아보카도 껍데기색 */
+    --c1-color-42: #E8B919; /* 신생아 똥색 */
+    --c1-color-43: #4C616E; /* 수체화 물통의 썩은 물색 진한 ver. */
+    --c1-color-44: #B1BAB5; /* 코끼리색 */
+    --c1-color-45: #A8D6B3; /* 파스텔 미역색 */
+    --c1-color-46: #476DE0; /* 대충 적당한 파란색 */
+    --c1-color-47: #C941FF; /* 쨍한 보라색 */
+    --c1-color-48: #A6FF94; /* 밝은 연두-라임? */
+    --c1-color-49: #3BD0D4; /* 칙칙한 바다색 */
+}
+
+.p-planet { color: var(--c-planet); }
+.p-major { color: var(--c-major); }
+.p-node { color: var(--c-node); font-style: italic; }
+.p-fate { color: var(--c-fate); }
+.p-lot, .lot-hermetic { color: var(--c-hermetic); }
+.p-vertex { color: var(--c-vertex); }
+.p-syzygy { color: var(--c-syzygy); font-weight: bold; }
+.p-angle { color: var(--c-angle); font-weight: 900; text-transform: uppercase; }
+.p-cusp { color: var(--c-cusp); font-size: 0.8em; }
+.p-minor { color: #888; } /* 일반 소행성 *
+
+.bg-house-1  { background-color: var(--h-veil-1) !important; }
+.bg-house-2  { background-color: var(--h-veil-2) !important; }
+.bg-house-3  { background-color: var(--h-veil-3) !important; }
+.bg-house-4  { background-color: var(--h-veil-4) !important; }
+.bg-house-5  { background-color: var(--h-veil-5) !important; }
+.bg-house-6  { background-color: var(--h-veil-6) !important; }
+.bg-house-7  { background-color: var(--h-veil-7) !important; }
+.bg-house-8  { background-color: var(--h-veil-8) !important; }
+.bg-house-9  { background-color: var(--h-veil-9) !important; }
+.bg-house-10 { background-color: var(--h-veil-10) !important; }
+.bg-house-11 { background-color: var(--h-veil-11) !important; }
+.bg-house-12 { background-color: var(--h-veil-12) !important; }
+
+/* Lordship Effects */
+.lord-day { font-weight: 900 !important; }
+.lord-hour { text-shadow: 0 0 5px #C4FFFC, 0 0 10px #C4FFFC !important; }
+
+/* Arabic Lots 컬러 코딩 클래스 */
+.lot-item { cursor: pointer; padding: 2px 4px; border-radius: 2px; }
+.lot-item.red { color: #ff4444; }
+.lot-item.green { color: #49dce1; }
+.lot-item.yellow { color: #ffd700; }
+.lot-item.purple { color: #b388ff; }
+.lot-item.navy { color: #4488ff; }
+.lot-item.blue { color: #80d8ff; }
+.lot-item.black { color: #888; text-decoration: underline; }
+
+/* 4. Fixed Star Styles (A8 Standard) */
+.star-marker { 
+    margin-left: 2px; 
+    font-size: 0.9em; 
+    color: #ffd700; /* 일반 별: Gold */
+    vertical-align: middle;
+    font-weight: normal;
+}
+.star-marker b {
+    color: #ff4444 !important; /* Royal/Spica: Red & Bold */
+    font-weight: 900;
+}
+
+/* 6. Meaning Popup */
+#c1-meaning-popup {
+    position: fixed; z-index: 20000;
+    width: 280px;
+    background: rgba(10, 10, 10, 0.98);
+    border: 1px solid #49dce1;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.9);
+    font-family: sans-serif; font-size: 0.8rem;
+    pointer-events: none;
+}
+.c1-pop-header {
+    background: rgba(73, 220, 225, 0.15);
+    padding: 6px 10px; font-weight: bold; color: #49dce1;
+    border-bottom: 1px solid #333;
+}
+.c1-pop-body { padding: 10px; line-height: 1.4; color: #ddd; }
+
+.clickable-meaning { cursor: help; }
+.clickable-meaning:hover { text-decoration: underline; filter: brightness(1.2); }
+
+/* 🚀 [Sabian Line System]: 사비안 넘버 우측의 시각적 지표 */
+.sabian-line-box {
+    position: absolute;
+    right: 0; 
+    top: 0; 
+    bottom: 0;
+    width: auto;
+    display: flex;
+    flex-direction: row-reverse; /* 오른쪽 끝부터 왼쪽으로 쌓임 */
+    gap: 0px;
+    pointer-events: none;
+}
+
+/* 굵은 줄 (Major Items: Natal, Composite etc.) */
+.s-line-thick {
+    width: 3px;
+    height: 100%;
+    /* 배경색은 JS에서 인라인 스타일로 var(--c1-color-X) 주입 */
+}
+
+/* 얇은 줄 (Minor Items: Asteroids, Arabic Lots) */
+.s-line-thin {
+    width: 2px;
+    background: #2A69B5; /* Fixed Dark Blue/Grey for minors */
+    height: 100%;
+}
+
+/* static/world/citrinitas/modules/c1.css */
+
+/* 🚀 [Fix]: See-through Underline Bug 해결 */
+.n8-table {
+    /* border-collapse: collapse는 sticky 요소와 보더가 겹칠 때 비침 현상을 유발하므로 separate로 변경합니다 */
+    border-collapse: separate !important; 
+    /* 셀 사이의 간격을 0으로 설정하여 시각적으로는 collapse와 동일하게 유지합니다 */
+    border-spacing: 0 !important; 
+}
+
+/* 1. [The Anchor] 좌측 상단 코너 (SABIAN NUMBER 타이틀) */
+.n8-table th.sticky-col {
+    position: sticky;
+    left: 0;
+    top: 0;
+    
+    /* 🚀 최상위 레이어: 다른 헤더(20) 및 데이터(30~50)보다 높은 우선순위 부여 */
+    z-index: 100 !important; 
+    
+    /* 배경색을 불투명한 검은색으로 강제하여 뒤로 지나가는 보더를 완전히 가립니다 */
+    background-color: #000 !important; 
+    
+    /* 기둥의 경계감을 주기 위해 그림자 효과를 우측으로만 적용합니다 */
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.9);
+}
+
+/* 2. [Left Pillar] 좌측 Sabian Number 데이터 셀들 */
+.n8-table td.sticky-col {
+    position: sticky;
+    left: 0;
+    
+    /* 일반 데이터 레이어보다는 위(50), 그러나 코너 헤더(100)보다는 아래 */
+    z-index: 50 !important; 
+    background-color: #000 !important;
+}
+
+/* 3. 일반 컬럼 헤더 (텍스트 및 언더라인) */
+.n8-table th:not(.sticky-col) {
+    /* 스크롤 시 sticky 기둥 아래로 자연스럽게 들어가도록 z-index를 낮게 유지합니다 */
+    z-index: 20; 
+    /* separate 모드에서 보더가 겹치지 않도록 하단 여백을 미세 조정합니다 */
+    padding-bottom: 8px;
+}
+
+/* static/world/citrinitas/modules/c1.css */
+
+/* 🚀 [Effect]: Tabula Loading Overlay (Red & Center Fixed) */
+.c1-loading-overlay {
+    /* absolute -> fixed: 스크롤 상관없이 화면에 고정 */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85); /* 배경 투명도 약간 조절 */
+    
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    
+    z-index: 9999; /* 모달보다 높게 */
+    opacity: 0; 
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(4px);
+    
+    /* 시각적 중심 보정: 텍스트를 물리적 중앙보다 살짝 위로 올림 */
+    padding-bottom: 5vh; 
+}
+
+.c1-loading-overlay.active { 
+    opacity: 1; 
+    pointer-events: all; 
+}
+
+.c1-loading-text {
+    /* 요청하신 붉은색 및 폰트 축소 */
+    color: #ff4444; 
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 1.1rem; /* 1.5rem -> 1.1rem 축소 */
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px rgba(255, 68, 68, 0.4);
+}
+
+/* 점 애니메이션: . -> ....... (붉은색 상속) */
+.c1-loading-dots {
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    vertical-align: bottom;
+    animation: tabulaDots 1.5s infinite steps(7, end);
+    color: inherit; /* 부모 색상 따름 */
+}
+
+@keyframes tabulaDots {
+    0%   { width: 0; }
+    14%  { width: 1ch; }
+    28%  { width: 2ch; }
+    42%  { width: 3ch; }
+    57%  { width: 4ch; }
+    71%  { width: 5ch; }
+    85%  { width: 6ch; }
+    100% { width: 7ch; }
+}

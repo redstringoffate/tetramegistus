@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "ascendant": "B4",
+    "midheaven": "B5",
+    "ayanamsa": "B6"
+  },
+  "lagnas": {
+    "AL": { "info": "B10" },
+    "A2": { "info": "B11" },
+    "A3": { "info": "B12" },
+    "A4": { "info": "B13" },
+    "A5": { "info": "B14" },
+    "A6": { "info": "B15" },
+    "A7": { "info": "B16" },
+    "A8": { "info": "B17" },
+    "A9": { "info": "B18" },
+    "A10": { "info": "B19" },
+    "A11": { "info": "B20" },
+    "UL": { "info": "B21" }
+  }
+}

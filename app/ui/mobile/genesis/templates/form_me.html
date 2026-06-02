@@ -1,0 +1,73 @@
+{% extends "mobile/genesis/templates/base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/mobile/genesis/css/form_me.css?v=22">
+{% endblock %}
+
+{% block content %}
+<div class="void form-void">
+  <h2>Threshold of Arrival</h2>
+  <div class="date-row">
+    <select id="year"></select>
+    <select id="month"></select>
+    <select id="day"></select>
+  </div>
+
+  <h2>Hour of Incarnation</h2>
+  <div class="date-row">
+    <select id="hour"></select>
+    <select id="minute"></select>
+    <select id="second"></select>
+  </div>
+
+  <h2>Point of Emergence</h2>
+  <input id="city-search" type="text" placeholder="Search city (e.g. Seoul)" tabindex="0">
+  <div id="city-results"></div>
+
+  <button type="button" id="manual-toggle">Manual Entry ▾</button>
+
+  <div id="manual-panel">
+    <div class="coord-block">
+      <div class="coord-label">Latitude</div>
+      <div class="coord-row">
+        <div class="sign-group">
+          <div class="sign-btn active" data-target="lat" data-sign="+">+</div>
+          <div class="sign-btn" data-target="lat" data-sign="-">−</div>
+        </div>
+        <input id="lat-int" class="coord-int" type="number" placeholder="00">
+        <span class="coord-dot">.</span>
+        <input id="lat-dec" class="coord-dec" type="number" placeholder="0000">
+      </div>
+    </div>
+
+    <div class="coord-block">
+      <div class="coord-label">Longitude</div>
+      <div class="coord-row">
+        <div class="sign-group">
+          <div class="sign-btn active" data-target="lon" data-sign="+">+</div>
+          <div class="sign-btn" data-target="lon" data-sign="-">−</div>
+        </div>
+        <input id="lon-int" class="coord-int" type="number" placeholder="000">
+        <span class="coord-dot">.</span>
+        <input id="lon-dec" class="coord-dec" type="number" placeholder="0000">
+      </div>
+    </div>
+
+    <div class="coord-block">
+      <div class="coord-label">Timezone</div>
+      <select id="tz-select"></select>
+    </div>
+  </div>
+
+  <button type="button" id="incarnate">Incarnate</button>
+
+  <div id="sign-tooltip" class="stage-tooltip"></div>
+
+  <div id="manifest-overlay" class="hidden-element">
+    <div class="manifest-veil"></div>
+    <div class="manifest-text">the body has manifested</div>
+  </div>
+</div>
+
+<script src="/static/mobile/genesis/js/form_me.js?v=22"></script>
+{% endblock %}

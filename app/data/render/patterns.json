@@ -1,0 +1,38 @@
+{
+    "Grand Trine": {
+        "en": "A triangular pattern formed by three planets approx. 120° apart. Indicates harmonious flow of energy, talent, and stability, but potential passivity.",
+        "ko": "세 행성이 서로 약 120°(트라인)를 이루는 정삼각형 패턴입니다. 에너지의 조화로운 흐름, 타고난 재능, 안정성을 상징하지만, 안주하려는 경향이 있을 수 있습니다."
+    },
+    "T-Square": {
+        "en": "A right-angled triangle formed by two planets in opposition, both squaring a third (apex). Indicates tension, challenge, and dynamic drive for achievement.",
+        "ko": "서로 충(Opposition)을 이루는 두 행성이 제3의 행성(Apex)과 각각 사각(Square)을 이루는 직각삼각형 패턴입니다. 긴장과 도전을 유발하며, 성취를 위한 강력한 동력이 됩니다."
+    },
+    "Grand Cross": {
+        "en": "A square pattern formed by four planets involved in four squares and two oppositions. Represents intense pressure, structural challenges, and great potential for effort.",
+        "ko": "네 행성이 네 개의 사각(Square)과 두 개의 충(Opposition)으로 연결된 정사각형 패턴입니다. 극심한 압박과 구조적 난관을 의미하지만, 이를 극복하려는 엄청난 잠재력을 내포합니다."
+    },
+    "Kite": {
+        "en": "A Grand Trine with a fourth planet forming an opposition to one and sextiles to the others. Provides focus and an outlet for the Grand Trine's energy.",
+        "ko": "그랜드 트라인에 네 번째 행성이 추가되어 연 모양을 이룬 패턴입니다. 네 번째 행성은 그랜드 트라인의 에너지가 방출될 수 있는 출구와 초점을 제공합니다."
+    },
+    "Yod": {
+        "en": "Two planets sextile to each other, both forming a quincunx to a third (apex). Known as the 'Finger of God', indicating fated adjustments and specific destiny.",
+        "ko": "서로 섹스타일인 두 행성이 제3의 행성(Apex)과 각각 150°(Quincunx)를 이루는 패턴입니다. '신의 손가락'이라 불리며, 운명적인 조정과 특별한 소명을 암시합니다."
+    },
+    "Mystic Rectangle": {
+        "en": "A rectangle formed by two oppositions, two sextiles, and two trines. Indicates practical integration of opposing forces and productive harmony.",
+        "ko": "두 개의 충, 두 개의 섹스타일, 두 개의 트라인으로 이루어진 직사각형 패턴입니다. 상반된 힘들을 실용적으로 통합하고 생산적인 조화를 만들어냅니다."
+    },
+    "Cradle": {
+        "en": "A trapezoidal pattern with four planets involving three sextiles, two trines, and one opposition. Represents a vessel of support and protection, allowing talents to develop.",
+        "ko": "네 행성이 세 개의 섹스타일, 두 개의 트라인, 한 개의 충으로 연결된 사다리꼴(요람) 형태입니다. 재능을 보호하고 육성하는 지지적인 구조를 의미합니다."
+    },
+    "Pentagram": {
+        "en": "A rare pattern formed by five planets connected by quintiles (72°). Represents distinct creativity, occult talents, and a unique, possibly genius-like style.",
+        "ko": "다섯 행성이 퀸타일(72°)로 연결된 희귀한 오각형 패턴입니다. 독창적인 창의성, 신비로운 재능, 그리고 천재적인 스타일을 상징합니다."
+    },
+    "Star of David": {
+        "en": "A hexagonal pattern formed by six planets, consisting of two Grand Trines and six Sextiles. Represents perfect balance, exceptional destiny, and immense potential.",
+        "ko": "여섯 행성이 두 개의 그랜드 트라인과 여섯 개의 섹스타일로 연결된 육각형(다윗의 별) 패턴입니다. 완벽한 균형, 비범한 운명, 그리고 거대한 잠재력을 의미합니다."
+    }
+}

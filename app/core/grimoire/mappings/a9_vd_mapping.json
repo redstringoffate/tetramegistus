@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "A2": { "field": "stamper_dav" },
+    "A3": { "field": "stamper_a" },
+    "A4": { "field": "stamper_b" }
+  },
+  "timeline": {
+    "start_row": 45,
+    "columns": {
+      "A": { "data_key": "date", "format": "YYYY-MM-DD" },
+      "B": { "data_key": "a.l1" },
+      "C": { "data_key": "a.l2" },
+      "D": { "data_key": "a.l3" },
+      "E": { "data_key": "dav.l1" },
+      "F": { "data_key": "dav.l2" },
+      "G": { "data_key": "dav.l3" },
+      "H": { "data_key": "b.l1" },
+      "I": { "data_key": "b.l2" },
+      "J": { "data_key": "b.l3" }
+    }
+  }
+}

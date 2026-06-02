@@ -1,0 +1,160 @@
+/* =============================================================
+   🩸 Mobile Rubedo Archive (True Red Theme - PC Sync)
+============================================================= */
+
+/* 🚀 작성자님의 오리지널 PC 배경색(강렬한 레드) 완벽 복구 */
+body {
+    background-color: #e00000 !important; 
+    background-image: none !important;
+}
+
+.m-grimoire-archive-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 10px; 
+    box-sizing: border-box;
+    width: 100%;
+    background: transparent !important; 
+}
+
+/* 🚀 빨간 배경에 맞춰 타이틀과 텍스트를 검은색 계열로 */
+.m-archive-title {
+    font-family: inherit;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #000000; 
+    text-shadow: none;
+    margin-bottom: 40px; 
+    letter-spacing: 4px !important;
+}
+
+.m-archive-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.m-empty-grimoire {
+    color: #333333;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.m-archive-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #990000; /* 어두운 붉은색 구분선 */
+}
+
+.m-archive-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem; 
+    color: #222222;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 🚨 범인이었던 .m-archive-item::before (중복 십자별) 코드 영구 삭제 완료! */
+
+.m-archive-actions {
+    display: flex;
+    gap: 8px; 
+}
+
+/* 🚀 PC 스크린샷에 있던 파란색 아이콘 색상 복구 */
+.m-btn-action {
+    background: transparent;
+    border: 1px solid #0000ff;
+    color: #0000ff;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.m-btn-return {
+    display: inline-block;
+    background: transparent;
+    color: #333333;
+    border: 1px solid #333333;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 4px;
+    -webkit-tap-highlight-color: transparent;
+    margin-bottom: 30px; /* 🚀 푸터 끌어올림 */
+}
+
+.m-btn-return:active {
+    color: #ffe600;
+    border-color: #ffe600;
+    box-shadow: 0 0 10px rgba(179, 136, 255, 0.4), inset 0 0 8px rgba(179, 136, 255, 0.2); 
+}
+
+/* =========================================
+   🚀 [레이아웃 철벽 방어 & 무빙워크 애니메이션]
+========================================= */
+.m-archive-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 양끝 정렬 */
+    width: 100%;
+    overflow: hidden; /* 밖으로 탈출 금지 */
+    box-sizing: border-box;
+}
+
+/* 🚀 텍스트를 가두는 철창 */
+.m-archive-title-wrapper {
+    flex: 1;
+    min-width: 0; /* 🚀 플렉스 자식이 부모 넓이를 무시하고 커지는 것을 막는 절대 마법 */
+    overflow: hidden;
+    margin-right: 15px; /* 우측 버튼들과의 간격 확보 */
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.m-archive-item {
+    display: inline-block;
+    white-space: nowrap; /* 무조건 한 줄로 유지 */
+}
+
+/* 🚀 우측 버튼 구역 보호 */
+.m-archive-actions {
+    flex-shrink: 0; /* 버튼 구역이 밀려나거나 찌그러지는 것을 절대 방어 */
+    display: flex;
+    gap: 5px;
+}
+
+/* 🌟 [추가]: 무빙워크에 타지 않고 가만히 있는 고정 아이콘 */
+.m-archive-icon {
+    flex-shrink: 0; /* 절대 찌그러지지 않음 */
+    color: #ffe600; /* 스크린샷과 동일한 영롱한 노란색 */
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   📺 무빙워크(Marquee) 발동 클래스
+========================================= */
+.marquee-active {
+    /* JS에서 계산한 거리와 시간을 바탕으로 좌우 왕복 애니메이션 실행 */
+    animation: marqueeBounce linear infinite alternate;
+}
+
+@keyframes marqueeBounce {
+    0%, 15% { transform: translateX(0); } /* 처음엔 잠깐 대기해서 읽을 시간 부여 */
+    85%, 100% { transform: translateX(var(--scroll-dist)); } /* 끝까지 밀고 대기 */
+}

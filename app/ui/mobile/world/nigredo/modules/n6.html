@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="/static/mobile/world/nigredo/modules/n6.css?v=5">
+
+<div class="m-n6-container">
+    <h1 class="m-materia-title">DIVISIO</h1>
+
+    <div class="m-anti-switch-module" style="margin-bottom: 15px;">
+        <div class="m-dichotomy-module" onclick="window.toggleN6Mode()">
+            <span class="m-dicho-label active" id="n6-lbl-harmonics">HARMONICS</span>
+            <div class="m-toggle-switch">
+                <div class="m-toggle-knob" id="n6-knob-mode"></div>
+            </div>
+            <span class="m-dicho-label" id="n6-lbl-varga">VARGA</span>
+        </div>
+    </div>
+
+    <div class="m-anti-switch-module" id="n6-dicho-view" style="margin-bottom: 20px;">
+        <div class="m-dichotomy-module" onclick="window.toggleN6View()">
+            <span class="m-dicho-label active" id="n6-lbl-positions">POSITIONS</span>
+            <div class="m-toggle-switch">
+                <div class="m-toggle-knob" id="n6-knob-view"></div>
+            </div>
+            <span class="m-dicho-label" id="n6-lbl-aspects">ASPECTS</span>
+        </div>
+    </div>
+
+    <div id="m-n6-controls-varga" style="display: none;">
+        <nav class="m-connected-tabs m-ayan-tabs" id="n6-ayanamsa-nav-container"></nav>
+        <div class="m-graha-grid-container" id="n6-graha-grid"></div>
+    </div>
+
+    <div id="m-n6-view-container">
+        
+        <div id="m-view-positions" class="m-n6-table-wrapper" style="display: block;">
+            <table class="m-n6-table">
+                <thead>
+                    <tr id="m-n6-thead-positions">
+                        <th class="sticky-corner">CELESTIAL BODIES</th>
+                        </tr>
+                </thead>
+                <tbody id="m-n6-tbody-positions"></tbody>
+            </table>
+        </div>
+
+        <div id="m-view-aspects" style="display: none;">
+            <div class="m-h-keyboard-grid" id="n6-h-btn-grid"></div>
+
+            <div class="m-custom-dropdown" style="margin: 0 10px 15px 10px;">
+                <div class="m-dropdown-selected" id="n6-dd-selected" onclick="window.toggleN6Dropdown()">
+                    SELECT BODY
+                </div>
+                <div class="m-dropdown-list" id="n6-dd-list" style="display:none;"></div>
+            </div>
+
+            <div class="m-n6-aspects-wrapper">
+                <div class="m-aspect-col m-col-narrow">
+                    <div class="m-aspect-header">ASPECTS</div>
+                    <div class="m-aspect-body" id="m-n6-list-aspects"></div>
+                </div>
+                <div class="m-aspect-col">
+                    <div class="m-aspect-header">OBJECTS</div>
+                    <div class="m-aspect-body" id="m-n6-list-objects"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="m-view-varga" class="m-n6-table-wrapper" style="display: none;">
+            <table class="m-n6-table">
+                <thead>
+                    <tr>
+                        <th class="sticky-corner">DIVISION</th>
+                        <th>INFORMATION</th>
+                        <th>NAKSHATRA</th>
+                        <th>PURUSHARTHA</th>
+                    </tr>
+                </thead>
+                <tbody id="m-n6-tbody-varga"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div id="m-n6-toast" class="m-toast-hidden"></div>
+    <div id="fs-popover" class="fs-popover-box"></div>
+</div>
+
+<script src="/static/mobile/world/nigredo/modules/n6.js?v=8"></script>

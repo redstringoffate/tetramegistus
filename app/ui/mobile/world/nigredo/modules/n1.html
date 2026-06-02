@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/static/mobile/world/nigredo/modules/n1.css?v=3">
+
+<div class="m-n1-container">
+    <h2 class="m-materia-title">PRIMA MATERIA</h2>
+
+    <section class="m-materia-section">
+        <label class="m-section-label">ACTIVE SEED</label>
+        <div id="m-seed-trigger" class="m-materia-selector-box">
+            <span id="m-selected-seed-text">Loading Anchor...</span>
+            <span class="m-arrow">▼</span>
+        </div>
+    </section>
+
+    <section class="m-materia-actions">
+        <div class="m-action-row">
+            <span class="m-action-text">Append Seed</span>
+            <button id="m-btn-append" class="m-symbol-btn">+</button>
+        </div>
+        <div class="m-action-row">
+            <span class="m-action-text">Edit Seed</span>
+            <button id="m-btn-edit" class="m-symbol-btn">*</button>
+        </div>
+        <div class="m-action-row">
+            <span class="m-action-text">Extinguish Seed</span>
+            <button id="m-btn-delete" class="m-symbol-btn m-danger">x</button>
+        </div>
+    </section>
+</div>
+
+<div id="m-list-overlay" class="m-modal-overlay m-hidden">
+    <div class="m-bottom-sheet">
+        <div class="m-sheet-header">
+            <span class="m-sheet-title">SELECT ANCHOR</span>
+            <button id="m-list-close" class="m-sheet-close-btn">×</button>
+        </div>
+        
+        <div id="m-seed-list-container" class="m-sheet-list"></div>
+        
+        <div class="m-pagination-control">
+            <button id="m-pg-first" class="m-pg-btn">&lt;&lt;</button>
+            <button id="m-pg-prev" class="m-pg-btn">&lt;</button>
+            <span id="m-pg-info" class="m-pg-info">1 / 1</span>
+            <button id="m-pg-next" class="m-pg-btn">&gt;</button>
+            <button id="m-pg-last" class="m-pg-btn">&gt;&gt;</button>
+        </div>
+    </div>
+</div>
+
+<script src="/static/mobile/world/nigredo/modules/n1.js?v=8"></script>

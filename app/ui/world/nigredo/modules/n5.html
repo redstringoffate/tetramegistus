@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="/static/world/nigredo/modules/n5.css?v=19.4.13">
+
+<div class="n5-schema">
+    
+    <div class="schema-header">
+        <div class="module-title">SCHEMA</div>
+        
+        <div class="dichotomy-wrapper">
+            <span id="label-unus" class="dicho-label active">Unus</span>
+            <div class="toggle-switch" id="schema-mode-toggle" onclick="toggleSchemaMode()">
+                <div class="toggle-knob" id="schema-mode-knob"></div>
+            </div>
+            <span id="label-intersectus" class="dicho-label">Intersectus</span>
+        </div>
+
+        <div class="system-selectors" id="system-selectors" style="display: none; align-items: center; gap: 15px;">
+            <div class="sel-group">
+                <label>System A</label>
+                <select id="sys-a-select" onchange="handleSystemAChange(this.value)">
+                    <option value="default" selected>Select System</option>
+                    <option value="tropical">Tropical</option>
+                    <option value="sidereal">Sidereal</option>
+                    <option value="draconic">Draconic</option>
+                    <option value="ketunic">Ketunic</option>
+                </select>
+            </div>
+            <div class="sel-icon" style="color: #444; margin-top: 18px; font-size: 0.8rem;">✕</div>
+            <div class="sel-group">
+                <label>System B</label>
+                <select id="sys-b-select" onchange="handleSystemBChange(this.value)">
+                    <option value="default" selected>Waiting for System A...</option>
+                </select>
+            </div>
+            <div style="margin-left: 10px; margin-top: 15px;">
+                <button id="schema-enter-btn" class="enter-btn" style="display: block; padding: 6px 18px; background: #000; border: 1px solid #7CFF9B; color: #7CFF9B; cursor: pointer; font-family: inherit; font-weight: bold;" onclick="fetchSchemaData()">ENTER</button>
+            </div>
+        </div>
+    </div>
+
+    <hr class="separator">
+
+    <div class="section-title" style="border-left: none !important; padding-left: 0 !important;">| PATTERNS</div>
+    
+    <div class="patterns-container" id="patterns-scroll-box">
+        <table class="n5-table" id="patterns-table">
+            <thead>
+                <tr>
+                    <th style="width: 150px;">Shape</th> <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th>
+                </tr>
+            </thead>
+            <tbody id="patterns-body">
+                <tr><td colspan="7" class="text-center text-muted" style="padding:40px;">Select Systems and press ENTER</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="spacer-50"></div>
+
+    <div class="section-title" style="border-left: none !important; padding-left: 0 !important;">| ASPECTS</div>
+    
+    <div id="aspect-system-filter-container" style="display: none; margin-bottom: 30px;">
+        <div class="dichotomy-wrapper">
+            <span id="label-filter-a" class="dicho-label active">System A</span>
+            <div class="toggle-switch" id="aspect-filter-toggle" onclick="toggleAspectSystemFilter()">
+                <div class="toggle-knob" id="aspect-filter-knob"></div>
+            </div>
+            <span id="label-filter-b" class="dicho-label">System B</span>
+        </div>
+    </div>
+    
+    <div class="aspect-tabs" id="n5-aspect-tabs">
+        <button class="tab-btn active" data-cat="planets">Planets</button>
+        <button class="tab-btn" data-cat="asteroids">Major Asteroids</button>
+        <button class="tab-btn" data-cat="lilith">Lilith & Nodes</button>
+        <button class="tab-btn" data-cat="fates">Fates</button>
+        <button class="tab-btn" data-cat="hermetic">Hermetic</button>
+    </div>
+
+    <div class="aspect-explorer">
+        <div class="col-box" id="col-bodies">
+            <div class="col-header">Celestial Bodies</div>
+            <div class="col-content" id="list-bodies"></div>
+        </div>
+        <div class="col-box" id="col-aspects">
+            <div class="col-header">Aspects</div>
+            <div class="col-content" id="list-aspects"></div>
+        </div>
+        <div class="col-box" id="col-objects">
+            <div class="col-header">Objects</div>
+            <div class="col-content" id="list-objects">
+                <div class="placeholder-text">Select a body and aspect</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="pattern-tooltip" class="n5-tooltip"></div>
+<script src="/static/world/nigredo/modules/n5.js?v=19.4.13"></script>

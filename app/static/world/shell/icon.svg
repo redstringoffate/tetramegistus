@@ -1,0 +1,36 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- 배경 색상 설정 -->
+  <rect width="100" height="100" fill="black"/>
+  
+  <!-- 원 -->
+  <circle
+    cx="50"
+    cy="50"
+    r="46"
+    fill="none"
+    stroke="#3cff8f" 
+    stroke-width="6"
+  />
+  
+  <!-- 수직선 (T의 기둥) -->
+  <line
+    x1="50"
+    y1="30"
+    x2="50"
+    y2="68"
+    stroke="#3cff8f" 
+    stroke-width="6"
+    stroke-linecap="round"
+  />
+  
+  <!-- 상단 횡선 (T의 캡) -->
+  <line
+    x1="38"
+    y1="30"
+    x2="62"
+    y2="30"
+    stroke="#3cff8f" 
+    stroke-width="6"
+    stroke-linecap="round"
+  />
+</svg>

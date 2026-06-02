@@ -1,0 +1,32 @@
+{% extends "mobile/world/shell/base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/mobile/world/nigredo/css/nigredo.css?v=12">
+{% endblock %}
+
+{% block content %}
+{% if not active_module %}
+<div class="m-stage-header">
+    <h1>NIGREDO</h1>
+    <p class="m-stage-desc">The world begins in Nigredo.</p>
+</div>
+{% endif %}
+
+{% if active_module %}
+<div class="m-module-content">
+    {% include "mobile/world/nigredo/modules/" + active_module + ".html" ignore missing with context %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block sidebar %}
+<div class="m-module-menu">
+    {% for module in modules %}
+    <div class="m-mod-item-wrapper">
+        <a href="?module={{ module.id }}" class="m-mod-item {{ 'active' if active_module == module.id else 'inactive' }}" data-mod-id="{{ module.id }}">
+            <span class="m-mod-id">{{ module.id | upper }}</span><span class="m-mod-title">{{ module.title }}</span>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

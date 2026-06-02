@@ -1,0 +1,96 @@
+/* static/mobile/world/citrinitas/modules/c1_add_conjunction.css */
+
+.m-c1-form-container {
+    width: 100%; display: flex; flex-direction: column; gap: 20px;
+    padding: 10px 5px; box-sizing: border-box; font-family: 'Consolas', monospace;
+}
+.m-c1-form-container * { box-sizing: border-box; }
+
+/* 🚀 Person Switch Tabs */
+.m-person-tabs {
+    display: flex; border: 1px solid #49dce1; border-radius: 4px;
+    overflow: hidden; margin-bottom: 5px; background: #000;
+}
+.m-p-tab {
+    flex: 1; padding: 10px 0; text-align: center; font-size: 0.75rem;
+    color: #49dce1; font-weight: bold; transition: 0.2s; cursor: pointer;
+}
+.m-p-tab.active { background: #49dce1; color: #000; font-weight: 900; }
+.m-person-tabs .m-p-tab:first-child { border-right: 1px solid rgba(73, 220, 225, 0.3); }
+
+.m-form-item { display: flex; flex-direction: column; gap: 8px; position: relative; }
+.m-form-label { font-size: 0.7rem; color: #49dce1; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
+
+.m-form-input {
+    background: #000; border: 1px solid #333; color: #49dce1;
+    padding: 12px; font-size: 0.85rem; font-family: inherit; border-radius: 4px; outline: none;
+    transition: 0.2s; -webkit-appearance: none; appearance: none;
+}
+.m-form-input:focus { border-color: #49dce1; }
+
+.m-form-select {
+    background: #000; border: 1px solid #333; color: #49dce1;
+    padding: 12px; font-size: 0.85rem; font-family: inherit; border-radius: 4px; outline: none;
+    transition: 0.2s; -webkit-appearance: none; appearance: none;
+    text-align: center; text-align-last: center;
+}
+.m-form-select:focus { border-color: #49dce1; }
+
+.m-form-row.triplet { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.m-form-select.full { width: 100%; }
+
+/* 🚀 Timezone 좌측 정렬 */
+#m-c1-conj-tz { text-align: left !important; text-align-last: left !important; }
+
+.m-unknown-check { display: flex; align-items: center; gap: 8px; margin-top: 5px; }
+.m-unknown-check label { font-size: 0.75rem; color: #888; font-weight: bold; cursor: pointer; }
+
+input[type="checkbox"] { 
+    -webkit-appearance: none; appearance: none;
+    width: 18px; height: 18px; 
+    background: transparent; 
+    border: 1px solid #49dce1; 
+    border-radius: 2px; 
+    cursor: pointer; 
+    position: relative;
+    outline: none;
+}
+input[type="checkbox"]:checked { background: #49dce1; }
+input[type="checkbox"]:checked::after {
+    content: ''; position: absolute; left: 5px; top: 2px;
+    width: 4px; height: 8px; border: solid #000;
+    border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+
+.m-search-results {
+    position: absolute; top: 62px; left: 0; width: 100%; z-index: 100;
+    background: #050505; border: 1px solid #49dce1; border-radius: 4px;
+    max-height: 200px; overflow-y: auto; display: none; box-shadow: 0 5px 15px rgba(0,0,0,0.9);
+}
+.m-city-item { padding: 12px 10px; font-size: 0.8rem; border-bottom: 1px solid #1a1a1a; color: #ccc; cursor: pointer; transition: 0.2s; }
+.m-city-item:last-child { border-bottom: none; }
+.m-city-item:active { background: #111; color: #49dce1; }
+
+/* 🚀 Manual Entry 완벽한 좌측 정렬 강제 */
+.m-manual-trigger { 
+    font-size: 0.75rem; color: #666; margin-top: 5px; cursor: pointer; 
+    text-align: left; margin-right: auto; margin-left: 0; align-self: flex-start; 
+    width: fit-content; transition: 0.2s; font-weight: bold; 
+}
+.m-manual-trigger:active { color: #49dce1; }
+
+.m-manual-area {
+    margin-top: 10px; padding: 15px; background: #030303;
+    border: 1px dashed #333; border-radius: 4px; display: flex; flex-direction: column; gap: 15px;
+}
+.m-coord-group { display: flex; flex-direction: column; gap: 6px; }
+.m-coord-title { font-size: 0.65rem; color: #666; font-weight: bold; }
+.m-coord-input-row { display: flex; align-items: center; gap: 8px; }
+
+.m-sign-toggle { display: flex; border: 1px solid #333; border-radius: 4px; overflow: hidden; background: #000; }
+.m-sign-btn { padding: 8px 14px; font-size: 0.8rem; color: #555; font-weight: bold; transition: 0.2s; cursor: pointer; }
+.m-sign-btn.active { color: #000; background: #49dce1; }
+
+.m-coord-int { width: 60px; text-align: center; background: #000; border: 1px solid #333; color: #49dce1; padding: 10px; border-radius: 4px; }
+.m-coord-dec { width: 80px; text-align: center; background: #000; border: 1px solid #333; color: #49dce1; padding: 10px; border-radius: 4px; }
+.m-coord-dot { color: #555; font-weight: bold; }

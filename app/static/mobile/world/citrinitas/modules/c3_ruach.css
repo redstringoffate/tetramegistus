@@ -1,0 +1,188 @@
+/* static/mobile/world/citrinitas/modules/c3_ruach.css */
+
+.m-c1-app-container {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    color: #fff;
+    width: 100%;
+}
+
+/* 🎬 씬 컨테이너 (상하 분할 레이아웃) */
+.m-scn-scene {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: #000;
+    overflow: hidden;
+}
+
+/* 🖼️ 상단: 이미지 영역 (가로 모바일 비율 유지) */
+.m-scn-visual-area {
+    position: relative;
+    width: 100%;
+    height: 220px; 
+    border-bottom: 1px solid #222;
+    overflow: hidden;
+}
+
+.m-scn-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover !important; 
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    opacity: 0;
+    transform: scale(1.1); 
+    transform-origin: center center;
+    transition: opacity 2s ease-out, filter 2s ease-out, transform 3s ease-in-out;
+}
+
+.m-scn-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0); 
+    transition: background 1.5s ease-in-out;
+    z-index: 5;
+}
+
+/* 애니메이션 트리거 */
+.m-scn-scene.revealed .m-scn-bg { opacity: 0.85; }
+.m-scn-scene.veiled .m-scn-overlay { background: rgba(0, 0, 0, 0.4); } 
+.m-scn-scene.veiled .m-scn-content { opacity: 1; }
+
+/* 📝 하단: 텍스트 및 선택지 영역 */
+.m-scn-content {
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    min-height: 250px;
+}
+
+.m-scene-narrative {
+    flex-grow: 1;
+    font-size: 0.9rem !important; 
+    font-style: italic; 
+    line-height: 1.6;
+    color: #cce7e8 !important;
+    text-align: center;
+    margin: 0 0 25px 0 !important;
+}
+
+/* 선택지 버튼 그리드 */
+.m-c1-options-grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    width: 100%; 
+}
+
+.m-c1-option-card {
+    border: 1px solid #333;
+    background: #050505;
+    padding: 15px;
+    color: #aaa;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: center;
+    border-radius: 4px;
+    transition: 0.15s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.m-c1-option-card:active {
+    border-color: #7CFF9B; 
+    background: #7CFF9B;
+    color: #000;
+    font-weight: bold;
+}
+
+.m-cyber-btn {
+    background-color: #000 !important; 
+    color: #fff !important; 
+    border: 1px solid #7CFF9B !important; 
+    padding: 12px; 
+    font-family: inherit;
+    font-size: 0.9rem; 
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px; 
+    width: 100%;
+    transition: 0.1s;
+}
+.m-cyber-btn:active {
+    border-color: #49dce1 !important; 
+    background: #49dce1 !important;
+    color: #000 !important;
+}
+
+.m-ruach-intro-text {
+    display: block;
+    font-size: 0.85rem;
+    font-style: italic; 
+    color: #888; 
+    text-align: center;
+    padding: 30px 10px;
+    letter-spacing: 2px;
+}
+.m-ruach-intro-text:active { color: #fff; text-shadow: 0 0 8px #7CFF9B; }
+
+/* 🔮 최종 결과 렌더링 영역 */
+.m-ritual-result-container {
+    padding: 30px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.m-c3-final-rune-title {
+    color: #7CFF9B; 
+    font-size: 1.8rem; 
+    letter-spacing: 4px; 
+    text-transform: uppercase; 
+    font-weight: bold; 
+    margin: 0 0 10px 0;
+}
+
+.m-c3-rune-stone {
+    position: relative;
+    width: 110px;
+    height: 150px;
+    margin: 10px 0 20px 0; 
+    background: #000; 
+    border-radius: 42% 58% 40% 60% / 55% 45% 60% 40%; 
+    border: 2px solid #49dce1; 
+    box-shadow: 0 0 10px rgba(73, 220, 225, 0.4), inset 0 0 10px rgba(73, 220, 225, 0.2); 
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+
+.m-c3-rune-glyph {
+    font-family: "Segoe UI Symbol", "Apple Symbols", "Arial Unicode MS", sans-serif;
+    font-size: 60px;
+    color: #7CFF9B;
+    font-weight: normal;
+    text-shadow: 0 0 10px #7CFF9B, 0 0 20px #7CFF9B;
+}
+
+.m-c3-rune-interpretation-panel {
+    text-align: left;
+    padding: 20px;
+    background: #050505; 
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin-bottom: 25px; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.m-c3-rune-interpretation-panel p {
+    font-size: 0.85rem;
+    color: #ddd !important; 
+    line-height: 1.6;
+    margin-bottom: 12px;
+    font-style: italic; 
+}
+.m-c3-rune-interpretation-panel p:last-child { margin-bottom: 0; }

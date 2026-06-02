@@ -1,0 +1,5332 @@
+{
+  "title": {
+    "en": "[ חיה ] CHAYAH : The Oracle of Stars",
+    "ko": "[ חיה ] CHAYAH : The Oracle of Stars"
+  },
+  "system_messages": {
+    "instruction_subconscious": {
+      "en": "Read the narrative and choose the sensation that immediately draws you in.",
+      "ko": "머리로 생각하지 말고, 본능적으로 끌리거나 가장 강렬하게 다가오는 감각을 선택해 주세요."
+    }
+  },
+  "subconscious_questions": {
+    "blank_black": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          " "
+        ],
+        "ko": [
+          " "
+        ]
+      }
+    },
+    "blank_white": {
+      "bg_image": "white",
+      "narrative": {
+        "en": [
+          " "
+        ],
+        "ko": [
+          " "
+        ]
+      }
+    },
+    "intro_0": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "…claimed by what descends."
+        ],
+        "ko": [
+          "…하강 아래에서."
+        ]
+      }
+    },
+    "intro_1": {
+      "bg_image": "intro_1.png",
+      "narrative": {
+        "en": [
+          "Light spills everywhere.",
+          " ",
+          "The ceiling stretches so high it disappears from sight,",
+          "layer upon layer of chandeliers suspended in the air.",
+          "The sharp clink of glass,",
+          "overlapping laughter,",
+          "music that never quite fades.",
+          " ",
+          "People keep arriving,",
+          "keep lingering,",
+          "keep talking.",
+          " ",
+          "This place is, at this very moment,",
+          "perfectly alive.",
+          " ",
+          "At its center—",
+          "you stand."
+        ],
+        "ko": [
+          "빛이 넘쳐난다.",
+          " ",
+          "천장은 보이지 않을 정도로 높고,",
+          "수백 개의 샹들리에가 겹겹이 매달려 있다.",
+          "유리잔이 부딪히는 소리와,",
+          "겹쳐지는 웃음,",
+          "끊이지 않는 음악.",
+          " ",
+          "사람들은 계속 들어오고,",
+          "계속 머물고,",
+          "계속 떠들고 있다.",
+          " ",
+          "이곳은 지금,",
+          "완벽하게 살아 있다.",
+          " ",
+          "그 중심에, 당신이 있다."
+        ]
+      }
+    },
+    "intro_2": {
+      "bg_image": "intro_1.png",
+      "narrative": {
+        "en": [
+          "Tonight’s banquet exists for you.",
+          "No one here would deny it.",
+          " ",
+          "Your name is spoken.",
+          "People approach.",
+          "Glasses are filled again, and again.",
+          " ",
+          "Celebration. Recognition.",
+          "And glances that aren’t even trying to hide themselves.",
+          " ",
+          "You’ve done enough to stand here.",
+          "That’s why this is natural.",
+          " ",
+          "It has to be."
+        ],
+        "ko": [
+          "오늘의 연회는 당신을 위한 자리다.",
+          "누구도 그 사실을 부정하지 않는다.",
+          " ",
+          "당신의 이름이 불리고, 사람들이 다가오고,",
+          "잔이 계속 채워진다.",
+          " ",
+          "축하와 인정,",
+          "그리고 숨기지 못한 시선들까지.",
+          " ",
+          "당신은 이 자리에 오기까지 충분히 많은 것을 해냈다.",
+          " ",
+          "그래서 이건 자연스럽다.",
+          "그래야만 한다."
+        ]
+      }
+    },
+    "intro_3": {
+      "bg_image": "intro_1.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "You smile,",
+          "nod,",
+          "offer the right words at the right time.",
+          " ",
+          "Everything flows smoothly.",
+          " ",
+          "Too smoothly."
+        ],
+        "ko": [
+          "당신은 웃고,",
+          "고개를 끄덕이며 적당한 말을 건넨다.",
+          " ",
+          "모든 것이 매끄럽다.",
+          " ",
+          "지나치게."
+        ]
+      }
+    },
+    "intro_4": {
+      "bg_image": "intro_2.png",
+      "narrative": {
+        "en": [
+          "Then—",
+          "something slips in.",
+          " ",
+          "A strange sensation.",
+          " ",
+          "As if this moment,",
+          "perfect as it is,",
+          "is somehow… hollow.",
+          " ",
+          "Nothing is wrong.",
+          " ",
+          "And yet—",
+          "you’re not sure this is right, either."
+        ],
+        "ko": [
+          "문득,",
+          "이상한 감각이 스친다.",
+          " ",
+          "지금 이 순간이 어딘가 비어 있다는 느낌.",
+          " ",
+          "무언가가 잘못된 건 아니다.",
+          " ",
+          "그런데,",
+          "이게 맞는지도 잘 모르겠다."
+        ]
+      }
+    },
+    "intro_5": {
+      "bg_image": "intro_2.png",
+      "narrative": {
+        "en": [
+          "You pause.",
+          "Then, without effort, you step away.",
+          " ",
+          "Just before the door closes,",
+          "you glance back.",
+          " ",
+          "The laughter continues.",
+          "Glasses collide.",
+          "Bodies move, uninterrupted.",
+          " ",
+          "Even without you, nothing changes.",
+          " ",
+          "The banquet does not falter.",
+          "Not even slightly.",
+          " ",
+          "As if it never needed you at all."
+        ],
+        "ko": [
+          "당신은 잠시 말을 멈춘다.",
+          "그리고, 자연스럽게 자리를 빠져나온다.",
+          " ",
+          "문이 닫히기 직전, 잠깐 뒤를 돌아본다.",
+          " ",
+          "여전히 웃음이 이어지고,",
+          "잔이 부딪히고,",
+          "사람들은 계속 움직이고 있다.",
+          " ",
+          "당신이 없는데도,",
+          "아무것도 달라지지 않는다.",
+          " ",
+          "연회는,",
+          "조금도 흐트러지지 않는다.",
+          " ",
+          "마치 처음부터 당신이 없어도 괜찮았던 것처럼."
+        ]
+      }
+    },
+    "intro_6": {
+      "bg_image": "intro_3.png",
+      "narrative": {
+        "en": [
+          "You leave.",
+          " ",
+          "The door shuts.",
+          "The noise cuts off."
+        ],
+        "ko": [
+          "당신은 조용히 자리를 빠져나온다.",
+          "문을 닫는 순간, 소음이 끊긴다."
+        ]
+      }
+    },
+    "intro_7": {
+      "bg_image": "intro_4.png",
+      "narrative": {
+        "en": [
+          "No one is on the terrace.",
+          " ",
+          "Night air seeps in.",
+          " ",
+          "You pick up a glass left on the table."
+        ],
+        "ko": [
+          "테라스에는 아무도 없다.",
+          "밤 공기가 스며든다.",
+          " ",
+          "테이블 위에 놓인 잔을 하나 집어 든다."
+        ]
+      }
+    },
+    "intro_8": {
+      "bg_image": "intro_5.png",
+      "narrative": {
+        "en": [
+          "It’s the same wine.",
+          "But somehow it doesn’t feel the same.",
+          " ",
+          "A sip.",
+          "Then another.",
+          " ",
+          "Strangely—",
+          "this is clearer.",
+          " ",
+          "You sit.",
+          "And without thinking, you drink."
+        ],
+        "ko": [
+          "같은 와인이다.",
+          "하지만, 아까와는 다르다.",
+          " ",
+          "한 모금.",
+          "그리고 또 한 모금.",
+          " ",
+          "이상하게도, 이쪽이 더 선명하다.",
+          " ",
+          "당신은 앉는다.",
+          "아무 생각 없이, 그저 마신다."
+        ]
+      }
+    },
+    "intro_9": {
+      "bg_image": "intro_6.png",
+      "narrative": {
+        "en": [
+          "Time passes.",
+          "You don’t know how much.",
+          "Your breath tightens, just slightly.",
+          " ",
+          "You look up.",
+          "The stars shine radiantly.",
+          " ",
+          "One of them—",
+          "catches your eyes.",
+          " ",
+          "You don’t look away.",
+          "And, you watch it."
+        ],
+        "ko": [
+          "시간이 얼마나 지났는지 모른다.",
+          "숨이 약간 막히는 걸 느끼며 당신은 고개를 든다.",
+          " ",
+          "하늘이 있다.",
+          "별들이 빛난다.",
+          " ",
+          "그중 하나가,",
+          "이상하게 눈에 걸린다.",
+          " ",
+          "당신은 시선을 떼지 않는다.",
+          "그리고, 그것을 본다."
+        ]
+      }
+    },
+    "intro_10": {
+      "bg_image": "intro_7.png",
+      "narrative": {
+        "en": [
+          "Cold.",
+          "There’s water beneath your feet.",
+          " ",
+          "You know this place.",
+          "A shallow pool.",
+          " ",
+          "Faint, familiar.",
+          "Somewhere you’ve been before.",
+          " ",
+          "But this time—",
+          "you find the light first."
+        ],
+        "ko": [
+          "그 순간—",
+          " ",
+          "발 아래에 물이 있다.",
+          " ",
+          "차갑다.",
+          "익숙하다.",
+          " ",
+          "희미한 웅덩이.",
+          " ",
+          "예전에,",
+          "한 번 와본 적 있는 것 같은.",
+          " ",
+          "하지만 이번에는—",
+          "당신이 먼저 빛을 찾는다."
+        ]
+      }
+    },
+    "intro_11": {
+      "bg_image": "intro_8.png",
+      "narrative": {
+        "en": [
+          "The light shines far away, almost too faint to exist.",
+          " ",
+          "You don’t move.",
+          "You just watch it."
+        ],
+        "ko": [
+          "멀리, 거의 보이지 않을 정도로 희미한 빛.",
+          " ",
+          "당신은 움직이지 않는다.",
+          "그저 그것을 응시한다."
+        ]
+      }
+    },
+    "intro_12": {
+      "bg_image": "intro_9.png",
+      "narrative": {
+        "en": [
+          "…",
+          " ",
+          "The space shifts.",
+          " ",
+          "“…Traveler.”",
+          "No voice, yet it reaches you.",
+          " ",
+          "“You have already gained much.”",
+          " ",
+          "Nothing follows.",
+          " ",
+          "And yet—",
+          "you know there is no turning back."
+        ],
+        "ko": [
+          "…",
+          " ",
+          "공간이 어긋난다.",
+          " ",
+          "“…여행자여.”",
+          " ",
+          "목소리는 없다.",
+          "그러나, 분명히 닿는다.",
+          " ",
+          "“너는 이미 많은 것을 얻었다.”",
+          " ",
+          "말은 이어지지 않는다.",
+          " ",
+          "그럼에도—",
+          "되돌릴 수 없는 지점에 와 있다는 것을 당신은 안다."
+        ]
+      }
+    },
+    "intro_13": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "…",
+          " ",
+          "The light trembles.",
+          " ",
+          "Then—",
+          " ",
+          "it goes out."
+        ],
+        "ko": [
+          "…",
+          " ",
+          "빛이 흔들린다.",
+          " ",
+          "그리고—",
+          " ",
+          "꺼진다."
+        ]
+      }
+    },
+    "aldebaran_1": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "The light is gone.",
+          " ",
+          "Nothing remains.",
+          "No shape, no direction, no memory.",
+          " ",
+          "You stand.",
+          " ",
+          "You do not know when this began,",
+          "or why you are here.",
+          " ",
+          "Nothing follows.",
+          "Something was there—",
+          "but it does not hold."
+        ],
+        "ko": [
+          "빛이 사라진다.",
+          " ",
+          "남아 있는 것은 없다.",
+          "형태도, 방향도, 기억도.",
+          " ",
+          "당신은 서 있다.",
+          "언제부터였는지도, 왜 여기 있는지도 알 수 없다.",
+          "이어지지 않는다.",
+          "무언가 있었던 것 같지만, 붙잡히지 않는다."
+        ]
+      }
+    },
+    "aldebaran_2": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "And yet—",
+          " ",
+          "something remains.",
+          " ",
+          "Something that should have ended,",
+          "but did not.",
+          " ",
+          "It has no name.",
+          "No reason.",
+          " ",
+          "You left something behind."
+        ],
+        "ko": [
+          "그런데도—",
+          "남아 있는 것이 있다.",
+          " ",
+          "이미 끝났어야 할 어떤 것.",
+          "그러나 끝나지 않은 채 남아 있다.",
+          " ",
+          "무엇인지 모른다.",
+          "이름도, 이유도 없다.",
+          " ",
+          "무언가를 놓고 왔다."
+        ]
+      }
+    },
+    "aldebaran_3": {
+      "bg_image": "aldebaran_1.png",
+      "narrative": {
+        "en": [
+          "Was it never done,",
+          "never completed,",
+          "or already carried through—",
+          " ",
+          "you cannot tell.",
+          " ",
+          "But the trace remains.",
+          " ",
+          "It does not fade.",
+          "It does not leave.",
+          " ",
+          "It rises, quietly.",
+          " ",
+          "There is no avoiding it."
+        ],
+        "ko": [
+          "하지 않은 것인지,",
+          "하지 못한 것인지,",
+          "이미 해버린 것인지—",
+          " ",
+          "구분할 수 없다.",
+          "하지만 그 감각은 남아 있다.",
+          " ",
+          "사라지지 않는다.",
+          "지워지지 않는다.",
+          "조용히 올라온다.",
+          " ",
+          "피할 수 없다."
+        ]
+      }
+    },
+    "q_hamal_ketu": {
+      "bg_image": "aldebaran_1.png",
+      "narrative": {
+        "en": [
+          "…It is—"
+        ],
+        "ko": [
+          "…그것은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "already cut away—yet never fully gone",
+          "ko": "이미 끊어냈는데도, 끝까지 떨어져 나가지 않은 것"
+        },
+        "opt2": {
+          "en": "something that sinks deeper the more you try to let it go, settling inside",
+          "ko": "놓으려 할수록 더 깊이 스며들어, 안쪽에서 자리를 잡은 것"
+        },
+        "opt3": {
+          "en": "at the edge of stopping—yet never stopping, carried forward",
+          "ko": "멈추기 직전까지 갔는데도, 끝내 멈추지 않고 밀려나간 것"
+        },
+        "opt4": {
+          "en": "beginning before reason, pushing in that direction",
+          "ko": "이유보다 먼저 시작되어, 그 방향으로 계속 밀어넣는 것"
+        },
+        "opt5": {
+          "en": "something you cannot clearly name—yet blurring your sight, holding you in place",
+          "ko": "무엇인지 확실하지 않은데도, 시선을 흐리며 붙잡는 것",
+          "is_minus": true
+        }
+      }
+    },
+    "aldebaran_4": {
+      "bg_image": "aldebaran_1.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "Something locks into place.",
+          " ",
+          "What had been cut off—",
+          "threads back together,",
+          "just barely.",
+          " ",
+          "…Ah.",
+          " ",
+          "It wasn’t something left behind—",
+          "you were the one holding it."
+        ],
+        "ko": [
+          "무언가가 맞물린다.",
+          "끊겨 있던 감각이, 아주 미세하게 이어진다.",
+          " ",
+          "…아,",
+          " ",
+          "남아 있는 것이 아니라—",
+          "붙잡고 있었던 것이다."
+        ]
+      }
+    },
+    "aldebaran_5": {
+      "bg_image": "aldebaran_2.png",
+      "narrative": {
+        "en": [
+          "It doesn’t come loose.",
+          "It’s already inside.",
+          " ",
+          "You thought you had let go—",
+          "but it’s still there.",
+          " ",
+          "You—",
+          " ",
+          "had loved it."
+        ],
+        "ko": [
+          "빠져나가지 않는다.",
+          "이미 안쪽에 들어와 있다.",
+          " ",
+          "손을 놓았다고 생각했는데—",
+          "아직도 남아 있다.",
+          " ",
+          "당신은 그것을—",
+          " ",
+          "사랑했었다."
+        ]
+      }
+    },
+    "q_sheratan_venus": {
+      "bg_image": "aldebaran_2.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "…It is—"
+        ],
+        "ko": [
+          "그것은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "already inside—no matter how hard you push, it does not come out",
+          "ko": "이미 안으로 들어와, 아무리 밀어내도 빠져나가지 않는 것"
+        },
+        "opt2": {
+          "en": "cut away—yet never returning, still remaining",
+          "ko": "끊어낸 줄 알았는데, 돌아오지 않는 채로 남아 있는 것"
+        },
+        "opt3": {
+          "en": "driven all the way through—yet still in motion, not coming to rest",
+          "ko": "끝까지 밀어붙였고, 아직도 움직임이 멈추지 않는 것"
+        },
+        "opt4": {
+          "en": "even in stillness—drawn inward, the center shifts",
+          "ko": "가만히 있어도 계속 안쪽으로 끌어당기며, 중심을 바꾸는 것"
+        },
+        "opt5": {
+          "en": "no clear form—yet still held, without knowing why",
+          "ko": "형태도 불분명한데, 왜 붙잡고 있는지 끝내 알 수 없는 것",
+          "is_minus": true
+        }
+      }
+    },
+    "aldebaran_6": {
+      "bg_image": "aldebaran_3.png",
+      "narrative": {
+        "en": [
+          "What you had been holding—",
+          "comes into focus.",
+          " ",
+          "It did not flow in.",
+          " ",
+          "You—",
+          "were the one holding it.",
+          " ",
+          "…",
+          " ",
+          "You—",
+          "could only have stood there.",
+          " ",
+          "In that light—",
+          "I was already there,"
+        ],
+        "ko": [
+          "붙잡고 있던 것이 선명해진다.",
+          " ",
+          "흘러든 것이 아니다.",
+          "당신이—",
+          "쥐고 있었던 것이다.",
+          " ",
+          "…그래.",
+          " ",
+          "당신은—",
+          "그 자리에 설 수밖에 없었던 존재였다.",
+          " ",
+          "나는—",
+          "그렇게 빛나고 있었지."
+        ]
+      }
+    },
+    "q_pleiades_sun": {
+      "bg_image": "aldebaran_3.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "At that moment, you were—"
+        ],
+        "ko": [
+          "그때의 당신은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "splitting what had been layered together, standing only with what remained",
+          "ko": "겹쳐 있던 것들을 스스로 갈라내고, 남은 것만으로 서 있었다"
+        },
+        "opt2": {
+          "en": "cutting away what you had held, standing only with what was left",
+          "ko": "붙잡고 있던 것을 끝내 끊어내고, 남은 것만으로 서 있었다"
+        },
+        "opt3": {
+          "en": "already in motion, driving forward, never coming to a stop",
+          "ko": "이미 움직이기 시작했고, 멈추지 않은 채 끝까지 밀고 나가고 있었다"
+        },
+        "opt4": {
+          "en": "already at the center before reason, everything drawing toward it",
+          "ko": "이유보다 먼저 중심에 서 있었고, 모든 것이 그쪽으로 끌려오고 있었다"
+        },
+        "opt5": {
+          "en": "clearly shining—yet what it was never fully remained",
+          "ko": "분명 빛나고 있었는데, 무엇이었는지는 또렷하게 남아 있지 않았다",
+          "is_minus": true
+        }
+      }
+    },
+    "aldebaran_7": {
+      "bg_image": "aldebaran_4.png",
+      "narrative": {
+        "en": [
+          "In that instant—",
+          " ",
+          "a sharp rupture.",
+          " ",
+          "Light tears through—",
+          "a sudden flash,",
+          " ",
+          "and everything drops into black.",
+          " ",
+          "Nothing remains in sight."
+        ],
+        "ko": [
+          "그 순간—",
+          " ",
+          "굉음이 터진다.",
+          "빛이 찢어지듯 번쩍이고, 주변이 단번에 칠흑으로 꺼진다.",
+          "아무것도 보이지 않는다."
+        ]
+      }
+    },
+    "aldebaran_8": {
+      "bg_image": "aldebaran_5.png",
+      "narrative": {
+        "en": [
+          "After a moment—",
+          " ",
+          "you open your eyes.",
+          " ",
+          "Dark.",
+          " ",
+          "A corridor of stone.",
+          "Dim light flickers along the walls.",
+          " ",
+          "Cold air.",
+          " ",
+          "You stand there."
+        ],
+        "ko": [
+          "잠시 뒤, 당신은 눈을 뜬다.",
+          " ",
+          "어둡다.",
+          " ",
+          "돌로 된 복도. ",
+          "벽을 따라 걸린 불빛이 희미하게 흔들린다.",
+          " ",
+          "차가운 공기 속에서, 당신은 그 자리에 서 있다."
+        ]
+      }
+    },
+    "aldebaran_9": {
+      "bg_image": "aldebaran_5.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "You move forward, slowly.",
+          " ",
+          "After only a few steps—",
+          " ",
+          "a small jolt.",
+          " ",
+          "Something catches at your foot."
+        ],
+        "ko": [
+          "당신은 천천히 앞으로 나아간다.",
+          " ",
+          "몇 걸음 옮기지 않았을 때—",
+          " ",
+          "툭,",
+          " ",
+          "발끝에 무언가가 걸린다."
+        ]
+      }
+    },
+    "aldebaran_10": {
+      "bg_image": "aldebaran_6.png",
+      "narrative": {
+        "en": [
+          "There, on the ground—a falcon.",
+          " ",
+          "Its wing broken,",
+          "laid against the stone.",
+          " ",
+          "It does not move.",
+          " ",
+          "It is dead."
+        ],
+        "ko": [
+          "그곳에, 새 한 마리가 있다.",
+          " ",
+          "아름다운 매.",
+          " ",
+          "날개가 꺾인 채, 바닥에 놓여 있다.",
+          "움직이지 않는다.",
+          " ",
+          "죽어 있다."
+        ]
+      }
+    },
+    "aldebaran_11": {
+      "bg_image": "aldebaran_7.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "At once—",
+          "your chest tightens.",
+          " ",
+          "No reason.",
+          "And yet, anger rises.",
+          " ",
+          "You never held it back,",
+          " ",
+          "and yet—",
+          "as if it had already been there."
+        ],
+        "ko": [
+          "순간, 가슴이 조여든다.",
+          " ",
+          "이유는 없다.",
+          " ",
+          "그런데—",
+          "분노가 올라온다.",
+          " ",
+          "억누른 적도 없는데,",
+          " ",
+          "이미—",
+          "그 자리에 있었던 것처럼."
+        ]
+      }
+    },
+    "aldebaran_12": {
+      "bg_image": "aldebaran_7.png",
+      "narrative": {
+        "en": [
+          "Your breath roughens.",
+          " ",
+          "You cannot make sense of it.",
+          " ",
+          "Why—",
+          "what—",
+          " ",
+          "nothing comes."
+        ],
+        "ko": [
+          "숨이 거칠어진다.",
+          " ",
+          "이해할 수 없다.",
+          " ",
+          "왜 분노하는지,",
+          "무엇에 분노하는지—",
+          " ",
+          "아무것도 떠오르지 않는다."
+        ]
+      }
+    },
+    "aldebaran_13": {
+      "bg_image": "crimson",
+      "narrative": {
+        "en": [
+          "This—",
+          "not the first time.",
+          " ",
+          "You’ve been here before.",
+          " ",
+          "Moving before reason—",
+          "never stopping.",
+          " ",
+          "That instinct—",
+          "back again, it rises."
+        ],
+        "ko": [
+          "이건—",
+          " ",
+          "처음이 아니다.",
+          " ",
+          "당신은 이렇게 싸워왔었다.",
+          " ",
+          "이유보다 먼저 움직였고—",
+          "멈추지 않았다.",
+          " ",
+          "그 감각이—",
+          "다시 올라온다."
+        ]
+      }
+    },
+    "q_bellatrix_mars": {
+      "bg_image": "crimson",
+      "narrative": {
+        "en": [
+          "You—"
+        ],
+        "ko": [
+          "당신은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "had moved before reason, and were driving it through to the end",
+          "ko": "이유보다 먼저 움직였고, 끝까지 밀어붙이고 있었다"
+        },
+        "opt2": {
+          "en": "had already cut it away, yet still could not let go of what you were holding inside",
+          "ko": "이미 끊어낸 것인데도, 아직 안쪽에서 붙잡고 있던 것을 놓지 못하고 있었다"
+        },
+        "opt3": {
+          "en": "could have stopped, yet were still pressing further, trying to reach the very end",
+          "ko": "멈출 수 있었는데도, 더 나아가며 끝까지 닿으려 하고 있었다"
+        },
+        "opt4": {
+          "en": "had been driven in that direction from the beginning, and were still moving forward",
+          "ko": "처음부터 그 방향으로 밀려나 있었고, 계속 앞으로 나아가고 있었다"
+        },
+        "opt5": {
+          "en": "did not clearly know what you were trying to do, and all that remained was impulse",
+          "ko": "무엇을 하려는 건지 분명하지 않은 채, 충동만이 남아 있었다",
+          "is_minus": true
+        }
+      }
+    },
+    "aldebaran_14": {
+      "bg_image": "aldebaran_8.png",
+      "narrative": {
+        "en": [
+          "In an instant—",
+          "the anger deepens.",
+          " ",
+          "Not the same as before.",
+          " ",
+          "It has direction.",
+          "Unseen—",
+          "yet aimed, somewhere.",
+          " ",
+          "This moment, this flow, all of it—",
+          " ",
+          "not drifting by chance,",
+          "but set in place, as if arranged."
+        ],
+        "ko": [
+          "순간, 분노가 더 깊어진다.",
+          " ",
+          "방금 전까지의 감각과는 다르다.",
+          "이건 방향이 있다. 보이지 않지만, 분명히 어딘가를 향하고 있다.",
+          " ",
+          "이 상황, 이 흐름, 이 모든 것이—",
+          "우연처럼 흘러가는 게 아니라, 어딘가에서 짜여진 것처럼 느껴진다."
+        ]
+      }
+    },
+    "aldebaran_15": {
+      "bg_image": "aldebaran_8.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "It is there.",
+          " ",
+          "Someone—",
+          "has placed you here.",
+          " ",
+          "You cannot explain it.",
+          "You cannot grasp it,",
+          "or see it.",
+          " ",
+          "And yet—",
+          "something recoils.",
+          " ",
+          "This—",
+          "is not yours."
+        ],
+        "ko": [
+          "분명히 있다.",
+          " ",
+          "누군가가—",
+          "당신을 이 자리에 놓았다.",
+          " ",
+          "설명할 수 없다.",
+          "잡히지도 보이지도 않는다.",
+          " ",
+          "그런데—",
+          "거부감이 올라온다.",
+          " ",
+          "이건—",
+          "당신의 것이 아니다."
+        ]
+      }
+    },
+    "aldebaran_16": {
+      "bg_image": "crimson",
+      "narrative": {
+        "en": [
+          "Your chest tightens.",
+          " ",
+          "The anger rises, as it is.",
+          " ",
+          "…",
+          " ",
+          "This—",
+          "must be refused."
+        ],
+        "ko": [
+          "가슴이 조여든다.",
+          " ",
+          "분노가 그대로 올라온다.",
+          " ",
+          "…그래.",
+          " ",
+          "이건—",
+          "거부해야 한다."
+        ]
+      }
+    },
+    "q_betelgeuse_rahu": {
+      "bg_image": "crimson",
+      "narrative": {
+        "en": [
+          "You—"
+        ],
+        "ko": [
+          "당신은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "throw yourself toward the collapsing fracture, straight into it",
+          "ko": "무너지는 균열을 향해 뛰어들어, 그 안으로 직접 몸을 던진다"
+        },
+        "opt2": {
+          "en": "pull at the surrounding flow, twisting it—forcing the unseen grain to turn",
+          "ko": "주변의 흐름을 끌어당겨 비틀듯, 보이지 않는 결을 강제로 뒤집는다"
+        },
+        "opt3": {
+          "en": "drive straight into what blocks your way, forcing it through with sheer force",
+          "ko": "앞을 가로막는 것을 향해 그대로 부딪히며, 힘으로 밀어붙인다"
+        },
+        "opt4": {
+          "en": "already set on that path, building speed—breaking through to the end",
+          "ko": "이미 향해진 방향 위에서, 속도를 더해 끝까지 돌파한다"
+        },
+        "opt5": {
+          "en": "unsure of what is right, unable to move, held in place",
+          "ko": "무엇이 맞는지 확신하지 못한 채, 움직이지 못하고 그 자리에 멈춰 선다",
+          "is_minus": true
+        }
+      }
+    },
+    "aldebaran_17": {
+      "bg_image": "aldebaran_9.png",
+      "narrative": {
+        "en": [
+          "A sharp crack—",
+          " ",
+          "Something splits.",
+          "A fracture runs through the space.",
+          " ",
+          "Thin yet precise—",
+          "cutting across your sight."
+        ],
+        "ko": [
+          "쨍—",
+          " ",
+          "무언가가 갈라진다.",
+          "공간에 금이 간다.",
+          " ",
+          "얇지만 선명하게,",
+          " ",
+          "시야를 가로지른다."
+        ]
+      }
+    },
+    "aldebaran_18": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "Before you can grasp what happened—",
+          "your senses are pushed out.",
+          " ",
+          "Drawn again—",
+          " ",
+          "to where it leads—"
+        ],
+        "ko": [
+          "무슨 일이 일어났는지 파악하기도 전에—",
+          "감각이 밀려난다.",
+          " ",
+          "다시끔 끌려간다.",
+          " ",
+          "어딘가로—"
+        ]
+      }
+    },
+    "regulus_1": {
+      "bg_image": "regulus_1.png",
+      "narrative": {
+        "en": [
+          "Light fills the space.",
+          " ",
+          "Beneath a high ceiling,",
+          "layers of candles flicker.",
+          " ",
+          "Gold catches the light—",
+          "spilling across glass.",
+          " ",
+          "People—",
+          "near, and far.",
+          " ",
+          "And yet—",
+          "all of them turned in the same direction.",
+          " ",
+          "Toward you."
+        ],
+        "ko": [
+          "빛이 가득하다.",
+          " ",
+          "높은 천장 아래, 촛불이 겹겹이 흔들린다.",
+          "금빛 장식과 잔들이 빛을 받아 번진다.",
+          " ",
+          "사람들이 있다.",
+          "가까이, 그리고 멀리.",
+          " ",
+          "그러나—",
+          "모두 같은 방향을 향하고 있다.",
+          "당신을 향해."
+        ]
+      }
+    },
+    "regulus_2": {
+      "bg_image": "regulus_1.png",
+      "narrative": {
+        "en": [
+          "Laughter passes.",
+          "Glasses fill, voices carry on.",
+          " ",
+          "At the center, you stand.",
+          " ",
+          "This place is not unfamiliar.",
+          " ",
+          "If anything—",
+          "it feels as it should.",
+          " ",
+          "All of this—",
+          "as though prepared for you."
+        ],
+        "ko": [
+          "웃음이 오가고, 잔이 채워지고,",
+          "말들이 이어진다.",
+          " ",
+          "그 중심에—",
+          "당신이 서 있다.",
+          " ",
+          "이 자리는 낯설지 않다.",
+          "오히려 당연하다.",
+          " ",
+          "이 모든 것은—",
+          "당신을 위해 준비된 것처럼 느껴진다."
+        ]
+      }
+    },
+    "q_pollux_jupiter": {
+      "bg_image": "regulus_1.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "As it should be.",
+          " ",
+          "You—",
+          "should stand here.",
+          " ",
+          "…because—"
+        ],
+        "ko": [
+          "그럴 만하다.",
+          " ",
+          "당신은—",
+          "이 자리에 서야 한다.",
+          " ",
+          "…왜냐하면—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "what you have built has led here, and finds its completion in this place",
+          "ko": "이미 쌓아온 것들이 이 자리로 이어져 왔고, 그 흐름이 여기에서 완성되고 있기에"
+        },
+        "opt2": {
+          "en": "this place carries weight and role, and must be held by one who can endure it through",
+          "ko": "이 자리는 감당해야 할 무게와 역할이 있고, 그것을 끝까지 버틸 수 있는 쪽이 서 있어야 하므로"
+        },
+        "opt3": {
+          "en": "this is a position that understands the flow of harmony, and can bring it into alignment",
+          "ko": "조화와 화합의 흐름을 이해하고 조율할 수 있는 위치에 있으므로"
+        },
+        "opt4": {
+          "en": "this place is where order arranges itself around you as its point of reference",
+          "ko": "이 자리는 애초에 나를 기준으로 위계가 정렬되는 자리이기에"
+        },
+        "opt5": {
+          "en": "you cannot fully name the reason, but without it—something would remain out of place",
+          "ko": "이유를 분명히 설명할 수는 없지만, 그렇지 않으면 어딘가 어긋난 채로 남을 것 같아서",
+          "is_minus": true
+        }
+      }
+    },
+    "regulus_3": {
+      "bg_image": "regulus_2.png",
+      "narrative": {
+        "en": [
+          "The banquet does not falter.",
+          " ",
+          "Glasses continue to fill.",
+          " ",
+          "The gaze still rests on you.",
+          "All of it, natural.",
+          " ",
+          "And yet—",
+          "there is weight in this place.",
+          " ",
+          "Privilege and abundance",
+          "are never simply given.",
+          " ",
+          "Something must be carried through.",
+          "Something must be borne, to the end.",
+          " ",
+          "You know that.",
+          " ",
+          "All this fullness—",
+          "stands on that weight."
+        ],
+        "ko": [
+          "연회는 조금도 흐트러지지 않는다.",
+          "잔은 계속 채워지고, 시선은 여전히 당신을 향한다.",
+          " ",
+          "그 모든 것이 자연스럽다.",
+          " ",
+          "그런데—",
+          "이 자리는 가볍지 않다.",
+          " ",
+          "권리와 풍요는, 그저 주어지는 것이 아니다.",
+          "끝까지 감당해야 할 무게가 있고, 버텨야 할 역할이 있다.",
+          " ",
+          "당신은 알고 있다.",
+          " ",
+          "이 모든 충만은—",
+          "그 위에 서 있다."
+        ]
+      }
+    },
+    "q_praesepe_saturn": {
+      "bg_image": "regulus_2.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "That weight being—"
+        ],
+        "ko": [
+          "그 무게는—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "the stubborn endurance that holds fast, so nothing scatters",
+          "ko": "흩어지지 않도록 끝까지 붙잡아 유지하는 집요한 버팀"
+        },
+        "opt2": {
+          "en": "the continuance that keeps a gathered flow unbroken, the structure held intact",
+          "ko": "쌓인 흐름을 끊지 않고 이어가며 구조를 유지하는 지속"
+        },
+        "opt3": {
+          "en": "the bond that keeps what has been drawn close from coming undone",
+          "ko": "가까이 묶인 관계를 풀지 않고 유지하려는 결속"
+        },
+        "opt4": {
+          "en": "the stance that keeps an ordered hierarchy from being shaken",
+          "ko": "정해진 위계를 흔들지 않고 끝까지 지키는 자세"
+        },
+        "opt5": {
+          "en": "holding on all the same, without ever being sure what is right",
+          "ko": "무엇이 맞는지 분명하지 않은 채, 어쨌든 붙잡고 있는 상태",
+          "is_minus": true
+        }
+      }
+    },
+    "regulus_4": {
+      "bg_image": "regulus_3.png",
+      "narrative": {
+        "en": [
+          "As the weight settles—",
+          " ",
+          "the sound of the banquet",
+          "draws slightly away.",
+          " ",
+          "Glasses meet.",
+          "Laughter carries.",
+          " ",
+          "Nothing has changed.",
+          " ",
+          "And yet—",
+          " ",
+          "the scene",
+          "falls slightly out of place."
+        ],
+        "ko": [
+          "그 무게를 인식하자—",
+          "연회의 소리가 조금 멀어진다.",
+          " ",
+          "잔이 부딪히고, 사람들이 웃고 있다.",
+          "아까와 다르지 않다.",
+          " ",
+          "그런데—",
+          "그 장면이, 조금 어긋나 보인다."
+        ]
+      }
+    },
+    "regulus_5": {
+      "bg_image": "regulus_4.png",
+      "narrative": {
+        "en": [
+          "Your gaze pulls back by a layer.",
+          " ",
+          "People move.",
+          "Words pass.",
+          "Looks connect.",
+          " ",
+          "You still stand there.",
+          " ",
+          "At the center.",
+          " ",
+          "And yet—",
+          " ",
+          "that center",
+          "feels unfamiliar."
+        ],
+        "ko": [
+          "시선이 한 겹 물러난다.",
+          " ",
+          "사람들이 움직이고,",
+          "말이 오가고,",
+          "시선이 이어진다.",
+          " ",
+          "당신은 여전히 그 자리에 서 있다.",
+          "중심에 있다.",
+          " ",
+          "그런데—",
+          "그 중심이, 낯설다."
+        ]
+      }
+    },
+    "regulus_6": {
+      "bg_image": "regulus_4.png",
+      "narrative": {
+        "en": [
+          "All of it—",
+          " ",
+          "seen as a single flow.",
+          "Including you."
+        ],
+        "ko": [
+          "그 모든 것이—",
+          " ",
+          "하나의 흐름처럼 보인다.",
+          "당신 또한 포함해서."
+        ]
+      }
+    },
+    "q_alphard_mercury": {
+      "bg_image": "regulus_4.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "As if—"
+        ],
+        "ko": [
+          "이는 마치—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "a flow that appears continuous, yet never fully meets, remaining divided",
+          "ko": "하나로 이어진 것처럼 보이지만, 끝까지 닿지 않은 채 나뉘어 있는 흐름"
+        },
+        "opt2": {
+          "en": "an order that builds and holds, each position distinctly set apart",
+          "ko": "쌓이고 유지되는 질서가 이어지면서, 각자의 위치가 분명히 구분되는 구조"
+        },
+        "opt3": {
+          "en": "drawn close together, naturally weaving, moving as one",
+          "ko": "서로가 가까이 이어져, 자연스럽게 엮이며 흘러가는 모습"
+        },
+        "opt4": {
+          "en": "arranged around a single axis, everything aligned in motion",
+          "ko": "하나의 기준을 중심으로, 모든 것이 정렬되어 움직이는 배열"
+        },
+        "opt5": {
+          "en": "without clear composition, yet seeming to continue, as it is",
+          "ko": "무엇으로 이루어져 있는지 분명하지 않은 채, 그저 이어져 있는 것처럼 보이는 장면",
+          "is_minus": true
+        }
+      }
+    },
+    "regulus_7": {
+      "bg_image": "regulus_5.png",
+      "narrative": {
+        "en": [
+          "The sound of glass meeting—",
+          "cuts off, somewhere.",
+          " ",
+          "Beneath your feet, damp.",
+          " ",
+          "A small pool,",
+          "as if you have seen it before.",
+          " ",
+          "You lower your gaze, to look closer.",
+          " ",
+          "The surface trembles.",
+          "From above, something falls.",
+          " ",
+          "It does not stop."
+        ],
+        "ko": [
+          "잔이 부딪히던 소리가 어딘가에서 끊긴다.",
+          " ",
+          "발 아래가 축축하다.",
+          "어디선가 본 적이 있는 것 같은 작은 웅덩이가 있다.",
+          " ",
+          "더 가까이 보기 위해 당신은 고개를 숙인다.",
+          "물결이 흔들리고 있다.",
+          " ",
+          "위에서—",
+          "떨어지고 있다.",
+          " ",
+          "멈추지 않는다."
+        ]
+      }
+    },
+    "regulus_8": {
+      "bg_image": "regulus_5.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "…only then, you realize—",
+          " ",
+          "Since when—",
+          "unclear.",
+          " ",
+          "From your eyes—",
+          "it has been falling, all along.",
+          " ",
+          "Where you stand—",
+          "without end.",
+          " ",
+          "The pool—",
+          "made of your tears."
+        ],
+        "ko": [
+          "…그제서야 안다.",
+          " ",
+          "언제부터였는지는 모르지만,",
+          " ",
+          "당신의 눈에서,",
+          "계속 흘러내리고 있었다는 것을.",
+          " ",
+          "그 자리에서—",
+          " ",
+          "계속.",
+          " ",
+          "그 웅덩이는,",
+          "그 눈물로 이루어져 있다."
+        ]
+      }
+    },
+    "regulus_9": {
+      "bg_image": "regulus_6.png",
+      "narrative": {
+        "en": [
+          "Your chest tightens.",
+          " ",
+          "There is no end.",
+          " ",
+          "And yet—",
+          "nothing holds.",
+          " ",
+          "No trace remains.",
+          " ",
+          "Like this—",
+          " ",
+          "even if you were to be cut away",
+          "from everything—",
+          " ",
+          "it would make no difference."
+        ],
+        "ko": [
+          "가슴이 조여든다.",
+          " ",
+          "끝이 없다.",
+          " ",
+          "그런데—",
+          "붙잡히는 것이 없다.",
+          " ",
+          "미련이 없다.",
+          " ",
+          "이대로—",
+          " ",
+          "모든 것에서 끊어져도—",
+          "괜찮을 것 같다."
+        ]
+      }
+    },
+    "regulus_10": {
+      "bg_image": "regulus_7.png",
+      "narrative": {
+        "en": [
+          "…something remains—",
+          " ",
+          "Not fully let go."
+        ],
+        "ko": [
+          "…그때—",
+          " ",
+          "아직 남아 있는 감각이 돌아온다.",
+          " ",
+          "미처 완전히 놓지 못한 것."
+        ]
+      }
+    },
+    "q_zosma_venus": {
+      "bg_image": "regulus_7.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "That is—"
+        ],
+        "ko": [
+          "그것은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "loosening as you try to let it go—yet never breaking, still continuing",
+          "ko": "놓으려 할수록 느슨해지면서도, 끝내 완전히 사라지지 않고 이어지는 관계"
+        },
+        "opt2": {
+          "en": "carried within what has been built, held in its order, remaining there",
+          "ko": "쌓인 의미와 질서 속에서 이어지며, 그 안에서 유지되고 남아 있는 것"
+        },
+        "opt3": {
+          "en": "even beyond all of it—still bound to the center, not coming free",
+          "ko": "그 모든 것 위에서도, 여전히 중심에 묶여 떨어지지 않는 자리"
+        },
+        "opt4": {
+          "en": "unclear in form, yet still holding your mind, without reason",
+          "ko": "무엇인지 분명하지 않지만, 이유 없이 계속 마음을 붙잡고 놓아주지 않는 감각",
+          "is_minus": true
+        }
+      }
+    },
+    "regulus_11": {
+      "bg_image": "regulus_8.png",
+      "narrative": {
+        "en": [
+          "Your breath halts—",
+          "then returns.",
+          " ",
+          "In an instant—",
+          " ",
+          "clarity.",
+          " ",
+          "What was just there—",
+          "won’t hold.",
+          " ",
+          "It slips, it fades.",
+          " ",
+          "Only what remains now—"
+        ],
+        "ko": [
+          "숨이 멎었다가 돌아온다.",
+          " ",
+          "순간,",
+          "정신이 또렷해진다.",
+          " ",
+          "조금 전까지의 감각이—",
+          "손에 잡히지 않는다.",
+          " ",
+          "멀어진다.",
+          "희미해진다.",
+          " ",
+          "지금 남아 있는 것만이—"
+        ]
+      }
+    },
+    "regulus_12": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "Before you can grasp what happened—",
+          " ",
+          "your senses are pushed aside.",
+          " ",
+          "Your body",
+          "no longer fixed in place.",
+          " ",
+          "Drawn again—",
+          " ",
+          "to where it pulls—"
+        ],
+        "ko": [
+          "무슨 일이 일어났는지 파악하기도 전에—",
+          "감각이 밀려난다.",
+          " ",
+          "몸이 그 자리에 붙어 있지 않는다.",
+          " ",
+          "다시 끌려간다.",
+          " ",
+          "어딘가로—"
+        ]
+      }
+    },
+    "spica_1": {
+      "bg_image": "spica_1.png",
+      "narrative": {
+        "en": [
+          "The light does not waver.",
+          " ",
+          "Everything holds in place.",
+          "Nothing falls out of line.",
+          " ",
+          "Above and below—",
+          "clearly set.",
+          " ",
+          "The flow—",
+          "ordered.",
+          " ",
+          "You stand above it.",
+          " ",
+          "Far below,",
+          "the human ground stretches out."
+        ],
+        "ko": [
+          "빛은 흔들리지 않는다.",
+          " ",
+          "모든 것이 제자리에 있으며, 어긋남이 없다.",
+          "위와 아래가 분명하고, 흐름은 정리되어 있다.",
+          " ",
+          "당신은 그 위에 서 있다.",
+          " ",
+          "발 아래로, 인간의 땅이 멀리 펼쳐져 있다."
+        ]
+      }
+    },
+    "spica_2": {
+      "bg_image": "spica_2.png",
+      "narrative": {
+        "en": [
+          "Judgment does not waver.",
+          " ",
+          "No hesitation.",
+          " ",
+          "What is right,",
+          "what is out of line—",
+          " ",
+          "already determined.",
+          " ",
+          "No intervention, only alignment.",
+          " ",
+          "You—",
+          "separate it.",
+          " ",
+          "That—is your place."
+        ],
+        "ko": [
+          "판단은 흔들리지 않는다.",
+          " ",
+          "망설임도 없다.",
+          " ",
+          "무엇이 옳고,",
+          "무엇이 어긋났는지는 이미 정해져 있다.",
+          " ",
+          "개입하지 않는다.",
+          "다만, 정리한다.",
+          " ",
+          "당신은—",
+          "그것을 가려낼 뿐이다.",
+          " ",
+          "그것이—",
+          "당신의 자리다."
+        ]
+      }
+    },
+    "spica_3": {
+      "bg_image": "spica_2.png",
+      "narrative": {
+        "en": [
+          "Behind you—",
+          "the light shifts, slightly.",
+          " ",
+          "That place—",
+          "has never shifted.",
+          " ",
+          "No different, today.",
+          " ",
+          "What is not aligned.",
+          "What has fallen out.",
+          " ",
+          "Set beneath you."
+        ],
+        "ko": [
+          "등 뒤에서, 빛이 가볍게 흔들린다.",
+          " ",
+          "그 자리는,",
+          "흔들린 적이 없다.",
+          " ",
+          "오늘도 같다.",
+          " ",
+          "정렬되지 않은 것들.",
+          "어긋난 것들.",
+          " ",
+          "당신 아래에 놓인다."
+        ]
+      }
+    },
+    "q_denebola_sun": {
+      "bg_image": "spica_2.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "They are—"
+        ],
+        "ko": [
+          "그들은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "those who tried to hold what should not be held, and let themselves slip away",
+          "ko": "붙잡지 않아야 할 것을 끝까지 붙잡으려다, 스스로를 흘려보낸 자들"
+        },
+        "opt2": {
+          "en": "those drawn by a formless hunger, chasing what could never be reached",
+          "ko": "형태 없는 갈망에 이끌려, 끝내 닿지 못할 것을 좇던 자들"
+        },
+        "opt3": {
+          "en": "those who reached beyond what was given, and blurred the boundary",
+          "ko": "자신이 받은 것을 넘어 더 가지려다, 그 경계를 흐려버린 자들"
+        },
+        "opt4": {
+          "en": "those who broke from the given order, and bent the whole out of line",
+          "ko": "정렬된 기준을 스스로 어기며, 전체의 질서를 어긋나게 만든 자들"
+        },
+        "opt5": {
+          "en": "those who, not even knowing what they held, wavered within",
+          "ko": "무엇을 붙잡고 있는지도 모른 채, 그저 안쪽에서 흔들리던 자들",
+          "is_minus": true
+        }
+      }
+    },
+    "spica_4": {
+      "bg_image": "spica_3.png",
+      "narrative": {
+        "en": [
+          "A choice is made.",
+          " ",
+          "The judgment continues.",
+          "The next are brought in.",
+          " ",
+          "Your gaze turns.",
+          " ",
+          "Measured against the standard.",
+          " ",
+          "And yet—",
+          "nothing appears.",
+          " ",
+          "No deviation can be seen."
+        ],
+        "ko": [
+          "선택이 내려진다.",
+          " ",
+          "판결은 이어진다.",
+          "다음 이들이 들어온다.",
+          " ",
+          "시선이 향한다.",
+          " ",
+          "기준에 맞춰 본다.",
+          " ",
+          "그런데—",
+          "보이지 않는다.",
+          " ",
+          "어긋남이 보이지 않는다."
+        ]
+      }
+    },
+    "spica_5": {
+      "bg_image": "spica_3.png",
+      "narrative": {
+        "en": [
+          "That is not possible.",
+          " ",
+          "You look again—",
+          "still, nothing holds.",
+          " ",
+          "The flow is clear.",
+          "Position, form—all present.",
+          " ",
+          "And yet—",
+          "judgment does not reach."
+        ],
+        "ko": [
+          "그럴 리 없다.",
+          "다시 응시하지만, 여전히—",
+          "잡히지 않는다.",
+          " ",
+          "흐름은 분명하다.",
+          "위치도, 형태도 있다.",
+          " ",
+          "그런데—",
+          "판단이 닿지 않는다."
+        ]
+      }
+    },
+    "spica_6": {
+      "bg_image": "spica_3.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "For the first time—",
+          " ",
+          "you pause.",
+          " ",
+          "You try to understand.",
+          "To bring it to the standard.",
+          " ",
+          "But—",
+          "it does not hold."
+        ],
+        "ko": [
+          "처음이다.",
+          " ",
+          "잠시 멈춘다.",
+          " ",
+          "이해하려 한다.",
+          "기준에 맞추려 한다.",
+          " ",
+          "그러나—",
+          "잡히지 않는다."
+        ]
+      }
+    },
+    "spica_7": {
+      "bg_image": "spica_4.png",
+      "narrative": {
+        "en": [
+          "A flicker of disquiet.",
+          " ",
+          "And yet—",
+          "no wavering.",
+          " ",
+          "If not seen—",
+          "it is read differently.",
+          " ",
+          "Not by reason, but intuition.",
+          " ",
+          "You follow it—"
+        ],
+        "ko": [
+          "당황이 스친다.",
+          " ",
+          "그럼에도—",
+          "흔들리지는 않는다.",
+          " ",
+          "보이지 않는다면—",
+          "다른 방식으로 본다.",
+          " ",
+          "이유가 아니라, 느낌으로.",
+          " ",
+          "당신은—",
+          "그것을 따른다."
+        ]
+      }
+    },
+    "q_algorab_moon": {
+      "bg_image": "spica_4.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "They are—"
+        ],
+        "ko": [
+          "그들은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "composed, all of them—yet from one, a faint, unplaceable scent passes",
+          "ko": "모두 단정하다. 그러나 한 사람에게서만, 설명할 수 없는 비린 냄새가 스쳐 지나간다"
+        },
+        "opt2": {
+          "en": "without flaw, perfectly arranged—yet one stands too complete",
+          "ko": "흠잡을 곳 없이 정리되어 있다. 그러나 한 사람만, 지나치게 완전하게 갖춰져 있다"
+        },
+        "opt3": {
+          "en": "their eyes meet yours, all still—yet one gaze does not release",
+          "ko": "눈을 마주친다. 모두 고요하다. 그러나 한 사람의 시선만, 어딘가를 끝까지 놓지 않는다"
+        },
+        "opt4": {
+          "en": "calm, steady—yet one falls slightly out of the surrounding flow",
+          "ko": "차분하고 안정되어 있다. 그러나 한 사람만, 주변의 흐름과 미묘하게 어긋나 있다"
+        },
+        "opt5": {
+          "en": "all aligned—yet one matches the standard too precisely",
+          "ko": "모두가 정렬되어 있다. 그러나 한 사람만, 그 기준에 너무 정확하게 맞춰져 있다"
+        }
+      }
+    },
+    "spica_8": {
+      "bg_image": "spica_5.png",
+      "narrative": {
+        "en": [
+          "They are led away.",
+          "No resistance, no sound.",
+          "It is already—set in order.",
+          " ",
+          "Your gaze passes over—",
+          "then catches.",
+          " ",
+          "A fold at the collar.",
+          "A single crease.",
+          " ",
+          "It is misaligned.",
+          "Nothing more than that.",
+          " ",
+          "And yet—your sight does not move on.",
+          "The crease becomes clearer, little by little."
+        ],
+        "ko": [
+          "그들은 끌려간다.",
+          "저항도, 소리도 없다.",
+          "이미—정리된 흐름이다.",
+          " ",
+          "시선이 스친다.",
+          "옷깃, 접힌 자국 하나.",
+          " ",
+          "어긋나 있다.",
+          "그 정도일 뿐이다.",
+          " ",
+          "그런데—시선이 떨어지지 않는다.",
+          "그 주름이, 점점 더 또렷해진다."
+        ]
+      }
+    },
+    "q_arcturus_rahu": {
+      "bg_image": "spica_5.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "…it should not be left as it is.",
+          "As—"
+        ],
+        "ko": [
+          "…그대로 두면 안 될 것 같다.",
+          "왜냐하면—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "it has already tipped in that direction, the origin obscured, yet still continuing",
+          "ko": "이미 그쪽으로 넘어가 있고, 근원은 드러나지 않은 채 이어지고 있어서"
+        },
+        "opt2": {
+          "en": "the line stands displaced, the misalignment remaining as it is",
+          "ko": "선이 벗어나 있는 채, 그 어긋남이 그대로 남아 있기에"
+        },
+        "opt3": {
+          "en": "no reason can be grasped, yet the sensation does not fade, remaining",
+          "ko": "이유는 잡히지 않는데, 그 감각이 사라지지 않은 채 잔존함으로"
+        },
+        "opt4": {
+          "en": "it appears a minor distortion, yet within it, the flow continues unbroken",
+          "ko": "사소한 틀어짐처럼 보이는데, 그 안에서 흐름이 계속 이어지기에"
+        },
+        "opt5": {
+          "en": "it is set where it does not belong, and the line itself fails to remain",
+          "ko": "맞지 않는 자리에 놓여 있고, 그 상태로는 선 자체가 흐트러져 있어서"
+        }
+      }
+    },
+    "spica_9": {
+      "bg_image": "white",
+      "narrative": {
+        "en": [
+          "In an instant—",
+          " ",
+          "your sense shifts.",
+          " ",
+          "Before the light,",
+          "you are on your knees.",
+          " ",
+          "No form.",
+          " ",
+          "And yet—",
+          "it cannot be refused."
+        ],
+        "ko": [
+          "순간, 감각이 바뀐다.",
+          " ",
+          "당신은 빛 앞에 무릎을 꿇고 있다.",
+          "형태는 없다.",
+          " ",
+          "그러나—",
+          "거부할 수 없다."
+        ]
+      }
+    },
+    "spica_10": {
+      "bg_image": "spica_6.png",
+      "narrative": {
+        "en": [
+          "You do not raise your head.",
+          " ",
+          "No need.",
+          " ",
+          "A weight—",
+          "set into your hands.",
+          " ",
+          "Cold to the touch,",
+          "solid—",
+          " ",
+          "A golden key—"
+        ],
+        "ko": [
+          "감히 고개를 들지 않는다.",
+          "그럴 필요가 없다.",
+          " ",
+          "손 위로 무게가 얹힌다.",
+          " ",
+          "차갑고 단단하다.",
+          "황금빛.",
+          " ",
+          "열쇠다."
+        ]
+      }
+    },
+    "spica_11": {
+      "bg_image": "spica_7.png",
+      "narrative": {
+        "en": [
+          "No question.",
+          " ",
+          "Already known, entrusted.",
+          " ",
+          "To open.",
+          "To release.",
+          " ",
+          "That charge—settles within.",
+          "A slight tremor."
+        ],
+        "ko": [
+          "이유를 묻지 않는다.",
+          "이미 알고 있기에.",
+          " ",
+          "이것은 맡겨진 것이다.",
+          " ",
+          "열어야 할 것.",
+          "풀어야 할 것.",
+          " ",
+          "그 사명이— ",
+          "그대로 안쪽으로 내려앉는다.",
+          " ",
+          "몸이 미세하게 떨린다."
+        ]
+      }
+    },
+    "q_zuben_elgenubi_jupiter": {
+      "bg_image": "spica_7.png",
+      "narrative": {
+        "en": [
+          "That charge—"
+        ],
+        "ko": [
+          "그 사명은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "to choose one, and leave the other behind",
+          "ko": "하나를 택하는 순간, 다른 하나를 남겨두고 나아가게 되는 것"
+        },
+        "opt2": {
+          "en": "to extend beyond what is given, widening its reach on its own",
+          "ko": "주어진 것을 넘어서 더 넓게 펼쳐지며, 그 범위를 스스로 확장해 나가는 것"
+        },
+        "opt3": {
+          "en": "drawn without reason, moving toward what cannot be reached",
+          "ko": "이유를 알 수 없는 끌림 속에서, 끝내 닿을 수 없는 것을 향해 나아가는 것"
+        },
+        "opt4": {
+          "en": "to be carried out within the given order, in accordance with its rule",
+          "ko": "이미 정해진 질서 안에서, 그 기준에 맞게 수행되어야 하는 것"
+        },
+        "opt5": {
+          "en": "not knowing what must be done, yet remaining, unable to be set down",
+          "ko": "무엇을 해야 하는지 분명하지 않지만, 놓을 수 없는 채로 남아 있는 것",
+          "is_minus": true
+        }
+      }
+    },
+    "spica_12": {
+      "bg_image": "spica_7.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "Your vision trembles.",
+          " ",
+          "Light spreads.",
+          "Form blurs.",
+          " ",
+          "What was clear just moments ago—",
+          "won’t hold.",
+          " ",
+          "From the edges—",
+          "it begins to dissolve.",
+          " ",
+          "Boundaries give way.",
+          "They run."
+        ],
+        "ko": [
+          "시야가 흔들린다.",
+          " ",
+          "빛이 번진다.",
+          "형태가 흐려진다.",
+          " ",
+          "조금 전까지 또렷하던 것들이—",
+          "잡히지 않는다.",
+          " ",
+          "가장자리부터—",
+          "천천히 녹아내린다.",
+          " ",
+          "경계가 무너진다.",
+          "흘러내린다."
+        ]
+      }
+    },
+    "spica_13": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "Before you can grasp what happened—",
+          " ",
+          "your senses are pushed out.",
+          " ",
+          "Your body",
+          "does not remain there.",
+          " ",
+          "Drawn again—",
+          " ",
+          "to where it pulls—"
+        ],
+        "ko": [
+          "무슨 일이 일어났는지 파악하기도 전에—",
+          "감각이 밀려난다.",
+          " ",
+          "몸이 그 자리에 머물지 않는다.",
+          " ",
+          "다시, 끌려간다.",
+          "어딘가로—"
+        ]
+      }
+    },
+    "antares_1": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "No light.",
+          "Only dark.",
+          " ",
+          "The ground holds—unmoving.",
+          "The air presses in.",
+          " ",
+          "Breath shortens.",
+          " ",
+          "Heat lingers."
+        ],
+        "ko": [
+          "어둡다. 빛이 없다.",
+          " ",
+          "바닥은 단단하고, 공기는 무겁다.",
+          "숨이 조금씩 막힌다.",
+          " ",
+          "열이 스며 있다."
+        ]
+      }
+    },
+    "antares_2": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "You are here.",
+          " ",
+          "Since when—no answer.",
+          "Why—none.",
+          " ",
+          "You try to leave—",
+          " ",
+          "but nothing changes.",
+          " ",
+          "No direction.",
+          "No end."
+        ],
+        "ko": [
+          "당신은 그 안에 서 있다.",
+          " ",
+          "언제부터였는지는 모른다.",
+          "왜 여기 있는지도 알 수 없다.",
+          " ",
+          "걸음을 옮긴다.",
+          " ",
+          "벗어나려 하지만—",
+          "어디로 가도 달라지지 않는다.",
+          " ",
+          "끝이 없다."
+        ]
+      }
+    },
+    "antares_3": {
+      "bg_image": "antares_1.png",
+      "narrative": {
+        "en": [
+          "You come to a halt.",
+          " ",
+          "Only then is it understood.",
+          "This is no place from which one departs.",
+          " ",
+          "You—",
+          "could not but come here.",
+          " ",
+          "It was so ordained."
+        ],
+        "ko": [
+          "멈춘다.",
+          "그제서야 이해한다.",
+          " ",
+          "이곳은,",
+          "빠져나갈 수 있는 곳이 아니다.",
+          " ",
+          "당신은—",
+          "여기에 올 수밖에 없었다.",
+          " ",
+          "그렇게 정해져 있었다."
+        ]
+      }
+    },
+    "antares_4": {
+      "bg_image": "antares_1.png",
+      "narrative": {
+        "en": [
+          "It was no choice.",
+          "Nor was there any way to avoid it.",
+          " ",
+          "You know this.",
+          " ",
+          "This—",
+          "is not the first.",
+          " ",
+          "It has been endured",
+          "again and again."
+        ],
+        "ko": [
+          "선택이 아니었다.",
+          "피할 수 없었다.",
+          " ",
+          "당신은 알고 있다.",
+          " ",
+          "이건—",
+          "처음이 아니다.",
+          " ",
+          "이미— ",
+          "여러 번 지나온 것이다."
+        ]
+      }
+    },
+    "q_dschubba_saturn": {
+      "bg_image": "antares_1.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "It is—"
+        ],
+        "ko": [
+          "그것은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "a fate that tightens the more one seeks to escape, until no release remains",
+          "ko": "피하려 할수록 더 깊이 얽히며, 끝내 벗어날 수 없는 채로 이어지는 운명"
+        },
+        "opt2": {
+          "en": "a fate that tightens the more one seeks to escape, until no release remains",
+          "ko": "피하려 할수록 더 깊이 얽히며, 끝내 벗어날 수 없는 채로 이어지는 운명"
+        },
+        "opt3": {
+          "en": "a current that rises from within, though no cause can be named, and does not cease",
+          "ko": "이유를 알 수 없지만, 안쪽에서 계속해서 감각을 끌어올리는 흐름"
+        },
+        "opt4": {
+          "en": "a course already driven toward its end, carried forward without the power to halt",
+          "ko": "이미 끝을 향해 밀려나 있으며, 멈추지 못한 채 계속 이어지는 흐름"
+        },
+        "opt5": {
+          "en": "a state in which one remains, bound without clear knowing to what, yet never freed",
+          "ko": "무엇에 묶여 있는지 분명하지 않지만, 벗어나지 못한 채 머물러 있는 흔적",
+          "is_minus": true
+        }
+      }
+    },
+    "antares_5": {
+      "bg_image": "antares_2.png",
+      "narrative": {
+        "en": [
+          "The air stirs—faintly.",
+          " ",
+          "The dark parts,",
+          "as though split,",
+          "and a scene passes between.",
+          " ",
+          "A hand.",
+          " ",
+          "Close, distinct—",
+          " ",
+          "A red fruit,",
+          "already bitten.",
+          " ",
+          "It is—",
+          "extended toward you."
+        ],
+        "ko": [
+          "공기가 미세하게 흔들린다.",
+          "어둠이 갈라지듯 열리고, 그 사이로 장면이 스쳐 지나간다.",
+          " ",
+          "손이 있다.",
+          "가까이에서, 분명하게 보인다.",
+          " ",
+          "붉은 열매.",
+          "이미 한 입 베어져 있다.",
+          " ",
+          "그것이—",
+          "당신을 향해 내밀어진다."
+        ]
+      }
+    },
+    "antares_6": {
+      "bg_image": "antares_2.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "No word is given.",
+          "No expression can be read.",
+          " ",
+          "It cannot be refused.",
+          " ",
+          "As though it must be received.",
+          " ",
+          "As though—",
+          "it had already been so."
+        ],
+        "ko": [
+          "말은 없다.",
+          "표정도 읽히지 않는다.",
+          " ",
+          "거부할 수 없다.",
+          "받아야 할 것처럼 느껴진다.",
+          " ",
+          "이미—",
+          "그렇게 되어 있는 것처럼."
+        ]
+      }
+    },
+    "antares_7": {
+      "bg_image": "antares_3.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "Before your hand can reach—",
+          "the scene is severed.",
+          " ",
+          "At once—",
+          "nothing remains.",
+          " ",
+          "Sensation is cut.",
+          "Closed.",
+          " ",
+          "And yet—",
+          "it does not vanish.",
+          " ",
+          "Unheld, yet broken off—",
+          "it remains."
+        ],
+        "ko": [
+          "손을 뻗기도 전에 장면이 끊긴다.",
+          " ",
+          "갑작스럽게, 아무것도 남지 않는다.",
+          " ",
+          "감각이 잘려나간다.",
+          "막힌다.",
+          " ",
+          "그런데—",
+          "완전히 사라지지 않는다.",
+          " ",
+          "붙잡히지 않은 채, 끊어진 채로."
+        ]
+      }
+    },
+    "q_galactic_center_ketu": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "It is—"
+        ],
+        "ko": [
+          "그것은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "cut away—so it seemed, the form gone, yet following still within",
+          "ko": "이미 끊어냈다고 생각했는데, 형태만 사라진 채 안쪽에 남아 계속 따라붙는 것"
+        },
+        "opt2": {
+          "en": "never severed, returning you to the same place, again and again",
+          "ko": "끊어내지 못한 채, 같은 자리로 계속 되돌아오게 만드는 것"
+        },
+        "opt3": {
+          "en": "released—or so it feels, yet each time, taken hold of once more",
+          "ko": "놓았다고 생각하는 순간마다, 다시 붙잡게 만드는 것"
+        },
+        "opt4": {
+          "en": "rising without cause, passing through, yet never fading",
+          "ko": "이유도 없이 문득 떠올라, 사라지지 않고 계속 스쳐 지나가는 것"
+        },
+        "opt5": {
+          "en": "the more it is erased, the more fiercely it burns, cutting deeper",
+          "ko": "지워버리려 할수록 더 강하게 타오르며, 오히려 깊게 각인되는 것"
+        }
+      }
+    },
+    "antares_8": {
+      "bg_image": "antares_4.png",
+      "narrative": {
+        "en": [
+          "What had been cut—",
+          "seeps back in.",
+          " ",
+          "From where nothing remained,",
+          "it rises—faint.",
+          " ",
+          "What was thought gone—",
+          "touches again.",
+          " ",
+          "A trace in the mouth.",
+          "Sweet.",
+          " ",
+          "Unseen, yet present—",
+          "Sensation recalled."
+        ],
+        "ko": [
+          "끊겼던 감각이 다시 스며든다.",
+          "아무것도 없던 자리에서 미세하게 올라온다.",
+          " ",
+          "사라진 줄 알았던 것이—",
+          "다시 닿는다.",
+          " ",
+          "입 안에 희미한 감각.",
+          "달다.",
+          " ",
+          "보이지 않는데도 느껴진다.",
+          " ",
+          "손끝이 기억한다."
+        ]
+      }
+    },
+    "antares_9": {
+      "bg_image": "antares_4.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "What was held—",
+          "what would not be released—",
+          " ",
+          "draws near again.",
+          " ",
+          "This time—",
+          "it does not break."
+        ],
+        "ko": [
+          "붙잡았던 감각, 놓지 못했던 것.",
+          " ",
+          "다시—",
+          "가까워진다.",
+          " ",
+          "이번에는 끊기지 않는다."
+        ]
+      }
+    },
+    "q_nunki_venus": {
+      "bg_image": "white",
+      "narrative": {
+        "en": [
+          "It is—"
+        ],
+        "ko": [
+          "그것은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "to reach, knowing—there is no return, and yet to take it in",
+          "ko": "알고도 손을 뻗는 것, 돌아갈 수 없다는 것을 알면서도 스스로 받아들이는 매혹"
+        },
+        "opt2": {
+          "en": "to know it must be halted, yet remain held just before the line",
+          "ko": "멈춰야 한다는 것을 알면서도, 그 선을 넘지 못하게 붙잡는 억눌림"
+        },
+        "opt3": {
+          "en": "to believe it severed, yet be drawn back once more",
+          "ko": "이미 끊어냈다고 믿으면서도, 다시 끌려들어가게 되는 반복"
+        },
+        "opt4": {
+          "en": "to be drawn without cause, to remain without cause, not fading",
+          "ko": "이유 없이 끌리고, 이유 없이 남아 사라지지 않는 감각"
+        },
+        "opt5": {
+          "en": "resisted—yet drawing all the stronger, until the gaze cannot turn",
+          "ko": "밀어낼수록 더 강하게 끌어당기며, 끝내 시선을 놓지 못하게 만드는 것"
+        }
+      }
+    },
+    "antares_10": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "Heat clings again to the skin.",
+          " ",
+          "Breath grows heavy.",
+          "The ground returns beneath you.",
+          " ",
+          "Returned.",
+          " ",
+          "As though from the beginning—",
+          "as though nothing had passed—",
+          " ",
+          "you stand there once more."
+        ],
+        "ko": [
+          "열이 다시 피부에 달라붙는다.",
+          " ",
+          "숨이 무거워진다.",
+          "발 아래의 감각이 돌아온다.",
+          " ",
+          "돌아왔다.",
+          " ",
+          "처음부터 그 자리에 있었던 것처럼,",
+          "아무 일도 없었던 것처럼,",
+          " ",
+          "당신은 다시 그 안에 서 있다."
+        ]
+      }
+    },
+    "antares_11": {
+      "bg_image": "antares_5.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "A trace remains.",
+          " ",
+          "What was sweet.",
+          "What drew the hand.",
+          " ",
+          "No longer.",
+          " ",
+          "There is no cause to remain.",
+          " ",
+          "This place—",
+          "was never given for you to stay."
+        ],
+        "ko": [
+          "조금 전의 감각이 남아 있다.",
+          " ",
+          "달콤했던 것.",
+          "붙잡고 싶었던 것.",
+          "더는 없다.",
+          " ",
+          "여기에 있을 이유가 없다.",
+          " ",
+          "이곳은,",
+          "당신이 머물 자리로 주어진 적이 없다."
+        ]
+      }
+    },
+    "antares_12": {
+      "bg_image": "antares_6.png",
+      "narrative": {
+        "en": [
+          "Your gaze lifts.",
+          " ",
+          "You look around.",
+          " ",
+          "This space is closed.",
+          "Sealed.",
+          " ",
+          "And yet—",
+          "you do not stop."
+        ],
+        "ko": [
+          "시선이 들린다.",
+          " ",
+          "주변을 본다.",
+          "이 공간은 닫혀 있다.",
+          " ",
+          "막혀 있다.",
+          " ",
+          "그러나—",
+          "당신은 멈추지 않는다."
+        ]
+      }
+    },
+    "antares_13": {
+      "bg_image": "antares_7.png",
+      "narrative": {
+        "en": [
+          "You do not break it.",
+          "There is no need.",
+          " ",
+          "You—",
+          "are not of this place.",
+          " ",
+          "That alone is enough to be shown.",
+          " ",
+          "That this is not where you belong.",
+          "Not this place.",
+          "Not this station—",
+          " ",
+          "Then—"
+        ],
+        "ko": [
+          "부수려 하지 않는다.",
+          "그럴 필요가 없다.",
+          " ",
+          "당신은—",
+          "여기에 속한 존재가 아니다.",
+          " ",
+          "그 사실을 드러내면 된다.",
+          " ",
+          "이곳이 아니라는 것을,",
+          "이 자리가 아니라는 것을—",
+          " ",
+          "그렇다면—"
+        ]
+      }
+    },
+    "q_vega_sun": {
+      "bg_image": "antares_7.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "You—"
+        ],
+        "ko": [
+          "당신은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "reveal yourself as you are, and by that light press back its bounds",
+          "ko": "존재를 그대로 드러내며, 그 빛으로 이곳의 경계를 밀어낸다"
+        },
+        "opt2": {
+          "en": "remain unmoving, enduring to the end, proving you do not yield",
+          "ko": "움직이지 않은 채 버텨내며, 끝까지 무너지지 않음을 증명한다"
+        },
+        "opt3": {
+          "en": "draw up what was already severed, and by that force drive yourself out",
+          "ko": "이미 끊어낸 것을 다시 끌어올려, 그 힘으로 스스로를 밀어낸다"
+        },
+        "opt4": {
+          "en": "yield to what rises within, without reason, and move with it",
+          "ko": "이유 없이 안쪽에서 밀려오르는 감각에 몸을 맡기며, 그대로 나아간다"
+        },
+        "opt5": {
+          "en": "drive forward as though to burn all through, and by that surge force a way open",
+          "ko": "모든 것을 태워내듯 밀어붙이며, 그 기세로 길을 열어낸다"
+        }
+      }
+    },
+    "antares_14": {
+      "bg_image": "antares_8.png",
+      "narrative": {
+        "en": [
+          "The boundary gives.",
+          " ",
+          "What was closed—opens.",
+          " ",
+          "The weight in the air lifts.",
+          "The way ahead extends.",
+          " ",
+          "You move—",
+          "as you are.",
+          " ",
+          "No halt."
+        ],
+        "ko": [
+          "경계가 밀린다.",
+          "막혀 있던 것이 열리고, 무겁던 공기가 걷힌다.",
+          " ",
+          "앞이 이어진다.",
+          "당신은 그대로 나아간다.",
+          " ",
+          "멈추지 않는다."
+        ]
+      }
+    },
+    "antares_15": {
+      "bg_image": "antares_9.png",
+      "narrative": {
+        "en": [
+          "You near the threshold.",
+          "Then—a strange sensation passes.",
+          " ",
+          "Your step falters.",
+          " ",
+          "No cause.",
+          "And yet—something within drops.",
+          " ",
+          "What had been held just before—",
+          "no longer takes hold.",
+          " ",
+          "Why you came this far.",
+          "Why you sought to leave—",
+          " ",
+          "what was clear begins to lose its form."
+        ],
+        "ko": [
+          "출구에 거의 닿는다.",
+          " ",
+          "그 순간, 이상한 감각이 스친다.",
+          "발걸음이 멈춘다.",
+          " ",
+          "이유는 없다.",
+          " ",
+          "그런데—",
+          "가슴이 갑자기 가라앉는다.",
+          " ",
+          "조금 전까지 붙잡고 있던 모든 것이,",
+          "순간적으로 손에 잡히지 않는다.",
+          " ",
+          "왜 여기까지 왔는지, 왜 나가려 했는지.",
+          "선명했던 것이 흐려진다."
+        ]
+      }
+    },
+    "antares_16": {
+      "bg_image": "antares_9.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "Your step comes to a halt.",
+          " ",
+          "Nothing has changed.",
+          "The way ahead remains open.",
+          " ",
+          "And yet—",
+          "you cannot proceed.",
+          " ",
+          "From within,",
+          "something rises—",
+          " ",
+          "without name."
+        ],
+        "ko": [
+          "걸음이 멈춘다.",
+          " ",
+          "바뀐 것은 없다.",
+          "앞은 여전히 열려 있다.",
+          " ",
+          "그런데—",
+          "더 나아갈 수 없다.",
+          " ",
+          "안쪽에서 알 수 없는 감각이 올라온다."
+        ]
+      }
+    },
+    "antares_17": {
+      "bg_image": "antares_10.png",
+      "narrative": {
+        "en": [
+          "It sinks.",
+          " ",
+          "Without cause—",
+          "it holds.",
+          " ",
+          "Though you have not turned—",
+          "the sense of something left behind remains.",
+          " ",
+          "It halts you."
+        ],
+        "ko": [
+          "가라앉는다.",
+          "이유도 없이, 그대로 붙잡는다.",
+          " ",
+          "뒤를 돌아보지 않았는데도,",
+          "무언가가 남아 있다는 감각이—",
+          "당신을 멈춰 세운다."
+        ]
+      }
+    },
+    "q_altair_moon": {
+      "bg_image": "antares_10.png",
+      "narrative": {
+        "en": [
+          "It is—"
+        ],
+        "ko": [
+          "그것은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "a sense of something left behind, though no glance was given",
+          "ko": "돌아보지 않았는데도, 뒤에 남아 있는 것이 계속 느껴지는 감각"
+        },
+        "opt2": {
+          "en": "a weight that holds, even at the point of departure, refusing release",
+          "ko": "벗어나기 직전까지 왔는데도, 끝내 놓지 못하게 붙잡는 무게"
+        },
+        "opt3": {
+          "en": "a trace believed severed, yet drawing the hand back once more",
+          "ko": "이미 끊어냈다고 생각했지만, 다시 붙잡고 싶게 만드는 흔적"
+        },
+        "opt4": {
+          "en": "a pull that grows stronger the more one seeks to leave, until the gaze is turned",
+          "ko": "벗어나려 할수록 더 강하게 끌어당기며, 끝내 시선을 돌리게 만드는 것"
+        },
+        "opt5": {
+          "en": "a presence not known, yet one that must be faced, as though it calls you back",
+          "ko": "무엇이 남아 있는지 알 수 없는데도, 그저 돌아봐야 할 것 같은 느낌",
+          "is_minus": true
+        }
+      }
+    },
+    "antares_18": {
+      "bg_image": "antares_10.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "Sensation dulls.",
+          " ",
+          "Form loosens.",
+          "Boundaries give way.",
+          " ",
+          "What was clear just moments ago—",
+          "no longer separates.",
+          " ",
+          "Within and without, mingled—",
+          "All indistinct.",
+          " ",
+          "Reaching—",
+          "nothing holds."
+        ],
+        "ko": [
+          "감각이 흐려진다.",
+          " ",
+          "형태가 풀린다.",
+          "경계가 느슨해진다.",
+          " ",
+          "조금 전까지 분명하던 것들이—",
+          "구분되지 않는다.",
+          " ",
+          "안과 밖이 섞인다.",
+          "모든 것이흐려진다.",
+          " ",
+          "잡으려 해도 잡히지 않는다."
+        ]
+      }
+    },
+    "antares_19": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "Before anything can be grasped—",
+          " ",
+          "sensation is driven back.",
+          " ",
+          "The body",
+          "does not remain.",
+          " ",
+          "Carried off—",
+          " ",
+          "to where it draws—"
+        ],
+        "ko": [
+          "무슨 일이 일어났는지 파악하기도 전에—",
+          "감각이 밀려난다.",
+          " ",
+          "몸이 그 자리에 머물지 않는다.",
+          " ",
+          "다시, 흘러간다.",
+          " ",
+          "어딘가로—"
+        ]
+      }
+    },
+    "fomalhaut_1": {
+      "bg_image": "fomalhaut_1.png",
+      "narrative": {
+        "en": [
+          "The light wavers.",
+          " ",
+          "Stone encloses the space.",
+          "The air is cold.",
+          " ",
+          "You kneel.",
+          " ",
+          "An altar before you.",
+          "Hands held, breath even.",
+          " ",
+          "Nothing breaks.",
+          " ",
+          "It proceeds—",
+          "as it has many times before."
+        ],
+        "ko": [
+          "불빛이 흔들린다.",
+          " ",
+          "좁은 공간, 돌로 둘러싸인 벽, 차가운 공기.",
+          "당신은 무릎을 꿇고 있다.",
+          " ",
+          "앞에는 제단.",
+          " ",
+          "손은 모여 있고, 호흡은 일정하다.",
+          "의식은 흐트러지지 않는다.",
+          " ",
+          "이미 여러 번 반복해온 것처럼,",
+          "잡념 없이 이어진다."
+        ]
+      }
+    },
+    "fomalhaut_2": {
+      "bg_image": "fomalhaut_1.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "From behind, a sound.",
+          " ",
+          "Faint.",
+          "Low—almost a laugh.",
+          " ",
+          "You do not stop.",
+          "The rite continues.",
+          " ",
+          "And yet—it remains.",
+          " ",
+          "Closer,",
+          "with each moment."
+        ],
+        "ko": [
+          "그때—",
+          "뒤에서, 아주 미세한 소리가 스친다.",
+          " ",
+          "낮다. 웃음에 가깝다.",
+          " ",
+          "당신은 멈추지 않는다.",
+          "의식은 계속된다.",
+          " ",
+          "그러나—",
+          "그 소리는 사라지지 않는다.",
+          "조금씩 가까워진다."
+        ]
+      }
+    },
+    "fomalhaut_3": {
+      "bg_image": "fomalhaut_2.png",
+      "narrative": {
+        "en": [
+          "It speaks—",
+          "just behind you.",
+          " ",
+          "“Is it fear.”",
+          " ",
+          "You do not open your eyes.",
+          "You remain still.",
+          " ",
+          "A quiet laugh.",
+          " ",
+          "“To stand before what is within you—",
+          "and not turn away.”"
+        ],
+        "ko": [
+          "그것은 바로 뒤에서 말한다.",
+          "“두려운가.”",
+          " ",
+          "당신은 눈을 뜨지 않는다.",
+          "침묵한다.",
+          " ",
+          "그것은 웃는다.",
+          " ",
+          "“두려운가—",
+          "네 안에 있는 것을 마주하기가.”"
+        ]
+      }
+    },
+    "fomalhaut_4": {
+      "bg_image": "fomalhaut_3.png",
+      "narrative": {
+        "en": [
+          "The air shifts.",
+          "You open your eyes.",
+          " ",
+          "Not before you—",
+          "at your side.",
+          " ",
+          "No clear form.",
+          "And yet—",
+          " ",
+          "no doubt of its presence.",
+          "It is turned toward you."
+        ],
+        "ko": [
+          "공기가 달라진다.",
+          " ",
+          "당신은 눈을 뜬다.",
+          "그것은 앞이 아니라 옆에 있다.",
+          " ",
+          "형태는 분명하지 않다.",
+          " ",
+          "그러나—",
+          "존재는 분명하다.",
+          " ",
+          "그것은 당신을 보고 있다."
+        ]
+      }
+    },
+    "fomalhaut_5": {
+      "bg_image": "fomalhaut_3.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "“You would have cast me out.",
+          " ",
+          "That was never permitted.",
+          " ",
+          "From above—",
+          "it is being watched,",
+          "whether you remain to the end.”"
+        ],
+        "ko": [
+          "“나를 쫓아내려 했지.",
+          "하지만— 그럴 수 없도록 되어 있다.",
+          " ",
+          "위에서, 네가 끝까지 남을 수 있는지 보고 싶어 하니까.”"
+        ]
+      }
+    },
+    "fomalhaut_6": {
+      "bg_image": "fomalhaut_4.png",
+      "narrative": {
+        "en": [
+          "You refuse it.",
+          "This has no place here.",
+          " ",
+          "And yet—",
+          " ",
+          "it does not withdraw.",
+          "It draws nearer.",
+          " ",
+          "“Fear—”",
+          " ",
+          "“Or else—the will to see.”"
+        ],
+        "ko": [
+          "당신은 거부한다.",
+          "이것은 여기에 있어서는 안 된다.",
+          " ",
+          "그러나—",
+          " ",
+          "그것은 물러나지 않는다.",
+          "오히려 더 가까워진다.",
+          " ",
+          "“두려운가.”",
+          " ",
+          "“아니면—",
+          "“확인해볼 생각인가.”"
+        ]
+      }
+    },
+    "fomalhaut_7": {
+      "bg_image": "fomalhaut_5.png",
+      "narrative": {
+        "en": [
+          "You come to stillness.",
+          " ",
+          "You do not turn aside.",
+          "You allow.",
+          " ",
+          "A low laugh.",
+          " ",
+          "“Good.”",
+          " ",
+          "Leaning closer—",
+          " ",
+          "“That which you seek most—",
+          "what is it.”"
+        ],
+        "ko": [
+          "당신은 멈춘다.",
+          " ",
+          "피하지 않는다.",
+          "그것을 받아들인다.",
+          " ",
+          "그것은 웃는다.",
+          " ",
+          "“좋다.”",
+          " ",
+          "조금 더 가까이 기울어지며—",
+          " ",
+          "“네가 가장 원하는 것은—",
+          "무엇인가.”"
+        ]
+      }
+    },
+    "q_deneb_algedi_mars": {
+      "bg_image": "fomalhaut_5.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "It is shown—"
+        ],
+        "ko": [
+          "그것은 당신에게 여러 기괴한 환상을 보여준다.",
+          "그것은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "a woman with a fish’s head, breath wet against your ear—no sound, yet meaning enters",
+          "ko": "물고기의 머리를 한 여인이, 젖은 숨을 내쉬며 당신의 귀에 입을 댄다. 무슨 말을 하는지는 들리지 않지만, 의미만이 바로 안쪽으로 스며든다"
+        },
+        "opt2": {
+          "en": "inside a golden vessel, a mass with eyes opens and slowly takes your fingers—no pain, only warmth",
+          "ko": "금으로 된 그릇 안에서, 눈이 달린 덩어리가 입처럼 벌어지며 당신의 손가락을 천천히 삼킨다. 고통은 없고, 오히려 안쪽이 따뜻하다"
+        },
+        "opt3": {
+          "en": "a skinless form presses against you—at contact, the boundary dissolves",
+          "ko": "피부가 없는 존재가 당신의 몸에 밀착된다. 닿는 순간, 그것과 당신의 경계가 흐려지며 서로의 형태가 섞여버린다"
+        },
+        "opt4": {
+          "en": "things forced together, never holding—collapsing, reforming, still drawing toward you",
+          "ko": "서로 맞지 않는 것들이 억지로 이어붙여진 채, 형태를 잡으려다 계속 무너진다. 하나로 고정되지 못한 채, 실패한 모습으로 당신을 향해 기어온다",
+          "is_minus": true
+        }
+      }
+    },
+    "fomalhaut_8": {
+      "bg_image": "grey",
+      "narrative": {
+        "en": [
+          "The visions recede.",
+          " ",
+          "The space clears.",
+          "You remain where you stand.",
+          " ",
+          "What was seen just before—",
+          "does not hold.",
+          " ",
+          "You do not speak.",
+          " ",
+          "It regards you.",
+          " ",
+          "A slight lift—",
+          "at the edge of its mouth."
+        ],
+        "ko": [
+          "환상은 사라지며, 공간이 다시 또렷해진다.",
+          " ",
+          "당신은 그대로 서 있다.",
+          " ",
+          "조금 전까지 보았던 것들이—",
+          "손에 잡히지 않는다.",
+          " ",
+          "당신은 아무 말도 하지 않는다.",
+          " ",
+          "그것은 당신을 본다.",
+          "입꼬리가 아주 미세하게 올라간다."
+        ]
+      }
+    },
+    "fomalhaut_9": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "A sharp surge arises within the chest.",
+          " ",
+          "This is no trial.",
+          "It is but a mockery.",
+          " ",
+          "Your gaze hardens.",
+          " ",
+          "“Is this—",
+          "your design.”",
+          " ",
+          "No answer.",
+          "Only a low, measured laugh."
+        ],
+        "ko": [
+          "가슴이 거칠게 치밀어 오른다.",
+          "이건 시험이 아니다.",
+          "나를 농락하는 것이다.",
+          " ",
+          "시선이 날카롭게 굳는다.",
+          " ",
+          "“이게— 네가 하는 짓인가.”",
+          " ",
+          "그것은 대답하지 않는다.",
+          "그저, 낮게 웃는다."
+        ]
+      }
+    },
+    "fomalhaut_10": {
+      "bg_image": "fomalhaut_6.png",
+      "narrative": {
+        "en": [
+          "Your hand comes to rest upon the table.",
+          " ",
+          "Then—",
+          "something meets it.",
+          " ",
+          "Cold.",
+          " ",
+          "A sensation not there before.",
+          " ",
+          "A blade.",
+          " ",
+          "Its form—",
+          "as though made for rite, of an older making."
+        ],
+        "ko": [
+          "당신의 손이 탁자를 짚는다.",
+          " ",
+          "그때—",
+          "무언가가 닿는다.",
+          " ",
+          "차갑다.",
+          "조금 전까지 없던 감각.",
+          " ",
+          "단검이다.",
+          "마치 고대 의식에 쓰인 것 같은 형태."
+        ]
+      }
+    },
+    "fomalhaut_11": {
+      "bg_image": "fomalhaut_7.png",
+      "narrative": {
+        "en": [
+          "Your hand moves before thought.",
+          "The grip closes.",
+          " ",
+          "Then—",
+          "something falls out of place.",
+          " ",
+          "Your hand is wet.",
+          " ",
+          "Already stained, red in blood—"
+        ],
+        "ko": [
+          "손이 먼저 움직인다.",
+          "단검을 쥔 손에 힘이 들어간다.",
+          " ",
+          "순간—",
+          "감각이 어긋난다.",
+          " ",
+          "손이 무언가에 젖어 있다.",
+          " ",
+          "이미 묻어 있다.",
+          "붉은—피가."
+        ]
+      }
+    },
+    "fomalhaut_12": {
+      "bg_image": "fomalhaut_7.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "Not of the present.",
+          "Not for the first time.",
+          " ",
+          "Your hand halts.",
+          "A slight tremor.",
+          " ",
+          "Then—"
+        ],
+        "ko": [
+          "지금의 것이 아니다.",
+          "처음이 아니다.",
+          " ",
+          "손이 멈춘다.",
+          "미세하게 떨린다.",
+          " ",
+          "그때—"
+        ]
+      }
+    },
+    "fomalhaut_13": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "Your gaze fixes.",
+          " ",
+          "It—",
+          "already near.",
+          " ",
+          "No word.",
+          " ",
+          "Only—",
+          "its regard, held upon you."
+        ],
+        "ko": [
+          "시선이 꽂힌다.",
+          " ",
+          "그것이—",
+          "이미 가까이 와 있다.",
+          " ",
+          "아무 말도 하지 않는다.",
+          " ",
+          "그저,",
+          "당신을 보고 있다."
+        ]
+      }
+    },
+    "fomalhaut_14": {
+      "bg_image": "fomalhaut_8.png",
+      "narrative": {
+        "en": [
+          "You steady your breath.",
+          " ",
+          "The blade is set down, without sound.",
+          " ",
+          "As though nothing had occurred—",
+          "your gaze withdraws.",
+          " ",
+          "“Proceed.”",
+          " ",
+          "The voice is low.",
+          "Unshaken."
+        ],
+        "ko": [
+          "당신은 숨을 고른다.",
+          " ",
+          "단검을 조용히 내려놓는다.",
+          " ",
+          "아무 일도 없었던 것처럼,",
+          "시선을 거둔다.",
+          " ",
+          "“계속하지.”",
+          " ",
+          "목소리는 낮다.",
+          "그러나 흔들리지 않는다."
+        ]
+      }
+    },
+    "fomalhaut_15": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "It laughs again.",
+          " ",
+          "“Good.”",
+          " ",
+          "Leaning closer—",
+          " ",
+          "“This time—",
+          " ",
+          "what it is that you hold to the end—",
+          "will be seen.”",
+          " ",
+          "“What you would not lose—",
+          "that, will be revealed.”"
+        ],
+        "ko": [
+          "그것이 다시 웃는다.",
+          " ",
+          "“그래.”",
+          " ",
+          "조금 더 가까이 기울어지며—",
+          " ",
+          "“이번에는—",
+          "네가 무엇을 끝까지 붙들고 서 있는지 보게 되겠지.”",
+          " ",
+          "“무엇을 잃지 않으려 하는지—",
+          "그게 드러날 것이다.”"
+        ]
+      }
+    },
+    "q_markab_jupiter": {
+      "bg_image": "white",
+      "narrative": {
+        "en": [
+          "It is—"
+        ],
+        "ko": [
+          "그것은—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "a forgotten chalice—empty in appearance, yet filled to the brim with light; weightless in the hand, yet not to be set down",
+          "ko": "잊혀진 성배 — 비어 있는 것으로 보이지만, 내부에는 넘칠 듯한 빛이 고여 있다. 손에 들면 아무것도 느껴지지 않지만, 내려놓을 수 없게 된다"
+        },
+        "opt2": {
+          "en": "a sealed blade—never drawn, yet marked by countless cuts; once taken in hand, the course is set",
+          "ko": "봉인된 검 — 한 번도 뽑히지 않은 채 있으나, 이미 수많은 길을 베어낸 흔적이 남아 있다. 쥐는 순간, 방향이 정해진다"
+        },
+        "opt3": {
+          "en": "a pillar of unknowing—resting on nothing, yet bearing all around it; the nearer you stand, the more you lean upon it",
+          "ko": "무지의 기둥 — 어떤 힘에도 기대지 않으면서도, 주변의 모든 것을 지탱하고 있는 구조. 가까이 갈수록, 스스로가 기대고 있음을 깨닫게 된다"
+        },
+        "opt4": {
+          "en": "the edge of an abyss—seeming a surface, yet at the step, all direction gives way",
+          "ko": "심연의 경계 — 표면처럼 보이지만, 발을 디디는 순간 방향이 무너지고 어디로 가라앉는지 알 수 없게 된다"
+        },
+        "opt5": {
+          "en": "a trace, neither light nor shadow—the more it is followed, the more it slips, never aligning",
+          "ko": "빛인지 그림자인지 구분되지 않는 흔적, 따라가려 할수록 방향이 어긋나며 계속 미끄러지는 것",
+          "is_minus": true
+        }
+      }
+    },
+    "fomalhaut_16": {
+      "bg_image": "fomalhaut_9.png",
+      "narrative": {
+        "en": [
+          "Sensation breaks.",
+          " ",
+          "What had been lost",
+          "returns—slowly.",
+          " ",
+          "Cold.",
+          " ",
+          "The ground against you.",
+          " ",
+          "You are on your knees.",
+          "Nothing upon you."
+        ],
+        "ko": [
+          "감각이 끊긴다.",
+          "잃었던 의식은 다시끔 서서히 차오른다.",
+          " ",
+          "차갑다.",
+          " ",
+          "바닥이 닿아 있다.",
+          " ",
+          "당신은 무릎을 꿇고 있다.",
+          "몸에는 실오라기 한 올 없다."
+        ]
+      }
+    },
+    "fomalhaut_17": {
+      "bg_image": "fomalhaut_9.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "There is no concealment.",
+          "From above, light descends—",
+          " ",
+          "You do not raise your head.",
+          " ",
+          "You already know."
+        ],
+        "ko": [
+          "숨길 수 없다.",
+          " ",
+          "위에서—",
+          "빛이 내려온다.",
+          " ",
+          "고개를 들지 않는다.",
+          "이미 알고 있다."
+        ]
+      }
+    },
+    "fomalhaut_18": {
+      "bg_image": "white",
+      "narrative": {
+        "en": [
+          "No form is seen.",
+          " ",
+          "And yet—",
+          "it cannot be denied.",
+          " ",
+          "A gaze falls upon you.",
+          " ",
+          "There is no escape.",
+          " ",
+          "Then—"
+        ],
+        "ko": [
+          "형태는 보이지 않는다.",
+          " ",
+          "그러나—",
+          "부정할 수 없다.",
+          " ",
+          "시선이 내려온다.",
+          "도망칠 수 없다.",
+          " ",
+          "그때—"
+        ]
+      }
+    },
+    "fomalhaut_19": {
+      "bg_image": "fomalhaut_10.png",
+      "narrative": {
+        "en": [
+          "A voice descends.",
+          " ",
+          "“Declare your sin.”",
+          " ",
+          "Silence settles.",
+          "There is no evasion."
+        ],
+        "ko": [
+          "목소리가 떨어진다.",
+          "“네 죄를 고하라.”",
+          " ",
+          "침묵이 내려앉는다.",
+          "피할 수 없다."
+        ]
+      }
+    },
+    "q_alpheratz_saturn": {
+      "bg_image": "fomalhaut_10.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "Your sin being—"
+        ],
+        "ko": [
+          "당신의 죄는—"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "the point at which you knew the line, yet did not turn back",
+          "ko": "알고도 멈추지 않았던 그 지점, 스스로 선을 인식한 이후에도 돌아서지 않은 흔적"
+        },
+        "opt2": {
+          "en": "the course you pressed forward on, knowing what you would become",
+          "ko": "넘어서는 순간 자신이 무엇이 되는지 알면서도, 끝까지 밀어붙였던 방향"
+        },
+        "opt3": {
+          "en": "the choice that grew more deliberate with understanding, yet was never left behind",
+          "ko": "이해를 얻은 뒤에야 오히려 더 교묘해진 선택, 스스로를 속이지 않으면서도 벗어나지 않았던 상태"
+        },
+        "opt4": {
+          "en": "being drawn deeper at the boundary, yet fixed in place in seeking release",
+          "ko": "경계를 넘으려 할 때마다 더 깊은 쪽으로 끌려들어가던 흐름, 빠져나오려 할수록 고정되던 위치"
+        },
+        "opt5": {
+          "en": "a trace carried on, never fully knowing what was wrong, yet never letting go",
+          "ko": "무엇이 잘못되었는지 끝내 분명히 알지 못한 채, 그러나 놓지 못하고 이어져 온 흔적",
+          "is_minus": true
+        }
+      }
+    },
+    "fomalhaut_20": {
+      "bg_image": "white",
+      "narrative": {
+        "en": [
+          "What had been held—",
+          "gives way at once.",
+          " ",
+          "Breath breaks, chest tightens.",
+          " ",
+          "No reason can be held.",
+          " ",
+          "And yet—",
+          "the tears do not cease."
+        ],
+        "ko": [
+          "버티고 있던 것이 한 번에 무너진다.",
+          " ",
+          "숨이 흐트러진다.",
+          "가슴이 조여든다.",
+          " ",
+          "이유를 붙잡지 못한다.",
+          " ",
+          "그런데—",
+          "눈물이 멈추지 않는다."
+        ]
+      }
+    },
+    "fomalhaut_21": {
+      "bg_image": "fomalhaut_11.png",
+      "narrative": {
+        "en": [
+          "Tears fall.",
+          " ",
+          "Without end, unbroken.",
+          " ",
+          "The head lowers.",
+          " ",
+          "Breath tangles.",
+          "A broken sound escapes.",
+          " ",
+          "It refuses to cease."
+        ],
+        "ko": [
+          "눈물이 쏟아진다.",
+          " ",
+          "계속.",
+          "끊어지지 않는다.",
+          " ",
+          "고개가 떨어진다.",
+          " ",
+          "숨이 엉킨다.",
+          "비통한 소리가 새어나온다.",
+          " ",
+          "막을 수 없다."
+        ]
+      }
+    },
+    "fomalhaut_22": {
+      "bg_image": "fomalhaut_11.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "Time passes.",
+          "How long, unknown—",
+          " ",
+          "Then—",
+          "something turns.",
+          " ",
+          "The tears, no longer held.",
+          " ",
+          "What had been grasped slips away.",
+          " ",
+          "This place—",
+          "does not take form."
+        ],
+        "ko": [
+          "시간이 흐른다.",
+          " ",
+          "얼마나 지났는지 모른다.",
+          "그런데—",
+          " ",
+          "문득, 이상해진다.",
+          "왜 울고 있는지—",
+          " ",
+          "조금 전까지 붙잡고 있던 감정이—",
+          "손에서 빠져나간다.",
+          " ",
+          "여기가—",
+          "어디인지 잡히지 않는다."
+        ]
+      }
+    },
+    "fomalhaut_23": {
+      "bg_image": "fomalhaut_12.png",
+      "narrative": {
+        "en": [
+          "What you were—does not come.",
+          " ",
+          "What remained unravels.",
+          " ",
+          "Name—gone.",
+          "Reason—vanished.",
+          " ",
+          "Then—"
+        ],
+        "ko": [
+          "나는—",
+          "무엇이었는지 떠오르지 않는다.",
+          " ",
+          "남아 있던 것들이 하나씩 풀린다.",
+          " ",
+          "이름이 사라진다.",
+          "이유가 사라진다.",
+          " ",
+          "그때—"
+        ]
+      }
+    },
+    "fomalhaut_24": {
+      "bg_image": "fomalhaut_12.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "From above, a voice descends—",
+          " ",
+          "No form.",
+          " ",
+          "And yet—",
+          " ",
+          "“If—”",
+          " ",
+          "“If all of this were but a mere play—”",
+          " ",
+          "“If it were so—”",
+          " ",
+          "Close—",
+          "almost a whisper—"
+        ],
+        "ko": [
+          "위에서, 목소리가 떨어진다.",
+          " ",
+          "형태는 없다.",
+          " ",
+          "그러나—",
+          " ",
+          "“만약—”",
+          "이 모든 것이 유희라면.”",
+          "유희였다면—”",
+          " ",
+          "아주 가까이에서,",
+          " ",
+          "속삭이듯—"
+        ]
+      }
+    },
+    "q_alrischa_mercury": {
+      "bg_image": "white",
+      "narrative": {
+        "en": [
+          "“What then—",
+          "would you do.”"
+        ],
+        "ko": [
+          "“너는—”",
+          "어떻게 하겠는가.”"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "empty yourself, and follow what is given within the flow",
+          "ko": "스스로를 비운 채, 흐름 속에 그대로 놓인 감각을 좇는다"
+        },
+        "opt2": {
+          "en": "leave meaning aside, and go where the burning impulse carries you, to its end",
+          "ko": "의미를 붙들지 않고, 타오르는 충동을 따라 끝까지 밀려가는 방향으로 향한다"
+        },
+        "opt3": {
+          "en": "stand between knowing and holding, keeping the balance from collapse",
+          "ko": "이해와 유지 사이 어딘가에 서서, 무너지지 않는 균형을 붙잡고 유지한다"
+        },
+        "opt4": {
+          "en": "follow this course to its furthest end, and see for yourself what lies beyond",
+          "ko": "이 모든 흐름의 끝을 따라가, 그 너머를 직접 확인하겠다"
+        }
+      }
+    },
+    "fomalhaut_25": {
+      "bg_image": "fomalhaut_13.png",
+      "narrative": {
+        "en": [
+          "Vision goes out.",
+          "Light falls away, no form remains.",
+          " ",
+          "What had been clear just before—",
+          "cuts at once.",
+          " ",
+          "Nothing remains.",
+          " ",
+          "Within and without—",
+          "no longer set apart."
+        ],
+        "ko": [
+          "시야가 꺼진다.",
+          "빛이 사라지며, 형태가 남지 않는다.",
+          " ",
+          "조금 전까지 분명하던 것들이—",
+          "한 번에 끊긴다.",
+          " ",
+          "남아 있는 것이 없다.",
+          " ",
+          "안과 밖의 구분도—",
+          "사라진다."
+        ]
+      }
+    },
+    "fomalhaut_26": {
+      "bg_image": "fomalhaut_13.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "Before anything can be known—",
+          "sensation is driven back.",
+          " ",
+          "The body does not remain.",
+          " ",
+          "It falls again—",
+          " ",
+          "away—"
+        ],
+        "ko": [
+          "무슨 일이 일어났는지 파악하기도 전에—",
+          "감각이 밀려난다.",
+          " ",
+          "몸이 그 자리에 머물지 않는다.",
+          "다시, 떨어진다.",
+          " ",
+          "어딘가로—"
+        ]
+      }
+    },
+    "void_royal": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "“…when all collapses, and nothing remains—",
+          "if there is that which cannot be relinquished—what is it.”"
+        ],
+        "ko": [
+          "“…모든 것이 무너지고 사라지는 마지막 순간—",
+          "그럼에도 끝까지 놓지 못할 것이 있다면—",
+          "그것은 무엇인가.”"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "truth—to refuse self-deception, even at the cost of all",
+          "ko": "끝까지 스스로를 속이지 않겠다는 진실, 그로 인해 모든 것을 잃더라도"
+        },
+        "opt2": {
+          "en": "a place—to remain as the center, even if all others depart",
+          "ko": "무너져도 중심으로 남겠다는 자리, 타인이 모두 떠나더라도"
+        },
+        "opt3": {
+          "en": "a gaze—to understand and pierce through, even if it breaks me",
+          "ko": "끝내 이해하고 꿰뚫겠다는 시선, 그것이 자신을 부수더라도"
+        },
+        "opt4": {
+          "en": "desire—to cross the boundary and reach, even if there is no return",
+          "ko": "경계를 넘어 닿으려는 욕망, 돌아올 수 없게 되더라도"
+        }
+      }
+    },
+    "void_graha": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "“…when there is nowhere left to withdraw—",
+          "which way, in the end, do you choose.”"
+        ],
+        "ko": [
+          "“…더 물러날 곳이 없는 순간—",
+          "결국, 그대는 어떤 쪽을 택하게 되는가.”"
+        ]
+      },
+      "options": {
+        "opt1": {
+          "en": "you sever it yourself, before it binds further, and leave with nothing",
+          "ko": "더 얽히기 전에 스스로 끊어내고, 아무것도 남기지 않은 채 물러난다"
+        },
+        "opt2": {
+          "en": "you return between people and feeling, and hold to what remains",
+          "ko": "사람과 감정 사이로 다시 들어가, 관계를 붙잡고자 한다"
+        },
+        "opt3": {
+          "en": "you take your stand at the center, to remain unmoved",
+          "ko": "흔들리지 않기 위해 스스로 중심에 서고자 다짐한다"
+        },
+        "opt4": {
+          "en": "you do not hold, but let it pass, and follow what is felt",
+          "ko": "굳이 붙잡지 않고, 흘러가는 대로 두며 감각에 맡긴다"
+        },
+        "opt5": {
+          "en": "you move first, without hesitation, and break through by force",
+          "ko": "망설이지 않고 먼저 움직여, 힘으로 상황을 돌파한다"
+        },
+        "opt6": {
+          "en": "you step into the unopened path, even at risk",
+          "ko": "위험을 감수하더라도, 아직 열리지 않은 방향으로 발을 내딛는다"
+        },
+        "opt7": {
+          "en": "you take it in more widely, and seek the answer within a greater meaning",
+          "ko": "상황을 넓게 받아들이고, 더 큰 의미 속에서 답을 찾으려 한다"
+        },
+        "opt8": {
+          "en": "you endure and hold, so as not to collapse",
+          "ko": "버티고 견디며, 무너지지 않도록 끝까지 붙들려 한다"
+        },
+        "opt9": {
+          "en": "you read the flow, and build your judgment, seeking the most fitting course",
+          "ko": "흐름을 읽고 판단을 쌓아, 가장 타당한 길을 궁리한다"
+        }
+      }
+    },
+    "void_stars": {
+      "bg_image": "black",
+      "narrative": {
+        "en": [
+          "“…among the layered lights—",
+          "your charge has yet to be made one.”",
+          " ",
+          "“Before the divided paths—",
+          "which way does your soul turn.”"
+        ],
+        "ko": [
+          "“…겹쳐진 빛들 사이에서—",
+          "그대의 사명은 아직 하나로 정리되지 않았다.”",
+          " ",
+          "“갈라진 길 앞에서—",
+          "그대의 영혼은 어느 쪽을 택하겠는가.”"
+        ]
+      },
+      "options": {
+        "ketu_1": {
+          "en": "to face it to the end, and sever it by your own hand",
+          "ko": "끝까지 마주한 뒤, 스스로 잘라내는 쪽을 택한다"
+        },
+        "ketu_2": {
+          "en": "to set all down, and walk inward, toward the center",
+          "ko": "모든 것을 내려놓고, 중심으로 향해 스스로 걸어 들어간다"
+        },
+        "venus_1": {
+          "en": "to yield to the pull that cannot be turned from, and turn back toward it",
+          "ko": "외면할 수 없음에도 결국 그쪽으로 돌아서게 되는 끌림에 몸을 맡긴다"
+        },
+        "venus_2": {
+          "en": "to remain within what has already taken hold, unable to draw away",
+          "ko": "이미 스며든 감각을 떼어내지 못한 채, 그 안에 그대로 머문다"
+        },
+        "venus_3": {
+          "en": "to enter knowingly, and choose not to return",
+          "ko": "알고도 깊이 들어가, 끝내 빠져나오지 않기를 택한다"
+        },
+        "sun_1": {
+          "en": "to cut through what is overlapped, and decide what remains",
+          "ko": "겹쳐진 것을 가르며, 남길 것과 버릴 것을 스스로 정한다"
+        },
+        "sun_2": {
+          "en": "to stand as an unmoving center, and reveal yourself there",
+          "ko": "흔들리지 않는 중심으로 서서, 그 자리에서 자신을 드러낸다"
+        },
+        "sun_3": {
+          "en": "to raise the light without hesitation, and carry it through to its fullest",
+          "ko": "망설임 없이 빛을 밀어 올려, 존재를 끝까지 발산해낸다"
+        },
+        "moon_1": {
+          "en": "to follow the misaligned sense, and trace what cannot be seen",
+          "ko": "어긋난 감각을 따라, 보이지 않는 균열을 짚어낸다"
+        },
+        "moon_2": {
+          "en": "to return into what sinks, and face what was never released",
+          "ko": "가라앉는 감정 속으로 돌아가, 끝내 놓지 못한 것을 향한다"
+        },
+        "mars_1": {
+          "en": "to meet it head-on, and force a way through",
+          "ko": "망설임 없이 정면으로 부딪혀, 그 자리에서 길을 뚫어낸다"
+        },
+        "mars_2": {
+          "en": "to hold the chosen line, and press it to the end",
+          "ko": "결정한 순간 물러서지 않고, 겨눈 것을 끝까지 밀어붙인다"
+        },
+        "rahu_1": {
+          "en": "to drive past the boundary without halt, and extend into what is not yet reached",
+          "ko": "멈추지 않고 경계를 밀어넘기며, 닿지 않은 영역까지 스스로를 확장한다"
+        },
+        "rahu_2": {
+          "en": "to ascend along the current, and step into another order",
+          "ko": "흐름을 타고 더 높은 곳으로 올라서, 다른 차원의 자리에 발을 디딘다"
+        },
+        "jupiter_1": {
+          "en": "to stand upon what has been carried forward, and bring it to completion",
+          "ko": "이미 이어져 온 흐름 위에 서서, 그것을 더 넓히고 완성해 나간다"
+        },
+        "jupiter_2": {
+          "en": "to accept the given weight, and judge it through to the end",
+          "ko": "주어진 무게를 받아들이고, 그에 걸맞은 기준으로 끝까지 판단을 내린다"
+        },
+        "jupiter_3": {
+          "en": "to move toward what is unseen, and follow your own conviction",
+          "ko": "눈에 보이지 않는 방향을 향해, 스스로의 신념을 따라 나아간다"
+        },
+        "saturn_1": {
+          "en": "to bear what has been given, without setting it down",
+          "ko": "주어진 무게를 끝까지 내려놓지 않은 채, 그대로 짊어진다"
+        },
+        "saturn_2": {
+          "en": "to remain within what cannot be left, and continue on",
+          "ko": "벗어날 수 없는 흐름을 받아들이고, 그 안에서 계속 걸어간다"
+        },
+        "saturn_3": {
+          "en": "to draw the line yourself, and remain bound within it",
+          "ko": "스스로 선을 긋고, 그 경계 안에서 자신을 묶어 둔다"
+        },
+        "mercury_1": {
+          "en": "to step back, and read the structure of the whole",
+          "ko": "한 걸음 물러나 전체를 바라보며, 흐름의 구조를 읽어낸다"
+        },
+        "mercury_2": {
+          "en": "to stand at the point of division, and decide what continues, and what is cut away",
+          "ko": "갈라지는 지점에 서서, 이어갈 것과 끊어낼 것을 스스로 정한다"
+        }
+      }
+    },
+    "bad_end_1": {
+      "bg_image": "badend_1.png",
+      "narrative": {
+        "en": [
+          "Darkness—",
+          "pulses once, like a beat.",
+          " ",
+          "…a voice.",
+          " ",
+          "“Traveler.”",
+          " ",
+          "Neither cold, nor warm.",
+          " ",
+          "“Within you—",
+          "still, too much hesitation.”"
+        ],
+        "ko": [
+          "어둠이 한 번, 울린다.",
+          "맥박처럼—",
+          " ",
+          "…목소리가 들린다.",
+          " ",
+          "“…여행자여.”",
+          " ",
+          "차갑지도, 따뜻하지도 않다.",
+          " ",
+          "“아직 그대의 마음에는—”",
+          "망설임이 많구나.”"
+        ]
+      }
+    },
+    "bad_end_2": {
+      "bg_image": "badend_1.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "Silence follows.",
+          " ",
+          "“This journey—",
+          "was not yet yours.”",
+          " ",
+          "Slight absence rings within.",
+          " ",
+          "“Now—",
+          "it is time to wake.”",
+          " ",
+          "The light goes out."
+        ],
+        "ko": [
+          "잠시 침묵이 흐른다.",
+          " ",
+          "“이 여정은—”",
+          "아직 그대에게는 일렀던 것 같군.”",
+          " ",
+          "아주 미세하게—",
+          "어딘가, 비어 있다.",
+          " ",
+          "“이제는—”",
+          "“꿈에서 깨어날 때가 되었구나.”",
+          " ",
+          "빛이 꺼진다."
+        ]
+      }
+    },
+    "bad_end_3": {
+      "bg_image": "badend_2.png",
+      "narrative": {
+        "en": [
+          "Your eyes open.",
+          " ",
+          "Night air—cold.",
+          " ",
+          "At the table.",
+          "Your body, leaned forward.",
+          " ",
+          "An empty glass in your hand.",
+          " ",
+          "Memory—",
+          "does not hold.",
+          " ",
+          "Something—might have been.",
+          "Yet nothing remains."
+        ],
+        "ko": [
+          "눈이 떠진다.",
+          " ",
+          "밤공기가 차갑다.",
+          " ",
+          "테이블 위.",
+          "몸이 기대어 있다.",
+          " ",
+          "손에 빈 잔이 잡혀 있다.",
+          " ",
+          "기억이—",
+          "붙잡히지 않는다.",
+          " ",
+          "무언가 있었던 것 같은데.",
+          "아무것도 없다—"
+        ]
+      }
+    },
+    "bad_end_4": {
+      "bg_image": "badend_3.png",
+      "narrative": {
+        "en": [
+          "Only—",
+          " ",
+          "a faint dizziness.",
+          " ",
+          "You lift your head.",
+          " ",
+          "The stars—",
+          " ",
+          "as though nothing had ever occurred—",
+          "remain."
+        ],
+        "ko": [
+          "그저—",
+          " ",
+          "조금 어지럽다.",
+          " ",
+          "고개를 든다.",
+          " ",
+          "별들이 아무 일도 없었던 것처럼—",
+          "빛나고 있다."
+        ]
+      }
+    },
+    "ending_1": {
+      "bg_image": "ending_1.png",
+      "narrative": {
+        "en": [
+          "The darkness settles—slowly.",
+          " ",
+          "Form returns.",
+          "Sensation gathers again.",
+          " ",
+          "What had been—",
+          "just before—",
+          " ",
+          "recedes,",
+          "as though scattered."
+        ],
+        "ko": [
+          "어둠이 천천히 가라앉는다.",
+          " ",
+          "형태가 돌아오고, 감각이 다시 붙는다.",
+          " ",
+          "조금 전까지의 모든 것이—",
+          "흩어지듯 멀어진다."
+        ]
+      }
+    },
+    "ending_2": {
+      "bg_image": "ending_1.png",
+      "bg_effect": "blur",
+      "narrative": {
+        "en": [
+          "A voice is heard.",
+          "Quiet, yet certain—",
+          " ",
+          "“Traveler.",
+          "You have faced your own fate.”",
+          " ",
+          "No answer is sought.",
+          " ",
+          "As though—",
+          "it had already been set."
+        ],
+        "ko": [
+          "목소리가 들린다.",
+          "조용하지만 분명하다.",
+          " ",
+          "“…여행자여.",
+          "그대는 자신의 운명을 마주하였다.”",
+          " ",
+          "대답을 요구하지 않는다.",
+          "이미 정해진 것처럼—"
+        ]
+      }
+    },
+    "normal_end": {
+      "bg_image": "normal_end.png",
+      "narrative": {
+        "en": [
+          "“The stars have already taken notice of you.”",
+          " ",
+          "“That blessing—is yours.”",
+          " ",
+          "“What has been entrusted—",
+          "do not forget.”",
+          " ",
+          "The voice withdraws.",
+          " ",
+          "Nothing remains."
+        ],
+        "ko": [
+          "“별은 이미 그대를 알고 있다.”",
+          " ",
+          "“그 축복은—",
+          "그대의 것이다.”",
+          " ",
+          "“그대에게 맡겨진 것을 잊지 말라.”",
+          " ",
+          "목소리가 사라진다.",
+          " ",
+          "아무것도 남아있지 않다."
+        ]
+      }
+    },
+    "royal_end": {
+      "bg_image": "royal_end.png",
+      "narrative": {
+        "en": [
+          "“That star—",
+          "has chosen you.”",
+          " ",
+          "“And yet—",
+          "its light is never without weight.”",
+          " ",
+          "“If you cannot bear it—",
+          "that weight, too, shall be returned.”",
+          " ",
+          "A brief stillness.",
+          " ",
+          "“That weight—is yours.”",
+          " ",
+          "The voice recedes.",
+          "Nothing remains."
+        ],
+        "ko": [
+          "“그 별은—",
+          "그대를 선택하였다.”",
+          " ",
+          "“그러나—",
+          "그 빛은 결코 가볍지 않다.”",
+          " ",
+          "“그대가 감당하지 못한다면—",
+          "그 무게 또한 그대로 돌아갈 것이다.”",
+          " ",
+          "잠시, 짧은 정적이 흐른다.",
+          " ",
+          "“그 무게는 그대의 것이다.”",
+          " ",
+          "목소리가 사라진다.",
+          "아무것도 남아있지 않다."
+        ]
+      }
+    },
+    "spica_end": {
+      "bg_image": "spica_end.png",
+      "narrative": {
+        "en": [
+          "“You—",
+          "have always stood within the blessing.”",
+          " ",
+          "No answer is sought.",
+          "As though it had been known from the beginning.",
+          " ",
+          "“That star falls upon you—of itself.",
+          "And yet—”",
+          " ",
+          "“So long as you remain within its light—",
+          "what is lost is not to be forgotten.”",
+          " ",
+          "The voice withdraws.",
+          " ",
+          "Nothing remains."
+        ],
+        "ko": [
+          "“그대는—",
+          "이미 축복 위에 서 있었다.”",
+          " ",
+          "대답을 요구하지 않는다.",
+          "처음부터 알고 있었던 것처럼—",
+          " ",
+          "“그 별은 자연스럽게 그대를 비춘다.”",
+          "그러나—”",
+          " ",
+          "“그 빛에 머무는 동안,",
+          "무엇이 사라지는지는—",
+          "스스로 잊지 말라.”",
+          " ",
+          "목소리가 사라진다.",
+          "아무것도 남아있지 않다."
+        ]
+      }
+    },
+    "ending_3": {
+      "bg_image": "ending_2.png",
+      "narrative": {
+        "en": [
+          "Your eyes open.",
+          "Cold night air settles in.",
+          " ",
+          "The terrace.",
+          " ",
+          "You sit at the table.",
+          " ",
+          "The body—unchanged.",
+          " ",
+          "And yet—",
+          "the sense is not the same."
+        ],
+        "ko": [
+          "눈이 떠진다.",
+          "차가운 밤공기가 스며든다.",
+          " ",
+          "테라스다.",
+          " ",
+          "당신은 테이블 앞에 앉아 있다.",
+          " ",
+          "몸은 그대로인데—",
+          "감각이 미묘하게 다르다."
+        ]
+      }
+    },
+    "ending_4": {
+      "bg_image": "ending_3.png",
+      "narrative": {
+        "en": [
+          "Clearer now.",
+          "Sharper, somehow.",
+          " ",
+          "As though nothing had ever happened—",
+          " ",
+          "everything remains as it was."
+        ],
+        "ko": [
+          "조금 더 또렷하다.",
+          "조금 더 선명하다.",
+          " ",
+          "아무 일도 없었던 것처럼—",
+          " ",
+          "모든 것이 그대로다."
+        ]
+      }
+    },
+    "ending_5": {
+      "bg_image": "ending_4.png",
+      "narrative": {
+        "en": [
+          "You solemnly lift your head.",
+          " ",
+          "The stars—",
+          "still burning, unchanged.",
+          " ",
+          "One—",
+          "catches your eye.",
+          " ",
+          "Brighter than the rest, more defined.",
+          " ",
+          "Your gaze lingers—"
+        ],
+        "ko": [
+          "조용히 고개를 든다.",
+          " ",
+          "별들이—",
+          "여전히 찬란하게 빛나고 있다.",
+          " ",
+          "그중 하나가—",
+          "유독 눈에 걸린다.",
+          " ",
+          "조금 더 밝다.",
+          "조금 더 또렷하다.",
+          " ",
+          "시선이—",
+          "그곳에 머문다."
+        ]
+      }
+    }
+  },
+  "dict": {
+    "stars": {
+      "hamal": {
+        "en": [
+          "You stand where the first spark rises.",
+          " ",
+          "Before anything takes shape,",
+          "you are already in motion.",
+          " ",
+          "There is no pause.",
+          "Stopping only throws you further off.",
+          " ",
+          "Every beginning loops back on itself,",
+          "again and again.",
+          " ",
+          "Only through that repetition",
+          "does a path emerge.",
+          " ",
+          "The fire never truly dies."
+        ],
+        "ko": [
+          "먼저 불리는 자리 위에 놓여 있다.",
+          " ",
+          "어둠이 걷히기 전,",
+          "가장 먼저 떠오르는 따뜻한 빛처럼,",
+          "이유보다 앞서 움직이게 된다.",
+          " ",
+          "멈추는 것은 허락되지 않는다.",
+          " ",
+          "시작은 반복되고,",
+          "언제나 처음으로 되돌아간다.",
+          " ",
+          "그 길 위에서만 길이 열린다.",
+          " ",
+          "그러나 그 불은,",
+          "완전히 꺼지는 법이 없다."
+        ]
+      },
+      "sheratan": {
+        "en": [
+          "What you take in does not leave.",
+          " ",
+          "It settles inside",
+          "and stays.",
+          " ",
+          "Opposing pulls stretch you from within,",
+          "never fully resolving.",
+          " ",
+          "The more you try to release it,",
+          "the deeper it embeds.",
+          " ",
+          "You hold by enduring it.",
+          "Over time, something gives way inside you."
+        ],
+        "ko": [
+          "짊어지는 자리에서 벗어나지 못한다.",
+          " ",
+          "겹쳐진 것처럼 보이나,",
+          "안쪽에서는 서로 다른 힘이 당긴다.",
+          " ",
+          "한 번 받아들인 것은 밖으로 나가지 않는다.",
+          " ",
+          "내려놓으려 할수록 더 깊이 파고든다.",
+          "그 긴장 속에서만 유지된다.",
+          " ",
+          "그러나 그 무게는,",
+          "결국 안쪽을 갈라놓는다."
+        ]
+      },
+      "pleiades": {
+        "en": [
+          "You are placed in the heat of division.",
+          "What gathers cannot remain whole.",
+          " ",
+          "Pressure builds, until something gives.",
+          " ",
+          "To move forward,",
+          "something must be cut away.",
+          "Only what survives that separation continues.",
+          " ",
+          "What is severed does not return."
+        ],
+        "ko": [
+          "불 위에 놓여 있다.",
+          " ",
+          "겹쳐 있던 것들은 그대로 둘 수 없다.",
+          "열은 쌓이고, 결국 갈라진다.",
+          " ",
+          "나아가기 위해,",
+          "잘라내는 것이 먼저 요구된다.",
+          " ",
+          "남는 것만이 앞으로 나아간다.",
+          " ",
+          "그러나 한 번 나뉜 것은,",
+          "다시 하나로 돌아가지 않는다."
+        ]
+      },
+      "aldebaran": {
+        "en": [
+          "You stand at the center.",
+          " ",
+          "Like a red gaze that catches the eye from afar,",
+          "all movement is drawn here, without resistance.",
+          " ",
+          "Things gather, layer, and take form.",
+          "Density deepens within.",
+          " ",
+          "You do not move,",
+          "yet gravity pulls everything toward you.",
+          " ",
+          "This position does not waver.",
+          " ",
+          "Once something takes place here,",
+          "it does not remain outside it."
+        ],
+        "ko": [
+          "중심에 서도록 놓여 있다.",
+          " ",
+          "멀리서도 먼저 눈에 들어오는 붉은 시선처럼,",
+          "흐름은 거스를 수 없이 이곳으로 향한다.",
+          " ",
+          "모이고, 쌓이고, 형태를 이룬다.",
+          "그 안에서 밀도가 깊어진다.",
+          " ",
+          "움직이지 않아도,",
+          "중력은 모든 것을 이쪽으로 끌어당긴다.",
+          " ",
+          "그 자리는 흔들리지 않는다.",
+          " ",
+          "그러나 한 번 자리 잡은 것은,",
+          "임의로 벗어날 수 없다."
+        ]
+      },
+      "bellatrix": {
+        "en": [
+          "You are set in pursuit.",
+          " ",
+          "The moment something enters your sight,",
+          "you are already aligned with it.",
+          " ",
+          "Clarity sharpens as you close in.",
+          " ",
+          "You adjust, you track, you refine your aim.",
+          " ",
+          "Your senses grow precise through the chase,",
+          "but the feeling of arrival never fully lands."
+        ],
+        "ko": [
+          "향하도록 놓여 있다.",
+          " ",
+          "움직이는 것을 향해,",
+          "이미 방향이 맞춰진 상태로 서 있다.",
+          " ",
+          "가까워질수록 더 선명해진다.",
+          "계속해서 좇고, 계속해서 조준한다.",
+          " ",
+          "그 과정에서 감각은 날카로워진다.",
+          " ",
+          "그러나 도달했다는 순간은,",
+          "끝내 오지 않는다."
+        ]
+      },
+      "betelgeuse": {
+        "en": [
+          "You stand where things begin to give way.",
+          " ",
+          "Nothing holds its shape for long.",
+          " ",
+          "What once seemed stable starts to swell, then falter.",
+          "Once the break begins, it carries through.",
+          " ",
+          "Everything loosens,",
+          "then falls apart.",
+          " ",
+          "Only after the collapse",
+          "does a new clarity emerge.",
+          " ",
+          "But there is no returning to what it was."
+        ],
+        "ko": [
+          "무너짐을 피할 수 없는 자리에 놓여 있다.",
+          " ",
+          "빛은 일정하지 않고,",
+          "부풀었다가 가라앉는다.",
+          " ",
+          "붙잡고 있던 것들은",
+          "서서히 형태를 잃는다.",
+          " ",
+          "균열은 시작되면 멈추지 않는다.",
+          " ",
+          "모든 것이 흩어진 뒤에야,",
+          "다시 보이기 시작한다.",
+          " ",
+          "그러나 그 이전으로는,",
+          "되돌아갈 수 없다."
+        ]
+      },
+      "pollux": {
+        "en": [
+          "You return to your place.",
+          " ",
+          "Even when cast outward,",
+          "you find your way back.",
+          " ",
+          "There is something in you that endures,",
+          "that does not fade with distance.",
+          " ",
+          "You re-enter.",
+          "You reclaim.",
+          " ",
+          "Again and again,",
+          "you stand where you were meant to stand.",
+          " ",
+          "But what remains is never quite the same as what left."
+        ],
+        "ko": [
+          "결국 돌아오게 된다.",
+          " ",
+          "멀어져도,",
+          "다시 이쪽으로 붙는다.",
+          " ",
+          "사라지지 않는 것이 있다.",
+          "거리를 둔다고 끊어지지 않는다.",
+          " ",
+          "다시 들어가고, 다시 차지한다.",
+          "몇 번이고 반복된다.",
+          "결국 서 있는 자리는 같다.",
+          " ",
+          "다만, 돌아온 것은 처음과 같지 않다."
+        ]
+      },
+      "praesepe": {
+        "en": [
+          "You stand where many gather.",
+          " ",
+          "No single edge defines you.",
+          "Forms blur as they draw inward.",
+          " ",
+          "You hold the center of convergence,",
+          "where distinctions begin to soften.",
+          " ",
+          "Things come together here.",
+          "They remain by staying close.",
+          " ",
+          "Within this closeness, structure quietly forms.",
+          "But the boundary between self and others does not remain intact."
+        ],
+        "ko": [
+          "모이는 쪽에 서게 된다.",
+          " ",
+          "경계가 흐려진다.",
+          "가까워질수록 구분이 사라진다.",
+          " ",
+          "서로가 안으로 겹친다.",
+          "붙어 있는 것이 질서이자 유지 방식이다.",
+          " ",
+          "모이고, 머물고, 그 상태로 굳어진다.",
+          "그 안에서 구조가 만들어진다.",
+          " ",
+          "어디까지가 자신인지는 끝내 남지 않는다."
+        ]
+      },
+      "alphard": {
+        "en": [
+          "You stand alone within your place.",
+          " ",
+          "Even among many,",
+          "you do not merge.",
+          " ",
+          "There is a distance that does not close,",
+          "a separation that holds.",
+          " ",
+          "What moves around you",
+          "does not enter fully.",
+          " ",
+          "You remain contained, self-held.",
+          "But isolation deepens, and nothing truly reaches you."
+        ],
+        "ko": [
+          "혼자 남는 쪽이다.",
+          "주변에 있어도 섞이지 않는다.",
+          " ",
+          "좁혀지지 않는 거리가 있다.",
+          "끝내 닿지 않는다.",
+          " ",
+          "스쳐 지나갈 뿐,",
+          "안으로 들어오지는 않는다.",
+          " ",
+          "그 상태로 유지된다.",
+          " ",
+          "하지만 그 거리감은 깊어지고,",
+          "결국 아무것도 닿지 않는다."
+        ]
+      },
+      "regulus": {
+        "en": [
+          "You stand where all eyes rise.",
+          " ",
+          "You did not ascend.",
+          "You simply did not step down.",
+          " ",
+          "A name is given before you speak.",
+          "Recognition gathers without asking.",
+          " ",
+          "Your position settles.",
+          "The height holds.",
+          "Everything below arranges itself in relation to you.",
+          " ",
+          "This place does not release.",
+          "If you fall, you fall in full view.",
+          "If you descend, the name is stripped away.",
+          " ",
+          "Once seen, you cannot become unseen."
+        ],
+        "ko": [
+          "시선이 올라오는 자리에 선다.",
+          " ",
+          "올라간 것이 아니다.",
+          "내려가지 않은 것이다.",
+          " ",
+          "말하기 전부터 이름이 붙고,",
+          "요구하지 않아도 명성이 쌓인다.",
+          " ",
+          "위치는 굳어지며, 높이는 유지된다.",
+          "아래는 그 자리를 기준으로 정렬된다.",
+          " ",
+          "이 자리는 놓아주지 않는다.",
+          "떨어지면, 보이는 채로 떨어진다.",
+          " ",
+          "내려오면, 이름이 벗겨진다.",
+          "한 번 보이면, 다시 사라질 수 없다."
+        ]
+      },
+      "zosma": {
+        "en": [
+          "You stand where tension loosens.",
+          " ",
+          "What was held tightly begins to open.",
+          "Structure relaxes, just enough to breathe.",
+          " ",
+          "You occupy a place",
+          "where holding is no longer forced.",
+          " ",
+          "Things unfold here,",
+          "not through pressure,",
+          "but through release.",
+          " ",
+          "Yet in that ease, something begins to drift."
+        ],
+        "ko": [
+          "풀리는 쪽에 놓여 있다.",
+          "붙잡고 있던 것이 조금씩 느슨해진다.",
+          " ",
+          "버티던 힘이 빠진다.",
+          "억지로 유지하지 않아도 된다.",
+          " ",
+          "흐름은 쥐는 것이 아니라, 놓는 것으로 이어진다.",
+          "그대로 흘러간다.",
+          " ",
+          "그 느슨함 속에서, 형태는 서서히 풀린다."
+        ]
+      },
+      "denebola": {
+        "en": [
+          "You are set in outward flow.",
+          " ",
+          "What remains does not stay to the end.",
+          "The more you try to hold it inward,",
+          "the more it slips away.",
+          " ",
+          "Balance is maintained, but never still.",
+          "It aligns in motion, continues through release.",
+          " ",
+          "The moment you try to grasp it, it falls out of place."
+        ],
+        "ko": [
+          "밖으로 흐르게 된다.",
+          " ",
+          "머물던 것은 끝까지 남지 않는다.",
+          "안쪽에 두려 할수록,",
+          "결국 빠져나간다.",
+          " ",
+          "균형은 유지되지만, 정지하지 않는다.",
+          "움직이며 맞춰지고, 흘러가며 이어진다.",
+          " ",
+          "그러나 붙잡으려 하면, 그 순간 어긋난다."
+        ]
+      },
+      "algorab": {
+        "en": [
+          "You are the one who adjusts.",
+          " ",
+          "What is misaligned does not remain.",
+          "Even the slightest deviation is corrected.",
+          " ",
+          "You touch, shift, and refine, piece by piece.",
+          "Form is brought into alignment.",
+          " ",
+          "Within reach,",
+          "everything is subject to change.",
+          " ",
+          "When it goes too far,",
+          "what was natural disappears."
+        ],
+        "ko": [
+          "맞추는 쪽이다.",
+          " ",
+          "어긋난 것을 그대로 두지 않는다.",
+          "미세한 차이도 남기지 않는다.",
+          " ",
+          "조금씩 건드리고, 조금씩 바꾼다.",
+          "그렇게 형태를 맞춰간다.",
+          " ",
+          "손에 닿는 범위 안에서는",
+          "모든 것이 조정된다.",
+          " ",
+          "과해질 때, 자연스러움이 사라진다."
+        ]
+      },
+      "spica": {
+        "en": [
+          "You are placed already in alignment.",
+          " ",
+          "Nothing is out of place.",
+          "Nothing is misaligned.",
+          " ",
+          "Everything settles into its position without resistance.",
+          "What comes in contact is arranged without friction.",
+          " ",
+          "The light is clear.",
+          "Form continues as if untouched.",
+          " ",
+          "Balance holds without effort.",
+          " ",
+          "Nothing exceeds.",
+          "Nothing falls short.",
+          " ",
+          "The slightest deviation, and the whole collapses."
+        ],
+        "ko": [
+          "이미 맞춰진 채로 놓여 있다.",
+          " ",
+          "흐트러짐이 없다.",
+          "어긋남이 없다.",
+          " ",
+          "모든 것은 자연스럽게 제자리를 찾는다.",
+          "닿는 것들은 거슬림 없이 정리된다.",
+          " ",
+          "빛은 맑고, 형태는 손대지 않은 듯 이어진다.",
+          " ",
+          "무리하지 않아도 균형은 그대로 유지된다.",
+          " ",
+          "아무것도 넘치지 않고,",
+          "아무것도 모자라지 않는다.",
+          " ",
+          "조금이라도 틀어지는 순간, 전체가 깨진다."
+        ]
+      },
+      "arcturus": {
+        "en": [
+          "You move apart.",
+          " ",
+          "You do not follow the same current.",
+          "You remain outside its pace.",
+          " ",
+          "There is distance, but not complete separation.",
+          "Balance holds within that space.",
+          " ",
+          "You move in your own direction.",
+          " ",
+          "If you drift too far,",
+          "there remains nothing left to align against."
+        ],
+        "ko": [
+          "따로 움직인다.",
+          " ",
+          "같은 흐름에 속하지 않는다.",
+          "자신의 속도로 벗어나 있다.",
+          " ",
+          "떨어져 있지만, 완전히 끊어지지는 않는다.",
+          "그 거리에서 균형이 유지된다.",
+          " ",
+          "스스로의 방향으로 나아간다.",
+          " ",
+          "그러나 너무 멀어지면,",
+          "다시 맞출 기준이 사라진다."
+        ]
+      },
+      "zuben_elgenubi": {
+        "en": [
+          "You stand at the point of division.",
+          " ",
+          "What once moved as one splits into two.",
+          " ",
+          "Neither side is fully right.",
+          "Yet a choice is made.",
+          " ",
+          "Balance does not hold.",
+          " ",
+          "A cost remains.",
+          " ",
+          "Whatever you choose,",
+          "the other is lost.",
+          "And that loss does not leave."
+        ],
+        "ko": [
+          "갈라지는 지점에 놓여 있다.",
+          " ",
+          "하나로 이어지던 것은",
+          "둘로 나뉜다.",
+          " ",
+          "어느 쪽도 완전히 옳지 않다.",
+          "하지만 선택은 이루어진다.",
+          " ",
+          "균형은 유지되지 않는다.",
+          "대가가 남는다.",
+          " ",
+          "무엇을 택하든, 다른 쪽은 잃는다.",
+          "그 선택은 끝까지 남는다."
+        ]
+      },
+      "dschubba": {
+        "en": [
+          "You are held in a state that does not release.",
+          "The slightest shift is immediately felt.",
+          " ",
+          "You do not follow the flow.",
+          "You remain ahead of it, in tension.",
+          " ",
+          "Within, everything is kept in alignment.",
+          "It holds in that state.",
+          " ",
+          "The tension does not leave."
+        ],
+        "ko": [
+          "긴장이 풀리지 않는 상태로 놓여 있다.",
+          "조금만 어긋나도, 바로 감지된다.",
+          " ",
+          "흐름을 따라가지 않는다.",
+          "항상 먼저 경계한다.",
+          " ",
+          "안쪽에서는 계속해서 맞춰지고 있다.",
+          "그 상태로 유지된다.",
+          " ",
+          "그 긴장은 끝내 사라지지 않는다."
+        ]
+      },
+      "antares": {
+        "en": [
+          "You stand already at the edge of the end.",
+          " ",
+          "There is no return.",
+          "Stopping is not within reach.",
+          " ",
+          "You move forward, knowing it breaks.",
+          "yet still, you do not stop.",
+          " ",
+          "There is no strength left to hold.",
+          "What remains is spent as it continues.",
+          " ",
+          "At the limit,",
+          "everything burns through.",
+          " ",
+          "At the end, nothing remains."
+        ],
+        "ko": [
+          "이미 끝을 향해 서 있다.",
+          " ",
+          "되돌아갈 수 없다.",
+          "멈추는 것은 선택에 들어가지 않는다.",
+          " ",
+          "더 나아가면 무너진다.",
+          "그럼에도 멈추지 않는다.",
+          " ",
+          "힘은 남아 있지 않다.",
+          "소모되고 있지만, 그 상태로 끝까지 밀고 나간다.",
+          " ",
+          "한계를 넘는 순간,",
+          "모든 것이 타버린다.",
+          " ",
+          "그 이후는 아무것도 남지 않는다."
+        ]
+      },
+      "galactic_center": {
+        "en": [
+          "You are drawn inward, to the end.",
+          " ",
+          "Nothing remains on the surface.",
+          "Everything is pulled inside.",
+          " ",
+          "What you held",
+          "falls away, one by one.",
+          " ",
+          "Only the center remains.",
+          " ",
+          "Meaning, form—",
+          "none of it is visible from outside.",
+          " ",
+          "But within,",
+          "everything is rearranged."
+        ],
+        "ko": [
+          "끝까지 끌려 들어간다.",
+          " ",
+          "표면에 남는 것은 없다.",
+          "모든 것이 안쪽으로 빨려든다.",
+          " ",
+          "붙잡고 있던 것들은",
+          "하나씩 떨어진다.",
+          " ",
+          "남는 것은 중심뿐이다.",
+          " ",
+          "의미도, 형태도,",
+          "바깥에서는 보이지 않는다.",
+          " ",
+          "그러나 그 안에서는,",
+          "모든 것이 다시 정렬된다."
+        ]
+      },
+      "nunki": {
+        "en": [
+          "You are driven forward.",
+          " ",
+          "There is no stopping.",
+          "There is no direction back.",
+          " ",
+          "You are launched again and again.",
+          "You remain only along that path.",
+          " ",
+          "The speed does not lessen.",
+          "Until the end is reached, you arrive nowhere."
+        ],
+        "ko": [
+          "앞으로 밀려나게 된다.",
+          " ",
+          "멈추는 선택은 없다.",
+          "뒤로 돌아가는 방향도 없다.",
+          " ",
+          "계속해서 쏘아진다.",
+          " ",
+          "그 방향 위에서만",
+          "유지된다.",
+          " ",
+          "속도는 줄어들지 않는다.",
+          " ",
+          "그러나 끝까지 가기 전에는,",
+          "어디에도 닿지 않는다."
+        ]
+      },
+      "vega": {
+        "en": [
+          "You are set against a fixed standard.",
+          " ",
+          "It does not shift.",
+          "It does not change.",
+          " ",
+          "Everything aligns to it.",
+          " ",
+          "Position holds as it is.",
+          " ",
+          "But once you fall out of alignment,",
+          "it does not restore."
+        ],
+        "ko": [
+          "기준이 고정된 상태로 놓여 있다.",
+          " ",
+          "흔들림이 없다.",
+          "변하지 않는다.",
+          " ",
+          "모든 것이 그 기준에 맞춰진다.",
+          " ",
+          "위치는 바뀌지 않는다.",
+          "그 상태로 유지된다.",
+          " ",
+          "한 번 어긋나면 다시 맞춰지지 못한다."
+        ]
+      },
+      "altair": {
+        "en": [
+          "You cannot slow the movement.",
+          " ",
+          "It continues.",
+          " ",
+          "You do not hold.",
+          "You press forward.",
+          " ",
+          "The ascent does not stop.",
+          "You keep rising in that direction.",
+          " ",
+          "With velocity, form does not hold."
+        ],
+        "ko": [
+          "속도를 멈출 수 없는 상태다.",
+          " ",
+          "움직임이 계속된다.",
+          " ",
+          "붙잡지 않는다.",
+          "그대로 밀고 나간다.",
+          " ",
+          "상승은 멈추지 않는다.",
+          "그 방향으로 계속 올라간다.",
+          " ",
+          "그러나 그 속도는,",
+          "형태를 유지하지 못하게 만든다."
+        ]
+      },
+      "deneb_algedi": {
+        "en": [
+          "You continue from behind.",
+          " ",
+          "You do not step forward.",
+          "You hold, slightly withdrawn.",
+          " ",
+          "The flow is not broken.",
+          "You keep its rhythm.",
+          " ",
+          "The same position repeats.",
+          "Balance is sustained there.",
+          " ",
+          "It continues in that state.",
+          " ",
+          "Once it breaks, it does not return."
+        ],
+        "ko": [
+          "뒤에서 이어지게 된다.",
+          " ",
+          "앞에 나서지 않는다.",
+          "조금 물러난 채 유지한다.",
+          " ",
+          "흐름을 끊지 않는다.",
+          "리듬을 맞춘다.",
+          " ",
+          "같은 자리를 반복하며, 균형을 지탱한다.",
+          "그 상태로 이어진다.",
+          " ",
+          "한 번 끊어지면, 다시 이어지지 않는다."
+        ]
+      },
+      "fomalhaut": {
+        "en": [
+          "You are set far apart.",
+          "You remain, alone in light, with nothing to hold.",
+          " ",
+          "You do not merge with the flow.",
+          "You stay separate.",
+          " ",
+          "The direction turns inward, not outward.",
+          "Within, you remain as one.",
+          " ",
+          "You do not mix with what surrounds you.",
+          "There is no need.",
+          " ",
+          "The further inward you go,",
+          "the more distant the outside becomes.",
+          " ",
+          "In the end, only one remains."
+        ],
+        "ko": [
+          "멀리 떨어진 채로 놓여 있다.",
+          "붙잡을 것이 없이 홀로 빛난다.",
+          " ",
+          "흐름에 섞이지 않는다.",
+          "그대로 분리되어 있다.",
+          " ",
+          "방향은 바깥이 아니라, 안쪽으로 향한다.",
+          "그 안에서 하나로 유지된다.",
+          " ",
+          "다른 것들과 섞이지 않는다.",
+          "섞일 필요도 없다.",
+          " ",
+          "그 방향으로 더 들어갈수록,",
+          "바깥은 점점 멀어진다.",
+          " ",
+          "끝내 남는 것은 그 하나뿐이다."
+        ]
+      },
+      "markab": {
+        "en": [
+          "You remain suspended.",
+          " ",
+          "You do not settle fully.",
+          "You hold in between.",
+          " ",
+          "You do not sink below, nor rise above.",
+          "You stay in that middle.",
+          " ",
+          "Balance holds there.",
+          " ",
+          "If tilted to either side,",
+          "what was holding gives way at once."
+        ],
+        "ko": [
+          "걸쳐 있는 상태다.",
+          " ",
+          "완전히 내려앉지 않는다.",
+          "떠 있는 채로 유지된다.",
+          " ",
+          "아래로 가라앉지 않고,",
+          "위로도 올라가지 않는다.",
+          " ",
+          "그 사이에 머문다.",
+          "그 상태에서 균형이 유지된다.",
+          " ",
+          "한쪽으로 기울어지면 버티던 것이 바로 무너진다."
+        ]
+      },
+      "alpheratz": {
+        "en": [
+          "You cross the boundary.",
+          "Inside and outside do not divide.",
+          " ",
+          "You do not remain on one side.",
+          "You pass between, and continue.",
+          " ",
+          "In such state, it expands.",
+          "You do not fully belong to either side."
+        ],
+        "ko": [
+          "경계를 넘는다.",
+          "안과 밖이 나뉘지 않는다.",
+          " ",
+          "한쪽에 머물지 않는다.",
+          "넘나들며 이어진다.",
+          "그 상태로 확장된다.",
+          " ",
+          "그러나 어느 쪽에도 완전히 속하지 않는다."
+        ]
+      },
+      "alrischa": {
+        "en": [
+          "You are placed where things connect.",
+          " ",
+          "What was split is joined again.",
+          " ",
+          "The flow does not break.",
+          "It continues as it is.",
+          " ",
+          "Within that, a choice is made.",
+          "When one is taken, the other disappears."
+        ],
+        "ko": [
+          "이어지는 지점에 놓여 있다.",
+          "갈라진 것들이 다시 연결된다.",
+          " ",
+          "흐름은 끊기지 않는다.",
+          "그대로 이어진다.",
+          "그 안에서 선택이 이루어진다.",
+          " ",
+          "하나를 택하면 다른 하나는 사라진다."
+        ]
+      }
+    },
+    "graha": {
+      "ketu": {
+        "en": [
+          "What falls away does not return.",
+          "What remains cannot be reduced further."
+        ],
+        "ko": [
+          "끊어짐은 돌아오지 않는다.",
+          "남은 것은 더 줄어들지 않는다."
+        ]
+      },
+      "venus": {
+        "en": [
+          "What draws close begins to align.",
+          "Once held together, separation resists."
+        ],
+        "ko": [
+          "가까워진 것은 맞춰지기 시작한다.",
+          "한 번 묶인 것은 쉽게 갈라지지 않는다."
+        ]
+      },
+      "sun": {
+        "en": [
+          "Where division fails, form holds.",
+          "What stands alone does not break."
+        ],
+        "ko": [
+          "나뉘지 않는 곳에서 형태가 선다.",
+          "홀로 선 것은 무너지지 않는다."
+        ]
+      },
+      "moon": {
+        "en": [
+          "Before knowing, it is already within.",
+          "What is taken in does not remain separate."
+        ],
+        "ko": [
+          "알기 전에 이미 안에 들어와 있다.",
+          "들어온 것은 분리된 채로 남지 않는다."
+        ]
+      },
+      "mars": {
+        "en": [
+          "Before stopping, it has already begun.",
+          "What is set in motion does not settle."
+        ],
+        "ko": [
+          "멈추기 전에 이미 시작된다.",
+          "움직인 것은 고요로 돌아가지 않는다."
+        ]
+      },
+      "rahu": {
+        "en": [
+          "What has no form still pulls.",
+          "What is pursued does not resolve."
+        ],
+        "ko": [
+          "형태가 없는 것도 끌어당긴다.",
+          "좇는 것은 끝내 닿지 않는다."
+        ]
+      },
+      "jupiter": {
+        "en": [
+          "What crosses over leaves no boundary.",
+          "What is given expands beyond its measure."
+        ],
+        "ko": [
+          "넘어서는 것은 경계를 남기지 않는다.",
+          "주어진 것은 그 이상으로 벌어진다."
+        ]
+      },
+      "saturn": {
+        "en": [
+          "What cannot be avoided remains.",
+          "Through holding, it is shaped."
+        ],
+        "ko": [
+          "피할 수 없는 것은 남는다.",
+          "버티는 동안 형태가 만들어진다."
+        ]
+      },
+      "mercury": {
+        "en": [
+          "Before form completes, it shifts.",
+          "What tries to fix itself slips."
+        ],
+        "ko": [
+          "형태가 닫히기 전에 바뀐다.",
+          "고정되려는 것은 끝내 미끄러진다."
+        ]
+      }
+    }
+  }
+}

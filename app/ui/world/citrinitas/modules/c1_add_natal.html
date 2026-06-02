@@ -1,0 +1,76 @@
+<div class="c1-module-container">
+    
+    <div class="c1-form-group">
+        <div class="c1-coord-label">Name</div>
+        <input type="text" id="c1-natal-name" class="c1-input full-width" placeholder="Enter Designation" autocomplete="off">
+    </div>
+
+    <div class="c1-form-group">
+        <div class="c1-coord-label">Date</div>
+        <div class="c1-date-row">
+            <select id="c1-natal-y" class="c1-select"></select>
+            <select id="c1-natal-m" class="c1-select"></select>
+            <select id="c1-natal-d" class="c1-select"></select>
+        </div>
+    </div>
+
+    <div class="c1-form-group">
+        <div class="c1-coord-label">Time</div>
+        <div class="c1-time-row">
+            <select id="c1-natal-h" class="c1-select"></select>
+            <select id="c1-natal-min" class="c1-select"></select>
+            <select id="c1-natal-s" class="c1-select"></select>
+        </div>
+        
+        <div class="c1-unknown-row">
+            <input type="checkbox" id="c1-natal-unknown">
+            <label for="c1-natal-unknown" class="c1-unknown-label">Time Unknown</label>
+        </div>
+    </div>
+
+    <div class="c1-form-group">
+        <div class="c1-coord-label">Location</div>
+        
+        <input id="c1-city-search" class="c1-input full-width" placeholder="Search city" autocomplete="off">
+        <div id="c1-city-results" class="c1-dropdown-results"></div>
+
+        <button type="button" id="c1-manual-toggle" class="c1-text-btn">Manual Entry ▾</button>
+
+        <div id="c1-manual-panel" style="display:none;">
+            
+            <div class="c1-coord-block">
+                <div class="c1-sub-label">Latitude</div>
+                <div class="c1-coord-row">
+                    <div class="c1-sign-group">
+                        <div class="c1-sign-btn active" data-target="lat" data-sign="+">+</div>
+                        <div class="c1-sign-btn" data-target="lat" data-sign="-">−</div>
+                    </div>
+                    <input id="c1-lat-int" class="c1-input-int" placeholder="00">
+                    <span class="c1-dot">.</span>
+                    <input id="c1-lat-dec" class="c1-input-dec" placeholder="0000">
+                </div>
+            </div>
+
+            <div class="c1-coord-block">
+                <div class="c1-sub-label">Longitude</div>
+                <div class="c1-coord-row">
+                    <div class="c1-sign-group">
+                        <div class="c1-sign-btn active" data-target="lng" data-sign="+">+</div>
+                        <div class="c1-sign-btn" data-target="lng" data-sign="-">−</div>
+                    </div>
+                    <input id="c1-lng-int" class="c1-input-int" placeholder="000">
+                    <span class="c1-dot">.</span>
+                    <input id="c1-lng-dec" class="c1-input-dec" placeholder="0000">
+                </div>
+            </div>
+
+            <div class="c1-coord-block">
+                <div class="c1-sub-label">Timezone</div>
+                <select id="c1-tz" class="c1-select full-width"></select>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="c1-sign-tooltip" class="c1-tooltip"></div>
+</div>

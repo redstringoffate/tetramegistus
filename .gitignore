@@ -1,0 +1,18 @@
+# 1. 파이썬 가상환경 및 캐시 (2400개 파일의 주범)
+__pycache__/
+*.pyc
+venv/
+env/
+.venv/
+.env
+
+# 2. 로컬 데이터베이스 및 백업 파일 (절대 공개 금지)
+*.db
+*.sqlite3
+panopticon_archives/
+data/theory/
+
+# 3. 기타 잡동사니
+.vscode/
+__MACOSX/
+.DS_Store

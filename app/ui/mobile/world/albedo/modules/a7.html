@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="/static/mobile/world/albedo/modules/a7.css?v=2">
+
+<div class="m-a7-container">
+    <h1 class="m-materia-title">EVOCATIONES</h1>
+
+    <div class="m-anti-switch-module" style="margin-bottom: 15px;">
+        <div class="m-dichotomy-module" onclick="window.toggleA7Primary()">
+            <span class="m-dicho-label active" id="a7-lbl-sigilum">SIGILUM</span>
+            <div class="m-toggle-switch">
+                <div class="m-toggle-knob" id="a7-knob-primary"></div>
+            </div>
+            <span class="m-dicho-label" id="a7-lbl-plenitudo">PLENITUDO</span>
+        </div>
+    </div>
+
+    <nav class="m-connected-tabs" id="a7-system-nav">
+        <button class="m-tab active" data-sys="tropical" onclick="window.switchA7System('tropical')">TROPICAL</button>
+        <button class="m-tab" data-sys="sidereal" onclick="window.switchA7System('sidereal')">SIDEREAL</button>
+        <button class="m-tab" data-sys="draconic" onclick="window.switchA7System('draconic')">DRACONIC</button>
+        <button class="m-tab" data-sys="ketunic" onclick="window.switchA7System('ketunic')">KETUNIC</button>
+    </nav>
+
+    <div class="m-anti-switch-module" id="a7-dicho-secondary" style="display:none; margin-bottom: 15px;">
+        <div class="m-dichotomy-module" onclick="window.toggleA7Secondary()">
+            <span class="m-dicho-label active" id="a7-lbl-sabian">SABIAN</span>
+            <div class="m-toggle-switch">
+                <div class="m-toggle-knob" id="a7-knob-secondary"></div>
+            </div>
+            <span class="m-dicho-label" id="a7-lbl-tabula">TABULA</span>
+        </div>
+    </div>
+
+    <nav class="m-connected-tabs m-ayan-tabs m-hidden" id="a7-ayanamsa-vault">
+        <button class="m-tab" data-ayan="lahiri" onclick="window.switchA7Ayanamsa('lahiri')">LAHIRI</button>
+        <button class="m-tab" data-ayan="raman" onclick="window.switchA7Ayanamsa('raman')">RAMAN</button>
+        <button class="m-tab" data-ayan="kp" onclick="window.switchA7Ayanamsa('kp')">KP</button>
+        <button class="m-tab" data-ayan="fagan-bradley" onclick="window.switchA7Ayanamsa('fagan-bradley')">FAGAN</button>
+        <button class="m-tab" data-ayan="yukteswar" onclick="window.switchA7Ayanamsa('yukteswar')">YUKTESWAR</button>
+    </nav>
+
+    <div class="m-cat-grid" id="a7-category-tabs">
+        <button class="m-tab active" data-cat="planets" onclick="window.switchA7Category('planets')">PLANETS</button>
+        <button class="m-tab" data-cat="asteroids" onclick="window.switchA7Category('asteroids')">ASTEROIDS</button>
+        <button class="m-tab" data-cat="lilith" onclick="window.switchA7Category('lilith')">LILITH & NODES</button>
+        <button class="m-tab" data-cat="fates" onclick="window.switchA7Category('fates')">FATES</button>
+        <button class="m-tab" data-cat="angles" onclick="window.switchA7Category('angles')">ANGLES</button>
+        <button class="m-tab" data-cat="hermetic" id="btn-cat-hermetic-a7" onclick="window.switchA7Category('hermetic')">HERMETIC</button>
+    </div>
+
+    <div id="m-a7-view-container">
+        <div id="m-view-sigilum" class="m-card-container" style="display: none;"></div>
+        
+        <div id="m-view-sabian" class="m-a7-table-wrapper" style="display: none;">
+            <table class="m-a7-table">
+                <thead id="m-a7-thead-sabian"></thead>
+                <tbody id="m-a7-tbody-sabian"></tbody>
+            </table>
+        </div>
+
+        <div id="m-view-tabula" class="m-a7-table-wrapper" style="display: none;">
+            <table class="m-a7-table">
+                <thead id="m-a7-thead-tabula"></thead>
+                <tbody id="m-a7-tbody-tabula"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="m-a7-toast" class="m-toast-hidden"></div>
+    <div id="fs-popover" class="fs-popover-box"></div>
+</div>
+
+<script src="/static/mobile/world/albedo/modules/a7.js?v=2"></script>

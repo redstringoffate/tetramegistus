@@ -1,0 +1,128 @@
+/* C1 ADD CONJUNCTION STYLING */
+:root {
+    --c1-cyan: #49dce1;
+    --c1-bg-dark: #000;
+    --c1-border: #333; 
+    --c1-font: ui-monospace, SFMono-Regular, Consolas, 'Cascadia Code', monospace;
+}
+
+/* 🌟 Global Box Sizing & Scroll Killer */
+.c1-module-container * { box-sizing: border-box; }
+.c1-module-container {
+    padding: 5px;
+    color: #eee;
+    font-family: var(--c1-font);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-x: hidden;
+}
+
+/* 🔄 Person Switch (Seed|System Replica) */
+.c1-person-switch-row {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+}
+
+.c1-person-switch-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 0;
+}
+
+.c1-switch-label {
+    font-size: 0.8rem;
+    color: #666;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: 0.2s;
+    user-select: none;
+}
+
+.c1-switch-label.active {
+    color: var(--c1-cyan);
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(73, 220, 225, 0.3);
+}
+
+.c1-switch-divider {
+    color: #333;
+    font-size: 0.8rem;
+}
+
+/* Form Groups (Natal Inherited) */
+.c1-form-group { display: flex; flex-direction: column; gap: 4px; }
+.c1-coord-label { font-size: 0.75rem; color: var(--c1-cyan); margin-bottom: 0.25rem; letter-spacing: 0.05em; }
+
+.c1-input, .c1-select, .c1-input-int, .c1-input-dec {
+    background-color: #000 !important;
+    border: 1px solid var(--c1-border);
+    color: var(--c1-cyan) !important;
+    padding: 6px; font-size: 0.85rem; outline: none; font-family: inherit;
+    transition: border-color 0.2s; border-radius: 0;
+}
+.c1-input:focus, .c1-select:focus { border-color: var(--c1-cyan); }
+
+.c1-date-row, .c1-time-row { display: flex; gap: 5px; }
+.c1-select { flex: 1; text-align: center; cursor: pointer; }
+.full-width { width: 100%; text-align: left; }
+
+.c1-unknown-row { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.c1-unknown-label { font-size: 0.75rem; color: #888; cursor: pointer; }
+#c1-conj-unknown {
+    appearance: none; -webkit-appearance: none;
+    width: 1rem; height: 1rem; border: 1px solid var(--c1-border); background: #000;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+#c1-conj-unknown:checked { background: var(--c1-cyan); border-color: var(--c1-cyan); }
+
+/* Dropdown & Results */
+#c1-conj-city-results {
+    margin-top: 4px; border: 1px solid var(--c1-border); background: #050505;
+    max-height: 180px; overflow-y: auto; display: none; 
+}
+.c1-result-item {
+    padding: 6px 10px; font-size: 0.8rem; cursor: pointer;
+    border-bottom: 1px solid #111; color: #aaa;
+}
+.c1-result-item:hover, .c1-result-item.active { background: #111; color: var(--c1-cyan); }
+
+/* Manual Entry & Sign Buttons */
+.c1-text-btn {
+    background: none !important; border: none !important;
+    color: #666 !important; font-size: 0.8rem !important;
+    cursor: pointer; text-align: left; padding: 0; margin-top: 8px;
+    font-family: inherit; width: fit-content;
+}
+.c1-text-btn:hover { color: var(--c1-cyan) !important; }
+
+#c1-conj-manual-panel { margin-top: 10px; padding-left: 5px; }
+.c1-coord-block { margin-bottom: 12px; }
+.c1-sub-label { font-size: 0.75rem; color: #666; margin-bottom: 4px; }
+.c1-coord-row { display: flex; align-items: center; gap: 5px; }
+.c1-sign-group { display: flex; }
+.c1-sign-btn {
+    width: 2.2rem; text-align: center; border: 1px solid var(--c1-border);
+    cursor: pointer; user-select: none; padding: 5px 0; color: #444; background: #000;
+}
+.c1-sign-btn.active { border-color: var(--c1-cyan); color: var(--c1-cyan); }
+
+.c1-input-int { width: 4rem; text-align: center; }
+.c1-input-dec { width: 5rem; text-align: center; }
+.c1-dot { color: #666; font-weight: bold; }
+
+.c1-tooltip {
+    position: fixed; font-size: 0.7rem; color: var(--c1-cyan);
+    background: rgba(0,0,0,0.9); border: 1px solid var(--c1-border);
+    padding: 3px 8px; pointer-events: none; z-index: 99999;
+    opacity: 0; transition: opacity 0.1s; font-family: var(--c1-font);
+}
+
+/* 🚀 [Modal Fix]: Ensure Overlay/Footer Clean (Inherited Fix) */
+#c1-modal-overlay .c1-modal-body { overflow-x: hidden !important; border-bottom: none !important; padding-bottom: 0 !important; }
+#c1-modal-overlay .c1-modal-footer { border-top: none !important; background: transparent !important; padding-top: 20px !important; margin-top: 0 !important; display: flex !important; justify-content: flex-start !important; gap: 15px !important; }
+#c1-modal-overlay #c1-btn-confirm { order: 1 !important; background: #000 !important; border: 1px solid #49dce1 !important; color: #49dce1 !important; border-radius: 0 !important; padding: 6px 24px !important; }
+#c1-modal-overlay #c1-btn-confirm:hover { background: #49dce1 !important; color: #000 !important; }
+#c1-modal-overlay .c1-btn-return { order: 2 !important; background: transparent !important; border: none !important; color: #666 !important; padding: 6px 10px !important; }

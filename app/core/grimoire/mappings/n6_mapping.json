@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "stamper": "A2"
+  },
+  "layout": {
+    "cols": {
+      "H1": "B", "H2": "C", "H3": "D", "H4": "E", "H5": "F", "H6": "G", "H7": "H", "H8": "I",
+      "H9": "J", "H10": "K", "H11": "L", "H12": "M", "H16": "N", "H20": "O", "H24": "P", "H32": "Q"
+    },
+    "rows": {
+      "Sun": 5,
+      "Moon": 6,
+      "Mercury": 7,
+      "Venus": 8,
+      "Mars": 9,
+      "Jupiter": 10,
+      "Saturn": 11,
+      "Uranus": 12,
+      "Neptune": 13,
+      "Pluto": 14,
+      "Chiron": 16,
+      "Mean Lilith": 17,
+      "True Lilith": 18,
+      "North Node (t)": 19
+    },
+    "shrink_rows": [15]
+  }
+}

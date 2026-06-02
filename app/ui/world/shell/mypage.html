@@ -1,0 +1,35 @@
+{% extends "world/shell/base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/world/shell/mypage.css">
+
+<div class="cell-container">
+    <h1 class="cell-title">
+        <span class="me-tooltip-wrapper" data-userid="{{ request.cookies.get('session_user_id') }}">[me]</span>
+    </h1>
+
+    <div class="cell-section">
+        <a href="/world/anamnesis" class="section-title">Anamnesis Core</a>
+    </div>
+
+    <div class="cell-section">
+        <a href="/world/grimoire" class="section-title">The Grimoire</a>
+    </div>
+
+    <div class="logout-container">
+        <a href="/world/logout" class="logout-btn">[logout]</a>
+    </div>
+</div> 
+
+<div id="ritual-overlay" class="ritual-shell-overlay">
+    <div class="ritual-shell-box">
+        <div id="ritual-label" class="ritual-shell-title">enter 4-digit pin</div>
+        <input type="password" id="ritual-input" class="ritual-shell-input" autocomplete="off">
+        <div id="ritual-footer" class="ritual-shell-footer">
+            <span id="ritual-status" class="ritual-shell-status"></span>
+        </div>
+    </div>
+</div>
+
+<script src="/static/world/shell/mypage.js"></script>
+{% endblock %}

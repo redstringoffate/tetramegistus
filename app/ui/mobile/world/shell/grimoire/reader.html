@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Grimoire Reader</title>
+    
+    <link rel="stylesheet" href="/static/mobile/world/shell/grimoire/reader.css?v=2">
+    
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <link rel='stylesheet' href='https://unpkg.com/luckysheet@2.1.13/dist/plugins/css/pluginsCss.css' />
+    <link rel='stylesheet' href='https://unpkg.com/luckysheet@2.1.13/dist/plugins/plugins.css' />
+    <link rel='stylesheet' href='https://unpkg.com/luckysheet@2.1.13/dist/css/luckysheet.css' />
+    <link rel='stylesheet' href='https://unpkg.com/luckysheet@2.1.13/dist/assets/iconfont/iconfont.css' />
+    <script src="https://unpkg.com/luckysheet@2.1.13/dist/plugins/js/plugin.js"></script>
+    <script src="https://unpkg.com/luckysheet@2.1.13/dist/luckysheet.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luckyexcel/dist/luckyexcel.umd.js"></script>
+</head>
+<body style="margin: 0; padding: 0; overflow: hidden; background: #fff;">
+
+    <div id="m-save-loading-overlay" class="m-modal-overlay" style="z-index: 9999999;">
+        <div class="m-modal-box" style="border-color: #49dce1;">
+            <p style="color: #49dce1; font-size: 1rem; margin-bottom: 20px;">Recompiling Archive... 🔮</p>
+            <div class="m-loader-spinner"></div>
+        </div>
+    </div>
+
+    <div class="m-excel-app-container" id="m-excel-app-container">
+        <div class="m-excel-header">
+            <div class="m-excel-title">🔮 {{ display_name }}</div>
+            
+            <div class="m-action-btn-group">
+                <button id="m-btn-edit-mode" class="m-action-btn m-btn-edit" title="Edit">✏️</button>
+                <button id="m-btn-save-edit" class="m-action-btn m-btn-save" style="display: none;" title="Save">💾</button>
+                <button id="m-btn-exit-edit" class="m-action-btn m-btn-exit" style="display: none;" title="Cancel">↩️</button>
+                <a href="/world/grimoire/{{ stage }}" class="m-action-btn m-btn-close" title="Close">❌</a>
+            </div>
+        </div>
+
+        <div class="m-excel-workspace" id="m-excel-workspace">
+            <div class="m-loading-screen" id="m-loading-screen">Reading Archive...</div>
+        </div>
+
+        <div id="m-luckysheet-container"></div>
+
+        <div class="m-excel-footer">
+            <div class="m-sheet-tabs-container">
+                <div class="m-sheet-tabs-wrapper" id="m-sheet-tabs">
+                </div>
+            </div>
+            <div class="m-footer-controls">
+                <button id="m-btn-scroll-left" class="m-tab-nav-btn">&#10094;</button>
+                <button id="m-btn-scroll-right" class="m-tab-nav-btn">&#10095;</button>
+                <div class="m-footer-divider"></div>
+                <button id="m-btn-rearrange" class="m-btn-rearrange" title="Rearrange">🔃</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="m-delete-modal" class="m-modal-overlay">
+        <div class="m-modal-box">
+            <p id="m-delete-modal-text">Delete sheet?</p>
+            <div class="m-modal-buttons">
+                <button id="m-btn-modal-yes" class="m-btn-modal m-yes">YES</button>
+                <button id="m-btn-modal-no" class="m-btn-modal m-no">NO</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.GRIMOIRE_STAGE = "{{ stage }}";
+        window.GRIMOIRE_IDX = "{{ idx }}";
+    </script>
+    <script src="/static/mobile/world/shell/grimoire/reader.js?v=4"></script>
+
+</body>
+</html>

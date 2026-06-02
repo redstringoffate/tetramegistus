@@ -1,0 +1,998 @@
+{
+  "system_messages": {
+    "instruction_arudha": {
+      "en": [
+        "Select 'No' only when you are completely certain the description does not fit you at all.",
+        "If it feels even slightly relevant or uncertain, choose 'Yes' or 'Maybe'."
+      ],
+      "ko": [
+        "해당 설명이 본인과 전혀 맞지 않는 것이 확실할 때만 '아니오'를 선택하세요.",
+        "조금이라도 해당되거나 애매하다면 '예' 또는 '글쎄요'를 선택하세요."
+      ]
+    },
+    "instruction_ascendant": {
+      "en": [
+        "Based on your choices, the time possibilities have been narrowed down.",
+        "Now, choose the fundamental temperament and physical presence that most closely matches your true self."
+      ],
+      "ko": [
+        "당신의 선택을 통해 불확실했던 생시 후보군이 좁혀졌습니다.",
+        "마지막으로, 당신의 가장 타고난 기질과 본질적인 자아에 가까운 것을 선택해 주세요."
+      ]
+    }
+  },
+
+  "arudha_questions": {
+    "AL": {
+      "title": {
+        "en": "Arudha Lagna (AL)",
+        "ko": "Arudha Lagna (AL)"
+      },
+      "narrative": {
+        "en": [
+          "How do you feel the world ends up seeing you?",
+          "Not who you actually are, but the image that forms around you —",
+          "the version of you that gets perceived, projected, and read at first glance."
+        ],
+        "ko": [
+          "당신이 실제로 어떤 사람인지와는 별개로, 세상은 당신을 어떤 이미지로 받아들이는 것 같나요?",
+          "있는 그대로의 당신이 아니라, 겉으로 형성되어 ‘그렇게 보이게 되는’ 모습 — 첫인상에서 읽히는 투사된 이미지에 가까운 선택입니다."
+        ]
+      },
+      "options": {
+        "1": {
+          "archetype": {
+            "en": "Self-Projection Archetype",
+            "ko": "Self-Projection Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as an “instinctive persona that directly projects the self.”",
+              "Your will, attitude, and identity themselves become the image others perceive."
+            ],
+            "ko": [
+              "세상은 당신을 “자기 존재를 직접적으로 드러내는 원초적 페르소나”로 바라봅니다.",
+              "당신의 의지·태도·정체성 그 자체가 곧 이미지가 됩니다."
+            ]
+          }
+        },
+        "2": {
+          "archetype": {
+            "en": "Value-Holder Archetype",
+            "ko": "Value-Holder Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world views you as a being who embodies “value, stability, and accumulation.”",
+              "Your image carries the energy of wealth, speech, lineage, and continuity."
+            ],
+            "ko": [
+              "세상은 당신을 “가치·안정·축적을 구현하는 존재”로 바라봅니다.”",
+              "당신의 이미지에는 ‘부·언어·가문·지속성’의 기운이 스며듭니다."
+            ]
+          }
+        },
+        "3": {
+          "archetype": {
+            "en": "Capability Archetype",
+            "ko": "Capability Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone who expresses presence through “ability, action, and assertion.”",
+              "An image of ‘self-made strength’ is strongly projected onto you."
+            ],
+            "ko": [
+              "세상은 당신을 “능력·행동력·의사표현을 통해 존재감을 드러내는 사람”으로 봅니다.",
+              "‘스스로 만든 힘’이라는 이미지가 강하게 투사됩니다."
+            ]
+          }
+        },
+        "4": {
+          "archetype": {
+            "en": "Inner-Foundation Archetype",
+            "ko": "Inner-Foundation Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world perceives you as a being with “inner stability, sanctuary, and emotional grounding.”",
+              "‘Home, roots, and emotional security’ become the core of your external image."
+            ],
+            "ko": [
+              "세상은 당신을 “내면의 안정·안식처·정서적 기반”을 품은 존재로 봅니다.",
+              "‘집·뿌리·감정적 안정성’이 외부 이미지의 핵심이 됩니다."
+            ]
+          }
+        },
+        "5": {
+          "archetype": {
+            "en": "Creative-Light Archetype",
+            "ko": "Creative-Light Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as a being that radiates “creativity, talent, and intellectual light.”",
+              "‘Uniqueness, charisma, and inspiration’ naturally appear in your image."
+            ],
+            "ko": [
+              "세상은 당신을 “창조성·재능·지적 빛을 발하는 존재”로 바라봅니다.",
+              "‘특별함·카리스마·영감’이 자연스럽게 이미지에 드러납니다."
+            ]
+          }
+        },
+        "6": {
+          "archetype": {
+            "en": "Responsibility Archetype",
+            "ko": "Responsibility Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world views you as someone who endures and resolves “work, tasks, and duties.”",
+              "‘Diligence, functionality, and practical competence’ are powerfully projected onto you."
+            ],
+            "ko": [
+              "세상은 당신을 “일·과제·의무를 견디며 해결하는 존재”로 봅니다.",
+              "‘근면·기능·현실적 능력’이 강하게 투사됩니다."
+            ]
+          }
+        },
+        "7": {
+          "archetype": {
+            "en": "Relational Archetype",
+            "ko": "Relational Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone who shines “through interactions and partnerships with others.”",
+              "Socially, you appear as a symbol of ‘relationships, partnership, and harmony.’"
+            ],
+            "ko": [
+              "세상은 당신을 “타인과의 관계 속에서 빛나는 존재”로 바라봅니다.",
+              "당신은 사회적으로 ‘관계·파트너십·조화의 상징’처럼 비칩니다."
+            ]
+          }
+        },
+        "8": {
+          "archetype": {
+            "en": "Depth Archetype",
+            "ko": "Depth Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world views you as a being who holds the power of “depth, secrets, and transformation.”",
+              "Hidden strength, taboo energy, and an intense aura appear in your image."
+            ],
+            "ko": [
+              "세상은 당신을 “깊이·비밀·변형의 힘을 품은 존재”로 봅니다.",
+              "표면 아래의 힘, 금기적 에너지, 강렬한 오라가 이미지로 드러납니다."
+            ]
+          }
+        },
+        "9": {
+          "archetype": {
+            "en": "Higher-Meaning Archetype",
+            "ko": "Higher-Meaning Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world perceives you as a being of “wisdom, fortune, and nobility.”",
+              "‘Philosophy, belief, and blessings of luck’ naturally infuse your external persona."
+            ],
+            "ko": [
+              "세상은 당신을 “지혜·운·고결함을 지닌 존재”로 바라봅니다.",
+              "철학·신념·행운의 축복’이 외적 페르소나에 자연스럽게 투영됩니다."
+            ]
+          }
+        },
+        "10": {
+          "archetype": {
+            "en": "Authority Archetype",
+            "ko": "Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone who carries out “roles and responsibilities in the social sphere.”",
+              "Your image forms around ‘competence, expertise, and public achievement.’"
+            ],
+            "ko": [
+              "세상은 당신을 “사회적 공간에서 역할과 책임을 수행하는 존재”로 봅니다.",
+              "당신의 이미지는 ‘능력·전문성·공적 성취’를 중심으로 형성됩니다."
+            ]
+          }
+        },
+        "11": {
+          "archetype": {
+            "en": "Network Archetype",
+            "ko": "Network Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world perceives you as a being who “connects people, groups, visions, and results.”",
+              "‘Networking, opportunities, and expansiveness’ dominate your external image."
+            ],
+            "ko": [
+              "세상은 당신을 “사람·집단·비전·성과를 연결하는 존재”로 봅니다.",
+              "‘네트워크·기회·확장성’이 외적 이미지를 지배합니다."
+            ]
+          }
+        },
+        "12": {
+          "archetype": {
+            "en": "Transcendence Archetype",
+            "ko": "Transcendence Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world views you as an “otherworldly, transcendent, and mystical being.”",
+              "Images of ‘solitude, artistry, spiritual flow, and liberation’ spread invisibly around you."
+            ],
+            "ko": [
+              "세상은 당신을 “경계를 넘어서는 초월적·신비로운 존재”로 봅니다.",
+              "‘고독·예술성·영적 흐름·해방’의 이미지가 비가시적으로 퍼집니다."
+            ]
+          }
+        }
+      }
+    },
+    
+    "A7": {
+      "title": {
+        "en": "Arudha Pada 7",
+        "ko": "Arudha Pada 7"
+      },
+      "narrative": {
+        "en": [
+          "In relationships, what kind of presence do you seem to become in the eyes of others?",
+          "Not how you feel inside, but how your relational role gets perceived —",
+          "the kind of partner or counterpart you appear to be."
+        ],
+        "ko": [
+          "관계 속에서, 타인의 눈에는 당신이 어떤 존재로 ‘보이는’ 것 같나요?",
+          "당신이 실제로 느끼는 모습이 아니라, 상대에게 어떤 파트너·상대로 인식되는지 —",
+          "관계 속에서 형성되는 이미지에 가깝습니다."
+        ]
+      },
+      "options": {
+        "1": {
+          "archetype": {
+            "en": "Mirror of Self Archetype",
+            "ko": "Mirror of Self Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone who directly projects yourself outward, whose relationships form your identity.",
+              "Your presence is revealed instantly through the eyes of others."
+            ],
+            "ko": [
+              "세상은 당신을 ‘자신을 그대로 외부에 투사하며, 관계가 곧 정체성인 사람’으로 봅니다.",
+              "당신의 존재는 타인의 시선 속에서 바로 드러납니다. "
+            ]
+          }
+        },
+        "2": {
+          "archetype": {
+            "en": "Stable Partnership Archetype",
+            "ko": "Stable Partnership Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world perceives you as someone who forms relationships based on stability, value, and continuity.",
+              "Your outward image is one of trust, reliability, and dignified connection."
+            ],
+            "ko": [
+              "세상은 당신을 ‘안정·가치·지속성을 바탕으로 관계를 맺는 사람’으로 봅니다.",
+              "당신의 외적 이미지는 믿음·신뢰·품위 있는 관계성입니다. "
+            ]
+          }
+        },
+        "3": {
+          "archetype": {
+            "en": "Expressive Relation Archetype",
+            "ko": "Expressive Relation Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world views you as someone whose relationships are shaped through speech, action, and expression.",
+              "Your relational style is active, dialogue-centered, and interaction-driven."
+            ],
+            "ko": [
+              "세상은 당신을 ‘말과 행동, 표현을 통해 관계가 형성되는 사람’으로 인식합니다.",
+              "능동적·대화 중심·교류적 관계 이미지가 강합니다."
+            ]
+          }
+        },
+        "4": {
+          "archetype": {
+            "en": "Emotional Relation Archetype",
+            "ko": "Emotional Relation Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone who forms relationships through warmth and emotional stability.",
+              "Your inner softness is evident even in public or formal connections."
+            ],
+            "ko": [
+              "세상은 당신을 ‘따뜻한 감정과 안정된 정서로 관계를 맺는 사람’으로 봅니다. ",
+              "내면의 부드러움이 공적인 관계에서도 드러납니다."
+            ]
+          }
+        },
+        "5": {
+          "archetype": {
+            "en": "Charismatic Relation Archetype",
+            "ko": "Charismatic Relation Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone who leads relationships with natural charm and creative flair.",
+              "Your relational energy carries romance, talent, and radiance."
+            ],
+            "ko": [
+              "세상은 당신을 ‘자연스럽게 매력적이고 창조적인 방식으로 관계를 이끄는 사람’으로 봅니다.",
+              "당신의 관계성은 낭만·재능·빛을 띱니다."
+            ]
+          }
+        },
+        "6": {
+          "archetype": {
+            "en": "Duty-Based Relation Archetype",
+            "ko": "Duty-Based Relation Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world perceives you as someone who maintains relationships through duty, responsibility, and practicality.",
+              "Your outer relational image is one of effortful, service-oriented realism."
+            ],
+            "ko": [
+              "세상은 당신을 ‘책임·의무·실용을 기반으로 관계를 유지하는 사람’으로 인식합니다.",
+              "노력형 관계성, 현실적 봉사가 외부 이미지입니다. "
+            ]
+          }
+        },
+        "7": {
+          "archetype": {
+            "en": "Pure Mirror Archetype",
+            "ko": "Pure Mirror Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone who embodies relationships themselves.",
+              "People perceive in you an image of pure mirroring, diplomacy, and reciprocity."
+            ],
+            "ko": [
+              "세상은 당신을 ‘관계성 자체를 구현하는 존재’로 봅니다.",
+              "타인은 당신에게서 완전한 거울성·외교감·상호성의 이미지를 읽습니다."
+            ]
+          }
+        },
+        "8": {
+          "archetype": {
+            "en": "Fated Relation Archetype",
+            "ko": "Fated Relation Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world views you as someone who forms intense, fated, and emotionally deep bonds.",
+              "Your outward relational image contains obsession, transformation, and emotional depth."
+            ],
+            "ko": [
+              "세상은 당신을 ‘강렬하고 운명적이며 깊은 에너지를 가진 관계형 인간’으로 봅니다.",
+              "당신의 외적 관계 이미지는 집착·변형·심연을 품습니다."
+            ]
+          }
+        },
+        "9": {
+          "archetype": {
+            "en": "Noble Relation Archetype",
+            "ko": "Noble Relation Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone who forms relationships through nobility, morality, and belief.",
+              "Your relational style carries elevated meaning and wisdom."
+            ],
+            "ko": [
+              "세상은 당신을 ‘고귀한 인연·도덕·신념에 의해 관계하는 사람’으로 인식합니다.",
+              "당신의 관계성은 고결한 의미와 지혜를 띱니다."
+            ]
+          }
+        },
+        "10": {
+          "archetype": {
+            "en": "Public Relation Archetype",
+            "ko": "Public Relation Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world perceives you as someone who forms relationships through social roles and professional contexts.",
+              "Your interpersonal image is formal, professional, and public-facing."
+            ],
+            "ko": [
+              "세상은 당신을 ‘사회적 자리·직업적 역할을 통해 관계를 맺는 사람’으로 봅니다.",
+              "당신의 대인 이미지는 공식적·전문적·공적 성격을 띱니다. "
+            ]
+          }
+        },
+        "11": {
+          "archetype": {
+            "en": "Collective Relation Archetype",
+            "ko": "Collective Relation Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone whose relationships naturally expand within networks and communities.",
+              "Your relational image is sociable, friendly, and group-oriented."
+            ],
+            "ko": [
+              "세상은 당신을 ‘네트워크·커뮤니티 속에서 자연스레 관계가 확장되는 사람’으로 봅니다.",
+              "당신의 관계 이미지는 사교적·우호적·집단지향적입니다."
+            ]
+          }
+        },
+        "12": {
+          "archetype": {
+            "en": "Transcendent Relation Archetype",
+            "ko": "Transcendent Relation Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone who holds mystical, boundary-crossing, and intangible forms of connection.",
+              "Invisible bonds, spiritual resonance, and secluded relational energy appear around you."
+            ],
+            "ko": [
+              "세상은 당신을 ‘경계를 넘나드는 신비롭고 무형의 관계성을 가진 사람’으로 봅니다.",
+              "보이지 않는 인연·영적 교감·은둔적 관계 이미지가 드러납니다."
+            ]
+          }
+        }
+      }
+    },
+
+    "A10": {
+      "title": {
+        "en": "Arudha Pada 10",
+        "ko": "Arudha Pada 10"
+      },
+      "narrative": {
+        "en": [
+          "In the public sphere, what kind of person do you seem to be?",
+          "Not your inner intentions, but how your role, competence, and authority are perceived by others."
+        ],
+        "ko": [
+          "사회적인 장에서, 사람들은 당신을 어떤 유형의 인물로 ‘보는’ 것 같나요?",
+          "당신의 실제 의도나 내면이 아니라, 능력·역할·권위가 어떻게 인식되는지 — 공적으로 형성된 이미지에 대한 선택입니다."
+        ]
+      },
+      "options": {
+        "1": {
+          "archetype": {
+            "en": "Self-Authority Archetype",
+            "ko": "Self-Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone whose very being expresses social role, authority, and identity.",
+              "Your public image is immediate, direct, and complete in simply being yourself."
+            ],
+            "ko": [
+              "세상은 당신을 ‘자신의 존재가 곧 사회적 역할·권위·정체성’인 사람으로 봅니다.",
+              "당신의 공적 이미지는 즉각적이고 직접적이며, 자기 자신으로 완성됩니다."
+            ]
+          }
+        },
+        "2": {
+          "archetype": {
+            "en": "Value-Based Authority Archetype",
+            "ko": "Value-Based Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world perceives you as someone who earns social trust through dignity, stability, and a strong sense of value.",
+              "Your public image is elegant, reliable, and enduring."
+            ],
+            "ko": [
+              "세상은 당신을 ‘품위·안정·가치 감각을 토대로 사회적 신뢰를 얻는 사람’으로 인식합니다.",
+              "공적 이미지는 우아하고 믿을 만하며 지속적입니다."
+            ]
+          }
+        },
+        "3": {
+          "archetype": {
+            "en": "Skill Authority Archetype",
+            "ko": "Skill Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone recognized for ability, technique, expression, and action.",
+              "Your public image is active, communicative, and capability-centered."
+            ],
+            "ko": [
+              "세상은 당신을 ‘능력·기술·표현력·행동력으로 사회에서 인정받는 사람’으로 봅니다.",
+              "당신의 공적 이미지는 활동적이고 소통 중심입니다."
+            ]
+          }
+        },
+        "4": {
+          "archetype": {
+            "en": "Inner Authority Archetype",
+            "ko": "Inner Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world understands your social image through inner stability, emotional depth, and rooted strength.",
+              "Your authority is quiet, deep, and trustworthy."
+            ],
+            "ko": [
+              "세상은 당신의 사회적 이미지를 ‘내면의 안정·정서적 깊이·뿌리 있는 힘’으로 이해합니다.",
+              "권위는 조용하지만 깊고 신뢰감을 줍니다."
+            ]
+          }
+        },
+        "5": {
+          "archetype": {
+            "en": "Creative Authority Archetype",
+            "ko": "Creative Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone acknowledged socially for talent, inspiration, creativity, and intellectual radiance.",
+              "Your public persona is bright, attractive, and inspirational."
+            ],
+            "ko": [
+              "세상은 당신을 ‘재능·영감·창의성·지적 빛’으로 사회에서 인정받는 사람으로 봅니다.",
+              "당신의 공적 페르소나는 빛나고 매력적이며 영감적입니다."
+            ]
+          }
+        },
+        "6": {
+          "archetype": {
+            "en": "Duty Authority Archetype",
+            "ko": "Duty Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world perceives you as someone evaluated by responsibility, labor, and the ability to fulfill obligations.",
+              "Your public image centers on diligence, practicality, and consistency."
+            ],
+            "ko": [
+              "세상은 당신을 ‘책임감·노동·의무 수행 능력’으로 평가할 사람으로 인식합니다.",
+              "공적 이미지는 성실·실용·지속성 중심입니다."
+            ]
+          }
+        },
+        "7": {
+          "archetype": {
+            "en": "Relational Authority Archetype",
+            "ko": "Relational Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone who builds public standing through people, relationships, and partnerships.",
+              "Your social image is diplomatic, cooperative, and balanced."
+            ],
+            "ko": [
+              "세상은 당신을 ‘사람·관계·파트너십’으로 공적 위치를 만드는 사람으로 봅니다.",
+              "사회적 이미지는 외교적·협력적·균형 있습니다."
+            ]
+          }
+        },
+        "8": {
+          "archetype": {
+            "en": "Shadow Authority Archetype",
+            "ko": "Shadow Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world perceives you as a social figure who handles crisis, darkness, taboo, or psychological power.",
+              "Your public image is deep, intense, and often mysterious or intimidating."
+            ],
+            "ko": [
+              "세상은 당신을 ‘위기·어둠·금기·심리적 힘을 다루는 사회적 존재’로 인식합니다.",
+              "공적 이미지는 깊고 강렬하며, 종종 신비롭거나 두려움을 줍니다."
+            ]
+          }
+        },
+        "9": {
+          "archetype": {
+            "en": "Dharma Authority Archetype",
+            "ko": "Dharma Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone who performs social roles based on noble character, beliefs, and wisdom.",
+              "Your public image is dignified and meaning-centered."
+            ],
+            "ko": [
+              "세상은 당신을 ‘고귀한 품격·신념·지혜를 기반으로 사회적 역할을 수행하는 사람’으로 봅니다.",
+              "당신의 사회적 이미지는 고결하고 의미 중심입니다."
+            ]
+          }
+        },
+        "10": {
+          "archetype": {
+            "en": "Pure Authority Archetype",
+            "ko": "Pure Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as a quintessential figure of authority, leadership, and social representation.",
+              "Your public presence stands out strongly in social hierarchies."
+            ],
+            "ko": [
+              "세상은 당신을 ‘전형적인 권위·리더십·사회적 대표자’로 봅니다.",
+              "공적 이미지는 사회적 연결망에서 더욱 크게 빛납니다."
+            ]
+          }
+        },
+        "11": {
+          "archetype": {
+            "en": "Collective Authority Archetype",
+            "ko": "Collective Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world perceives you as someone who wields influence, reputation, and expansion within groups.",
+              "Your public image becomes brighter and more prominent through networks."
+            ],
+            "ko": [
+              "세상은 당신을 ‘집단 안에서 영향력·명성·확장력을 발휘하는 사람’으로 인식합니다.",
+              "공적 이미지는 사회적 연결망에서 더욱 크게 빛납니다."
+            ]
+          }
+        },
+        "12": {
+          "archetype": {
+            "en": "Transcendent Authority Archetype",
+            "ko": "Transcendent Authority Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as someone with invisible influence—spiritual or symbolic authority.",
+              "Your social image appears in forms of mystery, transcendence, and subtle power."
+            ],
+            "ko": [
+              "세상은 당신을 ‘보이지 않는 영향력·영적 혹은 상징적 권위’를 가진 사람으로 봅니다.",
+              "당신의 사회적 이미지는 신비·초월·은밀한 힘의 형태로 드러납니다."
+            ]
+          }
+        }
+      }
+    },
+
+    "UL": {
+      "title": {
+        "en": "Upapada Lagna (UL)",
+        "ko": "Upapada Lagna (UL)"
+      },
+      "narrative": {
+        "en": [
+          "What kind of relationship or partner seems to manifest in your life?",
+          "Not what you think you want, but what tends to take form —",
+          "the kind of bond and spouse-image that appears through you."
+        ],
+        "ko": [
+          "당신이 원한다고 생각하는 모습과는 별개로, 실제로 어떤 관계와 배우자가 ‘형성되는’ 편인가요?",
+          "내면의 바람이 아니라, 결과적으로 드러나는 관계의 형태 —",
+          "당신을 통해 나타나는 배우자상과 결혼의 이미지에 가깝습니다."
+        ]
+      },
+      "options": {
+        "1": {
+          "archetype": {
+            "en": "Self-Partner Archetype",
+            "ko": "Self-Partner Archetype"
+          },
+          "desc": {
+            "en": [
+              "You meet a partner who resembles you deeply in temperament, or someone who acts as a mirror reflecting your inner self.",
+              "The relationship functions like an extension of your own identity."
+            ],
+            "ko": [
+              "당신은 본인과 매우 닮은 기질의 파트너, 혹은 자신을 깊이 비추는 거울 같은 사람을 만납니다.",
+              "관계는 자아의 확장처럼 작동합니다."
+            ]
+          }
+        },
+        "2": {
+          "archetype": {
+            "en": "Value-Rooted Partner Archetype",
+            "ko": "Value-Rooted Partner Archetype"
+          },
+          "desc": {
+            "en": [
+              "Your partner appears as someone who values stability, security, and a family-oriented foundation.",
+              "The relationship is long-lasting, settling, and symbolizes “building a life together.”"
+            ],
+            "ko": [
+              "당신의 파트너는 안정·가치·가정적 기반을 중요시하는 사람으로 나타납니다.",
+              "관계는 오래가고 정착적이며, ‘함께 구축하는 삶’을 상징합니다."
+            ]
+          }
+        },
+        "3": {
+          "archetype": {
+            "en": "Communicator Partner Archetype",
+            "ko": "Communicator Partner Archetype"
+          },
+          "desc": {
+            "en": [
+              "Your partner is expressive, intellectually communicative, and action-oriented.",
+              "The relationship grows through dialogue, interaction, and constant movement."
+            ],
+            "ko": [
+              "당신의 파트너는 표현력·지적 소통·행동성을 가진 사람으로 나타납니다.",
+              "관계는 대화·교류·끊임없는 움직임 속에서 성장합니다."
+            ]
+          }
+        },
+        "4": {
+          "archetype": {
+            "en": "Emotional-Home Partner Archetype",
+            "ko": "Emotional-Home Partner Archetype"
+          },
+          "desc": {
+            "en": [
+              "Your partner is warm, nurturing, and emotionally deep.",
+              "The relationship itself functions as a place of comfort and emotional refuge."
+            ],
+            "ko": [
+              "당신의 파트너는 따뜻하고 가정적이며 깊은 내면을 가진 사람입니다.",
+              "관계 자체가 ‘안식처’로 기능합니다."
+            ]
+          }
+        },
+        "5": {
+          "archetype": {
+            "en": "Romantic-Creative Partner Archetype",
+            "ko": "Romantic-Creative Partner Archetype"
+          },
+          "desc": {
+            "en": [
+              "Your partner appears charming, romantic, and creatively inspiring.",
+              "The relationship is joyful, bright, and often accompanies creative energy."
+            ],
+            "ko": [
+              "당신의 파트너는 매력적·로맨틱·창조적 영감을 주는 인물로 나타납니다.",
+              "관계는 밝고 즐겁고 창조의 에너지를 동반합니다. "
+            ]
+          }
+        },
+        "6": {
+          "archetype": {
+            "en": "Service/Duty Partner Archetype",
+            "ko": "Service/Duty Partner Archetype"
+          },
+          "desc": {
+            "en": [
+              "The world sees you as an “instinctive persona that directly projects the self.”",
+              "Your will, attitude, and identity themselves become the image others perceive."
+            ],
+            "ko": [
+              "당신의 파트너는 현실적·노력형·봉사적 기질을 가진 사람입니다.",
+              "관계는 책임과 조율을 통해 유지되며, 고생을 통한 깊은 결속을 의미합니다."
+            ]
+          }
+        },
+        "7": {
+          "archetype": {
+            "en": "Pure Partner Archetype",
+            "ko": "Pure Partner Archetype"
+          },
+          "desc": {
+            "en": [
+              "Your partner embodies the archetype of the ‘pure spouse’—a person who represents partnership itself.",
+              "The relationship centers on balance, mirroring, and fairness."
+            ],
+            "ko": [
+              "당신의 파트너는 ‘관계 그 자체’를 구현하는 전형적 배우자 이미지로 나타납니다.",
+              "관계는 균형·거울성·공정성이 핵심입니다."
+            ]
+          }
+        },
+        "8": {
+          "archetype": {
+            "en": "Fated-Transformation Partner Archetype",
+            "ko": "Fated-Transformation Partner Archetype"
+          },
+          "desc": {
+            "en": [
+              "Your partner carries intense, psychological, and transformative energy.",
+              "The relationship is fated, overwhelming, and triggers profound change."
+            ],
+            "ko": [
+              "당신의 파트너는 강렬·심리적·변형적 에너지를 가진 사람입니다.",
+              "관계는 운명적이고 압도적이며, 깊은 변화를 촉발합니다."
+            ]
+          }
+        },
+        "9": {
+          "archetype": {
+            "en": "Noble/Dharma Partner Archetype",
+            "ko": "Noble/Dharma Partner Archetype"
+          },
+          "desc": {
+            "en": [
+              "Your partner values nobility, philosophy, and virtue.",
+              "The relationship carries protection, fortune, and spiritual orientation."
+            ],
+            "ko": [
+              "당신의 파트너는 고결·철학적·덕을 중시하는 사람입니다.",
+              "관계는 보호·운·영적 지향성을 함께 담습니다."
+            ]
+          }
+        },
+        "10": {
+          "archetype": {
+            "en": "Public-Role Partner Archetype",
+            "ko": "Public-Role Partner Archetype"
+          },
+          "desc": {
+            "en": [
+              "Your partner appears connected to career, public duties, or authority.",
+              "The relationship is intertwined with social status and professional roles."
+            ],
+            "ko": [
+              "당신의 파트너는 직업적·공적역할·권위와 관련된 인물로 나타납니다.",
+              "관계는 사회적 지위·역할 수행을 중심으로 엮입니다."
+            ]
+          }
+        },
+        "11": {
+          "archetype": {
+            "en": "Network/Expansion Partner",
+            "ko": "Network/Expansion Partner"
+          },
+          "desc": {
+            "en": [
+              "Your partner is social, hopeful, and naturally expansive.",
+              "The relationship is linked with networks, goals, and social achievements."
+            ],
+            "ko": [
+              "당신의 파트너는 사교적·희망적·확장성 있는 사람입니다.",
+              "관계는 네트워크·목표 달성·사회적 성취와 묶입니다."
+            ]
+          }
+        },
+        "12": {
+          "archetype": {
+            "en": "Mystic/Transcendent Partner",
+            "ko": "Mystic/Transcendent Partner"
+          },
+          "desc": {
+            "en": [
+              "Your partner is mystical, spiritual, and intuitively receptive, and the relationship itself becomes transcendent and boundary-dissolving.",
+              "UL in the 12th house signifies deeply karmic, spiritual, or otherworldly marriage."
+            ],
+            "ko": [
+              "당신의 파트너는 신비·영적·감응적 사람이며, 관계는 초월적이고 경계를 흐립니다.",
+              "UL 12H는 깊이 업적인·카르마적·초월적 결혼을 의미합니다."
+            ]
+          }
+        }
+      }
+    }
+  },
+
+  "ascendant_final": {
+    "title": {
+      "en": "The Core Identity (Ascendant)",
+      "ko": "The Core Identity (Ascendant)"
+    },
+    "narrative": {
+      "en": [
+        "As you move through the world, there is a certain way of being that naturally comes through you.",
+        "It’s not something you consciously construct,",
+        "but rather the pattern of your attitude, reactions, and movement that repeatedly shows up across situations.",
+        "How do you usually engage with the world?"
+      ],
+      "ko": [
+        "당신은 세상을 살아가면서, 특별히 의식하지 않아도 자연스럽게 드러나는 ‘당신의 방식’이 있습니다.",
+        "생각해서 꾸민 모습이 아니라,",
+        "상황 속에서 반복적으로 나타나는 당신의 태도, 반응, 움직임에 더 가깝습니다.",
+        "당신은 보통 어떤 방식으로 세상과 맞닿아 있나요?"
+      ]
+    },
+    "components": {
+      "base": {
+        "Aries": {
+          "en": "I tend to act first and find my direction through direct engagement.",
+          "ko": "나는 일단 먼저 움직이고, 부딪히면서 방향을 잡는 편이다."
+        },
+        "Taurus": {
+          "en": "I tend to move steadily, maintaining a stable rhythm without being easily shaken.",
+          "ko": "나는 쉽게 흔들리지 않고, 안정된 리듬을 유지하면서 천천히 나아가는 편이다."
+        },
+        "Gemini": {
+          "en": "I tend to quickly grasp situations and respond flexibly through thought and communication.",
+          "ko": "나는 상황을 빠르게 파악하고, 말과 생각을 통해 유연하게 대응하는 편이다."
+        },
+        "Cancer": {
+          "en": "I tend to read the emotional tone of my surroundings and respond accordingly.",
+          "ko": "나는 주변의 분위기와 감정을 읽으면서, 그에 맞게 반응하는 편이다."
+        },
+        "Leo": {
+          "en": "I tend to move by expressing myself and naturally projecting my presence.",
+          "ko": "나는 자연스럽게 존재감을 드러내며, 나 자신을 표현하는 방식으로 움직이는 편이다."
+        },
+        "Virgo": {
+          "en": "I tend to observe details and move by organizing and improving what’s in front of me.",
+          "ko": "나는 디테일을 살피고, 상황을 정리하고 개선하면서 움직이는 편이다."
+        },
+        "Libra": {
+          "en": "I tend to act by considering balance and relationships, adjusting and harmonizing as I go.",
+          "ko": "나는 균형과 관계를 고려하며, 조율하고 맞추는 방식으로 행동하는 편이다."
+        },
+        "Scorpio": {
+          "en": "I tend to read situations deeply and influence things quietly rather than openly showing myself.",
+          "ko": "나는 겉으로 드러내기보다, 상황을 깊이 읽고 조용히 영향력을 행사하는 편이다."
+        },
+        "Sagittarius": {
+          "en": "I tend to look at the bigger picture and move freely in the direction that feels meaningful.",
+          "ko": "나는 크게 보고, 방향성을 따라 자유롭게 움직이려는 편이다."
+        },
+        "Capricorn": {
+          "en": "I tend to move in a structured way, building things step by step based on realistic goals.",
+          "ko": "나는 현실적인 기준과 목표를 중심으로, 단계적으로 쌓아가는 편이다."
+        },
+        "Aquarius": {
+          "en": "I tend to move according to my own perspective, not bound by conventional ways.",
+          "ko": "나는 기존 방식에 얽매이지 않고, 나만의 기준과 시선으로 움직이는 편이다."
+        },
+        "Pisces": {
+          "en": "I tend to follow the flow and intuition, adapting fluidly to what unfolds around me.",
+          "ko": "나는 흐름과 직관을 따라가며, 상황에 맞게 유연하게 스며드는 편이다."
+        }
+      },
+      "undertone": {
+        "Aries": {
+          "en": "There is also a tendency to lean into action more readily, responding through movement rather than hesitation.",
+          "ko": "망설이기보다는 행동으로 먼저 반응하려는 경향이 은근히 섞여 있다."
+        },
+        "Taurus": {
+          "en": "There is also a tendency to hold a consistent pace, preferring stability even when adapting.",
+          "ko": "변화 속에서도 일정한 리듬과 안정감을 유지하려는 경향이 함께 작동한다."
+        },
+        "Gemini": {
+          "en": "There is also a tendency to keep processing and adjusting through thought, staying mentally active within situations.",
+          "ko": "상황 속에서도 계속 생각을 굴리며, 유연하게 판단을 조정하려는 경향이 함께 나타난다."
+        },
+        "Cancer": {
+          "en": "There is also a tendency to stay attuned to subtle emotional shifts, even when not outwardly expressed.",
+          "ko": "겉으로 드러나지 않더라도, 미묘한 감정의 흐름을 계속 감지하고 있는 경향이 있다."
+        },
+        "Leo": {
+          "en": "There is also a tendency to naturally project a certain presence, even without deliberate intention.",
+          "ko": "의도하지 않아도 자연스럽게 존재감이 드러나는 방향으로 흐르는 경향이 있다."
+        },
+        "Virgo": {
+          "en": "There is also a tendency to notice small details and make quiet adjustments along the way.",
+          "ko": "작은 디테일을 포착하고, 그때그때 미세하게 조정하려는 경향이 함께 작동한다."
+        },
+        "Libra": {
+          "en": "There is also a tendency to consider relational balance, subtly adjusting in response to others.",
+          "ko": "타인과의 균형을 고려하며, 관계 속에서 미묘하게 조율하려는 경향이 있다."
+        },
+        "Scorpio": {
+          "en": "There is also a tendency to read beneath the surface and engage with deeper layers of situations.",
+          "ko": "표면 아래의 흐름을 읽고, 보다 깊은 층위에서 상황을 파악하려는 경향이 있다."
+        },
+        "Sagittarius": {
+          "en": "There is also a tendency to orient toward meaning and direction, keeping a broader perspective in mind.",
+          "ko": "전체적인 방향성과 의미를 염두에 두고, 시야를 넓게 유지하려는 경향이 있다."
+        },
+        "Capricorn": {
+          "en": "There is also a tendency to structure things over time, building with a sense of long-term orientation.",
+          "ko": "시간을 두고 구조를 쌓아가며, 장기적인 기준으로 접근하려는 경향이 있다."
+        },
+        "Aquarius": {
+          "en": "There is also a tendency to step slightly outside conventional frames, maintaining an independent perspective.",
+          "ko": "기존 틀에서 약간 비켜서서, 독립적인 시선을 유지하려는 경향이 있다."
+        },
+        "Pisces": {
+          "en": "There is also a tendency to remain open to the flow of situations, adapting in a fluid and intuitive way.",
+          "ko": "상황의 흐름에 열려 있으면서, 직관적으로 유연하게 적응하려는 경향이 있다."
+        }
+      }
+    }
+  }
+}

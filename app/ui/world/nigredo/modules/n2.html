@@ -1,0 +1,251 @@
+<link rel="stylesheet" href="/static/world/nigredo/modules/n2.css">
+
+<div class="n2-principia">
+    <h1 class="materia-title">Principia</h1>
+
+    <div class="lordship-bar">
+        <div class="lord-slot">Day Lord: <span class="val" id="day-lord">-</span></div>
+        <div class="lord-slot">Hour Lord: <span class="val" id="hour-lord">-</span></div>
+    </div>
+
+    <nav class="system-switch-module" id="main-system-nav">
+        <button class="sys-tab" data-sys="tropical" onclick="switchPrincipiaSystem('tropical')">Tropical</button>
+        <button class="sys-tab" data-sys="sidereal" onclick="switchPrincipiaSystem('sidereal')">Sidereal</button>
+        <button class="sys-tab" data-sys="draconic" onclick="switchPrincipiaSystem('draconic')">Draconic</button>
+        <button class="sys-tab" data-sys="ketunic" title="South Node at Aries 0°" onclick="switchPrincipiaSystem('ketunic')">Ketunic</button>
+    </nav>
+
+    <div class="sub-options-vault">
+        <div class="sidereal-controls" id="sidereal-controls-panel">
+            <nav class="ayanamsa-switch-module">
+                {% set ayanamsas = [
+                    ('Lahiri', 'Standard Vedic (Chitra Paksha)'), ('Raman', 'B.V. Raman'), ('KP', 'Krishnamurti Paddhati'), 
+                    ('Fagan-Bradley', 'Fagan-Bradley'), ('Yukteswar', 'Sri Yukteswar')
+                ] %}
+                {% for id, full_name in ayanamsas %}
+                <button class="ayan-tab" data-ayan="{{ id|lower }}" title="{{ full_name }}" onclick="switchAyanamsa('{{ id|lower }}')">{{ id }}</button>
+                {% endfor %}
+            </nav>
+
+            <div class="dichotomy-module">
+                <span class="dicho-label" id="label-zodiac">Zodiac</span>
+                <div class="toggle-switch" onclick="switchDichotomy()">
+                    <div class="toggle-knob" id="dicho-knob"></div>
+                </div>
+                <span class="dicho-label" id="label-nakshatra">Nakshatra</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="n2-content" id="principia-main-view">
+        
+        <div id="zodiac-view-container">
+            {% set sections = [
+                ('Planets', [('☉','Sun'), ('☽','Moon'), ('☿','Mercury'), ('♀','Venus'), ('♂','Mars'), ('♃','Jupiter'), ('♄','Saturn'), ('♅','Uranus'), ('♆','Neptune'), ('♇','Pluto')]),
+                ('Major Asteroids', [('','Chiron'), ('','Ceres'), ('','Juno'), ('','Pallas'), ('','Vesta'), ('','Eros'), ('','Psyche')]),
+                ('Lilith & Nodes', [('','Mean Lilith'), ('','True Lilith'), ('','Asteroid Lilith'), ('','North Node (m)'), ('','North Node (t)'), ('','South Node (m)'), ('','South Node (t)')]),
+                ('Fates', [('','Moira'), ('','Klotho'), ('','Lachesis'), ('','Atropos')])
+            ] %}
+
+            {% for category, items in sections %}
+            <section class="principia-section">
+                <h2 class="category-label">{{ category | upper }}</h2>
+                <table class="n2-chart-table zodiac-mode">
+                    <colgroup>
+                        <col class="col-body"> <col class="col-info">
+                        <col class="col-house"> 
+                        <col class="col-code"> <col class="col-code">
+                        <col class="col-code"> <col class="col-code">
+                        <col class="col-sabian">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Celestial Bodies</th>
+                            <th>Information</th>
+                            <th class="has-tooltip" title="House">House</th>
+                            <th class="has-tooltip" title="Duad">Duad</th>
+                            <th class="has-tooltip" title="Dodecatemoria">Dod.</th>
+                            <th class="has-tooltip" title="Decan">Decan</th>
+                            <th class="has-tooltip" title="Egyptian Bounds">Bd.</th>
+                            <th>Sabian Symbol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for sym, name in items %}
+                        <tr>
+                            <td class="cell-body">{% if sym %}<strong>{{ sym }}</strong> {% endif %}{{ name }}</td>
+                            <td class="cell-info" data-field="info">-</td>
+                            <td class="cell-house" data-field="house">-</td>
+                            <td class="cell-code" data-field="duad">-</td> 
+                            <td class="cell-code" data-field="dodeca">-</td>
+                            <td class="cell-code" data-field="decan">-</td> 
+                            <td class="cell-code" data-field="bound">-</td>
+                            <td class="cell-sabian" data-field="sabian">-</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+            {% endfor %}
+        </div>
+
+        <div id="nakshatra-view-container" class="hidden">
+            <section class="principia-section">
+                <h2 class="category-label"> NAKSHATRA & GRAHAS</h2>
+                <table class="n2-chart-table nakshatra-mode">
+                    <colgroup>
+                        <col class="col-nak-body"> <col class="col-nak-info"> 
+                        <col class="col-nak-name"> <col class="col-nak-pada"> 
+                        <col class="col-nak-sabian"> 
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Celestial Bodies</th>
+                            <th>Information</th>
+                            <th>Nakshatra</th>
+                            <th id="pada-header-label">Pada</th>
+                            <th>Sabian Symbol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% set grahas = [
+                            ('☉','Sun'), ('☽','Moon'), ('☿','Mercury'), ('♀','Venus'), 
+                            ('♂','Mars'), ('♃','Jupiter'), ('♄','Saturn'), ('☊','Rahu'), ('☋','Ketu')
+                        ] %}
+                        {% for sym, name in grahas %}
+                        <tr class="graha-row">
+                            <td class="cell-body"><strong>{{ sym }}</strong> {{ name }}</td>
+                            <td class="cell-info" data-field="info">-</td>
+                            <td class="cell-nak" data-field="nakshatra">-</td>
+                            <td class="cell-pada" data-field="pada">-</td>
+                            <td class="cell-sabian" data-field="sabian">-</td>
+                        </tr>
+                        {% endfor %}
+
+                        <tr class="system-divider-row"><td colspan="5"></td></tr>
+
+                        {% set moderns = ['Lilith (mean)', 'Chiron'] %}
+                        {% for name in moderns %}
+                        <tr class="modern-row">
+                            <td class="cell-body">{{ name }}</td>
+                            <td class="cell-info" data-field="info">-</td>
+                            <td class="cell-nak" data-field="nakshatra">-</td>
+                            <td class="cell-pada" data-field="pada">-</td>
+                            <td class="cell-sabian" data-field="sabian">-</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="principia-section" id="angles-section-nakshatra">
+                <h2 class="category-label"> ANGLES</h2>
+                <table class="n2-chart-table nakshatra-mode">
+                    <colgroup>
+                        <col class="col-nak-body"> <col class="col-nak-info"> 
+                        <col class="col-nak-name"> <col class="col-nak-pada"> 
+                        <col class="col-nak-sabian">  
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Celestial Bodies</th>
+                            <th>Information</th>
+                            <th>Nakshatra</th>
+                            <th id="pada-header-label">Pada</th>
+                            <th>Sabian Symbol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% set angles = [('','Ascendant'), ('','Immum Coeli'), ('','Descendant'), ('','Midheaven')] %}
+                        {% for sym, name in angles %}
+                        <tr class="angle-row">
+                            <td class="cell-body"><strong>{{ name }}</strong></td> 
+                            <td class="cell-info" data-field="info">-</td>
+                            <td class="cell-nak" data-field="nakshatra">-</td>
+                            <td class="cell-pada" data-field="pada">-</td>
+                            <td class="cell-sabian" data-field="sabian">-</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const sys = params.get('system') || 'tropical';
+        const ayan = params.get('ayanamsa') || 'lahiri';
+        const view = params.get('view') || 'zodiac';
+
+        document.querySelectorAll('.sys-tab').forEach(tab => {
+            if (tab.textContent.trim().toLowerCase() === sys) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
+        });
+
+        const vaultPanel = document.getElementById('sidereal-controls-panel');
+        if (sys === 'sidereal') {
+            if (vaultPanel) vaultPanel.classList.add('manifested');
+
+            document.querySelectorAll('.ayan-tab').forEach(tab => {
+                if (tab.textContent.trim().toLowerCase() === ayan) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+
+            const padaHeader = document.querySelectorAll('#pada-header-label');
+            if (ayan === 'kp') {
+                padaHeader.forEach(el => {
+                    el.textContent = 'Sub-Lord';
+                    el.classList.add('header-highlight');
+                });
+            }
+
+            const knob = document.getElementById('dicho-knob');
+            const zodiacCont = document.getElementById('zodiac-view-container');
+            const nakshatraCont = document.getElementById('nakshatra-view-container');
+            
+            if (view === 'nakshatra') {
+                if(knob) knob.classList.add('right');
+                document.getElementById('label-nakshatra').classList.add('active');
+                if(zodiacCont) zodiacCont.classList.add('hidden');
+                if(nakshatraCont) nakshatraCont.classList.remove('hidden');
+            } else {
+                document.getElementById('label-zodiac').classList.add('active');
+                if(zodiacCont) zodiacCont.classList.remove('hidden');
+                if(nakshatraCont) nakshatraCont.classList.add('hidden');
+            }
+        }
+    });
+
+    function switchPrincipiaSystem(sys) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('system', sys);
+        if (sys !== 'sidereal') {
+            url.searchParams.delete('ayanamsa');
+            url.searchParams.delete('view');
+        }
+        window.location.href = url.toString();
+    }
+
+    function switchAyanamsa(ayan) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('ayanamsa', ayan);
+        window.location.href = url.toString();
+    }
+
+    function switchDichotomy() {
+        const url = new URL(window.location.href);
+        const currentView = url.searchParams.get('view') || 'zodiac';
+        url.searchParams.set('view', currentView === 'zodiac' ? 'nakshatra' : 'zodiac');
+        window.location.href = url.toString();
+    }
+</script>
+<script src="/static/world/nigredo/modules/n2.js?v=999"></script>

@@ -1,0 +1,172 @@
+/* static/mobile/world/albedo/modules/a9.css */
+
+:root {
+    --m-a9-h-row: 35px;
+    --m-a9-h-line: 2px;
+    --m-a9-w-date: 85px;
+    --m-a9-w-age: 35px;
+    --m-a9-w-zr: 30px;
+    --m-a9-w-trs: 30px;
+    --m-a9-w-fir-dav: 55px;
+    --m-a9-w-prof-dav: 70px;
+    --m-a9-w-fir-syn: 40px;
+    --m-a9-w-prof-syn: 35px;
+    --m-a9-w-jyo: 28px;
+}
+
+.m-a9-container { padding: 10px 0; font-family: 'Consolas', 'Monaco', monospace !important; color: #49dce1; }
+.m-materia-title { color: #49dce1; font-size: 1.1rem; font-weight: normal; margin-bottom: 20px; letter-spacing: 0.5px; text-align: center; }
+
+/* 1. 토글 스위치 */
+.m-anti-switch-module { position: relative; display: flex; justify-content: flex-start; padding-left: 20px; }
+.m-dichotomy-module { display: flex; align-items: center; gap: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.m-dicho-label { font-size: 0.65rem; color: #666; transition: 0.2s; user-select: none; letter-spacing: 1px; }
+.m-dicho-label.active { color: #49dce1; font-weight: bold; text-shadow: 0 0 8px rgba(73, 220, 225, 0.6); }
+
+.m-toggle-switch { width: 40px; height: 18px; background: #111; border: 1px solid #49dce1; border-radius: 10px; position: relative; }
+.m-toggle-knob { width: 12px; height: 12px; background: #49dce1; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: left 0.3s ease; box-shadow: 0 0 5px rgba(73, 220, 225, 0.8); }
+.m-toggle-knob.right { left: 24px; }
+
+.m-toggle-tooltip {
+    position: absolute; top: -25px; left: 40px; background: #49dce1; color: #000; padding: 4px 8px; border-radius: 4px;
+    font-size: 0.7rem; font-weight: bold; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 100; white-space: nowrap; box-shadow: 0 2px 10px rgba(73, 220, 225, 0.4);
+}
+
+.m-hidden { display: none !important; }
+
+/* 2. 테이블 및 스크롤 */
+.m-a9-table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-top: 1px solid #333; border-bottom: 1px solid #333; max-height: 65vh; background: #000; position: relative; }
+.m-a9-table { width: max-content; min-width: 100%; border-collapse: separate; border-spacing: 0; background: #000; font-size: 0.65rem; table-layout: auto; }
+.m-a9-table th, .m-a9-table td { padding: 6px 4px; border-bottom: 1px solid #222; border-right: 1px solid #222; text-align: center; vertical-align: middle; white-space: nowrap; height: var(--m-a9-h-row); box-sizing: border-box; }
+
+/* 3. Sticky 헤더 및 첫 컬럼 락다운 */
+.m-a9-table th { background: #050505; color: #7F7F7F; font-weight: bold; position: sticky; z-index: 5; line-height: 1.2; }
+#a9-table-head tr:nth-child(1) th { top: 0; }
+#a9-table-head tr:nth-child(2) th { top: var(--m-a9-h-row); }
+#a9-table-head tr:nth-child(3) th { top: calc(var(--m-a9-h-row) * 2); box-shadow: 0 1px 0 0 #333; }
+
+.n9-date-col-header, .n9-date-col { width: var(--m-a9-w-date); min-width: var(--m-a9-w-date); max-width: var(--m-a9-w-date); position: sticky !important; left: 0 !important; z-index: 10 !important; background-color: #050505 !important; border-right: 2px solid #444 !important; }
+.n9-date-col-header { z-index: 20 !important; }
+.n9-date-col { font-weight: bold; color: #fff; box-shadow: 3px 0 8px -2px rgba(0,0,0, 0.8) !important; }
+
+/* 4. 폭 변수 맵핑 */
+.th-age, .n9-cell-age { width: var(--m-a9-w-age); min-width: var(--m-a9-w-age); }
+.th-spirit, .th-fortune, .th-eros, .n9-cell-zr { width: var(--m-a9-w-zr); min-width: var(--m-a9-w-zr); }
+.th-transit, .n9-cell-transit { width: var(--m-a9-w-trs); min-width: var(--m-a9-w-trs); }
+.th-firdaria, .n9-cell-firdaria { width: var(--m-a9-w-fir-dav); min-width: var(--m-a9-w-fir-dav); }
+.th-prof, .n9-cell-prof { width: var(--m-a9-w-prof-dav); min-width: var(--m-a9-w-prof-dav); }
+.syn-fir { width: var(--m-a9-w-fir-syn); min-width: var(--m-a9-w-fir-syn); }
+.syn-prof { width: var(--m-a9-w-prof-syn); min-width: var(--m-a9-w-prof-syn); }
+.th-mahadasha, .th-antardasha, .th-pratyantardasha, .n9-cell-dasha-l1, .n9-cell-dasha-l2, .n9-cell-dasha-l3 { width: var(--m-a9-w-jyo); min-width: var(--m-a9-w-jyo); }
+
+/* 5. Date Segment Control */
+.n9-seg-control { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; }
+.n9-seg-row { display: flex; gap: 2px; justify-content: center; }
+.n9-seg-btn { background: #111; color: #666; border: 1px solid #333; border-radius: 4px; padding: 4px 0; font-size: 0.6rem; flex: 1; cursor: pointer; transition: 0.2s; }
+/* 🚀 [수복]: !important를 모조리 박아서 액티브 CSS가 절대 씹히지 않게 강제 적용 */
+.n9-seg-btn.active { background: #49dce1 !important; color: #000 !important; font-weight: bold !important; border-color: #49dce1 !important; text-shadow: none !important; }
+
+/* 6. Today Highlight */
+.n9-today-row td { border-top: 2px solid #49dce1 !important; border-bottom: 2px solid #49dce1 !important; background-color: rgba(73, 220, 225, 0.1) !important; }
+
+/* 7. 제목 색상 매핑 (수복: Spirit, Fortune, Eros 컬러) */
+.th-white-title { color: #ffffff !important; }
+.th-red-title   { color: #FF2906 !important; }
+.th-gray-title  { color: #888888 !important; }
+.th-spirit-title, .th-spirit-head  { color: #47FFEA !important; }
+.th-fortune-title, .th-fortune-head { color: #FFFB03 !important; }
+.th-eros-title, .th-eros-head    { color: #FF6CD6 !important; }
+.th-syn-a { color: #FF2906 !important; font-weight: bold; }
+.th-syn-b { color: #341DFC !important; font-weight: bold; }
+.th-syn-dav { color: #49dce1 !important; font-weight: bold; }
+
+/* 8. 장막 (Veil) - 잘림 방지 및 침범 방향 논리 완벽 제어 */
+.a9-veil-cell { background-color: #050505 !important; position: relative; border-color: #111 !important; }
+.veil-text-box { 
+    position: absolute; 
+    bottom: 10px; /* 🚀 윗대가리와 C 밑동이 절대 안 잘리도록 더 띄움 */
+    font-family: 'Consolas', monospace !important;
+    font-weight: bold !important; 
+    font-style: italic !important; 
+    white-space: nowrap; 
+    letter-spacing: 0.5px;
+    z-index: 5;
+}
+
+/* A칸(좌측) 장막은 B(우측)로 넘어가면 안 되므로 우측 핀 고정 */
+.veil-align-right { right: 8px; text-align: right; }
+/* B칸(우측) 장막은 A(좌측)로 넘어가면 안 되므로 좌측 핀 고정 */
+.veil-align-left { left: 8px; text-align: left; }
+.veil-align-center { left: 50%; transform: translateX(-50%); text-align: center; }
+
+.veil-light { 
+    color: #ffffff !important; 
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6); 
+    font-size: 0.45rem !important; /* 🚀 폰트 크기 대폭 하향 (잘림 원천 차단) */
+}
+.veil-consummatum { 
+    color: #FF2906 !important; 
+    text-shadow: 0 0 5px rgba(255, 41, 6, 0.5); 
+    font-size: 0.45rem !important; /* 🚀 폰트 크기 대폭 하향 */
+}
+
+/* 🚀 LB (Loosing of the Bonds) 테두리 하이라이트 추가 */
+.n9-cell-lb { 
+    border: 1px solid #FFD700 !important; 
+    box-shadow: inset 0 0 8px rgba(255, 215, 0, 0.3); 
+    background-color: rgba(255, 215, 0, 0.1) !important; 
+}
+
+/* 9. Ayanamsa & Connected Tabs (A3 디자인 이식) */
+.m-connected-tabs { display: flex; border: 1px solid #49dce1; background: #000; border-radius: 4px; overflow: hidden; width: calc(100% - 40px); margin: 0 auto 15px auto; }
+.m-connected-tabs .m-tab { flex: 1; background: transparent; border: none; border-right: 1px solid rgba(73, 220, 225, 0.4); color: #49dce1; padding: 10px 0; font-size: 0.75rem; text-align: center; font-family: inherit; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
+.m-connected-tabs .m-tab:last-child { border-right: none; }
+.m-connected-tabs .m-tab.active { background: #49dce1 !important; color: #000 !important; font-weight: bold !important; }
+
+.m-ayan-tabs { border-color: #555; margin-top: -5px; margin-bottom: 15px; }
+.m-ayan-tabs .m-tab { padding: 6px 0; font-size: 0.6rem; color: #666; border-right-color: #333; }
+.m-ayan-tabs .m-tab.active { background: #333 !important; color: #fff !important; }
+
+/* 10. 기호 글로우 (수복: 원소별 스머프색 탈출 -> 정석 컬러) */
+.m-hoverable { cursor: pointer; }
+.glow-fire { color: #F71831 !important; text-shadow: 0 0 5px #F71831; }
+.glow-earth { color: #FFB933 !important; text-shadow: 0 0 5px #FFB933; }
+.glow-air { color: #E6E6E6 !important; text-shadow: 0 0 5px #E6E6E6; }
+.glow-water { color: #0168FC !important; text-shadow: 0 0 5px #0168FC; }
+
+/* ... (이하 행성 색상은 기존과 동일하게 유지) ... */
+
+.glow-sun { color: #FC55CE !important; text-shadow: 0 0 5px #FC55CE; }
+.glow-moon { color: #FFB9FA !important; text-shadow: 0 0 5px #FFB9FA; }
+.glow-mars { color: #F50000 !important; text-shadow: 0 0 5px #F50000; }
+.glow-mercury { color: #341DFC !important; text-shadow: 0 0 5px #341DFC; }
+.glow-jupiter { color: #47BD5A !important; text-shadow: 0 0 5px #47BD5A; }
+.glow-venus { color: #999999 !important; text-shadow: 0 0 5px #999999; }
+.glow-saturn { color: #FFF200 !important; text-shadow: 0 0 5px #FFF200; }
+.glow-rahu { color: #00FFCC !important; text-shadow: 0 0 5px #00FFCC; }
+.glow-ketu { color: #ffffff !important; text-shadow: 0 0 5px #ffffff; }
+
+/* 11. 트랜싯 헤더 행성 전용 고유색 수복 */
+.transit-symbol-ju { color: #47BD5A !important; text-shadow: 0 0 4px #47BD5A; }
+.transit-symbol-sa { color: #FFF200 !important; text-shadow: 0 0 4px #FFF200; }
+.transit-symbol-ur { color: #00FFFF !important; text-shadow: 0 0 4px #00FFFF; }
+.transit-symbol-ne { color: #2244FF !important; text-shadow: 0 0 4px #2244FF; }
+.transit-symbol-pl { color: #990000 !important; text-shadow: 0 0 4px #990000; }
+
+/* 12. 토스트 (Hover 대체) */
+.m-toast-hidden { transform: translateY(100%); opacity: 0; pointer-events: none; }
+#m-a9-toast { position: fixed; bottom: 0; left: 0; width: 100%; box-sizing: border-box; background: rgba(5, 15, 20, 0.95); border-top: 1px solid #49dce1; color: #fff; padding: 15px 20px; font-size: 0.8rem; line-height: 1.4; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 9999; box-shadow: 0 -4px 15px rgba(0,0,0,0.5); backdrop-filter: blur(5px); padding-bottom: calc(15px + env(safe-area-inset-bottom)); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+/* 13. 로딩 애니메이션 (A10식 광학적 중앙 정렬 + Z-index 탈옥) */
+#m-a9-loading { 
+    position: fixed; top: 0; left: 0; width: 100vw; 
+    height: 100dvh !important; padding-bottom: 10vh !important; box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.88); display: none; align-items: center; justify-content: center; 
+    z-index: 99999 !important; backdrop-filter: blur(8px); transition: opacity 0.4s ease; 
+}
+.m-a9-loading-text { 
+    color: #49dce1; font-family: 'Consolas', monospace; font-size: 1.2rem; font-weight: bold; 
+    letter-spacing: 3px; text-transform: uppercase; text-shadow: 0 0 15px rgba(73, 220, 225, 0.6); 
+    animation: m-n9Pulse 2s infinite ease-in-out; white-space: nowrap; 
+}
+@keyframes m-n9Pulse { 0% { opacity: 0.5; text-shadow: 0 0 5px rgba(73, 220, 225, 0.3); } 50% { opacity: 1; text-shadow: 0 0 20px rgba(73, 220, 225, 0.8); } 100% { opacity: 0.5; text-shadow: 0 0 5px rgba(73, 220, 225, 0.3); } }

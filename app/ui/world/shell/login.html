@@ -1,0 +1,61 @@
+{% extends "world/shell/base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/world/shell/login.css">
+
+<div id="popup-blur" class="blur-overlay" onclick="togglePopup('forgot-popup', false)"></div>
+
+<div class="auth-gate-wrapper">
+    <div id="auth-main" class="auth-container">
+        <h1 class="auth-title">LOG-IN</h1>
+        <form id="login-form" onsubmit="handleInitialSubmit(event)">
+            <div class="input-row">
+                <label for="email">e-mail:</label>
+                <input type="email" id="email" name="email" required spellcheck="false">
+            </div>
+            <div class="input-row">
+                <label for="password">password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+        <div class="auth-footer-links">
+            <span class="forgot-pw-text" onclick="togglePopup('forgot-popup', true)">Password Forgotten</span>
+        </div>
+        <div id="password-error" class="error-msg"></div>
+    </div>
+
+    <div id="anamnesis-layer" class="intrusion-overlay">
+        <div class="ritual-box">
+            <h2 class="anamnesis-title">Anamnesis</h2>
+            <div class="input-ritual">
+                <input type="text" id="verify-code" placeholder="enter verification code" autocomplete="off">
+                <button type="button" class="ritual-submit-btn" onclick="submitVerification()">↵</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="forgot-popup" class="mini-popup">
+        <div class="close-icon" onclick="togglePopup('forgot-popup', false)">×</div>
+        <div class="popup-content">
+            <div class="input-row no-margin-bottom">
+                <label>Enter e-mail:</label>
+                <input type="email" id="reset-email" spellcheck="false">
+                <button class="submit-btn" onclick="sendResetEmail()">send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="gm4-overlay" class="ritual-shell-overlay">
+    <div class="ritual-shell-box">
+        <div id="gm4-title" class="ritual-shell-title"></div>
+        <input type="password" id="gm4-input" class="ritual-shell-input" autocomplete="off">
+        <div class="ritual-shell-footer">
+            <div id="gm4-status" class="ritual-shell-status"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/world/shell/login.js"></script>
+{% endblock %}

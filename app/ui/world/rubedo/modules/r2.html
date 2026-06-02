@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="/static/world/rubedo/modules/r2.css">
+
+<div class="r2-principia-system">
+    <h1 class="r2-main-title">SABIAN SYMBOLS</h1>
+
+    <div class="r2-option-vault">
+        <div class="dichotomy-module">
+            <span class="dicho-label active" id="label-sign">Sign</span>
+            <div class="toggle-switch" onclick="R2.switchDichotomy()">
+                <div class="toggle-knob" id="r2-knob"></div>
+            </div>
+            <span class="dicho-label" id="label-symbol">Symbol</span>
+        </div>
+    </div>
+
+    <div class="matrix-unit">
+        <h2 class="matrix-label-black">Select Sign</h2>
+        <div class="r2-grid-6x2" id="sign-matrix"></div>
+    </div>
+
+    <div id="number-section" class="matrix-unit" style="display: none; margin-top: 2.5rem;">
+        <h2 class="matrix-label-black">Select Number</h2>
+        <div class="r2-grid-10x3" id="number-matrix"></div>
+    </div>
+
+    <div class="r2-divider" style="margin-top: 3.5rem;"></div>
+
+    <article class="theory-projection">
+        <h2 id="theory-title" class="data-title"></h2>
+        <div id="theory-body" class="data-body"></div>
+    </article>
+</div>
+
+<div id="ritual-overlay" class="ritual-shell-overlay">
+    <div class="ritual-shell-box">
+        <div id="ritual-label" class="ritual-shell-title">awaiting protocol...</div>
+        <div class="ritual-shell-content">
+            <input type="password" id="ritual-input" class="ritual-shell-input" autofocus autocomplete="off">
+        </div>
+        <div class="ritual-shell-footer">
+            <span class="ritual-shell-status">source: resurrection_protocol</span>
+        </div>
+    </div>
+</div>
+
+{% if is_admin %}
+<div id="god-mode-clearance" style="display: none;"></div>
+{% endif %}
+
+<script src="/static/world/rubedo/modules/r2.js"></script>

@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "A2": { "field": "stamper" }
+  },
+  "timeline": {
+    "start_row": 17,
+    "columns": {
+      "A": { "data_key": "date", "format": "YYYY-MM-DD" },
+      "B": { "data_key": "spirit_l1", "check_lb": "spirit_l1_lb" },
+      "C": { "data_key": "spirit_l2", "check_lb": "spirit_l2_lb" },
+      "D": { "data_key": "spirit_l3", "check_lb": "spirit_l3_lb" },
+      "E": { "data_key": "fortune_l1", "check_lb": "fortune_l1_lb" },
+      "F": { "data_key": "fortune_l2", "check_lb": "fortune_l2_lb" },
+      "G": { "data_key": "fortune_l3", "check_lb": "fortune_l3_lb" },
+      "H": { "data_key": "eros_l1", "check_lb": "eros_l1_lb" },
+      "I": { "data_key": "eros_l2", "check_lb": "eros_l2_lb" },
+      "J": { "data_key": "eros_l3", "check_lb": "eros_l3_lb" },
+      "K": { "data_key": "firdaria.main" },
+      "L": { "data_key": "firdaria.sub" },
+      "M": { "data_key": "profections" },
+      "N": { "data_key": "transits.Jupiter.sign" },
+      "O": { "data_key": "transits.Saturn.sign" },
+      "P": { "data_key": "transits.Uranus.sign" },
+      "Q": { "data_key": "transits.Neptune.sign" },
+      "R": { "data_key": "transits.Pluto.sign" }
+    }
+  }
+}

@@ -1,0 +1,514 @@
+/* static/world/nigredo/modules/n6.css */
+
+/* 1. Base Layout & Typography */
+.n6-divisio {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    color: #e0e0e0;
+    width: 100%;
+}
+
+/* 2. Header & Controls (N5/A5 Benchmarking) */
+.schema-header {
+    display: flex; flex-direction: column; gap: 0; margin-bottom: 20px;
+}
+
+.module-title {
+    display: block; width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+    font-size: 1.5rem !important; font-weight: 600 !important;
+    letter-spacing: 3px; line-height: 1.0;
+    text-transform: uppercase; color: #fff !important;
+    margin: 20px 0 50px 0 !important; padding: 0 !important;
+    border: none !important;
+}
+
+.dichotomy-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px; /* N2 스타일의 여백 확보 */
+}
+
+.dicho-label {
+    /* N2 Principia 특유의 얇고 날카로운 폰트 설정 이식 */
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+    font-size: 0.65rem !important; /* 0.8rem에서 0.65rem으로 축소 (얇쌍함의 핵심) */
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* 미세한 자간 확장 */
+    transition: 0.2s ease;
+    user-select: none;
+}
+
+.dicho-label.active {
+    /* N5 고유의 Cyan Blue 대신 N2의 정체성인 글로우 효과 적용 */
+    color: #7CFF9B !important; /* UNUS/INTERSECTUS 고유색 유지 */
+    font-weight: normal !important; /* 굵게 만들지 않아야 얇은 미학이 유지됨 */
+    text-shadow: 0 0 5px #49dce1, 0 0 10px rgba(73, 220, 225, 0.5); /* 폰트 글로우 핵심 */
+}
+
+/* Toggle Switch (Common) */
+.toggle-switch {
+    width: 34px; height: 16px; background: #222;
+    border: 1px solid #555; border-radius: 8px;
+    position: relative; cursor: pointer;
+}
+.toggle-knob {
+    width: 12px; height: 12px; background: #888;
+    border-radius: 50%; position: absolute; top: 1px; left: 2px;
+    transition: 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+.toggle-knob.right {
+    left: 18px; background: #7CFF9B; box-shadow: 0 0 8px #7CFF9B;
+}
+
+/* 3. Horizontal Scroll Table (Harmonics Position) */
+.h-scroll-view, .varga-table-container {
+    width: 100%;
+    /* 🚀 [높이 제한 해제]: Mars에서 잘리는 문제 해결. 내용물만큼 늘어남. */
+    height: auto !important;
+    min-height: 200px;
+    overflow-x: auto; /* 가로 스크롤 필수 */
+    overflow-y: hidden; /* 세로 스크롤 제거 */
+    border: 1px solid #222;
+    background: rgba(0, 0, 0, 0.4);
+    margin-top: 20px;
+    
+    /* 스크롤바 미학 */
+    scrollbar-width: thin; scrollbar-color: #333 #000;
+}
+.h-scroll-view::-webkit-scrollbar, .varga-table-container::-webkit-scrollbar { height: 6px; }
+.h-scroll-view::-webkit-scrollbar-track, .varga-table-container::-webkit-scrollbar-track { background: #000; }
+.h-scroll-view::-webkit-scrollbar-thumb, .varga-table-container::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+/* Table Layout Structure */
+.n6-table, .varga-table {
+    border-collapse: collapse;
+    width: max-content; 
+    min-width: 100%;
+}
+
+/* Common Cell Layout (Layout Only) */
+.n6-table th, .n6-table td, .varga-table th, .varga-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #222;
+    border-right: 1px solid #222;
+    text-align: left;
+    white-space: nowrap;
+    min-width: 200px; 
+}
+
+/* 🚀 [Header Style]: 얇은 흰색 (Thin White) */
+.n6-table th, .varga-table th {
+    background: #111; 
+    color: #fff !important;         /* ⚪ 헤더는 무조건 흰색 */
+    font-weight: normal !important; /* ➖ 얇게 */
+    font-size: 0.75rem !important;  /* 작게 */
+    text-transform: uppercase;
+    border-bottom: 1px solid #444;
+}
+
+/* 🚀 [Data Style]: DDS Green (행성명 포함 모든 데이터) */
+.n6-table td, .varga-table td {
+    color: #7CFF9B !important;      /* 🟢 데이터는 무조건 녹색 */
+    font-size: 0.85rem !important;
+}
+
+/* 🚀 [Sticky Header]: "Celestial Bodies" 타이틀 */
+.n6-table th.sticky-col { 
+    z-index: 11; 
+    background-color: #111 !important; 
+    color: #fff !important;         /* ⚪ 타이틀도 흰색 */
+    font-weight: normal !important; /* ➖ 타이틀도 얇게 */
+}
+
+/* 🚀 [Sticky Column]: 행성 이름들 (Planet Names) */
+.sticky-col {
+    position: sticky;
+    left: 0;
+    z-index: 10;
+    background-color: #000 !important; 
+    border-right: 2px solid #444 !important; 
+    text-align: left !important;
+    padding-left: 10px !important;
+    width: 120px !important;     
+    min-width: 120px !important;
+    
+    /* 폰트 스타일: 행성명은 굵은 녹색 */
+    font-weight: 700 !important; 
+    color: #7CFF9B !important;      /* 🟢 녹색 유지 */
+}
+
+/* 일반 데이터 셀 (Non-Sticky Data) */
+.n6-table td:not(.sticky-col) {
+    font-weight: normal !important; /* 데이터는 보통 굵기 */
+    color: #7CFF9B !important;      /* 🟢 녹색 유지 */
+}
+
+/* 4. R2 Style Matrix Grid */
+.h-keyboard-grid, .graha-grid-container {
+    display: grid;
+    background: #000;
+    border: 1px solid #333;
+    gap: 1px; 
+    padding: 1px; 
+    width: 100%;
+    margin-top: 20px; margin-bottom: 30px;
+}
+
+.h-keyboard-grid { grid-template-columns: repeat(8, 1fr); }
+.graha-grid-container { grid-template-columns: repeat(5, 1fr); }
+
+.keyboard-btn, .graha-btn {
+    background: #080808;
+    color: #666;
+    border: none;
+    padding: 12px 0;
+    text-align: center;
+    cursor: pointer;
+    font-family: inherit; font-size: 0.8rem; font-weight: bold;
+    transition: 0.1s;
+    text-transform: uppercase;
+}
+
+.keyboard-btn:hover, .graha-btn:hover {
+    background: rgba(124, 255, 155, 0.1);
+    color: #7CFF9B;
+}
+.keyboard-btn.active, .graha-btn.active {
+    background: #7CFF9B !important;
+    color: #000 !important;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* 5. Ayanamsa (N3 Design Clone - Strict) */
+.ayanamsa-switch-module {
+    display: inline-flex;
+    border: 1px solid #333; /* N3 Outer Border */
+    background: #000;
+    margin-bottom: 5px;
+    /* width: fit-content; <--- N3에는 이 속성이 없으므로 제거하여 레이아웃 흐름에 맡김 */
+}
+
+.ayan-tab { 
+    background: transparent; 
+    border: none; 
+    border-right: 1px solid #222; /* N2 Separator */
+    color: #555; /* N2 Inactive Color */
+    padding: 4px 14px; /* N2 Padding */
+    font-size: 0.7rem; /* N2 Font Size */
+    cursor: pointer; 
+    font-family: inherit;
+    text-transform: capitalize;
+}
+.ayan-tab:last-child { border-right: none; }
+.ayan-tab:hover { color: #aaa; }
+.ayan-tab.active { 
+    background: #333 !important; /* N2 Active Background */
+    color: #fff !important; /* N2 Active Text (White) */
+    font-weight: normal; 
+}
+
+/* 6. Aspects Explorer (N5 Style Clone) */
+.aspect-explorer {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.2fr;
+    gap: 15px;
+    
+    /* 🔑 핵심: 높이를 400px로 제한 (약 10개 항목 분량) */
+    height: 400px !important; 
+    min-height: 400px;
+    max-height: 400px;
+    
+    margin-top: 20px;
+}
+
+.aspect-tabs .tab-btn.active {
+    background-color: #7CFF9B !important; /* DDS Green */
+    color: #000 !important;
+    font-weight: bold;
+    border: 1px solid #7CFF9B;
+    box-shadow: 0 0 10px rgba(124, 255, 155, 0.4);
+}
+
+.aspect-group-label {
+    font-size: 0.7rem;
+    color: #444;
+    margin: 15px 0 5px 0;
+    padding-left: 15px;
+    text-transform: uppercase;
+}
+
+.col-box {
+    border: 1px solid #1a1a1a;
+    background: #050505;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 박스 밖 탈출 방지 */
+    height: 100%; /* 부모 높이(400px) 가득 채우기 */
+}
+
+.col-header {
+    padding: 10px;
+    font-size: 0.75rem;
+    color: #555;
+    text-align: center;
+    border-bottom: 1px solid #222;
+    text-transform: uppercase;
+}
+
+.col-content {
+    flex: 1; /* 남은 공간 모두 차지 */
+    
+    /* 🔑 핵심: 내용이 넘치면 세로 스크롤바 생성 (Horizontal Bar 아님, Vertical Scroll) */
+    overflow-y: auto; 
+    overflow-x: hidden; /* 가로 스크롤은 방지 */
+    
+    /* 스크롤바 디자인 (Webkit) */
+    scrollbar-width: thin;
+    scrollbar-color: #333 #000;
+}
+
+/* 🔑 [수복]: Celestial Bodies 스크롤바(Obnoxious White) 제거 */
+#col-bodies .col-content {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+#col-bodies .col-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* 🔑 [수복]: Aspects & Objects 눈에 안 띄는 회색 스크롤바 */
+#col-aspects .col-content::-webkit-scrollbar,
+#col-objects .col-content::-webkit-scrollbar {
+    width: 4px;
+}
+#col-aspects .col-content::-webkit-scrollbar-thumb,
+#col-objects .col-content::-webkit-scrollbar-thumb {
+    background: #333;      /* 차분한 회색 */
+    border-radius: 4px;
+}
+
+.explorer-btn {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #111;
+    color: #888;
+    padding: 12px 15px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    
+    /* 🔑 핵심: Flexbox 선언 */
+    display: flex;
+    justify-content: space-between; /* 양끝 정렬 */
+    align-items: center;            /* 수직 중앙 정렬 */
+    
+    /* 🔑 핵심: 자식이 튀어나오면 잘라냄 */
+    overflow: hidden; 
+    box-sizing: border-box; 
+}
+
+/* 2. 행성 이름 (왼쪽 텍스트) */
+.explorer-btn span:first-child {
+    /* 🔑 핵심: 공간이 부족하면 줄어들도록 허용 */
+    flex: 1; 
+    min-width: 0; /* 이 속성이 없으면 절대 줄어들지 않고 뚫고 나감 */
+    
+    /* 말줄임표(...) 처리 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px; /* 오른쪽 숫자와 간격 확보 */
+}
+.explorer-btn:hover { background: rgba(124, 255, 155, 0.05); }
+
+/* 🟢 [v19.2 Patch]: 활성화 상태 (DDS Green) */
+.explorer-btn.active {
+    background-color: #7CFF9B !important;
+    color: #000 !important;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(124, 255, 155, 0.5);
+    border-bottom: 1px solid #7CFF9B !important;
+}
+
+.explorer-btn.dimmed {
+    opacity: 0.3;
+    pointer-events: none; 
+}
+
+/* 3. Orb/Count 태그 (오른쪽 숫자) */
+.count-tag, .orb-tag {
+    /* 🔑 핵심: 숫자는 절대 찌그러지지 않게 고정 */
+    flex-shrink: 0; 
+    white-space: nowrap;
+}
+
+.explorer-btn.active .count-tag {
+    background: rgba(0, 0, 0, 0.2);
+    color: #000;
+    font-weight: bold;
+}
+
+.placeholder-text {
+    text-align: center;
+    color: #333;
+    margin-top: 60px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Scrollbar Customization (N5) */
+.col-content::-webkit-scrollbar { width: 4px; }
+.col-content::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+
+/* Varga Table Specifics */
+.varga-table th { text-align: left; padding-left: 15px; }
+.varga-table td { text-align: left; padding-left: 15px; color: #7CFF9B; }
+
+/* 🚀 [NEW] Interactive Varga Cells */
+.varga-division-cell {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    position: relative;
+    font-weight: bold;
+    color: #888 !important; /* 기본: 꺼진 상태 */
+    border-left: 3px solid transparent; 
+    padding-left: 12px !important; 
+}
+
+/* Hover: 살짝 밝아짐 */
+.varga-division-cell:hover {
+    color: #fff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Active: Gold Neon Effect (Toggle On) */
+.varga-division-cell.active {
+    color: #ffd700 !important; /* Gold */
+    text-shadow: 
+        0 0 10px rgba(255, 215, 0, 0.9), 
+        0 0 20px rgba(255, 215, 0, 0.6),
+        0 0 30px rgba(255, 215, 0, 0.4) !important;
+    border-left: 3px solid #ffd700 !important; 
+    background: transparent !important; /* 배경색 없음 (텍스트 발광만) */
+}
+
+/* 🚀 [NEW] Interactive Varga Cells */
+.varga-division-cell {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    position: relative;
+    font-weight: bold;
+    color: #888 !important; /* 기본: 꺼진 상태 */
+    border-left: 3px solid transparent; 
+    padding-left: 12px !important; 
+}
+
+/* Hover: 살짝 밝아짐 */
+.varga-division-cell:hover {
+    color: #fff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Active: Gold Neon Effect (Toggle On) */
+.varga-division-cell.active {
+    color: #ffd700 !important; /* Gold */
+    text-shadow: 
+        0 0 10px rgba(255, 215, 0, 0.9), 
+        0 0 20px rgba(255, 215, 0, 0.6),
+        0 0 30px rgba(255, 215, 0, 0.4) !important;
+    border-left: 3px solid #ffd700 !important; 
+    background: transparent !important; /* 배경색 없음 (텍스트 발광만) */
+}
+
+/* 🚀 [NEW] Popover Box (n2 style Clone) */
+.varga-popover-box {
+    position: absolute; /* Mouse Following */
+    z-index: 10000;
+    width: 300px;
+    background: rgba(10, 10, 10, 0.98);
+    border: 1px solid #444;
+    border-left: 3px solid #ffd700; /* Gold Accent */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    border-radius: 4px;
+    display: none; /* JS Toggle */
+    pointer-events: none; /* 클릭 통과 */
+    animation: fadeIn 0.2s ease-out;
+}
+
+.varga-popover-title {
+    color: #ffd700;
+    font-size: 1.0rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.varga-popover-content {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    word-break: keep-all;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* static/world/nigredo/modules/n6.css — v19.7.1 */
+
+/* 🚀 !Time Unknown! 경고 팝업 디자인 */
+.varga-popover-box {
+    position: absolute;
+    background: #111;
+    border: 1px solid #ff6b6b;
+    padding: 15px;
+    z-index: 10000;
+    width: 250px;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.2);
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    display: none;
+    pointer-events: none; /* 클릭 방해 금지 */
+}
+
+.varga-popover-title {
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.varga-popover-content {
+    font-size: 0.7rem;
+    color: #aaa;
+    line-height: 1.4;
+}
+
+/* 🔒 락다운 상태의 스위치 스타일 */
+.toggle-switch.locked {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+}
+
+.dicho-label.locked {
+    color: #444 !important;
+    text-shadow: none !important;
+    cursor: not-allowed !important;
+}
+
+/* 🚀 [PC 수정]: border-collapse 무시하고 무조건 선명하게 Cyan 구분선 강제 */
+tr.n6-divider-cyan td {
+    border-top: 1px solid #00FFFF !important;
+    box-shadow: inset 0 1px 0 0 #00FFFF !important;
+}

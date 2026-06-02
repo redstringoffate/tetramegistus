@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="/static/mobile/world/nigredo/modules/n7.css">
+
+<div class="m-n7-container">
+    <h1 class="m-materia-title">HYPOSTASES</h1>
+
+    <div class="m-anti-switch-module" style="margin-bottom: 15px;">
+        <div class="m-dichotomy-module" onclick="window.toggleN7Primary()">
+            <span class="m-dicho-label active" id="n7-lbl-sigilum">SIGILUM</span>
+            <div class="m-toggle-switch">
+                <div class="m-toggle-knob" id="n7-knob-primary"></div>
+            </div>
+            <span class="m-dicho-label" id="n7-lbl-plenitudo">PLENITUDO</span>
+        </div>
+    </div>
+
+    <nav class="m-connected-tabs" id="n7-system-nav">
+        <button class="m-tab active" data-sys="tropical" onclick="window.switchN7System('tropical')">TROPICAL</button>
+        <button class="m-tab" data-sys="sidereal" onclick="window.switchN7System('sidereal')">SIDEREAL</button>
+        <button class="m-tab" data-sys="draconic" onclick="window.switchN7System('draconic')">DRACONIC</button>
+        <button class="m-tab" data-sys="ketunic" onclick="window.switchN7System('ketunic')">KETUNIC</button>
+    </nav>
+
+    <div class="m-anti-switch-module" id="n7-dicho-secondary" style="display:none; margin-bottom: 15px;">
+        <div class="m-dichotomy-module" onclick="window.toggleN7Secondary()">
+            <span class="m-dicho-label active" id="n7-lbl-sabian">SABIAN</span>
+            <div class="m-toggle-switch">
+                <div class="m-toggle-knob" id="n7-knob-secondary"></div>
+            </div>
+            <span class="m-dicho-label" id="n7-lbl-tabula">TABULA</span>
+        </div>
+    </div>
+
+    <nav class="m-connected-tabs m-ayan-tabs m-hidden" id="n7-ayanamsa-vault">
+        <button class="m-tab" data-ayan="lahiri" onclick="window.switchN7Ayanamsa('lahiri')">LAHIRI</button>
+        <button class="m-tab" data-ayan="raman" onclick="window.switchN7Ayanamsa('raman')">RAMAN</button>
+        <button class="m-tab" data-ayan="kp" onclick="window.switchN7Ayanamsa('kp')">KP</button>
+        <button class="m-tab" data-ayan="fagan-bradley" onclick="window.switchN7Ayanamsa('fagan-bradley')">FAGAN</button>
+        <button class="m-tab" data-ayan="yukteswar" onclick="window.switchN7Ayanamsa('yukteswar')">YUKTESWAR</button>
+    </nav>
+
+    <div class="m-cat-grid" id="n7-category-tabs">
+        <button class="m-tab active" data-cat="planets" onclick="window.switchN7Category('planets')">PLANETS</button>
+        <button class="m-tab" data-cat="asteroids" onclick="window.switchN7Category('asteroids')">ASTEROIDS</button>
+        <button class="m-tab" data-cat="lilith" onclick="window.switchN7Category('lilith')">LILITH & NODES</button>
+        <button class="m-tab" data-cat="fates" onclick="window.switchN7Category('fates')">FATES</button>
+        <button class="m-tab" data-cat="angles" onclick="window.switchN7Category('angles')">ANGLES</button>
+        <button class="m-tab" data-cat="hermetic" id="btn-cat-hermetic-n7" onclick="window.switchN7Category('hermetic')">HERMETIC</button>
+    </div>
+
+    <div id="m-n7-view-container">
+        <div id="m-view-sigilum" class="m-card-container" style="display: none;"></div>
+        
+        <div id="m-view-sabian" class="m-n7-table-wrapper" style="display: none;">
+            <table class="m-n7-table">
+                <thead id="m-n7-thead-sabian"></thead>
+                <tbody id="m-n7-tbody-sabian"></tbody>
+            </table>
+        </div>
+
+        <div id="m-view-tabula" class="m-n7-table-wrapper" style="display: none;">
+            <table class="m-n7-table">
+                <thead id="m-n7-thead-tabula"></thead>
+                <tbody id="m-n7-tbody-tabula"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="m-n7-toast" class="m-toast-hidden"></div>
+</div>
+
+<script src="/static/mobile/world/nigredo/modules/n7.js"></script>

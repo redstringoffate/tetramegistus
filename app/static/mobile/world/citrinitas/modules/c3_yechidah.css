@@ -1,0 +1,142 @@
+/* app/static/mobile/world/citrinitas/modules/c3_yechidah.css */
+
+:root {
+    --c3-primary: #85d0d6;
+    --yechidah-primary: #f2e29f;  
+    --yechidah-saber-green: #7CFF9B;
+    --c1-border: #333; 
+    --c1-font: ui-monospace, SFMono-Regular, Consolas, 'Cascadia Code', monospace;
+}
+
+.m-c1-app-container { font-family: var(--c1-font); color: #fff; width: 100%; }
+
+/* ==========================================================
+   [ 0 ] 🔮 모바일 전용 전체화면 Pulse 이펙트 영역
+   ========================================================== */
+.m-yechidah-pulse-container {
+    position: fixed !important; top: 0 !important; left: 0 !important; 
+    width: 100vw !important; height: 100vh !important;
+    background: rgba(0, 0, 0, 0.98) !important; 
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    z-index: 2147483647 !important; backdrop-filter: blur(10px); 
+    opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
+}
+
+.m-yechidah-pulse-container.active { opacity: 1; pointer-events: all !important; }
+
+.m-yechidah-pulse-text {
+    font-family: var(--c1-font); font-size: 1.1rem; font-weight: bold;
+    letter-spacing: 3px; text-transform: uppercase; text-align: center;
+    padding: 0 20px; transform: translateY(-10vh);
+    animation: mYechidahPulse 2s infinite ease-in-out;
+}
+
+@keyframes mYechidahPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* ==========================================================
+   [ 1 ] 🔮 인트로 영역
+   ========================================================== */
+.m-yechidah-intro-text {
+    display: block; font-size: 0.85rem; font-style: italic; color: #888; 
+    text-align: center; padding: 30px 10px; letter-spacing: 2px;
+    -webkit-tap-highlight-color: transparent;
+}
+.m-yechidah-intro-text:active { 
+    color: #fff; text-shadow: 0 0 8px var(--yechidah-primary); 
+    border-bottom: 1px solid var(--yechidah-primary);
+}
+
+/* ==========================================================
+   [ 2 ] 🎨 인라인 스타일 격리용 유틸리티
+   ========================================================== */
+.m-yechidah-bg-black { background-color: #000 !important; background-image: none !important; }
+.m-yechidah-bg-white { background-color: #fff !important; background-image: none !important; }
+.m-yechidah-overlay-dark { background: rgba(0, 0, 0, 0.7) !important; }
+
+/* ==========================================================
+   [ 3 ] 🎬 모바일 씬 템플릿 (상하 분할 및 밝기 최적화)
+   ========================================================== */
+.m-scn-scene {
+    display: flex; flex-direction: column; width: 100%;
+    border: 1px solid var(--c1-border); border-radius: 4px;
+    margin-bottom: 20px; background-color: #000; overflow: hidden;
+}
+
+.m-scn-visual-area {
+    position: relative; width: 100%; height: 220px; 
+    border-bottom: 1px solid #222; overflow: hidden;
+}
+
+.m-scn-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover !important; background-position: center center !important;
+    background-repeat: no-repeat !important; opacity: 0;
+    transform: scale(1.1); transform-origin: center center;
+    transition: opacity 2s ease-out, filter 2s ease-out, transform 3s ease-in-out;
+}
+
+.m-scn-scene.effect-blur .m-scn-bg { filter: blur(8px); transform: scale(1.15); }
+
+.m-scn-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0); transition: background 1.5s ease-in-out; z-index: 5;
+}
+
+/* PC판 수정사항 반영: 모바일도 배경 밝기 100% 보존, 오버레이 축소 */
+.m-scn-scene.revealed .m-scn-bg { opacity: 1; }
+.m-scn-scene.veiled .m-scn-overlay { background: rgba(0, 0, 0, 0.25); } 
+.m-scn-scene.veiled .m-scn-content { opacity: 1; }
+
+.m-scn-content {
+    padding: 25px 20px; display: flex; flex-direction: column;
+    opacity: 0; transition: opacity 1.5s ease-in-out; min-height: 250px;
+}
+
+.m-scene-narrative {
+    flex-grow: 1; font-size: 0.9rem !important; font-style: italic; 
+    line-height: 1.6; color: #f5f5f5 !important; text-align: center; margin: 0 0 25px 0 !important;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 0.8);
+}
+.m-scene-narrative p { margin: 0 0 10px 0; }
+
+/* 선택지 버튼 (터치 액티브 옥색/금빛 적용) */
+.m-c1-options-grid { display: flex; flex-direction: column; gap: 12px; width: 100%; box-sizing: border-box; }
+.m-c1-option-card {
+    border: 1px solid var(--c1-border); background: #050505;
+    padding: 15px; color: #aaa; font-size: 0.85rem; line-height: 1.4; text-align: center;
+    border-radius: 4px; transition: 0.15s; -webkit-tap-highlight-color: transparent;
+}
+.m-c1-option-card:active { border-color: var(--yechidah-primary); background: rgba(242, 226, 159, 0.15); color: #fff; font-weight: bold; transform: translateY(1px); }
+
+.m-cyber-btn {
+    appearance: none; -webkit-appearance: none; background-color: rgba(0, 0, 0, 0.6) !important; 
+    color: #fff !important; border: 1px solid var(--yechidah-saber-green) !important; 
+    padding: 12px; font-family: var(--c1-font); font-size: 0.9rem; font-weight: bold;
+    text-transform: uppercase; border-radius: 4px; width: 100%; transition: 0.1s; margin-top: 15px; box-shadow: none !important;
+}
+.m-cyber-btn:active { border-color: var(--yechidah-primary) !important; background: rgba(0, 0, 0, 0.8) !important; }
+
+/* ==========================================================
+   🔮 최종 계시(Revelations) 3단 타이포그래피 (모바일 최적화)
+   ========================================================== */
+.m-yechidah-result-container {
+    padding: 20px 15px; text-align: center; display: flex; flex-direction: column; 
+    align-items: center; width: 100%; box-sizing: border-box;
+}
+
+.m-yechidah-revelation-block {
+    width: 100%; text-align: center; padding: 25px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.m-y-title-sephiroth { color: #f2e29f; font-size: 1.8rem; letter-spacing: 5px; font-weight: bold; margin: 0 0 12px 0; text-transform: uppercase; text-shadow: 0 0 10px rgba(242, 226, 159, 0.3); }
+.m-y-desc-sephiroth { color: #e2e1dc; font-size: 0.95rem; line-height: 1.6; font-style: italic; word-break: keep-all; margin: 0;}
+
+.m-y-title-path { color: #85d0d6; font-size: 1.4rem; letter-spacing: 3px; font-weight: bold; margin: 0 0 12px 0; text-transform: uppercase; text-shadow: 0 0 10px rgba(133, 208, 214, 0.3); }
+.m-y-desc-path { color: #b8e2e5; font-size: 0.85rem; line-height: 1.6; word-break: keep-all; margin: 0;}
+
+.m-y-title-triangle { color: #ff6b6b; font-size: 1.25rem; letter-spacing: 2px; font-weight: bold; margin: 0 0 12px 0; text-transform: uppercase; text-shadow: 0 0 10px rgba(255, 107, 107, 0.3); }
+.m-y-desc-triangle { color: #ffb3b3; font-size: 0.8rem; line-height: 1.6; word-break: keep-all; margin: 0;}

@@ -1,0 +1,49 @@
+{% extends "mobile/world/shell/base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/mobile/world/shell/inquiries.css?v=2">
+{% endblock %}
+
+{% block content %}
+<div class="m-inquiry-container">
+    <h1 class="m-inquiry-title">Inquiries</h1>
+
+    <div class="m-inquiry-form">
+        <select class="m-inquiry-select" id="inquiry-category">
+            <option value="Error Report">Error Report</option>
+            <option value="Other Inquiries">Other Inquiries</option>
+        </select>
+
+        <div class="m-image-upload-wrapper">
+            <input type="file" id="inquiry-images" accept="image/*" multiple style="display: none;">
+            <span class="m-add-image-text" onclick="document.getElementById('inquiry-images').click()">+ add image</span>
+            <div id="image-file-list" class="m-file-list"></div>
+        </div>
+
+        <input type="email" 
+               id="user-email" 
+               class="m-inquiry-input" 
+               placeholder="enter e-mail address for response"
+               required>
+
+        <textarea 
+            class="m-inquiry-textarea" 
+            id="inquiry-content"
+            maxlength="2000" 
+            placeholder="Type your message..."
+            oninput="document.getElementById('count').innerText = this.value.length"
+        ></textarea>
+        
+        <div class="m-char-counter">
+            <span id="count">0</span> / 2000
+        </div>
+
+        <div class="m-submit-area">
+            <div id="status-msg">sent to admin@tetramegistus.com</div>
+            <button type="button" class="m-send-btn" id="send-btn" onclick="sendInquiry()">send</button>
+        </div>
+    </div>
+</div>
+
+<script src="/static/mobile/world/shell/inquiries.js?v=2"></script>
+{% endblock %}

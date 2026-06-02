@@ -1,0 +1,3028 @@
+{
+  "Kornephoros": {
+    "constellation": "Hercules",
+    "symbolism": {
+      "en": [
+        "Arm of the Hero.",
+        "A limb that lifts strength and carries out action",
+        "Producing results through effort and execution",
+        "If overexerted, physical depletion can increase"
+      ],
+      "ko": [
+        "영웅의 팔.",
+        "힘을 들어 올리고 실행하는 부위",
+        "노력과 행동을 통해 결과를 만들어냄",
+        "무리하면 체력적 소모가 커질 수 있음"
+      ]
+    }
+  },
+  "Homam": {
+    "constellation": "Pegasus",
+    "symbolism": {
+      "en": [
+        "Wing joint of Pegasus.",
+        "Caution, restrained ambition, and a planned approach",
+        "Preference for stable choices while avoiding excessive risk",
+        "Excessive passivity may result in missed opportunities"
+      ],
+      "ko": [
+        "페가수스의 날개 관절.",
+        "신중함, 절제된 야망, 계획적 접근",
+        "과도한 위험을 피하며 안정적인 선택을 선호",
+        "소극성이 지나치면 기회를 놓칠 수 있음"
+      ]
+    }
+  },
+  "Galactic Center": {
+    "constellation": "Sagittarius",
+    "symbolism": {
+      "en": [
+        "Center of the Galaxy.",
+        "Orientation toward large-scale meaning, distant horizons, and overarching frameworks",
+        "A tendency to connect personal experience with broader systems, beliefs, or collective context",
+        "If overextended, perspective may become too abstract, extreme, or detached from immediate reality"
+      ],
+      "ko": [
+        "은하의 중심.",
+        "거대한 의미 체계, 먼 지평, 상위 질서를 향한 방향성",
+        "개인적 경험을 더 큰 체계, 신념, 집단적 맥락과 연결하려는 경향",
+        "이 성향이 과도해지면 시야가 지나치게 관념적이거나 극단적이 되어 현실 감각이 약해질 수 있음"
+      ]
+    }
+  },
+  "Arcturus": {
+    "constellation": "Boötes",
+    "symbolism": {
+      "en": [
+        "Knee of the Herdsman.",
+        "Pioneering spirit, independence, and protective leadership",
+        "Practical ability and charisma to guide a group",
+        "Isolation or rigidity may deepen separation from others"
+      ],
+      "ko": [
+        "목동의 무릎.",
+        "개척, 독립, 보호적 리더십",
+        "집단을 이끄는 실질적 능력과 카리스마",
+        "고립되거나 독선에 빠질 경우 외부와의 단절이 심화될 수 있음"
+      ]
+    }
+  },
+  "Regulus": {
+    "constellation": "Leo",
+    "symbolism": {
+      "en": [
+        "Heart of the Lion.",
+        "Kingship, fame, authority, and social prominence",
+        "Sustained success through nobility and generosity",
+        "Arrogance, vengeance, or moral decay can result in rapid decline"
+      ],
+      "ko": [
+        "사자의 심장.",
+        "왕권, 명성, 권위, 사회적 정점",
+        "고결함과 관대함을 유지할 때 지속적인 성공",
+        "오만, 복수심, 도덕적 타락은 급격한 몰락을 부름"
+      ]
+    }
+  },
+  "Alya": {
+    "constellation": "Serpens",
+    "symbolism": {
+      "en": [
+        "Wings of the Serpent.",
+        "An element that enables ascent and departure",
+        "Attempts to move beyond an existing state",
+        "If contact with reality weakens, instability can arise"
+      ],
+      "ko": [
+        "뱀의 날개.",
+        "상승과 이탈을 가능하게 하는 요소",
+        "기존 상태를 벗어나려는 시도",
+        "현실과의 접점이 약해지면 불안정해질 수 있음"
+      ]
+    }
+  },
+  "Seginus": {
+    "constellation": "Boötes",
+    "symbolism": {
+      "en": [
+        "Arm of the Herdsman.",
+        "A limb that carries tools and performs action",
+        "Translating intention into actual movement",
+        "If overused, depletion can increase"
+      ],
+      "ko": [
+        "목동의 팔.",
+        "도구를 들고 행동을 수행하는 부위",
+        "의도를 실제 움직임으로 옮김",
+        "과사용되면 소모가 커질 수 있음"
+      ]
+    }
+  },
+  "Schedir": {
+    "constellation": "Cassiopeia",
+    "symbolism": {
+      "en": [
+        "Chest of the Queen.",
+        "A center where presence and self-worth are expressed",
+        "Heightened self-awareness and sense of role",
+        "If exposure increases, it can act as burden"
+      ],
+      "ko": [
+        "여왕의 가슴.",
+        "존재감과 자존이 드러나는 중심",
+        "자기 인식과 역할 의식이 강화됨",
+        "노출이 커지면 부담으로 작용할 수 있음"
+      ]
+    }
+  },
+  "Lesath": {
+    "constellation": "Scorpius",
+    "symbolism": {
+      "en": [
+        "Near the Scorpion’s stinger.",
+        "Concentrated danger and heightened sensitivity",
+        "Sharp perception that precisely identifies threats",
+        "Sustained tension may lead to anxiety or depletion"
+      ],
+      "ko": [
+        "전갈의 독침 근처.",
+        "집중된 위험, 예민한 감각",
+        "위협 요소를 정확히 짚어내는 날카로운 인식",
+        "긴장이 지속되면 불안이나 소모로 이어질 수 있음"
+      ]
+    }
+  },
+  "Sadalmelek": {
+    "constellation": "Aquarius",
+    "symbolism": {
+      "en": [
+        "Base of the Water Bearer.",
+        "Collective order, institutional protection",
+        "Stability that operates within structures and systems rather than the individual",
+        "The more one relies on structure, the more personal autonomy can weaken"
+      ],
+      "ko": [
+        "물병의 받침대.",
+        "집단적 질서, 제도적 보호",
+        "개인보다 구조와 체계 속에서 작동하는 안정성",
+        "구조에 의존할수록 개인적 자율성은 약화될 수 있음"
+      ]
+    }
+  },
+  "Atlas": {
+    "constellation": "Taurus",
+    "symbolism": {
+      "en": [
+        "Knee of Atlas.",
+        "A role that supports and bears weight",
+        "Practically upholding responsibility or burden",
+        "If overloaded, endurance can weaken"
+      ],
+      "ko": [
+        "아틀라스의 무릎.",
+        "무게를 지탱하고 버티는 역할",
+        "책임이나 부담을 실질적으로 떠받침함",
+        "과부하가 걸리면 지구력이 약화될 수 있음"
+      ]
+    }
+  },
+  "Alshain": {
+    "constellation": "Aquila",
+    "symbolism": {
+      "en": [
+        "Feather of the Eagle’s wing.",
+        "A sense for widening perspective and exploring direction",
+        "An attitude of surveying information or situations from above",
+        "Excessive distancing can weaken a sense of reality"
+      ],
+      "ko": [
+        "독수리의 날개 깃.",
+        "시야를 넓히고 방향을 탐색하는 감각",
+        "정보나 상황을 위에서 조망하려는 태도",
+        "거리 두기가 과해지면 현실 감각이 약해질 수 있음"
+      ]
+    }
+  },
+  "Alnitak": {
+    "constellation": "Orion",
+    "symbolism": {
+      "en": [
+        "Belt of the Hunter.",
+        "A point that binds strength and roles to maintain a center",
+        "Simultaneous demands for responsibility and execution",
+        "If balance falters, overload can occur"
+      ],
+      "ko": [
+        "사냥꾼의 허리띠.",
+        "힘과 역할을 묶어 중심을 잡는 지점",
+        "책임과 실행력을 동시에 요구받음",
+        "균형이 흐트러지면 과부하가 생길 수 있음"
+      ]
+    }
+  },
+  "Naos": {
+    "constellation": "Puppis",
+    "symbolism": {
+      "en": [
+        "Inner structure of the Ship.",
+        "A core space that sustains movement",
+        "Supporting function from an unseen position",
+        "If internal coordination falters, progress can slow"
+      ],
+      "ko": [
+        "배의 내부 구조.",
+        "움직임을 유지하는 핵심 공간",
+        "보이지 않는 곳에서 기능을 지탱함",
+        "내부 조율이 어긋나면 진행이 늦어질 수 있음"
+      ]
+    }
+  },
+  "Kaus Australis": {
+    "constellation": "Sagittarius",
+    "symbolism": {
+      "en": [
+        "Arrowhead of the Archer.",
+        "Goal orientation and far-reaching vision",
+        "Drive to move toward distant objectives",
+        "Fixation on ideals may complicate practical adjustment"
+      ],
+      "ko": [
+        "궁수의 화살촉.",
+        "목표 지향성, 원대한 비전",
+        "멀리 있는 목적지를 향해 나아가는 추진력",
+        "이상에 집착하면 현실 조율이 어려워질 수 있음"
+      ]
+    }
+  },
+  "Polaris": {
+    "constellation": "Ursa Minor",
+    "symbolism": {
+      "en": [
+        "Tip of the Little Bear’s tail.",
+        "Direction, a reference point, an unchanging axis",
+        "Guidance that keeps you from losing your way amid confusion",
+        "If you cling to fixed standards, flexibility can decrease"
+      ],
+      "ko": [
+        "작은곰의 꼬리 끝.",
+        "방향성, 기준점, 변하지 않는 축",
+        "혼란 속에서도 길을 잃지 않게 하는 지침",
+        "고정된 기준에 집착하면 유연성이 줄어들 수 있음"
+      ]
+    }
+  },
+  "Etamin": {
+    "constellation": "Draco",
+    "symbolism": {
+      "en": [
+        "Head of the Dragon.",
+        "Vigilance, surveillance, and guardianship of ancient knowledge",
+        "Attitude of holding position while anticipating danger",
+        "Excessive watchfulness may turn into mistrust or isolation"
+      ],
+      "ko": [
+        "용의 머리.",
+        "경계, 감시, 오래된 지식의 수호",
+        "위험을 미리 인지하고 자리를 지키는 태도",
+        "과도한 경계심은 불신이나 고립으로 이어질 수 있음"
+      ]
+    }
+  },
+  "Capella": {
+    "constellation": "Auriga",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Charioteer.",
+        "Intellect, versatility, and broad public appeal",
+        "Ability to combine practical thinking with originality",
+        "If radical thinking lacks control, choices may become unstable"
+      ],
+      "ko": [
+        "마부의 어깨.",
+        "지성, 다재다능함, 대중적 호감",
+        "실용적 사고와 독창성을 동시에 활용하는 능력",
+        "사고의 급진성이 통제되지 않으면 불안정한 선택으로 나타날 수 있음"
+      ]
+    }
+  },
+  "Sador": {
+    "constellation": "Cygnus",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Swan.",
+        "A point connecting wing and torso",
+        "Regulating between movement and stability",
+        "If balance falters, strain can be felt"
+      ],
+      "ko": [
+        "백조의 어깨.",
+        "날개와 몸통을 연결하는 지점",
+        "움직임과 안정 사이를 조율함",
+        "균형이 흐트러지면 부담이 느껴질 수 있음"
+      ]
+    }
+  },
+  "Tejat": {
+    "constellation": "Gemini",
+    "symbolism": {
+      "en": [
+        "Torso of the Twins.",
+        "Inner joy, emotional warmth",
+        "Intimacy and stability felt within relationships",
+        "Remaining in emotion can slow practical judgment"
+      ],
+      "ko": [
+        "쌍둥이의 몸통.",
+        "내적 기쁨, 정서적 온기",
+        "관계 속에서 느껴지는 친밀감과 안정",
+        "감정에 머무르면 현실적 판단이 느려질 수 있음"
+      ]
+    }
+  },
+  "Sham": {
+    "constellation": "Sagitta",
+    "symbolism": {
+      "en": [
+        "Shaft of the Arrow.",
+        "The central structure that carries intention",
+        "Stable progression while direction is maintained",
+        "If focus wavers, the trajectory can become unstable"
+      ],
+      "ko": [
+        "화살의 몸통.",
+        "의도를 실어 나르는 중심 구조",
+        "방향성이 유지되는 동안 안정적으로 진행됨",
+        "집중이 흐트러지면 궤도가 흔들릴 수 있음"
+      ]
+    }
+  },
+  "Labrum": {
+    "constellation": "Crater",
+    "symbolism": {
+      "en": [
+        "Rim of the Cup.",
+        "A boundary where contents overflow or become visible",
+        "A point where emotions or resources are expressed outwardly",
+        "If regulation is insufficient, exposure can increase"
+      ],
+      "ko": [
+        "잔의 가장자리.",
+        "내용물이 넘치거나 드러나는 경계",
+        "감정이나 자원이 외부로 표현되는 지점",
+        "조절이 부족하면 노출이 커질 수 있음"
+      ]
+    }
+  },
+  "Zaurak": {
+    "constellation": "Eridanus",
+    "symbolism": {
+      "en": [
+        "A winding point of the river.",
+        "A deep inner core where emotions or experiences are condensed",
+        "Maturation achieved through processes borne alone",
+        "Prolonged isolation can incline toward depression or withdrawal"
+      ],
+      "ko": [
+        "강의 굽이치는 지점.",
+        "감정이나 경험이 응축된 깊은 내면",
+        "혼자 감당하는 과정에서 성숙이 이루어짐",
+        "고립이 길어지면 우울이나 침잠으로 기울 수 있음"
+      ]
+    }
+  },
+  "Algorab": {
+    "constellation": "Corvus",
+    "symbolism": {
+      "en": [
+        "Wing of the Crow.",
+        "The ability to read situations and seize opportunities",
+        "Use of language and information",
+        "If distorted, it may be perceived as distrust or scheming"
+      ],
+      "ko": [
+        "까마귀의 날개.",
+        "상황을 읽고 기회를 포착하는 능력",
+        "언어와 정보의 활용",
+        "왜곡되면 불신이나 책략으로 오해받을 수 있음"
+      ]
+    }
+  },
+  "Alcor": {
+    "constellation": "Ursa Major",
+    "symbolism": {
+      "en": [
+        "Eye of the Great Bear.",
+        "Perception of subtle differences and hidden factors",
+        "Awareness of variables or supporting roles that remain unseen",
+        "Overlooking small details may lead to errors in judgment"
+      ],
+      "ko": [
+        "큰곰의 눈.",
+        "미묘한 차이, 숨겨진 요소에 대한 인식",
+        "겉으로 드러나지 않는 변수나 보조적 역할",
+        "사소한 것을 간과하면 판단 착오로 이어질 수 있음"
+      ]
+    }
+  },
+  "Sadalachbia": {
+    "constellation": "Aquarius",
+    "symbolism": {
+      "en": [
+        "Handle of the Water Bearer.",
+        "A point for holding and regulating contents",
+        "An attitude toward managing resources or information",
+        "If regulation weakens, losses can occur"
+      ],
+      "ko": [
+        "물병의 손잡이.",
+        "내용물을 들고 조절하는 지점",
+        "자원이나 정보를 관리하려는 태도",
+        "조절이 약해지면 손실이 생길 수 있음"
+      ]
+    }
+  },
+  "Mizar": {
+    "constellation": "Ursa Major",
+    "symbolism": {
+      "en": [
+        "Waist of the Great Bear.",
+        "Cooperation, binary-style functioning, balance within relationships",
+        "Strength that comes alive more when together than alone",
+        "If dependency grows, autonomy can weaken"
+      ],
+      "ko": [
+        "큰곰의 허리.",
+        "협력, 쌍성적 작동, 관계 속 균형",
+        "단독보다 함께할 때 힘이 살아나는 성향",
+        "의존성이 커지면 자율성이 약화될 수 있음"
+      ]
+    }
+  },
+  "Rukbat": {
+    "constellation": "Sagittarius",
+    "symbolism": {
+      "en": [
+        "Knee of the Archer.",
+        "Foundation, starting point, stable footing",
+        "Securing an initial position in order to advance further",
+        "Without a solid base, progress can become unstable"
+      ],
+      "ko": [
+        "궁수의 무릎.",
+        "기초, 출발점, 안정된 발판",
+        "멀리 나아가기 위한 초기 위치 확보",
+        "기반을 다지지 않으면 진전이 불안정해질 수 있음"
+      ]
+    }
+  },
+  "Sadalbari": {
+    "constellation": "Aquarius",
+    "symbolism": {
+      "en": [
+        "Body of the Water Bearer.",
+        "The central vessel where contents are held",
+        "A state in which potential and resources are accumulated",
+        "If overfilled, it can be felt as burden"
+      ],
+      "ko": [
+        "물병의 몸통.",
+        "내용물이 담겨 있는 중심부",
+        "잠재력과 자원이 축적되는 상태",
+        "과도하게 채우면 부담으로 느껴질 수 있음"
+      ]
+    }
+  },
+  "Aludra": {
+    "constellation": "Canis Major",
+    "symbolism": {
+      "en": [
+        "Tail of the Great Dog.",
+        "A function that assists movement and changes of direction",
+        "Adjusting responses according to changing circumstances",
+        "If consistency is lacking, it can become scattered"
+      ],
+      "ko": [
+        "큰개의 꼬리.",
+        "움직임과 방향 전환을 보조하는 기능",
+        "상황 변화에 따라 반응을 조절함",
+        "일관성이 부족하면 산만해질 수 있음"
+      ]
+    }
+  },
+  "Grafias": {
+    "constellation": "Scorpius",
+    "symbolism": {
+      "en": [
+        "Joint of the Scorpion’s claw.",
+        "A point where the choice to grasp or release is made",
+        "Judgment of focus and separation operating simultaneously",
+        "If decisions are delayed, tension can persist"
+      ],
+      "ko": [
+        "전갈의 집게 관절.",
+        "붙잡고 놓는 선택이 이루어지는 지점",
+        "집중과 분리의 판단이 동시에 작동함",
+        "결정을 미루면 긴장이 지속될 수 있음"
+      ]
+    }
+  },
+  "Baten Kaitos": {
+    "constellation": "Cetus",
+    "symbolism": {
+      "en": [
+        "Belly of the Whale.",
+        "An inner space where power and emotion are accumulated",
+        "Motivations operating beneath the surface",
+        "If inner processing is delayed, it can remain as burden"
+      ],
+      "ko": [
+        "고래의 배.",
+        "내부에 축적된 힘과 감정의 공간",
+        "겉으로 드러나지 않는 동기가 작동함",
+        "내면 처리가 지연되면 부담으로 남을 수 있음"
+      ]
+    }
+  },
+  "Alnasl": {
+    "constellation": "Sagittarius",
+    "symbolism": {
+      "en": [
+        "Arrowhead of the Archer.",
+        "Clear directional setting toward a target",
+        "A flow in which intention and action seek alignment",
+        "If rushed, it may leave no room for adjustment"
+      ],
+      "ko": [
+        "궁수의 화살촉.",
+        "목표를 향한 명확한 방향 설정",
+        "의도와 행동이 일치하려는 흐름",
+        "성급하면 여지를 남기지 못할 수 있음"
+      ]
+    }
+  },
+  "Facies": {
+    "constellation": "Sagittarius",
+    "symbolism": {
+      "en": [
+        "Face of the Archer.",
+        "Harsh realism and concentrated will",
+        "Attitude that prioritizes survival and results over ideals",
+        "Suppressing emotion for goal attainment may roughen human relationships"
+      ],
+      "ko": [
+        "궁수의 얼굴.",
+        "냉혹한 현실 인식, 집중된 의지",
+        "이상보다 생존과 성과를 우선하는 태도",
+        "목표 달성을 위해 감정을 억누르면 인간관계가 거칠어질 수 있음"
+      ]
+    }
+  },
+  "Peacock": {
+    "constellation": "Pavo",
+    "symbolism": {
+      "en": [
+        "Tail of the Peacock.",
+        "The terminal point of outward expression",
+        "Expansion of visual impression and messaging",
+        "If excessive, it can be perceived as scattered"
+      ],
+      "ko": [
+        "공작의 꼬리.",
+        "외부로 드러나는 표현의 말단",
+        "시각적 인상과 메시지가 확장됨",
+        "과도하면 산만하게 인식될 수 있음"
+      ]
+    }
+  },
+  "Alrischa": {
+    "constellation": "Pisces",
+    "symbolism": {
+      "en": [
+        "Knot connecting the two Fish.",
+        "Connection, branching point, and moment of choice",
+        "Junction where different currents converge",
+        "Delaying decision may amplify loss of direction or confusion"
+      ],
+      "ko": [
+        "두 물고기를 잇는 매듭.",
+        "연결, 분기점, 선택의 순간",
+        "서로 다른 흐름이 만나는 접점",
+        "결단을 미루면 방향 상실이나 혼란이 커질 수 있음"
+      ]
+    }
+  },
+  "Al Tarf": {
+    "constellation": "Cancer",
+    "symbolism": {
+      "en": [
+        "Edge of the Crab’s shell.",
+        "A point where boundaries and defense are formed",
+        "An attitude of protecting oneself while assessing the situation",
+        "If excessive, it can appear closed-off"
+      ],
+      "ko": [
+        "게의 껍질 가장자리.",
+        "경계와 방어가 형성되는 지점",
+        "자신을 보호하며 상황을 살피는 태도",
+        "지나치면 폐쇄적으로 보일 수 있음"
+      ]
+    }
+  },
+  "Diadem": {
+    "constellation": "Coma Berenices",
+    "symbolism": {
+      "en": [
+        "Crown above the head.",
+        "Dignity, restrained honor, and quiet recognition",
+        "Attitude that earns respect without drawing attention",
+        "Excessive modesty may diminish recognition of one’s own value"
+      ],
+      "ko": [
+        "머리 위의 관.",
+        "품위, 절제된 명예, 조용한 인정",
+        "눈에 띄지 않지만 존중받는 태도",
+        "과도한 겸손은 자신의 가치를 스스로 축소시킬 수 있음"
+      ]
+    }
+  },
+  "Skat": {
+    "constellation": "Aquarius",
+    "symbolism": {
+      "en": [
+        "Feet of the Water Bearer.",
+        "Protection, support, survival safety net",
+        "Auxiliary strength that allows endurance even in danger",
+        "Reliance on safety can limit challenge or expansion"
+      ],
+      "ko": [
+        "물병의 발치.",
+        "보호, 지원, 생존적 안전망",
+        "위험 속에서도 버틸 수 있게 하는 보조적 힘",
+        "안전에 의존하면 도전이나 확장이 제한될 수 있음"
+      ]
+    }
+  },
+  "Menkent": {
+    "constellation": "Centaurus",
+    "symbolism": {
+      "en": [
+        "Chest of the Centaur.",
+        "Judgment and restrained authority",
+        "Ability to assess situations calmly and bring order",
+        "Excessive control may generate relational tension"
+      ],
+      "ko": [
+        "켄타우로스의 가슴.",
+        "판단력, 절제된 권위",
+        "상황을 냉정하게 가늠하고 정리하는 능력",
+        "과도한 통제는 관계적 긴장을 유발할 수 있음"
+      ]
+    }
+  },
+  "Tarazed": {
+    "constellation": "Aquila",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Eagle.",
+        "Concentrated force, clear sense of purpose",
+        "A tendency to gather energy at a single point to produce results",
+        "If vision narrows, surrounding circumstances may be overlooked"
+      ],
+      "ko": [
+        "독수리의 어깨.",
+        "집중된 힘, 명확한 목표 의식",
+        "에너지를 한 지점에 모아 성과를 내는 경향",
+        "시야가 좁아지면 주변 상황을 놓칠 수 있음"
+      ]
+    }
+  },
+  "Menkib": {
+    "constellation": "Perseus",
+    "symbolism": {
+      "en": [
+        "Shoulder of Perseus.",
+        "A point that supports both burden and weaponry",
+        "Bearing responsibility in order to carry out a mission",
+        "If load becomes excessive, mobility can decline"
+      ],
+      "ko": [
+        "페르세우스의 어깨.",
+        "짐과 무기를 함께 지탱하는 지점",
+        "임무를 수행하기 위한 책임을 감당함",
+        "하중이 커지면 기동성이 떨어질 수 있음"
+      ]
+    }
+  },
+  "Mimosa": {
+    "constellation": "Crux",
+    "symbolism": {
+      "en": [
+        "Side of the Cross.",
+        "Emotional sensitivity, consideration, and delicate devotion",
+        "Attitude of quickly sensing and responding to others’ needs",
+        "Cumulative emotional expenditure may lead to rapid fatigue"
+      ],
+      "ko": [
+        "십자가의 옆부분.",
+        "정서적 민감성, 배려, 섬세한 헌신",
+        "타인의 필요를 빠르게 감지하고 돕는 태도",
+        "감정 소모가 누적되면 쉽게 지칠 수 있음"
+      ]
+    }
+  },
+  "Polis": {
+    "constellation": "Sagittarius",
+    "symbolism": {
+      "en": [
+        "Elbow of the Archer.",
+        "A joint where directional adjustment and aiming take place",
+        "Fine-tuning toward a target",
+        "If adjustments are too frequent, flow can be disrupted"
+      ],
+      "ko": [
+        "궁수의 팔꿈치.",
+        "방향 조정과 조준이 이루어지는 관절",
+        "목표를 향해 미세하게 수정함",
+        "조정이 잦으면 흐름이 끊길 수 있음"
+      ]
+    }
+  },
+  "Matar": {
+    "constellation": "Pegasus",
+    "symbolism": {
+      "en": [
+        "Foreleg of Pegasus.",
+        "A point of support preparing for a leap",
+        "A phase of gathering strength before initiating movement",
+        "If preparation is insufficient, propulsion can weaken"
+      ],
+      "ko": [
+        "페가수스의 앞다리.",
+        "도약을 준비하는 지지점",
+        "움직임을 시작하기 전 힘을 모으는 단계",
+        "준비가 부족하면 추진이 약해질 수 있음"
+      ]
+    }
+  },
+  "Kaus Borealis": {
+    "constellation": "Sagittarius",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Archer.",
+        "Orientation and a reference point for judgment",
+        "Role of establishing criteria for choice within a situation",
+        "Rigid judgment may reduce flexibility"
+      ],
+      "ko": [
+        "궁수의 어깨.",
+        "방향 설정, 판단의 기준점",
+        "상황 속에서 선택의 기준을 잡는 역할",
+        "판단이 경직되면 융통성이 줄어들 수 있음"
+      ]
+    }
+  },
+  "Acubens": {
+    "constellation": "Cancer",
+    "symbolism": {
+      "en": [
+        "Claw of the Crab.",
+        "Protective instinct and survival awareness within a group",
+        "Disposition to defend others or secure surrounding boundaries",
+        "Excessive defensiveness may manifest as passivity or avoidance"
+      ],
+      "ko": [
+        "게의 집게.",
+        "보호 본능, 집단 내 생존 감각",
+        "약자를 지키거나 주변을 방어하려는 태도",
+        "과도한 방어성은 소극성이나 회피로 나타날 수 있음"
+      ]
+    }
+  },
+  "Castor": {
+    "constellation": "Gemini",
+    "symbolism": {
+      "en": [
+        "Head of the Twins.",
+        "Intellectual talent, technical skill, and linguistic ability",
+        "Multifaceted expression through learning and communication",
+        "Mental fragmentation or loss of direction can increase energy drain"
+      ],
+      "ko": [
+        "쌍둥이의 머리.",
+        "지적 재능, 기술, 언어 능력",
+        "학습과 소통을 통한 다방면의 능력 발휘",
+        "정신적 분열이나 방향성 상실 시 에너지 소모가 커질 수 있음"
+      ]
+    }
+  },
+  "Gacrux": {
+    "constellation": "Crux",
+    "symbolism": {
+      "en": [
+        "Foot of the Cross.",
+        "Responsibility, devotion, and communal obligation",
+        "Choice to place the collective above the individual",
+        "Carrying responsibility beyond one’s share may lead to exhaustion"
+      ],
+      "ko": [
+        "십자가의 발.",
+        "책임, 헌신, 공동체적 의무",
+        "개인보다 집단을 우선하는 선택",
+        "자기 몫을 넘는 책임은 소진으로 이어질 수 있음"
+      ]
+    }
+  },
+  "Hamal": {
+    "constellation": "Aries",
+    "symbolism": {
+      "en": [
+        "Head of the Ram.",
+        "Initiation, leadership, and independent drive",
+        "Courage to step forward and open a path",
+        "When self-direction hardens into dominance, friction with others may grow"
+      ],
+      "ko": [
+        "양의 머리.",
+        "선도, 개시, 독립적 추진력",
+        "앞장서서 방향을 열어젖히는 용기",
+        "독단이 강해지면 주변과의 마찰이 커질 수 있음"
+      ]
+    }
+  },
+  "Yed Posterior": {
+    "constellation": "Ophiuchus",
+    "symbolism": {
+      "en": [
+        "Rear hand of the Serpent-Bearer.",
+        "A hand that assists support and balance",
+        "An attitude of maintaining what is already held",
+        "If sustained too long, rigidity can develop"
+      ],
+      "ko": [
+        "뱀주인의 뒷손.",
+        "지지와 균형을 보조하는 손",
+        "이미 잡은 것을 유지하려는 태도",
+        "지속이 길어지면 경직될 수 있음"
+      ]
+    }
+  },
+  "Dubhe": {
+    "constellation": "Ursa Major",
+    "symbolism": {
+      "en": [
+        "Back of the Great Bear.",
+        "Authority, responsibility, and a central role within a group",
+        "Leadership that provides direction and maintains order",
+        "Excessive burden of responsibility may result in rigidity or isolation"
+      ],
+      "ko": [
+        "큰곰의 등.",
+        "권위, 책임, 집단의 중심 역할",
+        "방향을 제시하고 질서를 유지하는 리더십",
+        "책임이 과중해지면 경직되거나 고립될 수 있음"
+      ]
+    }
+  },
+  "Albali": {
+    "constellation": "Aquarius",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Water Bearer.",
+        "Personal conviction and solitary judgment",
+        "Drawing conclusions from a perspective different from the majority",
+        "Deepening isolation may increase disconnection from others"
+      ],
+      "ko": [
+        "물병의 어깨.",
+        "개인적 신념, 고독한 판단",
+        "다수와 다른 시각에서 결론을 내리는 태도",
+        "고립이 심해질 경우 주변과의 단절이 커질 수 있음"
+      ]
+    }
+  },
+  "Azha": {
+    "constellation": "Eridanus",
+    "symbolism": {
+      "en": [
+        "Knee crossing the river.",
+        "A point of support during movement and transition",
+        "The strength to maintain flow even amid change",
+        "If direction is unclear, hesitation can increase"
+      ],
+      "ko": [
+        "강을 건너는 무릎.",
+        "이동과 전환 과정에서의 지지점",
+        "변화 속에서도 흐름을 유지하려는 힘",
+        "방향이 불분명하면 주저함이 커질 수 있음"
+      ]
+    }
+  },
+  "Markab": {
+    "constellation": "Pegasus",
+    "symbolism": {
+      "en": [
+        "Back of Pegasus.",
+        "Stability, structure, and formation of a foundation",
+        "Role of establishing frameworks and standards that support a situation",
+        "Resisting change may lead to rigidity or obsolescence"
+      ],
+      "ko": [
+        "페가수스의 등.",
+        "안정성, 구조, 기반 형성",
+        "상황을 지탱하는 틀과 기준을 세우는 역할",
+        "변화를 거부하면 경직되거나 도태될 수 있음"
+      ]
+    }
+  },
+  "Dabih": {
+    "constellation": "Capricornus",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Goat.",
+        "Restraint, responsibility, and realistic choice",
+        "Capacity to regulate immediate desire for long-term goals",
+        "Excessive self-suppression may appear as rigidity"
+      ],
+      "ko": [
+        "염소의 어깨.",
+        "절제, 책임, 현실적 선택",
+        "장기적 목표를 위해 당장의 욕구를 통제하는 힘",
+        "지나친 자기 억압은 경직된 태도로 나타날 수 있음"
+      ]
+    }
+  },
+  "Wasat": {
+    "constellation": "Gemini",
+    "symbolism": {
+      "en": [
+        "Central torso of the Twins.",
+        "Tension and division positioned at the midpoint",
+        "Potential for conflict within communication processes",
+        "Delaying choice can instead increase instability"
+      ],
+      "ko": [
+        "쌍둥이의 몸통 중앙.",
+        "중간 지점에 놓인 긴장과 분열",
+        "의사소통 과정에서의 갈등 가능성",
+        "선택을 미루면 오히려 불안정성이 커질 수 있음"
+      ]
+    }
+  },
+  "Pleione": {
+    "constellation": "Taurus",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Bull.",
+        "A point that bears load while assisting movement",
+        "An emphasis on protection and support",
+        "As responsibility increases, it can be perceived as burden"
+      ],
+      "ko": [
+        "황소의 어깨.",
+        "하중을 받치며 움직임을 보조하는 지점",
+        "보호와 지지의 역할이 강조됨",
+        "책임이 늘어나면 부담으로 인식될 수 있음"
+      ]
+    }
+  },
+  "Zaniah": {
+    "constellation": "Virgo",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Virgin.",
+        "Delicate judgment and the ability to fine-tune details",
+        "Cautiously bearing responsibility within relationships or roles",
+        "Excessive caution can cause missed opportunities"
+      ],
+      "ko": [
+        "처녀의 어깨.",
+        "섬세한 판단력과 세부를 조율하는 능력",
+        "관계나 역할에서 조심스럽게 책임을 감당함",
+        "과도한 신중함은 기회를 놓치게 할 수 있음"
+      ]
+    }
+  },
+  "Syrma": {
+    "constellation": "Virgo",
+    "symbolism": {
+      "en": [
+        "Hem of the Virgin’s garment.",
+        "A trailing part that flows with movement",
+        "Details and aftereffects emerging naturally",
+        "If organization is insufficient, it can appear scattered"
+      ],
+      "ko": [
+        "처녀의 옷자락.",
+        "움직임에 따라 흐르는 말단 부분",
+        "세부와 여운이 자연스럽게 드러남",
+        "정리가 부족하면 산만해 보일 수 있음"
+      ]
+    }
+  },
+  "Zuben Hakribi": {
+    "constellation": "Libra",
+    "symbolism": {
+      "en": [
+        "Base of the Scales.",
+        "The foundation that supports the entire structure",
+        "An element that anchors judgment in reality",
+        "If the base weakens, trust can become unstable"
+      ],
+      "ko": [
+        "저울의 받침대.",
+        "전체 구조를 지탱하는 바닥",
+        "판단이 현실에 고정되도록 돕는 요소",
+        "기반이 약해지면 신뢰가 흔들릴 수 있음"
+      ]
+    }
+  },
+  "Deneb Kaitos": {
+    "constellation": "Cetus",
+    "symbolism": {
+      "en": [
+        "Tail of the Whale.",
+        "A means of propulsion and maintaining direction",
+        "Generating movement within deep currents",
+        "If a sense of direction is lost, expenditure can increase"
+      ],
+      "ko": [
+        "고래의 꼬리.",
+        "추진력과 방향 유지의 수단",
+        "깊은 흐름 속에서 움직임을 만들어냄",
+        "방향 감각을 잃으면 소모가 커질 수 있음"
+      ]
+    }
+  },
+  "Aldebaran": {
+    "constellation": "Taurus",
+    "symbolism": {
+      "en": [
+        "Eye of the Bull.",
+        "Honor, success, justice, and the guardianship of truth",
+        "Major achievement when moral standards and integrity are upheld",
+        "Abandoning principles may lead to a sudden fall"
+      ],
+      "ko": [
+        "황소의 눈.",
+        "명예, 성공, 정의, 진실의 수호",
+        "도덕적 기준과 정직함을 지킬 때 큰 성취",
+        "원칙을 저버릴 경우 갑작스러운 추락 가능성"
+      ]
+    }
+  },
+  "Algol": {
+    "constellation": "Perseus",
+    "symbolism": {
+      "en": [
+        "Head of Medusa.",
+        "Extremes, crisis, and explosive emotional intensity",
+        "A point where suppressed anger or fear surfaces",
+        "When handled consciously, functions as powerful survival and transformative force"
+      ],
+      "ko": [
+        "메두사의 머리.",
+        "극단, 위기, 강렬한 감정 폭발",
+        "억눌린 분노나 공포가 드러나는 지점",
+        "의식적으로 다룰 경우 강력한 생존력과 변환의 힘으로 작동"
+      ]
+    }
+  },
+  "Al Pherg": {
+    "constellation": "Pisces",
+    "symbolism": {
+      "en": [
+        "Knot connecting the Fishes.",
+        "A function that links different currents",
+        "An attitude aimed at binding and maintaining relationships or situations",
+        "If connection becomes excessive, it may feel like entanglement"
+      ],
+      "ko": [
+        "물고기들을 잇는 매듭.",
+        "서로 다른 흐름을 연결하는 기능",
+        "관계나 상황을 묶어 유지하려는 태도",
+        "연결이 과도하면 얽힘으로 느껴질 수 있음"
+      ]
+    }
+  },
+  "Fomalhaut": {
+    "constellation": "Piscis Austrinus",
+    "symbolism": {
+      "en": [
+        "Mouth of the Southern Fish.",
+        "Idealism, purity, and spiritual vision",
+        "Honor gained through elevated ideals and moral clarity",
+        "If detached from reality or ethics, achievements may easily collapse"
+      ],
+      "ko": [
+        "남쪽물고기의 입.",
+        "이상주의, 순수성, 영적 비전",
+        "높은 이상과 도덕성을 통해 명예를 얻음",
+        "현실과의 괴리나 도덕적 일탈 시 성취가 쉽게 무너짐"
+      ]
+    }
+  },
+  "Kaus Media": {
+    "constellation": "Sagittarius",
+    "symbolism": {
+      "en": [
+        "Center of the Archer’s bow.",
+        "Coordination, mediation, and balanced progression",
+        "Capacity to stabilize process while avoiding extremes",
+        "Delaying decisions may slow advancement"
+      ],
+      "ko": [
+        "궁수의 활 중앙.",
+        "조율, 중재, 균형 잡힌 진행",
+        "극단을 피하고 과정을 안정시키는 힘",
+        "결단을 미루면 진척이 더뎌질 수 있음"
+      ]
+    }
+  },
+  "Nusakan": {
+    "constellation": "Corona Borealis",
+    "symbolism": {
+      "en": [
+        "Edge of the Crown.",
+        "Mental tension, concentrated thought",
+        "Analytical power that drills into the core of a problem",
+        "Excessive immersion can cause nervous depletion or fatigue"
+      ],
+      "ko": [
+        "왕관의 가장자리.",
+        "정신적 긴장, 집중된 사고",
+        "문제의 핵심을 파고드는 분석력",
+        "과도한 몰입은 신경 소모나 피로를 유발할 수 있음"
+      ]
+    }
+  },
+  "Sirius": {
+    "constellation": "Canis Major",
+    "symbolism": {
+      "en": [
+        "Chest of the Greater Dog.",
+        "Excellence, authority, and powerful influence",
+        "Natural prominence and leadership within a group",
+        "Excessive self-focus or power consciousness may provoke isolation or resistance"
+      ],
+      "ko": [
+        "큰개의 가슴.",
+        "탁월함, 권위, 강력한 영향력",
+        "집단 속에서 자연스럽게 드러나는 우월성과 리더십",
+        "과도한 자의식이나 권력 의식은 고립과 반발을 부를 수 있음"
+      ]
+    }
+  },
+  "Zuben Elakribi": {
+    "constellation": "Libra",
+    "symbolism": {
+      "en": [
+        "Connecting beam of the Scales.",
+        "A structure that links the weights on both sides",
+        "Attempts to align standards in relationships or judgment",
+        "If the axis wavers, overall balance can become unstable"
+      ],
+      "ko": [
+        "저울의 연결축.",
+        "양쪽 무게를 이어 주는 구조",
+        "관계나 판단의 기준을 맞추려는 시도",
+        "축이 흔들리면 전체 균형이 불안정해질 수 있음"
+      ]
+    }
+  },
+  "Sargas": {
+    "constellation": "Scorpius",
+    "symbolism": {
+      "en": [
+        "Leg of the Scorpion.",
+        "A point responsible for movement and approach",
+        "Steady advancement toward a target",
+        "If pace is not regulated, fatigue can accumulate"
+      ],
+      "ko": [
+        "전갈의 다리.",
+        "이동과 접근을 담당하는 지점",
+        "목표를 향해 꾸준히 전진함",
+        "속도를 조절하지 않으면 피로가 누적될 수 있음"
+      ]
+    }
+  },
+  "Vega": {
+    "constellation": "Lyra",
+    "symbolism": {
+      "en": [
+        "Body of the Lyre.",
+        "Artistry, refinement, and idealized expression",
+        "Social recognition through aesthetic and sensory ability",
+        "Strong perfectionism may increase distance from reality"
+      ],
+      "ko": [
+        "거문고의 몸통.",
+        "예술성, 세련됨, 이상적 표현",
+        "감각적·미적 능력을 통한 사회적 인정",
+        "완벽주의가 강해질 경우 현실과의 괴리가 커질 수 있음"
+      ]
+    }
+  },
+  "Unukalhai": {
+    "constellation": "Serpens",
+    "symbolism": {
+      "en": [
+        "Neck of the Serpent.",
+        "A force in which healing and poison coexist",
+        "Potential for recovery or destruction activated through crisis",
+        "If left uncontrolled, it can act in a direction that amplifies problems"
+      ],
+      "ko": [
+        "뱀의 목.",
+        "치유와 독이 동시에 존재하는 힘",
+        "위기를 통해 작동하는 회복 또는 파괴의 잠재성",
+        "통제되지 않으면 문제를 증폭시키는 방향으로 작용할 수 있음"
+      ]
+    }
+  },
+  "Rotanev": {
+    "constellation": "Delphinus",
+    "symbolism": {
+      "en": [
+        "Back of the Dolphin.",
+        "A part that maintains direction while cutting through currents",
+        "Exploring flow within flexible movement",
+        "If rhythm breaks down, progress can become unstable"
+      ],
+      "ko": [
+        "돌고래의 등.",
+        "물살을 가르며 방향을 유지하는 부위",
+        "유연한 움직임 속에서 흐름을 탐색함",
+        "리듬이 깨지면 진행이 불안정해질 수 있음"
+      ]
+    }
+  },
+  "Procyon": {
+    "constellation": "Canis Minor",
+    "symbolism": {
+      "en": [
+        "Foreleg of the Lesser Dog.",
+        "Agility, anticipatory judgment, and rapid opportunity recognition",
+        "Wit and nimbleness that produce results in short bursts",
+        "Haste or impulsive decisions may weaken the longevity of achievement"
+      ],
+      "ko": [
+        "작은개의 앞다리.",
+        "기민함, 선구적 판단, 빠른 기회 포착",
+        "짧은 순간에 성과를 만들어내는 재치와 민첩성",
+        "조급함이나 성급한 결정은 성취의 지속성을 약화시킬 수 있음"
+      ]
+    }
+  },
+  "Praesepe": {
+    "constellation": "Cancer",
+    "symbolism": {
+      "en": [
+        "Chest of the Crab.",
+        "The center of collective consciousness where individual boundaries blur",
+        "A state where others’ desires and fears are easily projected",
+        "Without conscious self-boundaries, one may become a target of collective blindness or frenzy"
+      ],
+      "ko": [
+        "게의 가슴.",
+        "개체 경계가 흐려지는 집단 의식의 중심",
+        "타인의 욕망과 공포가 쉽게 투사되는 상태",
+        "의식적 자기 경계가 없을 경우 집단적 맹목이나 광기의 표적이 됨"
+      ]
+    }
+  },
+  "Zosma": {
+    "constellation": "Leo",
+    "symbolism": {
+      "en": [
+        "Back of the Lion.",
+        "Awareness of responsibility and role",
+        "The strength to endure while carrying others’ expectations",
+        "When burdens accumulate, they can turn into dissatisfaction or depletion"
+      ],
+      "ko": [
+        "사자의 등.",
+        "책임감과 역할에 대한 자각",
+        "타인의 기대를 짊어지고 버텨내는 힘",
+        "부담이 누적되면 불만이나 소모로 전환될 수 있음"
+      ]
+    }
+  },
+  "Ankaa": {
+    "constellation": "Phoenix",
+    "symbolism": {
+      "en": [
+        "Chest of the Phoenix.",
+        "Recovery, renewal, and new beginnings",
+        "Capacity to rise again after collapse or loss",
+        "Clinging to the past may forfeit opportunities for regeneration"
+      ],
+      "ko": [
+        "불사조의 가슴.",
+        "재기, 회복, 새로운 출발",
+        "몰락이나 손실 이후 다시 일어나는 힘",
+        "과거에 집착하면 재생의 기회를 놓칠 수 있음"
+      ]
+    }
+  },
+  "Propus": {
+    "constellation": "Gemini",
+    "symbolism": {
+      "en": [
+        "Heel of the Twins.",
+        "Progress, preparatory movement",
+        "Trial attempts before a full transition",
+        "If rushed, it can lead to hasty judgments"
+      ],
+      "ko": [
+        "쌍둥이의 발뒤꿈치.",
+        "진전, 준비 단계의 움직임",
+        "본격적 전환 이전의 시험적 시도",
+        "서두르면 성급한 판단으로 이어질 수 있음"
+      ]
+    }
+  },
+  "Zavijava": {
+    "constellation": "Virgo",
+    "symbolism": {
+      "en": [
+        "Right arm of the Virgin.",
+        "Practical skill and precision expressed through the hands",
+        "An attitude focused on solving concrete, real-world problems",
+        "Excessive control can reduce flexibility"
+      ],
+      "ko": [
+        "처녀의 오른팔.",
+        "실무적 능력과 손으로 구현하는 정확성",
+        "현실적 문제를 해결하려는 태도",
+        "과도한 통제는 융통성을 떨어뜨릴 수 있음"
+      ]
+    }
+  },
+  "Zuben Eschamali": {
+    "constellation": "Libra",
+    "symbolism": {
+      "en": [
+        "Northern Pan of the Scales.",
+        "An orientation toward fairness and ideal judgment",
+        "A flow aimed at securing advantageous conditions in relationships or decisions",
+        "If reality is ignored, judgment can become hollow"
+      ],
+      "ko": [
+        "저울의 북쪽 접시.",
+        "공정함과 이상적 판단을 지향하는 태도",
+        "관계나 결정에서 유리한 조건을 확보하려는 흐름",
+        "현실을 무시하면 판단이 공허해질 수 있음"
+      ]
+    }
+  },
+  "Giedi Secunda": {
+    "constellation": "Capricornus",
+    "symbolism": {
+      "en": [
+        "Hind leg of the Goat.",
+        "A point that handles both support and propulsion",
+        "Continuing movement by utilizing an already secured foundation",
+        "If the foundation weakens, the pace of progress can slow"
+      ],
+      "ko": [
+        "염소의 뒷다리.",
+        "지탱과 추진을 동시에 담당하는 지점",
+        "이미 확보한 기반을 활용해 움직임을 이어감",
+        "기반이 약해지면 진행 속도가 느려질 수 있음"
+      ]
+    }
+  },
+  "Adhafera": {
+    "constellation": "Leo",
+    "symbolism": {
+      "en": [
+        "Mane of the Lion.",
+        "Courage in risk-taking and bold action",
+        "Attitude that moves beyond fear in moments of crisis",
+        "Recklessness may result in unnecessary wounds or losses"
+      ],
+      "ko": [
+        "사자의 갈기.",
+        "위험을 감수하는 용기, 대담한 행동",
+        "위기 상황에서 두려움을 넘어서려는 태도",
+        "무모함이 앞설 경우 불필요한 상처를 남길 수 있음"
+      ]
+    }
+  },
+  "Betelgeuse": {
+    "constellation": "Orion",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Hunter.",
+        "Fame, boldness, and dramatic expressiveness",
+        "Strong presence that naturally draws public attention",
+        "Excessive display or impulsive action may rapidly exhaust reputation"
+      ],
+      "ko": [
+        "사냥꾼의 어깨.",
+        "명성, 대담함, 극적인 표현력",
+        "강한 존재감과 사회적 주목을 받는 힘",
+        "과도한 과시나 충동적 행동은 급격한 명성의 소진으로 이어질 수 있음"
+      ]
+    }
+  },
+  "Alcyone": {
+    "constellation": "Taurus",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Bull.",
+        "Collective sensitivity, spiritual insight, vision, and illusion",
+        "Strong charisma and inspiration as the center of the Pleiades",
+        "Loss of practical grounding may lead to confusion, escapism, or emotional overload"
+      ],
+      "ko": [
+        "황소의 어깨.",
+        "집단적 감수성, 영적 통찰, 비전과 환상",
+        "플레이아데스 중심으로서 강한 카리스마와 영감",
+        "현실 감각을 잃을 경우 혼란, 도피, 감정적 과부하로 이어질 수 있음"
+      ]
+    }
+  },
+  "Aculeus": {
+    "constellation": "Scorpius",
+    "symbolism": {
+      "en": [
+        "Tip of the Scorpion’s stinger.",
+        "Intense will and a decisive strike",
+        "Power that manifests in extreme situations",
+        "If overdone, it can lead to destructive outcomes"
+      ],
+      "ko": [
+        "전갈의 독침 끝.",
+        "강렬한 의지와 결정적 한 방",
+        "극단적 상황에서 발휘되는 힘",
+        "과잉되면 파괴적 결과로 이어질 수 있음"
+      ]
+    }
+  },
+  "Mesarthim": {
+    "constellation": "Aries",
+    "symbolism": {
+      "en": [
+        "Head of the Ram.",
+        "A point where direction and will are first formed",
+        "Rapid activation of awareness toward new beginnings",
+        "If rushed, surrounding circumstances can be overlooked"
+      ],
+      "ko": [
+        "양의 머리.",
+        "방향과 의지가 처음 형성되는 지점",
+        "새로운 시작에 대한 인식이 빠르게 작동함",
+        "성급하면 주변 상황을 놓칠 수 있음"
+      ]
+    }
+  },
+  "Zuben Elgenubi": {
+    "constellation": "Libra",
+    "symbolism": {
+      "en": [
+        "Southern Pan of the Scales.",
+        "A point of recognizing loss and the cost of choices",
+        "Situations in which sacrifice is required in relationships or judgment",
+        "If balance is lost, one may have to accept unfavorable outcomes"
+      ],
+      "ko": [
+        "저울의 남쪽 접시.",
+        "손실과 선택의 대가를 인식하는 지점",
+        "관계나 판단에서 희생이 요구되는 상황",
+        "균형을 잃으면 불리한 결과를 감수하게 될 수 있음"
+      ]
+    }
+  },
+  "Ras Algethi": {
+    "constellation": "Hercules",
+    "symbolism": {
+      "en": [
+        "Head of the Hero.",
+        "A point where consciousness and judgment come to the forefront",
+        "Perceiving situations and making decisions",
+        "Excessive deliberation can slow action"
+      ],
+      "ko": [
+        "영웅의 머리.",
+        "의식과 판단이 전면에 놓이는 지점",
+        "상황을 인지하고 결정을 내림",
+        "과도한 숙고는 행동을 늦출 수 있음"
+      ]
+    }
+  },
+  "Agena": {
+    "constellation": "Centaurus",
+    "symbolism": {
+      "en": [
+        "Waist of the Centaur.",
+        "Cooperation, harmony, and functional roles within a group",
+        "Influence that shines through relational networks rather than strong individuality",
+        "Excessive accommodation to others may weaken personal autonomy"
+      ],
+      "ko": [
+        "켄타우로스의 허리.",
+        "협력, 조화, 집단 속 역할 수행",
+        "강한 개성보다는 관계망 속에서 빛나는 영향력",
+        "타인의 요구에 과도하게 맞출 경우 자율성이 약화될 수 있음"
+      ]
+    }
+  },
+  "Ain": {
+    "constellation": "Taurus",
+    "symbolism": {
+      "en": [
+        "Eye of the Bull.",
+        "Focus, gaze, and sensory awareness",
+        "Ability to immerse deeply in a single object or goal",
+        "If fixation intensifies, perspective may narrow"
+      ],
+      "ko": [
+        "황소의 눈.",
+        "집중, 응시, 감각적 인식",
+        "하나의 대상이나 목표에 깊이 몰입하는 능력",
+        "집착이 강해질 경우 시야가 좁아질 수 있음"
+      ]
+    }
+  },
+  "Mebsuta": {
+    "constellation": "Gemini",
+    "symbolism": {
+      "en": [
+        "Elbow of the Twins.",
+        "A joint where redirection and adjustment take place",
+        "Flexibility in changing attitude according to circumstances",
+        "Frequent changes can blur consistency"
+      ],
+      "ko": [
+        "쌍둥이의 팔꿈치.",
+        "방향 전환과 조정이 이루어지는 관절",
+        "상황에 맞게 태도를 바꾸는 유연성",
+        "잦은 변경은 일관성을 흐릴 수 있음"
+      ]
+    }
+  },
+  "Gomeisa": {
+    "constellation": "Canis Minor",
+    "symbolism": {
+      "en": [
+        "Neck of the Lesser Dog.",
+        "Assistance, protection, and a supporting role",
+        "Stabilizing force that backs the central figure",
+        "Downplaying one’s role may prevent latent potential from emerging"
+      ],
+      "ko": [
+        "작은개의 목.",
+        "조력, 보호, 보조적 역할",
+        "주인공을 뒷받침하며 상황을 안정시키는 힘",
+        "자기 역할을 축소하면 잠재력이 드러나지 않을 수 있음"
+      ]
+    }
+  },
+  "Nashira": {
+    "constellation": "Capricornus",
+    "symbolism": {
+      "en": [
+        "Leg of the Goat.",
+        "Endurance, persistence, slow stabilization",
+        "The power to consolidate situations over time",
+        "If delays drag on, frustration or doubt can accumulate"
+      ],
+      "ko": [
+        "염소의 다리.",
+        "인내, 지속, 느린 안정화",
+        "시간을 들여 상황을 굳혀가는 힘",
+        "지연이 길어질 경우 좌절이나 회의감이 쌓일 수 있음"
+      ]
+    }
+  },
+  "Mekbuda": {
+    "constellation": "Gemini",
+    "symbolism": {
+      "en": [
+        "Knee of the Twins.",
+        "A part where support and movement are simultaneously required",
+        "Maintaining progress while adjusting balance",
+        "As burden increases, pace can slow"
+      ],
+      "ko": [
+        "쌍둥이의 무릎.",
+        "지탱과 이동이 동시에 요구되는 부위",
+        "진행을 유지하면서 균형을 조절함",
+        "부담이 커지면 속도가 느려질 수 있음"
+      ]
+    }
+  },
+  "Miaplacidus": {
+    "constellation": "Carina",
+    "symbolism": {
+      "en": [
+        "Side of the Ship.",
+        "A section that stabilizes the course while maintaining balance",
+        "Continuing progress even within external conditions",
+        "If leaning too far to one side, instability can increase"
+      ],
+      "ko": [
+        "배의 측면.",
+        "균형을 유지하며 항로를 안정시키는 부분",
+        "외부 환경 속에서도 진행을 지속함",
+        "한쪽으로 치우치면 흔들림이 커질 수 있음"
+      ]
+    }
+  },
+  "Menkalinan": {
+    "constellation": "Auriga",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Charioteer.",
+        "A point that bears loads while maintaining direction",
+        "Steadily carrying responsibility and role",
+        "If load increases, rigidity can develop"
+      ],
+      "ko": [
+        "마부의 어깨.",
+        "짐을 지고 방향을 유지하는 지점",
+        "책임과 역할을 안정적으로 감당함",
+        "하중이 늘어나면 경직될 수 있음"
+      ]
+    }
+  },
+  "Al Jabhah": {
+    "constellation": "Leo",
+    "symbolism": {
+      "en": [
+        "Forehead of the Lion.",
+        "A point where consciousness and judgment come to the forefront",
+        "An attitude of self-awareness and recognition of responsibility",
+        "When pressure increases, it can manifest as tension"
+      ],
+      "ko": [
+        "사자의 이마.",
+        "의식과 판단이 전면에 드러나는 지점",
+        "자기 인식과 책임을 자각하는 태도",
+        "부담이 커지면 긴장으로 나타날 수 있음"
+      ]
+    }
+  },
+  "Yed Prior": {
+    "constellation": "Ophiuchus",
+    "symbolism": {
+      "en": [
+        "Front hand of the Serpent-Bearer.",
+        "The primary hand for grasping and manipulation",
+        "Directly intervening in situations to regulate them",
+        "If intervention becomes frequent, burden can increase"
+      ],
+      "ko": [
+        "뱀주인의 앞손.",
+        "잡고 조작하는 주된 손",
+        "상황에 직접 개입하여 조절함",
+        "개입이 잦아지면 부담이 커질 수 있음"
+      ]
+    }
+  },
+  "Achernar": {
+    "constellation": "Eridanus",
+    "symbolism": {
+      "en": [
+        "End of the River.",
+        "Radical change and redirection under extreme conditions",
+        "Impulse to carve a new path despite instability",
+        "If speed and intensity are not regulated, crisis or exhaustion may result"
+      ],
+      "ko": [
+        "강의 끝.",
+        "급진적 변화, 극단적 상황에서의 방향 전환",
+        "불안정한 환경 속에서도 새로운 길을 개척하려는 충동",
+        "속도와 강도가 통제되지 않으면 위기나 소진으로 이어질 수 있음"
+      ]
+    }
+  },
+  "Sadalsuud": {
+    "constellation": "Aquarius",
+    "symbolism": {
+      "en": [
+        "Water pouring from the Water Bearer.",
+        "The process through which contents are delivered outward",
+        "A flow in which intentions or resources spread",
+        "If dispersion increases, control can become difficult"
+      ],
+      "ko": [
+        "물병에서 쏟아지는 물.",
+        "내용물이 외부로 전달되는 과정",
+        "의도나 자원이 확산되는 흐름",
+        "분산이 커지면 통제가 어려워질 수 있음"
+      ]
+    }
+  },
+  "Giedi Prima": {
+    "constellation": "Capricornus",
+    "symbolism": {
+      "en": [
+        "Foreleg of the Goat.",
+        "A point of support for moving forward",
+        "Step-by-step movement toward practical goals",
+        "If speed is pushed excessively, stability can be shaken"
+      ],
+      "ko": [
+        "염소의 앞다리.",
+        "앞으로 나아가기 위한 지지점",
+        "현실적인 목표를 향해 단계적으로 움직임",
+        "속도를 무리하게 높이면 안정이 흔들릴 수 있음"
+      ]
+    }
+  },
+  "Mirach": {
+    "constellation": "Andromeda",
+    "symbolism": {
+      "en": [
+        "Waist of Andromeda.",
+        "Gentleness, relational consideration, and mediating ability",
+        "Tendency to ease tension through a soft approach",
+        "Excessive compromise may weaken self-assertion"
+      ],
+      "ko": [
+        "안드로메다의 허리.",
+        "온화함, 관계적 배려, 조정 능력",
+        "부드러운 태도로 긴장을 완화하는 성향",
+        "타협이 지나치면 자기 주장력이 약해질 수 있음"
+      ]
+    }
+  },
+  "Wezen": {
+    "constellation": "Canis Major",
+    "symbolism": {
+      "en": [
+        "Body of the Great Dog.",
+        "An attitude of supporting and protecting others",
+        "Endurance and devotion arising from responsibility",
+        "If self-depletion accumulates, it can turn into burden"
+      ],
+      "ko": [
+        "큰개의 몸통.",
+        "타인을 지지하고 보호하려는 태도",
+        "책임감에서 비롯된 인내와 헌신",
+        "자기 소모가 누적되면 부담으로 전환될 수 있음"
+      ]
+    }
+  },
+  "Sulaphat": {
+    "constellation": "Lyra",
+    "symbolism": {
+      "en": [
+        "Upper part of the Lyre.",
+        "Refined thinking, rational judgment",
+        "Structural understanding of situations without being swayed by emotion",
+        "Excessive rationalization can lead to emotional detachment or cynicism"
+      ],
+      "ko": [
+        "거문고의 윗부분.",
+        "정제된 사고, 이성적 판단",
+        "감정에 휘둘리지 않고 상황을 구조적으로 파악",
+        "과도한 이성화는 감정 단절이나 냉소로 이어질 수 있음"
+      ]
+    }
+  },
+  "Algenib": {
+    "constellation": "Pegasus",
+    "symbolism": {
+      "en": [
+        "Shoulder of Pegasus.",
+        "Tension and forward drive under pressure",
+        "Will to advance despite unstable conditions",
+        "Forcing a breakthrough may increase conflict or depletion"
+      ],
+      "ko": [
+        "페가수스의 어깨.",
+        "긴장, 압박 속에서의 추진력",
+        "불안정한 환경에서도 앞으로 나아가려는 의지",
+        "무리한 돌파는 갈등이나 소모를 키울 수 있음"
+      ]
+    }
+  },
+  "Nunki": {
+    "constellation": "Sagittarius",
+    "symbolism": {
+      "en": [
+        "Hand holding the Archer’s bow.",
+        "Communal responsibility, a group’s voyage",
+        "Directionality that emerges when many move together",
+        "If the individual will gets buried, agency can weaken"
+      ],
+      "ko": [
+        "궁수의 활을 든 손.",
+        "공동체적 책임, 집단의 항해",
+        "여럿이 함께 움직일 때 발휘되는 방향성",
+        "개인의 의지가 묻히면 주체성이 약해질 수 있음"
+      ]
+    }
+  },
+  "Almach": {
+    "constellation": "Andromeda",
+    "symbolism": {
+      "en": [
+        "Foot of Andromeda.",
+        "Refinement, artistic sensitivity, and charm",
+        "Soft coordination of relationships and environments through aesthetic sense",
+        "Overemphasis on appearance or atmosphere may blur practical judgment"
+      ],
+      "ko": [
+        "안드로메다의 발.",
+        "세련됨, 예술적 감수성, 매력",
+        "미적 감각을 통해 관계와 환경을 부드럽게 조율",
+        "외형이나 분위기에 치중하면 실질적 판단이 흐려질 수 있음"
+      ]
+    }
+  },
+  "Albaldah": {
+    "constellation": "Sagittarius",
+    "symbolism": {
+      "en": [
+        "Back of the Archer’s head.",
+        "Isolation, wandering, and temporary void",
+        "Inner realignment while direction is lost",
+        "Prolonged stagnation may lead to helplessness"
+      ],
+      "ko": [
+        "궁수의 머리 뒤.",
+        "고립, 방황, 일시적 공백",
+        "방향을 잃은 상태에서의 내적 재정렬",
+        "정체기를 장기화하면 무력감으로 이어질 수 있음"
+      ]
+    }
+  },
+  "Asellus Australis": {
+    "constellation": "Cancer",
+    "symbolism": {
+      "en": [
+        "Belly of the Crab.",
+        "Nurturing, protection, and labor for survival",
+        "Steady fulfillment of roles that remain largely unseen",
+        "Excessive responsibility may lead to fatigue or emotional depletion"
+      ],
+      "ko": [
+        "게의 배.",
+        "양육, 보호, 생존을 위한 노동",
+        "눈에 띄지 않지만 꾸준히 역할을 수행하는 태도",
+        "과도한 책임감은 피로감이나 감정적 소모로 이어질 수 있음"
+      ]
+    }
+  },
+  "Sheliak": {
+    "constellation": "Lyra",
+    "symbolism": {
+      "en": [
+        "String of the Lyre.",
+        "Norms, agreements, relational frameworks",
+        "Stable functioning within defined roles and contracts",
+        "Over-attachment to form can suppress emotion or individuality"
+      ],
+      "ko": [
+        "거문고의 현.",
+        "규범, 약속, 관계의 틀",
+        "정해진 역할과 계약 안에서 안정적으로 작동",
+        "형식에 매이면 감정이나 개별성이 억눌릴 수 있음"
+      ]
+    }
+  },
+  "Deneb": {
+    "constellation": "Cygnus",
+    "symbolism": {
+      "en": [
+        "Tail of the Swan.",
+        "Honor, protection, and devotion to ideals",
+        "Quiet yet enduring influence and trust",
+        "Excessive self-sacrifice may lead to personal exhaustion"
+      ],
+      "ko": [
+        "백조의 꼬리.",
+        "명예, 보호, 이상을 향한 헌신",
+        "조용하지만 지속적인 영향력과 신뢰",
+        "자기희생이 과도해질 경우 개인적 소진으로 이어질 수 있음"
+      ]
+    }
+  },
+  "Sheratan": {
+    "constellation": "Aries",
+    "symbolism": {
+      "en": [
+        "Forehead of the Ram.",
+        "Initiation, collision, immediate action",
+        "Driving force that opens situations first",
+        "Haste can produce unnecessary friction or loss"
+      ],
+      "ko": [
+        "양의 이마.",
+        "선도, 충돌, 즉각적 행동",
+        "상황을 먼저 열어젖히는 추진력",
+        "성급함은 불필요한 마찰이나 손실을 낳을 수 있음"
+      ]
+    }
+  },
+  "Mufrid": {
+    "constellation": "Boötes",
+    "symbolism": {
+      "en": [
+        "Leg of the Herdsman.",
+        "A limb where movement and support occur together",
+        "Adjusting direction through one’s own strength",
+        "Sustained burden can lead to fatigue"
+      ],
+      "ko": [
+        "목동의 다리.",
+        "이동과 지지가 함께 이루어지는 부위",
+        "스스로의 힘으로 방향을 조정함",
+        "지속적인 부담은 피로로 이어질 수 있음"
+      ]
+    }
+  },
+  "Canopus": {
+    "constellation": "Carina",
+    "symbolism": {
+      "en": [
+        "Keel of the Ship.",
+        "Honor, navigation, and guidance toward distant goals",
+        "Wisdom that maintains direction even in hazardous conditions",
+        "If ideals or goals become detached from reality, isolation may follow"
+      ],
+      "ko": [
+        "배의 용골.",
+        "명예, 항해, 먼 목표를 향한 인도",
+        "위험한 환경 속에서도 방향을 잃지 않는 지혜",
+        "이상이나 목표가 현실과 단절될 경우 고립으로 이어질 수 있음"
+      ]
+    }
+  },
+  "Vindemiatrix": {
+    "constellation": "Virgo",
+    "symbolism": {
+      "en": [
+        "Left arm of the Virgin.",
+        "Disappointment arising between expectation and reality",
+        "Errors in timing judgment, premature conclusions",
+        "Without sufficient ripening, it can lead to loss"
+      ],
+      "ko": [
+        "처녀의 왼팔.",
+        "기대와 현실 사이에서 발생하는 실망",
+        "시기 판단의 오류, 성급한 결론",
+        "충분한 숙성이 없을 경우 손실로 이어질 수 있음"
+      ]
+    }
+  },
+  "Alpheratz": {
+    "constellation": "Andromeda",
+    "symbolism": {
+      "en": [
+        "Head of Andromeda.",
+        "Freedom, independence, and transcendence of boundaries",
+        "Desire to break away from existing frameworks or affiliations",
+        "If it turns into avoidance of responsibility, unstable relationships may result"
+      ],
+      "ko": [
+        "안드로메다의 머리.",
+        "자유, 독립, 경계의 초월",
+        "기존 틀이나 소속에서 벗어나려는 욕구",
+        "책임 회피로 흐를 경우 불안정한 관계를 초래할 수 있음"
+      ]
+    }
+  },
+  "Sualocin": {
+    "constellation": "Delphinus",
+    "symbolism": {
+      "en": [
+        "Head of the Dolphin.",
+        "A point where perception and directional judgment occur",
+        "Sensitive responsiveness to surrounding signals",
+        "If information increases, choices can become dispersed"
+      ],
+      "ko": [
+        "돌고래의 머리.",
+        "인식과 방향 판단이 이루어지는 지점",
+        "주변 신호에 민감하게 반응함",
+        "정보가 많아지면 선택이 분산될 수 있음"
+      ]
+    }
+  },
+  "Arneb": {
+    "constellation": "Lepus",
+    "symbolism": {
+      "en": [
+        "Foot of the Hare.",
+        "Rapid reactions and the ability to evade danger",
+        "Immediate responsiveness to changing situations",
+        "Without persistence, instability can result"
+      ],
+      "ko": [
+        "산토끼의 발.",
+        "빠른 반응과 위기 회피 능력",
+        "상황 변화에 즉각적으로 대응함",
+        "지속성이 부족하면 불안정해질 수 있음"
+      ]
+    }
+  },
+  "Algieba": {
+    "constellation": "Leo",
+    "symbolism": {
+      "en": [
+        "Mane of the Lion.",
+        "Expressiveness, enjoyment, and sensory communication",
+        "Charm and playfulness revealed through interaction with others",
+        "Excessive pursuit of pleasure or recognition may blur focus"
+      ],
+      "ko": [
+        "사자의 갈기.",
+        "표현력, 즐거움, 감각적 소통",
+        "타인과의 교류 속에서 드러나는 매력과 유희",
+        "쾌락이나 인정 욕구가 과해지면 집중력이 흐려질 수 있음"
+      ]
+    }
+  },
+  "Auva": {
+    "constellation": "Virgo",
+    "symbolism": {
+      "en": [
+        "Flank of the Virgin.",
+        "A point where bodily balance and stability are maintained",
+        "An attitude of mediating between details and the whole",
+        "If the sense of balance falters, fatigue can accumulate"
+      ],
+      "ko": [
+        "처녀의 옆구리.",
+        "몸의 균형과 안정이 유지되는 지점",
+        "세부와 전체 사이를 조율하려는 태도",
+        "균형 감각이 흐트러지면 피로가 누적될 수 있음"
+      ]
+    }
+  },
+  "Altair": {
+    "constellation": "Aquila",
+    "symbolism": {
+      "en": [
+        "Body of the Eagle.",
+        "Elevation, speed, bold movement, and the drive to rise above limitation",
+        "A tendency to act decisively, pursue freedom, and move quickly toward a chosen direction",
+        "If overdriven, it may lead to restlessness, impatience, or difficulty sustaining balance"
+      ],
+      "ko": [
+        "독수리의 몸통.",
+        "고양, 속도, 대담한 움직임, 한계를 넘어 올라가려는 추진력",
+        "분명한 방향을 향해 빠르게 움직이고 자유를 추구하며 단호하게 행동하는 경향",
+        "이 성향이 과도해지면 조급함, 불안정함, 균형 유지의 어려움으로 이어질 수 있음"
+      ]
+    }
+  },
+  "Alkes": {
+    "constellation": "Crater",
+    "symbolism": {
+      "en": [
+        "Interior of the Cup.",
+        "Refinement, restraint, and containment of emotion",
+        "Attitude of holding and maturing experiences and feelings",
+        "Excessive suppression may rigidify emotional expression"
+      ],
+      "ko": [
+        "잔의 내부.",
+        "정제, 절제, 감정의 그릇",
+        "경험과 감정을 담아두고 숙성시키는 태도",
+        "억제가 지나치면 감정 표현의 경직으로 이어질 수 있음"
+      ]
+    }
+  },
+  "Gienah Corvi": {
+    "constellation": "Corvus",
+    "symbolism": {
+      "en": [
+        "Wing of the Crow.",
+        "Agility, practical awareness, and problem-solving ability",
+        "Attitude that quickly identifies practical advantage in complex situations",
+        "Excessive opportunism may erode trust"
+      ],
+      "ko": [
+        "까마귀의 날개.",
+        "기민함, 현실 감각, 문제 해결 능력",
+        "복잡한 상황에서 실리를 빠르게 포착하는 태도",
+        "편의주의가 강해지면 신뢰를 잃을 수 있음"
+      ]
+    }
+  },
+  "Kochab": {
+    "constellation": "Ursa Minor",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Little Bear.",
+        "A point that bears weight while maintaining direction",
+        "Forming stability through persistence and reliability",
+        "If responsibilities accumulate, rigidity can develop"
+      ],
+      "ko": [
+        "작은곰의 어깨.",
+        "하중을 지탱하며 방향을 유지하는 지점",
+        "지속성과 신뢰를 통해 안정감을 형성함",
+        "책임이 누적되면 경직될 수 있음"
+      ]
+    }
+  },
+  "Thuban": {
+    "constellation": "Draco",
+    "symbolism": {
+      "en": [
+        "Body of the Dragon.",
+        "A former center, ancient authority",
+        "An order and structure that once served as the standard",
+        "Without adapting to change, influence can diminish"
+      ],
+      "ko": [
+        "용의 몸통.",
+        "과거의 중심, 오래된 권위",
+        "한때 기준이 되었던 질서와 구조",
+        "변화에 적응하지 않으면 영향력이 약화될 수 있음"
+      ]
+    }
+  },
+  "Al Hecka": {
+    "constellation": "Lyra",
+    "symbolism": {
+      "en": [
+        "Handle of the Lyre.",
+        "A sense for handling tools and structuring forms",
+        "An attitude of expression through form and order",
+        "Attachment to form can reduce flexibility"
+      ],
+      "ko": [
+        "거문고의 손잡이.",
+        "도구를 다루고 구조를 잡는 감각",
+        "형태와 질서를 통해 표현하려는 태도",
+        "형식에 집착하면 유연성이 줄어들 수 있음"
+      ]
+    }
+  },
+  "Sabik": {
+    "constellation": "Ophiuchus",
+    "symbolism": {
+      "en": [
+        "Shoulder of the Serpent-Bearer.",
+        "Moral boundaries, trials, duality",
+        "Choice made between virtue and danger",
+        "If ethical judgment becomes blurred, problems can escalate"
+      ],
+      "ko": [
+        "뱀주인의 어깨.",
+        "도덕적 경계, 시험, 양면성",
+        "선과 위험 사이에서의 선택",
+        "윤리적 판단이 흐려지면 문제를 키울 수 있음"
+      ]
+    }
+  },
+  "Albireo": {
+    "constellation": "Cygnus",
+    "symbolism": {
+      "en": [
+        "Beak of the Swan.",
+        "Duality, composite perspectives, coexistence of opposing elements",
+        "Ability to coordinate differing tendencies or roles",
+        "If inner division remains unresolved, confusion may arise"
+      ],
+      "ko": [
+        "백조의 부리.",
+        "이중성, 복합적 관점, 상반된 요소의 공존",
+        "서로 다른 성향이나 역할을 조율하는 능력",
+        "내적 분열이 정리되지 않으면 혼란으로 나타날 수 있음"
+      ]
+    }
+  },
+  "Dschubba": {
+    "constellation": "Scorpius",
+    "symbolism": {
+      "en": [
+        "Forehead of the Scorpion.",
+        "Hazard awareness, alert posture, and judgment under tension",
+        "Sensitivity that rapidly detects latent threats",
+        "Prolonged tension may lead to nervous depletion or anxiety"
+      ],
+      "ko": [
+        "전갈의 이마.",
+        "위험 인지, 경계 태세, 긴장 속 판단",
+        "잠재적 위협을 빠르게 감지하는 감각",
+        "지속적인 긴장은 신경 소모나 불안으로 이어질 수 있음"
+      ]
+    }
+  },
+  "Cor Caroli": {
+    "constellation": "Canes Venatici",
+    "symbolism": {
+      "en": [
+        "Heart of the Hunting Dog.",
+        "Loyalty, devotion, and trust within relationships",
+        "Disposition to honor personal bonds and commitments",
+        "Fixation on relationships alone may weaken autonomy"
+      ],
+      "ko": [
+        "사냥개의 심장.",
+        "충성, 헌신, 관계 속 신뢰",
+        "개인적 유대와 약속을 지키려는 태도",
+        "관계에만 매달리면 자율성이 약화될 수 있음"
+      ]
+    }
+  },
+  "Mirzam": {
+    "constellation": "Canis Major",
+    "symbolism": {
+      "en": [
+        "Forepaw of the Greater Dog.",
+        "Advance signal, forewarning, and signs of coming events",
+        "Function of announcing change or approaching situations",
+        "Ignoring warnings may delay effective response"
+      ],
+      "ko": [
+        "큰개의 앞발.",
+        "선행 신호, 예고, 상황의 전조",
+        "변화나 사건을 미리 알리는 역할",
+        "경고를 무시하면 대응이 늦어질 수 있음"
+      ]
+    }
+  },
+  "Merga": {
+    "constellation": "Boötes",
+    "symbolism": {
+      "en": [
+        "Hand of the Herdsman.",
+        "A point where choices of grasping or releasing are made",
+        "Conveying intention outward through action",
+        "If hesitation persists, opportunities can be missed"
+      ],
+      "ko": [
+        "목동의 손.",
+        "잡고 놓는 선택이 이루어지는 지점",
+        "행동을 통해 의도를 외부로 전달함",
+        "주저함이 길어지면 기회를 놓칠 수 있음"
+      ]
+    }
+  },
+  "Alphard": {
+    "constellation": "Hydra",
+    "symbolism": {
+      "en": [
+        "Heart of the Water Serpent.",
+        "Isolation and independent emotional currents",
+        "Tendency to follow one’s own rhythm at a distance from the collective",
+        "Neglected solitude may turn into emotional detachment or cynicism"
+      ],
+      "ko": [
+        "물뱀의 심장.",
+        "고립, 독립적 감정 흐름",
+        "집단과 거리를 두고 자신의 리듬을 따르려는 성향",
+        "고독을 방치하면 감정적 단절이나 냉소로 이어질 수 있음"
+      ]
+    }
+  },
+  "Acrab": {
+    "constellation": "Scorpius",
+    "symbolism": {
+      "en": [
+        "Claws of the Scorpion.",
+        "Concentration and crisis-response capability",
+        "Sharp perception of situations and rapid reaction",
+        "If excessive, aggressiveness can become prominent"
+      ],
+      "ko": [
+        "전갈의 집게.",
+        "집중력과 위기 대응 능력",
+        "상황을 예리하게 포착하고 반응함",
+        "지나치면 공격성이 두드러질 수 있음"
+      ]
+    }
+  },
+  "Ascella": {
+    "constellation": "Sagittarius",
+    "symbolism": {
+      "en": [
+        "Armpit of the Archer.",
+        "Support, cooperation, and collective protection",
+        "Role of contributing strength toward shared objectives",
+        "Suppressing one’s own perspective may weaken presence"
+      ],
+      "ko": [
+        "궁수의 겨드랑이.",
+        "지원, 협력, 집단적 보호",
+        "공동의 목표를 위해 힘을 보태는 역할",
+        "자기 의견을 억누르면 존재감이 약화될 수 있음"
+      ]
+    }
+  },
+  "Spica": {
+    "constellation": "Virgo",
+    "symbolism": {
+      "en": [
+        "Hand of the Maiden.",
+        "Protection, talent, fortune, and harmonious success",
+        "Stable expression of intellectual and artistic abilities",
+        "A benefic influence that supports lasting achievement with minimal side effects"
+      ],
+      "ko": [
+        "처녀의 손.",
+        "보호, 재능, 행운, 조화로운 성공",
+        "지적·예술적 능력의 안정적 발현",
+        "큰 부작용 없이 지속적인 성취를 돕는 길성"
+      ]
+    }
+  },
+  "Denebola": {
+    "constellation": "Leo",
+    "symbolism": {
+      "en": [
+        "Tail of the Lion.",
+        "Balance of movement and the terminal point of emotional expression",
+        "Responses to situations tend to appear relatively directly",
+        "If control weakens, it can appear scattered"
+      ],
+      "ko": [
+        "사자의 꼬리.",
+        "움직임의 균형과 감정 표현의 말단",
+        "상황에 대한 반응이 비교적 직접적으로 드러남",
+        "통제가 약해지면 산만해 보일 수 있음"
+      ]
+    }
+  },
+  "Izar": {
+    "constellation": "Boötes",
+    "symbolism": {
+      "en": [
+        "Waist of the Herdsman.",
+        "The area where bodily center and balance are maintained",
+        "Stably supporting responsibility and role",
+        "If the center wavers, overall coordination can become difficult"
+      ],
+      "ko": [
+        "목동의 허리.",
+        "몸의 중심과 균형이 유지되는 부위",
+        "책임과 역할을 안정적으로 지탱함",
+        "중심이 흔들리면 전반적 조율이 어려워질 수 있음"
+      ]
+    }
+  },
+  "Ras Elased Australis": {
+    "constellation": "Leo",
+    "symbolism": {
+      "en": [
+        "Head of the Lion.",
+        "A position where gaze and presence are concentrated",
+        "Functioning as a center of initiative and awareness",
+        "If exposure increases, it can become burdensome"
+      ],
+      "ko": [
+        "사자의 머리.",
+        "시선과 존재감이 집중되는 위치",
+        "주도권과 인식의 중심으로 작동함",
+        "노출이 커지면 부담이 될 수 있음"
+      ]
+    }
+  },
+  "Meissa": {
+    "constellation": "Orion",
+    "symbolism": {
+      "en": [
+        "Head of the Hunter.",
+        "A point where consciousness and perception are concentrated",
+        "Grasping situations first and forming plans",
+        "If information increases, judgment can be delayed"
+      ],
+      "ko": [
+        "사냥꾼의 머리.",
+        "의식과 인식이 집중되는 지점",
+        "상황을 먼저 파악하고 계획을 세움",
+        "정보가 많아지면 판단이 지연될 수 있음"
+      ]
+    }
+  },
+  "Alhena": {
+    "constellation": "Gemini",
+    "symbolism": {
+      "en": [
+        "Foot of the Twins.",
+        "Refinement and balanced judgment",
+        "Disposition toward harmony while avoiding extremes",
+        "Prolonged indecision may weaken decisiveness"
+      ],
+      "ko": [
+        "쌍둥이의 발.",
+        "세련됨, 균형 잡힌 판단",
+        "극단을 피하고 조화를 추구하는 태도",
+        "우유부단함이 길어질 경우 결정력이 약화될 수 있음"
+      ]
+    }
+  },
+  "Acumen": {
+    "constellation": "Scorpius",
+    "symbolism": {
+      "en": [
+        "Venom sac of the Scorpion.",
+        "Insight and strategic thinking",
+        "The ability to penetrate hidden intentions or the core issue",
+        "When fixation intensifies, it can turn into obsessiveness"
+      ],
+      "ko": [
+        "전갈의 독주머니.",
+        "통찰력과 전략적 사고",
+        "숨겨진 의도나 핵심을 꿰뚫는 능력",
+        "집착이 강해지면 집요함으로 변질될 수 있음"
+      ]
+    }
+  },
+  "Saiph": {
+    "constellation": "Orion",
+    "symbolism": {
+      "en": [
+        "Foot of the Hunter.",
+        "A part that supports the body while changing direction",
+        "A stage of translating will into action",
+        "If the foundation is weak, progress can become unstable"
+      ],
+      "ko": [
+        "사냥꾼의 발.",
+        "몸을 지탱하며 방향을 전환하는 부위",
+        "행동으로 의지를 옮기는 단계",
+        "기반이 약하면 진행이 불안정해질 수 있음"
+      ]
+    }
+  },
+  "Deneb Algedi": {
+    "constellation": "Capricornus",
+    "symbolism": {
+      "en": [
+        "Tail of the Goat.",
+        "A role that supports balance from behind",
+        "Bearing responsibility together with real-world conditions",
+        "As burdens accumulate, flexibility can decrease"
+      ],
+      "ko": [
+        "염소의 꼬리.",
+        "뒤에서 균형을 보조하는 역할",
+        "책임과 현실 조건을 함께 감당함",
+        "부담이 쌓이면 유연성이 줄어들 수 있음"
+      ]
+    }
+  },
+  "Alsuhail": {
+    "constellation": "Vela",
+    "symbolism": {
+      "en": [
+        "Sail of the Ship.",
+        "A point where movement is determined by external conditions",
+        "Adaptability that seeks to utilize environmental currents",
+        "If initiative is lost, direction can become unstable"
+      ],
+      "ko": [
+        "배의 돛.",
+        "외부 조건에 따라 움직임이 결정되는 지점",
+        "환경의 흐름을 활용하려는 적응력",
+        "주도권을 잃으면 방향이 흔들릴 수 있음"
+      ]
+    }
+  },
+  "Mintaka": {
+    "constellation": "Orion",
+    "symbolism": {
+      "en": [
+        "Center of the Hunter’s belt.",
+        "A point where strength and roles are held in balance",
+        "Maintaining a center while sustaining multiple elements at once",
+        "If balance is disrupted, overall stability can be shaken"
+      ],
+      "ko": [
+        "사냥꾼의 허리띠 중앙.",
+        "힘과 역할이 균형을 이루는 지점",
+        "여러 요소를 동시에 유지하며 중심을 잡음",
+        "균형이 깨지면 전반적 안정이 흔들릴 수 있음"
+      ]
+    }
+  },
+  "Nekkar": {
+    "constellation": "Boötes",
+    "symbolism": {
+      "en": [
+        "Head of the Herdsman.",
+        "A point where perception and judgment take place",
+        "Reading situations and determining direction",
+        "If information increases, choices can become complex"
+      ],
+      "ko": [
+        "목동의 머리.",
+        "인식과 판단이 이루어지는 지점",
+        "상황을 읽고 방향을 결정함",
+        "정보가 많아지면 선택이 복잡해질 수 있음"
+      ]
+    }
+  },
+  "Mirfak": {
+    "constellation": "Perseus",
+    "symbolism": {
+      "en": [
+        "Torso of Perseus.",
+        "Center of the group and coordinating leadership",
+        "Role of binding multiple elements into a unified direction",
+        "Excessive responsibility may increase the sense of burden"
+      ],
+      "ko": [
+        "페르세우스의 몸통.",
+        "집단의 중심, 조율적 리더십",
+        "여러 요소를 하나로 묶어 이끄는 역할",
+        "책임이 과중해지면 부담감이 커질 수 있음"
+      ]
+    }
+  },
+  "Acrux": {
+    "constellation": "Crux",
+    "symbolism": {
+      "en": [
+        "Center of the Cross.",
+        "Sacrifice, devotion, and moral conviction",
+        "Sense of responsibility that places the collective above the self",
+        "When self-sacrifice becomes excessive, personal loss may intensify"
+      ],
+      "ko": [
+        "십자가의 중심.",
+        "희생, 헌신, 도덕적 신념",
+        "공동체를 위해 자신을 내놓는 책임감",
+        "자기희생이 과도해질 경우 개인적 상실감이 커질 수 있음"
+      ]
+    }
+  },
+  "Antares": {
+    "constellation": "Scorpius",
+    "symbolism": {
+      "en": [
+        "Heart of the Scorpion.",
+        "Intense passion, struggle, destruction, and renewal",
+        "Extreme power and decisive force revealed in crisis situations",
+        "Uncontrolled anger or obsession may lead to self-destruction"
+      ],
+      "ko": [
+        "전갈의 심장.",
+        "강렬한 열정, 투쟁, 파괴와 재생",
+        "위기 상황에서 드러나는 극단적 힘과 결단",
+        "분노와 집착을 통제하지 못하면 자기파괴로 이어질 수 있음"
+      ]
+    }
+  },
+  "Alnilam": {
+    "constellation": "Orion",
+    "symbolism": {
+      "en": [
+        "Center of the Hunter’s belt.",
+        "Centrality, order, and the core of collective structure",
+        "Role of maintaining balance and flow within a system",
+        "Fixation on the center may lead to rigidity or overload"
+      ],
+      "ko": [
+        "사냥꾼의 허리띠 중앙.",
+        "중심성, 질서, 집단적 구조의 핵",
+        "체계 속에서 균형을 잡고 흐름을 유지하는 역할",
+        "중심에 대한 집착이 강해지면 경직이나 과부하로 이어질 수 있음"
+      ]
+    }
+  },
+  "El Nath": {
+    "constellation": "Taurus",
+    "symbolism": {
+      "en": [
+        "Tip of the Bull’s horn.",
+        "Decisiveness, aggressive breakthrough, and force that crosses boundaries",
+        "Will to pierce resistance and shift circumstances",
+        "Reckless action may provoke unnecessary confrontation"
+      ],
+      "ko": [
+        "황소의 뿔 끝.",
+        "결단, 공격적 돌파, 선을 넘는 힘",
+        "저항을 뚫고 상황을 전환하려는 의지",
+        "무모한 행동은 불필요한 충돌을 부를 수 있음"
+      ]
+    }
+  },
+  "Pollux": {
+    "constellation": "Gemini",
+    "symbolism": {
+      "en": [
+        "Head of the Twins.",
+        "Strong individuality, fighting spirit, and self-assertion",
+        "Courage and decisiveness revealed in crisis situations",
+        "If impulsiveness or aggression is uncontrolled, conflict may arise"
+      ],
+      "ko": [
+        "쌍둥이의 머리.",
+        "강한 개성, 투쟁력, 자기 주장",
+        "위기 상황에서 드러나는 용기와 결단",
+        "충동성과 공격성이 통제되지 않으면 갈등을 초래할 수 있음"
+      ]
+    }
+  },
+  "Zuben Elakrab": {
+    "constellation": "Libra",
+    "symbolism": {
+      "en": [
+        "Weight of the Scales.",
+        "The element that actually measures mass",
+        "A point where the outcome of choices becomes quantified",
+        "If measurement is repeated excessively, decisions can be delayed"
+      ],
+      "ko": [
+        "저울의 추.",
+        "무게를 실제로 가늠하는 요소",
+        "선택의 결과가 수치화되는 지점",
+        "측정이 반복되면 결정이 지연될 수 있음"
+      ]
+    }
+  },
+  "Khambalia": {
+    "constellation": "Virgo",
+    "symbolism": {
+      "en": [
+        "Ankle of the Virgin.",
+        "A point requiring fine balance adjustment",
+        "Regulating the overall flow through small movements",
+        "If unstable, progress can become cautious"
+      ],
+      "ko": [
+        "처녀의 발목.",
+        "세밀한 균형 조정이 필요한 지점",
+        "작은 움직임으로 전체 흐름을 조율함",
+        "불안정하면 진행이 조심스러워질 수 있음"
+      ]
+    }
+  },
+  "GienahCyg": {
+    "constellation": "Cygnus",
+    "symbolism": {
+      "en": [
+        "Wing of the Swan.",
+        "A part responsible for movement and directional adjustment",
+        "Flexibly changing course according to circumstances",
+        "Excessive dispersion can reduce focus"
+      ],
+      "ko": [
+        "백조의 날개.",
+        "이동과 방향 조절을 담당하는 부위",
+        "상황에 따라 유연하게 진로를 바꿈",
+        "과도한 분산은 집중력을 떨어뜨릴 수 있음"
+      ]
+    }
+  },
+  "Toliman": {
+    "constellation": "Centaurus",
+    "symbolism": {
+      "en": [
+        "Leg of the Centaur.",
+        "Emotional bonds formed through relationships with others",
+        "Points of cooperation, coexistence, or relational testing",
+        "If one becomes overly dependent on relationships, agency can blur"
+      ],
+      "ko": [
+        "켄타우로스의 다리.",
+        "타인과의 관계에서 형성되는 정서적 유대",
+        "협력, 공존, 혹은 관계적 시험의 지점",
+        "관계에 과도하게 의존할 경우 주체성이 흐려질 수 있음"
+      ]
+    }
+  },
+  "Merak": {
+    "constellation": "Ursa Major",
+    "symbolism": {
+      "en": [
+        "Flank of the Great Bear.",
+        "A part that supports the torso while maintaining direction",
+        "Serving as a stable reference point",
+        "If overly fixed, it can become insensitive to change"
+      ],
+      "ko": [
+        "큰곰의 옆구리.",
+        "몸통을 지지하며 방향을 유지하는 부위",
+        "안정된 기준점 역할을 수행함",
+        "지나치게 고정되면 변화에 둔해질 수 있음"
+      ]
+    }
+  },
+  "Alkaid": {
+    "constellation": "Ursa Major",
+    "symbolism": {
+      "en": [
+        "End of the Great Bear’s tail.",
+        "Closure, completion, and cool-headed decision",
+        "Capacity to conclude situations and move to the next stage",
+        "Excessive emotional detachment may result in isolation or severance"
+      ],
+      "ko": [
+        "큰곰의 꼬리 끝.",
+        "종결, 마무리, 냉정한 결단",
+        "상황을 정리하고 다음 단계로 넘어가는 힘",
+        "감정 배제가 과해지면 고립이나 단절을 초래할 수 있음"
+      ]
+    }
+  },
+  "Mira": {
+    "constellation": "Cetus",
+    "symbolism": {
+      "en": [
+        "Body of the Whale.",
+        "Periodic change and recurring fluctuation",
+        "Distinctiveness revealed through rhythms of rise and fall",
+        "If the amplitude of change grows too large, stability may be unsettled"
+      ],
+      "ko": [
+        "고래의 몸통.",
+        "주기적 변화, 반복되는 부침",
+        "강약이 뚜렷한 리듬 속에서 드러나는 특이성",
+        "변화의 파폭이 크면 안정감이 흔들릴 수 있음"
+      ]
+    }
+  },
+  "Enif": {
+    "constellation": "Pegasus",
+    "symbolism": {
+      "en": [
+        "Nose of Pegasus.",
+        "Boldness, expansion, and adventurous choice",
+        "Drive and confidence to push beyond limits",
+        "Overconfidence may lead to errors in judgment or exposure to risk"
+      ],
+      "ko": [
+        "페가수스의 코.",
+        "대담함, 확장, 모험적 선택",
+        "한계를 넘어서려는 추진력과 자신감",
+        "과신은 판단 오류나 위험 노출로 이어질 수 있음"
+      ]
+    }
+  },
+  "Alphecca": {
+    "constellation": "Corona Borealis",
+    "symbolism": {
+      "en": [
+        "Center of the Crown.",
+        "Honor, elegance, and social recognition",
+        "Beauty and dignity expressed through relationships and cooperation",
+        "Excessive need for recognition may manifest as vanity or relational tension"
+      ],
+      "ko": [
+        "왕관의 중앙.",
+        "명예, 우아함, 사회적 인정",
+        "관계와 협력 속에서 드러나는 아름다움과 품위",
+        "인정 욕구가 과도해질 경우 허영이나 관계적 긴장으로 나타날 수 있음"
+      ]
+    }
+  },
+  "Shaula": {
+    "constellation": "Scorpius",
+    "symbolism": {
+      "en": [
+        "Stinger of the Scorpion.",
+        "Extremes, confrontation with crisis, moments of decision",
+        "A point where choices are demanded under inescapable tension",
+        "Impulsive reactions can leave irreversible consequences"
+      ],
+      "ko": [
+        "전갈의 독침.",
+        "극단, 위기 직면, 결단의 순간",
+        "피할 수 없는 긴장 속에서 선택을 요구받는 지점",
+        "충동적 대응은 돌이키기 어려운 결과를 남길 수 있음"
+      ]
+    }
+  },
+  "Alnair": {
+    "constellation": "Grus",
+    "symbolism": {
+      "en": [
+        "Tail of the Crane.",
+        "Independent judgment, autonomy, and personal standards",
+        "Inclination to determine direction without external interference",
+        "Choosing isolation may forfeit opportunities for cooperation"
+      ],
+      "ko": [
+        "두루미의 꼬리.",
+        "독립적 판단, 자율성, 개인적 기준",
+        "외부 간섭 없이 스스로 방향을 정하는 성향",
+        "고립을 선택하면 협력의 기회를 놓칠 수 있음"
+      ]
+    }
+  },
+  "Porrima": {
+    "constellation": "Virgo",
+    "symbolism": {
+      "en": [
+        "Arm of the Virgin.",
+        "Discernment, judgment, delicate analysis",
+        "The ability to understand situations by breaking them down finely",
+        "If criticality intensifies, it can create relational tension"
+      ],
+      "ko": [
+        "처녀의 팔.",
+        "분별, 판단, 섬세한 분석",
+        "상황을 세밀하게 나누어 이해하는 능력",
+        "비판성이 강해지면 관계적 긴장을 만들 수 있음"
+      ]
+    }
+  },
+  "Alioth": {
+    "constellation": "Ursa Major",
+    "symbolism": {
+      "en": [
+        "Base of the Great Bear’s tail.",
+        "Leadership, influence, and directional guidance",
+        "Functioning as a reference point within a group",
+        "When authority becomes rigid, it may manifest as dominance or control"
+      ],
+      "ko": [
+        "큰곰의 꼬리 기점.",
+        "지도력, 영향력, 방향 제시",
+        "집단 내에서 기준점이 되는 역할",
+        "권위가 경직되면 독단이나 통제 욕구로 나타날 수 있음"
+      ]
+    }
+  },
+  "Ras Alhague": {
+    "constellation": "Ophiuchus",
+    "symbolism": {
+      "en": [
+        "Head of the Serpent-Bearer.",
+        "Healing, problem recognition, responsible intervention",
+        "The will and capacity to manage and correct disorder",
+        "Excessive intervention can increase burden or conflict"
+      ],
+      "ko": [
+        "뱀주인의 머리.",
+        "치유, 문제 인식, 책임 있는 개입",
+        "혼란을 바로잡으려는 의지와 관리 능력",
+        "과도한 개입은 부담이나 갈등을 키울 수 있음"
+      ]
+    }
+  },
+  "Adara": {
+    "constellation": "Canis Major",
+    "symbolism": {
+      "en": [
+        "Body of the Greater Dog.",
+        "Endurance, perseverance, and survival under extreme conditions",
+        "Resilience that withstands hardship and pressure",
+        "Idealizing suffering may lead to emotional isolation"
+      ],
+      "ko": [
+        "큰개의 몸통.",
+        "인내, 견딤, 극한 환경에서의 생존력",
+        "어려운 조건 속에서도 버텨내는 강인함",
+        "고통을 미화하면 감정적 고립으로 이어질 수 있음"
+      ]
+    }
+  },
+  "Deneb Adige": {
+    "constellation": "Cygnus",
+    "symbolism": {
+      "en": [
+        "Tail of the Swan.",
+        "The closing of movement and a point of directional shift",
+        "Adjusting balance at the end of a process",
+        "If closure is delayed, lingering effects can persist"
+      ],
+      "ko": [
+        "백조의 꼬리.",
+        "이동의 마무리와 방향 전환의 지점",
+        "과정의 끝에서 균형을 조절함",
+        "정리가 늦어지면 여운이 길게 남을 수 있음"
+      ]
+    }
+  },
+  "Ras Elased Borealis": {
+    "constellation": "Leo",
+    "symbolism": {
+      "en": [
+        "Upper part of the Lion’s head.",
+        "A point where vision and awareness are directed upward",
+        "An attitude of surveying situations broadly",
+        "If distance increases too much, details can be missed"
+      ],
+      "ko": [
+        "사자의 머리 윗부분.",
+        "시야와 인식이 위쪽으로 향하는 지점",
+        "상황을 넓게 조망하려는 태도",
+        "거리 두기가 커지면 세부를 놓칠 수 있음"
+      ]
+    }
+  },
+  "Kitalpha": {
+    "constellation": "Equuleus",
+    "symbolism": {
+      "en": [
+        "Head of the Foal.",
+        "A part where directional awareness and initial reactions are formed",
+        "An attitude of exploring new environments",
+        "If judgment is immature, hesitation can increase"
+      ],
+      "ko": [
+        "망아지의 머리.",
+        "방향 인식과 초기 반응이 형성되는 부위",
+        "새로운 환경을 탐색하려는 태도",
+        "판단이 미성숙하면 망설임이 늘어날 수 있음"
+      ]
+    }
+  },
+  "Jabbah": {
+    "constellation": "Scorpius",
+    "symbolism": {
+      "en": [
+        "Head of the Scorpion.",
+        "A point where sensation and cognition are concentrated",
+        "Recognizing situations first and preparing a response",
+        "If information becomes excessive, judgment can grow complex"
+      ],
+      "ko": [
+        "전갈의 머리.",
+        "감각과 인지가 집중되는 지점",
+        "상황을 먼저 인식하고 반응을 준비함",
+        "정보가 과도하면 판단이 복잡해질 수 있음"
+      ]
+    }
+  },
+  "Bellatrix": {
+    "constellation": "Orion",
+    "symbolism": {
+      "en": [
+        "Left shoulder of the Hunter.",
+        "Directed force, strategic action, and execution under tension",
+        "A will that engages actively with challenge rather than observing it",
+        "If overcommitted to action, it may lead to unnecessary conflict or exhaustion"
+      ],
+      "ko": [
+        "사냥꾼의 왼쪽 어깨.",
+        "방향성을 가진 힘, 전략적 행동, 긴장 속 실행력",
+        "상황을 관망하지 않고 직접 개입하는 의지",
+        "행동에 과몰입하면 불필요한 충돌이나 소모로 이어질 수 있음"
+      ]
+    }
+  },
+  "Rigel": {
+    "constellation": "Orion",
+    "symbolism": {
+      "en": [
+        "Foot of the Hunter.",
+        "Technical skill, education, and structured achievement",
+        "Stable reputation earned through effort and training",
+        "Misuse of knowledge or authority may erode trust"
+      ],
+      "ko": [
+        "사냥꾼의 발.",
+        "기술적 능력, 교육, 체계적 성취",
+        "노력과 훈련을 통해 얻는 안정적 명성",
+        "지식이나 권한을 남용할 경우 신뢰를 잃을 수 있음"
+      ]
+    }
+  },
+  "Menkar": {
+    "constellation": "Cetus",
+    "symbolism": {
+      "en": [
+        "Head of the Whale.",
+        "Helplessness, emotional pressure, and inward sinking",
+        "State of feeling constrained by external circumstances",
+        "Prolonged passivity may weaken self-efficacy"
+      ],
+      "ko": [
+        "고래의 머리.",
+        "무력감, 감정적 압박, 침잠",
+        "외부 환경에 의해 제약을 느끼는 상태",
+        "소극성이 길어지면 자기 효능감이 약화될 수 있음"
+      ]
+    }
+  },
+  "Phact": {
+    "constellation": "Columba",
+    "symbolism": {
+      "en": [
+        "Chest of the Dove.",
+        "A center where breathing and life rhythm are maintained",
+        "Securing continuity within a stable state",
+        "If pressure increases, ease can diminish"
+      ],
+      "ko": [
+        "비둘기의 가슴.",
+        "호흡과 생명 리듬이 유지되는 중심",
+        "안정된 상태에서 지속성을 확보함",
+        "압박이 커지면 여유가 줄어들 수 있음"
+      ]
+    }
+  },
+  "Asellus Borealis": {
+    "constellation": "Cancer",
+    "symbolism": {
+      "en": [
+        "Back of the Crab.",
+        "Support, practical assistance, and everyday stability",
+        "Role of sustaining the center and maintaining balance",
+        "Repeated self-sacrifice may be felt as a loss of presence"
+      ],
+      "ko": [
+        "게의 등.",
+        "지원, 실무적 보조, 일상의 안정",
+        "중심을 떠받치며 균형을 유지하는 역할",
+        "자기 희생이 반복되면 존재감 상실로 느껴질 수 있음"
+      ]
+    }
+  }
+}

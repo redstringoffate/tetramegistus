@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "day_lord": "B4",
+    "hour_lord": "B5",
+    "ayanamsa": "B6",
+    "fixed_star_orb": "B7"
+  },
+  "planets": {
+    "Sun": { "info": "E11", "ruler": "F11", "dignity": "G11", "nakshatra": "H11", "pada": "I11", "sabian": "J11", "row_start": 11 },
+    "Moon": { "info": "E12", "ruler": "F12", "dignity": "G12", "nakshatra": "H12", "pada": "I12", "sabian": "J12", "row_start": 12 },
+    "Mercury": { "info": "E13", "ruler": "F13", "dignity": "G13", "nakshatra": "H13", "pada": "I13", "sabian": "J13", "row_start": 13 },
+    "Venus": { "info": "E14", "ruler": "F14", "dignity": "G14", "nakshatra": "H14", "pada": "I14", "sabian": "J14", "row_start": 14 },
+    "Mars": { "info": "E15", "ruler": "F15", "dignity": "G15", "nakshatra": "H15", "pada": "I15", "sabian": "J15", "row_start": 15 },
+    "Jupiter": { "info": "E16", "ruler": "F16", "dignity": "G16", "nakshatra": "H16", "pada": "I16", "sabian": "J16", "row_start": 16 },
+    "Saturn": { "info": "E17", "ruler": "F17", "dignity": "G17", "nakshatra": "H17", "pada": "I17", "sabian": "J17", "row_start": 17 }
+  },
+  "lilith_nodes": {
+    "Rahu": { "info": "E18", "ruler": "F18", "dignity": "G18", "nakshatra": "H18", "pada": "I18", "sabian": "J18", "row_start": 18 },
+    "Ketu": { "info": "E19", "ruler": "F19", "dignity": "G19", "nakshatra": "H19", "pada": "I19", "sabian": "J19", "row_start": 19 },
+    "Mean Lilith": { "info": "E21", "ruler": "F21", "dignity": "G21", "nakshatra": "H21", "pada": "I21", "sabian": "J21", "row_start": 21 }
+  },
+  "asteroids": {
+    "Chiron": { "info": "E22", "ruler": "F22", "dignity": "G22", "nakshatra": "H22", "pada": "I22", "sabian": "J22", "row_start": 22 }
+  },
+  "angles": {
+    "Ascendant": { "info": "E26", "ruler": "F26", "dignity": "G26", "nakshatra": "H26", "pada": "I26", "sabian": "J26", "row_start": 26 },
+    "Immum Coeli": { "info": "E27", "ruler": "F27", "dignity": "G27", "nakshatra": "H27", "pada": "I27", "sabian": "J27", "row_start": 27 },
+    "Descendant": { "info": "E28", "ruler": "F28", "dignity": "G28", "nakshatra": "H28", "pada": "I28", "sabian": "J28", "row_start": 28 },
+    "Midheaven": { "info": "E29", "ruler": "F29", "dignity": "G29", "nakshatra": "H29", "pada": "I29", "sabian": "J29", "row_start": 29 }
+  }
+}

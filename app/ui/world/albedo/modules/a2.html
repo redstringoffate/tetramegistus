@@ -1,0 +1,204 @@
+<link rel="stylesheet" href="/static/world/albedo/modules/a2.css">
+
+<div class="a2-coagulatio">
+    <h1 class="materia-title">COAGULATIO</h1>
+
+    <div class="control-row main-toggle-row">
+        <div class="dichotomy-module main-toggle">
+            <span class="dicho-label active" id="label-method-comp">Composite</span>
+            <div class="toggle-switch" onclick="switchMethodToggle()">
+                <div class="toggle-knob" id="method-knob"></div>
+            </div>
+            <span class="dicho-label" id="label-method-dav">Davison</span>
+        </div>
+    </div>
+
+    <div class="control-row condition-row">
+        
+        <div id="davison-lords" class="lordship-bar" style="display: none;">
+            <div class="lord-slot">Day Lord: <span class="val" id="day-lord">-</span></div>
+            <div class="lord-slot">Hour Lord: <span class="val" id="hour-lord">-</span></div>
+        </div>
+
+        <div id="composite-controls" class="anti-switch-module">
+            <div class="dichotomy-module secondary-toggle">
+                <span class="dicho-label active" id="label-mode-comp">Composite</span>
+                <div class="toggle-switch" onclick="switchCompositeMode()">
+                    <div class="toggle-knob" id="anti-knob"></div>
+                </div>
+                <span class="dicho-label" id="label-mode-anti">Anti-Composite</span>
+            </div>
+        </div>
+
+    </div>
+
+    <nav class="system-switch-module" id="main-system-nav">
+        <button class="sys-tab" data-sys="tropical" onclick="switchCOAGULATIOSystem('tropical')">Tropical</button>
+        <button class="sys-tab" data-sys="sidereal" onclick="switchCOAGULATIOSystem('sidereal')">Sidereal</button>
+        <button class="sys-tab" data-sys="draconic" onclick="switchCOAGULATIOSystem('draconic')">Draconic</button>
+        <button class="sys-tab" data-sys="ketunic" title="South Node at Aries 0°" onclick="switchCOAGULATIOSystem('ketunic')">Ketunic</button>
+    </nav>
+
+    <div class="sub-options-vault">
+        <div class="sidereal-controls" id="sidereal-controls-panel">
+            <nav class="ayanamsa-switch-module">
+                {% set ayanamsas = [
+                    ('Lahiri', 'Standard Vedic (Chitra Paksha)'), ('Raman', 'B.V. Raman'), ('KP', 'Krishnamurti Paddhati'), 
+                    ('Fagan-Bradley', 'Fagan-Bradley'), ('Yukteswar', 'Sri Yukteswar')
+                ] %}
+                {% for id, full_name in ayanamsas %}
+                <button class="ayan-tab" data-ayan="{{ id|lower }}" title="{{ full_name }}" onclick="switchAyanamsa('{{ id|lower }}')">{{ id }}</button>
+                {% endfor %}
+            </nav>
+
+            <div class="dichotomy-module" id="sidereal-view-toggle">
+                <span class="dicho-label" id="label-zodiac">Zodiac</span>
+                <div class="toggle-switch" onclick="switchDichotomy()">
+                    <div class="toggle-knob" id="dicho-knob"></div>
+                </div>
+                <span class="dicho-label" id="label-nakshatra">Nakshatra</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="a2-content" id="coagulatio-main-view">
+        
+        <div id="zodiac-view-container">
+            {% set sections = [
+                ('Planets', [('☉','Sun'), ('☽','Moon'), ('☿','Mercury'), ('♀','Venus'), ('♂','Mars'), ('♃','Jupiter'), ('♄','Saturn'), ('♅','Uranus'), ('♆','Neptune'), ('♇','Pluto')]),
+                ('Major Asteroids', [('','Chiron'), ('','Ceres'), ('','Juno'), ('','Pallas'), ('','Vesta'), ('','Eros'), ('','Psyche')]),
+                ('Lilith & Nodes', [('','Mean Lilith'), ('','True Lilith'), ('','Asteroid Lilith'), ('','North Node (m)'), ('','North Node (t)'), ('','South Node (m)'), ('','South Node (t)')]),
+                ('Fates', [('','Moira'), ('','Klotho'), ('','Lachesis'), ('','Atropos')])
+            ] %}
+
+            {% for category, items in sections %}
+            <section class="principia-section">
+                <h2 class="category-label">{{ category | upper }}</h2>
+                <table class="a2-chart-table zodiac-mode">
+                    <colgroup>
+                        <col class="col-body"> <col class="col-info">
+                        <col class="col-house"> 
+                        <col class="col-code"> <col class="col-code">
+                        <col class="col-code"> <col class="col-code">
+                        <col class="col-sabian">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Celestial Bodies</th>
+                            <th>Information</th>
+                            <th class="has-tooltip" title="House">House</th>
+                            <th class="has-tooltip" title="Duad: 2.5° Sign Division">Duad</th>
+                            <th class="has-tooltip" title="Dodecatemoria: Sign Extension Division">Dod.</th>
+                            <th class="has-tooltip" title="Decan: 10° Sign Division">Decan</th>
+                            <th class="has-tooltip" title="Egyptian Bounds">Bd.</th>
+                            <th>Sabian Symbol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for sym, name in items %}
+                        <tr>
+                            <td class="cell-body">{% if sym %}<strong>{{ sym }}</strong> {% endif %}{{ name }}</td>
+                            <td class="cell-info" data-field="info">-</td>
+                            <td class="cell-house" data-field="house">-</td>
+                            <td class="cell-code" data-field="duad">-</td> 
+                            <td class="cell-code" data-field="dodeca">-</td>
+                            <td class="cell-code" data-field="decan">-</td> 
+                            <td class="cell-code" data-field="bound">-</td>
+                            <td class="cell-sabian" data-field="sabian">-</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+            {% endfor %}
+        </div>
+
+        <div id="nakshatra-view-container" style="display:none;">
+            <section class="principia-section">
+                <h2 class="category-label"> NAKSHATRA & GRAHAS</h2>
+                <table class="a2-chart-table nakshatra-mode">
+                    <colgroup>
+                        <col class="col-nak-body"> <col class="col-nak-info"> 
+                        <col class="col-nak-name"> <col class="col-nak-pada"> 
+                        <col class="col-nak-sabian">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Celestial Bodies</th>
+                            <th>Information</th>
+                            <th>Nakshatra</th>
+                            <th id="pada-header-label">Pada</th>
+                            <th>Sabian Symbol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {# 1. 전통 9 Grahas 구역 #}
+                        {% set grahas = [
+                            ('☉','Sun'), ('☽','Moon'), ('☿','Mercury'), ('♀','Venus'), 
+                            ('♂','Mars'), ('♃','Jupiter'), ('♄','Saturn'), ('☊','Rahu'), ('☋','Ketu')
+                        ] %}
+                        {% for sym, name in grahas %}
+                        <tr class="graha-row">
+                            <td class="cell-body"><strong>{{ sym }}</strong> {{ name }}</td>
+                            <td class="cell-info" data-field="info">-</td>
+                            <td class="cell-nak" data-field="nakshatra">-</td>
+                            <td class="cell-pada" data-field="pada">-</td>
+                            <td class="cell-sabian" data-field="sabian">-</td>
+                        </tr>
+                        {% endfor %}
+
+                        {# 2. 계보 경계선 #}
+                        <tr class="system-divider-row"><td colspan="5"></td></tr>
+
+                        {# 3. 현대 지표 구역 #}
+                        {% set moderns = ['Lilith (mean)', 'Chiron'] %}
+                        {% for name in moderns %}
+                        <tr class="modern-row">
+                            <td class="cell-body">{{ name }}</td>
+                            <td class="cell-info" data-field="info">-</td>
+                            <td class="cell-nak" data-field="nakshatra">-</td>
+                            <td class="cell-pada" data-field="pada">-</td>
+                            <td class="cell-sabian" data-field="sabian">-</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="principia-section" id="angles-section-a2">
+                <h2 class="category-label"> ANGLES</h2>
+                <table class="a2-chart-table nakshatra-mode">
+                    <colgroup>
+                        <col class="col-nak-body"> <col class="col-nak-info"> 
+                        <col class="col-nak-name"> <col class="col-nak-pada"> 
+                        <col class="col-nak-sabian">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Celestial Bodies</th>
+                            <th>Information</th>
+                            <th>Nakshatra</th>
+                            <th id="pada-header-label">Pada</th>
+                            <th>Sabian Symbol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {# 4. Angles #}
+                        {% set angles = [('','Ascendant'), ('','Immum Coeli'), ('','Descendant'), ('','Midheaven')] %}
+                        {% for sym, name in angles %}
+                        <tr class="angle-row">
+                            <td class="cell-body"><strong>{{ name }}</strong></td> 
+                            <td class="cell-info" data-field="info">-</td>
+                            <td class="cell-nak" data-field="nakshatra">-</td>
+                            <td class="cell-pada" data-field="pada">-</td>
+                            <td class="cell-sabian" data-field="sabian">-</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script src="/static/world/albedo/modules/a2.js?v=999"></script>

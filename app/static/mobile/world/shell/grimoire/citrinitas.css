@@ -1,0 +1,124 @@
+body {
+    background-color: #ffe600 !important; 
+    background-image: none !important;
+}
+
+.m-grimoire-archive-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 10px; 
+    box-sizing: border-box;
+    width: 100%;
+    /* 🚀 min-height: 100vh; 삭제 완료 */
+    background: transparent !important; 
+}
+
+.m-archive-title {
+    font-family: inherit;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #000000; 
+    text-shadow: none; 
+    margin-bottom: 40px; 
+    letter-spacing: 2px;
+}
+
+.m-archive-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.m-empty-grimoire {
+    color: #333333;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.m-archive-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #cca300;
+    overflow: hidden;
+}
+
+/* 🌟 고정 아이콘 (시트리니타스 테마색 - 핏빛) */
+.m-archive-icon {
+    flex-shrink: 0;
+    color: #e00000;
+    margin-right: 12px;
+    font-size: 1rem;
+}
+
+.m-archive-title-wrapper {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    margin-right: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.m-archive-item {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 1.1rem; 
+    color: #000000;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+/* 🚨 .m-archive-item::before 삭제 완료 */
+
+.m-archive-actions {
+    flex-shrink: 0;
+    display: flex;
+    gap: 8px;
+}
+
+.m-btn-action {
+    background: transparent;
+    border: 1px solid #333333;
+    color: #333333;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.m-btn-return {
+    display: inline-block;
+    background: transparent;
+    color: #333333;
+    border: 1px solid #333333;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 4px;
+    -webkit-tap-highlight-color: transparent;
+    margin-bottom: 30px; /* 🚀 푸터 끌어올림 */
+}
+
+.m-btn-return:active {
+    color: #e00000;
+    border-color: #e00000;
+    box-shadow: 0 0 10px rgba(179, 136, 255, 0.4), inset 0 0 8px rgba(179, 136, 255, 0.2); 
+}
+
+/* 📺 무빙워크 발동 엔진 */
+.marquee-active { animation: marqueeBounce linear infinite alternate; }
+@keyframes marqueeBounce {
+    0%, 15% { transform: translateX(0); }
+    85%, 100% { transform: translateX(var(--scroll-dist)); }
+}

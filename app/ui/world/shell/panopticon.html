@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>God Mode Lv2: Panopticon</title>
+    <link rel="stylesheet" href="/static/world/shell/panopticon.css?v=2">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/weekSelect/weekSelect.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="panopticon-sanctuary">
+
+    <nav class="pano-nav">
+        <div class="pano-nav-title">GOD MODE LV2: Panopticon</div>
+        <button class="pano-return-btn" onclick="location.href='/world/nigredo'">RETURN TO TETRAMEGISTUS</button>
+    </nav>
+
+    <div class="pano-layout">
+        <header class="pano-header">
+            <div class="today-box">
+                <span class="today-label">TODAY VISITORS</span>
+                <span id="today-total" class="today-value">0</span>
+            </div>
+
+            <div class="dichotomy-container">
+                <span class="dicho-label active" id="label-supra">SUPRA</span>
+                <div class="dicho-switch" id="mode-toggle">
+                    <div class="dicho-knob"></div>
+                </div>
+                <span class="dicho-label" id="label-infra">INFRA</span>
+            </div>
+        </header>
+
+        <main class="pano-main-area">
+            <nav id="pano-controls" class="pano-controls"></nav>
+
+            <section class="chart-section">
+                <div class="chart-wrapper">
+                    <canvas id="pano-chart"></canvas>
+                </div>
+                <div id="data-table-area" class="data-table-area"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/world/shell/panopticon.js"></script>
+</body>
+</html>

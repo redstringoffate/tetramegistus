@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "A2": { "field": "stamper_a" },
+    "A3": { "field": "stamper_b" }
+  },
+  "timeline": {
+    "start_row": 29,
+    "columns": {
+      "A": { "data_key": "date", "format": "YYYY-MM-DD" },
+      "B": { "data_key": "a.zr.spirit.l1" },
+      "C": { "data_key": "a.zr.spirit.l2" },
+      "D": { "data_key": "b.zr.spirit.l1" },
+      "E": { "data_key": "b.zr.spirit.l2" },
+      "F": { "data_key": "a.zr.fortune.l1" },
+      "G": { "data_key": "a.zr.fortune.l2" },
+      "H": { "data_key": "b.zr.fortune.l1" },
+      "I": { "data_key": "b.zr.fortune.l2" },
+      "J": { "data_key": "a.zr.eros.l1" },
+      "K": { "data_key": "a.zr.eros.l2" },
+      "L": { "data_key": "b.zr.eros.l1" },
+      "M": { "data_key": "b.zr.eros.l2" },
+      "N": { "data_key": "a.firdaria.main" },
+      "O": { "data_key": "a.firdaria.sub" },
+      "P": { "data_key": "b.firdaria.main" },
+      "Q": { "data_key": "b.firdaria.sub" },
+      "R": { "data_key": "a.profections" },
+      "S": { "data_key": "b.profections" },
+      "T": { "data_key": "transits.Jupiter.sign" },
+      "U": { "data_key": "transits.Saturn.sign" },
+      "V": { "data_key": "transits.Uranus.sign" },
+      "W": { "data_key": "transits.Neptune.sign" },
+      "X": { "data_key": "transits.Pluto.sign" }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{% extends "genesis/templates/base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/world/nigredo/modules/append.css">
+
+<div class="void">
+  <style>
+    /* 🔑 Timezone Select 수복 (form_me 벤치마킹: 380px 규격) */
+    #tz-select {
+      width: 380px; 
+      text-align: left;
+      padding-left: 8px;
+      font-family: inherit;
+      background: #000;
+      color: #7CFF9B;
+      border: 1px solid #1f5f3a;
+    }
+  </style>
+
+  <div style="color: #7CFF9B; font-size: 0.85rem; letter-spacing: 0.2em; margin-bottom: 2rem;">RECALL_SEED</div>
+
+  <h2>Seed Designation</h2>
+  <input id="name" placeholder="Target Name" tabindex="0">
+
+  <h2>Threshold of Arrival</h2>
+  <div class="date-row">
+    <select id="year"></select>
+    <select id="month"></select>
+    <select id="day"></select>
+  </div>
+
+  <h2>Hour of Incarnation</h2>
+  <div class="date-row" id="time-inputs">
+    <select id="hour"></select>
+    <select id="minute"></select>
+    <select id="second"></select>
+  </div>
+  
+  <div class="unknown-row">
+    <input type="checkbox" id="time-unknown" onchange="toggleTime(this)">
+    <label for="time-unknown" class="unknown-label">Time Unknown</label>
+  </div>
+
+  <h2>Point of Emergence</h2>
+  <input id="city-search" placeholder="Search city" tabindex="0" autocomplete="off">
+  <div id="city-results"></div>
+
+  <div class="spacer-sm"></div>
+  <button id="manual-toggle" onclick="toggleManual()">Manual Entry ▾</button>
+
+  <div id="manual-panel">
+    <div class="coord-block">
+      <div class="coord-label">Latitude</div>
+      <div class="coord-row">
+        <div class="sign-group">
+          <div class="sign-btn active" data-target="lat" data-sign="+">+</div>
+          <div class="sign-btn" data-target="lat" data-sign="-">−</div>
+        </div>
+        <input id="lat-int" class="coord-int" placeholder="00">
+        <span class="coord-dot">.</span>
+        <input id="lat-dec" class="coord-dec" placeholder="0000">
+      </div>
+    </div>
+    <div class="coord-block">
+      <div class="coord-label">Longitude</div>
+      <div class="coord-row">
+        <div class="sign-group">
+          <div class="sign-btn active" data-target="lon" data-sign="+">+</div>
+          <div class="sign-btn" data-target="lon" data-sign="-">−</div>
+        </div>
+        <input id="lon-int" class="coord-int" placeholder="000">
+        <span class="coord-dot">.</span>
+        <input id="lon-dec" class="coord-dec" placeholder="0000">
+      </div>
+    </div>
+    <div class="coord-block">
+      <div class="coord-label">Timezone</div>
+      <select id="tz-select"></select>
+    </div>
+  </div>
+
+  <div class="action-row">
+    <button id="incarnate" onclick="manifestNewSeed()">MANIFEST</button>
+    <a href="/world/nigredo?module=n1" class="return-btn">RETURN</a>
+  </div>
+
+  <div id="sign-tooltip" class="stage-tooltip"></div>
+</div>
+
+<script src="/static/world/nigredo/modules/append.js"></script>
+
+<script>
+    /**
+     * 🛡️ [Airtight Guard v7]: 
+     * HTML 내부에 존재하던 독자적인 localStorage 저장 로직을 완전히 소멸시켰습니다.
+     * 모든 데이터 생성과 중복 방지는 오직 'append.js' 내부에서만 이루어집니다.
+     */
+
+    // UI 흐림 처리 (Unknown 상태 시각화)
+    function toggleTime(cb) {
+        const timeInputs = document.getElementById('time-inputs');
+        if (cb.checked) {
+            timeInputs.style.opacity = "0.15";
+            timeInputs.style.pointerEvents = "none";
+        } else {
+            timeInputs.style.opacity = "1";
+            timeInputs.style.pointerEvents = "auto";
+        }
+    }
+</script>
+{% endblock %}

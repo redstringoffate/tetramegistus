@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "stamper": "A2",
+    "h_level": "B4"
+  },
+  "aspects_layout": {
+    "cols": { "body": "A", "aspect": "B", "body_info": "C", "object": "D", "object_info": "E", "orb": "F" },
+    "rows": {
+      "Sun": 7, "Moon": 8, "Mercury": 9, "Venus": 10, "Mars": 11, "Jupiter": 12, "Saturn": 13, "Uranus": 14, "Neptune": 15, "Pluto": 16,
+      "Chiron": 18, "Mean Lilith": 19, "True Lilith": 20, "North Node (t)": 21
+    },
+    "shrink_rows": [17]
+  }
+}

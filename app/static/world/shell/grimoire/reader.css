@@ -1,0 +1,374 @@
+/* static/world/shell/grimoire/reader.css */
+
+#luckysheet-container *,
+.luckysheet-cols-menu *,
+.luckysheet-rightgclick-menu *,
+.luckysheet-wa-editor {
+    font-family: 'Consolas', monospace !important;
+}
+
+/* 🚀 Flexbox를 이용해 빈틈없이 화면을 꽉 채우는 구조 */
+.excel-app-container {
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999; 
+    background: #fff; /* 배경을 흰색으로 변경하여 검은틈새 방지 */
+    display: flex;
+    flex-direction: column;
+    font-family: 'Consolas', monospace;
+}
+
+/* =========================================
+   [Header & Buttons]
+========================================= */
+.excel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e1e1e; /* 상단바는 깔끔한 다크그레이 */
+    padding: 0 20px;
+    height: 50px;
+    flex-shrink: 0;
+}
+
+.excel-title {
+    color: #49dce1;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
+
+.action-btn-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.action-btn {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-family: 'Consolas', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-edit { background: #fff3cd !important; color: #856404 !important; border-color: #ffeeba !important; }
+.btn-edit:hover { background: #ffe8a1 !important; }
+.btn-save { background: #d4edda !important; color: #155724 !important; border-color: #c3e6cb !important; }
+.btn-save:hover { background: #c3e6cb !important; }
+.btn-exit { background: #f8d7da !important; color: #721c24 !important; border-color: #f5c6cb !important; }
+.btn-exit:hover { background: #f5c6cb !important; }
+.btn-close { background: #e2e3e5 !important; color: #383d41 !important; border-color: #d6d8db !important; }
+.btn-close:hover { background: #d6d8db !important; }
+
+/* =========================================
+   [Workspace & Container] 🚀 완벽한 핏(Fit) 교정
+========================================= */
+.excel-workspace {
+    display: flex;
+    flex-grow: 1; /* 🚀 남는 중간 세로 공간을 모두 흡수 */
+    align-items: center;
+    justify-content: center;
+    background: #fff; 
+}
+
+.loading-screen {
+    color: #888;
+    font-size: 1.2rem;
+}
+
+#luckysheet-container {
+    display: none; /* JS가 로딩 끝나면 block으로 바꿔줌 */
+    flex-grow: 1;  /* 🚀 absolute를 버리고 flex-grow를 써서 오차 없이 채움 */
+    position: relative; 
+    width: 100%; 
+    z-index: 10; 
+    background-color: white;
+}
+
+/* =========================================
+   [Footer & Tabs] 🚀 엑셀 리얼리티 100% 반영 (아래로 매달린 탭)
+========================================= */
+.excel-footer {
+    height: 35px; /* 하단바 높이 */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background: #f8f9fa; /* 흰색에 가까운 아주 연한 회색 베이스 */
+    border-top: 1px solid #ccc; /* 엑셀 하단 테두리 느낌 */
+}
+
+.sheet-tabs-wrapper {
+    display: flex;
+    align-items: flex-start; /* 🚀 핵심 1: 탭들을 바닥이 아닌 '천장(도화지 쪽)'에 찰싹 붙임! */
+    padding-left: 10px;
+    height: 100%;
+}
+
+/* 비활성 탭 디자인 (요청 색상 적용) */
+.sheet-tab {
+    background: #DAE7E4;
+    color: #000; /* 검은색 글자 확실하게! */
+    height: 28px;
+    padding: 0 16px;
+    margin-right: 3px; 
+    border-radius: 0 0 8px 8px; /* 🚀 핵심 2: 윗부분이 아닌 '아랫부분'을 둥글게! (역방향 라운딩) */
+    display: flex;
+    align-items: center;
+    border: 1px solid #b2cdce;
+    border-top: none; /* 🚀 핵심 3: 윗선 테두리를 지워서 도화지와 하나로 연결된 느낌 부여 */
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.sheet-tab:hover {
+    background: #cedfdb;
+}
+
+/* 활성화 탭 디자인 (요청 색상 적용 & 팝업 효과) */
+.sheet-tab.active {
+    background: #C7E7E2;
+    color: #000; 
+    font-weight: bold;
+    height: 33px; /* 🚀 더 길게 아래로 뻗어 내려옴 */
+    border-bottom: 3px solid #73a89e; /* 🚀 포인트 라인도 윗면이 아니라 밑바닥으로 이동 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 그림자 방향도 아래로 변경 */
+}
+
+/* 탭 삭제 X 버튼 */
+.btn-sheet-close {
+    margin-left: 8px;
+    color: #666 !important;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 0 4px;
+    border-radius: 50%;
+}
+.btn-sheet-close:hover { 
+    color: #fff !important; 
+    background: #B03939 !important; 
+}
+
+/* Rearrange 버튼 */
+.btn-rearrange {
+    background: #e9ecef; 
+    color: #333;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    border-left: 1px solid #ccc;
+    font-family: 'Consolas', monospace;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+.btn-rearrange:hover { background: #dee2e6; }
+
+/* =========================================
+   [Modal]
+========================================= */
+.modal-overlay { 
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.6); align-items: center; justify-content: center; 
+    z-index: 999999; 
+}
+.modal-box { background: #fff; border: 1px solid #ccc; padding: 25px 40px; text-align: center; color: #000; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);}
+.modal-buttons { margin-top: 20px; display: flex; gap: 10px; justify-content: center; }
+.btn-modal { padding: 6px 20px; cursor: pointer; background: #f8f9fa; color: #333; border: 1px solid #ccc; border-radius: 4px; font-weight:bold; }
+.btn-modal.yes:hover { background: #ffeeba; border-color: #ffc107; color:#856404;}
+.btn-modal.no:hover { background: #d4edda; border-color: #28a745; color:#155724;}
+
+/* =========================================
+   [Footer & Tabs Navigation]
+========================================= */
+.excel-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+    background: #f8f9fa;
+    border-top: 1px solid #ccc;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.sheet-tabs-container {
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    height: 100%;
+}
+
+.sheet-tabs-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox 스크롤바 숨김 */
+    -ms-overflow-style: none; /* IE 스크롤바 숨김 */
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
+    align-items: flex-end;
+}
+.sheet-tabs-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome/Safari 스크롤바 숨김 */
+}
+
+/* 🛡️ 방화선 (절대 침범 불가 영역) */
+.footer-controls {
+    display: flex;
+    align-items: center;
+    background: #e9ecef;
+    border-left: 1px solid #b0b0b0;
+    box-shadow: -4px 0 6px rgba(0,0,0,0.05); /* 방화선 입체감 */
+    height: 100%;
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.tab-nav-btn {
+    background: transparent;
+    border: none;
+    color: #555;
+    font-size: 12px;
+    padding: 0 12px;
+    height: 100%;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.tab-nav-btn:hover { background: #d0d4d8; color: #000; }
+
+.footer-divider {
+    width: 1px;
+    height: 20px;
+    background: #ccc;
+    margin: 0 5px;
+}
+
+.btn-rearrange {
+    background: transparent;
+    color: #333;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    font-family: 'Consolas', monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    height: 100%;
+    transition: background 0.2s;
+}
+.btn-rearrange:hover { background: #dee2e6; }
+
+
+/* =========================================
+   [Modal - Sleek Nigredo Design]
+========================================= */
+.modal-overlay { 
+    display: none; 
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(3px); /* 뒷배경 블러 처리 */
+    align-items: center; justify-content: center; 
+    z-index: 999999; 
+}
+.modal-box { 
+    background: #1e1e1e !important; 
+    color: #fff !important;
+    border: 2px solid #7CFF9B !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 35px 40px; 
+    text-align: center; 
+    font-family: 'Consolas', monospace;
+    -webkit-font-smoothing: antialiased; /* 폰트 선명하게 렌더링 */
+    min-width: 320px;
+}
+#delete-modal-text {
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+    color: #e0e0e0 !important;
+}
+.modal-buttons {
+    display: flex; justify-content: center; gap: 15px;
+}
+.btn-modal {
+    padding: 10px 30px;
+    font-family: 'Consolas', monospace;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-modal.yes {
+    background-color: #B03939 !important; /* 강렬한 삭제 경고 레드 */
+    color: #fff !important;
+}
+.btn-modal.yes:hover { background-color: #d14747 !important; box-shadow: 0 0 10px rgba(176, 57, 57, 0.5); }
+.btn-modal.no {
+    background-color: #444 !important;
+    color: #fff !important;
+}
+.btn-modal.no:hover { background-color: #555 !important; }
+
+
+/* =========================================
+   [Luckysheet Overrides - 로딩바 타격]
+========================================= */
+/* 뚱뚱한 파란색 바를 얇은 네온 레이저로 */
+.luckysheet-loading-mask .luckysheet-loading-content {
+    background: transparent !important;
+}
+
+/* Luckysheet 내부 로딩 게이지 직접 타격 */
+#luckysheet-loading-screen-container .luckysheet-loading-progress,
+.luckysheet-stat-progress,
+div[class*="loading-progress"] {
+    height: 3px !important;
+    background-color: #49dce1 !important;
+    box-shadow: 0 0 8px #49dce1 !important;
+}
+
+/* =========================================
+   [Luckysheet Z-Index Override & Loader]
+========================================= */
+/* 툴바 메뉴들이 컨테이너(99999) 위로 올라오도록 강제 끌어올림 */
+.luckysheet-menuButton-menu,
+.luckysheet-color-menu,
+.luckysheet-cols-menu,
+.luckysheet-rightgclick-menu,
+.luckysheet-wa-editor {
+    z-index: 100000 !important;
+}
+
+/* 세이브 로딩 스피너 애니메이션 */
+.loader-spinner {
+    border: 4px solid #444;
+    border-top: 4px solid #49dce1;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    animation: spin-alchemy 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin-alchemy {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

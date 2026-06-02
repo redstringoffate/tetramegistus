@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ritual of Rebirth</title>
+  <style>
+    /* 뼈대 스타일: 배경과 메인 타이틀만 정의 */
+    body {
+      background: #000;
+      color: #aaa;
+      font-family: monospace;
+      padding: 40px;
+      outline: none;
+      overflow: hidden; /* ritual 시각 집중을 위해 스크롤 차단 */
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 35vh;
+      font-weight: normal;
+      letter-spacing: 0.1em;
+      color: #222; /* 배경에 묻히는 듯한 어두운 텍스트 */
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body tabindex="0">
+
+  <h1>Prima Materia</h1>
+
+  <script src="/gate/ritual.js"></script>
+  
+  <script>
+    // 페이지 로드 시 즉시 키 입력을 받을 수 있도록 포커스 강제
+    window.onload = () => { document.body.focus(); };
+  </script>
+
+</body>
+</html>

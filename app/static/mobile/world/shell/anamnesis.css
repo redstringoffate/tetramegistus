@@ -1,0 +1,136 @@
+/* =========================================
+   📱 Mobile Anamnesis Core Layout
+========================================= */
+.m-anamnesis-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.m-page-title {
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: left;
+    color: rgb(3, 234, 252);
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(3, 234, 252, 0.5);
+}
+
+.m-reset-section {
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.m-section-label {
+    color: #7CFF9B;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* 🚀 라벨과 인풋 박스를 세로로 배치 */
+.m-input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.m-input-group label {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0px;
+}
+
+.m-input-group input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #333;
+    color: #7CFF9B;
+    outline: none;
+    width: 100%; /* 모바일 꽉 찬 화면 */
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 8px 0;
+    -webkit-appearance: none;
+    border-radius: 0;
+    transition: border-color 0.3s;
+}
+
+.m-input-group input:focus {
+    border-color: #7CFF9B;
+}
+
+.m-error-msg {
+    color: #ff4444;
+    font-size: 0.75rem;
+    min-height: 1rem; /* 에러 텍스트 공간 확보로 레이아웃 흔들림 방지 */
+    font-family: 'JetBrains Mono', monospace;
+    opacity: 0.8;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+/* 🚀 터치하기 편하도록 가로로 꽉 찬 블록형 버튼 */
+.m-reset-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: #555;
+    padding: 12px 0;
+    width: 100%;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+
+.m-reset-btn:active {
+    border-color: #7CFF9B;
+    color: #7CFF9B;
+    background: rgba(124, 255, 155, 0.05);
+    text-shadow: 0 0 5px rgba(124, 255, 155, 0.5);
+}
+
+.m-code-section {
+    width: 100%;
+}
+
+.m-code-label {
+    font-size: 0.75rem;
+    color: #444;
+    margin-bottom: 12px;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+}
+
+.m-master-code {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 1.1rem; 
+    font-weight: 500;
+    color: #7CFF9B;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    text-shadow: 0 0 5px rgba(124, 255, 155, 0.2);
+}
+
+/* 🚀 모바일용 경고 텍스트 (기본 숨김, 터치 시 활성화) */
+.m-code-warning {
+    color: #ff4b4b;
+    font-size: 0.7rem;
+    font-style: italic;
+    text-shadow: 0 0 8px rgba(255, 75, 75, 0.4);
+    
+    /* 평소에는 완벽하게 숨김 */
+    opacity: 0;
+    margin-top: 8px;
+    pointer-events: none; /* 터치 판정 방해 금지 */
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 손가락을 대고 있을 때 투명도 복구 */
+.m-code-warning.visible {
+    opacity: 0.8;
+}

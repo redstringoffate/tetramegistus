@@ -1,0 +1,136 @@
+/* app/static/mobile/world/rubedo/modules/r2.css */
+
+/* 🚫 상단 헤더 숨김 결계 (R1과 동일) */
+.m-stage-header { display: none !important; }
+
+.r2-principia-system { width: 100%; box-sizing: border-box; }
+
+.r2-main-title {
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    color: #e00000;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(224, 0, 0, 0.3);
+}
+
+.matrix-unit { margin-bottom: 1.5rem; }
+
+.matrix-label-black {
+    font-size: 0.65rem !important; 
+    color: #000 !important;
+    font-weight: 600 !important;
+    letter-spacing: 3px !important;
+    margin-bottom: 0.5rem !important; 
+    text-align: left;
+    text-transform: uppercase;
+}
+
+/* 🚀 모바일 최적화 그리드 (4열 및 5열) */
+.r2-grid-6x2, .r2-grid-10x3 {
+    display: grid;
+    background: #000;
+    border: 1px solid #000;
+    gap: 2px;
+    width: 100%;
+}
+
+.r2-grid-6x2 { grid-template-columns: repeat(4, 1fr); } /* 별자리는 4x3 구조 */
+.r2-grid-10x3 { grid-template-columns: repeat(5, 1fr); } /* 숫자는 5x6 구조 */
+
+.grid-cell {
+    background: #000;
+    color: #3cff8f;
+    border: 1px solid rgba(60, 255, 143, 0.2);
+    height: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 1.1rem; 
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.grid-cell:active { background: rgba(60, 255, 143, 0.15); border-color: #3cff8f; }
+
+.grid-cell.active {
+    background: #3cff8f !important;
+    color: #000 !important;
+    font-weight: bold;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
+}
+
+.dichotomy-module { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; font-size: 0.75rem; }
+.dicho-label { color: #555; transition: color 0.2s; }
+.dicho-label.active { color: #49dce1; font-weight: bold; }
+.toggle-switch { width: 40px; height: 20px; background: #000; border: 1px solid #333; border-radius: 10px; position: relative; cursor: pointer; }
+.toggle-knob { width: 14px; height: 14px; background: #3cff8f; border-radius: 50%; position: absolute; top: 2px; left: 3px; transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+.toggle-knob.right { left: 21px; }
+
+/* 🚀 본문 뷰어 영역 */
+.theory-projection { background: transparent; padding: 10px 0; box-sizing: border-box; }
+#theory-title { 
+    font-size: 1.3rem !important; 
+    color: #000 !important; 
+    margin: 20px 0 10px 0 !important; 
+    border-bottom: 1px solid rgba(0,0,0,0.3); 
+    padding-bottom: 10px;
+    font-weight: bold;
+    position: relative;
+    display: flex; align-items: center; justify-content: space-between;
+}
+.data-body { color: #000 !important; line-height: 1.7; font-size: 0.95rem; margin-top: 15px; }
+
+/* Grimoire 버튼 (Cyan) */
+.grimoire-pdf-btn {
+    background: transparent !important; border: none !important; color: #49dce1 !important; 
+    cursor: pointer; padding: 5px; transition: transform 0.2s;
+}
+.grimoire-pdf-btn:active { transform: scale(0.9); }
+
+/* Inscribing Overlay */
+.inscribe-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 99999; display: none; flex-direction: column; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+.inscribe-text { color: #3cff8f; font-family: Consolas, monospace; letter-spacing: 3px; margin-bottom: 20px; }
+.inscribe-bar-wrap { width: 80%; max-width: 260px; height: 4px; background: #222; position: relative; }
+.inscribe-bar-fill { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: #3cff8f; box-shadow: 0 0 10px #3cff8f; transition: width 0.1s linear; }
+.inscribe-percentage { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 0.8rem; mix-blend-mode: difference; }
+.inscribe-done { position: absolute; color: #49dce1; font-family: Consolas, monospace; letter-spacing: 2px; font-size: 1.1rem; opacity: 0; transition: opacity 0.4s ease; }
+
+/* 💀 God Mode Ritual Overlay (모바일) */
+.ritual-shell-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); display: none; align-items: flex-start; justify-content: center; z-index: 99999; padding-top: 120px; }
+.ritual-shell-box { background: #000; border: 1px solid #3cff8f; padding: 25px; width: 85%; max-width: 340px; text-align: center; font-family: ui-monospace, Consolas, monospace; box-sizing: border-box; }
+/* ... 기존 내용 유지 ... */
+
+.ritual-shell-title { color: #3cff8f; font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 20px; text-transform: lowercase; }
+
+/* 🚀 삐딱한 텍스트 쏠림 현상 및 브라우저 강제 아이콘 삭제 결계 */
+.ritual-shell-input { 
+    background: transparent; 
+    border: 1px solid #3cff8f; 
+    color: #3cff8f; 
+    padding: 12px 10px; 
+    width: 100%; 
+    text-align: center !important; 
+    outline: none; 
+    font-family: ui-monospace, Consolas, monospace !important; 
+    font-size: 1.2rem; 
+    box-sizing: border-box; 
+    letter-spacing: 0.3em; 
+    text-indent: 0.3em; /* 🚀 letter-spacing으로 인해 글자가 한쪽으로 밀리는 현상 완벽 방어 */
+}
+
+/* 브라우저 기본 눈알/X자 아이콘 삭제 (정렬 붕괴 주범 제거) */
+.ritual-shell-input::-ms-reveal,
+.ritual-shell-input::-ms-clear,
+.ritual-shell-input::-webkit-contacts-auto-fill-button,
+.ritual-shell-input::-webkit-credentials-auto-fill-button {
+    display: none !important;
+}
+
+.ritual-shell-status { color: #1a5a3a; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: lowercase; display: block; margin-top: 15px; }
+.ritual-shell-overlay.closing { animation: ritualDissolve 1s forwards ease-in; pointer-events: none; }
+@keyframes ritualDissolve { 0% { opacity: 1; filter: blur(0px); } 100% { opacity: 0; filter: blur(15px); } }
+.dissolve-out { animation: dissolveTransition 1.2s forwards ease-in-out; pointer-events: none; }
+@keyframes dissolveTransition { 0% { opacity: 1; filter: blur(0px); transform: scale(1); } 100% { opacity: 0; filter: blur(20px); } }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rubedo Reader</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+</head>
+<body style="margin: 0; padding: 0; background: #0a0000; overflow-x: hidden; font-family: 'Consolas', monospace;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #1f0000; border-bottom: 1px solid #e00000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); position: sticky; top: 0; z-index: 10;">
+        <span id="m-pdf-title" style="color: #e00000; font-weight: bold; font-size: 1.1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 70%;">Loading...</span>
+        
+        <a href="/world/grimoire/rubedo" style="background: #2a0000; border: 1px solid #e00000; color: #ff4d4d; padding: 6px 16px; border-radius: 4px; font-weight: bold; text-decoration: none; transition: background 0.2s;">❌ CLOSE</a>
+    </div>
+    
+    <div id="m-pdf-canvas-container" style="display: flex; flex-direction: column; align-items: center; padding: 15px 10px;">
+        <div style="color:#e00000; margin-top:40%; font-size: 1.1rem; text-shadow: 0 0 10px rgba(224,0,0,0.5); text-align: center;">
+            Rendering Archive...<br><br>
+            <span style="font-size: 0.8rem; color:#888;">Synthesizing High-Res Data...</span>
+        </div>
+    </div>
+
+    <script>
+        window.GRIMOIRE_IDX = "{{ idx }}";
+        window.GRIMOIRE_STAGE = "{{ stage }}";
+    </script>
+    <script src="/static/mobile/world/shell/grimoire/pdf_reader.js?v=1"></script>
+</body>
+</html>

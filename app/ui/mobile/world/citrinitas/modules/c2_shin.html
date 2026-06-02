@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="/static/mobile/world/citrinitas/modules/c2_aleph.css?v=1">
+<link rel="stylesheet" href="/static/mobile/world/citrinitas/modules/c2_shin.css?v=1">
+
+<div class="m-aleph-container" id="shin-app">
+    <div class="m-ritual-header">
+        <h3 class="m-ritual-title" style="color: #f51a1a;">[ ש ] ARUDHA ASCENDANT</h3>
+    </div>
+
+    <!-- Step 1: Input -->
+    <div id="step-1-input" class="m-c1-module-container m-shin-step active">
+        <div class="m-c1-form-group">
+            <label class="m-c1-coord-label" style="color: #f51a1a;">Date</label>
+            <div class="m-c1-date-row">
+                <select id="shin-date-y" class="m-c1-select"></select>
+                <select id="shin-date-m" class="m-c1-select"></select>
+                <select id="shin-date-d" class="m-c1-select"></select>
+            </div>
+        </div>
+
+        <div class="m-c1-form-group">
+            <label class="m-c1-coord-label" style="color: #f51a1a;">Location</label>
+            <div class="m-c1-city-search-container">
+                <input type="text" id="shin-city-search" class="m-c1-input m-full-width" placeholder="Search City..." autocomplete="off">
+                <div id="shin-city-results" class="m-c1-city-results"></div>
+            </div>
+            
+            <div id="shin-manual-toggle" class="m-c1-manual-toggle">or Manual Entry ▾</div>
+
+            <div id="shin-manual-panel" class="m-c1-manual-panel m-shin-hidden" style="display: none;">
+                <div class="m-c1-coord-block">
+                    <div class="m-c1-sub-label">Latitude</div>
+                    <div class="m-c1-coord-row">
+                        <div class="m-c1-sign-group">
+                            <button class="m-c1-sign-btn active" data-target="lat" data-sign="+">N</button>
+                            <button class="m-c1-sign-btn" data-target="lat" data-sign="-">S</button>
+                        </div>
+                        <input id="shin-lat-int" class="m-c1-input-int" placeholder="00" type="number">
+                        <span class="m-c1-dot">.</span>
+                        <input id="shin-lat-dec" class="m-c1-input-dec" placeholder="0000" type="number">
+                    </div>
+                </div>
+
+                <div class="m-c1-coord-block">
+                    <div class="m-c1-sub-label">Longitude</div>
+                    <div class="m-c1-coord-row">
+                        <div class="m-c1-sign-group">
+                            <button class="m-c1-sign-btn active" data-target="lng" data-sign="+">E</button>
+                            <button class="m-c1-sign-btn" data-target="lng" data-sign="-">W</button>
+                        </div>
+                        <input id="shin-lng-int" class="m-c1-input-int" placeholder="000" type="number">
+                        <span class="m-c1-dot">.</span>
+                        <input id="shin-lng-dec" class="m-c1-input-dec" placeholder="0000" type="number">
+                    </div>
+                </div>
+
+                <div class="m-c1-coord-block" style="margin-top: 15px;">
+                    <div class="m-c1-sub-label">Timezone</div>
+                    <select id="shin-tz" class="m-c1-select m-full-width"></select>
+                </div>
+            </div>
+        </div>
+        
+        <button class="m-cyber-btn m-full-width m-btn-shin-action" style="margin-top: 20px;" onclick="Shin.initiateScan()">INITIATE RITUAL</button>
+    </div>
+
+    <!-- Step 2: Questions -->
+    <div id="step-2-questions" class="m-shin-step" style="display: none;">
+        <div id="q-render-area"></div>
+        <div class="m-shin-btn-group">
+            <button class="m-cyber-btn-outline m-full-width" style="flex: 1;" onclick="Shin.goBack()">BACK</button>
+            <button id="shin-next-btn" class="m-cyber-btn m-full-width m-btn-shin-action" style="flex: 2;" onclick="Shin.processNext()">NEXT</button>
+        </div>
+    </div>
+
+    <!-- Step 3: Results -->
+    <div id="step-3-results" class="m-shin-step" style="display: none;">
+        <div class="m-shin-result-header">
+            <h2 class="m-shin-result-title">RESULTS</h2>
+        </div>
+        
+        <div class="m-result-content">
+            <div class="m-shin-res-label">POSSIBLE BIRTH TIMES</div>
+            <div id="res-blocks" class="m-shin-res-blocks"></div>
+            
+            <button class="m-cyber-btn-outline m-full-width" style="margin-top: 30px;" onclick="Shin.resetRitual()">RESTART RITUAL</button>
+        </div>
+    </div>
+</div>

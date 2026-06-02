@@ -1,0 +1,139 @@
+/* static/mobile/world/nigredo/modules/n2.css */
+
+.m-n2-container {
+    padding: 10px 0;
+    font-family: 'Consolas', 'Monaco', monospace !important;
+    color: #7CFF9B; /* Nigredo Green */
+}
+
+.m-materia-title {
+    color: #7CFF9B; font-size: 1.1rem; font-weight: normal; 
+    margin-bottom: 20px; letter-spacing: 0.5px; text-align: center;
+}
+
+/* 1. 토글 및 툴팁 */
+.m-anti-switch-module { position: relative; display: flex; justify-content: flex-start; padding-left: 20px; }
+.m-dichotomy-module { display: flex; align-items: center; gap: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.m-dicho-label { font-size: 0.65rem; color: #666; transition: 0.2s; user-select: none; letter-spacing: 1px; }
+.m-dicho-label.active { color: #7CFF9B; font-weight: bold; text-shadow: 0 0 8px rgba(124, 255, 155, 0.6); }
+
+.m-toggle-switch { width: 36px; height: 18px; background: #111; border: 1px solid #7CFF9B; border-radius: 10px; position: relative; }
+.m-toggle-knob { width: 12px; height: 12px; background: #7CFF9B; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: left 0.3s ease; box-shadow: 0 0 5px rgba(124, 255, 155, 0.8); }
+.m-toggle-knob.right { left: 20px; }
+
+.m-toggle-tooltip {
+    position: absolute; top: -25px; left: 40px;
+    background: #7CFF9B; color: #000; padding: 4px 8px; border-radius: 4px;
+    font-size: 0.7rem; font-weight: bold; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    z-index: 100; white-space: nowrap; box-shadow: 0 2px 10px rgba(124, 255, 155, 0.4);
+}
+
+/* 2. 연결형 블록 탭 */
+.m-connected-tabs { display: flex; border: 1px solid #7CFF9B; background: #000; border-radius: 4px; overflow: hidden; width: calc(100% - 40px); margin: 0 auto 15px auto; }
+.m-connected-tabs .m-tab { flex: 1; background: transparent; border: none; border-right: 1px solid rgba(124, 255, 155, 0.4); color: #7CFF9B; padding: 10px 0; font-size: 0.75rem; text-align: center; font-family: inherit; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
+.m-connected-tabs .m-tab:last-child { border-right: none; }
+.m-connected-tabs .m-tab.active { background: #7CFF9B !important; color: #000 !important; font-weight: bold !important; }
+
+.m-ayan-tabs { border-color: #555; margin-top: -5px; margin-bottom: 15px; }
+.m-ayan-tabs .m-tab { padding: 6px 0; font-size: 0.6rem; color: #666; border-right-color: #333; }
+.m-ayan-tabs .m-tab.active { background: #333 !important; color: #fff !important; }
+
+/* 3. Category Grid */
+.m-cat-grid { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid #7CFF9B; border-radius: 4px; background: #000; width: calc(100% - 40px); margin: 0 auto 20px auto; overflow: hidden; }
+.m-cat-grid .m-tab { background: transparent; border: none; border-right: 1px solid rgba(124, 255, 155, 0.4); border-bottom: 1px solid rgba(124, 255, 155, 0.4); color: #7CFF9B; padding: 10px 2px; font-size: 0.65rem; text-align: center; font-family: inherit; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
+.m-cat-grid .m-tab:nth-child(2n) { border-right: none; }
+.m-cat-grid .m-tab:nth-last-child(-n+2) { border-bottom: none; }
+.m-cat-grid .m-tab.active { background: #7CFF9B !important; color: #000 !important; font-weight: bold !important; }
+.m-cat-grid .m-tab.locked { background-color: #111 !important; color: #555 !important; border-color: #222 !important; opacity: 0.6 !important; pointer-events: none; }
+
+.m-hidden { display: none !important; }
+
+/* 4. Lordship & Cards */
+.m-lordship-bar { font-size: 0.8rem; color: #888; opacity: 0.9; width: 100%; gap: 10px; }
+.m-lord-slot .m-val { color: #fff; font-weight: bold; text-transform: uppercase; margin-left: 0; display: inline-block; margin-top: 4px; text-shadow: 0 0 5px #fff; }
+.lord-active-title { color: #fff !important; font-weight: 900 !important; text-shadow: 0 0 8px #fff; }
+.lord-active-info { font-weight: 900 !important; color: #fff !important; text-shadow: 0 0 5px #fff; }
+
+.m-system-divider { height: 1px; background: rgba(124, 255, 155, 0.4); box-shadow: 0 0 8px rgba(124, 255, 155, 0.6); margin: 10px 0; width: 100%; }
+
+.m-card-container { display: flex; flex-direction: column; gap: 12px; padding: 0 20px; }
+.m-figura-card { background: #02080a; border: 1px solid rgba(124, 255, 155, 0.3); border-radius: 8px; padding: 15px; position: relative; }
+.m-card-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed rgba(124, 255, 155, 0.2); padding-bottom: 10px; margin-bottom: 10px; }
+.m-card-title { font-weight: bold; font-size: 0.95rem; color: #fff; display: flex; align-items: center; gap: 6px;}
+.m-card-info { color: #7CFF9B; font-size: 0.85rem; cursor: pointer; border-bottom: 1px dotted #7CFF9B; padding-bottom: 2px; }
+.m-card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; margin-bottom: 10px; }
+.m-card-house { font-weight: bold; color: #fff; }
+.m-dignities { display: flex; gap: 12px; align-items: center; justify-content: space-between; margin-top: 10px; }
+.m-dig-col { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.m-dig-lbl { font-size: 0.6rem; color: #666; text-transform: uppercase; }
+.m-glow-slot { font-size: 1.1rem; min-width: 15px; text-align: center; }
+
+.m-card-sabian { font-size: 0.75rem; color: #ccc; font-style: italic; line-height: 1.5; padding-top: 10px; border-top: 1px solid rgba(124, 255, 155, 0.1); word-break: keep-all; margin-top: 10px; }
+
+/* 5. Phases & Stars */
+.text-anaretic { color: #EB3324 !important; font-weight: 900 !important; text-shadow: 0 0 5px rgba(235, 51, 36, 0.5); }
+.phase-cazimi { color: #FFF !important; text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700; font-weight: bold; }
+.phase-combust { color: #FFF !important; text-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000; font-weight: bold; }
+.phase-beams { color: #FFF !important; text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00; font-weight: bold; }
+
+.fs-container { display: inline-flex; align-items: center; gap: 6px; }
+.fs-icon { font-size: 1.2rem; cursor: pointer; filter: drop-shadow(0 0 3px currentColor); padding: 4px; margin: -4px; }
+.fs-royal { color: #FFD700; } .fs-royal::before { content: "♛"; }
+.fs-spica { color: #00FFFF; } .fs-spica::before { content: "✨"; }
+.fs-major { color: #FFFFFF; font-size: 1.3rem; } .fs-major::before { content: "✯"; }
+.fs-traditional { color: #C0C0C0; font-size: 1.1rem; } .fs-traditional::before { content: "✶"; }
+.fs-common { color: #808080; font-size: 0.9rem; } .fs-common::before { content: "*"; }
+
+/* 6. Toast & Popover */
+.m-toast-hidden { transform: translateY(100%); opacity: 0; pointer-events: none; }
+#m-n2-toast { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(5, 15, 20, 0.95); border-top: 1px solid #7CFF9B; color: #fff; padding: 15px 20px; font-size: 0.8rem; line-height: 1.4; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 9999; box-shadow: 0 -4px 15px rgba(0,0,0,0.5); backdrop-filter: blur(5px); padding-bottom: calc(15px + env(safe-area-inset-bottom)); text-align: center; }
+
+.fs-popover-box { 
+    position: fixed !important; 
+    top: 50% !important; 
+    left: 50% !important; 
+    bottom: auto !important; 
+    transform: translate(-50%, -50%) !important; 
+    width: 85%; 
+    max-height: 50vh; 
+    background: rgba(0, 0, 0, 0.95); 
+    border: 1px solid #7CFF9B; 
+    box-shadow: 0 0 30px rgba(124, 255, 155, 0.2); 
+    padding: 20px; 
+    z-index: 99999; 
+    color: #7CFF9B; 
+    overflow-y: auto; 
+    display: none; 
+    border-radius: 8px; 
+}
+.fs-popover-box.active { display: block; }
+.fs-title { font-size: 1.1rem; font-weight: 900; border-bottom: 1px solid #7CFF9B; padding-bottom: 8px; margin-bottom: 12px; color: #7CFF9B; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+.fs-content { font-size: 0.85rem; line-height: 1.6; color: #ddd !important; text-align: left; }
+
+/* 7. Glows (N2 기준) */
+.glow-fire { color: #7CFF9B !important; text-shadow: 0 0 5px #F71831, 0 0 10px #F71831; }
+.glow-earth { color: #7CFF9B !important; text-shadow: 0 0 5px #FFB933, 0 0 10px #FFB933; }
+.glow-air { color: #7CFF9B !important; text-shadow: 0 0 5px #E6E6E6, 0 0 10px #E6E6E6; }
+.glow-water { color: #7CFF9B !important; text-shadow: 0 0 5px #0168FC, 0 0 10px #0168FC; }
+.glow-saturn { color: #7CFF9B !important; text-shadow: 0 0 5px #FFF200, 0 0 10px #FFF200; }
+.glow-jupiter { color: #7CFF9B !important; text-shadow: 0 0 5px #47BD5A, 0 0 10px #47BD5A; }
+.glow-mars { color: #7CFF9B !important; text-shadow: 0 0 5px #F50000, 0 0 10px #F50000; }
+.glow-sun { color: #7CFF9B !important; text-shadow: 0 0 5px #FC55CE, 0 0 10px #FC55CE; }
+.glow-venus { color: #7CFF9B !important; text-shadow: 0 0 5px #999999, 0 0 10px #999999; }
+.glow-mercury { color: #7CFF9B !important; text-shadow: 0 0 5px #341DFC, 0 0 10px #341DFC; }
+.glow-moon { color: #7CFF9B !important; text-shadow: 0 0 5px #FFB9FA, 0 0 10px #FFB9FA; }
+.glow-ketu { color: #7CFF9B !important; text-shadow: 0 0 5px #FFFFFF, 0 0 10px #FFFFFF; }
+.glow-rahu { color: #7CFF9B !important; text-shadow: 0 0 5px #6AFFDD, 0 0 10px #6AFFDD; }
+
+/* =========================================================
+   🚀 Time Unknown 잠금 상태 강제 오버라이딩 (Angles)
+========================================================= */
+.m-cat-grid .m-tab.locked,
+.cat-btn.locked {
+    background-color: #333333 !important; /* 짙은 회색 배경 */
+    color: #777777 !important;           /* 흐리고 죽은 글씨색 */
+    border-color: #222222 !important;
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    pointer-events: auto !important;     /* 터치 이벤트는 살려둬야 토스트를 띄울 수 있음 */
+}
