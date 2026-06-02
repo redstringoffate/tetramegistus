@@ -17,3 +17,5 @@ COPY ./app /code/app
 # 6. 클라우드(Railway) 환경에 맞춰 서버 가동
 # Railway가 주는 PORT 환경변수를 유동적으로 받아서 실행합니다.
 CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+
+# Force rebuild
