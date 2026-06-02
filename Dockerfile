@@ -4,12 +4,13 @@ FROM python:3.11-slim
 # 2. 시스템 환경 변수 설정 (파이썬 출력 버퍼링 방지)
 ENV PYTHONUNBUFFERED=1
 
-# 🔥 [수복] WeasyPrint가 그리모아 PDF 연성에 필요한 리눅스 그래픽 핵심 부품들 강제 설치
+# 🔥 [수복] WeasyPrint 및 그리모아 엔진 정식 규격 시스템 부품 설치 (오타 수정 및 보강)
 RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
     libpango-1.0-0 \
-    libpangocairo-1.0-0 \
-    libgdk-pixbuf2.0-0 \
+    libpangoft2-1.0-0 \
+    libgdk-pixbuf-2.0-0 \
+    libharfbuzz-subset0 \
     shared-mime-info \
     && rm -rf /var/lib/apt/lists/*
 
@@ -24,7 +25,6 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY ./app /code/app
 
 # 6. 클라우드(Railway) 환경에 맞춰 서버 가동
-# Railway가 주는 PORT 환경변수를 유동적으로 받아서 실행합니다.
 CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
 
 # Force rebuild
