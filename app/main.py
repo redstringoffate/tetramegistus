@@ -263,17 +263,24 @@ def has_soul(request: Request):
 
 @app.get("/")
 def entry(request: Request):
-    # 기억이 있다면 Genesis(entry.html) 대신 Nigredo로 가이드
-    if has_soul(request):
+    host = request.headers.get("host", "").lower()
+
+    # 1. 엔진(tetramegistus.com)으로 직접 접속한 경우 -> 바로 내부로 진입
+    if "tetramegistus" in host:
         return RedirectResponse(url="/world/nigredo")
+
+    # 2. 소개 페이지(prima-materia.net)로 접속했는데 이미 기억(Soul)이 있는 경우
+    if has_soul(request):
+        # 🚀 아예 도메인을 바꿔서 Tetramegistus 엔진으로 납치해버림!
+        return RedirectResponse(url="https://tetramegistus.com/world/nigredo")
     
+    # 3. 아무것도 모르는 뉴비가 소개 페이지(prima-materia.net)로 들어온 경우
     log_prima_materia_visit(request)
     
-    # 🚀 [핵심 수정]: 없는 파일(mobile/entry.html) 대신, 우리가 만든 진짜 모바일 첫 화면으로 연결!
+    # 모바일/PC 분기하여 Genesis 화면 띄워줌
     if is_mobile(request):
         return templates.TemplateResponse("mobile/genesis/templates/index.html", {"request": request})
     
-    # 💻 [PC 분기]: 기존 PC용 entry.html 렌더링
     return templates.TemplateResponse("entry.html", {"request": request})
 
 @app.get("/login")
