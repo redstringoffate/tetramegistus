@@ -150,11 +150,11 @@ async def anti_retrograde_gate(request: Request, call_next):
     session_id = request.cookies.get("session_user_id")
     local_memory = request.cookies.get("temp_birth_date")
     has_soul = session_id is not None or local_memory is not None
-    
-    # 🚨 [결계 1]: Reincarnate 등으로 기억이 소멸되었는데 뒤로가기로 월드에 난입하려는 경우
+
+    # 기존 코드 제거 후 아래 코드로 대체
     if path.startswith("/world") and not has_soul:
-        response = RedirectResponse(url="/prima-materia")
-        # 브라우저에게 이 페이지의 모든 캐시를 파기하라고 명령 (뒤로가기 원천 봉쇄)
+        # 🚀 도메인 자체를 완전 격리하여 소개 사이트로 영혼을 추방합니다.
+        response = RedirectResponse(url="https://prima-materia.net")
         response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
         return response
 
@@ -276,17 +276,17 @@ def entry(request: Request):
 
     # 2. 소개 페이지(prima-materia.net)로 접속했는데 이미 기억(Soul)이 있는 경우
     if has_soul(request):
-        # 🚀 아예 도메인을 바꿔서 Tetramegistus 엔진으로 납치해버림!
         return RedirectResponse(url="https://tetramegistus.com/world/nigredo")
     
     # 3. 아무것도 모르는 뉴비가 소개 페이지(prima-materia.net)로 들어온 경우
     log_prima_materia_visit(request)
     
-    # 모바일/PC 분기하여 Genesis 화면 띄워줌
+    # 📱 [모바일 분기]
     if is_mobile(request):
         return templates.TemplateResponse("mobile/genesis/templates/index.html", {"request": request})
     
-    return templates.TemplateResponse("entry.html", {"request": request})
+    # 💻 [PC 분기] - 스크린샷에 나온 올바른 템플릿 명으로 매칭하여 결계를 완성합니다.
+    return templates.TemplateResponse("genesis/templates/index.html", {"request": request})
 
 @app.get("/login")
 def login_page(request: Request):
@@ -301,17 +301,9 @@ def login_page(request: Request):
 
 @app.get("/prima-materia")
 def prima_materia(request: Request):
-    if has_soul(request):
-        return RedirectResponse(url="/world/nigredo")
-    
-    log_prima_materia_visit(request)        
-    
-    # 📱 [모바일 분기]
-    if is_mobile(request):
-        return templates.TemplateResponse("mobile/genesis/templates/index.html", {"request": request})
-        
-    # 💻 [PC 분기]
-    return templates.TemplateResponse("genesis/templates/index.html", {"request": request})
+    # 🚀 뒤에 /prima-materia 라는 지저분한 접미사를 남기지 않고, 
+    # 깨끗한 독립 도메인 주소로 영혼을 리다이렉트하여 정화합니다.
+    return RedirectResponse(url="https://prima-materia.net")
 
 @app.get("/form/me")
 def form_me(request: Request):
