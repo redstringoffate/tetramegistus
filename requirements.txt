@@ -66,3 +66,4 @@ wheel==0.45.1
 python-dotenv==1.0.1
 psycopg2-binary
 astral
+timezonefinder
