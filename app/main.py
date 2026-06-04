@@ -136,11 +136,12 @@ async def panopticon_tracker(request: Request, call_next):
     return response
 
 # ─────────────────────────────
-# 🛡️ [수복]: 역행 방지 무결성 결계 (Anti-Retrograde Middleware)
+# 🛡️ [수복]: 역행 방지 및 도메인 격리 무결성 결계 (Anti-Retrograde & Domain Enforcer)
 # ─────────────────────────────
 @app.middleware("http")
 async def anti_retrograde_gate(request: Request, call_next):
     path = request.url.path
+    host = request.headers.get("host", "").lower() # 🚀 [수복]: 진입 도메인 감지 레이어 장착
     
     # 정적 파일 및 파비콘은 결계 제외
     if path.startswith("/static") or path.startswith("/favicon.ico"):
@@ -151,17 +152,22 @@ async def anti_retrograde_gate(request: Request, call_next):
     local_memory = request.cookies.get("temp_birth_date")
     has_soul = session_id is not None or local_memory is not None
 
-    # 기존 코드 제거 후 아래 코드로 대체
-    if path.startswith("/world") and not has_soul:
-        # 🚀 도메인 자체를 완전 격리하여 소개 사이트로 영혼을 추방합니다.
-        response = RedirectResponse(url="https://prima-materia.net")
-        response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
-        return response
+    # 🚨 [결계 1]: 심층 월드(/world) 제어 구역 처리
+    if path.startswith("/world"):
+        if not has_soul:
+            # 영혼이 없다면 소개 사이트의 루트 관문으로 완전 추방
+            response = RedirectResponse(url="https://prima-materia.net")
+            response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+            return response
+        elif "tetramegistus" not in host:
+            # 🚀 [핵심 수복]: 영혼은 있지만 prima-materia.net/world/... 주소로 잘못 잔류한 경우,
+            # 테트라메기스투스 절대 도메인의 해당 경로로 강제 텔레포트 시킵니다.
+            return RedirectResponse(url=f"https://tetramegistus.com{path}")
 
-    # 🚨 [결계 2]: me 시드가 이미 생성되어 기억이 충만한데 뒤로가기로 최초 진입창에 역행하려는 경우
-    # 🚀 [수복]: /login 경로는 비회원이 로그인을 위해 진입해야 하므로 역행 튕겨내기 대상에서 제외합니다!
+    # 🚨 [결계 2]: 기억이 충만한 영혼이 뒤로가기로 최초 진입창(/)에 역행하려는 경우
     if (path == "/" or path == "/prima-materia") and has_soul:
-        return RedirectResponse(url="/world/nigredo")
+        # 상대 경로 대신 절대 경로를 명시하여 prima-materia 주소창을 완벽히 버립니다.
+        return RedirectResponse(url="https://tetramegistus.com/world/nigredo")
         
     # 기본 요청 진행
     response = await call_next(request)
