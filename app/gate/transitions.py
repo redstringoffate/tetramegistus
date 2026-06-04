@@ -148,12 +148,25 @@ async def logout(request: Request, response: Response):
 
 @router.post("/gate/reincarnate")
 def reincarnate(response: Response):
-    """🔑 REINCARNATE: 완전한 파쇄 및 태초 회귀"""
-    response.delete_cookie(key="session_user_id", path="/") # 
-    delete_me() # 
-    for cookie in ["temp_birth_date", "temp_birth_time", "temp_location", "extra_seeds"]:
-        response.delete_cookie(key=cookie, path="/") # 
+    """🔑 REINCARNATE: 완전한 파쇄 및 태초 회귀 (백엔드 철통 도살 배지 주입)"""
+    # 1. 서버 전역 영혼 인메모리 파괴
+    delete_me()
     
-    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0" # 
-    response.headers["Pragma"] = "no-cache" # 
-    return {"ok": True, "message": "The vessel is purged."} #
+    # 2. 브라우저에 잔존하는 모든 종류의 영혼 및 로컬 트래킹 식별표를 서버 권한으로 완전 소멸
+    response.delete_cookie(key="session_user_id", path="/")
+    response.delete_cookie(key="temp_birth_date", path="/")
+    response.delete_cookie(key="temp_birth_time", path="/")
+    response.delete_cookie(key="temp_location", path="/")
+    response.delete_cookie(key="extra_seeds", path="/")
+    
+    # 파놉티콘 관측 식별표까지 전부 소각합니다.
+    response.delete_cookie(key="pano_session", path="/")
+    response.delete_cookie(key="pano_referrer", path="/")
+    response.delete_cookie(key="pano_tz", path="/")
+    
+    # 3. 브라우저가 캐시 장부를 바탕으로 강제 정착하지 못하도록 철저히 무력화
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
+    
+    return {"ok": True, "message": "The vessel is purged and returned to absolute emptiness."}

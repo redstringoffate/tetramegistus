@@ -117,17 +117,20 @@ function bakeMigrationSeeds() {
 /* ─────────────────────────────
    🔑 Reincarnate Ritual Execution (최소 수복)
 ───────────────────────────── */
+
 yesBtn.onclick = async () => {
     yesBtn.disabled = true;
+    if (noBtn) noBtn.disabled = true;
     confirmText.textContent = "purifying...";
     bufferView.style.color = "#ff4b4b";
 
     try {
+        // 백엔드에게 쿠키 도살 명령 하강
         const res = await fetch("/gate/reincarnate", { method: "POST" });
         const result = await res.json();
 
         if (result.ok) {
-            // 🚀 [추가]: 환생(Reincarnation) 의식 성공 핑 발송
+            // 환생 의식 성공 로그 pulse 각인
             fetch('/api/godmode/pulse', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -135,20 +138,16 @@ yesBtn.onclick = async () => {
                 body: JSON.stringify({ module: 'REINCARNATION', duration: 0 })
             }).catch(e => console.log('Pulse error', e));
 
-            setTimeout(() => {
-                localStorage.clear();
-                sessionStorage.clear();
-                document.cookie.split(";").forEach(c => {
-                    const name = c.split("=")[0].trim();
-                    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-                });
-                // 🔑 [수복]: 환생은 태초(Genesis)로 회귀하는 것이 목적이므로 목적지 변경
-                window.location.replace("/prima-materia");
-            }, 2000);
+            // 🚀 [핵심 수복]: 미들웨어의 간섭을 우회하기 위해 딜레이 없이 
+            // '소개 도메인(prima-materia.net)' 주소로 즉시 브라우저 로케이션을 리플레이스(Replace) 사출시킵니다.
+            localStorage.clear();
+            sessionStorage.clear();
+            window.location.replace("https://prima-materia.net");
         }
     } catch (e) {
         localStorage.clear();
-        window.location.replace("/prima-materia");
+        sessionStorage.clear();
+        window.location.replace("https://prima-materia.net");
     }
 };
 
