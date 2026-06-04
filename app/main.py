@@ -162,8 +162,19 @@ async def anti_retrograde_gate(request: Request, call_next):
     if path.startswith("/static") or path.startswith("/favicon.ico"):
         return await call_next(request)
 
+    # 🚀 [www 서브도메인 완전 수복 결계]: 
+    # www.로 들어오는 모든 트래픽을 apex(본진) 도메인으로 0초 만에 강제 리다이렉트하여
+    # 인증서 깨짐 현상과 쿠키 파편화증을 원천 차단합니다.
+    if host.startswith("www."):
+        naked_host = host[4:] # "www." 제거
+        query_string = request.url.query
+        target_url = f"https://{naked_host}{path}"
+        if query_string:
+            target_url += f"?{query_string}"
+        return RedirectResponse(url=target_url)
+
+    # --- (이하 기존의 query_params 및has_sync_params 로직 그대로 유지) ---
     query_params = request.query_params
-    # 🚀 [추가]: 파놉티콘 트래킹 데이터 밀수입 허용
     has_sync_params = any(k in query_params for k in ["_s_id", "_t_b", "_t_l", "_p_s", "_p_r"])
 
     if "tetramegistus" in host and has_sync_params:
