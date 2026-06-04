@@ -22,8 +22,8 @@
 
 {% block content %}
 <div class="void">
-  {# 🚀 타이틀과 버튼을 중앙 쪽으로 살짝 더 끌어내리기 위해 상단 여백(margin-top) 부여 #}
-  <div id="materia-core" style="margin-top: 15vh;">
+  {# 🚀 [정렬 교정]: 15vh ➔ 28vh 로 늘려 화면 중앙 쯤으로 안착시킵니다. #}
+  <div id="materia-core" style="margin-top: 28vh;">
     <h1>Prima Materia</h1>
     <button id="form-me">Form New Vessel [me]</button>
   </div>
@@ -44,8 +44,8 @@
 
   <input id="entry-code" class="hidden-trigger" type="password" />
 
-  {# 🚀 [구글 로봇 저격용]: 본문과 텍스트를 완전히 분리하는 구분선(hr) 추가 & 텍스트를 가장 하단으로 밀어냄 #}
-  <hr style="border: none; border-top: 1px solid #222; width: 80%; max-width: 600px; margin: 25vh auto 3vh auto;">
+  {# 🚀 [정렬 교정]: 본체가 내려온 만큼 빈 공간(25vh ➔ 12vh)을 줄여 전체 페이지 길이 밸런스를 맞춥니다. #}
+  <hr style="border: none; border-top: 1px solid #222; width: 80%; max-width: 600px; margin: 12vh auto 3vh auto;">
   <div style="text-align: center; color: #444; font-size: 0.7rem; font-family: monospace; letter-spacing: 0.5px; line-height: 1.6; max-width: 90%; margin-left: auto; margin-right: auto; opacity: 0.5; padding-bottom: 5vh;">
       Tetramegistus Astrology Engine: Natal/Davison Chart Geometry, Aspectus Matrix (Septile/Undecile), Harmonics &amp; Varga Divisio, Hypostases Persona Charts, Chronomantia Timelines (Zodiacal Releasing, Firdaria, Profections, Vimshottari Dasha), Hora Occulta Rectification (Aleph, Mem, Shin), and Esoteric Archetypes (Purushartha, Fixed Stars, Runes, Sephiroth, Tarot). Registered members can archive all charts into a personal database (Grimoire) to view online or export as Excel and PDF files.
   </div>
@@ -60,17 +60,14 @@
 (function() {
     if (!document.cookie.includes('pano_tz=')) {
         const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
-        // 1년 만료 규격으로 모바일 기기가 눈뜨자마자 타임존을 백엔드로 연동합니다.
         document.cookie = `pano_tz=${encodeURIComponent(tz)}; path=/; max-age=31536000; sameSite=lax;`;
     }
 })();
 
-// 1. [기존 유지]: 페이지를 떠날 때(월드로 들어갈 때) 화면을 아예 숨겨버림
 window.addEventListener("pagehide", () => {
     document.body.style.display = "none";
 });
 
-// 2. [기존 유지]: 뒤로가기로 난입 시 캐시 파괴 후 서버 검증(reload) 강제
 window.addEventListener("pageshow", (event) => {
     if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
         document.body.style.display = "none";
