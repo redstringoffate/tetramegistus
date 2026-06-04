@@ -461,14 +461,14 @@ def world_hub():
 async def favicon(request: Request):
     host = request.headers.get("host", "").lower()
     
-    # 🚀 [아이콘 분리 결계]: prima-materia 도메인이면 404를 뱉어 브라우저 기본 지구본(Globe)을 유도합니다.
+    # 🚀 [무한 로딩 파괴]: 204를 주면 브라우저가 영원히 헛돕니다. 404를 줘야 즉시 포기하고 지구본을 띄웁니다.
     if "prima-materia" in host:
         return Response(status_code=404)
         
     target = os.path.join(STATIC_PATH, "world/shell/favicon.ico")
     if os.path.exists(target):
         return FileResponse(target)
-    return Response(status_code=204)
+    return Response(status_code=404)
 
 @app.get("/world/nigredo/akashic")
 async def akashic_records_view(request: Request):
