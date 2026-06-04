@@ -449,3 +449,55 @@ button#btn-settings.active {
     text-shadow: 0 0 15px rgba(73, 220, 225, 0.8);
     transition: opacity 0.4s ease;
 }
+
+/* =========================================================
+   [Mobile] Global Nexus Loader (전역 로딩 오버레이)
+   ========================================================= */
+#m-global-nexus-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    font-family: monospace;
+}
+
+/* JS에서 이 클래스를 붙이면 화면이 잠깁니다 */
+#m-global-nexus-loader.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#m-global-nexus-loader .spinner-core {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(73, 220, 225, 0.1);
+    border-top: 3px solid #49dce1;
+    border-radius: 50%;
+    animation: m-spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+#m-global-nexus-loader .loader-text {
+    color: #49dce1;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(73, 220, 225, 0.4);
+}
+
+@keyframes m-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

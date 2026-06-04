@@ -549,4 +549,64 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     }
-}); // DOMContentLoaded 종료
+});
+
+/* ─────────────────────────────────────────────────────────────
+   🔮 [궁극 전역 수복]: 모바일 무반응 프리징 격파용 전역 로딩 프로토콜 (CSS 분리형)
+   ───────────────────────────────────────────────────────────── */
+(function() {
+    // 1. DOM에 뼈대만 깔끔하게 주입
+    const createGlobalLoader = () => {
+        if (document.getElementById('m-global-nexus-loader')) return;
+
+        const loader = document.createElement('div');
+        loader.id = 'm-global-nexus-loader';
+        
+        loader.innerHTML = `
+            <div class="spinner-core"></div>
+            <div class="loader-text">TRANSMUTING MATRIX...</div>
+        `;
+
+        document.body.appendChild(loader);
+    };
+
+    // 2. CSS 클래스 토글 방식의 장막 활성화 트리거
+    const triggerGlobalLock = () => {
+        const loader = document.getElementById('m-global-nexus-loader');
+        if (loader) {
+            loader.classList.add('is-active');
+        }
+    };
+
+    // 3. 클릭 감시 및 결계 발동
+    document.addEventListener('DOMContentLoaded', () => {
+        createGlobalLoader();
+
+        document.addEventListener('click', (e) => {
+            const targetLink = e.target.closest('a');
+            const targetMod = e.target.closest('.m-mod-item');
+            const targetTab = e.target.closest('.m-tab, .m-stage-tab');
+
+            if (targetLink || targetMod || targetTab) {
+                // 뒤로가기 방지용 자물쇠에 걸린 상태면 스킵
+                if (targetMod && (targetMod.classList.contains('is-time-locked') || targetMod.style.opacity === '0.15')) {
+                    return;
+                }
+
+                const href = targetLink ? targetLink.getAttribute('href') : null;
+                
+                if (!href || (!href.startsWith('#') && !href.startsWith('javascript'))) {
+                    triggerGlobalLock();
+                }
+            }
+        });
+    });
+
+    // 브라우저 뒤로가기(BFCache) 시 켜져 있는 로딩 장막 해제
+    window.addEventListener('pageshow', (event) => {
+        const loader = document.getElementById('m-global-nexus-loader');
+        if (loader && event.persisted) {
+            loader.classList.remove('is-active');
+        }
+    });
+})();
