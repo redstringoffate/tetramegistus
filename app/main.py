@@ -461,3 +461,44 @@ async def panopticon_view(request: Request):
         "request": request,
         "stage": "panopticon"
     })
+
+from fastapi.responses import Response
+
+@app.get("/robots.txt", include_in_schema=False)
+def get_robots_txt():
+    # 모든 로봇에게 수집을 허용하되, 로그인 정보가 없는 내부 world 구역은 어차피 차단됨을 명시
+    content = """User-agent: *
+Allow: /
+Allow: /login
+Allow: /form/me
+Disallow: /api/godmode/
+Sitemap: https://tetramegistus.com/sitemap.xml
+"""
+    return Response(content=content, media_type="text/plain")
+
+@app.get("/sitemap.xml", include_in_schema=False)
+def get_sitemap_xml():
+    # 구글에 노출시키고 싶은 공개적인 첫 관문 주소들을 장부에 적어줍니다.
+    content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://prima-materia.net/</loc>
+        <lastmod>2026-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://tetramegistus.com/login</loc>
+        <lastmod>2026-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tetramegistus.com/form/me</loc>
+        <lastmod>2026-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>
+"""
+    return Response(content=content, media_type="application/xml")

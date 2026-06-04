@@ -6,6 +6,20 @@
 
 {% block body_class %}centered{% endblock %}
 
+{# 🚀 [SEO 수복]: 모바일 대문 구글 검색엔진 최적화 노출용 헤더 장부 각인 #}
+{% block head %}
+<title>Tetramegistus | Professional Astrology Engine</title>
+<meta name="description" content="Explore the ultimate astronomical and astrological engine. Manifest your natal chart, composite geometry, and hidden cosmic structures with absolute privacy absolutism.">
+<meta name="keywords" content="astrology, natal chart, composite chart, davison midpoint, helenistic astrology, tetramegistus">
+<meta name="author" content="Ellen">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tetramegistus: The Professional Astrological Matrix">
+<meta property="og:description" content="Calculate complex planetary lots, varga divisions, and celestial paths with free open-source transparency.">
+<meta property="og:url" content="https://tetramegistus.com">
+<meta property="og:image" content="/static/world/shell/favicon.ico">
+{% endblock %}
+
 {% block content %}
 <div class="void">
   <div id="materia-core">
@@ -33,22 +47,28 @@
 <script src="/static/mobile/genesis/js/ritual_touch.js?v=23"></script>
 
 <script>
-// 1. [신규]: 페이지를 떠날 때(월드로 들어갈 때) 화면을 아예 숨겨버림
-// 브라우저가 캐시에 '빈 화면'을 저장하게 만들어서 뒤로가기 시 번쩍이는 현상 원천 차단
+/* ─────────────────────────────────────────────────────────────
+   🌍 [Terra Protocol]: 모바일 대문 진입 즉시 기기 시간대를 통한 국가 역추적 쿠키 주입
+───────────────────────────────────────────────────────────── */
+(function() {
+    if (!document.cookie.includes('pano_tz=')) {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
+        // 1년 만료 규격으로 모바일 기기가 눈뜨자마자 타임존을 백엔드로 연동합니다.
+        document.cookie = `pano_tz=${encodeURIComponent(tz)}; path=/; max-age=31536000; sameSite=lax;`;
+    }
+})();
+
+// 1. [기존 유지]: 페이지를 떠날 때(월드로 들어갈 때) 화면을 아예 숨겨버림
 window.addEventListener("pagehide", () => {
     document.body.style.display = "none";
 });
 
-// 2. 뒤로가기로 난입 시 캐시 파괴 후 서버 검증(reload) 강제
+// 2. [기존 유지]: 뒤로가기로 난입 시 캐시 파괴 후 서버 검증(reload) 강제
 window.addEventListener("pageshow", (event) => {
-    // 만약 뒤로가기로 돌아왔다면
     if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-        // 혹시라도 화면이 보일까 봐 다시 한번 강제로 숨김
         document.body.style.display = "none";
-        // 서버로 재요청
         window.location.reload();
     } else {
-        // 정상적인 최초 진입이라면 화면을 다시 보여줌
         document.body.style.display = "";
     }
 });

@@ -2,13 +2,26 @@
 
 {% block body_class %}centered{% endblock %}
 
+{# 🚀 [SEO 수복]: 구글 검색엔진 로봇이 대문을 긁어갈 때 노출될 검색 인덱스용 헤더 장부 각인 #}
+{% block head %}
+<title>Tetramegistus | Professional Astrology Engine</title>
+<meta name="description" content="Explore the ultimate astronomical and astrological engine. Manifest your natal chart, composite geometry, and hidden cosmic structures with absolute privacy absolutism.">
+<meta name="keywords" content="astrology, natal chart, composite chart, davison midpoint, helenistic astrology, tetramegistus">
+<meta name="author" content="Ellen">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tetramegistus: The Professional Astrological Matrix">
+<meta property="og:description" content="Calculate complex planetary lots, varga divisions, and celestial paths with free open-source transparency.">
+<meta property="og:url" content="https://tetramegistus.com">
+<meta property="og:image" content="/static/world/shell/favicon.ico">
+{% endblock %}
+
 {% block content %}
 <div class="void">
   <h1>Prima Materia</h1>
 
   <button id="form-me">Form New Vessel [me]</button>
 
-  <!-- hidden input (recovery trigger only, no UI, no hint) -->
   <input
         id="entry-code"
         type="password"
@@ -27,6 +40,17 @@
       <script src="/static/genesis/index.js"></script>
 
       <script>
+      /* ─────────────────────────────────────────────────────────────
+         🌍 [Terra Protocol]: 대문 진입 즉시 기기 시간대를 통한 국가 역추적 쿠키 주입
+      ───────────────────────────────────────────────────────────── */
+      (function() {
+          if (!document.cookie.includes('pano_tz=')) {
+              const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
+              // 1년 만료 규격으로 브라우저가 눈뜨자마자 타임존을 강제 각인시킵니다.
+              document.cookie = `pano_tz=${encodeURIComponent(tz)}; path=/; max-age=31536000; sameSite=lax;`;
+          }
+      })();
+
       // 1. 페이지를 떠날 때(폼으로 가거나 월드로 갈 때) 기존 화면을 통째로 날려버리고 검은 화면만 남김
       window.addEventListener("pagehide", () => {
           document.body.innerHTML = "<div style='position:fixed;inset:0;background:#000;z-index:9999999;'></div>";
