@@ -460,25 +460,25 @@ def world_hub():
 import base64
 from fastapi.responses import Response, FileResponse
 
-# 🚀 [무한 삥글이 파괴자]: 404 에러 대신 브라우저를 즉시 만족시키는 투명 1x1 픽셀 이미지 데이터
-EMPTY_ICON = base64.b64decode("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=")
+# 🚀 [무한 로딩 파괴자]: 텅 빈 데이터가 아닌, 완벽한 규격의 '칠흑(Solid Black) 사각형' SVG
+BLACK_VOID_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"><rect width="1" height="1" fill="#000000"/></svg>"""
 
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon(request: Request):
     host = request.headers.get("host", "").lower()
     referer = request.headers.get("referer", "").lower()
     
-    # 🚀 [완벽 분리 결계]: prima-materia 도메인이거나, tetramegistus 도메인이더라도 form/me, login 등 대문 구역인 경우
-    if "prima-materia" in host or "form/me" in referer or "login" in referer:
-        # 투명한 이미지를 던져주어 로딩 스피너를 0.01초 만에 즉시 끝내고 기본 지구본이 뜨게 만듭니다.
-        return Response(content=EMPTY_ICON, media_type="image/png")
+    # 🚀 [완벽 분리 결계]: prima-materia 도메인이거나, tetramegistus 도메인의 대문 구역인 경우
+    if "prima-materia" in host or "form/me" in referer or "login" in referer or request.url.path in ["/", "/form/me"]:
+        # 브라우저에게 정상적인 '검은색 1x1 이미지'를 주어 로딩을 즉시 끝냅니다.
+        return Response(content=BLACK_VOID_SVG, media_type="image/svg+xml")
         
     # 오직 /world 내부(엔진)에서 요청했을 때만 T 아이콘을 내려줍니다.
     target = os.path.join(STATIC_PATH, "world/shell/favicon.ico")
     if os.path.exists(target):
         return FileResponse(target)
         
-    return Response(content=EMPTY_ICON, media_type="image/png")
+    return Response(content=BLACK_VOID_SVG, media_type="image/svg+xml")
 
 @app.get("/world/nigredo/akashic")
 async def akashic_records_view(request: Request):
