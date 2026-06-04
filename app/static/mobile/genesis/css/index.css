@@ -14,7 +14,7 @@
 /* 숨겨진 16자리 입력창 및 열쇠 아이콘 전용 스타일 */
 #ritual-gateway {
   position: absolute;
-  top: 60%; /* 폰트 비율에 맞춰 위치 살짝 상향 조정 */
+  top: 50%; /* 🚀 60%에서 50%로 변경: SEO 텍스트가 사라지므로 정중앙이 가장 아름답습니다. */
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -23,6 +23,7 @@
   width: 100%;
   padding: 0 1rem;
   box-sizing: border-box;
+  z-index: 9999; /* 🚀 터치 우선순위 최상단 고정 (씹힘 완벽 방어) */
 }
 
 #key-icon {

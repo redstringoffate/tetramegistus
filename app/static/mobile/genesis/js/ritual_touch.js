@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const materiaCore = document.getElementById("materia-core");
+    const seoFooter = document.getElementById("seo-footer"); // 🚀 1. 푸터 요소 가져오기
     const gateway = document.getElementById("ritual-gateway");
     const keyIcon = document.getElementById("key-icon");
     const entryZone = document.getElementById("pc-like-entry-zone");
@@ -46,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function manifestKey() {
         touchTimer = null;
         materiaCore.classList.add("hidden-element");
+        if (seoFooter) seoFooter.classList.add("hidden-element"); // 🚀 2. 열쇠 강림 시 SEO 텍스트도 완전 삭제
+        
         gateway.classList.remove("hidden-element");
         clankSound.play().catch(e => console.log("Audio play prevented"));
         setTimeout(() => { keyIcon.classList.add("revealed"); }, 100);
@@ -147,11 +150,12 @@ document.addEventListener("DOMContentLoaded", () => {
             segments.forEach(input => input.value = "");
             if (segments.length > 0) segments[0].blur(); // 모바일 키보드 내림
             
-            // 4. Prima Materia 타이틀과 Form 버튼을 다시 서서히 등장시킴
             materiaCore.classList.remove("hidden-element", "침식_진행중");
             materiaCore.classList.add("침식_취소"); 
             
-        }, 1500); // 1.5초 동안 서서히 사라진 후 실행
+            if (seoFooter) seoFooter.classList.remove("hidden-element"); // 🚀 3. 의식 종료/실패 시 SEO 텍스트 복구
+            
+        }, 1500);
     }
 
     // ──────────────────────────────────────────

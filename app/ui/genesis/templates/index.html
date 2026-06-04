@@ -14,6 +14,15 @@
 <meta property="og:description" content="Calculate complex planetary paths, varga divisions, and timelines. Archive calculations to a personal Grimoire to view online or export as Excel and PDF files.">
 <meta property="og:url" content="https://tetramegistus.com">
 <meta property="og:image" content="/static/world/shell/favicon.ico">
+
+<script>
+    document.querySelectorAll('link[rel~="icon"]').forEach(link => link.remove());
+    // 브라우저 캐시를 찢고 억지로 404를 유도해 기본 지구본(Globe)이 뜨게 만듭니다.
+    const blankIcon = document.createElement('link');
+    blankIcon.rel = 'icon';
+    blankIcon.href = '/favicon.ico?v=' + new Date().getTime(); 
+    document.head.appendChild(blankIcon);
+</script>
 {% endblock %}
 
 {% block content %}
