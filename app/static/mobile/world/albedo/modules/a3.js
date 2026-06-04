@@ -187,15 +187,34 @@ async function fetchAndRenderA3() {
             });
         }
 
-        if (resData.planets) {
-            const ascKey = Object.keys(resData.planets).find(k => k.toLowerCase().includes('ascendant'));
-            const mcKey = Object.keys(resData.planets).find(k => k.toLowerCase().includes('midheaven'));
-            if (ascKey) document.getElementById('val-asc').textContent = resData.planets[ascKey].dms || "-";
-            if (mcKey) document.getElementById('val-mc').textContent = resData.planets[mcKey].dms || "-";
-        } else if (resData.meta) {
-            document.getElementById('val-asc').textContent = resData.meta.asc || "-";
-            document.getElementById('val-mc').textContent = resData.meta.mc || "-";
+        // 🚀 [수복]: 컴포지트/안티 모드 상단 앵글(ASC/MC) 180도 뒤집힘 현상 원천 차단
+        let finalAsc = "-";
+        let finalMc = "-";
+
+        const hData = resData.houses || resData.data || resData.domus;
+        const hArray = Array.isArray(hData) ? hData : (hData ? (hData.domus || []) : []);
+
+        if (A3_STATE.method === 'composite' && hArray.length > 0) {
+            // 하단에서 무결성이 증명된 테이블 데이터의 라벨('Asc.', 'M.C.')을 직접 훔쳐옵니다.
+            const hAsc = hArray.find(d => d.label === 'Asc.' || d.label === 'Ascendant');
+            const hMc = hArray.find(d => d.label === 'M.C.' || d.label === 'Midheaven');
+            if (hAsc) finalAsc = hAsc.dms;
+            if (hMc) finalMc = hMc.dms;
+        } else {
+            // 데이비슨 모드일 때는 기존 오리지널 백엔드 메타데이터 구조를 유지합니다.
+            if (resData.planets) {
+                const ascKey = Object.keys(resData.planets).find(k => k.toLowerCase().includes('ascendant'));
+                const mcKey = Object.keys(resData.planets).find(k => k.toLowerCase().includes('midheaven'));
+                if (ascKey) finalAsc = resData.planets[ascKey].dms;
+                if (mcKey) finalMc = resData.planets[mcKey].dms;
+            } else if (resData.meta) {
+                finalAsc = resData.meta.asc;
+                finalMc = resData.meta.mc;
+            }
         }
+
+        document.getElementById('val-asc').textContent = finalAsc || "-";
+        document.getElementById('val-mc').textContent = finalMc || "-";
 
         if (typeof renderOrdinatioChart === 'function') {
             renderOrdinatioChart(resData);
