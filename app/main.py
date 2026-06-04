@@ -136,38 +136,78 @@ async def panopticon_tracker(request: Request, call_next):
     return response
 
 # ─────────────────────────────
-# 🛡️ [수복]: 역행 방지 및 도메인 격리 무결성 결계 (Anti-Retrograde & Domain Enforcer)
+# 🛡️ [최종 수복]: 크로스 도메인 영혼 동기화 및 역행 방지 결계
 # ─────────────────────────────
 @app.middleware("http")
 async def anti_retrograde_gate(request: Request, call_next):
     path = request.url.path
-    host = request.headers.get("host", "").lower() # 🚀 [수복]: 진입 도메인 감지 레이어 장착
+    host = request.headers.get("host", "").lower()
     
-    # 정적 파일 및 파비콘은 결계 제외
+    # 1. 정적 파일 및 파비콘은 보안 결계 대상에서 완전 제외
     if path.startswith("/static") or path.startswith("/favicon.ico"):
         return await call_next(request)
+
+    # 🚀 [밀수 레이어 A]: 타 도메인에서 넘어오는 영혼 동기화 파라미터 감지
+    query_params = request.query_params
+    has_sync_params = any(k in query_params for k in ["_s_id", "_t_b", "_t_l"])
+
+    # 🪐 [테트라메기스투스 본진] 진입 시 도메인 장벽을 깨고 쿠키를 강제 이식합니다.
+    if "tetramegistus" in host and has_sync_params:
+        # 주소창 뒤의 지저분한 파라미터들을 흔적 없이 세탁한 깨끗한 본진 주소로 리다이렉트
+        response = RedirectResponse(url=f"https://tetramegistus.com{path}")
         
-    # 영혼 감지 (세션 또는 로컬 쿠키 존재 여부)
+        # 넘어온 데이터들을 테트라메기스투스 도메인의 정식 쿠키로 복제 정착
+        if "_s_id" in query_params:
+            response.set_cookie(key="session_user_id", value=query_params["_s_id"], max_age=31536000, path="/")
+        if "_t_b" in query_params:
+            response.set_cookie(key="temp_birth_date", value=query_params["_t_b"], max_age=31536000, path="/")
+        if "_t_l" in query_params:
+            response.set_cookie(key="temp_location", value=query_params["_t_l"], max_age=31536000, path="/")
+        return response
+
+    # 2. 현재 도메인 기준의 영혼 존재 여부 판별
     session_id = request.cookies.get("session_user_id")
     local_memory = request.cookies.get("temp_birth_date")
+    local_loc = request.cookies.get("temp_location")
     has_soul = session_id is not None or local_memory is not None
 
     # 🚨 [결계 1]: 심층 월드(/world) 제어 구역 처리
     if path.startswith("/world"):
         if not has_soul:
-            # 영혼이 없다면 소개 사이트의 루트 관문으로 완전 추방
+            # 영혼이 아예 없다면 소개 사이트의 루트 관문으로 완전 추방
             response = RedirectResponse(url="https://prima-materia.net")
             response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
             return response
         elif "tetramegistus" not in host:
-            # 🚀 [핵심 수복]: 영혼은 있지만 prima-materia.net/world/... 주소로 잘못 잔류한 경우,
-            # 테트라메기스투스 절대 도메인의 해당 경로로 강제 텔레포트 시킵니다.
-            return RedirectResponse(url=f"https://tetramegistus.com{path}")
+            # 🚀 [밀수 레이어 B]: 관문 도메인에 생성된 영혼을 본진 도메인으로 안전하게 포워딩
+            from urllib.parse import urlencode
+            sync_data = {}
+            if session_id: sync_data["_s_id"] = session_id
+            if local_memory: sync_data["_t_b"] = local_memory
+            if local_loc: sync_data["_t_l"] = local_loc
+            
+            query_str = urlencode(sync_data)
+            target_url = f"https://tetramegistus.com{path}"
+            if query_str:
+                target_url += f"?{query_str}"
+            return RedirectResponse(url=target_url)
 
-    # 🚨 [결계 2]: 기억이 충만한 영혼이 뒤로가기로 최초 진입창(/)에 역행하려는 경우
+    # 🚨 [결계 2]: 기억이 충만한 영혼이 관문(/) 주소로 기웃거릴 때 본진으로 강제 텔레포트
     if (path == "/" or path == "/prima-materia") and has_soul:
-        # 상대 경로 대신 절대 경로를 명시하여 prima-materia 주소창을 완벽히 버립니다.
-        return RedirectResponse(url="https://tetramegistus.com/world/nigredo")
+        if "tetramegistus" not in host:
+            from urllib.parse import urlencode
+            sync_data = {}
+            if session_id: sync_data["_s_id"] = session_id
+            if local_memory: sync_data["_t_b"] = local_memory
+            if local_loc: sync_data["_t_l"] = local_loc
+            
+            query_str = urlencode(sync_data)
+            target_url = "https://tetramegistus.com/world/nigredo"
+            if query_str:
+                target_url += f"?{query_str}"
+            return RedirectResponse(url=target_url)
+        else:
+            return RedirectResponse(url="https://tetramegistus.com/world/nigredo")
         
     # 기본 요청 진행
     response = await call_next(request)
