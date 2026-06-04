@@ -457,18 +457,28 @@ def form_me(request: Request):
 def world_hub():
     return RedirectResponse("/world/nigredo")
 
+import base64
+from fastapi.responses import Response, FileResponse
+
+# 🚀 [무한 삥글이 파괴자]: 404 에러 대신 브라우저를 즉시 만족시키는 투명 1x1 픽셀 이미지 데이터
+EMPTY_ICON = base64.b64decode("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=")
+
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon(request: Request):
     host = request.headers.get("host", "").lower()
+    referer = request.headers.get("referer", "").lower()
     
-    # 🚀 [무한 로딩 파괴]: 204를 주면 브라우저가 영원히 헛돕니다. 404를 줘야 즉시 포기하고 지구본을 띄웁니다.
-    if "prima-materia" in host:
-        return Response(status_code=404)
+    # 🚀 [완벽 분리 결계]: prima-materia 도메인이거나, tetramegistus 도메인이더라도 form/me, login 등 대문 구역인 경우
+    if "prima-materia" in host or "form/me" in referer or "login" in referer:
+        # 투명한 이미지를 던져주어 로딩 스피너를 0.01초 만에 즉시 끝내고 기본 지구본이 뜨게 만듭니다.
+        return Response(content=EMPTY_ICON, media_type="image/png")
         
+    # 오직 /world 내부(엔진)에서 요청했을 때만 T 아이콘을 내려줍니다.
     target = os.path.join(STATIC_PATH, "world/shell/favicon.ico")
     if os.path.exists(target):
         return FileResponse(target)
-    return Response(status_code=404)
+        
+    return Response(content=EMPTY_ICON, media_type="image/png")
 
 @app.get("/world/nigredo/akashic")
 async def akashic_records_view(request: Request):
