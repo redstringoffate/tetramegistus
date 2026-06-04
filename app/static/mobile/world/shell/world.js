@@ -585,17 +585,25 @@ document.addEventListener("DOMContentLoaded", () => {
         document.addEventListener('click', (e) => {
             const targetLink = e.target.closest('a');
             const targetMod = e.target.closest('.m-mod-item');
-            const targetTab = e.target.closest('.m-tab, .m-stage-tab');
+            const targetStageTab = e.target.closest('.m-stage-tab'); 
+            
+            // 🚨 [핵심 수복]: e.target.closest('.m-tab')을 감시망에서 완전히 제거했습니다.
+            // 이제 n5/a5의 패턴 도형 버튼이나 내부 탭을 눌러도 전역 암막이 떨어지지 않습니다.
 
-            if (targetLink || targetMod || targetTab) {
+            if (targetLink || targetMod || targetStageTab) {
                 // 뒤로가기 방지용 자물쇠에 걸린 상태면 스킵
                 if (targetMod && (targetMod.classList.contains('is-time-locked') || targetMod.style.opacity === '0.15')) {
                     return;
                 }
 
-                const href = targetLink ? targetLink.getAttribute('href') : null;
-                
-                if (!href || (!href.startsWith('#') && !href.startsWith('javascript'))) {
+                // <a> 태그인 경우 href를 꼼꼼히 검사하여 실제 페이지 이동 시에만 락 발동
+                if (targetLink) {
+                    const href = targetLink.getAttribute('href');
+                    if (href && !href.startsWith('#') && !href.startsWith('javascript')) {
+                        triggerGlobalLock();
+                    }
+                } else {
+                    // <a> 태그가 아니더라도 서랍(Module)이나 스테이지(Stage) 이동 버튼이면 락 발동
                     triggerGlobalLock();
                 }
             }
