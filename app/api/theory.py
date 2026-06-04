@@ -124,15 +124,28 @@ async def get_chayah_dict():
         with open(file_path, "r", encoding="utf-8") as f: return json.load(f)
     except Exception as e: return {"error": str(e)}
 
+# ====================================================================
+# 🪐 [인메모리 수복]: 디스크 폭격 방지용 전역 사비안 캐시 저장소
+# ====================================================================
+_SABIAN_DB_CACHE = None
+
 @router.get("/sabian/render/{idx}")
 def get_sabian_summary(idx: int, lang: str = "en"):
+    global _SABIAN_DB_CACHE
     try:
-        file_path = DATA_RENDER_DIR / "sabian.json"
-        if not file_path.exists(): return {"text": "Sabian DB Missing"}
-        with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
-        symbol_data = data.get(str(idx), {})
+        # 🚀 최초 1회 호출 시에만 디스크에서 읽어 메모리에 박제합니다.
+        if _SABIAN_DB_CACHE is None:
+            file_path = DATA_RENDER_DIR / "sabian.json"
+            if not file_path.exists(): 
+                return {"text": "Sabian DB Missing"}
+            with open(file_path, "r", encoding="utf-8") as f: 
+                _SABIAN_DB_CACHE = json.load(f)
+        
+        # 두 번째 요청부터는 디스크를 아예 건드리지 않고 RAM에서 빛의 속도로 추출합니다.
+        symbol_data = _SABIAN_DB_CACHE.get(str(idx), {})
         return {"text": symbol_data.get(lang, symbol_data.get("en", "Unknown"))}
-    except Exception: return {"text": "Error"}
+    except Exception: 
+        return {"text": "Error"}
 
 
 # ====================================================================
