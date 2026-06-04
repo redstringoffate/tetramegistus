@@ -221,22 +221,21 @@ if (document.readyState === 'loading') {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   💀 [LOGOUT PROTOCOL]: 세션 파괴 및 본체(me) 기억 로컬스토리지 보존 (Mobile)
+   💀 [LOGOUT PROTOCOL]: 세션 파괴 및 본체(me) 기억 로컬스토리지 보존
 ───────────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-    // HTML에 있는 로그아웃 버튼 ID가 다를 경우 'btn-logout' 부분을 실제 ID로 변경해주세요.
     const btnLogout = document.getElementById("btn-logout"); 
     
     if (btnLogout) {
         btnLogout.addEventListener("click", async (e) => {
             e.preventDefault();
-            e.stopPropagation(); // 부모 이벤트 간섭 방어
+            e.stopPropagation(); 
             
             try {
                 const res = await fetch("/gate/logout", { method: "POST" });
                 const data = await res.json();
                 
-                // 🚀 백엔드가 뱉어준 DB me 시드를 로컬 스토리지에 강제로 덮어씌워 부활시킴
+                // 🚀 낙하산 전개: 백엔드가 뱉어준 DB me 시드로 로컬 스토리지 무결성 보장
                 if (data.ok && data.me_seed && data.me_seed.birth_date) {
                     let localSeed = JSON.parse(localStorage.getItem("active_seed") || "{}");
                     localSeed.birth_date = data.me_seed.birth_date;
@@ -245,11 +244,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem("active_seed", JSON.stringify(localSeed));
                 }
                 
-                // 쿠키 갱신(백엔드) + 로컬스토리지 복구(프론트) 완료 후 대문으로 0초 만에 사출
-                window.location.replace("https://prima-materia.net"); 
+                // 🚀 [핵심 수복]: 대문으로 쫓아내지 않습니다! 
+                // 낙하산(Guest 쿠키+로컬)을 맨 상태로 본진 월드에 비회원으로 남거나 로그인 창으로 보냅니다.
+                window.location.replace("/world/nigredo"); 
             } catch (err) {
                 console.error("Logout ritual failed:", err);
-                window.location.replace("https://prima-materia.net"); 
+                window.location.replace("/login"); 
             }
         });
     }

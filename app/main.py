@@ -151,9 +151,8 @@ async def panopticon_tracker(request: Request, call_next):
     response.set_cookie(key="pano_referrer", value=final_ref, max_age=31536000, path="/")
     return response
 
-# ─────────────────────────────
-# 🛡️ [최종 수복]: 크로스 도메인 영혼 동기화 및 역행 방지 결계
-# ─────────────────────────────
+# app/main.py
+
 @app.middleware("http")
 async def anti_retrograde_gate(request: Request, call_next):
     path = request.url.path
@@ -162,18 +161,35 @@ async def anti_retrograde_gate(request: Request, call_next):
     if path.startswith("/static") or path.startswith("/favicon.ico"):
         return await call_next(request)
 
-    # 🚀 [www 서브도메인 완전 수복 결계]: 
-    # www.로 들어오는 모든 트래픽을 apex(본진) 도메인으로 0초 만에 강제 리다이렉트하여
-    # 인증서 깨짐 현상과 쿠키 파편화증을 원천 차단합니다.
+    # 🚀 [www 서브도메인 완전 수복 결계]
     if host.startswith("www."):
-        naked_host = host[4:] # "www." 제거
+        naked_host = host[4:]
         query_string = request.url.query
         target_url = f"https://{naked_host}{path}"
         if query_string:
             target_url += f"?{query_string}"
         return RedirectResponse(url=target_url)
 
-    # --- (이하 기존의 query_params 및has_sync_params 로직 그대로 유지) ---
+    # 🚨 [좀비 쿠키 엑소시즘]: prima-materia.net으로 튕겨왔을 때 잔존 쿠키 완전 암살
+    if "prima-materia" in host:
+        # 1. 환생(Reincarnate) 신호 시: 모든 기억 소각
+        if request.query_params.get("purge") == "true":
+            response = RedirectResponse(url="https://prima-materia.net")
+            for c in ["session_user_id", "temp_birth_date", "temp_birth_time", "temp_location", "extra_seeds"]:
+                response.delete_cookie(key=c, path="/", domain="prima-materia.net")
+                response.delete_cookie(key=c, path="/", domain=".prima-materia.net")
+                response.delete_cookie(key=c, path="/")
+            return response
+        
+        # 2. 로그아웃(Logout) 신호 시: 로그인 세션만 정밀 타격하여 암살
+        if request.query_params.get("logout") == "true":
+            response = RedirectResponse(url="https://prima-materia.net")
+            response.delete_cookie(key="session_user_id", path="/", domain="prima-materia.net")
+            response.delete_cookie(key="session_user_id", path="/", domain=".prima-materia.net")
+            response.delete_cookie(key="session_user_id", path="/")
+            return response
+
+    # ... (기존의 query_params 및 has_sync_params 로직 이하 그대로 유지) ...
     query_params = request.query_params
     has_sync_params = any(k in query_params for k in ["_s_id", "_t_b", "_t_l", "_p_s", "_p_r"])
 

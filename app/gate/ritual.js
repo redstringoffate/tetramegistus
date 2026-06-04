@@ -147,7 +147,7 @@ yesBtn.onclick = async (e) => {
         }
         
         // 3. 미들웨어 간섭 원천 차단: 본진 도메인으로 다이렉트 사출
-        window.location.replace("https://prima-materia.net");
+        window.location.replace("https://prima-materia.net/?purge=true");
     };
 
     try {

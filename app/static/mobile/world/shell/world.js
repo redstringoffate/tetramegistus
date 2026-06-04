@@ -301,7 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 } catch (error) {}
 
                 // 미들웨어 무시하고 원격 도메인으로 0초 만에 히스토리 덮어쓰기 사출
-                window.location.replace("https://prima-materia.net"); 
+                window.location.replace("https://prima-materia.net/?purge=true"); 
             }, 1500); 
         });
     }

@@ -186,7 +186,7 @@ if (yesBtn) {
             }
 
             // 미들웨어의 리다이렉트 납치를 피하기 위해 직접 본진으로 덮어쓰기 사출!
-            window.location.replace("https://prima-materia.net");
+            window.location.replace("https://prima-materia.net/?purge=true");
         }, 1500);
     });
 }
