@@ -137,13 +137,17 @@ document.addEventListener("keydown", function (e) {
     }
 });
 
-// static/world/shell/world.js 내부 yesBtn 영역 교체
+// static/world/shell/world.js 내부 yesBtn 영역 교체 (PC)
 
 if (yesBtn) {
-    yesBtn.addEventListener("click", async function () { 
+    yesBtn.addEventListener("click", async function (e) { 
+        // 🚀 [핵심 방어]: 폼 강제 제출 및 상위 이벤트 간섭을 원천 차단합니다!
+        e.preventDefault();
+        e.stopPropagation();
+
         yesBtn.disabled = true;
         if(noBtn) noBtn.disabled = true;
-        yesBtn.innerText = "...";
+        yesBtn.innerText = "purifying...";
 
         try {
             await fetch('/api/godmode/pulse', {
@@ -151,17 +155,15 @@ if (yesBtn) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ module: 'REINCARNATION', duration: 0, country: 'Other' })
             });
-        } catch (e) {
+        } catch (err) {
             console.error("[Omniscience] The void failed to record the reincarnation.");
         }
 
+        // 딜레이를 1.5초로 줄이고 쿠키 도살 후 0초 만에 사출시킵니다.
         setTimeout(async () => {
-            // 1. 로컬 및 세션 기억 완전 파괴
             localStorage.clear();
             sessionStorage.clear();
 
-            // 🚀 [쿠키 도살 결계 수복]: 도메인 서브 파트와 경로 파트를 순회하며 
-            // session_user_id, temp_birth_date 등 모든 쿠키를 완벽하게 지워버립니다.
             const cookies = document.cookie.split(";");
             const domain = window.location.hostname;
             const domainParts = domain.split('.');
@@ -172,7 +174,6 @@ if (yesBtn) {
                 const eqPos = cookie.indexOf("=");
                 const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
                 
-                // 모든 경우의 수(Naked 도메인, Dot 도메인, 현재 Host 전체)에 만료 플래그 주입
                 document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
                 document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=" + domain + ";";
                 document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=." + mainDomain + ";";
@@ -184,10 +185,9 @@ if (yesBtn) {
                 console.error("The void remains silent, but the traces are purged.");
             }
 
-            // 2. 대문으로 탈출 -> 이제 쿠키와 로컬이 다 털렸으므로 백엔드 결계가 
-            // 뉴비로 인식하고 prima-materia.net으로 정방향 강제 리다이렉트를 터뜨립니다!
-            window.location.href = "/";
-        }, 3000);
+            // 미들웨어의 리다이렉트 납치를 피하기 위해 직접 본진으로 덮어쓰기 사출!
+            window.location.replace("https://prima-materia.net");
+        }, 1500);
     });
 }
 

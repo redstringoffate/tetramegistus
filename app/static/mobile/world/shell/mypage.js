@@ -219,3 +219,38 @@ if (document.readyState === 'loading') {
 } else {
     PanopticonRitual.init();
 }
+
+/* ─────────────────────────────────────────────────────────────
+   💀 [LOGOUT PROTOCOL]: 세션 파괴 및 본체(me) 기억 로컬스토리지 보존 (Mobile)
+───────────────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+    // HTML에 있는 로그아웃 버튼 ID가 다를 경우 'btn-logout' 부분을 실제 ID로 변경해주세요.
+    const btnLogout = document.getElementById("btn-logout"); 
+    
+    if (btnLogout) {
+        btnLogout.addEventListener("click", async (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // 부모 이벤트 간섭 방어
+            
+            try {
+                const res = await fetch("/gate/logout", { method: "POST" });
+                const data = await res.json();
+                
+                // 🚀 백엔드가 뱉어준 DB me 시드를 로컬 스토리지에 강제로 덮어씌워 부활시킴
+                if (data.ok && data.me_seed && data.me_seed.birth_date) {
+                    let localSeed = JSON.parse(localStorage.getItem("active_seed") || "{}");
+                    localSeed.birth_date = data.me_seed.birth_date;
+                    localSeed.birth_time = data.me_seed.birth_time;
+                    localSeed.location = data.me_seed.location;
+                    localStorage.setItem("active_seed", JSON.stringify(localSeed));
+                }
+                
+                // 쿠키 갱신(백엔드) + 로컬스토리지 복구(프론트) 완료 후 대문으로 0초 만에 사출
+                window.location.replace("https://prima-materia.net"); 
+            } catch (err) {
+                console.error("Logout ritual failed:", err);
+                window.location.replace("https://prima-materia.net"); 
+            }
+        });
+    }
+});

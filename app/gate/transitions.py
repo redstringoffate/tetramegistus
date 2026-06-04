@@ -118,55 +118,63 @@ async def recovery(request: Request, response: Response):
         cursor.close()
         conn.close()
 
-@router.post("/gate/logout")
-async def logout(request: Request, response: Response):
-    """
-    🔑 [HARD SOFT LOGOUT]: 로그아웃 직전 서버의 기억을 로컬 쿠키로 강제 환원 
-    """
-    session_user_id = get_clean_cookie(request, "session_user_id") # 
-    
-    if session_user_id:
-        try:
-            conn = get_db()
-            cursor = conn.cursor(cursor_factory=RealDictCursor)
-            cursor.execute("SELECT * FROM users WHERE LOWER(email) = LOWER(%s)", (session_user_id,))
-            user = cursor.fetchone()
-            
-            if user and user["birth"]:
-                birth_parts = user["birth"].split(" ") # 
-                response.set_cookie(key="temp_birth_date", value=birth_parts[0], max_age=2592000, path="/") # 
-                response.set_cookie(key="temp_birth_time", value=birth_parts[1] if len(birth_parts)>1 else "12:00:00", max_age=2592000, path="/") # 
-                response.set_cookie(key="temp_location", value=urllib.parse.quote(user["location"]), max_age=2592000, path="/") # 
-            cursor.close()
-            conn.close()
-        except Exception: 
-            pass
+# app/gate/transitions.py 최하단 구역 교체
 
-    delete_me() # 
-    response.delete_cookie(key="session_user_id", path="/") # 
-    return {"ok": True, "message": "Session ended. Memory restored to vessel."} # 
+@router.post("/gate/logout")
+def logout(request: Request, response: Response):
+    """로그아웃: 세션을 파괴하되, 로그인 유저의 DB 기억(me)을 Guest 쿠키로 부활시켜 보존"""
+    session_user_id = get_clean_cookie(request, "session_user_id")
+    me_seed_data = None
+    
+    try:
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
+        cursor.execute("SELECT * FROM users WHERE LOWER(email) = LOWER(%s)", (session_user_id,))
+        user = cursor.fetchone()
+        
+        if user and user.get("birth"):
+            birth_parts = user["birth"].split(" ")
+            db_date = birth_parts[0]
+            db_time = birth_parts[1] if len(birth_parts) > 1 else "12:00:00"
+            db_loc = user.get("location", "")
+            
+            # 🚀 [로그아웃 수복]: 로그인 유저의 DB 데이터를 Guest(temp) 쿠키로 덮어쓰기!
+            response.set_cookie(key="temp_birth_date", value=db_date, max_age=2592000, path="/")
+            response.set_cookie(key="temp_birth_time", value=db_time, max_age=2592000, path="/")
+            response.set_cookie(key="temp_location", value=urllib.parse.quote(db_loc), max_age=2592000, path="/")
+            
+            # 프론트엔드 localStorage 복구용 데이터 반환
+            me_seed_data = {"birth_date": db_date, "birth_time": db_time, "location": db_loc}
+            
+        cursor.close()
+        conn.close()
+    except Exception:
+        pass
+
+    # 🚨 [치명적 버그 소거]: 여기에 있던 delete_me()를 삭제했습니다! (이게 시드를 날리던 주범)
+    
+    # 세션만 정밀 타격하여 파괴
+    response.delete_cookie(key="session_user_id", path="/")
+    response.delete_cookie(key="session_user_id", path="/", domain="tetramegistus.com")
+    response.delete_cookie(key="session_user_id", path="/", domain=".tetramegistus.com")
+    
+    return {"ok": True, "message": "Logout complete.", "me_seed": me_seed_data}
+
 
 @router.post("/gate/reincarnate")
 def reincarnate(response: Response):
-    """🔑 REINCARNATE: 완전한 파쇄 및 태초 회귀 (백엔드 철통 도살 배지 주입)"""
-    # 1. 서버 전역 영혼 인메모리 파괴
-    delete_me()
+    """환생: 세션과 Guest 쿠키 모두를 예외 없이 완전히 도살하는 파쇄 프로토콜"""
+    try:
+        delete_me() # 환생 시에는 서버단 기억 완전 소각
+    except Exception:
+        pass
+
+    cookies_to_purge = ["session_user_id", "temp_birth_date", "temp_birth_time", "temp_location", "extra_seeds"]
+    for c in cookies_to_purge:
+        response.delete_cookie(key=c, path="/")
+        response.delete_cookie(key=c, path="/", domain="tetramegistus.com")
+        response.delete_cookie(key=c, path="/", domain=".tetramegistus.com")
     
-    # 2. 브라우저에 잔존하는 모든 종류의 영혼 및 로컬 트래킹 식별표를 서버 권한으로 완전 소멸
-    response.delete_cookie(key="session_user_id", path="/")
-    response.delete_cookie(key="temp_birth_date", path="/")
-    response.delete_cookie(key="temp_birth_time", path="/")
-    response.delete_cookie(key="temp_location", path="/")
-    response.delete_cookie(key="extra_seeds", path="/")
-    
-    # 파놉티콘 관측 식별표까지 전부 소각합니다.
-    response.delete_cookie(key="pano_session", path="/")
-    response.delete_cookie(key="pano_referrer", path="/")
-    response.delete_cookie(key="pano_tz", path="/")
-    
-    # 3. 브라우저가 캐시 장부를 바탕으로 강제 정착하지 못하도록 철저히 무력화
     response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
     response.headers["Pragma"] = "no-cache"
-    response.headers["Expires"] = "0"
-    
-    return {"ok": True, "message": "The vessel is purged and returned to absolute emptiness."}
+    return {"ok": True, "message": "The vessel is completely purged."}

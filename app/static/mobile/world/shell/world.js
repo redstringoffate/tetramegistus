@@ -262,10 +262,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (btnYes) {
-        btnYes.addEventListener("click", async () => { 
+        btnYes.addEventListener("click", async (e) => { 
+            // 🚀 폼 강제 제출 및 부모 이벤트 간섭 원천 차단! (이게 제자리걸음의 주범)
+            e.preventDefault(); 
+            e.stopPropagation();
+
             btnYes.disabled = true;
             if(btnNo) btnNo.disabled = true;
-            btnYes.innerText = "...";
+            btnYes.innerText = "purifying...";
 
             try {
                 await fetch('/api/godmode/pulse', {
@@ -273,28 +277,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ module: 'REINCARNATION', duration: 0, country: 'Other' })
                 });
-            } catch (e) {
-                console.error("[Omniscience] failed to record.");
-            }
+            } catch (err) {}
 
+            // 딜레이를 1.5초로 압축하고 강제 탈출 실행
             setTimeout(async () => {
-                // 1. 모바일 기기의 로컬 및 세션 기억 파괴
                 localStorage.clear();
                 sessionStorage.clear();
 
-                // 🚀 [모바일 쿠키 도살 결계 수복]: 
-                // 도메인 서브 파트와 네이키드 루트 주소까지 역추적하여 모든 잔존 쿠키를 도살합니다.
                 const cookies = document.cookie.split(";");
                 const domain = window.location.hostname;
                 const domainParts = domain.split('.');
                 const mainDomain = domainParts.length > 2 ? domainParts.slice(-2).join('.') : domain;
 
                 for (let i = 0; i < cookies.length; i++) {
-                    const cookie = cookies[i];
-                    const eqPos = cookie.indexOf("=");
-                    const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
-                    
-                    // 모든 세그먼트 스코프의 만료 플래그를 과거(1970년)로 돌려 소멸시킵니다.
+                    const name = cookies[i].split("=")[0].trim();
                     document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
                     document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=" + domain + ";";
                     document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=." + mainDomain + ";";
@@ -302,15 +298,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 try {
                     await fetch("/gate/reincarnate", { method: "POST" });
-                } catch (error) {
-                    console.error("The void remains silent, but the traces are purged.");
-                }
+                } catch (error) {}
 
-                // 2. 대문 강제 웅변 정렬 탈출
-                // 기존 location.replace 대신 정석 라우팅인 href = "/"로 던져서
-                // 깨끗해진 무(無)의 상태를 백엔드가 인식하도록 유도, 관문 도메인으로 리다이렉트시킵니다.
-                window.location.href = "/"; 
-            }, 3000); 
+                // 미들웨어 무시하고 원격 도메인으로 0초 만에 히스토리 덮어쓰기 사출
+                window.location.replace("https://prima-materia.net"); 
+            }, 1500); 
         });
     }
 });

@@ -118,37 +118,55 @@ function bakeMigrationSeeds() {
    🔑 Reincarnate Ritual Execution (최소 수복)
 ───────────────────────────── */
 
-yesBtn.onclick = async () => {
+// app/gate/ritual.js 내부 yesBtn.onclick 전체 교체
+
+yesBtn.onclick = async (e) => {
+    // 🚀 [폼 제출 강제 방어]
+    if (e) e.preventDefault();
+
     yesBtn.disabled = true;
-    if (noBtn) noBtn.disabled = true;
+    if (typeof noBtn !== 'undefined' && noBtn) noBtn.disabled = true;
     confirmText.textContent = "purifying...";
     bufferView.style.color = "#ff4b4b";
 
-    try {
-        // 백엔드에게 쿠키 도살 명령 하강
-        const res = await fetch("/gate/reincarnate", { method: "POST" });
-        const result = await res.json();
-
-        if (result.ok) {
-            // 환생 의식 성공 로그 pulse 각인
-            fetch('/api/godmode/pulse', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                keepalive: true,
-                body: JSON.stringify({ module: 'REINCARNATION', duration: 0 })
-            }).catch(e => console.log('Pulse error', e));
-
-            // 🚀 [핵심 수복]: 미들웨어의 간섭을 우회하기 위해 딜레이 없이 
-            // '소개 도메인(prima-materia.net)' 주소로 즉시 브라우저 로케이션을 리플레이스(Replace) 사출시킵니다.
-            localStorage.clear();
-            sessionStorage.clear();
-            window.location.replace("https://prima-materia.net");
-        }
-    } catch (e) {
+    const purgeAndRedirect = () => {
+        // 1. 기기 로컬 스토리지 파괴
         localStorage.clear();
         sessionStorage.clear();
+        
+        // 2. 🚀 프론트엔드 쿠키 완전 도살 (백엔드 오류 시 1차 방어선)
+        const cookies = document.cookie.split(";");
+        const domain = window.location.hostname;
+        const mainDomain = domain.split('.').length > 2 ? domain.split('.').slice(-2).join('.') : domain;
+
+        for (let i = 0; i < cookies.length; i++) {
+            const name = cookies[i].split("=")[0].trim();
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=" + domain + ";";
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=." + mainDomain + ";";
+        }
+        
+        // 3. 미들웨어 간섭 원천 차단: 본진 도메인으로 다이렉트 사출
         window.location.replace("https://prima-materia.net");
+    };
+
+    try {
+        // 백엔드 쿠키 도살 명령
+        await fetch("/gate/reincarnate", { method: "POST" });
+        
+        // 환생 로그 핑 전송
+        fetch('/api/godmode/pulse', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            keepalive: true,
+            body: JSON.stringify({ module: 'REINCARNATION', duration: 0 })
+        }).catch(e => console.log('Pulse error', e));
+    } catch (err) {
+        console.error("Void fetch failed, forcing client purge.", err);
     }
+
+    // 🚀 오류 유무와 상관없이 1.5초 뒤 무조건 정화 후 사출
+    setTimeout(purgeAndRedirect, 1500);
 };
 
 noBtn.onclick = () => { reset(); };
