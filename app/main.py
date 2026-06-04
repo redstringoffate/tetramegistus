@@ -475,13 +475,16 @@ async def panopticon_view(request: Request):
 
 from fastapi.responses import Response
 
+# app/main.py 최하단 장부 함수들 수정
+
 @app.get("/robots.txt", include_in_schema=False)
 def get_robots_txt():
-    # 모든 로봇에게 수집을 허용하되, 로그인 정보가 없는 내부 world 구역은 어차피 차단됨을 명시
+    # Allow 항목에 /features 추가 명시
     content = """User-agent: *
 Allow: /
 Allow: /login
 Allow: /form/me
+Allow: /features
 Disallow: /api/godmode/
 Sitemap: https://tetramegistus.com/sitemap.xml
 """
@@ -489,7 +492,7 @@ Sitemap: https://tetramegistus.com/sitemap.xml
 
 @app.get("/sitemap.xml", include_in_schema=False)
 def get_sitemap_xml():
-    # 구글에 노출시키고 싶은 공개적인 첫 관문 주소들을 장부에 적어줍니다.
+    # urlset 내부에 /features 항목 한 줄 추가 각인
     content = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
@@ -497,6 +500,12 @@ def get_sitemap_xml():
         <lastmod>2026-06-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://tetramegistus.com/features</loc>
+        <lastmod>2026-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
     </url>
     <url>
         <loc>https://tetramegistus.com/login</loc>
