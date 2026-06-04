@@ -291,7 +291,7 @@ function initHermeticLock() {
 }
 
 // ============================================
-// PATTERNS VIEW RENDER
+// PATTERNS VIEW RENDER (A5)
 // ============================================
 
 function renderShapesGrid() {
@@ -301,6 +301,11 @@ function renderShapesGrid() {
 
     const allPatterns = A5_STATE.data.patterns || [];
     const uniqueShapes = [...new Set(allPatterns.map(p => p.shape))];
+
+    // 🚀 [수복 1]: 첫 번째 패턴 자동 선택 로직
+    if (!A5_STATE.selectedPattern && uniqueShapes.length > 0) {
+        A5_STATE.selectedPattern = uniqueShapes[0];
+    }
 
     uniqueShapes.forEach(shape => {
         const btn = document.createElement('button');
@@ -322,13 +327,21 @@ function renderTransposedTable() {
     const tbody = document.getElementById('m-a5-tbody-patterns');
 
     if (!A5_STATE.selectedPattern || !A5_STATE.data) {
-        detailArea.style.display = 'none';
-        emptyArea.style.display = 'block';
+        if (detailArea) detailArea.style.display = 'none';
+        if (emptyArea) {
+            emptyArea.style.display = 'block';
+            // 🚀 [수복 2]: 연산이 끝났는데 패턴이 0개인 경우 (무한 로딩 스피너 파괴)
+            if (!A5_STATE.data) {
+                emptyArea.innerHTML = '<div style="padding:40px 0; text-align:center; color:#49dce1;">LOADING PATTERNS...</div>';
+            } else if (!A5_STATE.data.patterns || A5_STATE.data.patterns.length === 0) {
+                emptyArea.innerHTML = '<div style="padding:40px 0; text-align:center; color:#aaa; font-size:0.85rem; letter-spacing:1px;">NO GEOMETRIC PATTERNS FORMED</div>';
+            }
+        }
         return;
     }
 
-    detailArea.style.display = 'block';
-    emptyArea.style.display = 'none';
+    if (detailArea) detailArea.style.display = 'block';
+    if (emptyArea) emptyArea.style.display = 'none';
     document.getElementById('a5-shape-name').textContent = A5_STATE.selectedPattern;
 
     const displayPatterns = A5_STATE.data.patterns.filter(p => p.shape === A5_STATE.selectedPattern);
