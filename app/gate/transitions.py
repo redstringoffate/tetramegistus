@@ -118,47 +118,55 @@ async def recovery(request: Request, response: Response):
         cursor.close()
         conn.close()
 
-# app/gate/transitions.py 최하단 구역 교체
+# app/gate/transitions.py 최하단
 
 @router.post("/gate/logout")
-def logout(request: Request, response: Response):
-    """로그아웃: 세션을 파괴하되, 로그인 유저의 DB 기억(me)을 Guest 쿠키로 부활시켜 보존"""
-    session_user_id = get_clean_cookie(request, "session_user_id")
-    me_seed_data = None
+async def logout(request: Request, response: Response):
+    """
+    🔑 [HARD SOFT LOGOUT]: 로그아웃 직전 서버의 기억을 로컬 쿠키로 강제 환원 
+    """
+    session_user_id = get_clean_cookie(request, "session_user_id") 
+    me_seed_data = None # 🚀 [수복 1]: JS로 던져줄 시드 데이터 장전
     
-    try:
-        conn = get_db()
-        cursor = conn.cursor(cursor_factory=RealDictCursor)
-        cursor.execute("SELECT * FROM users WHERE LOWER(email) = LOWER(%s)", (session_user_id,))
-        user = cursor.fetchone()
-        
-        if user and user.get("birth"):
-            birth_parts = user["birth"].split(" ")
-            db_date = birth_parts[0]
-            db_time = birth_parts[1] if len(birth_parts) > 1 else "12:00:00"
-            db_loc = user.get("location", "")
+    if session_user_id:
+        try:
+            conn = get_db()
+            cursor = conn.cursor(cursor_factory=RealDictCursor)
+            cursor.execute("SELECT * FROM users WHERE LOWER(email) = LOWER(%s)", (session_user_id,))
+            user = cursor.fetchone()
             
-            # 🚀 [로그아웃 수복]: 로그인 유저의 DB 데이터를 Guest(temp) 쿠키로 덮어쓰기!
-            response.set_cookie(key="temp_birth_date", value=db_date, max_age=2592000, path="/")
-            response.set_cookie(key="temp_birth_time", value=db_time, max_age=2592000, path="/")
-            response.set_cookie(key="temp_location", value=urllib.parse.quote(db_loc), max_age=2592000, path="/")
-            
-            # 프론트엔드 localStorage 복구용 데이터 반환
-            me_seed_data = {"birth_date": db_date, "birth_time": db_time, "location": db_loc}
-            
-        cursor.close()
-        conn.close()
-    except Exception:
-        pass
+            if user and user["birth"]:
+                birth_parts = user["birth"].split(" ") 
+                db_date = birth_parts[0]
+                db_time = birth_parts[1] if len(birth_parts)>1 else "12:00:00"
+                db_loc = user.get("location", "")
+                
+                # 1. 🚀 백엔드 쿠키(Guest)로 시드 굽기
+                response.set_cookie(key="temp_birth_date", value=db_date, max_age=2592000, path="/") 
+                response.set_cookie(key="temp_birth_time", value=db_time, max_age=2592000, path="/") 
+                response.set_cookie(key="temp_location", value=urllib.parse.quote(db_loc), max_age=2592000, path="/") 
+                
+                # 2. 🚀 프론트(mypage.js)로 돌려줄 데이터 포장
+                me_seed_data = {
+                    "birth_date": db_date,
+                    "birth_time": db_time,
+                    "location": db_loc
+                }
+            cursor.close()
+            conn.close()
+        except Exception as e: 
+            print("Logout seed exception:", e)
 
-    # 🚨 [치명적 버그 소거]: 여기에 있던 delete_me()를 삭제했습니다! (이게 시드를 날리던 주범)
-    
-    # 세션만 정밀 타격하여 파괴
+    # 🚨 [치명적 버그 원인 파괴]: 기존에 있던 delete_me() 삭제! 
+    # (비회원으로 남아야 하는데, 이놈이 기껏 구운 시드 파일을 날려먹고 있었습니다)
+
+    # 🚀 [수복 2]: 도메인별 세션 쿠키 철통 도살 (좀비 로그인 무한 회귀 방어)
     response.delete_cookie(key="session_user_id", path="/")
     response.delete_cookie(key="session_user_id", path="/", domain="tetramegistus.com")
     response.delete_cookie(key="session_user_id", path="/", domain=".tetramegistus.com")
     
-    return {"ok": True, "message": "Logout complete.", "me_seed": me_seed_data}
+    # 🚀 이제 프론트가 me_seed를 정상적으로 받아 로컬스토리지에 덮어쓸 수 있습니다!
+    return {"ok": True, "message": "Session ended. Memory restored.", "me_seed": me_seed_data}
 
 
 @router.post("/gate/reincarnate")
