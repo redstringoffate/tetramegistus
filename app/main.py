@@ -459,6 +459,12 @@ def world_hub():
 
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon(request: Request):
+    host = request.headers.get("host", "").lower()
+    
+    # 🚀 [아이콘 분리 결계]: prima-materia 도메인이면 404를 뱉어 브라우저 기본 지구본(Globe)을 유도합니다.
+    if "prima-materia" in host:
+        return Response(status_code=404)
+        
     target = os.path.join(STATIC_PATH, "world/shell/favicon.ico")
     if os.path.exists(target):
         return FileResponse(target)

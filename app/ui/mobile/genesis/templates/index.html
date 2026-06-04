@@ -22,7 +22,8 @@
 
 {% block content %}
 <div class="void">
-  <div id="materia-core">
+  {# 🚀 타이틀과 버튼을 중앙 쪽으로 살짝 더 끌어내리기 위해 상단 여백(margin-top) 부여 #}
+  <div id="materia-core" style="margin-top: 15vh;">
     <h1>Prima Materia</h1>
     <button id="form-me">Form New Vessel [me]</button>
   </div>
@@ -43,8 +44,9 @@
 
   <input id="entry-code" class="hidden-trigger" type="password" />
 
-  {# 🚀 [구글 로봇 저격용]: 모바일 화면 레이아웃을 깨지 않고 하단에 안착하는 흐릿한 무채색 전문 키워드 레이어 #}
-  <div style="margin-top: 10vh; text-align: center; color: #444; font-size: 0.75rem; font-family: monospace; letter-spacing: 0.5px; line-height: 1.6; max-width: 90%; margin-left: auto; margin-right: auto; opacity: 0.6; padding-bottom: 5vh;">
+  {# 🚀 [구글 로봇 저격용]: 본문과 텍스트를 완전히 분리하는 구분선(hr) 추가 & 텍스트를 가장 하단으로 밀어냄 #}
+  <hr style="border: none; border-top: 1px solid #222; width: 80%; max-width: 600px; margin: 25vh auto 3vh auto;">
+  <div style="text-align: center; color: #444; font-size: 0.7rem; font-family: monospace; letter-spacing: 0.5px; line-height: 1.6; max-width: 90%; margin-left: auto; margin-right: auto; opacity: 0.5; padding-bottom: 5vh;">
       Tetramegistus Astrology Engine: Natal/Davison Chart Geometry, Aspectus Matrix (Septile/Undecile), Harmonics &amp; Varga Divisio, Hypostases Persona Charts, Chronomantia Timelines (Zodiacal Releasing, Firdaria, Profections, Vimshottari Dasha), Hora Occulta Rectification (Aleph, Mem, Shin), and Esoteric Archetypes (Purushartha, Fixed Stars, Runes, Sephiroth, Tarot). Registered members can archive all charts into a personal database (Grimoire) to view online or export as Excel and PDF files.
   </div>
 
