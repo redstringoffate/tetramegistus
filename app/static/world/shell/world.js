@@ -137,14 +137,14 @@ document.addEventListener("keydown", function (e) {
     }
 });
 
+// static/world/shell/world.js 내부 yesBtn 영역 교체
+
 if (yesBtn) {
-    // 🚀 [수복]: async 함수로 변경
     yesBtn.addEventListener("click", async function () { 
         yesBtn.disabled = true;
         if(noBtn) noBtn.disabled = true;
         yesBtn.innerText = "...";
 
-        // 🚀 [핵심]: 쿠키(식별표)가 삭제되기 전에 파놉티콘에 '환생' 기록부터 쏩니다!
         try {
             await fetch('/api/godmode/pulse', {
                 method: 'POST',
@@ -156,13 +156,27 @@ if (yesBtn) {
         }
 
         setTimeout(async () => {
-            // 기록을 무사히 남긴 뒤에 기억(로컬/쿠키)을 지웁니다.
+            // 1. 로컬 및 세션 기억 완전 파괴
             localStorage.clear();
             sessionStorage.clear();
 
-            document.cookie.split(";").forEach(function(c) { 
-                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
-            });
+            // 🚀 [쿠키 도살 결계 수복]: 도메인 서브 파트와 경로 파트를 순회하며 
+            // session_user_id, temp_birth_date 등 모든 쿠키를 완벽하게 지워버립니다.
+            const cookies = document.cookie.split(";");
+            const domain = window.location.hostname;
+            const domainParts = domain.split('.');
+            const mainDomain = domainParts.length > 2 ? domainParts.slice(-2).join('.') : domain;
+
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i];
+                const eqPos = cookie.indexOf("=");
+                const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+                
+                // 모든 경우의 수(Naked 도메인, Dot 도메인, 현재 Host 전체)에 만료 플래그 주입
+                document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
+                document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=" + domain + ";";
+                document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=." + mainDomain + ";";
+            }
 
             try {
                 await fetch("/gate/reincarnate", { method: "POST" });
@@ -170,6 +184,8 @@ if (yesBtn) {
                 console.error("The void remains silent, but the traces are purged.");
             }
 
+            // 2. 대문으로 탈출 -> 이제 쿠키와 로컬이 다 털렸으므로 백엔드 결계가 
+            // 뉴비로 인식하고 prima-materia.net으로 정방향 강제 리다이렉트를 터뜨립니다!
             window.location.href = "/";
         }, 3000);
     });
