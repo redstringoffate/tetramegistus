@@ -513,3 +513,9 @@ def get_sitemap_xml():
 </urlset>
 """
     return Response(content=content, media_type="application/xml")
+
+# 🚀 [www & Googlebot 소프트 404 철통 방어 결계]:
+# 구글 로봇이 끝에 슬래시(/)를 붙여서 들어와도 404 깡통을 주지 않고 똑같은 XML을 정상 배급합니다.
+@app.get("/sitemap.xml/", include_in_schema=False)
+def get_sitemap_xml_trailing_slash():
+    return get_sitemap_xml()
