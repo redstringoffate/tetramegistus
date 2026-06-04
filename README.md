@@ -12,9 +12,9 @@ This project aims to liberate astrological data from closed, "black-box" environ
 - **UI/UX**: Glassmorphism, Custom CSS Grids
 
 ## ⚖️ Core Modules
-- **Supra (Statistics)**: Real-time traffic analytics and session tracking.
-- **Infra (Theory)**: The core engine for Sabian symbols, Hermetic lots, and planetary data.
-- **Grimoire (Export)**: A sophisticated system for manifesting astrological data into PDF and Excel formats.
+- **Nigredo**: Natal Chart rendering
+- **Albedo**: Composite and Davison charts
+- **Grimoire **: A sophisticated system for manifesting astrological data into PDF and Excel formats.
 
 ## 🚀 How to Manifest (Deployment)
 This project is containerized for seamless deployment.
