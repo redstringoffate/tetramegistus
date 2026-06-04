@@ -25,9 +25,7 @@ def init_panopticon():
     conn = get_pano_db()
     cursor = conn.cursor()
     
-    # 1. 👁️ Supra / Infra 공용 트래픽 로그
-    # 🚀 [수복]: AUTOINCREMENT -> SERIAL로 변경, DATETIME -> TIMESTAMP로 변경
-    # 🚀 [수복]: ALTER TABLE 꼼수 대신 아예 처음부터 user_id를 포함해서 테이블 창조
+    # 1. 👁️ Supra / Infra 공용 트래픽 로그 (기존 CREATE TABLE 유지)
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS traffic_logs (
             id SERIAL PRIMARY KEY,
@@ -41,6 +39,11 @@ def init_panopticon():
         )
     """)
     
+    # 🚀 [Routes 수복]: 기존 테이블을 파괴하지 않고 안전하게 referrer 컬럼만 추가합니다.
+    cursor.execute("SELECT column_name FROM information_schema.columns WHERE table_name='traffic_logs' AND column_name='referrer';")
+    if not cursor.fetchone():
+        cursor.execute("ALTER TABLE traffic_logs ADD COLUMN referrer TEXT DEFAULT 'direct';")
+
     # 2. 📚 Grimoire 연성 로그
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS grimoire_logs (

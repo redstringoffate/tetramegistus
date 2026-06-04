@@ -134,13 +134,18 @@ async def panopticon_tracker(request: Request, call_next):
     """사이트에 들어오는 모든 영혼에게 관측용 식별표를 부여합니다."""
     response = await call_next(request)
     
-    # 이미 식별표가 있거나, 단순 정적 파일(css, js, 이미지) 요청이면 패스
     if "pano_session" in request.cookies or request.url.path.startswith("/static"):
         return response
         
-    # 새로운 영혼이라면 1년짜리 고유 식별표 발급
     pano_session = str(uuid.uuid4())
     response.set_cookie(key="pano_session", value=pano_session, max_age=31536000, path="/")
+    
+    # 🚀 [Routes 수복]: 영혼이 처음 접속할 때 타고 들어온 외부 포털 주소를 박제합니다.
+    ref = request.headers.get("referer", "direct")
+    if "tetramegistus.com" in ref or "prima-materia.net" in ref:
+        ref = "direct"
+        
+    response.set_cookie(key="pano_referrer", value=ref, max_age=31536000, path="/")
     return response
 
 # ─────────────────────────────
@@ -272,14 +277,16 @@ async def panopticon_pulse(request: Request, data: dict):
     is_anima = 1 if session_user_id else 0
     module_name = data.get("module", "UNKNOWN")
     duration = data.get("duration", 0) 
-    country = data.get("country", "Other") 
+    
+    # 🚀 [Terra / Routes 핵심 수복]: Cloudflare 헤더 및 쿠키에서 실제 데이터를 추출합니다.
+    country = request.headers.get("cf-ipcountry", "Other")
+    referrer = request.cookies.get("pano_referrer", "direct")
     
     conn = get_pano_db()
-    # 🚀 [PostgreSQL 수복]: cursor 사용 및 ? -> %s 교체
     cursor = conn.cursor()
     cursor.execute(
-        "INSERT INTO traffic_logs (session_id, user_id, is_anima, module, duration, country) VALUES (%s, %s, %s, %s, %s, %s)",
-        (pano_session, session_user_id, is_anima, module_name, duration, country)
+        "INSERT INTO traffic_logs (session_id, user_id, is_anima, module, duration, country, referrer) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+        (pano_session, session_user_id, is_anima, module_name, duration, country, referrer)
     )
     conn.commit()
     cursor.close()
@@ -295,11 +302,15 @@ def log_prima_materia_visit(request: Request):
 
     if pano_session:
         try:
+            # 🚀 [Terra / Routes 핵심 수복]
+            country = request.headers.get("cf-ipcountry", "Other")
+            referrer = request.cookies.get("pano_referrer", request.headers.get("referer", "direct"))
+            
             conn = get_pano_db()
             cursor = conn.cursor()
             cursor.execute(
-                "INSERT INTO traffic_logs (session_id, user_id, is_anima, module, duration, country) VALUES (%s, %s, %s, 'PRIMA_MATERIA', 0, 'Other')",
-                (pano_session, session_user_id, is_anima)
+                "INSERT INTO traffic_logs (session_id, user_id, is_anima, module, duration, country, referrer) VALUES (%s, %s, %s, 'PRIMA_MATERIA', 0, %s, %s)",
+                (pano_session, session_user_id, is_anima, country, referrer)
             )
             conn.commit()
             cursor.close()
