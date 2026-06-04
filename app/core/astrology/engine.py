@@ -2665,11 +2665,89 @@ def _lords_to_symbols(lord_str):
     parts = [p.strip() for p in lord_str.split('|')]
     return " | ".join([syms.get(p, p) for p in parts])
 
+# ════════════════════════════════════════════════════════
+# N7: HYPOSTASES ENGINE (Persona Matrix Orchestrator)
+# ════════════════════════════════════════════════════════
+
+def find_persona_transit(birth_jd: float, target_lon: float, system: str, ayanamsa: str) -> float:
+    """
+    [N7 궁극 헬퍼] 
+    출생 이후 해당 시스템(Tropical/Sidereal/Draconic/Ketunic)의 트랜짓 태양이 
+    타겟 천체의 '시스템 기준 고유 위치(target_lon)'와 정확히 컨준션(0.0000도)을 맺는 UTC 시간(JD)을 탐색합니다.
+    """
+    import swisseph as swe
+    
+    AYAN_MAP = {'fagan-bradley': 0, 'lahiri': 1, 'raman': 3, 'kp': 5, 'yukteswar': 7}
+    target_sid_mode = AYAN_MAP.get(ayanamsa.lower(), 1)
+    iflgret = swe.FLG_SWIEPH | swe.FLG_SPEED
+    
+    def get_system_sun(jd):
+        # 1. Sidereal 모드 세팅
+        if system == 'sidereal':
+            flags = iflgret | swe.FLG_SIDEREAL
+            swe.set_sid_mode(target_sid_mode, 0, 0)
+        else:
+            flags = iflgret
+            swe.set_sid_mode(0, 0, 0)
+            
+        sun_lon = swe.calc_ut(jd, swe.SUN, flags)[0][0]
+        
+        # 2. Draconic/Ketunic 오프셋(Rahu) 세팅
+        if system in ['draconic', 'ketunic']:
+            tn_lon = swe.calc_ut(jd, 11, iflgret)[0][0] # 11 = True Node
+            offset = -tn_lon if system == 'draconic' else (-tn_lon + 180)
+            sun_lon = (sun_lon + offset) % 360
+            
+        swe.set_sid_mode(0, 0, 0) # 리셋
+        return sun_lon
+
+    birth_sun_lon = get_system_sun(birth_jd)
+    
+    delta = (target_lon - birth_sun_lon) % 360
+    if delta < 0.001: 
+        return birth_jd
+        
+    # 태양의 일일 평균 이동 속도(약 0.985도)로 1차 추정
+    est_jd = birth_jd + (delta / 0.985647) 
+    
+    # 정밀 수치 해석 루프 (Newton-Raphson 기반)
+    for _ in range(15):
+        curr_lon = get_system_sun(est_jd)
+        diff = (target_lon - curr_lon)
+        diff = (diff + 180) % 360 - 180 
+        
+        # 오차율 0.000001 이하 수렴 시 종료
+        if abs(diff) < 0.000001: 
+            break
+            
+        # Draconic 태양은 노드의 역행 덕분에 하루 약 1.03도씩 움직이므로 Tropical보다 미세하게 더 빨리 타겟을 밟습니다.
+        est_jd += diff / 0.985647
+        
+    return est_jd
+
+def _get_n7_house_num(lon, houses_dict):
+    """도수(lon)가 위치한 하우스 번호(H1~H12)를 정확히 판별합니다."""
+    if not houses_dict: return "-"
+    for i in range(1, 13):
+        curr_c = houses_dict.get(i, {}).get('longitude', 0.0)
+        next_c = houses_dict.get(i+1 if i < 12 else 1, {}).get('longitude', 0.0)
+        
+        if curr_c < next_c:
+            if curr_c <= lon < next_c: return f"H{i}"
+        else:
+            if curr_c <= lon < 360 or 0 <= lon < next_c: return f"H{i}"
+    return "H1"
+
+def _lords_to_symbols(lord_str):
+    if not lord_str or lord_str == "-": return "-"
+    syms = {"Sun": "☉", "Moon": "☽", "Mercury": "☿", "Venus": "♀", "Mars": "♂", "Jupiter": "♃", "Saturn": "♄"}
+    parts = [p.strip() for p in lord_str.split('|')]
+    return " | ".join([syms.get(p, p) for p in parts])
+
 def calculate_hypostases_matrix(natal_seed: dict, targets: list, system: str, ayanamsa: str, h_sys: str) -> dict:
     """
     [N7 정제 엔진] 
-    1. 시간 역산은 무조건 Tropical 좌표를 기반으로 절대 고정합니다.
-    2. 생성된 UTC 시간을 유저의 네이탈 타임존(tz)으로 변환하여 로컬 타임으로 차트를 렌더링합니다.
+    요청받은 시스템(System)을 기준으로 지표와 트랜짓 태양을 정밀 추적하여 해당 시스템 고유의 페르소나 시공간을 연성합니다.
     """
     from datetime import datetime, timedelta
     
@@ -2680,67 +2758,36 @@ def calculate_hypostases_matrix(natal_seed: dict, targets: list, system: str, ay
     lat = float(natal_seed.get('lat', 0.0))
     lng = float(natal_seed.get('lng', 0.0))
     tz = float(natal_seed.get('timezone', 0.0))
-    
-    # 🚀 [FIX 1]: 시간 역산을 위한 Tropical 레퍼런스 절대 확보
-    n_data_ref = calculate_principia(date_str, time_str, lat, lng, timezone=tz, system='tropical', ayanamsa='lahiri', h_sys=h_sys)
-    n_arc_ref_p = calculate_arcana(date_str, time_str, lat, lng, timezone=tz, lot_schema='paulus', system='tropical', ayanamsa='lahiri', h_sys=h_sys)
-    try: n_arc_ref_v = calculate_arcana(date_str, time_str, lat, lng, timezone=tz, lot_schema='valens', system='tropical', ayanamsa='lahiri', h_sys=h_sys)
-    except: n_arc_ref_v = {'lots': {}}
+    birth_jd = get_julian_day(date_str, time_str, tz)
 
-    n_targets_ref = n_data_ref.get('planets', {}).copy()
-    
-    # 🚀 [CORE FIX]: Lot 데이터가 합쳐지기 전에 소행성 Eros를 미리 "Asteroid Eros"로 피난시킵니다.
-    # 이렇게 해야 뒤에서 들어오는 Hermetic Lot "Eros"가 소행성 데이터를 덮어쓰지 않습니다.
-    if "Eros" in n_targets_ref: 
-        n_targets_ref["Asteroid Eros"] = n_targets_ref.pop("Eros")
-
-    for k, v in n_arc_ref_p.get('lots', {}).items(): n_targets_ref[k] = {'longitude': v['value']}
-    for k, v in n_arc_ref_v.get('lots', {}).items():
-        if k in ['Eros', 'Necessity']: n_targets_ref[f"{k} (v)"] = {'longitude': v['value']}
-
-    # 🚀 [FIX]: True Node와 Mean Node(Rahu)의 명확한 독립 맵핑
-    if "True Node" in n_targets_ref: n_targets_ref["North Node (t)"] = n_targets_ref.pop("True Node")
-    elif "North Node" in n_targets_ref: n_targets_ref["North Node (t)"] = n_targets_ref.pop("North Node")
-    if "South Node" in n_targets_ref: n_targets_ref["South Node (t)"] = n_targets_ref.pop("South Node")
-    
-    if "Mean Node" in n_targets_ref: n_targets_ref["Rahu"] = n_targets_ref.pop("Mean Node")
-    elif "North Node (m)" in n_targets_ref: n_targets_ref["Rahu"] = n_targets_ref.pop("North Node (m)")
-    if "South Node (m)" in n_targets_ref: n_targets_ref["Ketu"] = n_targets_ref.pop("South Node (m)")
-    
-    # Reference Node 누락 시 방어
-    if "North Node (t)" in n_targets_ref and "South Node (t)" not in n_targets_ref:
-        n_targets_ref["South Node (t)"] = {'longitude': (n_targets_ref["North Node (t)"]['longitude'] + 180) % 360}
-    if "Rahu" in n_targets_ref and "Ketu" not in n_targets_ref:
-        n_targets_ref["Ketu"] = {'longitude': (n_targets_ref["Rahu"]['longitude'] + 180) % 360}
-
-    # 2. 결과 출력용 요청 시스템(System) 네이탈 연산
+    # 🚀 [CORE FIX]: Tropical 임시 레퍼런스를 전부 삭제하고, 처음부터 요청된 시스템(System) 네이탈 차트만 연산하여 타겟 좌표로 삼습니다.
     n_data = calculate_principia(date_str, time_str, lat, lng, timezone=tz, system=system, ayanamsa=ayanamsa, h_sys=h_sys)
     n_arcana_p = calculate_arcana(date_str, time_str, lat, lng, timezone=tz, lot_schema='paulus', system=system, ayanamsa=ayanamsa, h_sys=h_sys)
     try: n_arcana_v = calculate_arcana(date_str, time_str, lat, lng, timezone=tz, lot_schema='valens', system=system, ayanamsa=ayanamsa, h_sys=h_sys)
     except: n_arcana_v = {'lots': {}}
 
-    # 타겟 네이밍 규격화 (출력용 데이터에도 동일하게 적용)
     n_targets = n_data.get('planets', {}).copy()
     
-    # 🚀 [CORE FIX]: 출력용 데이터셋에서도 소행성을 먼저 격리합니다.
-    if "Eros" in n_targets: 
-        n_targets["Asteroid Eros"] = n_targets.pop("Eros")
-        
+    # 소행성 등 이름 정리
+    if "Eros" in n_targets: n_targets["Asteroid Eros"] = n_targets.pop("Eros")
     if "True Node" in n_targets: n_targets["North Node (t)"] = n_targets.pop("True Node")
     elif "North Node" in n_targets: n_targets["North Node (t)"] = n_targets.pop("North Node")
     if "South Node" in n_targets: n_targets["South Node (t)"] = n_targets.pop("South Node")
-    
     if "Mean Node" in n_targets: n_targets["Rahu"] = n_targets.pop("Mean Node")
     elif "North Node (m)" in n_targets: n_targets["Rahu"] = n_targets.pop("North Node (m)")
     if "South Node (m)" in n_targets: n_targets["Ketu"] = n_targets.pop("South Node (m)")
     
+    if "North Node (t)" in n_targets and "South Node (t)" not in n_targets:
+        n_targets["South Node (t)"] = {'longitude': (n_targets["North Node (t)"]['longitude'] + 180) % 360}
+    if "Rahu" in n_targets and "Ketu" not in n_targets:
+        n_targets["Ketu"] = {'longitude': (n_targets["Rahu"]['longitude'] + 180) % 360}
+
     for k, v in n_arcana_p.get('lots', {}).items(): n_targets[k] = {'longitude': v['value']}
     for k, v in n_arcana_v.get('lots', {}).items():
         if k in ['Eros', 'Necessity']: n_targets[f"{k} (v)"] = {'longitude': v['value']}
     for k, v in n_arcana_p.get('vertex', {}).items(): n_targets[k] = {'longitude': v['value']}
     if 'syzygy' in n_arcana_p: n_targets['Syzygy'] = {'longitude': n_arcana_p['syzygy']['data']['value']}
 
-    birth_jd = get_julian_day(date_str, time_str, tz)
     result_charts = {}
     
     # 3. 페르소나 차트 생성 루프
@@ -2752,19 +2799,19 @@ def calculate_hypostases_matrix(natal_seed: dict, targets: list, system: str, ay
             p_data, p_arc_p, p_arc_v = n_data, n_arcana_p, n_arcana_v
             p_date, p_time = date_str, time_str
         else:
-            if lookup_key not in n_targets_ref and lookup_key not in n_targets:
+            if lookup_key not in n_targets:
                 continue
             
             ref_key = lookup_key
             if ref_key == "South Node (t)": ref_key = "North Node (t)"
             if ref_key == "Ketu": ref_key = "Rahu"  
             
-            target_lon_ref = n_targets_ref.get(ref_key, n_targets.get(ref_key, {}))['longitude']
+            target_lon = n_targets[ref_key]['longitude']
             if lookup_key in ["South Node (t)", "Ketu"]:
-                target_lon_ref = (target_lon_ref + 180) % 360
+                target_lon = (target_lon + 180) % 360
 
-            # persona_jd는 완전한 UTC 기준 시간입니다.
-            persona_jd = find_persona_transit(birth_jd, target_lon_ref)
+            # 🚀 [핵심 수복]: 시스템 전용 함수로 탐색 (Draconic이면 Draconic 궤도에서 추적!)
+            persona_jd = find_persona_transit(birth_jd, target_lon, system, ayanamsa)
             
             import swisseph as swe
             year, month, day, fr_hour = swe.revjul(persona_jd, swe.GREG_CAL)
@@ -2793,14 +2840,10 @@ def calculate_hypostases_matrix(natal_seed: dict, targets: list, system: str, ay
         lords = p_data.get('lords', {})
         
         points_out = {}
-        
-        keys_to_skip = [
-            "Asc.", "Dsc.", "I.C.", "M.C.", "Descendant.", "Midheaven.", "Immum Coeli."
-        ]
+        keys_to_skip = ["Asc.", "Dsc.", "I.C.", "M.C.", "Descendant.", "Midheaven.", "Immum Coeli."]
         
         for k, v in p_planets.items():
-            if k in keys_to_skip: 
-                continue
+            if k in keys_to_skip: continue
             
             kn = k
             if k == "Sun": kn = "Sun (Natal)"
@@ -2893,8 +2936,6 @@ def calculate_hypostases_matrix(natal_seed: dict, targets: list, system: str, ay
         }
 
     return result_charts
-
-# app/core/astrology/engine.py (파일 맨 아래에 추가)
 
 def calculate_c2_aleph(seed_data):
     """
