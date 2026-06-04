@@ -140,12 +140,15 @@ async def panopticon_tracker(request: Request, call_next):
     pano_session = str(uuid.uuid4())
     response.set_cookie(key="pano_session", value=pano_session, max_age=31536000, path="/")
     
-    # 🚀 [Routes 수복]: 영혼이 처음 접속할 때 타고 들어온 외부 포털 주소를 박제합니다.
-    ref = request.headers.get("referer", "direct")
-    if "tetramegistus.com" in ref or "prima-materia.net" in ref:
-        ref = "direct"
+    # 🚀 [Routes 심화 수복]: 1. 카톡/광고 URL 파라미터 우선 2. HTTP Referer 후순위
+    q_ref = request.query_params.get("ref") or request.query_params.get("utm_source")
+    h_ref = request.headers.get("referer", "")
+    final_ref = q_ref if q_ref else h_ref
         
-    response.set_cookie(key="pano_referrer", value=ref, max_age=31536000, path="/")
+    if not final_ref or "tetramegistus.com" in final_ref or "prima-materia.net" in final_ref:
+        final_ref = "direct"
+        
+    response.set_cookie(key="pano_referrer", value=final_ref, max_age=31536000, path="/")
     return response
 
 # ─────────────────────────────
@@ -156,56 +159,50 @@ async def anti_retrograde_gate(request: Request, call_next):
     path = request.url.path
     host = request.headers.get("host", "").lower()
     
-    # 1. 정적 파일 및 파비콘은 보안 결계 대상에서 완전 제외
     if path.startswith("/static") or path.startswith("/favicon.ico"):
         return await call_next(request)
 
-    # 🚀 [밀수 레이어 A]: 타 도메인에서 넘어오는 영혼 동기화 파라미터 감지
     query_params = request.query_params
-    has_sync_params = any(k in query_params for k in ["_s_id", "_t_b", "_t_l"])
+    # 🚀 [추가]: 파놉티콘 트래킹 데이터 밀수입 허용
+    has_sync_params = any(k in query_params for k in ["_s_id", "_t_b", "_t_l", "_p_s", "_p_r"])
 
-    # 🪐 [테트라메기스투스 본진] 진입 시 도메인 장벽을 깨고 쿠키를 강제 이식합니다.
     if "tetramegistus" in host and has_sync_params:
-        # 주소창 뒤의 지저분한 파라미터들을 흔적 없이 세탁한 깨끗한 본진 주소로 리다이렉트
         response = RedirectResponse(url=f"https://tetramegistus.com{path}")
-        
-        # 넘어온 데이터들을 테트라메기스투스 도메인의 정식 쿠키로 복제 정착
-        if "_s_id" in query_params:
-            response.set_cookie(key="session_user_id", value=query_params["_s_id"], max_age=31536000, path="/")
-        if "_t_b" in query_params:
-            response.set_cookie(key="temp_birth_date", value=query_params["_t_b"], max_age=31536000, path="/")
-        if "_t_l" in query_params:
-            response.set_cookie(key="temp_location", value=query_params["_t_l"], max_age=31536000, path="/")
+        if "_s_id" in query_params: response.set_cookie(key="session_user_id", value=query_params["_s_id"], max_age=31536000, path="/")
+        if "_t_b" in query_params: response.set_cookie(key="temp_birth_date", value=query_params["_t_b"], max_age=31536000, path="/")
+        if "_t_l" in query_params: response.set_cookie(key="temp_location", value=query_params["_t_l"], max_age=31536000, path="/")
+        # 🚀 [트래킹 쿠키 본진 정착]
+        if "_p_s" in query_params: response.set_cookie(key="pano_session", value=query_params["_p_s"], max_age=31536000, path="/")
+        if "_p_r" in query_params: response.set_cookie(key="pano_referrer", value=query_params["_p_r"], max_age=31536000, path="/")
+        if "_p_tz" in query_params: response.set_cookie(key="pano_tz", value=query_params["_p_tz"], max_age=31536000, path="/")
         return response
 
-    # 2. 현재 도메인 기준의 영혼 존재 여부 판별
     session_id = request.cookies.get("session_user_id")
     local_memory = request.cookies.get("temp_birth_date")
     local_loc = request.cookies.get("temp_location")
     has_soul = session_id is not None or local_memory is not None
 
-    # 🚨 [결계 1]: 심층 월드(/world) 제어 구역 처리
     if path.startswith("/world"):
         if not has_soul:
-            # 영혼이 아예 없다면 소개 사이트의 루트 관문으로 완전 추방
             response = RedirectResponse(url="https://prima-materia.net")
             response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
             return response
         elif "tetramegistus" not in host:
-            # 🚀 [밀수 레이어 B]: 관문 도메인에 생성된 영혼을 본진 도메인으로 안전하게 포워딩
             from urllib.parse import urlencode
             sync_data = {}
             if session_id: sync_data["_s_id"] = session_id
             if local_memory: sync_data["_t_b"] = local_memory
             if local_loc: sync_data["_t_l"] = local_loc
+            # 🚀 [트래킹 쿠키 밀수출 준비]
+            if request.cookies.get("pano_session"): sync_data["_p_s"] = request.cookies.get("pano_session")
+            if request.cookies.get("pano_referrer"): sync_data["_p_r"] = request.cookies.get("pano_referrer")
+            if request.cookies.get("pano_tz"): sync_data["_p_tz"] = request.cookies.get("pano_tz")
             
             query_str = urlencode(sync_data)
             target_url = f"https://tetramegistus.com{path}"
-            if query_str:
-                target_url += f"?{query_str}"
+            if query_str: target_url += f"?{query_str}"
             return RedirectResponse(url=target_url)
 
-    # 🚨 [결계 2]: 기억이 충만한 영혼이 관문(/) 주소로 기웃거릴 때 본진으로 강제 텔레포트
     if (path == "/" or path == "/prima-materia") and has_soul:
         if "tetramegistus" not in host:
             from urllib.parse import urlencode
@@ -213,24 +210,22 @@ async def anti_retrograde_gate(request: Request, call_next):
             if session_id: sync_data["_s_id"] = session_id
             if local_memory: sync_data["_t_b"] = local_memory
             if local_loc: sync_data["_t_l"] = local_loc
+            if request.cookies.get("pano_session"): sync_data["_p_s"] = request.cookies.get("pano_session")
+            if request.cookies.get("pano_referrer"): sync_data["_p_r"] = request.cookies.get("pano_referrer")
+            if request.cookies.get("pano_tz"): sync_data["_p_tz"] = request.cookies.get("pano_tz")
             
             query_str = urlencode(sync_data)
             target_url = "https://tetramegistus.com/world/nigredo"
-            if query_str:
-                target_url += f"?{query_str}"
+            if query_str: target_url += f"?{query_str}"
             return RedirectResponse(url=target_url)
         else:
             return RedirectResponse(url="https://tetramegistus.com/world/nigredo")
         
-    # 기본 요청 진행
     response = await call_next(request)
-    
-    # 🚨 [결계 3]: 월드 내부의 모든 페이지 응답에 캐시 불허 헤더 강제 주입
     if path.startswith("/world"):
         response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
         response.headers["Pragma"] = "no-cache"
         response.headers["Expires"] = "0"
-        
     return response
 
 STATIC_PATH = os.path.join(CURRENT_DIR, "static")
@@ -264,6 +259,51 @@ async def startup_event():
     # 서버 켜지자마자 백그라운드에서 자정 체크 루프 가동
     asyncio.create_task(start_resurrection_protocol())
     print("--- [SUCCESS]: Resurrection Protocol Engaged ---")
+
+# 🚀 [Terra 수복]: 프론트에서 넘어온 타임존을 국가명으로 정밀 번역합니다.
+def get_country_from_tz(tz_str):
+    if not tz_str: return "Other"
+    tz = tz_str.lower()
+    if "seoul" in tz: return "South Korea"
+    if "america" in tz or "us/" in tz: return "United States"
+    if "tokyo" in tz: return "Japan"
+    if "shanghai" in tz or "chongqing" in tz: return "China"
+    if "london" in tz: return "United Kingdom"
+    if "paris" in tz: return "France"
+    if "berlin" in tz: return "Germany"
+    if "india" in tz or "calcutta" in tz: return "India"
+    if "sydney" in tz or "melbourne" in tz: return "Australia"
+    if "toronto" in tz or "vancouver" in tz: return "Canada"
+    return "Other"
+
+@app.post("/api/godmode/pulse")
+async def panopticon_pulse(request: Request, data: dict):
+    session_user_id = request.cookies.get("session_user_id")
+    pano_session = getattr(request.state, "pano_session", request.cookies.get("pano_session"))
+    
+    if not pano_session:
+        return JSONResponse(content={"status": "ignored"})
+        
+    is_anima = 1 if session_user_id else 0
+    module_name = data.get("module", "UNKNOWN")
+    duration = data.get("duration", 0) 
+    
+    # 🚀 [Terra / Routes 완성]: 프론트 쿠키 데이터와 변환 로직 결합
+    pano_tz = request.cookies.get("pano_tz", "Other")
+    country = get_country_from_tz(pano_tz)
+    referrer = request.cookies.get("pano_referrer", "direct")
+    
+    conn = get_pano_db()
+    cursor = conn.cursor()
+    cursor.execute(
+        "INSERT INTO traffic_logs (session_id, user_id, is_anima, module, duration, country, referrer) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+        (pano_session, session_user_id, is_anima, module_name, duration, country, referrer)
+    )
+    conn.commit()
+    cursor.close()
+    conn.close()
+        
+    return JSONResponse(content={"status": "recorded"})
 
 @app.post("/api/godmode/pulse")
 async def panopticon_pulse(request: Request, data: dict):

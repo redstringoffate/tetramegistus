@@ -1,3 +1,14 @@
+/* ─────────────────────────────────────────────────────────────
+   🌍 [Terra Protocol]: 기기 시간대를 통한 국가 역추적 쿠키 주입 (PC)
+───────────────────────────────────────────────────────────── */
+(function() {
+    if (!document.cookie.includes('pano_tz=')) {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
+        // 1년(31536000초) 동안 유효한 타임존 쿠키를 구워 백엔드 파놉티콘과 공명합니다.
+        document.cookie = `pano_tz=${encodeURIComponent(tz)}; path=/; max-age=31536000; sameSite=lax;`;
+    }
+})();
+
 // static/world/shell/world.js
 
 /* ─────────────────────────────
@@ -6,6 +17,7 @@
 ───────────────────────────── */
 (function() {
     const originalFetch = window.fetch;
+    // ... 이하 기존 코드들 그대로 유지 ...
     window.fetch = async function() {
         let [resource, config] = arguments;
         

@@ -1,3 +1,14 @@
+/* ─────────────────────────────────────────────────────────────
+   🌍 [Terra Protocol]: 기기 시간대를 통한 국가 역추적 쿠키 주입
+───────────────────────────────────────────────────────────── */
+(function() {
+    if (!document.cookie.includes('pano_tz=')) {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
+        // 1년(31536000초) 동안 유효한 타임존 쿠키를 구워 백엔드 파놉티콘과 공명합니다.
+        document.cookie = `pano_tz=${encodeURIComponent(tz)}; path=/; max-age=31536000; sameSite=lax;`;
+    }
+})();
+
 /* ─────────────────────────────
    🚀 [Stateless Protocol]: 
    모든 점성학 API 요청에 Local Storage 데이터를 포스트잇(Header)으로 강제 부착합니다.
