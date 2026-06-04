@@ -62,8 +62,13 @@ def is_mobile(request: Request) -> bool:
 
 app = FastAPI() # 기존에 있는 app 선언 코드
 
+import time
+
+# 🪐 [세션 캐시] 매번 DB를 찌르는 병목을 막기 위한 인메모리 저장소
+_VALID_SOULS_CACHE = {}
+
 # ==========================================
-# 💀 [Ghost Exorcism] 삭제된 유저 강제 로그아웃 (Guest 강등)
+# 💀 [Ghost Exorcism] 삭제된 유저 강제 로그아웃 (Guest 강등) - 최적화 버전
 # ==========================================
 @app.middleware("http")
 async def enforce_purge_logout(request: Request, call_next):
@@ -75,46 +80,49 @@ async def enforce_purge_logout(request: Request, call_next):
     if raw_cookie:
         session_email = urllib.parse.unquote(raw_cookie.replace('"', '').strip())
         
-        conn = get_db()
-        cursor = conn.cursor()
-        cursor.execute("SELECT id FROM users WHERE email = %s", (session_email,))
-        user = cursor.fetchone()
-        conn.close()
+        current_time = time.time()
+        
+        # 🚀 1. 캐시 확인: 최근 5분(300초) 이내에 확인된 유저면 DB 쿼리 완전 스킵 (0ms)
+        if session_email not in _VALID_SOULS_CACHE or (current_time - _VALID_SOULS_CACHE[session_email] > 300):
+            try:
+                # 🚀 2. 캐시가 없거나 만료되었을 때만 딱 1번 DB에 물어봄
+                conn = get_db()
+                cursor = conn.cursor()
+                cursor.execute("SELECT id FROM users WHERE email = %s", (session_email,))
+                user = cursor.fetchone()
+                conn.close()
 
-        # 💀 DB에서는 소멸(Purge)되었는데 브라우저에 쿠키만 남은 상태 감지
-        if not user:
-            # API 호출 중이었다면 401 에러로 차단
-            if path.startswith("/api/"):
-                response = JSONResponse(
-                    status_code=401, 
-                    content={"status": "error", "message": "Soul has been returned to the void."}
-                )
-                response.delete_cookie("session_user_id", path="/")
-                return response
-            
-            # 일반 페이지 이동 중이었다면, 로컬 스토리지는 절대 건드리지 않고 쿠키만 날림
-            else:
-                purge_html = f"""
-                <!DOCTYPE html>
-                <html>
-                <head><meta charset="utf-8"></head>
-                <body style="background:#000;">
-                    <script>
-                        // 1. 오직 로그인 증표(쿠키)만 파괴하여 비회원(Guest)으로 강등
-                        document.cookie = "session_user_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                        
-                        // 🚀 로컬 스토리지(localStorage)는 절대 건드리지 않습니다!
-                        
-                        // 2. 알림 후 메인이 아닌 '현재 보던 페이지'로 자연스럽게 회귀
-                        alert("Your soul has been returned to the Void. Reverting to Guest mode.");
-                        window.location.href = "{path}"; 
-                    </script>
-                </body>
-                </html>
-                """
-                response = HTMLResponse(content=purge_html)
-                response.delete_cookie("session_user_id", path="/")
-                return response
+                if user:
+                    _VALID_SOULS_CACHE[session_email] = current_time # 유효 영혼 캐싱
+                else:
+                    # DB에서 삭제된 유저 처리 (기존 로직)
+                    if path.startswith("/api/"):
+                        response = JSONResponse(
+                            status_code=401, 
+                            content={"status": "error", "message": "Soul has been returned to the void."}
+                        )
+                        response.delete_cookie("session_user_id", path="/")
+                        return response
+                    else:
+                        purge_html = f"""
+                        <!DOCTYPE html>
+                        <html>
+                        <head><meta charset="utf-8"></head>
+                        <body style="background:#000;">
+                            <script>
+                                document.cookie = "session_user_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                                alert("Your soul has been returned to the Void. Reverting to Guest mode.");
+                                window.location.href = "{path}"; 
+                            </script>
+                        </body>
+                        </html>
+                        """
+                        response = HTMLResponse(content=purge_html)
+                        response.delete_cookie("session_user_id", path="/")
+                        return response
+            except Exception as e:
+                print(f"[AUTH DB ERROR]: {e}")
+                # DB 장애 시 튕겨내지 않고 통과 (캐싱은 안함)
 
     return await call_next(request)
 

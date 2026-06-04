@@ -489,12 +489,29 @@ button#btn-settings.active {
     margin-bottom: 20px;
 }
 
-#m-global-nexus-loader .loader-text {
-    color: #49dce1;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(73, 220, 225, 0.4);
+/* base.css */
+#m-global-nexus-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* 🚀 [추가]: 스피너를 위로 10~15% 정도 끌어올려 시각적 안정감을 줍니다 */
+    padding-bottom: 12vh; 
+
+    z-index: 999999;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    font-family: monospace;
 }
 
 @keyframes m-spin {
