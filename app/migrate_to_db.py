@@ -14,7 +14,19 @@ db_url = os.environ.get("DATABASE_URL", "")
 if db_url.startswith("postgres://"):
     db_url = db_url.replace("postgres://", "postgresql://", 1)
 
-conn = psycopg2.connect(db_url)
+# 기존
+# conn = psycopg2.connect(db_url)
+
+# 수정 (이렇게 하면 특수문자 문제를 완벽히 회피합니다)
+from urllib.parse import urlparse
+u = urlparse(db_url)
+conn = psycopg2.connect(
+    host=u.hostname,
+    port=u.port,
+    user=u.username,
+    password=u.password, # 여기는 특수문자 인코딩 없이 그대로 넣어도 파이썬이 알아서 처리합니다
+    database=u.path[1:]
+)
 cursor = conn.cursor(cursor_factory=RealDictCursor)
 
 THEORY_DIR = os.path.join(CURRENT_DIR, "data", "theory")
