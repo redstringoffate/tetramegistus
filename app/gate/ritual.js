@@ -187,7 +187,7 @@ document.addEventListener("keydown", async function (e) {
     prompt.textContent = "system ritual";
     bufferView.textContent = "";
 
-    // 🚀 의식 진행 중 클릭을 방해하는 텍스트 덩어리를 투명화
+    // 🚀 의식 진행 중 텍스트 완전 숨김 (클릭 방해 차단)
     const seo = document.getElementById("seo-footer");
     if (seo) seo.style.visibility = "hidden";
     return;
@@ -202,7 +202,7 @@ document.addEventListener("keydown", async function (e) {
     prompt.textContent = "enter 16-digit master key";
     bufferView.textContent = "";
 
-    // 🚀 의식 진행 중 클릭을 방해하는 텍스트 덩어리를 투명화
+    // 🚀 의식 진행 중 텍스트 완전 숨김 (클릭 방해 차단)
     const seo = document.getElementById("seo-footer");
     if (seo) seo.style.visibility = "hidden";
     return;
