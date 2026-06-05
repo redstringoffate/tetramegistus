@@ -883,324 +883,209 @@ async def get_panopticon_data(request: Request, mode: str = 'supra', sub_mode: s
     return JSONResponse(content={"error": "Not implemented"})
 
 # ---------------------------------------------------------
-# ✍️ [Lv3: Creation] - CORPUS HERMETICUM & SABIAN
+# ✍️ [Lv3: Creation] - DB 기반 영구 저장 시스템 구축 완료
 # ---------------------------------------------------------
 
-# 🔑 절대 경로 설정 동기화 (도커/리눅스 호환용 동적 경로로 수복)
-# 현재 파일(godmode.py)을 기준으로 1단계 위로 올라가서 app 폴더를 찾습니다.
+# 🔑 경로 설정 (이미지 업로드 등 물리적 파일 저장을 위해 복구 및 유지)
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 APP_DIR = os.path.dirname(CURRENT_DIR)
 
-def get_article_tree(module_subpath):
-    safe_subpath = module_subpath.replace("/", os.sep) 
-    index_path = os.path.join(APP_DIR, "data", "theory", safe_subpath, "index")
-    
-    if not os.path.exists(index_path):
-        return []
-    
-    articles = []
-    files_found = os.listdir(index_path)
-    
-    for filename in files_found:
-        if filename.endswith(".json"):
-            file_full_path = os.path.join(index_path, filename)
-            with open(file_full_path, "r", encoding="utf-8-sig") as f:
-                try:
-                    meta = json.load(f)
-                    meta["id"] = filename.replace(".json", "")
-                    articles.append(meta)
-                except Exception as e:
-                    print(f"[!] Error in {filename}: {e}")
-
-    # 🚀 [수복]: 자연스러운 정렬(Natural Sort) 적용
-    # ID가 "1", "2", "10" 이면 숫자로 변환해서 비교하고, "intro" 같은 문자면 그대로 비교합니다.
-    articles.sort(key=lambda x: [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', x['id'])])
-                    
-    return articles
-
-# 🚀 12별자리 스캔 함수 (기존과 동일)
-def get_sabian_symbol_tree():
-    signs = ['aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn', 'aquarius', 'pisces']
-    symbol_tree = {}
-    for sign in signs:
-        symbol_tree[sign] = get_article_tree(f"sabian/symbol/{sign}")
-    return symbol_tree
-
 @router.get("/api/godmode/tree")
 async def get_god_mode_tree():
+    conn = get_db()
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
+    cursor.execute("SELECT * FROM theory_scrolls")
+    rows = cursor.fetchall()
+    cursor.close()
+    conn.close()
+
     tree = {
-        "r1": {
-            "hermeticum": get_article_tree("hermeticum"),
-            # 🚀 드디어 제정신을 차린 완벽한 독립 경로
-            "archivum": get_article_tree("archivum") 
-        },
+        "r1": {"hermeticum": [], "archivum": []},
         "r2": {
-            "sign": get_article_tree("sabian/sign"), 
-            "symbol": get_sabian_symbol_tree() 
+            "sign": [], 
+            "symbol": {s: [] for s in ['aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn', 'aquarius', 'pisces']}
         }
     }
+
+    for row in rows:
+        mod = row['module']
+        sub = row['subpath']
+        
+        # 프론트엔드가 요구하는 JSON 메타데이터 규격으로 조립
+        meta = {
+            "id": row['entry_id'],
+            "title_en": row['title_en'] or "",
+            "title_ko": row['title_ko'] or "",
+            "status": row['status'],
+            "pinned": row['pinned'],
+            "pin_order": row['pin_order']
+        }
+        # 트리에 렌더링할 대표 제목 (한글 우선, 없으면 영어, 없으면 ID)
+        meta['title'] = meta['title_ko'] if meta['title_ko'] else (meta['title_en'] if meta['title_en'] else meta['id'])
+
+        if mod == 'r1' and sub in tree['r1']:
+            tree['r1'][sub].append(meta)
+        elif mod == 'r2':
+            if sub == 'sign':
+                tree['r2']['sign'].append(meta)
+            elif sub in tree['r2']['symbol']:
+                tree['r2']['symbol'][sub].append(meta)
+
+    # 🚀 자연스러운 정렬(Natural Sort) 적용
+    def natural_sort_key(x):
+        return [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', x['id'])]
+
+    for sub in tree['r1']: tree['r1'][sub].sort(key=natural_sort_key)
+    tree['r2']['sign'].sort(key=natural_sort_key)
+    for sign in tree['r2']['symbol']: tree['r2']['symbol'][sign].sort(key=natural_sort_key)
+
     return tree
 
-# 🚀 [신규] 프론트엔드에서 변경한 Pin 상태를 파일에 영구 각인하는 라우터
 @router.post("/api/godmode/update_pins")
 async def update_pins(request: Request, subpath: str = Form(...), pins: str = Form(...)):
     if not request.cookies.get("god_token"): return {"status": "error"}
     
-    # 🚀 [롤백] 억지 보정 로직 삭제하고 프론트에서 온 subpath(archivum/hermeticum) 그대로 사용
-    index_dir = os.path.join(APP_DIR, "data", "theory", subpath, "index")
-    
     try:
-        pinned_ids = json.loads(pins) # ["id1", "id2", ...]
+        pinned_ids = json.loads(pins)
+        conn = get_db()
+        cursor = conn.cursor()
         
-        # 1. 먼저 해당 폴더의 모든 파일의 pin을 해제 (초기화)
-        for filename in os.listdir(index_dir):
-            if filename.endswith(".json"):
-                f_path = os.path.join(index_dir, filename)
-                with open(f_path, "r", encoding="utf-8-sig") as f:
-                    meta = json.load(f)
-                
-                meta["pinned"] = False
-                meta.pop("pin_order", None)
-                
-                with open(f_path, "w", encoding="utf-8-sig") as f:
-                    json.dump(meta, f, ensure_ascii=False, indent=4)
-                    
-        # 2. 넘어온 배열 순서대로 pin과 order 재부여
+        # 1. 해당 subpath의 모든 핀 초기화
+        cursor.execute("UPDATE theory_scrolls SET pinned = FALSE, pin_order = NULL WHERE subpath = %s", (subpath,))
+        
+        # 2. 넘어온 배열 순서대로 핀 부여
         for idx, entry_id in enumerate(pinned_ids):
-            f_path = os.path.join(index_dir, f"{entry_id}.json")
-            if os.path.exists(f_path):
-                with open(f_path, "r", encoding="utf-8-sig") as f:
-                    meta = json.load(f)
-                
-                meta["pinned"] = True
-                meta["pin_order"] = idx
-                
-                with open(f_path, "w", encoding="utf-8-sig") as f:
-                    json.dump(meta, f, ensure_ascii=False, indent=4)
-                    
+            cursor.execute("UPDATE theory_scrolls SET pinned = TRUE, pin_order = %s WHERE subpath = %s AND entry_id = %s", (idx, subpath, entry_id))
+            
+        conn.commit()
+        cursor.close()
+        conn.close()
         return {"status": "success"}
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
-from datetime import datetime
-
 @router.post("/api/godmode/create")
-async def create_scroll(
-    request: Request,
-    subpath: str = Form(...), # "hermeticum" 또는 "archivum"
-    entry_id: str = Form(...)  # 새 인덱스 이름
-):
+async def create_scroll(request: Request, subpath: str = Form(...), entry_id: str = Form(...)):
     current_user = request.cookies.get("session_user_id")
     god_token = request.cookies.get("god_token")
     if current_user != "admin@tetramegistus.com" or not god_token:
         return {"status": "error", "message": "Unauthorized soul."}
-
-    # 사용자님의 완벽한 독립 경로 설계 반영
-    base_dir = os.path.join(APP_DIR, "data", "theory", subpath)
     
-    index_file = os.path.join(base_dir, "index", f"{entry_id}.json")
-    en_file = os.path.join(base_dir, "en", f"{entry_id}.html")
-    ko_file = os.path.join(base_dir, "ko", f"{entry_id}.html")
-
-    if os.path.exists(index_file):
+    module = "r1" # 생성은 기본적으로 R1에서 일어남
+    
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT id FROM theory_scrolls WHERE module=%s AND subpath=%s AND entry_id=%s", (module, subpath, entry_id))
+    if cursor.fetchone():
+        cursor.close(); conn.close()
         return {"status": "error", "message": "The scroll already exists in the void."}
-
+        
     try:
-        # 🚀 [핵심 수복 1] 무에서 유를 창조할 때 반드시 폴더부터 뚫습니다.
-        os.makedirs(os.path.dirname(index_file), exist_ok=True)
-        os.makedirs(os.path.dirname(en_file), exist_ok=True)
-        os.makedirs(os.path.dirname(ko_file), exist_ok=True)
-
-        default_meta = {
-            "id": entry_id,
-            "title": entry_id, 
-            "date": datetime.now().strftime("%Y-%m-%d"), 
-            "status": "draft"
-        }
-        with open(index_file, "w", encoding="utf-8-sig") as f:
-            json.dump(default_meta, f, ensure_ascii=False, indent=4)
-
-        for html_path in [en_file, ko_file]:
-            with open(html_path, "w", encoding="utf-8") as f:
-                f.write("") 
-
+        cursor.execute("""
+            INSERT INTO theory_scrolls (module, subpath, entry_id, status) 
+            VALUES (%s, %s, %s, 'draft')
+        """, (module, subpath, entry_id))
+        conn.commit()
+        cursor.close()
+        conn.close()
         return {"status": "success", "message": f"New scroll '{entry_id}' manifested."}
-
     except Exception as e:
-        return {"status": "error", "message": f"Manifestation failed: {str(e)}"}
+        return {"status": "error", "message": str(e)}
 
 @router.post("/api/godmode/delete")
-async def delete_scroll(
-    request: Request,
-    target_path: str = Form(...), # 예: "r1/archivum/test_file"
-    otp_code: str = Form(...)
-):
-    # 1. 🛡️ 세션 결계 확인 (God Mode 권한)
+async def delete_scroll(request: Request, target_path: str = Form(...), otp_code: str = Form(...)):
     current_user = request.cookies.get("session_user_id")
     god_token = request.cookies.get("god_token")
     if current_user != "admin@tetramegistus.com" or not god_token:
         return {"status": "error", "message": "Unauthorized soul."}
+        
+    if not verify_google_otp(otp_code): return {"status": "error", "message": "The Void rejects your code."}
 
-    # 2. 🔐 .env 파일의 실제 OTP_SECRET을 가져와서 검증
-    import pyotp
-    import os
-    from dotenv import load_dotenv
-    
-    load_dotenv() # .env 파일 로드
-    otp_secret = os.getenv("OTP_SECRET")
-    
-    if not otp_secret:
-        return {"status": "error", "message": "Server configuration error: OTP_SECRET missing."}
-
-    admin_totp = pyotp.TOTP(otp_secret) 
-    if not admin_totp.verify(otp_code):
-        return {"status": "error", "message": "The Void rejects your code."}
-
-    # 3. 💥 파괴 대상 식별 및 3종 파일 세트 삭제
     try:
         parts = target_path.split("/")
-        # 방어 로직: R1(필멸의 기록)만 삭제 가능. R2는 파괴 불가.
         if len(parts) != 3 or parts[0] != "r1":
             return {"status": "error", "message": "Invalid target. R2 is eternal."}
-        
+            
         module, subpath, entry_id = parts
         
-        # APP_DIR은 상단에 정의했던 그 경로 (C:\...\app)
-        base_dir = os.path.join(APP_DIR, "data", "theory", subpath)
-        
-        # 메뉴판(.json) + 영어 본문 + 한글 본문 모두 타겟팅
-        files_to_delete = [
-            os.path.join(base_dir, "index", f"{entry_id}.json"),
-            os.path.join(base_dir, "en", f"{entry_id}.html"),
-            os.path.join(base_dir, "ko", f"{entry_id}.html")
-        ]
-        
-        deleted_count = 0
-        for f_path in files_to_delete:
-            if os.path.exists(f_path):
-                os.remove(f_path)
-                deleted_count += 1
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM theory_scrolls WHERE module=%s AND subpath=%s AND entry_id=%s", (module, subpath, entry_id))
+        deleted_count = cursor.rowcount
+        conn.commit()
+        cursor.close()
+        conn.close()
         
         if deleted_count == 0:
             return {"status": "error", "message": "Scroll not found in the void."}
-
         return {"status": "success", "message": "The scroll has been eradicated."}
-
     except Exception as e:
-        return {"status": "error", "message": f"Destruction failed: {str(e)}"}
+        return {"status": "error", "message": str(e)}
 
-# app/api/godmode.py
-
-import os
-import json
-from fastapi import APIRouter, Request, Form
-
-def get_physical_path(module: str, path: str, lang: str, file_type: str = "html"):
-    parts = path.split('/')
-    ext = file_type
-    
-    if module == "r1":
-        # R1: hermeticum/index_name
-        sub, entry_id = parts
-        
-        # 🚀 [롤백] 억지 보정 로직 삭제, sub(archivum) 그대로 사용
-        folder = "index" if file_type == "json" else lang
-        return os.path.join(APP_DIR, "data", "theory", sub, folder, f"{entry_id}.{ext}")
-    
-    elif module == "r2":
-        # R2 Sign: sign/aries
-        if parts[0] == "sign":
-            entry_id = parts[1]
-            folder = "index" if file_type == "json" else lang
-            return os.path.join(APP_DIR, "data", "theory", "sabian", "sign", folder, f"{entry_id}.{ext}")
-        # R2 Symbol: aries/1
-        else:
-            sign, entry_id = parts
-            folder = "index" if file_type == "json" else lang
-            return os.path.join(APP_DIR, "data", "theory", "sabian", "symbol", sign, folder, f"{entry_id}.{ext}")
-    return None
-
-# --- 1. LOAD API 수복 ---
 @router.get("/api/godmode/load")
 async def load_scroll(request: Request, module: str, path: str, lang: str):
-    god_token = request.cookies.get("god_token")
-    if not god_token: return {"status": "error", "message": "Unauthorized."}
+    if not request.cookies.get("god_token"): return {"status": "error"}
 
-    index_file = get_physical_path(module, path, lang, "json")
-    html_file = get_physical_path(module, path, lang, "html")
+    # path 파싱 로직
+    parts = path.split('/')
+    if module == 'r1':
+        subpath, entry_id = parts
+    else:
+        if parts[0] == 'sign': subpath = 'sign'; entry_id = parts[1]
+        else: subpath = parts[0]; entry_id = parts[1]
 
-    title = ""
-    if index_file and os.path.exists(index_file):
-        with open(index_file, "r", encoding="utf-8-sig") as f:
-            meta = json.load(f)
-            # 🚀 [수복] 다른 언어 제목이 끌려오지 않도록 오직 '요청한 언어'의 제목만 호출. 없으면 빈칸.
-            title = meta.get(f"title_{lang}", "")
+    conn = get_db()
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
+    cursor.execute("SELECT * FROM theory_scrolls WHERE module=%s AND subpath=%s AND entry_id=%s", (module, subpath, entry_id))
+    row = cursor.fetchone()
+    cursor.close()
+    conn.close()
 
-    content = ""
-    if html_file and os.path.exists(html_file):
-        with open(html_file, "r", encoding="utf-8") as f:
-            content = f.read()
+    if not row:
+        return {"status": "success", "title": "", "content": ""}
 
+    title = row.get(f"title_{lang}") or ""
+    content = row.get(f"content_{lang}") or ""
     return {"status": "success", "title": title, "content": content}
 
 @router.post("/api/godmode/save")
-async def save_scroll(
-    request: Request,
-    module: str = Form(...),
-    path: str = Form(...),
-    lang: str = Form(...),
-    title: str = Form(...),
-    content: str = Form(...),
-    is_post: str = Form("false")
-):
-    god_token = request.cookies.get("god_token")
-    if not god_token: return {"status": "error", "message": "Unauthorized."}
-
-    index_file = get_physical_path(module, path, lang, "json")
-    html_file = get_physical_path(module, path, lang, "html")
+async def save_scroll(request: Request, module: str = Form(...), path: str = Form(...), lang: str = Form(...), title: str = Form(...), content: str = Form(...), is_post: str = Form("false")):
+    if not request.cookies.get("god_token"): return {"status": "error"}
 
     is_published = is_post.lower() == "true"
+    new_status = "published" if is_published else "draft"
 
+    parts = path.split('/')
+    if module == 'r1':
+        subpath, entry_id = parts
+    else:
+        if parts[0] == 'sign': subpath = 'sign'; entry_id = parts[1]
+        else: subpath = parts[0]; entry_id = parts[1]
+
+    conn = get_db()
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
+    
+    cursor.execute("SELECT id FROM theory_scrolls WHERE module=%s AND subpath=%s AND entry_id=%s", (module, subpath, entry_id))
+    existing = cursor.fetchone()
+    
+    title_col = f"title_{lang}"
+    content_col = f"content_{lang}"
+    
     try:
-        if html_file:
-            os.makedirs(os.path.dirname(html_file), exist_ok=True)
-            with open(html_file, "w", encoding="utf-8") as f:
-                f.write(content)
-
-        if index_file:
-            os.makedirs(os.path.dirname(index_file), exist_ok=True)
+        if existing:
+            query = f"UPDATE theory_scrolls SET {title_col} = %s, {content_col} = %s, status = %s WHERE id = %s"
+            cursor.execute(query, (title, content, new_status, existing['id']))
+        else:
+            query = f"INSERT INTO theory_scrolls (module, subpath, entry_id, {title_col}, {content_col}, status) VALUES (%s, %s, %s, %s, %s, %s)"
+            cursor.execute(query, (module, subpath, entry_id, title, content, new_status))
             
-            if os.path.exists(index_file):
-                with open(index_file, "r", encoding="utf-8-sig") as f:
-                    meta = json.load(f)
-            else:
-                entry_id = path.split('/')[-1]
-                meta = {
-                    "id": entry_id,
-                    "title": title  
-                }
-            
-            meta[f"title_{lang}"] = title
-            
-            # 🚀 [N 마커용 시공간 각인 로직]
-            from datetime import datetime # 안전을 위해 내부 임포트
-            
-            if is_published:
-                # 1. 기존에 발행된 적이 없거나 (draft -> published 전환)
-                # 2. date 데이터가 "YYYY-MM-DD" 같이 구형 포맷이어서 'T' 기호가 없는 경우
-                # => 초 단위 정밀 ISO 타임스탬프를 새롭게 각인합니다.
-                if meta.get("status") != "published" or "T" not in str(meta.get("date", "")):
-                    meta["date"] = datetime.now().isoformat()
-
-            meta["status"] = "published" if is_published else "draft"
-            
-            with open(index_file, "w", encoding="utf-8-sig") as f:
-                json.dump(meta, f, ensure_ascii=False, indent=4)
-
-        return {"status": "success", "message": "The scroll has been preserved."}
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return {"status": "success", "message": "The scroll has been preserved in the DB."}
     except Exception as e:
         return {"status": "error", "message": f"Ritual failed: {str(e)}"}
-    
+
 @router.post("/api/godmode/upload")
 async def upload_asset(
     request: Request,
