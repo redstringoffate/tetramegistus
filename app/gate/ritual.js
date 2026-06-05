@@ -90,9 +90,9 @@ function reset() {
   bufferView.style.color = "rgb(3, 234, 252)";
   prompt.textContent = "";
 
-  // 🚀 취소 시 SEO 텍스트 다시 보이게 복구
+  // 🚀 취소 시 텍스트 다시 복구
   const seo = document.getElementById("seo-footer");
-  if (seo) seo.style.visibility = "visible";
+  if (seo) seo.style.display = "block";
 }
 
 function bakeMigrationSeeds() {
@@ -179,7 +179,6 @@ noBtn.onclick = () => { reset(); };
    Key handling (원본 단축키 보존)
 ───────────────────────────── */
 document.addEventListener("keydown", async function (e) {
-  // 시스템 환생 (Ctrl+Shift+9)
   if (e.ctrlKey && e.shiftKey && e.key === "9") {
     e.preventDefault();
     mode = "reincarnate";
@@ -188,13 +187,12 @@ document.addEventListener("keydown", async function (e) {
     prompt.textContent = "system ritual";
     bufferView.textContent = "";
 
-    // 🚀 의식 진행 중 SEO 텍스트 숨김
+    // 🚀 의식 진행 중 텍스트 완전 숨김 (겹침 방지)
     const seo = document.getElementById("seo-footer");
-    if (seo) seo.style.visibility = "hidden";
+    if (seo) seo.style.display = "none";
     return;
   }
 
-  // 마스터 키 복구/강림 (Ctrl+Shift+8)
   if (e.ctrlKey && e.shiftKey && e.code === "Digit8") {
     e.preventDefault();
     mode = "recovery";
@@ -204,9 +202,9 @@ document.addEventListener("keydown", async function (e) {
     prompt.textContent = "enter 16-digit master key";
     bufferView.textContent = "";
 
-    // 🚀 의식 진행 중 SEO 텍스트 숨김
+    // 🚀 의식 진행 중 텍스트 완전 숨김 (겹침 방지)
     const seo = document.getElementById("seo-footer");
-    if (seo) seo.style.visibility = "hidden";
+    if (seo) seo.style.display = "none";
     return;
   }
 

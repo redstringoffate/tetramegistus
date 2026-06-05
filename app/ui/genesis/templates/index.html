@@ -6,13 +6,14 @@
 <title>Tetramegistus | Professional Astrology Engine</title>
 <meta name="description" content="Tetramegistus: An advanced astrology engine providing natal and davison chart diagnostics, fixed star conjunctions, septile/undecile aspectus, harmonics, and varga divisio (jyotish). Registered members can archive all data to a personal Grimoire database for web viewing or export to Excel and PDF formats. Includes hypostases persona charts, timelines (zodiacal releasing/dasha), and rectification.">
 <meta name="keywords" content="astrology, natal chart, composite chart, davison midpoint, helenistic astrology, zodiacal releasing, vimshottari dasha, firdaria, profections, persona chart, varga chart, rectification, grimoire archive, excel astrology, pdf chart save, tetramegistus">
-<meta name="author" content="Ellen">
+
+{# 🚀 [긴급 수정]: 불쾌감을 드린 임의의 이름을 즉시 파기하고 Redstringoffate로 각인했습니다. #}
+<meta name="author" content="Redstringoffate">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tetramegistus: The Professional Astrological Matrix">
 <meta property="og:description" content="Calculate complex planetary paths, varga divisions, and timelines. Archive calculations to a personal Grimoire to view online or export as Excel and PDF files.">
 <meta property="og:url" content="https://tetramegistus.com">
-<meta property="og:image" content="/static/world/shell/favicon.ico">
 {% endblock %}
 
 {% block content %}
@@ -36,7 +37,7 @@
         aria-hidden="true"
       />
 
-      {# 🚀 [수복]: 의식 발동 시(ctrl+shift+8) 텍스트 겹침을 방지하기 위해 푸터를 묶어줍니다. #}
+      {# 🚀 의식 창과 겹치지 않게 숨기기 위해 푸터를 묶어줍니다 #}
       <div id="seo-footer">
           <hr style="border: none; border-top: 1px solid #222; width: 80%; max-width: 600px; margin: 15vh auto 4vh auto;">
           <div style="text-align: center; color: #444; font-size: 0.7rem; font-family: monospace; letter-spacing: 0.5px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.5;">
@@ -47,9 +48,6 @@
       <script src="/static/genesis/index.js"></script>
 
       <script>
-      /* ─────────────────────────────────────────────────────────────
-         🌍 [Terra Protocol]: 대문 진입 즉시 기기 시간대를 통한 국가 역추적 쿠키 주입
-      ───────────────────────────────────────────────────────────── */
       (function() {
           if (!document.cookie.includes('pano_tz=')) {
               const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
