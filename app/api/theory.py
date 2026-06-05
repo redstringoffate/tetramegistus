@@ -4,14 +4,20 @@ from fastapi import APIRouter, HTTPException, Query
 from pathlib import Path
 import json
 import os
+import time
+import re
+from datetime import datetime, timedelta, timezone
+
+import psycopg2
+from psycopg2.extras import RealDictCursor
+from core.database import get_db  # 🚀 DB 통신을 위한 심장부 연결
 
 router = APIRouter(prefix="/api/theory", tags=["theory"])
 
 BASE_DIR = Path(__file__).resolve().parent.parent 
 DATA_RENDER_DIR = BASE_DIR / "data" / "render"
-DATA_THEORY_DIR = BASE_DIR / "data" / "theory"
 
-# --- [기존 데이터 로더 유지] ---
+# --- [기존 데이터 로더 유지 (UI 렌더링용 정적 자산)] ---
 @router.get("/fixedstar/meanings")
 async def get_fixed_star_meanings():
     try:
@@ -117,7 +123,7 @@ async def get_neshamah_c5_dict():
     except Exception as e: return {"error": str(e)}
 
 @router.get("/citrinitas/yechidah")
-async def get_chayah_dict():
+async def get_yechidah_dict():
     try:
         file_path = DATA_RENDER_DIR / "c3_yechidah.json"
         if not file_path.exists(): return {"error": "Not Found"}
@@ -133,7 +139,6 @@ _SABIAN_DB_CACHE = None
 def get_sabian_summary(idx: int, lang: str = "en"):
     global _SABIAN_DB_CACHE
     try:
-        # 🚀 최초 1회 호출 시에만 디스크에서 읽어 메모리에 박제합니다.
         if _SABIAN_DB_CACHE is None:
             file_path = DATA_RENDER_DIR / "sabian.json"
             if not file_path.exists(): 
@@ -141,7 +146,6 @@ def get_sabian_summary(idx: int, lang: str = "en"):
             with open(file_path, "r", encoding="utf-8") as f: 
                 _SABIAN_DB_CACHE = json.load(f)
         
-        # 두 번째 요청부터는 디스크를 아예 건드리지 않고 RAM에서 빛의 속도로 추출합니다.
         symbol_data = _SABIAN_DB_CACHE.get(str(idx), {})
         return {"text": symbol_data.get(lang, symbol_data.get("en", "Unknown"))}
     except Exception: 
@@ -149,34 +153,28 @@ def get_sabian_summary(idx: int, lang: str = "en"):
 
 
 # ====================================================================
-# 🚀 [수복 완료]: 인코딩(BOM) 폭탄 제거 및 status 값 명시적 반환
+# 🚀 [DB 연동 수복]: 파일 시스템을 버리고 PostgreSQL에서 직접 가져옵니다.
 # ====================================================================
 
 @router.get("/sabian/sign/{sign_name}")
 async def get_sabian_sign(sign_name: str, lang: str = Query("en")):
     try:
-        base_dir = DATA_THEORY_DIR / "sabian" / "sign"
-        index_file = base_dir / "index" / f"{sign_name}.json"
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
+        cursor.execute("SELECT * FROM theory_scrolls WHERE module='r2' AND subpath='sign' AND entry_id=%s", (sign_name,))
+        row = cursor.fetchone()
+        cursor.close()
+        conn.close()
 
-        if not index_file.exists():
+        if not row:
             raise HTTPException(status_code=404, detail="Sign index not found.")
-
-        # 🚀 utf-8-sig로 읽어서 BOM 충돌 완벽 방지
-        with open(index_file, 'r', encoding='utf-8-sig') as f:
-            meta = json.load(f)
-
-        if meta.get("status") == "draft":
+        if row.get("status") == "draft":
             raise HTTPException(status_code=404, detail=f"The duality of knowledge '{sign_name}' is not yet manifested.")
 
-        target_body = base_dir / lang / f"{sign_name}.html"
-        content = ""
-        if target_body.exists():
-            with open(target_body, 'r', encoding='utf-8-sig') as f:
-                content = f.read()
-
-        title = meta.get(f"title_{lang}") or meta.get("title") or sign_name.upper()
-        # 🚀 [수복]: 프론트엔드가 다운로드 권한을 검증할 수 있도록 status 값을 리턴
-        return {"title": title, "content": content, "status": meta.get("status", "draft")}
+        title = row.get(f"title_{lang}") or row.get("title_en") or sign_name.upper()
+        content = row.get(f"content_{lang}") or ""
+        
+        return {"title": title, "content": content, "status": row.get("status", "draft")}
     except HTTPException: raise
     except Exception as e: 
         print(f"[THEORY ERROR - SIGN]: {e}")
@@ -186,99 +184,99 @@ async def get_sabian_sign(sign_name: str, lang: str = Query("en")):
 @router.get("/sabian/symbol/{sign_name}/{degree}")
 async def get_sabian_symbol(sign_name: str, degree: str, lang: str = Query("en")):
     try:
-        base_dir = DATA_THEORY_DIR / "sabian" / "symbol" / sign_name
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
         
-        # 🚀 7.json과 07.json 모두 유연하게 대응
-        index_file = base_dir / "index" / f"{degree}.json"
-        if not index_file.exists() and degree.isdigit():
-            padded = base_dir / "index" / f"{int(degree):02d}.json"
-            if padded.exists():
-                index_file = padded
-                degree = f"{int(degree):02d}"
+        # 🚀 7과 07 모두 매칭될 수 있도록 유연한 조회 로직
+        alt_degree = f"{int(degree):02d}" if degree.isdigit() else degree
+        
+        cursor.execute("""
+            SELECT * FROM theory_scrolls 
+            WHERE module='r2' AND subpath=%s AND (entry_id=%s OR entry_id=%s)
+        """, (sign_name, degree, alt_degree))
+        row = cursor.fetchone()
+        cursor.close()
+        conn.close()
 
-        if not index_file.exists():
+        if not row:
             raise HTTPException(status_code=404, detail="Symbol index not found.")
-        
-        # 🚀 utf-8-sig로 읽어서 BOM 충돌 완벽 방지
-        with open(index_file, 'r', encoding='utf-8-sig') as f:
-            meta = json.load(f)
-
-        if meta.get("status") == "draft":
+        if row.get("status") == "draft":
             raise HTTPException(status_code=404, detail=f"The duality of knowledge '{sign_name} {degree}°' is not yet manifested.")
 
-        target_body = base_dir / lang / f"{degree}.html"
-        content = ""
-        if target_body.exists():
-            with open(target_body, 'r', encoding='utf-8-sig') as f:
-                content = f.read()
-
-        title = meta.get(f"title_{lang}") or meta.get("title") or f"{sign_name.capitalize()} {degree}°"
-        # 🚀 [수복]: 프론트엔드가 다운로드 권한을 검증할 수 있도록 status 값을 리턴
-        return {"title": title, "content": content, "status": meta.get("status", "draft")}
+        title = row.get(f"title_{lang}") or row.get("title_en") or f"{sign_name.capitalize()} {degree}°"
+        content = row.get(f"content_{lang}") or ""
+        
+        return {"title": title, "content": content, "status": row.get("status", "draft")}
     except HTTPException: raise
     except Exception as e:
         print(f"[THEORY ERROR - SYMBOL]: {e}")
         raise HTTPException(status_code=404, detail="Content not found")
-    
-import re # (파일 상단에 없으면 꼭 추가해 주세요)
+
 
 # ====================================================================
-# 🚀 1. R1 퍼블릭 트리 스캐너 (10초 캐시 + async 제거로 딜레이 원천 차단)
+# 🚀 1. R1 퍼블릭 트리 스캐너 (DB 기반 자연 정렬)
 # ====================================================================
 r1_tree_cache = {
     "timestamp": 0,
     "data": {"hermeticum": [], "archivum": []}
 }
 
-# 🚨 반드시 'async'를 빼야 합니다! (서버 멈춤 방지)
 @router.get("/r1/tree")
 def get_r1_public_tree():
     global r1_tree_cache
     
-    # 10초 캐시: 글을 쓰자마자 확인하는 상황을 위해 짧게 캐시하지만, 동시 폭격은 완벽히 방어함
     if time.time() - r1_tree_cache["timestamp"] < 10:
         return r1_tree_cache["data"]
 
-    def get_public_articles(subpath):
-        index_path = DATA_THEORY_DIR / subpath / "index"
-        if not index_path.exists(): 
-            return []
+    conn = get_db()
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
+    cursor.execute("SELECT * FROM theory_scrolls WHERE module='r1' AND status='published'")
+    rows = cursor.fetchall()
+    cursor.close()
+    conn.close()
+
+    articles_h = []
+    articles_a = []
+    
+    for row in rows:
+        meta = {
+            "id": row['entry_id'],
+            "title": row['title_ko'] if row['title_ko'] else (row['title_en'] if row['title_en'] else row['entry_id']),
+            "title_en": row['title_en'],
+            "title_ko": row['title_ko'],
+            "status": row['status'],
+            "pinned": row['pinned'],
+            "pin_order": row['pin_order']
+        }
+        if row['subpath'] == 'hermeticum':
+            articles_h.append(meta)
+        elif row['subpath'] == 'archivum':
+            articles_a.append(meta)
+
+    # 자연 정렬 로직
+    def sort_key(x):
+        return [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', x['id'])]
         
-        articles = []
-        for file_path in index_path.glob("*.json"):
-            try:
-                with open(file_path, "r", encoding="utf-8-sig") as f:
-                    meta = json.load(f)
-                    if meta.get("status") == "published":
-                        meta["id"] = file_path.stem
-                        articles.append(meta)
-            except Exception:
-                pass
-                
-        articles.sort(key=lambda x: [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', x['id'])])
-        return articles
+    articles_h.sort(key=sort_key)
+    articles_a.sort(key=sort_key)
 
     result = {
-        "hermeticum": get_public_articles("hermeticum"),
-        "archivum": get_public_articles("archivum") 
+        "hermeticum": articles_h,
+        "archivum": articles_a
     }
     
     r1_tree_cache["timestamp"] = time.time()
     r1_tree_cache["data"] = result
     return result
 
-from datetime import datetime, timedelta, timezone
-import json
-import os
-import time
 
-# 🚀 [최적화]: 60초 메모리 캐시 저장소
+# ====================================================================
+# 🚀 N-Marker 레이더 (24시간 내 신규 글 감지 - 초고속 DB 쿼리)
+# ====================================================================
 radar_cache = {
     "timestamp": 0,
     "data": {"has_new": False, "new_modules": {"r1": False, "r2": False}}
 }
-
-# app/api/theory.py
 
 @router.get("/rubedo/check_new")
 def check_new_rubedo_articles():
@@ -288,94 +286,57 @@ def check_new_rubedo_articles():
         return radar_cache["data"]
 
     try:
-        kst = timezone(timedelta(hours=9))
-        now_kst = datetime.now(kst)
-        threshold = now_kst - timedelta(hours=24)
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
         
-        # 🚀 24시간 전의 시간을 OS가 이해할 수 있는 초 단위 타임스탬프로 변환
-        threshold_timestamp = threshold.timestamp() 
-        
-        new_status = { "r1": False, "r2": False }
-        
-        def has_new_in_path(base_path):
-            if not base_path.exists(): return False
-            for root, dirs, files in os.walk(base_path):
-                for f in files:
-                    if f.endswith(".json"):
-                        file_path = os.path.join(root, f)
-                        try:
-                            # 🚀 OS 메타데이터 검사: 수정된 지 24시간 넘은 파일은 열어보지도 않고 0.001초 컷 스킵!
-                            if os.path.getmtime(file_path) < threshold_timestamp:
-                                continue
-                                
-                            with open(file_path, 'r', encoding='utf-8-sig') as file:
-                                meta = json.load(file)
-                                if meta.get("status") == "published":
-                                    date_str = meta.get("date", "")
-                                    if "T" in date_str:
-                                        pub_date = datetime.fromisoformat(date_str)
-                                        if pub_date.tzinfo is None:
-                                            pub_date = pub_date.replace(tzinfo=kst)
-                                        if pub_date > threshold:
-                                            return True
-                        except Exception: pass
-            return False
+        # 🚀 끔찍하게 느렸던 디스크 파일 순회를 단 한 줄의 SQL로 파괴!
+        # 최근 24시간 내에 생성된 '발행(published)' 글이 있는지 검사합니다.
+        cursor.execute("""
+            SELECT DISTINCT module FROM theory_scrolls 
+            WHERE status = 'published' AND created_at >= NOW() - INTERVAL '24 hours'
+        """)
+        rows = cursor.fetchall()
+        cursor.close()
+        conn.close()
 
-        if has_new_in_path(DATA_THEORY_DIR / "hermeticum" / "index") or \
-           has_new_in_path(DATA_THEORY_DIR / "archivum" / "index"):
-            new_status["r1"] = True
-            
-        if has_new_in_path(DATA_THEORY_DIR / "sabian"):
-            new_status["r2"] = True
-        
+        new_r1 = any(r['module'] == 'r1' for r in rows)
+        new_r2 = any(r['module'] == 'r2' for r in rows)
+
         result = {
-            "has_new": new_status["r1"] or new_status["r2"],
-            "new_modules": new_status
+            "has_new": new_r1 or new_r2,
+            "new_modules": {"r1": new_r1, "r2": new_r2}
         }
         radar_cache["timestamp"] = time.time()
         radar_cache["data"] = result
-        
         return result
     except Exception as e:
         print(f"[RADAR ERROR]: {e}")
         return radar_cache["data"]
 
+
 # ====================================================================
-# 🚀 [본문 호출]: 영/한문 제목과 본문을 한 번에 가져옵니다.
+# 🚀 [본문 호출]: 영/한문 제목과 본문을 DB에서 한 번에 가져옵니다.
 # ====================================================================
 @router.get("/{category}/{entry_id}")
 async def get_theory_content(category: str, entry_id: str):
     try:
-        cat_dir = DATA_THEORY_DIR / category
-        index_file = cat_dir / "index" / f"{entry_id}.json"
+        conn = get_db()
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
+        cursor.execute("SELECT * FROM theory_scrolls WHERE module='r1' AND subpath=%s AND entry_id=%s", (category, entry_id))
+        row = cursor.fetchone()
+        cursor.close()
+        conn.close()
 
-        if not index_file.exists():
+        if not row:
             raise HTTPException(status_code=404, detail="Theory index not found.")
-
-        with open(index_file, 'r', encoding='utf-8-sig') as f:
-            meta = json.load(f)
-
-        if meta.get("status") != "published":
+        if row.get("status") != "published":
             raise HTTPException(status_code=404, detail="Article not published.")
 
-        target_en = cat_dir / "en" / f"{entry_id}.html"
-        content_en = ""
-        if target_en.exists():
-            with open(target_en, 'r', encoding='utf-8-sig') as f:
-                content_en = f.read()
-
-        target_ko = cat_dir / "ko" / f"{entry_id}.html"
-        content_ko = ""
-        if target_ko.exists():
-            with open(target_ko, 'r', encoding='utf-8-sig') as f:
-                content_ko = f.read()
-
-        # 🚀 에디터에 저장된 영/한 제목과 본문을 몽땅 리턴!
         return {
-            "title_en": meta.get(f"title_en") or meta.get("title") or entry_id,
-            "title_ko": meta.get(f"title_ko") or meta.get("title") or entry_id,
-            "content_en": content_en,
-            "content_ko": content_ko
+            "title_en": row.get("title_en") or row.get("entry_id"),
+            "title_ko": row.get("title_ko") or row.get("entry_id"),
+            "content_en": row.get("content_en") or "",
+            "content_ko": row.get("content_ko") or ""
         }
     except HTTPException: raise
     except Exception: raise HTTPException(status_code=404, detail="System Error")
