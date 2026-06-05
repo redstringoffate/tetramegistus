@@ -2,7 +2,6 @@
 
 {% block body_class %}centered{% endblock %}
 
-{# 🚀 [SEO 수복]: 구글 검색엔진 로봇용 헤더 장부 및 기능별 블루오션 전문 키워드 정밀 각인 #}
 {% block head %}
 <title>Tetramegistus | Professional Astrology Engine</title>
 <meta name="description" content="Tetramegistus: An advanced astrology engine providing natal and davison chart diagnostics, fixed star conjunctions, septile/undecile aspectus, harmonics, and varga divisio (jyotish). Registered members can archive all data to a personal Grimoire database for web viewing or export to Excel and PDF formats. Includes hypostases persona charts, timelines (zodiacal releasing/dasha), and rectification.">
@@ -37,10 +36,12 @@
         aria-hidden="true"
       />
 
-      {# 🚀 [구글 로봇 저격용]: 대문의 무결성 미니멀 디자인을 해치지 않도록 구분선(hr) 추가 및 톤다운 #}
-      <hr style="border: none; border-top: 1px solid #222; width: 80%; max-width: 600px; margin: 15vh auto 4vh auto;">
-      <div style="text-align: center; color: #444; font-size: 0.7rem; font-family: monospace; letter-spacing: 0.5px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.5;">
-          Tetramegistus Astrology Engine: Natal/Davison Chart Geometry, Aspectus Matrix (Septile/Undecile), Harmonics &amp; Varga Divisio, Hypostases Persona Charts, Chronomantia Timelines (Zodiacal Releasing, Firdaria, Profections, Vimshottari Dasha), Hora Occulta Rectification (Aleph, Mem, Shin), and Esoteric Archetypes (Purushartha, Fixed Stars, Runes, Sephiroth, Tarot). Registered members can archive all charts into a personal database (Grimoire) to view online or export as Excel and PDF files.
+      {# 🚀 [수복]: 의식 발동 시(ctrl+shift+8) 텍스트 겹침을 방지하기 위해 푸터를 묶어줍니다. #}
+      <div id="seo-footer">
+          <hr style="border: none; border-top: 1px solid #222; width: 80%; max-width: 600px; margin: 15vh auto 4vh auto;">
+          <div style="text-align: center; color: #444; font-size: 0.7rem; font-family: monospace; letter-spacing: 0.5px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.5;">
+              Tetramegistus Astrology Engine: Natal/Davison Chart Geometry, Aspectus Matrix (Septile/Undecile), Harmonics &amp; Varga Divisio, Hypostases Persona Charts, Chronomantia Timelines (Zodiacal Releasing, Firdaria, Profections, Vimshottari Dasha), Hora Occulta Rectification (Aleph, Mem, Shin), and Esoteric Archetypes (Purushartha, Fixed Stars, Runes, Sephiroth, Tarot). Registered members can archive all charts into a personal database (Grimoire) to view online or export as Excel and PDF files.
+          </div>
       </div>
 
       <script src="/static/genesis/index.js"></script>
@@ -52,25 +53,9 @@
       (function() {
           if (!document.cookie.includes('pano_tz=')) {
               const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
-              // 1년 만료 규격으로 브라우저가 눈뜨자마자 타임존을 강제 각인시킵니다.
               document.cookie = `pano_tz=${encodeURIComponent(tz)}; path=/; max-age=31536000; sameSite=lax;`;
           }
       })();
-
-      // 1. 페이지를 떠날 때(폼으로 가거나 월드로 갈 때) 기존 화면을 통째로 날려버리고 검은 화면만 남김
-      window.addEventListener("pagehide", () => {
-          document.body.innerHTML = "<div style='position:fixed;inset:0;background:#000;z-index:9999999;'></div>";
-      });
-
-      // 2. 뒤로가기로 돌아왔을 때
-      window.addEventListener("pageshow", (event) => {
-          if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-              // 화면은 이미 위에서 만든 검은색 빈 껍데기뿐임. 그 상태에서 서버로 새로고침을 던짐.
-              document.body.style.display = "none";
-              window.location.reload();
-          }
-      });
       </script>
-      
 </div>
 {% endblock %}

@@ -89,6 +89,10 @@ function reset() {
   bufferView.textContent = "";
   bufferView.style.color = "rgb(3, 234, 252)";
   prompt.textContent = "";
+
+  // 🚀 취소 시 SEO 텍스트 다시 보이게 복구
+  const seo = document.getElementById("seo-footer");
+  if (seo) seo.style.visibility = "visible";
 }
 
 function bakeMigrationSeeds() {
@@ -183,6 +187,10 @@ document.addEventListener("keydown", async function (e) {
     confirmBox.style.display = "block";
     prompt.textContent = "system ritual";
     bufferView.textContent = "";
+
+    // 🚀 의식 진행 중 SEO 텍스트 숨김
+    const seo = document.getElementById("seo-footer");
+    if (seo) seo.style.visibility = "hidden";
     return;
   }
 
@@ -195,6 +203,10 @@ document.addEventListener("keydown", async function (e) {
     confirmBox.style.display = "none";
     prompt.textContent = "enter 16-digit master key";
     bufferView.textContent = "";
+
+    // 🚀 의식 진행 중 SEO 텍스트 숨김
+    const seo = document.getElementById("seo-footer");
+    if (seo) seo.style.visibility = "hidden";
     return;
   }
 

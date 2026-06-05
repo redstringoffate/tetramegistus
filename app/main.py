@@ -460,7 +460,7 @@ def world_hub():
 import base64
 from fastapi.responses import Response, FileResponse
 
-# 🚀 [무한 로딩 파괴자]: 텅 빈 데이터가 아닌, 완벽한 규격의 '칠흑(Solid Black) 사각형' SVG
+# 🚀 [무한 로딩 파괴 & 칠흑 아이콘]: 완벽한 규격의 '검은 사각형' SVG
 BLACK_VOID_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"><rect width="1" height="1" fill="#000000"/></svg>"""
 
 @app.get("/favicon.ico", include_in_schema=False)
@@ -470,7 +470,7 @@ async def favicon(request: Request):
     
     # 🚀 [완벽 분리 결계]: prima-materia 도메인이거나, tetramegistus 도메인의 대문 구역인 경우
     if "prima-materia" in host or "form/me" in referer or "login" in referer or request.url.path in ["/", "/form/me"]:
-        # 브라우저에게 정상적인 '검은색 1x1 이미지'를 주어 로딩을 즉시 끝냅니다.
+        # 브라우저에게 정상적인(Status 200) '검은색 이미지'를 주어 삥글이 로딩을 즉시 끝냅니다.
         return Response(content=BLACK_VOID_SVG, media_type="image/svg+xml")
         
     # 오직 /world 내부(엔진)에서 요청했을 때만 T 아이콘을 내려줍니다.
