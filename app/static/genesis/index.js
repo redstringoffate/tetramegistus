@@ -12,13 +12,6 @@ fetch('/api/godmode/pulse', {
     body: JSON.stringify({ module: 'PRIMA_MATERIA', duration: 0 })
 }).catch(e => console.log('Pulse error', e));
 
-// 이미 [me]가 있으면 바로 world로 보냄
-(function () {
-	const me = localStorage.getItem("tetramegistus.me")
-	if (me) {
-		window.location.href = "/world"
-	}
-})()
 
 /* ─────────────────────────────
    Form New Vessel button
