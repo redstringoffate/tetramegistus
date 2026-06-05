@@ -1,4 +1,5 @@
 # app/migrate_to_db.py
+
 import os
 import json
 import psycopg2
@@ -6,13 +7,14 @@ from psycopg2.extras import RealDictCursor
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# 🚀 환경변수, urlparse 등 쓸데없는 우회 로직 전부 폐기.
-# 대표님의 .env에 있는 완벽한 직통 주소를 변수 없이 그대로 꽂아버립니다.
-db_url = "postgresql://postgres:4times0325tetra@db.vniccmcvxpgfylwdygqu.supabase.co:5432/postgres"
+# 🚀 아이디에 .vniccmcvxpgfylwdygqu 가 붙은 완벽한 IPv4 우회 주소입니다.
+db_url = "postgresql://postgres.vniccmcvxpgfylwdygqu:4times0325tetra@aws-1-ap-northeast-2.pooler.supabase.com:6543/postgres"
 
 # 직통 연결
 conn = psycopg2.connect(db_url)
 cursor = conn.cursor(cursor_factory=RealDictCursor)
+
+# ... (아래 코드는 기존과 100% 동일) ...
 
 THEORY_DIR = os.path.join(CURRENT_DIR, "data", "theory")
 
