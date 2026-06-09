@@ -68,3 +68,4 @@ psycopg2-binary
 astral
 timezonefinder
 weasyprint
+supabase
