@@ -510,9 +510,18 @@ from fastapi.responses import Response
 # app/main.py 최하단 장부 함수들 수정
 
 @app.get("/robots.txt", include_in_schema=False)
-def get_robots_txt():
-    # Allow 항목에 /features 추가 명시
-    content = """User-agent: *
+def get_robots_txt(request: Request):
+    host = request.headers.get("host", "").lower()
+    
+    # 1. 대문(Prima Materia)의 로봇 규약
+    if "prima-materia" in host:
+        content = """User-agent: *
+Allow: /
+Sitemap: https://prima-materia.net/sitemap.xml
+"""
+    # 2. 본진(Tetramegistus)의 로봇 규약
+    else:
+        content = """User-agent: *
 Allow: /
 Allow: /login
 Allow: /form/me
@@ -523,9 +532,12 @@ Sitemap: https://tetramegistus.com/sitemap.xml
     return Response(content=content, media_type="text/plain")
 
 @app.get("/sitemap.xml", include_in_schema=False)
-def get_sitemap_xml():
-    # urlset 내부에 /features 항목 한 줄 추가 각인
-    content = """<?xml version="1.0" encoding="UTF-8"?>
+def get_sitemap_xml(request: Request):
+    host = request.headers.get("host", "").lower()
+
+    # 1. 구글봇이 대문(Prima Materia)으로 접속했을 때 주는 명부
+    if "prima-materia" in host:
+        content = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://prima-materia.net/</loc>
@@ -533,6 +545,13 @@ def get_sitemap_xml():
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
+</urlset>
+"""
+        return Response(content=content, media_type="application/xml")
+
+    # 2. 구글봇이 본진(Tetramegistus)으로 접속했을 때 주는 명부
+    content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://tetramegistus.com/features</loc>
         <lastmod>2026-06-04</lastmod>
@@ -555,8 +574,7 @@ def get_sitemap_xml():
 """
     return Response(content=content, media_type="application/xml")
 
-# 🚀 [www & Googlebot 소프트 404 철통 방어 결계]:
-# 구글 로봇이 끝에 슬래시(/)를 붙여서 들어와도 404 깡통을 주지 않고 똑같은 XML을 정상 배급합니다.
+# 🚀 [www & Googlebot 소프트 404 철통 방어 결계]
 @app.get("/sitemap.xml/", include_in_schema=False)
-def get_sitemap_xml_trailing_slash():
-    return get_sitemap_xml()
+def get_sitemap_xml_trailing_slash(request: Request):
+    return get_sitemap_xml(request)

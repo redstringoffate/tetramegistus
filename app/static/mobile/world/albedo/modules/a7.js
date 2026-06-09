@@ -313,7 +313,7 @@ function populateA7Sabian() {
                         <div style="font-weight:${fWeight}; margin-bottom: 4px;">
                             <span style="color:${dmsColor};">${dmsDisp}</span> 
                             <span style="color:#555; margin: 0 2px;">|</span> 
-                            <strong style="color:#7CFF9B;">${pData.house || '-'}H</strong>
+                            <strong style="color:#7CFF9B;">${pData.house || '-'}</strong>
                         </div>
                         <div class="col-sabian-symbol" style="font-size:0.75rem; color:#AAAAAA; font-style:italic; line-height:1.3;">
                             ${sabianText}
