@@ -1086,6 +1086,10 @@ async def save_scroll(request: Request, module: str = Form(...), path: str = For
     except Exception as e:
         return {"status": "error", "message": f"Ritual failed: {str(e)}"}
 
+import os
+from fastapi import UploadFile, File, Form, Request
+from supabase import create_client, Client
+
 @router.post("/api/godmode/upload")
 async def upload_asset(
     request: Request,
@@ -1097,22 +1101,39 @@ async def upload_asset(
     if not god_token:
         return {"status": "error", "message": "Unauthorized."}
 
-    # 파일이 저장될 절대 경로 설정 (예: app/static/uploads/r1/hermeticum/문서이름/)
-    subpath, entry_id = path.split('/')
-    upload_dir = os.path.join(APP_DIR, "static", "uploads", module, subpath, entry_id)
-    
-    # 폴더가 없으면 생성
-    os.makedirs(upload_dir, exist_ok=True)
-    
-    # 디스크에 물리적 저장
-    file_path = os.path.join(upload_dir, file.filename)
-    with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
+    try:
+        # 1. Supabase 클라이언트 연결 (절대 권한 키 사용)
+        supabase_url = os.environ.get("SUPABASE_URL")
+        supabase_key = os.environ.get("SUPABASE_SERVICE_KEY")
         
-    # 에디터가 읽을 수 있는 URL 반환
-    file_url = f"/static/uploads/{module}/{subpath}/{entry_id}/{file.filename}"
-    
-    return {"status": "success", "url": file_url, "name": file.filename}
+        if not supabase_url or not supabase_key:
+            return {"status": "error", "message": "Supabase keys missing in the void."}
+            
+        supabase: Client = create_client(supabase_url, supabase_key)
+
+        # 2. 파일 저장 경로 생성 (예: r1/hermeticum/1/my_image.png)
+        subpath, entry_id = path.split('/')
+        file_name = file.filename
+        storage_path = f"{module}/{subpath}/{entry_id}/{file_name}"
+        
+        # 3. 파일 데이터를 바이트로 읽기
+        file_bytes = await file.read()
+        
+        # 4. Supabase Storage 'assets' 버킷에 업로드 
+        # (upsert=True 설정으로 같은 이름의 파일을 올려도 에러 없이 덮어씁니다)
+        supabase.storage.from_("assets").upload(
+            path=storage_path,
+            file=file_bytes,
+            file_options={"content-type": file.content_type, "upsert": "true"}
+        )
+        
+        # 5. 프론트엔드 에디터가 화면에 띄울 수 있도록 퍼블릭(Public) URL 획득
+        public_url = supabase.storage.from_("assets").get_public_url(storage_path)
+        
+        return {"status": "success", "url": public_url, "name": file_name}
+        
+    except Exception as e:
+        return {"status": "error", "message": f"Upload failed: {str(e)}"}
 
 from fastapi.responses import JSONResponse
 
