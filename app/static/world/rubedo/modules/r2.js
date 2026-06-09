@@ -12,6 +12,7 @@ const R2 = {
         this.syncUI();
         this.load();
 
+        // 🚀 뒤로가기/앞으로가기 시에도 즉각 반응
         window.onpopstate = () => {
             this.updateStateFromURL();
             this.render();
@@ -23,22 +24,34 @@ const R2 = {
     updateStateFromURL() {
         const params = new URLSearchParams(window.location.search);
         this.state.view = params.get('mode') || 'sign';
+        
         const signParam = params.get('sign');
         if (signParam && this.keys.includes(signParam)) {
             this.state.sIdx = this.keys.indexOf(signParam);
         }
+        
         const numParam = params.get('num');
         this.state.nVal = numParam ? parseInt(numParam) : null;
     },
 
+    // 🚀 [핵심 수복 1]: 뷰 전환 시 URL 파라미터를 보존하고 자연스럽게 이어줍니다.
     switchDichotomy() {
         this.state.view = (this.state.view === 'sign') ? 'symbol' : 'sign';
-        this.state.nVal = null; 
-
+        
         const url = new URL(window.location.href);
         url.searchParams.set('mode', this.state.view);
-        url.searchParams.delete('sign');
-        url.searchParams.delete('num');
+
+        if (this.state.view === 'symbol') {
+            // Sign -> Symbol 전환: 현재 별자리 유지하고 자동으로 1도로 세팅
+            if (!this.state.nVal) this.state.nVal = 1;
+            url.searchParams.set('sign', this.keys[this.state.sIdx]);
+            url.searchParams.set('num', this.state.nVal.toString());
+        } else {
+            // Symbol -> Sign 전환: 숫자만 지우고 현재 별자리 유지
+            this.state.nVal = null;
+            url.searchParams.delete('num');
+            url.searchParams.set('sign', this.keys[this.state.sIdx]);
+        }
         
         history.pushState(null, '', url); 
         this.render();
@@ -58,14 +71,18 @@ const R2 = {
         document.getElementById('label-symbol').classList.toggle('active', isSymbol);
     },
 
+    // 🚀 [핵심 수복 2]: 클릭 시 URL에 현재 상태를 정확히 각인합니다.
     handleSignClick(idx, el) {
         this.state.sIdx = idx;
         const url = new URL(window.location.href);
         url.searchParams.set('sign', this.keys[idx]);
 
+        // 심볼 모드에서 다른 별자리를 누르면 기존 도수(nVal)를 그대로 유지
         if (this.state.view === 'symbol') {
             if (!this.state.nVal) this.state.nVal = 1; 
             url.searchParams.set('num', this.state.nVal.toString());
+        } else {
+            url.searchParams.delete('num');
         }
 
         history.pushState(null, '', url);
@@ -85,53 +102,54 @@ const R2 = {
     },
 
     async load() {
-		if (this.state.view === 'symbol' && !this.state.nVal) return;
-		if (this.state.view === 'sign' && !new URLSearchParams(window.location.search).get('sign')) return;
+        const titleEl = document.getElementById('theory-title');
+        const bodyEl = document.getElementById('theory-body');
 
-		const lang = (typeof WorldSettings !== 'undefined') ? WorldSettings.get('lang', 'en') : 'en';
-		const signName = this.keys[this.state.sIdx];
-		let endpoint = '';
+        // 데이터가 비어있을 때 잔상이 남지 않도록 화면 초기화
+        if (this.state.view === 'symbol' && !this.state.nVal) {
+            titleEl.innerText = "SABIAN SYMBOL";
+            bodyEl.innerHTML = "<p class='system-msg'>Select a degree.</p>";
+            return;
+        }
 
-		if (this.state.view === 'sign') {
-			endpoint = `/api/theory/sabian/sign/${signName}`;
-		} else {
-			endpoint = `/api/theory/sabian/symbol/${signName}/${this.state.nVal}`;
-		}
+        const lang = (typeof WorldSettings !== 'undefined') ? WorldSettings.get('lang', 'en') : 'en';
+        const signName = this.keys[this.state.sIdx];
+        let endpoint = (this.state.view === 'sign') 
+            ? `/api/theory/sabian/sign/${signName}` 
+            : `/api/theory/sabian/symbol/${signName}/${this.state.nVal}`;
 
-		try {
-			const res = await fetch(`${endpoint}?lang=${lang}`);
-			if (!res.ok) throw new Error();
-			const data = await res.json();
-			
-			const titleEl = document.getElementById('theory-title');
-			const bodyEl = document.getElementById('theory-body');
-			
-			titleEl.innerText = data.title;
-			bodyEl.innerHTML = data.content;
+        try {
+            const res = await fetch(`${endpoint}?lang=${lang}`);
+            if (!res.ok) throw new Error();
+            const data = await res.json();
+            
+            titleEl.innerText = data.title;
+            bodyEl.innerHTML = data.content;
 
-			const combinedContent = (data.content || "");
-			const isGrimoireBanned = combinedContent.toLowerCase().includes('#nogrimoire');
-			const isLoggedIn = document.cookie.includes('session_user_id');
+            const combinedContent = (data.content || "");
+            const isGrimoireBanned = combinedContent.toLowerCase().includes('#nogrimoire');
+            const isLoggedIn = document.cookie.includes('session_user_id');
+            const isPublished = data.status === 'published';
 
-			// 🚀 [발행 여부 감지]: index.json의 status 값을 기준으로 명확하게 판별
-			const isPublished = data.status === 'published';
+            // 기존 PDF 버튼 중복 생성 방지
+            const existingBtn = titleEl.querySelector('.grimoire-pdf-btn');
+            if (existingBtn) existingBtn.remove();
 
-			if (isLoggedIn && !isGrimoireBanned && isPublished) {
-				const btn = document.createElement('button');
-				btn.className = 'grimoire-pdf-btn';
-				btn.title = "Inscribe to Grimoire";
-				btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
-				btn.onclick = () => this.triggerPDFDownload();
-				
-				titleEl.appendChild(btn);
-			}
+            if (isLoggedIn && !isGrimoireBanned && isPublished) {
+                const btn = document.createElement('button');
+                btn.className = 'grimoire-pdf-btn';
+                btn.title = "Inscribe to Grimoire";
+                btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
+                btn.onclick = () => this.triggerPDFDownload();
+                
+                titleEl.appendChild(btn);
+            }
 
-		} catch (e) {
-			const errorId = this.state.view === 'sign' ? signName : `${signName} ${this.state.nVal}°`;
-			document.getElementById('theory-body').innerHTML = 
-				`<p class="error-msg">[SYSTEM]: The duality of knowledge '${errorId}' is not yet manifested.</p>`;
-		}
-	},
+        } catch (e) {
+            const errorId = this.state.view === 'sign' ? signName : `${signName} ${this.state.nVal}°`;
+            bodyEl.innerHTML = `<p class="error-msg">[SYSTEM]: The duality of knowledge '${errorId}' is not yet manifested.</p>`;
+        }
+    },
 
     render() {
         const sm = document.getElementById('sign-matrix');
