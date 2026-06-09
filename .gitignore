@@ -1,4 +1,4 @@
-# 1. 파이썬 가상환경 및 캐시 (2400개 파일의 주범)
+# 1. 파이썬 가상환경 및 캐시
 __pycache__/
 *.pyc
 venv/
@@ -10,9 +10,12 @@ env/
 *.db
 *.sqlite3
 panopticon_archives/
-data/theory/
 
-# 3. 기타 잡동사니
+# 3. 모바일 앱 엔진 및 노드 찌꺼기 (🚀 신규 결계)
+node_modules/
+mobile/node_modules/
+
+# 4. 기타 잡동사니
 .vscode/
 __MACOSX/
 .DS_Store

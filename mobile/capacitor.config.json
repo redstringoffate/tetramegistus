@@ -1,0 +1,9 @@
+{
+  "appId": "com.tetramegistus.app",
+  "appName": "Tetramegistus",
+  "webDir": "www",
+  "server": {
+    "url": "https://tetramegistus.com",
+    "cleartext": true
+  }
+}
