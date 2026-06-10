@@ -1,16 +1,18 @@
 /* Mobile World Global Reset */
 
-/* 🚀 1. 윈도우 TTF 대신 구글 서버에서 방어막 없는 코딩 폰트를 직수입합니다 */
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700;900&display=swap');
-
-/* 🚀 2. 엑셀 리더기 내부의 모든 표, 셀, 텍스트에 강제 적용 */
-html, body, table, th, td, tr, div, span, p, a, pre, code, * {
-    font-family: 'Inconsolata', ui-monospace, SFMono-Regular, monospace !important;
+/* 🚀 [PDF 엔진 저격 결계] 이름이 정확히 'Consolas'여야 pdf.js 캔버스 렌더러가 낚아챕니다 */
+@font-face {
+    font-family: 'Consolas';
+    src: url('/static/fonts/Consolas.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
+/* 🚀 개미코딱지 현상 원천 복구 및 순정 미학 고정 */
 html, body {
     margin: 0; padding: 0; width: 100%; height: 100%;
     background: #050505;
+    font-family: 'Consolas', ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace !important;
     overflow: hidden; 
 }
 
