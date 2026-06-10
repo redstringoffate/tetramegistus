@@ -644,7 +644,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 /* ==========================================
-   📦 [궁극 수복] Pure Native Download Engine (공유 시트 전면 도살)
+   📦 [궁극 수복] Pure Native Download Engine (웹/앱 완벽 격리)
 ========================================== */
 window.RitualDownload = async function(url, filename) {
     try {
@@ -667,25 +667,30 @@ window.RitualDownload = async function(url, filename) {
             const base64data = reader.result;
             const base64String = base64data.split(',')[1];
 
-            // 3. 앱 껍데기(Capacitor) 환경 검증
-            const isCapacitor = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem;
+            // 🚀 핵심 판독기: '진짜 안드로이드 앱'인지 '삼성 인터넷(웹)'인지 완벽하게 검증
+            const isNativeApp = window.Capacitor && window.Capacitor.isNative;
 
-            if (isCapacitor) {
-                // 🚀 기기 내의 공용 'DOWNLOAD' 폴더에 파일 그대로 사출 (공유창 절대 안 뜸)
-                await window.Capacitor.Plugins.Filesystem.writeFile({
-                    path: filename,
-                    data: base64String,
-                    directory: 'DOWNLOAD' 
-                });
-
-                // 깔끔한 다운로드 완료 알림
-                alert(`[다운로드 완료]\n'내 파일' -> '다운로드' 폴더에\n[ ${filename} ] 파일이 저장되었습니다.`);
+            if (isNativeApp && window.capacitorFilesystem) {
+                // 📱 [앱 환경]: 권한 충돌이 없는 'Documents(문서)' 폴더에 직접 사출
+                try {
+                    await window.capacitorFilesystem.Filesystem.writeFile({
+                        path: filename,
+                        data: base64String,
+                        directory: 'DOCUMENTS' 
+                    });
+                    alert(`[다운로드 완료]\n'내 파일 -> 내장 메모리 -> Documents(문서)' 폴더에\n[ ${filename} ] 파일이 저장되었습니다.`);
+                } catch (err) {
+                    alert("시스템 에러: 파일 저장소 접근이 거부되었습니다.");
+                    console.error(err);
+                }
             } else {
-                // PC 또는 일반 모바일 웹 브라우저 환경용 폴백
+                // 🌐 [웹 브라우저 환경]: 기존에 완벽하게 작동했던 웹 전용 다운로드 로직 복구
                 const a = document.createElement('a');
                 a.href = base64data;
                 a.download = filename;
+                document.body.appendChild(a); // 모바일 브라우저 렌더링 강제 인식용
                 a.click();
+                document.body.removeChild(a);
             }
 
             // 로딩 종료
