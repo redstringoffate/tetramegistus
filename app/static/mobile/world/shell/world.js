@@ -644,52 +644,51 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 /* ==========================================
-   📦 [궁극 수복] Global Native Download Engine
+   📦 [궁극 수복] Pure Native Download Engine (공유 시트 전면 도살)
 ========================================== */
 window.RitualDownload = async function(url, filename) {
     try {
-        // 다운로드 시작 (화면에 로딩 띄우기)
+        // 화면 로딩 활성화
         const loader = document.getElementById('m-global-nexus-loader');
         if (loader) {
             loader.querySelector('.loader-text').innerText = "DOWNLOADING ARCHIVE...";
             loader.classList.add('is-active');
         }
 
-        // 1. 서버에서 파일을 끌어옵니다.
+        // 1. 서버에서 순수한 파일 바이너리(Blob)를 추출
         const res = await fetch(url);
         if (!res.ok) throw new Error("Server rejected");
         const blob = await res.blob();
 
-        // 2. 파일을 Base64 데이터로 변환합니다.
+        // 2. Base64 데이터 스트림으로 인코딩
         const reader = new FileReader();
         reader.readAsDataURL(blob);
         reader.onloadend = async () => {
             const base64data = reader.result;
             const base64String = base64data.split(',')[1];
 
-            // 3. 앱 껍데기(Capacitor) 안인지 확인
-            if (window.capacitorFilesystem && window.capacitorShare) {
-                // 스마트폰의 캐시 폴더에 강제 저장
-                const savedFile = await capacitorFilesystem.Filesystem.writeFile({
+            // 3. 앱 껍데기(Capacitor) 환경 검증
+            const isCapacitor = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem;
+
+            if (isCapacitor) {
+                // 🚀 기기 내의 공용 'DOWNLOAD' 폴더에 파일 그대로 사출 (공유창 절대 안 뜸)
+                await window.Capacitor.Plugins.Filesystem.writeFile({
                     path: filename,
                     data: base64String,
-                    directory: 'CACHE' 
+                    directory: 'DOWNLOAD' 
                 });
 
-                // 사용자에게 '어디에 저장할래?' / '누구한테 보낼래?' 공유 창 강제 팝업!
-                await capacitorShare.Share.share({
-                    title: filename,
-                    url: savedFile.uri
-                });
+                // 깔끔한 다운로드 완료 알림
+                alert(`[다운로드 완료]\n'내 파일' -> '다운로드' 폴더에\n[ ${filename} ] 파일이 저장되었습니다.`);
             } else {
-                // 브라우저 환경이면 기존 방식대로 다운로드
+                // PC 또는 일반 모바일 웹 브라우저 환경용 폴백
                 const a = document.createElement('a');
                 a.href = base64data;
                 a.download = filename;
                 a.click();
             }
 
-            // 다운로드 완료 후 로딩 끄기
+            // 로딩 종료
             if (loader) {
                 loader.classList.remove('is-active');
                 loader.querySelector('.loader-text').innerText = "TRANSMUTING MATRIX...";
