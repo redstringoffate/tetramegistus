@@ -1,5 +1,13 @@
 /* Mobile World Global Reset */
 
+/* 🚀 [폰트 강제 주입 결계] 안드로이드 순정 웹뷰용 Consolas */
+@font-face {
+    font-family: 'Consolas';
+    src: url('/static/fonts/Consolas.ttf') format('truetype'); /* 파일명과 대소문자가 정확히 일치해야 합니다 */
+    font-weight: normal;
+    font-style: normal;
+}
+
 html, body {
     margin: 0; padding: 0; width: 100%; height: 100%;
     background: #050505;

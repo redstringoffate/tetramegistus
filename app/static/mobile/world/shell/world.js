@@ -644,65 +644,15 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 /* ==========================================
-   📦 [궁극 수복] Pure Native Download Engine (웹/앱 완벽 격리)
+   📦 [궁극 수복] Pure Integrated Download Interface
 ========================================== */
-window.RitualDownload = async function(url, filename) {
-    try {
-        // 화면 로딩 활성화
-        const loader = document.getElementById('m-global-nexus-loader');
-        if (loader) {
-            loader.querySelector('.loader-text').innerText = "DOWNLOADING ARCHIVE...";
-            loader.classList.add('is-active');
-        }
-
-        // 1. 서버에서 순수한 파일 바이너리(Blob)를 추출
-        const res = await fetch(url);
-        if (!res.ok) throw new Error("Server rejected");
-        const blob = await res.blob();
-
-        // 2. Base64 데이터 스트림으로 인코딩
-        const reader = new FileReader();
-        reader.readAsDataURL(blob);
-        reader.onloadend = async () => {
-            const base64data = reader.result;
-            const base64String = base64data.split(',')[1];
-
-            // 🚀 핵심 판독기: '진짜 안드로이드 앱'인지 '삼성 인터넷(웹)'인지 완벽하게 검증
-            const isNativeApp = window.Capacitor && window.Capacitor.isNative;
-
-            if (isNativeApp && window.capacitorFilesystem) {
-                // 📱 [앱 환경]: 권한 충돌이 없는 'Documents(문서)' 폴더에 직접 사출
-                try {
-                    await window.capacitorFilesystem.Filesystem.writeFile({
-                        path: filename,
-                        data: base64String,
-                        directory: 'DOCUMENTS' 
-                    });
-                    alert(`[다운로드 완료]\n'내 파일 -> 내장 메모리 -> Documents(문서)' 폴더에\n[ ${filename} ] 파일이 저장되었습니다.`);
-                } catch (err) {
-                    alert("시스템 에러: 파일 저장소 접근이 거부되었습니다.");
-                    console.error(err);
-                }
-            } else {
-                // 🌐 [웹 브라우저 환경]: 기존에 완벽하게 작동했던 웹 전용 다운로드 로직 복구
-                const a = document.createElement('a');
-                a.href = base64data;
-                a.download = filename;
-                document.body.appendChild(a); // 모바일 브라우저 렌더링 강제 인식용
-                a.click();
-                document.body.removeChild(a);
-            }
-
-            // 로딩 종료
-            if (loader) {
-                loader.classList.remove('is-active');
-                loader.querySelector('.loader-text').innerText = "TRANSMUTING MATRIX...";
-            }
-        };
-    } catch(e) {
-        console.error("Download failed:", e);
-        alert("Failed to materialize the archive.");
-        const loader = document.getElementById('m-global-nexus-loader');
-        if (loader) loader.classList.remove('is-active');
-    }
+window.RitualDownload = function(url, filename) {
+    // 웹이든 앱이든 상관없이 순정 브라우저의 가상 클릭 트리거로 통일합니다.
+    // 안드로이드 앱 안에서는 방금 매핑한 네이티브 리스너가 이 신호를 낚아챕니다.
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 };
