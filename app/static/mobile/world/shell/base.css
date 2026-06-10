@@ -1,22 +1,16 @@
 /* Mobile World Global Reset */
 
-/* 🚀 [폰트 강제 주입 결계] 안드로이드 시스템 명칭 충돌 회피용 */
-@font-face {
-    font-family: 'TerraConsolas';
-    src: url('/static/fonts/Consolas.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+/* 🚀 1. 윈도우 TTF 대신 구글 서버에서 방어막 없는 코딩 폰트를 직수입합니다 */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700;900&display=swap');
 
-/* 🚀 엑셀 리더기 내부의 모든 표, 셀, 텍스트에 자비 없이 강제 적용 */
+/* 🚀 2. 엑셀 리더기 내부의 모든 표, 셀, 텍스트에 강제 적용 */
 html, body, table, th, td, tr, div, span, p, a, pre, code, * {
-    font-family: 'TerraConsolas', ui-monospace, SFMono-Regular, monospace !important;
+    font-family: 'Inconsolata', ui-monospace, SFMono-Regular, monospace !important;
 }
 
 html, body {
     margin: 0; padding: 0; width: 100%; height: 100%;
     background: #050505;
-    font-family: 'Consolas', ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
     overflow: hidden; 
 }
 
