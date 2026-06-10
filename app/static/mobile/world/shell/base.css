@@ -1,17 +1,22 @@
 /* Mobile World Global Reset */
 
-/* 🚀 [폰트 강제 주입 결계] 안드로이드 순정 웹뷰용 Consolas */
+/* 🚀 [폰트 강제 주입 결계] 안드로이드 시스템 명칭 충돌 회피용 */
 @font-face {
-    font-family: 'Consolas';
-    src: url('/static/fonts/Consolas.ttf') format('truetype'); /* 파일명과 대소문자가 정확히 일치해야 합니다 */
+    font-family: 'TerraConsolas';
+    src: url('/static/fonts/Consolas.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+/* 🚀 엑셀 리더기 내부의 모든 표, 셀, 텍스트에 자비 없이 강제 적용 */
+html, body, table, th, td, tr, div, span, p, a, pre, code, * {
+    font-family: 'TerraConsolas', ui-monospace, SFMono-Regular, monospace !important;
 }
 
 html, body {
     margin: 0; padding: 0; width: 100%; height: 100%;
     background: #050505;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: 'Consolas', ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
     overflow: hidden; 
 }
 

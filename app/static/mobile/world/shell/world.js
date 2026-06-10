@@ -610,24 +610,21 @@ document.addEventListener("DOMContentLoaded", () => {
             const targetLink = e.target.closest('a');
             const targetMod = e.target.closest('.m-mod-item');
             const targetStageTab = e.target.closest('.m-stage-tab'); 
-            
-            // 🚨 [핵심 수복]: e.target.closest('.m-tab')을 감시망에서 완전히 제거했습니다.
-            // 이제 n5/a5의 패턴 도형 버튼이나 내부 탭을 눌러도 전역 암막이 떨어지지 않습니다.
 
             if (targetLink || targetMod || targetStageTab) {
-                // 뒤로가기 방지용 자물쇠에 걸린 상태면 스킵
                 if (targetMod && (targetMod.classList.contains('is-time-locked') || targetMod.style.opacity === '0.15')) {
                     return;
                 }
 
-                // <a> 태그인 경우 href를 꼼꼼히 검사하여 실제 페이지 이동 시에만 락 발동
                 if (targetLink) {
+                    // 🚀 [추가 결계]: 다운로드를 위한 클릭이면 로딩 장막을 치지 않고 무시합니다!
+                    if (targetLink.hasAttribute('download') || targetLink.classList.contains('m-btn-download')) return;
+
                     const href = targetLink.getAttribute('href');
                     if (href && !href.startsWith('#') && !href.startsWith('javascript')) {
                         triggerGlobalLock();
                     }
                 } else {
-                    // <a> 태그가 아니더라도 서랍(Module)이나 스테이지(Stage) 이동 버튼이면 락 발동
                     triggerGlobalLock();
                 }
             }
@@ -647,11 +644,11 @@ document.addEventListener("DOMContentLoaded", () => {
    📦 [궁극 수복] Pure Integrated Download Interface
 ========================================== */
 window.RitualDownload = function(url, filename) {
-    // 웹이든 앱이든 상관없이 순정 브라우저의 가상 클릭 트리거로 통일합니다.
-    // 안드로이드 앱 안에서는 방금 매핑한 네이티브 리스너가 이 신호를 낚아챕니다.
     const a = document.createElement('a');
     a.href = url;
-    a.download = filename;
+    a.setAttribute('download', filename);
+    // 🚀 글로벌 로딩 감지기가 이 클릭을 무시하도록 예외 클래스를 씌웁니다 (팀킬 방지)
+    a.className = 'm-btn-download'; 
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
