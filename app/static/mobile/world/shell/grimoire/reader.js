@@ -3,10 +3,18 @@ let rawExcelBlob = null;
 let isEditMode = false;
 let luckysheetDataCache = null; 
 
-document.addEventListener('DOMContentLoaded', () => {
+// 🚀 async를 꼭 붙여주셔야 합니다!
+document.addEventListener('DOMContentLoaded', async () => {
+    
+    // 🚀 [엔진 멱살잡기] 캔버스에 그리기 전, Consolas 폰트 장전이 끝날 때까지 강제 대기!
+    await document.fonts.ready;
+    try { await document.fonts.load('12px Consolas'); } catch(e) {}
+
+    // 1. 폰트 장전이 확인되면 그제야 초기 데이터 로드 시작
     loadRealExcelData();
 
-    const btnModalNo = document.getElementById('m-btn-modal-no');
+    // 2. 삭제 모달 취소 버튼 연동
+    const btnModalNo = document.getElementById('btn-modal-no');
     if (btnModalNo) btnModalNo.addEventListener('click', closeDeleteModal);
     
     const tabsWrapper = document.getElementById('m-sheet-tabs');

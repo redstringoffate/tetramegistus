@@ -16,6 +16,23 @@ html, body {
     overflow: hidden; 
 }
 
+/* 🚀 [PDF/Excel 엔진 저격 결계] */
+@font-face {
+    font-family: 'Consolas';
+    src: url('/static/fonts/Consolas.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 🚀 브라우저가 폰트를 딴짓 못 하고 무조건 즉시 다운받게 만드는 투명 글씨 결계 */
+body::before {
+    content: "font-preload";
+    font-family: 'Consolas';
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
 /* 상단 탭 */
 .mobile-top-bar {
     position: fixed; top: 0; left: 0; width: 100%; height: 50px;

@@ -1,6 +1,12 @@
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
+// 🚀 async 확인
 document.addEventListener('DOMContentLoaded', async () => {
+    
+    // 🚀 [엔진 멱살잡기] 폰트 장전 완료 강제 대기!
+    await document.fonts.ready;
+    try { await document.fonts.load('12px Consolas'); } catch(e) {}
+
     const container = document.getElementById('m-pdf-canvas-container');
     const titleEl = document.getElementById('m-pdf-title');
 
