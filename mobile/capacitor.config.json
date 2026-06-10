@@ -4,6 +4,12 @@
   "webDir": "www",
   "server": {
     "url": "https://tetramegistus.com",
+    "allowNavigation": [
+      "tetramegistus.com",
+      "*.tetramegistus.com",
+      "prima-materia.net",
+      "*.prima-materia.net"
+    ],
     "cleartext": true
   }
 }

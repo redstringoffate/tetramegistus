@@ -642,3 +642,63 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 })();
+
+/* ==========================================
+   📦 [궁극 수복] Global Native Download Engine
+========================================== */
+window.RitualDownload = async function(url, filename) {
+    try {
+        // 다운로드 시작 (화면에 로딩 띄우기)
+        const loader = document.getElementById('m-global-nexus-loader');
+        if (loader) {
+            loader.querySelector('.loader-text').innerText = "DOWNLOADING ARCHIVE...";
+            loader.classList.add('is-active');
+        }
+
+        // 1. 서버에서 파일을 끌어옵니다.
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("Server rejected");
+        const blob = await res.blob();
+
+        // 2. 파일을 Base64 데이터로 변환합니다.
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = async () => {
+            const base64data = reader.result;
+            const base64String = base64data.split(',')[1];
+
+            // 3. 앱 껍데기(Capacitor) 안인지 확인
+            if (window.capacitorFilesystem && window.capacitorShare) {
+                // 스마트폰의 캐시 폴더에 강제 저장
+                const savedFile = await capacitorFilesystem.Filesystem.writeFile({
+                    path: filename,
+                    data: base64String,
+                    directory: 'CACHE' 
+                });
+
+                // 사용자에게 '어디에 저장할래?' / '누구한테 보낼래?' 공유 창 강제 팝업!
+                await capacitorShare.Share.share({
+                    title: filename,
+                    url: savedFile.uri
+                });
+            } else {
+                // 브라우저 환경이면 기존 방식대로 다운로드
+                const a = document.createElement('a');
+                a.href = base64data;
+                a.download = filename;
+                a.click();
+            }
+
+            // 다운로드 완료 후 로딩 끄기
+            if (loader) {
+                loader.classList.remove('is-active');
+                loader.querySelector('.loader-text').innerText = "TRANSMUTING MATRIX...";
+            }
+        };
+    } catch(e) {
+        console.error("Download failed:", e);
+        alert("Failed to materialize the archive.");
+        const loader = document.getElementById('m-global-nexus-loader');
+        if (loader) loader.classList.remove('is-active');
+    }
+};
