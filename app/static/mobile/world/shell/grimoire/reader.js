@@ -3,10 +3,30 @@ let rawExcelBlob = null;
 let isEditMode = false;
 let luckysheetDataCache = null; 
 
+/* =========================================================
+   🚀 [궁극의 우회로: Canvas 엔진 기만술 (Monkey Patching)]
+   Luckysheet가 도화지에 글씨를 그릴 때 사용하는 '붓(font)'을 중간에 가로채서 강제로 Consolas로 바꿉니다.
+========================================================= */
+try {
+    const originalFontSetter = Object.getOwnPropertyDescriptor(CanvasRenderingContext2D.prototype, 'font').set;
+    Object.defineProperty(CanvasRenderingContext2D.prototype, 'font', {
+        set: function(value) {
+            let finalFont = value;
+            // 럭키시트 UI용 아이콘 폰트(iconfont)가 아닐 경우에만 개입하여 폰트 강제 변조
+            if (finalFont && typeof finalFont === 'string' && !finalFont.includes('iconfont')) {
+                // 예: "bold 13px Arial" -> "bold 13px Consolas" 로 텍스트 렌더링 붓을 바꿔치기함
+                finalFont = finalFont.replace(/([0-9\.]+px)\s+.*/, '$1 "Consolas", monospace');
+            }
+            originalFontSetter.call(this, finalFont);
+        }
+    });
+} catch(e) {
+    console.warn("Canvas hacking bypassed.");
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     
-    // 🚀 [최종 결계: JS 메모리 직접 주입]
-    // 모바일 캔버스가 CSS를 무시하는 현상을 막기 위해, 폰트 파일을 JS 엔진 메모리에 직접 때려 박습니다.
+    // 🚀 [폰트 파일 메모리 강제 장전]
     try {
         const consolasFont = new FontFace("Consolas", "url('/static/fonts/Consolas.ttf')");
         await consolasFont.load();
@@ -18,8 +38,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 1. 폰트 장전이 확인되면 그제야 초기 데이터 로드 시작
     loadRealExcelData();
 
-    // 2. 삭제 모달 취소 버튼 연동
-    const btnModalNo = document.getElementById('btn-modal-no');
+    // 2. 삭제 모달 취소 버튼 연동 (🚀 오타 수정 완료: 'm-' 추가)
+    const btnModalNo = document.getElementById('m-btn-modal-no');
     if (btnModalNo) btnModalNo.addEventListener('click', closeDeleteModal);
     
     const tabsWrapper = document.getElementById('m-sheet-tabs');
@@ -109,8 +129,6 @@ function initLuckySheet(sheetsData, editable) {
 
     document.getElementById('m-luckysheet-container').style.display = 'block';
 
-    // 🚀 [엑셀 셀 데이터 내부 폰트 강제 주입]
-    // PC에서 무슨 폰트로 저장되었든 모바일이 무시하지 못하도록 내부 데이터를 Consolas로 싹 덮어씁니다.
     sheetsData.forEach(sheet => {
         if (sheet.celldata) {
             sheet.celldata.forEach(cell => {
@@ -132,10 +150,8 @@ function initLuckySheet(sheetsData, editable) {
         enableAddCol: editable,
         data: sheetsData,
         title: 'Grimoire',
-        defaultFontFamily: "Consolas", // 🚀 럭키시트 기본 엔진 폰트 교체
-        fontList: [                    // 🚀 럭키시트 인식 목록에 강제 추가
-            { "fontName": "Consolas", "url": "" }
-        ]
+        defaultFontFamily: "Consolas", 
+        fontList: [ { "fontName": "Consolas", "url": "" } ]
     });
 
     if(sheetsData.length > 0) {
@@ -240,7 +256,6 @@ async function saveEditData() {
     try {
         if (luckysheet.exitEditMode) luckysheet.exitEditMode();
         
-        // 🚀 순수 데이터만 추출해서 전송 (폰트 오염 걱정 없음)
         const payload = { 
             stage: window.GRIMOIRE_STAGE, 
             sheet_data: luckysheet.getAllSheets().map(s => ({ name: s.name, data: s.data })) 
