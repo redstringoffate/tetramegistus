@@ -3,42 +3,23 @@ let rawExcelBlob = null;
 let isEditMode = false;
 let luckysheetDataCache = null; 
 
-/* =========================================================
-   🚀 [궁극의 우회로: Canvas 엔진 기만술 (Monkey Patching)]
-   Luckysheet가 도화지에 글씨를 그릴 때 사용하는 '붓(font)'을 중간에 가로채서 강제로 Consolas로 바꿉니다.
-========================================================= */
-try {
-    const originalFontSetter = Object.getOwnPropertyDescriptor(CanvasRenderingContext2D.prototype, 'font').set;
-    Object.defineProperty(CanvasRenderingContext2D.prototype, 'font', {
-        set: function(value) {
-            let finalFont = value;
-            // 럭키시트 UI용 아이콘 폰트(iconfont)가 아닐 경우에만 개입하여 폰트 강제 변조
-            if (finalFont && typeof finalFont === 'string' && !finalFont.includes('iconfont')) {
-                // 예: "bold 13px Arial" -> "bold 13px Consolas" 로 텍스트 렌더링 붓을 바꿔치기함
-                finalFont = finalFont.replace(/([0-9\.]+px)\s+.*/, '$1 "Consolas", monospace');
-            }
-            originalFontSetter.call(this, finalFont);
-        }
-    });
-} catch(e) {
-    console.warn("Canvas hacking bypassed.");
-}
-
 document.addEventListener('DOMContentLoaded', async () => {
     
-    // 🚀 [폰트 파일 메모리 강제 장전]
+    // 🚀 [몽키 패치 영구 삭제] 
+    // 엑셀 자체에 이미 Consolas가 새겨져 있으므로, 시스템이 폰트를 인식할 수 있게 메모리에 올려주기만 합니다.
     try {
         const consolasFont = new FontFace("Consolas", "url('/static/fonts/Consolas.ttf')");
         await consolasFont.load();
         document.fonts.add(consolasFont);
+        await document.fonts.ready;
     } catch(e) {
-        console.warn("Font injection bypassed or failed.", e);
+        console.warn("Font preloading bypassed or failed.", e);
     }
 
-    // 1. 폰트 장전이 확인되면 그제야 초기 데이터 로드 시작
+    // 1. 초기 데이터 로드
     loadRealExcelData();
 
-    // 2. 삭제 모달 취소 버튼 연동 (🚀 오타 수정 완료: 'm-' 추가)
+    // 2. 삭제 모달 취소 버튼 연동 (정상 작동 확인됨)
     const btnModalNo = document.getElementById('m-btn-modal-no');
     if (btnModalNo) btnModalNo.addEventListener('click', closeDeleteModal);
     
@@ -129,16 +110,7 @@ function initLuckySheet(sheetsData, editable) {
 
     document.getElementById('m-luckysheet-container').style.display = 'block';
 
-    sheetsData.forEach(sheet => {
-        if (sheet.celldata) {
-            sheet.celldata.forEach(cell => {
-                if (cell.v && typeof cell.v === 'object') {
-                    cell.v.ff = "Consolas";
-                }
-            });
-        }
-    });
-
+    // PC버전과 완전히 동일한 순정 생성 로직
     luckysheet.create({
         container: 'm-luckysheet-container', 
         showinfobar: false,
@@ -150,7 +122,6 @@ function initLuckySheet(sheetsData, editable) {
         enableAddCol: editable,
         data: sheetsData,
         title: 'Grimoire',
-        defaultFontFamily: "Consolas", 
         fontList: [ { "fontName": "Consolas", "url": "" } ]
     });
 
