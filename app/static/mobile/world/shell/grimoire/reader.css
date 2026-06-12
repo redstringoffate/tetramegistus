@@ -1,10 +1,3 @@
-#m-luckysheet-container *,
-.luckysheet-cols-menu *,
-.luckysheet-rightgclick-menu *,
-.luckysheet-wa-editor {
-    font-family: 'Consolas', monospace !important;
-}
-
 .m-excel-app-container {
     position: fixed; 
     top: 0; left: 0;
