@@ -5,21 +5,19 @@ let luckysheetDataCache = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
     
-    // 🚀 [몽키 패치 영구 삭제] 
-    // 엑셀 자체에 이미 Consolas가 새겨져 있으므로, 시스템이 폰트를 인식할 수 있게 메모리에 올려주기만 합니다.
     try {
-        const consolasFont = new FontFace("Consolas", "url('/static/fonts/Consolas.ttf')");
+        const consolasFont = new FontFace("Consolas", "url('https://fonts.gstatic.com/s/inconsolata/v33/QldkNURKQEstY-emZxepeApMxltd.woff2')");
         await consolasFont.load();
         document.fonts.add(consolasFont);
         await document.fonts.ready;
     } catch(e) {
-        console.warn("Font preloading bypassed or failed.", e);
+        console.warn("Font injection bypassed or failed.", e);
     }
 
     // 1. 초기 데이터 로드
     loadRealExcelData();
 
-    // 2. 삭제 모달 취소 버튼 연동 (정상 작동 확인됨)
+    // 2. 삭제 모달 취소 버튼 연동 
     const btnModalNo = document.getElementById('m-btn-modal-no');
     if (btnModalNo) btnModalNo.addEventListener('click', closeDeleteModal);
     
