@@ -1,3 +1,21 @@
+/* 🚀 [안드로이드 Canvas 버그 원천 차단]: 도화지가 인식하도록 DOM에 강제 렌더링 */
+@font-face {
+    font-family: 'Consolas';
+    src: url('https://fonts.gstatic.com/s/inconsolata/v33/QldkNURKQEstY-emZxepeApMxltd.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 🚀 Canvas가 폰트를 무시하지 못하게, 화면 구석에 보이지 않는 투명 글씨를 찍어둠 */
+body::before {
+    content: "CanvasFontPreloader";
+    font-family: 'Consolas';
+    position: absolute;
+    opacity: 0.01;
+    pointer-events: none;
+    z-index: -999;
+}
+
 .m-excel-app-container {
     position: fixed; 
     top: 0; left: 0;

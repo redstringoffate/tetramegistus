@@ -5,16 +5,11 @@ let luckysheetDataCache = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
     
-    try {
-        const consolasFont = new FontFace("Consolas", "url('https://fonts.gstatic.com/s/inconsolata/v33/QldkNURKQEstY-emZxepeApMxltd.woff2')");
-        await consolasFont.load();
-        document.fonts.add(consolasFont);
-        await document.fonts.ready;
-    } catch(e) {
-        console.warn("Font injection bypassed or failed.", e);
-    }
+    // 🚀 [자바스크립트 억지 주입 삭제!] 
+    // 대신 CSS에 박아둔 투명 폰트가 완전히 장전될 때까지 Canvas 엔진을 강제 대기시킵니다.
+    await document.fonts.ready;
 
-    // 1. 초기 데이터 로드
+    // 1. 초기 데이터 로드 시작
     loadRealExcelData();
 
     // 2. 삭제 모달 취소 버튼 연동 
