@@ -28,6 +28,7 @@ from fastapi import FastAPI, Request, Response
 from fastapi.responses import RedirectResponse, FileResponse, JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from starlette.concurrency import run_in_threadpool
 
 from core.database import init_db, get_db
 from core.panopticon import init_panopticon, get_pano_db
@@ -70,6 +71,16 @@ _VALID_SOULS_CACHE = {}
 # ==========================================
 # 💀 [Ghost Exorcism] 삭제된 유저 강제 로그아웃 (Guest 강등) - 최적화 버전
 # ==========================================
+def _verify_soul_db(email):
+    """동기 DB 작업을 비동기 루프에서 분리하기 위한 헬퍼 함수"""
+    conn = get_db()
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT id FROM users WHERE email = %s", (email,))
+        return cursor.fetchone()
+    finally:
+        conn.close()
+
 @app.middleware("http")
 async def enforce_purge_logout(request: Request, call_next):
     path = request.url.path
@@ -79,26 +90,16 @@ async def enforce_purge_logout(request: Request, call_next):
     raw_cookie = request.cookies.get("session_user_id")
     if raw_cookie:
         session_email = urllib.parse.unquote(raw_cookie.replace('"', '').strip())
-        
         current_time = time.time()
         
-        # 🚀 1. 캐시 확인: 최근 5분(300초) 이내에 확인된 유저면 DB 쿼리 완전 스킵 (0ms)
         if session_email not in _VALID_SOULS_CACHE or (current_time - _VALID_SOULS_CACHE[session_email] > 300):
             try:
-                # 🚀 2. 캐시가 없거나 만료되었을 때만 딱 1번 DB에 물어봄
-                conn = get_db()
-                try:
-                    cursor = conn.cursor()
-                    cursor.execute("SELECT id FROM users WHERE email = %s", (session_email,))
-                    user = cursor.fetchone()
-                    cursor.close()
-                finally:
-                    conn.close() # 🔥 에러가 나도 무조건 닫아서 서버 굳음 방지
+                # 🚀 서버 심장(Event Loop)이 멈추지 않도록 별도 스레드에서 DB 조회
+                user = await run_in_threadpool(_verify_soul_db, session_email)
 
                 if user:
-                    _VALID_SOULS_CACHE[session_email] = current_time # 유효 영혼 캐싱
+                    _VALID_SOULS_CACHE[session_email] = current_time 
                 else:
-                    # DB에서 삭제된 유저 처리 (기존 로직)
                     if path.startswith("/api/"):
                         response = JSONResponse(
                             status_code=401, 
@@ -125,7 +126,6 @@ async def enforce_purge_logout(request: Request, call_next):
                         return response
             except Exception as e:
                 print(f"[AUTH DB ERROR]: {e}")
-                # DB 장애 시 튕겨내지 않고 통과 (캐싱은 안함)
 
     return await call_next(request)
 
@@ -305,7 +305,7 @@ def get_country_from_tz(tz_str):
     return "Other"
 
 @app.post("/api/godmode/pulse")
-async def panopticon_pulse(request: Request, data: dict):
+def panopticon_pulse(request: Request, data: dict):
     """프론트엔드에서 모듈을 벗어날 때 체류 시간과 방문 기록을 던져주는 API"""
     session_user_id = request.cookies.get("session_user_id")
     pano_session = getattr(request.state, "pano_session", request.cookies.get("pano_session"))
