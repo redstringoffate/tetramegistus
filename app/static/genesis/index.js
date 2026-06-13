@@ -1,9 +1,5 @@
 // static/genesis/index.js
 
-/* ─────────────────────────────
-   Prima Materia entry logic
-───────────────────────────── */
-
 // 🚀 prima-materia.net 진입 시 무조건 발송 (리다이렉트 통신 증발 방지)
 fetch('/api/godmode/pulse', {
     method: 'POST',
@@ -12,23 +8,22 @@ fetch('/api/godmode/pulse', {
     body: JSON.stringify({ module: 'PRIMA_MATERIA', duration: 0 })
 }).catch(e => console.log('Pulse error', e));
 
-// 🚀 [원상 복구 완료]: 개발자님이 의심하셨던 삭제된 코드 100% 롤백
+/* 🚀 [무한 핑퐁 버그 파괴 완료]
+백엔드(main.py)가 허락해서 대문(/)에 랜딩했다는 것은 
+이 유저의 쿠키(영혼)가 완벽히 정화되었다는 뜻입니다.
+이 상태에서 로컬 스토리지에 데이터가 남아있다면 그것은 무한 루프를 일으키는 좀비이므로 즉시 소각합니다.
+*/
 (function () {
-    const me = localStorage.getItem("tetramegistus.me")
+    const me = localStorage.getItem("tetramegistus.me");
     if (me) {
-        window.location.href = "/world"
+        console.log("Exorcising zombie local storage...");
+        localStorage.removeItem("tetramegistus.me");
     }
-})()
-
-/* ─────────────────────────────
-   Form New Vessel button
-───────────────────────────── */
+})();
 
 const formBtn = document.getElementById("form-me")
-
 if (formBtn) {
     formBtn.addEventListener("click", function () {
-        // 🚀 [도메인 단절 버그 픽스]: 빈손으로 본진에 가는 걸 막기 위해, 시드를 작성할 때 무조건 본진 도메인으로 사출시킵니다.
         window.location.href = "https://tetramegistus.com/form/me"
     })
 }

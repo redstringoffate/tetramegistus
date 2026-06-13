@@ -35,9 +35,6 @@
 <body class="{% block body_class %}{% endblock %}">
   {% block content %}{% endblock %}
 
-  {# 🚀 [수복]: index.js 크래시 방어용 유령 오버레이 (절대 지우지 마세요) #}
-  <div id="overlay" style="display: none !important; opacity: 0; pointer-events: none; position: absolute; width: 0; height: 0; z-index: -9999;"></div>
-
   <script src="/gate/ritual.js?v=9"></script>
 
   <script>
