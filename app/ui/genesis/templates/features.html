@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetramegistus - System Architecture & Features</title>
+    <meta name="description" content="Tetramegistus is an open-source, professional astrological engine merging ancient esoteric systems with modern cloud computing architecture. Explore the Nigredo, Albedo, and Citrinitas matrices.">
+    
+    <style>
+        /* Base Void Theme */
+        :root {
+            --bg-void: #050505;
+            --text-main: #d1d5db;
+            --dds-green: #00ff66;
+            --cyan-blue: #00ffff;
+            --border-dim: #333333;
+        }
+
+        body {
+            background-color: var(--bg-void);
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace; /* Terminal/Grimoire aesthetic */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Typography & Structure */
+        h1 {
+            color: var(--cyan-blue);
+            font-size: 2.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--cyan-blue);
+            padding-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--dds-green);
+            font-size: 1.8rem;
+            margin-top: 50px;
+            border-left: 4px solid var(--dds-green);
+            padding-left: 15px;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            color: var(--cyan-blue);
+            font-size: 1.4rem;
+            margin-top: 40px;
+            background: rgba(0, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        h4 {
+            color: var(--text-main);
+            font-size: 1.2rem;
+            margin-top: 30px;
+            font-weight: bold;
+            color: var(--dds-green);
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        code {
+            background-color: #1a1a1a;
+            color: var(--cyan-blue);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: inherit;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px dashed var(--border-dim);
+            margin: 40px 0;
+        }
+
+        .module-block {
+            border: 1px solid var(--border-dim);
+            padding: 20px;
+            margin-bottom: 25px;
+            background: rgba(255, 255, 255, 0.02);
+            transition: border-color 0.3s ease;
+        }
+
+        .module-block:hover {
+            border-color: var(--dds-green);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-dim);
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🌌 Tetramegistus</h1>
+        <p style="text-align: center; font-size: 1.1rem;">Tetramegistus is an open-source, professional astrological engine that merges ancient esoteric systems with modern cloud computing architecture.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>📜 Vision & Core Philosophy</h2>
+            <ul>
+                <li><strong>Anti-Monopolization:</strong> Liberating astrological data from closed, "black-box" environments.</li>
+                <li><strong>Absolute Transparency:</strong> Fully open-source calculation logic for mathematical and systemic auditing.</li>
+                <li><strong>Divine Objectivity:</strong> Prioritizing a map-based perspective of fate to provide an objective, structural representation of the heavens, rather than relying on subjective observer views.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🏛️ System Architecture & Tech Stack</h2>
+            <ul>
+                <li><strong>Core Engine:</strong> Python, FastAPI (High-precision astronomical and aspect matrix calculations)</li>
+                <li><strong>Database:</strong> PostgreSQL (Immutable record keeping for registered vessels/souls)</li>
+                <li><strong>Infrastructure:</strong> Docker, Railway, automated CI/CD pipeline</li>
+                <li><strong>Domain Isolation:</strong> Strict physical and logical separation between the public gateway (<code>prima-materia.net</code>) and the core calculation engine (<code>tetramegistus.com</code>).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>⛩️ The Dual-Core Architecture & Ritual Protocols</h2>
+            <p>The routing architecture of Tetramegistus is not a standard web flow. It physically embodies the philosophical worldview of the engine through strict middleware barriers and esoteric UI triggers.</p>
+            
+            <ul>
+                <li><strong>1. The Prima-Materia Gateway (The Barrier)</strong>
+                    <ul>
+                        <li>Visitors without a <code>[me]</code> seed (Soulless entities/Crawlers) are strictly confined to <code>prima-materia.net</code>.</li>
+                        <li>Once a vessel <code>[me]</code> is formed, the user is pulled into the core engine (<code>tetramegistus.com</code>).</li>
+                        <li><strong>Retrograde Forbidden:</strong> Once inside, any attempt to navigate back to the prima-materia index triggers an absolute redirect back to the engine. The system does not allow a formed soul to regress.</li>
+                    </ul>
+                </li>
+                <li><strong>2. The Reincarnate Protocol (Total Memory Purge)</strong>
+                    <ul>
+                        <li><strong>Trigger:</strong> <code>Ctrl + Shift + 9</code> (PC) or a 9-second sustained press on the 'T-Drawer Tab' (Mobile) from within the main engine.</li>
+                        <li><strong>Action:</strong> Triggers the "Reincarnate" ritual. It completely obliterates the <code>[me]</code> seed and all local storage data, forcefully ejecting the user back to the prima-materia void as a blank state.</li>
+                    </ul>
+                </li>
+                <li><strong>3. The Anamnesis Core & The Awakening Ritual (Direct Bypass)</strong>
+                    <ul>
+                        <li>Registered members can access their <strong>Anamnesis Core</strong> to generate a highly secure, one-time 16-digit bypass code.</li>
+                        <li><strong>Trigger:</strong> <code>Ctrl + Shift + 8</code> (PC) or an 8-second sustained press on the dark void background (Mobile) at the <code>prima-materia.net</code> index.</li>
+                        <li><strong>Action:</strong> This hidden tactical touch protocol reveals an invisible 16-digit input matrix. Entering the valid Anamnesis code allows the user to entirely bypass the <code>[me]</code> seed creation phase, instantly warping them into the world core in a fully authenticated state.</li>
+                    </ul>
+                </li>
+                <li><strong>4. The Logout Anchor (Graceful Degradation)</strong>
+                    <ul>
+                        <li>If a registered member logs out of the engine, the system intercepts the session termination. Before severing the connection, it instantly "bakes" a temporary <code>[me]</code> seed into the local storage. This prevents the user from crashing into an unstable "Soulless" state within the main <code>tetramegistus.com</code> domain, maintaining the integrity of the routing barrier.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>🎚️ The Four Alchemical Stages (Core Engines)</h2>
+            <p>The system reflects the evolution of the soul and destiny through four alchemical transmutations:</p>
+
+            <article>
+                <h3>🌑 Stage 1. NIGREDO: Decomposition & Natal Matrix (N1 - N9)</h3>
+                <p><strong>Overview:</strong> The foundational core of Tetramegistus. It deconstructs the astronomical coordinates of a chosen seed context to derive the primal natal matrix. The active seed selected in this stage serves as the absolute baseline context for all calculations across modules N2 through N9.</p>
+
+                <div class="module-block">
+                    <h4>N1: Prima Materia & Seed Core (The Baseline Engine)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> An extension of the primal gateway architecture (<code>prima-materia.net</code>) operating directly within the core domain. It controls the generation, rectification, and contextual selection of all astrological charts (Seeds).</li>
+                        <li><strong>Interface & Control Matrix:</strong>
+                            <ul>
+                                <li><strong>The Title:</strong> Displays the foundational title "Prima Materia".</li>
+                                <li><strong>Select Seed Dropdown:</strong> Dictates the global active chart context for the entire engine. Modules N2 through N9 instantly calculate their metrics based on the seed chosen here.</li>
+                                <li><strong>Append / Edit Seed Buttons:</strong> Interactive triggers that inherit the original initialization form. The system title dynamically reverts to "Prima Materia" while maintaining core routing.</li>
+                                <li><strong>Delete Seed Button:</strong> Executes contextual erasure based on the vessel's authentication tier.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Genesis Extensions:</strong>
+                            <ul>
+                                <li><strong>Seed Designation:</strong> Introduces a dedicated <code>Target Name</code> input field.</li>
+                                <li><strong>Hour of Incarnation Toggle:</strong> Implements a <code>Time Unknown</code> checkbox for unresolved incarnation hours, allowing retroactive rectification.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Seed Mutability Rules:</strong>
+                            <ul>
+                                <li><strong>The Primal <code>[me]</code> Seed:</strong> Designation name is absolute. Historical parameters (Date, Time, Location) are fully mutable.</li>
+                                <li><strong>Secondary Seeds:</strong> All parameters are completely mutable.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Data Persistence & Chronology:</strong>
+                            <ul>
+                                <li><strong>Guest Storage:</strong> Securely cached within client-side Local Storage.</li>
+                                <li><strong>Member Storage:</strong> Permanently anchored to the PostgreSQL database via relational indices.</li>
+                                <li><strong>Chronological Hierarchy:</strong> Listed oldest-to-newest.</li>
+                                <li><strong>The Great Migration:</strong> Upon registration, all locally cached guest seeds migrate to the database.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Destruction Mechanics:</strong>
+                            <ul>
+                                <li><strong>Guest Mode:</strong> Completely purges the target object from Local Storage.</li>
+                                <li><strong>Member Mode:</strong> Initiates a <strong>Soft Delete</strong> protocol. The relational index remains but is masked.</li>
+                                <li><strong>Grimoire Continuity:</strong> Soft-deleted seeds archived in the <strong>Grimoire</strong> remain intact but block new additions.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>N2: Principia (The Fundamental Matrix)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> The primary diagnostic interface rendering astronomical positions across multiple zodiacal frameworks.</li>
+                        <li><strong>Lords of Time:</strong> Displays ruling <strong>Day Lord</strong> and <strong>Hour Lord</strong>. Splits dynamically for Twilight/Midnight. Reverts to <code>-</code> for Time Unknown.</li>
+                        <li><strong>System Matrix:</strong> Tropical, Sidereal (Lahiri, Raman, KP, etc.), Draconic, and proprietary Ketunic.</li>
+                        <li><strong>Hierarchy:</strong> Planets, Major Asteroids, Lilith & Nodes, Fates.</li>
+                        <li><strong>Zodiac Mode:</strong> Renders <code>Information</code>, <code>House</code>, <code>Duad</code>, <code>Dod.</code>, <code>Decan</code>, <code>Bd.</code>, <code>Sabian Symbol</code>.</li>
+                        <li><strong>Nakshatra Engine:</strong> Transforms data to Jyotish parameters (Nakshatra, Pada/Sub-lord).</li>
+                        <li><strong>Fixed Star Conjunctions:</strong> Deep space markers with dynamic orbs and specific iconography (Royal crowns).</li>
+                        <li><strong>Visual Dignities:</strong> Solar Proximity CSS (e.g., Combust crimson glow) and Hover Metrics for dignities.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>N3: Domus (The Structural House Matrix)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> Replaces the traditional circular wheel with an infinitely expandable tabular data matrix of Cusps and Domains.</li>
+                        <li><strong>Absolute Time Constraint:</strong> Locks N3, N4, N7, and N9 if a chart possesses a <code>Time Unknown</code> attribute.</li>
+                        <li><strong>Paradigm I (Cusp Mechanics):</strong> Renders boundary lines. Hovering reveals Cusp Lords & Dignity. Features a proprietary Range Syntax (e.g., <code>35 (28/7)</code>) and a Vedic Lagna Engine extension.</li>
+                        <li><strong>Paradigm II (Domain Mechanics):</strong> Sorts entities strictly by proximity to the house cusp across Planets, Asteroids, and Hermetic pillars.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>N4: Arcana (The Esoteric Point Matrix)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> Calculates abstract esoteric points: Hermetic Lots, orbital intersections, and pre-natal lunations based on Paulus/Valens algorithms and Chart Sect.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>N5: Schema (The Aspect & Geometry Matrix)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> Maps angular relationships and sacred geometries. Rejects truncating reciprocal aspects to ensure absolute symmetry.</li>
+                        <li><strong>Intersectus:</strong> Cross-System Synastry calculating geometric intersections between different zodiacal systems.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>N6: Divisio (The Harmonic & Varga Matrix)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> Splits the matrix into higher-frequency resonances (Harmonics H1-H32) and Jyotish Varga divisions (D1-D60) rendering Nakshatra and Purushartha details.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>N7: Hypostases (The Persona Matrix)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> Expands the "Nine Persona" method to all calculable entities using a Relativistic Transit Engine. Features a 360° parallel timeline matrix (Tabula Mode).</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>N8: Codex Tenebris (The Master Tabula)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> Flattens multi-dimensional architecture to map hundreds of esoteric points and all four zodiacal frameworks side-by-side across the absolute 360° of the zodiac.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>N9: Chronomantia (The Timeline Engine)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> Translates spatial geometry into the dimension of time using Zodiacal Releasing, Firdaria, Profections, and Vedic Vimshottari Dasha, integrated with event-driven outer planet transit logs.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article>
+                <h3>⚪ Stage 2. ALBEDO: Purification & Relational Synthesis (A1 - A9)</h3>
+                <p><strong>Overview:</strong> The Twin Engine to Nigredo. Synthesizes astronomical metrics of two intersecting souls without inventing conflicting mathematical pathways.</p>
+
+                <div class="module-block">
+                    <h4>A1: Coniunctio & Relational Synthesis</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> The Davison Engine gatekeeper. Demands explicit manifestation of a synthesized context (<code>Manifest Union +</code>) incorporating Time Unknown inheritance and exclusionary filtering. Locks A2-A10 if no seed is manifested.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>A2: Coagulatio (The Relational Matrix)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> Analyzes the synthesized entity via Spatial Midpoints (Composite) and Spatiotemporal Convergence (Davison), calculating an Anti-Composite axis. Disables Chronocrators in spatial mode.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>A3: Ordinatio (The Relational House Matrix)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> Governs relational housing. Omits Hermetic/Lagna metrics in Composite mode, while restoring the absolute N3 architecture under the Davison paradigm.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>A4: Figura (The Relational Arcana)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> Operates exclusively via the Davison framework to ensure mathematical integrity of time-bound esoteric points (Lots, Syzygy).</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>A5: Aspectus (The Relational Geometry Matrix)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> Pushes synastry boundaries with an Omni-Dimensional Dropdown, cross-referencing isolated and synthesized frameworks of both parents simultaneously.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>A6 - A9: The Relational Continuations</h4>
+                    <ul>
+                        <li><strong>A6 Multiplicatio:</strong> Relational Harmonics and Vargas processed via the Coniunctio Seed.</li>
+                        <li><strong>A7 Evocationes:</strong> Relational Persona Matrix restricted strictly to Davison spatiotemporal reality.</li>
+                        <li><strong>A8 Codex Lucis:</strong> Advanced visibility controls to map Composite, Davison, and Parent frameworks on the absolute 360° grid.</li>
+                        <li><strong>A9 Synchronicum:</strong> Relational timeline rendering parallel Dasha cycles, marked esoterically by <em>"Let there be Light."</em> and <em>"Consummatum est."</em>.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>A10: Resonantia (The Sabian Synastry Matrix)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> The poetic culmination. Maps Sabian texts of all four pillars (A, B, Composite, Davison) into a unified grid, proving symbolic resonance through precise spatiotemporal tooltip data.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article>
+                <h3>🟡 Stage 3. CITRINITAS: Transmutation & Experimental Self (C1 - C3)</h3>
+                <p><strong>Overview:</strong> The dynamic, experimental sandbox breaking the boundaries of a single seed, allowing for timeline manipulation and infinite parallel comparison.</p>
+
+                <div class="module-block">
+                    <h4>C1: Tabula (The Infinite Parallel Matrix)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> A void-initialized matrix allowing the user to load and synthesize an infinite <em>N</em> number of charts securely within Local Storage isolation.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>C2: Hora Occulta (The Rectification Engine)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> Utilizes psychological elimination (<em>Via Negativa</em>) based on Aleph (Planetary Lord), Mem (Lunar Matrix), and Shin (Arudha Lagna) rituals to rectify unknown birth times.</li>
+                    </ul>
+                </div>
+
+                <div class="module-block">
+                    <h4>C3: Illuminatio (The Unconscious Labyrinth)</h4>
+                    <ul>
+                        <li><strong>Overview:</strong> An interactive visual novel and psychological assessment mapping the 5 Levels of the Soul (Nefesh, Ruach, Neshamah, Chayah, Yechidah) via Runes, a proprietary 22-Letter Tarot Engine, and cosmic initiation trials.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article>
+                <h3>🔴 Stage 4. RUBEDO: Coagulation & Absolute Theory Archive (R1 - R2)</h3>
+                <p><strong>Overview:</strong> The absolute theoretical sanctuary.</p>
+                <ul>
+                    <li><strong>R1 (Corpus Hermeticum):</strong> Archive of Hermetic texts.</li>
+                    <li><strong>R2 (Sabian Symbols Matrix):</strong> Aspect-mapped Sabian dictionary categorized by decans and bounds.</li>
+                </ul>
+            </article>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>📚 GRIMOIRE & 🚀 Deployment</h2>
+            <ul>
+                <li><strong>Grimoire (Manifestation Engine):</strong> A highly precise compiler system generating Excel (.xlsx) and PDF formats across N and A series modules with local-server synchronization.</li>
+                <li><strong>Deployment:</strong> Dockerized container deployment with predefined port forwarding and `.env` isolation.</li>
+                <li><strong>God Mode:</strong> Multi-tiered progressive security protocols for panopticon system management.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>⚖️ Ethics & Transparency</h2>
+            <p>Tetramegistus stands against the monopolization of knowledge. The source code is transparently available for anyone to audit and contribute. We strictly oppose the use of this engine for commercial exploitation that distorts the mathematical and philosophical essence of astrology.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created by Redstringoffate | Tetramegistus Engine Architecture</p>
+    </footer>
+</div>
+
+</body>
+</html>

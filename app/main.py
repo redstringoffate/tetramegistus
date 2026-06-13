@@ -430,6 +430,14 @@ def login_page(request: Request):
         
     return templates.TemplateResponse("world/shell/login.html", {"request": request})
 
+@app.get("/features")
+def features_page(request: Request):
+    # 📱 [모바일 분기] 모바일 접속이면 모바일 템플릿 서빙
+    if is_mobile(request):
+        return templates.TemplateResponse("mobile/genesis/templates/features.html", {"request": request})
+        
+    # 💻 [PC 분기] PC 접속이면 기본 템플릿 서빙
+    return templates.TemplateResponse("genesis/templates/features.html", {"request": request})
 
 @app.get("/prima-materia")
 def prima_materia(request: Request):
