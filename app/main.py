@@ -87,10 +87,13 @@ async def enforce_purge_logout(request: Request, call_next):
             try:
                 # 🚀 2. 캐시가 없거나 만료되었을 때만 딱 1번 DB에 물어봄
                 conn = get_db()
-                cursor = conn.cursor()
-                cursor.execute("SELECT id FROM users WHERE email = %s", (session_email,))
-                user = cursor.fetchone()
-                conn.close()
+                try:
+                    cursor = conn.cursor()
+                    cursor.execute("SELECT id FROM users WHERE email = %s", (session_email,))
+                    user = cursor.fetchone()
+                    cursor.close()
+                finally:
+                    conn.close() # 🔥 에러가 나도 무조건 닫아서 서버 굳음 방지
 
                 if user:
                     _VALID_SOULS_CACHE[session_email] = current_time # 유효 영혼 캐싱
@@ -150,8 +153,6 @@ async def panopticon_tracker(request: Request, call_next):
         
     response.set_cookie(key="pano_referrer", value=final_ref, max_age=31536000, path="/")
     return response
-
-# app/main.py
 
 @app.middleware("http")
 async def anti_retrograde_gate(request: Request, call_next):
@@ -305,35 +306,6 @@ def get_country_from_tz(tz_str):
 
 @app.post("/api/godmode/pulse")
 async def panopticon_pulse(request: Request, data: dict):
-    session_user_id = request.cookies.get("session_user_id")
-    pano_session = getattr(request.state, "pano_session", request.cookies.get("pano_session"))
-    
-    if not pano_session:
-        return JSONResponse(content={"status": "ignored"})
-        
-    is_anima = 1 if session_user_id else 0
-    module_name = data.get("module", "UNKNOWN")
-    duration = data.get("duration", 0) 
-    
-    # 🚀 [Terra / Routes 완성]: 프론트 쿠키 데이터와 변환 로직 결합
-    pano_tz = request.cookies.get("pano_tz", "Other")
-    country = get_country_from_tz(pano_tz)
-    referrer = request.cookies.get("pano_referrer", "direct")
-    
-    conn = get_pano_db()
-    cursor = conn.cursor()
-    cursor.execute(
-        "INSERT INTO traffic_logs (session_id, user_id, is_anima, module, duration, country, referrer) VALUES (%s, %s, %s, %s, %s, %s, %s)",
-        (pano_session, session_user_id, is_anima, module_name, duration, country, referrer)
-    )
-    conn.commit()
-    cursor.close()
-    conn.close()
-        
-    return JSONResponse(content={"status": "recorded"})
-
-@app.post("/api/godmode/pulse")
-async def panopticon_pulse(request: Request, data: dict):
     """프론트엔드에서 모듈을 벗어날 때 체류 시간과 방문 기록을 던져주는 API"""
     session_user_id = request.cookies.get("session_user_id")
     pano_session = getattr(request.state, "pano_session", request.cookies.get("pano_session"))
@@ -345,19 +317,21 @@ async def panopticon_pulse(request: Request, data: dict):
     module_name = data.get("module", "UNKNOWN")
     duration = data.get("duration", 0) 
     
-    # 🚀 [Terra / Routes 핵심 수복]: Cloudflare 헤더 및 쿠키에서 실제 데이터를 추출합니다.
-    country = request.headers.get("cf-ipcountry", "Other")
+    # 🚀 Cloudflare 헤더 혹은 쿠키에서 국가/referrer 추출 (중복 로직 통합)
+    country = request.headers.get("cf-ipcountry", get_country_from_tz(request.cookies.get("pano_tz", "Other")))
     referrer = request.cookies.get("pano_referrer", "direct")
     
     conn = get_pano_db()
-    cursor = conn.cursor()
-    cursor.execute(
-        "INSERT INTO traffic_logs (session_id, user_id, is_anima, module, duration, country, referrer) VALUES (%s, %s, %s, %s, %s, %s, %s)",
-        (pano_session, session_user_id, is_anima, module_name, duration, country, referrer)
-    )
-    conn.commit()
-    cursor.close()
-    conn.close()
+    try:
+        cursor = conn.cursor()
+        cursor.execute(
+            "INSERT INTO traffic_logs (session_id, user_id, is_anima, module, duration, country, referrer) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+            (pano_session, session_user_id, is_anima, module_name, duration, country, referrer)
+        )
+        conn.commit()
+        cursor.close()
+    finally:
+        conn.close() # 🔥 에러가 나도 무조건 닫아서 서버 굳음(무한 로딩) 완벽 차단
         
     return JSONResponse(content={"status": "recorded"})
 
@@ -369,19 +343,20 @@ def log_prima_materia_visit(request: Request):
 
     if pano_session:
         try:
-            # 🚀 [Terra / Routes 핵심 수복]
             country = request.headers.get("cf-ipcountry", "Other")
             referrer = request.cookies.get("pano_referrer", request.headers.get("referer", "direct"))
             
             conn = get_pano_db()
-            cursor = conn.cursor()
-            cursor.execute(
-                "INSERT INTO traffic_logs (session_id, user_id, is_anima, module, duration, country, referrer) VALUES (%s, %s, %s, 'PRIMA_MATERIA', 0, %s, %s)",
-                (pano_session, session_user_id, is_anima, country, referrer)
-            )
-            conn.commit()
-            cursor.close()
-            conn.close()
+            try:
+                cursor = conn.cursor()
+                cursor.execute(
+                    "INSERT INTO traffic_logs (session_id, user_id, is_anima, module, duration, country, referrer) VALUES (%s, %s, %s, 'PRIMA_MATERIA', 0, %s, %s)",
+                    (pano_session, session_user_id, is_anima, country, referrer)
+                )
+                conn.commit()
+                cursor.close()
+            finally:
+                conn.close() # 🔥 여기도 무조건 DB 닫기
         except Exception as e:
             print(f"[TRACKING ERROR]: {e}")
 
