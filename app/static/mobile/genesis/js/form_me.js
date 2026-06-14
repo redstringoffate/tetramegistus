@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const me = {
             id: uuid(), idx: 0, name: "[me]", has_body: 1, created_at: new Date().toISOString(),
-            birth_date: finalDate, birth_time: finalTime, birth: `${finalDate} ${finalTime}`,
+            birth_date: finalDate, birth_time: finalTime, birth: `${finalDate}T${finalTime}`,
             location: locStr, lat: finalLocation.lat, lng: finalLocation.lon || finalLocation.lng,
             timezone: timezoneValue, timestamp: Date.now()
         };
