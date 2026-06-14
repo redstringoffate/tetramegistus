@@ -1,5 +1,13 @@
 /* static/mobile/world/nigredo/modules/n1.js - Core Rendering & PC Sync */
 
+// n1.js 최상단에 추가
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
+    return null;
+}
+
 const MobileN1 = {
     state: {
         allSeeds: [],

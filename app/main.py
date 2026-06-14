@@ -199,6 +199,13 @@ async def anti_retrograde_gate(request: Request, call_next):
         if "_s_id" in query_params: response.set_cookie(key="session_user_id", value=query_params["_s_id"], max_age=31536000, path="/")
         if "_t_b" in query_params: response.set_cookie(key="temp_birth_date", value=query_params["_t_b"], max_age=31536000, path="/")
         if "_t_l" in query_params: response.set_cookie(key="temp_location", value=query_params["_t_l"], max_age=31536000, path="/")
+        
+        # 🚀 [추가 수복]: 밀수출된 정밀 좌표와 시간 파라미터들을 본진 쿠키로 완벽하게 하차시킨다.
+        if "_t_t" in query_params: response.set_cookie(key="temp_birth_time", value=query_params["_t_t"], max_age=31536000, path="/")
+        if "_t_lat" in query_params: response.set_cookie(key="temp_lat", value=query_params["_t_lat"], max_age=31536000, path="/")
+        if "_t_lng" in query_params: response.set_cookie(key="temp_lng", value=query_params["_t_lng"], max_age=31536000, path="/")
+        if "_t_tz" in query_params: response.set_cookie(key="temp_tz", value=query_params["_t_tz"], max_age=31536000, path="/")
+        
         # 🚀 [트래킹 쿠키 본진 정착]
         if "_p_s" in query_params: response.set_cookie(key="pano_session", value=query_params["_p_s"], max_age=31536000, path="/")
         if "_p_r" in query_params: response.set_cookie(key="pano_referrer", value=query_params["_p_r"], max_age=31536000, path="/")
