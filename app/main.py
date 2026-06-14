@@ -228,7 +228,15 @@ async def anti_retrograde_gate(request: Request, call_next):
             if session_id: sync_data["_s_id"] = session_id
             if local_memory: sync_data["_t_b"] = local_memory
             if local_loc: sync_data["_t_l"] = local_loc
-            # 🚀 [트래킹 쿠키 밀수출 준비]
+            
+            # 🚀 [여기에 수하물을 실어야 합니다!]
+            if request.cookies.get("temp_birth_time"): sync_data["_t_t"] = request.cookies.get("temp_birth_time")
+            if request.cookies.get("temp_lat"): sync_data["_t_lat"] = request.cookies.get("temp_lat")
+            if request.cookies.get("temp_lng"): sync_data["_t_lng"] = request.cookies.get("temp_lng")
+            if request.cookies.get("temp_tz"): sync_data["_t_tz"] = request.cookies.get("temp_tz")
+            if request.cookies.get("temp_birth"): sync_data["_t_full"] = request.cookies.get("temp_birth")
+
+            # 🚀 [트래킹 쿠키 밀수출 준비] (이 아래는 기존 코드 유지)
             if request.cookies.get("pano_session"): sync_data["_p_s"] = request.cookies.get("pano_session")
             if request.cookies.get("pano_referrer"): sync_data["_p_r"] = request.cookies.get("pano_referrer")
             if request.cookies.get("pano_tz"): sync_data["_p_tz"] = request.cookies.get("pano_tz")

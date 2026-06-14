@@ -58,20 +58,40 @@ const MobileN1 = {
             try {
                 let meDataRaw = localStorage.getItem('tetramegistus.me');
                 let meSeed;
+                
                 if (meDataRaw) {
                     meSeed = JSON.parse(meDataRaw);
                 } else {
-                    meSeed = {
-                        id: 0, idx: 0, name: "[me]",
-                        birth_date: "1992-06-01",
-                        birth_time: "09:30:00",
-                        is_unknown_time: 0,
-                        location: "Seoul",
-                        lat: 37.5665, lng: 126.9780, timezone: "9.0",
-                        has_body: 1, is_seed: 1
-                    };
+                    // 🚀 [핵심 수복]: 로컬 스토리지가 증발했을 때, 도메인을 넘어온 쿠키 조각들을 모아 [me] 시드를 재건한다.
+                    const cDate = getCookie("temp_birth_date");
+                    
+                    if (cDate) {
+                        meSeed = {
+                            id: 0, idx: 0, name: "[me]",
+                            birth_date: cDate,
+                            birth_time: getCookie("temp_birth_time") || "00:00:00",
+                            is_unknown_time: 0,
+                            location: getCookie("temp_location") || "Unknown",
+                            lat: parseFloat(getCookie("temp_lat")) || 0,
+                            lng: parseFloat(getCookie("temp_lng")) || 0,
+                            timezone: getCookie("temp_tz") || "9.0",
+                            has_body: 1, is_seed: 1
+                        };
+                    } else {
+                        // 쿠키조차 증발한 최악의 칠흑 상태에서만 발동하는 절대 앵커 (Adam Kadmon)
+                        meSeed = {
+                            id: 0, idx: 0, name: "[me]",
+                            birth_date: "1992-06-01",
+                            birth_time: "09:30:00",
+                            is_unknown_time: 0,
+                            location: "Seoul",
+                            lat: 37.5665, lng: 126.9780, timezone: "9.0",
+                            has_body: 1, is_seed: 1
+                        };
+                    }
                     localStorage.setItem('tetramegistus.me', JSON.stringify(meSeed));
                 }
+                
                 meSeed.idx = 0;
                 meSeed.name = "[me]";
                 this.commitSelection(meSeed, 0, true); 
