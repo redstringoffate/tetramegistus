@@ -195,22 +195,48 @@ async def anti_retrograde_gate(request: Request, call_next):
     has_sync_params = any(k in query_params for k in ["_s_id", "_t_b", "_t_l", "_p_s", "_p_r"])
 
     if "tetramegistus" in host and has_sync_params:
-        response = RedirectResponse(url=f"https://tetramegistus.com{path}")
-        if "_s_id" in query_params: response.set_cookie(key="session_user_id", value=query_params["_s_id"], max_age=31536000, path="/")
-        if "_t_b" in query_params: response.set_cookie(key="temp_birth_date", value=query_params["_t_b"], max_age=31536000, path="/")
-        if "_t_l" in query_params: response.set_cookie(key="temp_location", value=query_params["_t_l"], max_age=31536000, path="/")
-        
-        # 🚀 [추가 수복]: 밀수출된 정밀 좌표와 시간 파라미터들을 본진 쿠키로 완벽하게 하차시킨다.
-        if "_t_t" in query_params: response.set_cookie(key="temp_birth_time", value=query_params["_t_t"], max_age=31536000, path="/")
-        if "_t_lat" in query_params: response.set_cookie(key="temp_lat", value=query_params["_t_lat"], max_age=31536000, path="/")
-        if "_t_lng" in query_params: response.set_cookie(key="temp_lng", value=query_params["_t_lng"], max_age=31536000, path="/")
-        if "_t_tz" in query_params: response.set_cookie(key="temp_tz", value=query_params["_t_tz"], max_age=31536000, path="/")
-        
-        # 🚀 [트래킹 쿠키 본진 정착]
-        if "_p_s" in query_params: response.set_cookie(key="pano_session", value=query_params["_p_s"], max_age=31536000, path="/")
-        if "_p_r" in query_params: response.set_cookie(key="pano_referrer", value=query_params["_p_r"], max_age=31536000, path="/")
-        if "_p_tz" in query_params: response.set_cookie(key="pano_tz", value=query_params["_p_tz"], max_age=31536000, path="/")
-        return response
+        # 🚀 [Safari ITP 격파]: 302 리다이렉트 쿠키 암살을 막기 위해 브릿지 HTML을 렌더링합니다.
+        html_content = f"""
+        <!DOCTYPE html>
+        <html><head><meta charset="utf-8"></head><body style="background:#000;">
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const setC = (k, v) => document.cookie = k + "=" + encodeURIComponent(v) + "; path=/; max-age=31536000;";
+            
+            if (params.get('_s_id')) setC('session_user_id', params.get('_s_id'));
+            if (params.get('_t_b')) setC('temp_birth_date', params.get('_t_b'));
+            if (params.get('_t_l')) setC('temp_location', params.get('_t_l'));
+            if (params.get('_t_t')) setC('temp_birth_time', params.get('_t_t'));
+            if (params.get('_t_lat')) setC('temp_lat', params.get('_t_lat'));
+            if (params.get('_t_lng')) setC('temp_lng', params.get('_t_lng'));
+            if (params.get('_t_tz')) setC('temp_tz', params.get('_t_tz'));
+            
+            if (params.get('_p_s')) setC('pano_session', params.get('_p_s'));
+            if (params.get('_p_r')) setC('pano_referrer', params.get('_p_r'));
+            if (params.get('_p_tz')) setC('pano_tz', params.get('_p_tz'));
+
+            // n1.js가 헤매지 않도록 본진의 localStorage에 즉각 안착
+            if (params.get('_t_b')) {{
+                const me = {{
+                    id: 0, idx: 0, name: "[me]",
+                    birth_date: params.get('_t_b'),
+                    birth_time: params.get('_t_t') || "00:00:00",
+                    location: params.get('_t_l') || "Unknown",
+                    lat: parseFloat(params.get('_t_lat')) || 0,
+                    lng: parseFloat(params.get('_t_lng')) || 0,
+                    timezone: params.get('_t_tz') || "9.0",
+                    is_unknown_time: 0, has_body: 1, is_seed: 1
+                }};
+                localStorage.setItem('tetramegistus.me', JSON.stringify(me));
+            }}
+            
+            // 데이터 수복 후 파라미터가 없는 깨끗한 본진으로 진입
+            window.location.replace("{path}");
+        </script>
+        </body></html>
+        """
+        from fastapi.responses import HTMLResponse
+        return HTMLResponse(content=html_content)
 
     session_id = request.cookies.get("session_user_id")
     local_memory = request.cookies.get("temp_birth_date")
@@ -229,14 +255,12 @@ async def anti_retrograde_gate(request: Request, call_next):
             if local_memory: sync_data["_t_b"] = local_memory
             if local_loc: sync_data["_t_l"] = local_loc
             
-            # 🚀 [여기에 수하물을 실어야 합니다!]
+            # 🚀 잃어버린 좌표와 시간 파라미터 확실하게 적재
             if request.cookies.get("temp_birth_time"): sync_data["_t_t"] = request.cookies.get("temp_birth_time")
             if request.cookies.get("temp_lat"): sync_data["_t_lat"] = request.cookies.get("temp_lat")
             if request.cookies.get("temp_lng"): sync_data["_t_lng"] = request.cookies.get("temp_lng")
             if request.cookies.get("temp_tz"): sync_data["_t_tz"] = request.cookies.get("temp_tz")
-            if request.cookies.get("temp_birth"): sync_data["_t_full"] = request.cookies.get("temp_birth")
-
-            # 🚀 [트래킹 쿠키 밀수출 준비] (이 아래는 기존 코드 유지)
+            
             if request.cookies.get("pano_session"): sync_data["_p_s"] = request.cookies.get("pano_session")
             if request.cookies.get("pano_referrer"): sync_data["_p_r"] = request.cookies.get("pano_referrer")
             if request.cookies.get("pano_tz"): sync_data["_p_tz"] = request.cookies.get("pano_tz")
