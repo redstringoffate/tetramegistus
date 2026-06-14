@@ -18,8 +18,8 @@
     window.fetch = async function() {
         let [resource, config] = arguments;
         
-        // 점성학 API(/api/astro/)와 Grimoire(/api/grimoire/) 요청일 때만 작동합니다.
-        if (typeof resource === 'string' && (resource.includes('/api/astro/') || resource.includes('/api/grimoire/'))) {
+        // 🚀 [궁극 수복]: /api/natal/ 경로를 추가하여 기본 me 시드 연산 시 헤더 누락을 원천 방어합니다.
+        if (typeof resource === 'string' && (resource.includes('/api/astro/') || resource.includes('/api/grimoire/') || resource.includes('/api/natal/'))) {
             config = config || {};
             config.headers = config.headers || {};
             
