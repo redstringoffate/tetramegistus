@@ -201,36 +201,38 @@ async def anti_retrograde_gate(request: Request, call_next):
         <html><head><meta charset="utf-8"></head><body style="background:#000;">
         <script>
             const params = new URLSearchParams(window.location.search);
+            
+            // 🚀 [이중 인코딩 격파]: 파이썬이 넘겨준 쿠키 문자열의 포장을 한 번 더 벗겨냅니다.
+            const dec = (val) => val ? decodeURIComponent(val) : "";
             const setC = (k, v) => document.cookie = k + "=" + encodeURIComponent(v) + "; path=/; max-age=31536000;";
             
-            if (params.get('_s_id')) setC('session_user_id', params.get('_s_id'));
-            if (params.get('_t_b')) setC('temp_birth_date', params.get('_t_b'));
-            if (params.get('_t_l')) setC('temp_location', params.get('_t_l'));
-            if (params.get('_t_t')) setC('temp_birth_time', params.get('_t_t'));
-            if (params.get('_t_lat')) setC('temp_lat', params.get('_t_lat'));
-            if (params.get('_t_lng')) setC('temp_lng', params.get('_t_lng'));
-            if (params.get('_t_tz')) setC('temp_tz', params.get('_t_tz'));
+            if (params.get('_s_id')) setC('session_user_id', dec(params.get('_s_id')));
+            if (params.get('_t_b')) setC('temp_birth_date', dec(params.get('_t_b')));
+            if (params.get('_t_l')) setC('temp_location', dec(params.get('_t_l')));
+            if (params.get('_t_t')) setC('temp_birth_time', dec(params.get('_t_t')));
+            if (params.get('_t_lat')) setC('temp_lat', dec(params.get('_t_lat')));
+            if (params.get('_t_lng')) setC('temp_lng', dec(params.get('_t_lng')));
+            if (params.get('_t_tz')) setC('temp_tz', dec(params.get('_t_tz')));
             
             if (params.get('_p_s')) setC('pano_session', params.get('_p_s'));
             if (params.get('_p_r')) setC('pano_referrer', params.get('_p_r'));
             if (params.get('_p_tz')) setC('pano_tz', params.get('_p_tz'));
 
-            // n1.js가 헤매지 않도록 본진의 localStorage에 즉각 안착
+            // n1.js가 헤매지 않도록 디코딩된 깨끗한 데이터를 로컬 스토리지에 안착
             if (params.get('_t_b')) {{
                 const me = {{
                     id: 0, idx: 0, name: "[me]",
-                    birth_date: params.get('_t_b'),
-                    birth_time: params.get('_t_t') || "00:00:00",
-                    location: params.get('_t_l') || "Unknown",
-                    lat: parseFloat(params.get('_t_lat')) || 0,
-                    lng: parseFloat(params.get('_t_lng')) || 0,
-                    timezone: params.get('_t_tz') || "9.0",
+                    birth_date: dec(params.get('_t_b')),
+                    birth_time: dec(params.get('_t_t')) || "00:00:00",
+                    location: dec(params.get('_t_l')) || "Unknown",
+                    lat: parseFloat(dec(params.get('_t_lat'))) || 0,
+                    lng: parseFloat(dec(params.get('_t_lng'))) || 0,
+                    timezone: dec(params.get('_t_tz')) || "9.0",
                     is_unknown_time: 0, has_body: 1, is_seed: 1
                 }};
                 localStorage.setItem('tetramegistus.me', JSON.stringify(me));
             }}
             
-            // 데이터 수복 후 파라미터가 없는 깨끗한 본진으로 진입
             window.location.replace("{path}");
         </script>
         </body></html>
