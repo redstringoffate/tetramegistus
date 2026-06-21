@@ -91,7 +91,7 @@ async def login(response: Response, background_tasks: BackgroundTasks, email: st
             now_kst = datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d %H:%M:%S')
             update_conn = get_db()
             update_cursor = update_conn.cursor()
-            # 🚀 [수복]: 여기도 '?' 대신 '%s'
+            # 🚀 [수복]: 여기도 '%s'
             update_cursor.execute("UPDATE users SET is_active = 1, last_login = %s WHERE email = %s", (now_kst, email_lower,))
             update_conn.commit()
             update_cursor.close()
@@ -101,13 +101,9 @@ async def login(response: Response, background_tasks: BackgroundTasks, email: st
                 print(f"✨ [SYSTEM INFO]: Prime Node accessed successfully.")
                 background_tasks.add_task(send_admin_login_success_email)
 
+            # 🚀 [수복 핵심]: 과거의 찌꺼기로 temp 쿠키를 강제로 덮어씌우는 암살 로직 완전 소각.
+            # 오직 세션(영혼) 쿠키 하나만 깔끔하게 부여합니다.
             response.set_cookie(key="session_user_id", value=user["email"], max_age=2592000, path="/", httponly=False)
-            if user["birth"]:
-                birth_parts = user["birth"].split(" ")
-                response.set_cookie(key="temp_birth_date", value=birth_parts[0], max_age=2592000, path="/")
-                if len(birth_parts) > 1:
-                    response.set_cookie(key="temp_birth_time", value=birth_parts[1], max_age=2592000, path="/")
-                response.set_cookie(key="temp_location", value=urllib.parse.quote(user["location"]), max_age=2592000, path="/")
                 
             cursor.close()
             conn.close()
@@ -115,22 +111,6 @@ async def login(response: Response, background_tasks: BackgroundTasks, email: st
                 "status": "success",
                 "message": "Memory restored.",
                 "is_hidden_anamnesis": is_hidden
-            }
-
-            # 정상 세션/쿠키 발급
-            # 🚀 [수복]: max_age=2592000 (30일) 추가
-            response.set_cookie(key="session_user_id", value=user["email"], max_age=2592000, path="/", httponly=False)
-            if user["birth"]:
-                birth_parts = user["birth"].split(" ")
-                response.set_cookie(key="temp_birth_date", value=birth_parts[0], max_age=2592000, path="/")
-                if len(birth_parts) > 1:
-                    response.set_cookie(key="temp_birth_time", value=birth_parts[1], max_age=2592000, path="/")
-                response.set_cookie(key="temp_location", value=urllib.parse.quote(user["location"]), max_age=2592000, path="/")
-                
-            return {
-                "status": "success",
-                "message": "Memory restored.",
-                "is_hidden_anamnesis": is_hidden # 🚀 프론트엔드로 전달
             }
             
         # 💀 비밀번호 불일치 (로그인 실패)
