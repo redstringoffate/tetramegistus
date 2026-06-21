@@ -246,10 +246,15 @@ async def anti_retrograde_gate(request: Request, call_next):
     has_soul = session_id is not None or local_memory is not None
 
     if path.startswith("/world"):
-        if not has_soul:
+        # 🚀 [Rubedo 이론 보관소 개방 결계]: R1, R2(Rubedo)로 들어오는 자만 예외로 통과시킵니다.
+        is_public_archive = path.startswith("/world/rubedo")
+        
+        # 🚀 [타 스테이지 추방]: 영혼이 없는데 Rubedo가 아닌 곳(I, II, III 탭)을 찌르면 대문으로 강제 사출!
+        if not has_soul and not is_public_archive:
             response = RedirectResponse(url="https://prima-materia.net")
             response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
             return response
+            
         elif "tetramegistus" not in host:
             from urllib.parse import urlencode
             sync_data = {}
