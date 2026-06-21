@@ -46,9 +46,17 @@ async function handleInitialSubmit(event) {
         const result = await response.json();
 
         if (result.status === "success") {
+            // 🚀 [수복 핵심]: 로그인 성공 시, 비회원 시절 브라우저에 남아있던 오염된 기억을 즉시 소각합니다.
+            // 이로써 n1.js는 무조건 서버(DB)의 깨끗한 [me] 데이터만을 신뢰하고 렌더링하게 됩니다.
+            localStorage.removeItem('tetramegistus.me');
+            localStorage.removeItem('active_seed');
+
+            // 🚀 [추가됨]: 로그인 성공 시, 이스터에그(Hidden) 가입을 통한 첫 각성인지 확인
             if (result.is_hidden_anamnesis) {
                 sendRitualPulse('ANAMNESIS_HIDDEN');
-                setTimeout(() => { window.location.href = result.redirect || "/world/nigredo"; }, 300);
+                setTimeout(() => {
+                    window.location.href = result.redirect || "/world/nigredo";
+                }, 300);
             } else {
                 window.location.href = result.redirect || "/world/nigredo";
             }
@@ -368,6 +376,10 @@ const Lv4Anamnesis = {
         document.body.style.transition = "all 1.5s ease-in";
         document.body.style.filter = "invert(1) hue-rotate(180deg)";
         
+        // 🚀 [수복 핵심]: LV4 관리자 각성 시 서버(파놉티콘)로 펄스를 쏘아 기록을 남깁니다.
+        sendRitualPulse('GOD_MODE_LV4_AWAKEN');
+
+        // 펄스가 서버에 닿을 시간(1.5초)을 충분히 준 뒤 본진으로 리다이렉트
         setTimeout(() => {
             window.location.replace('/world/nigredo');
         }, 1500);

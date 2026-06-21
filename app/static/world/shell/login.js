@@ -66,6 +66,10 @@ async function handleInitialSubmit(event) {
         const result = await response.json();
 
         if (result.status === "success") {
+            // 🚀 [수복 핵심]: 로그인 성공 시, PC/모바일 불문하고 브라우저에 남아있던 오염된 기억을 즉시 소각합니다.
+            localStorage.removeItem('tetramegistus.me');
+            localStorage.removeItem('active_seed');
+
             // 🚀 [추가됨]: 로그인 성공 시, 이스터에그(Hidden) 가입을 통한 첫 각성인지 확인
             if (result.is_hidden_anamnesis) {
                 sendRitualPulse('ANAMNESIS_HIDDEN');
@@ -84,7 +88,7 @@ async function handleInitialSubmit(event) {
             setTimeout(() => { errorDiv.style.opacity = "0"; }, 3000);
         }
     } catch (err) {
-        errorDiv.textContent = "Connection failed.";
+        errorDiv.textContenzt = "Connection failed.";
         errorDiv.style.opacity = "1";
         setTimeout(() => { errorDiv.style.opacity = "0"; }, 3000);
         console.error(err);
