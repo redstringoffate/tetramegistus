@@ -175,10 +175,27 @@ async function renderSeeds() {
                 seenIdentity.add("[me]");
                 seenIdx.add("0");
 
-                // 🚀 [Purge]: 로그인한 계정의 진짜 데이터(GUEST가 아님)라면, 
-                // 기기에 남아있는 과거의 오염된 로컬 스토리지 [me]를 영구 소각하여 오염 전파 차단
+                // 🚀 [Logout Anchor Protocol]: 로그인한 계정의 진짜 데이터라면,
+                // 로컬 스토리지를 소각하는 대신, 서버의 최신 [me] 데이터로 완벽하게 덮어써서(Bake) 
+                // 로그아웃 시 Void로 추락하는 것을 방지하는 안전망(Anchor)으로 만듭니다.
                 if (s.user_id && s.user_id !== "GUEST") {
-                    localStorage.removeItem('tetramegistus.me');
+                    const bakedMe = {
+                        id: 0, idx: 0, name: "[me]",
+                        birth_date: s.birth_date,
+                        birth_time: s.birth_time,
+                        location: s.location || "Unknown",
+                        lat: parseFloat(s.lat) || 0,
+                        lng: parseFloat(s.lng) || 0,
+                        timezone: s.timezone || "9.0",
+                        is_unknown_time: s.is_unknown_time || 0,
+                        has_body: 1, is_seed: 1
+                    };
+                    localStorage.setItem('tetramegistus.me', JSON.stringify(bakedMe));
+                    
+                    // 🚀 [Soul Integrity]: 로그아웃 후 엔진 밖으로 튕겨나가지 않도록 쿠키 기억도 함께 동기화합니다.
+                    document.cookie = `temp_birth_date=${encodeURIComponent(s.birth_date || "")}; path=/; max-age=31536000;`;
+                    document.cookie = `temp_birth_time=${encodeURIComponent(s.birth_time || "00:00:00")}; path=/; max-age=31536000;`;
+                    document.cookie = `temp_location=${encodeURIComponent(s.location || "Unknown")}; path=/; max-age=31536000;`;
                 }
                 return true;
             }

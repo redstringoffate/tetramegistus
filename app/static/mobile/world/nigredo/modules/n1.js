@@ -220,17 +220,38 @@ const MobileN1 = {
                 if (!s || !s.name || invalidKeys.includes(s.name)) return false;
                 
                 const sName = s.name.trim();
-                const isMe = (sName === "[me]");
-                
-                if (isMe) {
-                    if (seenIdentity.has("[me]")) return false; 
-                    seenIdentity.add("[me]");
-                    seenIdx.add("0"); 
-                    if (s.user_id && s.user_id !== "GUEST") {
-                        localStorage.removeItem('tetramegistus.me');
-                    }
-                    return true;
+                // 1. ⚓ [me] Absolute Identity Guard (시간 불문 무조건 하나만 허용)
+            const isMe = (sName === "[me]" || String(s.idx) === "0");
+            if (isMe) {
+                // 이미 서버(DB)의 진짜 [me]가 선점했다면, 뒤따라온 로컬의 가짜 [me]는 가차없이 폐기
+                if (seenIdentity.has("[me]")) return false; 
+                seenIdentity.add("[me]");
+                seenIdx.add("0");
+
+                // 🚀 [Logout Anchor Protocol]: 로그인한 계정의 진짜 데이터라면,
+                // 로컬 스토리지를 소각하는 대신, 서버의 최신 [me] 데이터로 완벽하게 덮어써서(Bake) 
+                // 로그아웃 시 Void로 추락하는 것을 방지하는 안전망(Anchor)으로 만듭니다.
+                if (s.user_id && s.user_id !== "GUEST") {
+                    const bakedMe = {
+                        id: 0, idx: 0, name: "[me]",
+                        birth_date: s.birth_date,
+                        birth_time: s.birth_time,
+                        location: s.location || "Unknown",
+                        lat: parseFloat(s.lat) || 0,
+                        lng: parseFloat(s.lng) || 0,
+                        timezone: s.timezone || "9.0",
+                        is_unknown_time: s.is_unknown_time || 0,
+                        has_body: 1, is_seed: 1
+                    };
+                    localStorage.setItem('tetramegistus.me', JSON.stringify(bakedMe));
+                    
+                    // 🚀 [Soul Integrity]: 로그아웃 후 엔진 밖으로 튕겨나가지 않도록 쿠키 기억도 함께 동기화합니다.
+                    document.cookie = `temp_birth_date=${encodeURIComponent(s.birth_date || "")}; path=/; max-age=31536000;`;
+                    document.cookie = `temp_birth_time=${encodeURIComponent(s.birth_time || "00:00:00")}; path=/; max-age=31536000;`;
+                    document.cookie = `temp_location=${encodeURIComponent(s.location || "Unknown")}; path=/; max-age=31536000;`;
                 }
+                return true;
+            }
 
                 const identityKey = `${sName}_${s.birth_date}_${s.birth_time}`;
                 if (seenIdentity.has(identityKey)) return false;
