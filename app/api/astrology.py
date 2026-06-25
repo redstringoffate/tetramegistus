@@ -95,13 +95,6 @@ def resolve_seed_hydration(data: dict):
         # 이미 플래그가 1인 경우(Davison 등)를 위해 상태 유지, 없으면 0(정상) 주입
         data["is_time_unknown"] = data.get("is_time_unknown", 0)
 
-    # 2. 좌표 보정 (CITIES 데이터 우선) [cite: 2]
-    city_id = data.get("city_id") or data.get("location_key")
-    if city_id in CITIES:
-        city = CITIES[city_id]
-        data["lat"] = city.get("lat")
-        data["lng"] = city.get("lon")
-
     # 🔑 [타입 강제]: 데이터 무결성을 위해 float 형변환 및 기본값(서울) 적용 [cite: 2]
     data["lat"] = get_safe_float(data.get("lat"), 37.5665)
     data["lng"] = get_safe_float(data.get("lng"), 126.9780)

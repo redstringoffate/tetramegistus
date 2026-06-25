@@ -6,12 +6,16 @@ from app.core.database import get_db
 
 router = APIRouter()
 
+# 🌐 주요 국가 코드 -> 풀네임 변환 맵 (UI 표시용)
+COUNTRY_MAP = {
+    "KR": "Korea", "JP": "Japan", "CN": "China", "TW": "Taiwan",
+    "US": "US", "GB": "UK", "CA": "Canada", "AU": "Australia",
+    "FR": "France", "DE": "Germany", "IT": "Italy", "ES": "Spain",
+    "RU": "Russia", "IN": "India", "BR": "Brazil", "VN": "Vietnam"
+}
+
 @router.get("/api/cities")
 def search_cities(q: str = Query("", description="도시 이름 검색어")):
-    """
-    유저가 입력한 검색어(q)를 기반으로 세계 도시 DB를 탐색합니다.
-    검색어가 없으면 빈 배열을 반환합니다.
-    """
     if not q or len(q) < 2:
         return []
 
@@ -19,11 +23,8 @@ def search_cities(q: str = Query("", description="도시 이름 검색어")):
     cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     
     try:
-        # ILIKE를 통해 대소문자 구분 없이 검색 (예: 'seo' 입력 시 'Seoul' 검색)
         search_pattern = f"%{q}%"
-        
-        # 이전 테이블 구조에 맞춰 population 대신 city_name 기준으로 정렬합니다.
-        # 프론트엔드 UI에 보여줄 'label' (예: Seoul, Korea) 문자열을 DB 단에서 조립해서 줍니다.
+        # SQL에서는 순수 데이터만 가져옵니다.
         cursor.execute("""
             SELECT 
                 city_name AS city, 
@@ -31,18 +32,26 @@ def search_cities(q: str = Query("", description="도시 이름 검색어")):
                 country_code AS country, 
                 lat, 
                 lng, 
-                timezone AS tz,
-                CASE 
-                    WHEN state_name IS NOT NULL AND TRIM(state_name) != '' THEN city_name || ', ' || state_name || ', ' || country_code
-                    ELSE city_name || ', ' || country_code
-                END AS label
+                timezone AS tz
             FROM world_cities
             WHERE city_name ILIKE %s
-            ORDER BY population DESC, city_name ASC  -- ✨ 인구수 내림차순 정렬 추가!
+            ORDER BY population DESC, city_name ASC
             LIMIT 30
         """, (search_pattern,))
         
         results = cursor.fetchall()
+        
+        # 🚀 [데이터 정화]: '11' 같은 한국/일본의 행정구역 코드를 차단하고 국가명을 치환합니다.
+        for r in results:
+            cc = r['country']
+            full_country = COUNTRY_MAP.get(cc, cc) # 맵에 없으면 기존 코드(예: AF) 유지
+            
+            # 미국(US), 캐나다(CA), 호주(AU), 영국(GB)만 주(State)를 표시
+            if cc in ('US', 'CA', 'AU', 'GB') and r['state'] and str(r['state']).strip():
+                r['label'] = f"{r['city']}, {r['state']}, {full_country}"
+            else:
+                r['label'] = f"{r['city']}, {full_country}"
+
         return results
 
     except Exception as e:
