@@ -21,7 +21,6 @@ from core.astrology.davison import calculate_davison_midpoint
 from core.astrology.composite import generate_composite_data
 from core.astrology.engine import format_dms_pretty
 
-from api.cities import CITIES
 from timezonefinder import TimezoneFinder
 
 import sys
