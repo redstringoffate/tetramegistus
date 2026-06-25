@@ -1,6 +1,6 @@
 # app/api/cities.py
 
-from fastapi import APIRouter, Query, HTTPException
+from fastapi import APIRouter, Query
 import psycopg2.extras
 from app.core.database import get_db
 
@@ -42,25 +42,34 @@ def search_cities(q: str = Query("", description="도시 이름 검색어")):
         formatted_results = []
         
         for r in results:
-            # 💡 [핵심 수복]: DB 객체의 잠금을 풀고 순수 딕셔너리로 변환하여 에러 원천 차단
-            row = dict(r) 
+            # 🛡️ [절대 방어]: DB 객체와 연을 끊고 완벽하게 새로운 딕셔너리를 창조합니다.
+            city_name = r.get('city', '')
+            state_name = r.get('state', '')
+            country_code = r.get('country', '')
             
-            cc = row['country']
-            full_country = COUNTRY_MAP.get(cc, cc)
+            full_country = COUNTRY_MAP.get(country_code, country_code)
             
             # 미국(US), 캐나다(CA), 호주(AU), 영국(GB)만 주(State)를 표시
-            if cc in ('US', 'CA', 'AU', 'GB') and row['state'] and str(row['state']).strip():
-                row['label'] = f"{row['city']}, {row['state']}, {full_country}"
+            if country_code in ('US', 'CA', 'AU', 'GB') and state_name and str(state_name).strip():
+                label = f"{city_name}, {state_name}, {full_country}"
             else:
-                row['label'] = f"{row['city']}, {full_country}"
+                label = f"{city_name}, {full_country}"
                 
-            formatted_results.append(row)
+            formatted_results.append({
+                "city": city_name,
+                "state": state_name,
+                "country": country_code,
+                "lat": float(r.get('lat', 0.0)),
+                "lng": float(r.get('lng', 0.0)),
+                "tz": r.get('tz', ''),
+                "label": label
+            })
 
         return formatted_results
 
     except Exception as e:
         print(f"💀 [CITY SEARCH ERROR]: {e}")
-        raise HTTPException(status_code=500, detail="Database engine error.")
+        return []  # 🚀 서버가 터져도 프론트엔드가 멈추지 않도록 빈 배열 반환
     finally:
         cursor.close()
         conn.close()
