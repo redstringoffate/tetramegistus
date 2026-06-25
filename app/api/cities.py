@@ -6,7 +6,7 @@ from app.core.database import get_db
 
 router = APIRouter()
 
-# 🌐 주요 국가 코드 -> 풀네임 변환 맵 (UI 표시용)
+# 🌐 주요 국가 코드 -> 풀네임 변환 맵
 COUNTRY_MAP = {
     "KR": "Korea", "JP": "Japan", "CN": "China", "TW": "Taiwan",
     "US": "US", "GB": "UK", "CA": "Canada", "AU": "Australia",
@@ -24,7 +24,6 @@ def search_cities(q: str = Query("", description="도시 이름 검색어")):
     
     try:
         search_pattern = f"%{q}%"
-        # SQL에서는 순수 데이터만 가져옵니다.
         cursor.execute("""
             SELECT 
                 city_name AS city, 
@@ -40,19 +39,24 @@ def search_cities(q: str = Query("", description="도시 이름 검색어")):
         """, (search_pattern,))
         
         results = cursor.fetchall()
+        formatted_results = []
         
-        # 🚀 [데이터 정화]: '11' 같은 한국/일본의 행정구역 코드를 차단하고 국가명을 치환합니다.
         for r in results:
-            cc = r['country']
-            full_country = COUNTRY_MAP.get(cc, cc) # 맵에 없으면 기존 코드(예: AF) 유지
+            # 💡 [핵심 수복]: DB 객체의 잠금을 풀고 순수 딕셔너리로 변환하여 에러 원천 차단
+            row = dict(r) 
+            
+            cc = row['country']
+            full_country = COUNTRY_MAP.get(cc, cc)
             
             # 미국(US), 캐나다(CA), 호주(AU), 영국(GB)만 주(State)를 표시
-            if cc in ('US', 'CA', 'AU', 'GB') and r['state'] and str(r['state']).strip():
-                r['label'] = f"{r['city']}, {r['state']}, {full_country}"
+            if cc in ('US', 'CA', 'AU', 'GB') and row['state'] and str(row['state']).strip():
+                row['label'] = f"{row['city']}, {row['state']}, {full_country}"
             else:
-                r['label'] = f"{r['city']}, {full_country}"
+                row['label'] = f"{row['city']}, {full_country}"
+                
+            formatted_results.append(row)
 
-        return results
+        return formatted_results
 
     except Exception as e:
         print(f"💀 [CITY SEARCH ERROR]: {e}")
