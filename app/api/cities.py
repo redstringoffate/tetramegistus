@@ -32,13 +32,14 @@ def search_cities(q: str = Query("", description="도시 이름 검색어")):
                 lat, 
                 lng, 
                 timezone AS tz,
-                -- 복잡한 숫자 주소 빼고 깔끔하게 '도시, 국가' 렌더링
-                city_name || ', ' || country_code AS label
+                CASE 
+                    WHEN state_name IS NOT NULL AND TRIM(state_name) != '' THEN city_name || ', ' || state_name || ', ' || country_code
+                    ELSE city_name || ', ' || country_code
+                END AS label
             FROM world_cities
             WHERE city_name ILIKE %s
-            -- 글자 수가 짧은 주요 도시가 무조건 먼저 오도록 정렬 전략 수정!
-            ORDER BY LENGTH(city_name) ASC, city_name ASC
-            LIMIT 20
+            ORDER BY population DESC, city_name ASC  -- ✨ 인구수 내림차순 정렬 추가!
+            LIMIT 30
         """, (search_pattern,))
         
         results = cursor.fetchall()

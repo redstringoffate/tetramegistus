@@ -82,6 +82,7 @@ def init_db():
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # 🚀 [여기에 추가!] 4. World Cities (전 세계 도시 좌표 및 타임존 DB)
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # 4. World Cities (전 세계 도시 좌표 및 타임존 DB)
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS world_cities (
             id SERIAL PRIMARY KEY,
@@ -90,7 +91,8 @@ def init_db():
             country_code TEXT NOT NULL,
             lat REAL NOT NULL,
             lng REAL NOT NULL,
-            timezone TEXT NOT NULL
+            timezone TEXT NOT NULL,
+            population BIGINT DEFAULT 0  -- ✨ 인구수 컬럼 추가!
         )
     """)
 
