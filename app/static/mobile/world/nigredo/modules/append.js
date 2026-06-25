@@ -125,7 +125,7 @@
                     if (res.ok) {
                         currentResults = await res.json();
                         activeIndex = -1;
-                        renderCityResults();
+                        renderResults();
                     }
                 } catch (err) {
                     console.error("💀 [API ERROR]: 모바일 세계 지도 매트릭스 연결 실패", err);
