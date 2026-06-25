@@ -79,9 +79,6 @@ def init_db():
         )
     """)
 
-    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    # 🚀 [여기에 추가!] 4. World Cities (전 세계 도시 좌표 및 타임존 DB)
-    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # 4. World Cities (전 세계 도시 좌표 및 타임존 DB)
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS world_cities (
