@@ -273,7 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				if (res.ok) {
 					currentResults = await res.json();
 					activeIndex = -1;
-					renderCityResults(currentResults);
+					renderResults(currentResults);
 				}
 			} catch (err) {
 				console.error("💀 [API ERROR]: City lookup failed.", err);
