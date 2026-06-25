@@ -78,19 +78,34 @@
             });
         });
 
+        let editCitySearchTimeout = null;
         const searchInput = document.getElementById("city-search");
+        
         searchInput?.addEventListener("input", (e) => {
-            const query = e.target.value.trim().toLowerCase();
-            if (!query) {
+            const query = e.target.value.trim();
+            
+            // 검색어가 비어있거나 2글자 미만이면 결과창 초기화
+            if (!query || query.length < 2) {
                 document.getElementById("city-results").innerHTML = "";
                 currentResults = [];
+                activeIndex = -1;
                 return;
             }
-            currentResults = Object.values(citiesDatabase)
-                .filter(c => c.label.toLowerCase().includes(query))
-                .slice(0, 8);
-            activeIndex = -1;
-            renderCityResults();
+
+            // 0.3초 대기 후 API 요청 (서버 과부하 방지)
+            clearTimeout(editCitySearchTimeout);
+            editCitySearchTimeout = setTimeout(async () => {
+                try {
+                    const res = await fetch(`/api/cities?q=${encodeURIComponent(query)}`);
+                    if (res.ok) {
+                        currentResults = await res.json();
+                        activeIndex = -1;
+                        renderCityResults();
+                    }
+                } catch (err) {
+                    console.error("💀 [API ERROR]: 수정 화면 검색 실패", err);
+                }
+            }, 300);
         });
 
         document.querySelectorAll(".m-sign-btn").forEach(btn => {
@@ -378,10 +393,6 @@
     document.addEventListener("DOMContentLoaded", () => {
         initFormSelectors();
         bindMobileEvents();
-        fetch("/api/cities/db")
-            .then(res => res.json())
-            .then(data => { citiesDatabase = data; })
-            .catch(e => console.error("City DB load failed", e));
         loadSeedData();
     });
 })();

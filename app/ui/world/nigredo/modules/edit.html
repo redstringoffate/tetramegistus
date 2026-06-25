@@ -90,13 +90,6 @@
         "+7": "WIB", "+8": "CST/SGT", "+9": "KST/JST", "+10": "AEST", "+12": "NZST"
     };
 
-    async function initCityEngine() {
-        try {
-            const response = await fetch("/api/cities");
-            cities = await response.json();
-        } catch (err) { console.error("City Engine failed to ignite."); }
-    }
-
     function initSelectors() {
         const yr = document.getElementById('year'), mo = document.getElementById('month'), dy = document.getElementById('day');
         const hr = document.getElementById('hour'), mi = document.getElementById('minute'), sc = document.getElementById('second');
@@ -428,23 +421,41 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        initCityEngine();
         initSelectors();
         loadSeedData();
 
         const cityInp = document.getElementById('city-search');
 
-        cityInp.oninput = (e) => {
-            const q = e.target.value.trim().toLowerCase();
-            if (manualOpen && q !== "manual entry") toggleManual();
-            if (!q || q === "manual entry") { 
+        let editCitySearchTimeout = null;
+
+        cityInp.addEventListener("input", (e) => {
+            const q = e.target.value.trim();
+            
+            if (manualOpen && q.toLowerCase() !== "manual entry") toggleManual();
+            
+            // 검색어가 비어있거나 2글자 미만이면 결과창 초기화
+            if (!q || q.length < 2 || q.toLowerCase() === "manual entry") { 
                 document.getElementById("city-results").innerHTML = ""; 
+                currentResults = [];
+                activeIndex = -1; 
                 return; 
             }
-            currentResults = Object.values(cities).filter(c => c.label.toLowerCase().includes(q)).slice(0, 8);
-            activeIndex = -1; 
-            renderCityResults();
-        };
+
+            // 0.3초 대기 후 5만 개 DB API 호출 (과부하 방지)
+            clearTimeout(editCitySearchTimeout);
+            editCitySearchTimeout = setTimeout(async () => {
+                try {
+                    const res = await fetch(`/api/cities?q=${encodeURIComponent(q)}`);
+                    if (res.ok) {
+                        currentResults = await res.json();
+                        activeIndex = -1;
+                        renderCityResults();
+                    }
+                } catch (err) {
+                    console.error("💀 [API ERROR]: PC 수정 화면 검색 실패", err);
+                }
+            }, 300);
+        });
 
         cityInp.addEventListener("keydown", (e) => {
             if (!currentResults.length) return;
