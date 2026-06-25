@@ -356,19 +356,41 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener("mouseleave", () => tooltip.style.opacity = 0);
     });
 
-    fetch("/api/cities").then(r => r.json()).then(d => cities = d);
+    // 🔑 [v14.3 수복]: Supabase 실시간 검색 API 및 0.3초 디바운스(Debounce) 회로 적용
+    let citySearchTimeout = null;
     const cityInp = document.getElementById("city-search");
+    
     cityInp.addEventListener("input", (e) => {
         if (manualOpen) { 
             manualOpen = false; 
             document.getElementById('manual-panel').style.display='none'; 
             resetManualFields(); 
         }
-        const q = e.target.value.trim().toLowerCase();
-        if (!q) { document.getElementById("city-results").innerHTML = ""; return; }
-        currentResults = Object.values(cities).filter(c => c.label.toLowerCase().includes(q)).slice(0, 8);
-        activeIndex = -1;
-        renderResults();
+        
+        const q = e.target.value.trim();
+        
+        // 검색어가 비어있거나 2글자 미만이면 검색 중지 및 결과창 초기화
+        if (!q || q.length < 2) { 
+            document.getElementById("city-results").innerHTML = ""; 
+            currentResults = [];
+            activeIndex = -1;
+            return; 
+        }
+
+        // 이전 요청 대기열 취소 후 0.3초 뒤에 새 요청 발사 (서버 과부하 방지)
+        clearTimeout(citySearchTimeout);
+        citySearchTimeout = setTimeout(async () => {
+            try {
+                const res = await fetch(`/api/cities?q=${encodeURIComponent(q)}`);
+                if (res.ok) {
+                    currentResults = await res.json();
+                    activeIndex = -1;
+                    renderResults();
+                }
+            } catch (err) {
+                console.error("💀 [API ERROR]: 세계 지도 매트릭스 연결 실패", err);
+            }
+        }, 300);
     });
 
     cityInp.addEventListener("keydown", (e) => {

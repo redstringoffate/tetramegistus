@@ -102,21 +102,35 @@
             });
         });
 
-        // 🚀 [수복] 도시 검색 처리: 더 이상 ManualEntry를 리스트에 억지로 집어넣지 않음
+        // 🚀 [v14.3 모바일 수복]: Supabase 실시간 검색 API 및 0.3초 디바운스(Debounce) 회로 적용
+        let citySearchTimeout = null;
         const searchInput = document.getElementById("city-search");
+        
         searchInput?.addEventListener("input", (e) => {
-            const query = e.target.value.trim().toLowerCase();
-            if (!query) {
+            const query = e.target.value.trim();
+            
+            // 검색어가 비어있거나 2글자 미만이면 결과창 초기화
+            if (!query || query.length < 2) {
                 document.getElementById("city-results").innerHTML = "";
-                currentResults = []; //
+                currentResults = [];
+                activeIndex = -1;
                 return;
             }
-            // 도시 딕셔너리에서 필터링만 수행
-            currentResults = Object.values(citiesDatabase)
-                .filter(c => c.label.toLowerCase().includes(query))
-                .slice(0, 8);
-            activeIndex = -1;
-            renderCityResults(); //
+
+            // 0.3초 대기 후 API 요청 (서버 과부하 방지 및 모바일 데이터 최적화)
+            clearTimeout(citySearchTimeout);
+            citySearchTimeout = setTimeout(async () => {
+                try {
+                    const res = await fetch(`/api/cities?q=${encodeURIComponent(query)}`);
+                    if (res.ok) {
+                        currentResults = await res.json();
+                        activeIndex = -1;
+                        renderCityResults();
+                    }
+                } catch (err) {
+                    console.error("💀 [API ERROR]: 모바일 세계 지도 매트릭스 연결 실패", err);
+                }
+            }, 300);
         });
 
         // 수동 좌표 방위 부호 트리거 (유지)
@@ -285,8 +299,6 @@
     document.addEventListener("DOMContentLoaded", () => {
         initFormSelectors();
         bindMobileEvents();
-        fetch("/api/cities").then(r => r.json()).then(data => {
-            citiesDatabase = data;
-        }).catch(() => {});
+        // 5만 개 데이터 초기 다운로드 제거 완료
     });
 })();

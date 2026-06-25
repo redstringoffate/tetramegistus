@@ -19,3 +19,7 @@ mobile/node_modules/
 .vscode/
 __MACOSX/
 .DS_Store
+0tetra_architecture.txt
+
+# Data files
+data/cities5000.txt

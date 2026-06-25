@@ -79,7 +79,22 @@ def init_db():
         )
     """)
 
-    # 4. 아담(Adam Kadmon) 초기화 및 [me] Anchor 설정
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # 🚀 [여기에 추가!] 4. World Cities (전 세계 도시 좌표 및 타임존 DB)
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS world_cities (
+            id SERIAL PRIMARY KEY,
+            city_name TEXT NOT NULL,
+            state_name TEXT,
+            country_code TEXT NOT NULL,
+            lat REAL NOT NULL,
+            lng REAL NOT NULL,
+            timezone TEXT NOT NULL
+        )
+    """)
+
+    # 5. 아담(Adam Kadmon) 초기화 및 [me] Anchor 설정 (기존 4번 항목)
     from app.core.auth.admin import ADAM_EMAIL
     INIT_ADMIN_PW = "19920601"
     INIT_MASTER_KEY = "7777-7777-7777-7777"

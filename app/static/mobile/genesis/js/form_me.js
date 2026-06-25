@@ -152,8 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener("touchend", () => { tooltip.style.opacity = 0; });
     });
 
-    fetch("/api/cities").then(r => r.json()).then(d => cities = d);
-
     function renderResults(list) {
         cityResults.innerHTML = "";
         list.forEach((d, i) => {
@@ -172,21 +170,45 @@ document.addEventListener("DOMContentLoaded", () => {
         manualOpen = false;
         manualPanel.style.display = "none";
         latInt.value = ""; latDec.value = ""; lonInt.value = ""; lonDec.value = "";
-        pendingLocation = { type: "city", lat: d.lat, lon: d.lon, tz: d.tz, label: d.label };
+        
+        // 🔑 [DB 규격 동기화]: d.lon 대신 시스템 표준인 d.lng를 수신합니다.
+        pendingLocation = { type: "city", lat: d.lat, lon: d.lng || d.lon, tz: d.tz, label: d.label };
         cityInput.value = d.label;
         cityResults.innerHTML = "";
         activeIndex = -1;
         currentResults = [];
     }
 
+    let citySearchTimeout = null;
+
     cityInput.addEventListener("input", () => {
-        const q = cityInput.value.trim().toLowerCase();
-        if (!q) { cityResults.innerHTML = ""; currentResults = []; activeIndex = -1; return; }
+        const q = cityInput.value.trim();
+        
+        // 검색어가 비어있거나 2글자 미만이면 결과창 초기화
+        if (!q || q.length < 2) { 
+            cityResults.innerHTML = ""; 
+            currentResults = []; 
+            activeIndex = -1; 
+            return; 
+        }
+        
         manualOpen = false;
         manualPanel.style.display = "none";
-        currentResults = Object.values(cities).filter(d => d.label.toLowerCase().includes(q)).slice(0, 8);
-        activeIndex = -1;
-        renderResults(currentResults);
+
+        // 0.3초 딜레이 후 API 요청 (서버 과부하 방지 및 모바일 데이터 최적화)
+        clearTimeout(citySearchTimeout);
+        citySearchTimeout = setTimeout(async () => {
+            try {
+                const res = await fetch(`/api/cities?q=${encodeURIComponent(q)}`);
+                if (res.ok) {
+                    currentResults = await res.json();
+                    activeIndex = -1;
+                    renderResults(currentResults);
+                }
+            } catch (err) {
+                console.error("💀 [API ERROR]: 모바일 City lookup failed.", err);
+            }
+        }, 300);
     });
 
     incarnateBtn.onclick = (e) => {

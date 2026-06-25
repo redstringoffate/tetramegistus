@@ -212,9 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	   City search
 	───────────────────────── */
 
-	fetch("/api/cities")
-		.then(r => r.json())
-		.then(d => cities = d)
+	let citySearchTimeout = null;
 
 	function renderResults(list) {
 		cityResults.innerHTML = ""
@@ -240,10 +238,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		lonInt.value = ""
 		lonDec.value = ""
 
+		// 🔑 [DB 규격 동기화]: d.lon 대신 시스템 표준인 d.lng를 수신합니다.
 		pendingLocation = {
 			type: "city",
 			lat: d.lat,
-			lon: d.lon,
+			lon: d.lng || d.lon, // 안정성을 위한 이중 캐칭
 			tz: d.tz,
 			label: d.label,
 		}
@@ -255,8 +254,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	cityInput.addEventListener("input", () => {
-		const q = cityInput.value.trim().toLowerCase()
-		if (!q) {
+		const q = cityInput.value.trim();
+        
+		if (!q || q.length < 2) {
 			cityResults.innerHTML = ""
 			currentResults = []
 			activeIndex = -1
@@ -266,12 +266,19 @@ document.addEventListener("DOMContentLoaded", () => {
 		manualOpen = false
 		manualPanel.style.display = "none"
 
-		currentResults = Object.values(cities)
-			.filter(d => d.label.toLowerCase().includes(q))
-			.slice(0, 8)
-
-		activeIndex = -1
-		renderResults(currentResults)
+		clearTimeout(citySearchTimeout);
+		citySearchTimeout = setTimeout(async () => {
+			try {
+				const res = await fetch(`/api/cities?q=${encodeURIComponent(q)}`);
+				if (res.ok) {
+					currentResults = await res.json();
+					activeIndex = -1;
+					renderResults(currentResults);
+				}
+			} catch (err) {
+				console.error("💀 [API ERROR]: City lookup failed.", err);
+			}
+		}, 300);
 	})
 
 	/* ─────────────────────────
