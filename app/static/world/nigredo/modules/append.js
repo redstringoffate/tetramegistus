@@ -385,7 +385,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (res.ok) {
                     currentResults = await res.json();
                     activeIndex = -1;
-                    renderResults();
+                    renderCityResults();
                 }
             } catch (err) {
                 console.error("💀 [API ERROR]: 세계 지도 매트릭스 연결 실패", err);

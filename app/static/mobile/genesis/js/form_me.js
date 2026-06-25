@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (res.ok) {
                     currentResults = await res.json();
                     activeIndex = -1;
-                    renderResults(currentResults);
+                    renderCityResults(currentResults);
                 }
             } catch (err) {
                 console.error("💀 [API ERROR]: 모바일 City lookup failed.", err);
