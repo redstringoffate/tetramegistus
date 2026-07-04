@@ -166,7 +166,6 @@
             });
         });
 
-        const cityRes = document.getElementById('m-c1-city-results');
         let citySearchTimeout = null;
         const cityRes = document.getElementById('m-c1-city-results');
         
