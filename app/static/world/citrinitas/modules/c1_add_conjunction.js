@@ -104,9 +104,6 @@ window.initC1Conj = function() {
         els.d.value = cur > days ? days : cur;
     };
 
-    // City API
-    fetch('/api/cities').then(r => r.json()).then(d => cities = d);
-
     // ── SWITCH LOGIC ──
     window.c1_switchPerson = function(target) {
         if (activePerson === target) return;
@@ -211,12 +208,35 @@ window.initC1Conj = function() {
         activeIndex = -1;
     }
 
+    let citySearchTimeout = null;
+
     els.cityInp.addEventListener('input', (e) => {
-        if(manualOpen) { manualOpen = false; els.manualPanel.style.display='none'; els.manualToggle.textContent='Manual Entry ▾'; }
-        const q = e.target.value.trim().toLowerCase();
-        if(!q) { els.cityRes.style.display = 'none'; return; }
-        currentResults = Object.values(cities).filter(c => c.label.toLowerCase().includes(q)).slice(0, 8);
-        renderResults();
+        if(manualOpen) { 
+            manualOpen = false; 
+            els.manualPanel.style.display='none'; 
+            els.manualToggle.textContent='Manual Entry ▾'; 
+        }
+        const q = e.target.value.trim();
+        
+        if(!q || q.length < 2) { 
+            els.cityRes.style.display = 'none'; 
+            currentResults = [];
+            return; 
+        }
+        
+        clearTimeout(citySearchTimeout);
+        citySearchTimeout = setTimeout(async () => {
+            try {
+                const res = await fetch(`/api/cities?q=${encodeURIComponent(q)}`);
+                if (res.ok) {
+                    currentResults = await res.json();
+                    activeIndex = -1;
+                    renderResults(); // PC판 렌더링 함수 호출
+                }
+            } catch (err) {
+                console.error("PC C1 Conj City Search Failed", err);
+            }
+        }, 300);
     });
 
     els.cityInp.addEventListener('blur', () => setTimeout(() => els.cityRes.style.display = 'none', 200));

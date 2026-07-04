@@ -25,7 +25,6 @@
         populateTimezones('m-c1-conj-tz');
         setupNumericValidation();
         bindEvents();
-        fetchCityData();
         bindConfirmButton();
 
         const editingId = sessionStorage.getItem('m_c1_editing_id');
@@ -153,10 +152,6 @@
         populateSelect('m-c1-conj-d', 1, daysInMonth, cur > daysInMonth ? daysInMonth : cur, "DD", true);
     }
 
-    async function fetchCityData() {
-        try { const r = await fetch('/api/cities'); if(r.ok) cities = await r.json(); } catch(e) {}
-    }
-
     window.m_c1_switchPerson = function(target) {
         if (activePerson === target) return;
         saveCurrentToMemory();
@@ -267,29 +262,48 @@
             });
         });
 
+        let citySearchTimeout = null;
         const cityRes = document.getElementById('m-c1-conj-city-results');
+        
         cityInp.addEventListener('input', (e) => {
             if(manualOpen) manualToggle.click();
-            const q = e.target.value.trim().toLowerCase();
-            if(!q) { cityRes.style.display = 'none'; return; }
+            const q = e.target.value.trim();
             
-            currentResults = Object.values(cities).filter(c => c.label.toLowerCase().includes(q)).slice(0, 8);
-            cityRes.innerHTML = '';
+            if(!q || q.length < 2) { 
+                cityRes.style.display = 'none'; 
+                currentResults = [];
+                return; 
+            }
             
-            if (currentResults.length > 0) {
-                cityRes.style.display = 'block';
-                currentResults.forEach(c => {
-                    const div = document.createElement('div');
-                    div.className = 'm-city-item';
-                    div.textContent = c.label;
-                    div.addEventListener('click', () => {
-                        pendingLocation = { label: c.label, lat: c.lat, lng: c.lon || c.lng, tz: c.tz };
-                        cityInp.value = c.label;
-                        cityRes.style.display = 'none';
-                    });
-                    cityRes.appendChild(div);
-                });
-            } else { cityRes.style.display = 'none'; }
+            clearTimeout(citySearchTimeout);
+            citySearchTimeout = setTimeout(async () => {
+                try {
+                    const res = await fetch(`/api/cities?q=${encodeURIComponent(q)}`);
+                    if (res.ok) {
+                        currentResults = await res.json();
+                        cityRes.innerHTML = '';
+                        
+                        if (currentResults.length > 0) {
+                            cityRes.style.display = 'block';
+                            currentResults.forEach(c => {
+                                const div = document.createElement('div');
+                                div.className = 'm-city-item';
+                                div.textContent = c.label;
+                                div.addEventListener('click', () => {
+                                    pendingLocation = { label: c.label, lat: c.lat, lng: c.lon || c.lng, tz: c.tz || c.timezone };
+                                    cityInp.value = c.label;
+                                    cityRes.style.display = 'none';
+                                });
+                                cityRes.appendChild(div);
+                            });
+                        } else { 
+                            cityRes.style.display = 'none'; 
+                        }
+                    }
+                } catch (err) {
+                    console.error("C1 Conj City Search Failed", err);
+                }
+            }, 300);
         });
     }
 

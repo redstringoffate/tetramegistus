@@ -109,7 +109,6 @@ window.initC1Natal = function() {
     els.m.onchange = adjustDays;
 
     // 5. Cities API & Search
-    fetch('/api/cities').then(r => r.json()).then(d => cities = d);
 
     function renderResults() {
         els.cityRes.innerHTML = '';
@@ -133,17 +132,37 @@ window.initC1Natal = function() {
         activeIndex = -1;
     }
 
+    let citySearchTimeout = null;
+
     els.cityInp.addEventListener('input', (e) => {
         if(manualOpen) {
             manualOpen = false;
             els.manualPanel.style.display = 'none';
             els.manualToggle.textContent = 'Manual Entry ▾';
         } 
-        const q = e.target.value.trim().toLowerCase();
-        if(!q) { els.cityRes.style.display = 'none'; return; }
-        currentResults = Object.values(cities).filter(c => c.label.toLowerCase().includes(q)).slice(0, 8);
-        activeIndex = -1;
-        renderResults();
+        const q = e.target.value.trim();
+        
+        // 검색어가 없거나 2글자 미만이면 결과창 닫기
+        if(!q || q.length < 2) { 
+            els.cityRes.style.display = 'none'; 
+            currentResults = [];
+            return; 
+        }
+        
+        // 0.3초 대기 후 서버에 실시간 검색 요청
+        clearTimeout(citySearchTimeout);
+        citySearchTimeout = setTimeout(async () => {
+            try {
+                const res = await fetch(`/api/cities?q=${encodeURIComponent(q)}`);
+                if (res.ok) {
+                    currentResults = await res.json();
+                    activeIndex = -1;
+                    renderResults(); // PC판에 이미 정의된 렌더링 함수 그대로 사용
+                }
+            } catch (err) {
+                console.error("PC C1 Natal City Search Failed", err);
+            }
+        }, 300);
     });
 
     els.cityInp.addEventListener('keydown', (e) => {
