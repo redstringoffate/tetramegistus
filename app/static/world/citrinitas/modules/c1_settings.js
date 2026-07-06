@@ -7,8 +7,6 @@ window.initC1Settings = function() {
         const style = document.createElement('style');
         style.id = 'c1-settings-style';
         style.innerHTML = `
-            #c1-settings-list::-webkit-scrollbar { display: none !important; }
-            #c1-settings-list { -ms-overflow-style: none !important; scrollbar-width: none !important; }
             
             .c1-drag-handle { cursor: grab; font-size: 1.2rem; color: #666; margin-right: 12px; transition: color 0.2s; user-select: none; }
             .c1-drag-handle:hover { color: #49dce1; }

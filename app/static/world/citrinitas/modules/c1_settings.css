@@ -160,3 +160,27 @@
     text-shadow: 0 0 5px rgba(124, 255, 155, 0.6);
 }
 
+/* C1 Settings 스크롤 및 슬림 블랙 스크롤바 디자인 */
+#c1-settings-list {
+    overflow-y: auto;
+    max-height: 60vh; /* 화면에 맞게 조절 가능 */
+    padding-right: 5px;
+}
+
+#c1-settings-list::-webkit-scrollbar {
+    width: 5px; /* 아주 슬림한 두께 */
+}
+
+#c1-settings-list::-webkit-scrollbar-track {
+    background: #111; /* 어두운 트랙 배경 */
+    border-radius: 3px;
+}
+
+#c1-settings-list::-webkit-scrollbar-thumb {
+    background: #333; /* 검은색에 가까운 썸(손잡이) */
+    border-radius: 3px;
+}
+
+#c1-settings-list::-webkit-scrollbar-thumb:hover {
+    background: #49dce1; /* 마우스 올렸을 때만 C1 포인트 컬러 */
+}

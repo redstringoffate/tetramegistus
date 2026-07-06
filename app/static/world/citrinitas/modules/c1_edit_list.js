@@ -8,7 +8,10 @@ window.initC1EditList = function() {
     
     // 1. Fetch Data
     const rawData = localStorage.getItem('c1_data');
-    const data = rawData ? JSON.parse(rawData) : [];
+    let parsed = rawData ? JSON.parse(rawData) : [];
+    
+    // 🚀 [버그 해결]: 데이터가 {data: [], expiry: ...} 객체로 묶여있을 경우 진짜 배열만 추출
+    let data = Array.isArray(parsed) ? parsed : (parsed.data || []);
 
     // 2. Empty State
     if (data.length === 0) {
