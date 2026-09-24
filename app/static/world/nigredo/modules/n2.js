@@ -29,7 +29,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 🚀 [NEW] Anamnesis 의식(Ritual) 진입을 위한 타이틀 클릭 이벤트
     const titleEl = document.getElementById('principia-title');
     if (titleEl) {
-        titleEl.addEventListener('click', handleAnamnesisRitual);
+        // 생시 미상 차트 판별: 미상이면 텍스트처럼 고정, 아니면 클릭 이펙트 활성화
+        if (activeSeed && activeSeed.is_time_unknown === 1) {
+            titleEl.classList.add('time-unknown-locked');
+        } else {
+            titleEl.classList.add('ritual-ready');
+            titleEl.addEventListener('click', handleAnamnesisRitual);
+        }
     }
     
     // 🚀 [NEW] N/A/R/C 4분할 휠 클릭 이벤트

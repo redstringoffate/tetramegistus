@@ -692,19 +692,28 @@
     text-shadow: 0 0 6px rgba(40, 148, 255, 0.6);
 }
 
-/* 🚀 1. 제목 Hover & Click 이펙트 (색상 변경 삭제) */
+/* 🚀 1. 제목 Hover & Click 이펙트 (생시 정상일 때만) */
 #principia-title {
-    cursor: pointer;
-    transition: transform 0.2s ease;
     display: inline-block;
     user-select: none;
+    transition: all 0.2s ease;
 }
-#principia-title:active {
+/* 생시 정상 차트용 */
+#principia-title.ritual-ready { cursor: pointer; }
+#principia-title.ritual-ready:hover {
+    text-shadow: 0 0 15px #7CFF9B, 0 0 5px #7CFF9B;
+    transform: scale(1.02);
+}
+#principia-title.ritual-ready:active {
     transform: scale(0.97);
     opacity: 0.8;
 }
+/* 생시 미상 차트용 (효과 없음) */
+#principia-title.time-unknown-locked {
+    cursor: default;
+}
 
-/* 🚀 2. 4분할 Anamnesis Wheel (새로운 규격 및 고유 색상) */
+/* 🚀 2. 4분할 Anamnesis Wheel (크기 증대 및 색상 강제) */
 .anamnesis-wheel-container {
     display: flex; align-items: center;
     margin-left: -20px;
@@ -714,42 +723,41 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    width: 44px; /* 사이즈 증대 */
-    height: 44px;
+    width: 52px; /* 32px -> 52px 사이즈업 */
+    height: 52px;
     border-radius: 50%;
-    border: 2px solid #49dce1; /* 테두리만 Cyan Blue */
+    border: 2px solid #49dce1; /* 바깥 테두리만 Cyan Blue */
     overflow: hidden;
     box-shadow: 0 0 10px rgba(73, 220, 225, 0.4);
 }
 .ana-quadrant {
     display: flex; justify-content: center; align-items: center;
-    font-size: 0.65rem; font-weight: 900;
+    font-size: 0.75rem; font-weight: 900;
     cursor: pointer;
     font-family: ui-monospace, SFMono-Regular, monospace;
-    opacity: 0.35; /* 비활성 시 어둡게 */
+    opacity: 0.4; /* 비활성 시 투명도 */
     transition: opacity 0.2s;
 }
 .ana-quadrant:hover { opacity: 0.8; }
 .ana-quadrant.active { opacity: 1; }
 
-/* N, A, R, C 각각의 고유 색상 배정 */
-.ana-quadrant[data-mode="N"] { background: #000; color: #fff; border-right: 1px solid #333; border-bottom: 1px solid #333; }
-.ana-quadrant[data-mode="A"] { background: #fff; color: #000; border-bottom: 1px solid #ccc; }
-.ana-quadrant[data-mode="R"] { background: #e00000; color: #000; border-right: 1px solid #a00000; }
-.ana-quadrant[data-mode="C"] { background: #ffe600; color: #000; }
+/* N, A, R, C 각 모드별 확고한 색상 지정 (!important로 active 시 덮어쓰기 원천 차단) */
+.ana-quadrant[data-mode="N"] { background: #000000 !important; color: #ffffff !important; border-right: 1px solid rgba(255,255,255,0.25); border-bottom: 1px solid rgba(255,255,255,0.25); }
+.ana-quadrant[data-mode="A"] { background: #ffffff !important; color: #000000 !important; border-bottom: 1px solid rgba(0,0,0,0.2); }
+.ana-quadrant[data-mode="R"] { background: #e00000 !important; color: #000000 !important; border-right: 1px solid rgba(0,0,0,0.2); }
+.ana-quadrant[data-mode="C"] { background: #ffe600 !important; color: #000000 !important; }
 
 /* 🚀 3. 오버레이 및 시퀀스 이펙트 (무심한 텍스트 + Static Flash) */
 .anamnesis-overlay {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.85); /* 화면 약간 어두워짐 */
+    background: rgba(0,0,0,0.85); 
     z-index: 100000;
     display: flex; justify-content: center; align-items: center;
     opacity: 0; pointer-events: none;
-    transition: opacity 0.5s; /* 부드러운 암전 */
+    transition: opacity 0.5s; 
 }
 .anamnesis-overlay.active { opacity: 1; pointer-events: auto; }
 
-/* 텍스트: 글리치 없이 무심하게 나타남 */
 .ana-glitch-text {
     color: #999; 
     font-family: ui-monospace, SFMono-Regular, monospace;
@@ -761,7 +769,6 @@
 }
 .ana-glitch-text.show { opacity: 1; }
 
-/* 2초 뒤 찰나에 터지는 스태틱 노이즈 플래시 */
 .ana-static-flash {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none; opacity: 0; z-index: 100001;
