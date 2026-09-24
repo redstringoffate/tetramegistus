@@ -717,83 +717,63 @@
     user-select: text; /* 일반 텍스트처럼 드래그 가능하게 허용 */
 }
 
-/* 🚀 2. 4분할 Anamnesis Wheel (비율, 간격, 미학의 완전 수복) */
+/* 🚀 2. 4분할 Anamnesis Matrix (MS Paint 탈피, 세련된 모듈형 칩) */
 .anamnesis-wheel-container {
     display: flex; align-items: center;
-    margin-left: 30px; /* Hour Lord와의 답답한 간격 해소 */
+    margin-left: 30px; /* Hour Lord와의 간격 확보 */
     animation: fadeIn 1s forwards;
 }
 
 .ana-wheel {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    width: 60px; /* 폰트와의 황금 비율을 위해 60px로 세팅 */
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid #49dce1; 
-    overflow: hidden;
-    box-shadow: 0 0 12px rgba(73, 220, 225, 0.4);
-    
-    /* 십자선을 개별 테두리가 아닌 Grid 틈새(Gap)로 구현하여 완벽한 1px 대칭 확보 */
-    gap: 1px; 
-    background: rgba(73, 220, 225, 0.5); /* 십자선 라인 색상 */
+    display: flex; /* 억지스러운 원형 그리드 폐기, 세련된 일렬 배치 */
+    gap: 8px; /* 각 모듈 사이의 숨통 트이는 여백 */
 }
 
 .ana-quadrant {
+    width: 26px; /* 작고 정교한 정사각형 규격 */
+    height: 26px;
     display: flex; justify-content: center; align-items: center;
-    font-size: 1.15rem; /* 글자 크기 대폭 증대 */
+    font-size: 0.75rem; /* 날렵하고 세련된 원래 폰트 사이즈 복구 */
     font-weight: 900;
     cursor: pointer;
     font-family: ui-monospace, SFMono-Regular, monospace;
-    opacity: 0.35; 
-    transition: all 0.2s ease;
+    
+    /* 비활성 상태: 투명하고 차가운 터미널 느낌 */
+    opacity: 0.3;
+    border: 1px solid rgba(73, 220, 225, 0.3); /* 얇고 희미한 사이버네틱 테두리 */
+    color: #49dce1;
+    background: transparent;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px; /* 아주 미세한 모서리 마감으로 고급스러움 추가 */
 }
 
-.ana-quadrant:hover { opacity: 0.8; }
+.ana-quadrant:hover {
+    opacity: 0.6;
+    border-color: #49dce1;
+}
+
+/* 🔥 활성화 상태: 연금술 원색이 100% 발현되며 약간 돌출됨 */
 .ana-quadrant.active { 
     opacity: 1; 
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.8); /* 활성화 시 눌려 있는 듯한 깊이감 추가 */
+    transform: scale(1.15); /* 클릭 시 칩이 살짝 튀어나오는 UI 피드백 */
+    border-color: transparent; /* 활성화 시 어색한 테두리 증발 */
 }
 
-/* 연금술 고유 색상 완벽 복구 (Citrinitas & Rubedo 오리지널 테마 강제) */
-.ana-quadrant[data-mode="N"] { background: #000000 !important; color: #ffffff !important; }
-.ana-quadrant[data-mode="A"] { background: #ffffff !important; color: #000000 !important; }
-.ana-quadrant[data-mode="R"] { background: #e00000 !important; color: #000000 !important; text-shadow: none; }
-.ana-quadrant[data-mode="C"] { background: #ffe600 !important; color: #000000 !important; text-shadow: none; }
-
-/* 🚀 3. 오버레이 및 시퀀스 이펙트 */
-.anamnesis-overlay {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.85); 
-    z-index: 100000;
-    display: flex; justify-content: center; align-items: center;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.5s; 
+/* 각 단계별 오리지널 연금술 컬러 (절대 변경 안 함) */
+.ana-quadrant[data-mode="N"].active { 
+    background: #000000 !important; color: #ffffff !important; 
+    box-shadow: 0 0 8px rgba(255,255,255,0.2); 
+    border: 1px solid #333; /* 칠흑 속에서 형태를 유지하기 위한 미세 테두리 */
 }
-.anamnesis-overlay.active { opacity: 1; pointer-events: auto; }
-
-.ana-glitch-text {
-    color: #999; 
-    font-family: ui-monospace, SFMono-Regular, monospace;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+.ana-quadrant[data-mode="A"].active { 
+    background: #ffffff !important; color: #000000 !important; 
+    box-shadow: 0 0 8px rgba(255,255,255,0.5); 
 }
-.ana-glitch-text.show { opacity: 1; }
-
-.ana-static-flash {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none; opacity: 0; z-index: 100001;
-    background: repeating-linear-gradient(0deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 2px);
+.ana-quadrant[data-mode="R"].active { 
+    background: #e00000 !important; color: #000000 !important; 
+    box-shadow: 0 0 8px rgba(224,0,0,0.5); 
 }
-.ana-static-flash.trigger { animation: staticFlicker 0.25s forwards; }
-
-@keyframes staticFlicker {
-    0% { opacity: 0; background: #fff; }
-    40% { opacity: 0.9; filter: invert(1); }
-    70% { opacity: 0.5; filter: hue-rotate(90deg); }
-    100% { opacity: 0; background: transparent; }
+.ana-quadrant[data-mode="C"].active { 
+    background: #ffe600 !important; color: #000000 !important; 
+    box-shadow: 0 0 8px rgba(255,230,0,0.4); 
 }
