@@ -519,7 +519,8 @@ window.saveToGrimoire = async function() {
         view_mode: view,
         target_name: targetName,
         language: currentLang,
-        h_sys: h_sys
+        h_sys: h_sys,
+        anamnesis_mode: isAnamnesisMode ? currentAnaMode : 'off'
     };
 
     const bodies = {};
@@ -590,7 +591,11 @@ window.saveToGrimoire = async function() {
     };
 
     const currentView = String(view).toLowerCase();
-    const compilerId = (currentView === 'nakshatra') ? 'n2_nak' : 'n2';
+    // 🚀 [NEW] 아남네시스 모드일 경우 전용 컴파일러 락온
+    let compilerId = (currentView === 'nakshatra') ? 'n2_nak' : 'n2';
+    if (isAnamnesisMode) {
+        compilerId = 'n2_anamnesis';
+    }
 
     try {
         console.log(`[GRIMOIRE] Manifesting to Archive using [ ${compilerId} ]...`, payload);
