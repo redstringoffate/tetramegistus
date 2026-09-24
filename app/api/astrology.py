@@ -173,7 +173,8 @@ async def get_principia_resting(
     ayanamsa: str = 'lahiri', 
     view: str = 'zodiac',
     h_sys: str = 'P',
-    fixed_star_orb: float = 1.0
+    fixed_star_orb: float = 1.0,
+    anamnesis: str = Query('off') # [NEW] Anamnesis
 ):
     
     resting_data = get_seed_from_request(request, is_albedo=False)
@@ -201,12 +202,45 @@ async def get_principia_resting(
             is_time_unknown=is_unk  # 👈 수복된 엔진 인자 투입
         )
         
-        # 🚀 [데이터 이관]: 프론트엔드 N2.js가 락(Lock)을 판단할 수 있도록 플래그 주입
+        # 🚀 [CORE LOGIC]: Anamnesis 재귀 연산 주입
+        if anamnesis != 'off' and not is_unk:
+            asc_lon = result['planets'].get('Ascendant', {}).get('longitude', 0.0)
+            ic_lon = result['planets'].get('Immum Coeli', {}).get('longitude', 0.0)
+            
+            for p_key, p_val in result['planets'].items():
+                if 'longitude' not in p_val: continue
+                old_lon = p_val['longitude']
+                
+                # 모드별 수학적 시프트 (N/A: 순행, R/C: 역행)
+                if anamnesis == 'N': new_lon = (old_lon - asc_lon) % 360
+                elif anamnesis == 'R': new_lon = (asc_lon - old_lon) % 360
+                elif anamnesis == 'A': new_lon = (old_lon - ic_lon) % 360
+                elif anamnesis == 'C': new_lon = (ic_lon - old_lon) % 360
+                else: new_lon = old_lon
+                
+                # 좌표 덮어쓰기
+                p_val['longitude'] = new_lon
+                
+                # 🚀 바뀐 좌표를 기반으로 하위 속성(Duad, Dodeca 등) 완벽 재연산
+                sign_idx = int(new_lon / 30) % 12
+                sign_name = TROPICAL_SIGNS[sign_idx]
+                deg_in_sign = new_lon % 30
+                
+                p_val['dms'] = format_dms_pretty(new_lon)
+                p_val['sign'] = sign_idx
+                p_val['is_anaretic'] = (deg_in_sign >= 29.0)
+                p_val['duad'] = SYMBOL_MAP.get(get_duad(sign_name, deg_in_sign), "-")
+                p_val['dodeca'] = SYMBOL_MAP.get(get_dodecatemoria(deg_in_sign), "-")
+                p_val['decan'] = SYMBOL_MAP.get(get_decan(sign_name, deg_in_sign), "-")
+                p_val['bound'] = SYMBOL_MAP.get(get_egyptian_bounds(sign_name, deg_in_sign), "-")
+                p_val['sabian_index'] = get_sabian_index(new_lon)
+
         result['meta'].update({
             "name": data.get("name", "Unknown"),
             "coords": [data["lat"], data["lng"]],
             "h_sys": h_sys,
-            "is_time_unknown": 1 if is_unk else 0  # 👈 JS 락 레이어용 데이터
+            "is_time_unknown": 1 if is_unk else 0,
+            "anamnesis_mode": anamnesis # 프론트엔드 동기화용
         })
         return result
     except Exception as e:

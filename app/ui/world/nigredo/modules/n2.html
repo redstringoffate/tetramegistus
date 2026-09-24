@@ -1,11 +1,27 @@
 <link rel="stylesheet" href="/static/world/nigredo/modules/n2.css">
 
+<!-- 파일 최상단에 트랜지션 오버레이 추가 -->
+<div class="anamnesis-overlay" id="ana-overlay">
+    <div class="ana-glitch-text" id="ana-overlay-text">Once again, you recur.</div>
+</div>
+
 <div class="n2-principia">
-    <h1 class="materia-title">Principia</h1>
+    <!-- 🚀 클릭 이벤트를 위해 id 부여 -->
+    <h1 class="materia-title" id="principia-title">Principia</h1>
 
     <div class="lordship-bar">
         <div class="lord-slot">Day Lord: <span class="val" id="day-lord">-</span></div>
         <div class="lord-slot">Hour Lord: <span class="val" id="hour-lord">-</span></div>
+        
+        <!-- 🚀 4분할 Anamnesis Wheel 모듈 -->
+        <div class="anamnesis-wheel-container hidden" id="ana-wheel-container">
+            <div class="ana-wheel">
+                <div class="ana-quadrant active" data-mode="N">N</div>
+                <div class="ana-quadrant" data-mode="A">A</div>
+                <div class="ana-quadrant" data-mode="R">R</div>
+                <div class="ana-quadrant" data-mode="C">C</div>
+            </div>
+        </div>
     </div>
 
     <nav class="system-switch-module" id="main-system-nav">

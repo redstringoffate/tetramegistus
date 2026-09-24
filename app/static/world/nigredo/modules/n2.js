@@ -13,6 +13,8 @@ const ELEMENT_MAP = {
 };
 
 let FS_MEANINGS = {}; 
+let isAnamnesisMode = false;
+let currentAnaMode = 'N ;'
 
 document.addEventListener('DOMContentLoaded', async () => {
     console.log("[PRINCIPIA] Initializing N2 Module...");
@@ -24,6 +26,28 @@ document.addEventListener('DOMContentLoaded', async () => {
     initializePrincipiaUI();
     fetchAndRenderAstroData();
     
+    // 🚀 [NEW] Anamnesis 의식(Ritual) 진입을 위한 타이틀 클릭 이벤트
+    const titleEl = document.getElementById('principia-title');
+    if (titleEl) {
+        titleEl.addEventListener('click', handleAnamnesisRitual);
+    }
+    
+    // 🚀 [NEW] N/A/R/C 4분할 휠 클릭 이벤트
+    document.querySelectorAll('.ana-quadrant').forEach(quad => {
+        quad.addEventListener('click', (e) => {
+            if (!isAnamnesisMode) return;
+            const selectedMode = e.target.dataset.mode;
+            currentAnaMode = selectedMode;
+            
+            // 활성화된 모드 색상 변경 (Cyan Blue)
+            document.querySelectorAll('.ana-quadrant').forEach(q => q.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            // 바뀐 모드로 백엔드 연산 즉시 재요청
+            fetchAndRenderAstroData();
+        });
+    });
+
     document.addEventListener('click', (e) => {
         const popover = document.getElementById('fs-popover');
         if (popover && popover.classList.contains('active')) {
@@ -76,6 +100,48 @@ function initializePrincipiaUI() {
     }
 }
 
+// 🚀 [NEW] 화면 암전 및 모드 토글 함수
+async function handleAnamnesisRitual() {
+    const activeSeed = JSON.parse(localStorage.getItem('active_seed'));
+    // 생시 미상 차트는 앵글이 없으므로 진입 차단
+    if (activeSeed && activeSeed.is_time_unknown === 1) {
+        alert("Anamnesis requires absolute birth time geometry (Angles).");
+        return;
+    }
+
+    const overlay = document.getElementById('ana-overlay');
+    const overlayText = document.getElementById('ana-overlay-text');
+    const titleEl = document.getElementById('principia-title');
+    const wheelContainer = document.getElementById('ana-wheel-container');
+
+    // 오버레이(화면 암전) 켜기
+    overlay.classList.add('active');
+
+    if (!isAnamnesisMode) {
+        // Principia -> Anamnesis 진입
+        overlayText.textContent = "Once again, you recur.";
+        setTimeout(() => {
+            isAnamnesisMode = true;
+            titleEl.textContent = "Anamnesis";
+            titleEl.style.color = "#49dce1"; // Cyan Blue로 변경
+            if (wheelContainer) wheelContainer.classList.remove('hidden');
+            overlay.classList.remove('active');
+            fetchAndRenderAstroData(); // 차트 재연산
+        }, 2000); // 2초 Freeze
+    } else {
+        // Anamnesis -> Principia 복귀
+        overlayText.textContent = "As above, so below.";
+        setTimeout(() => {
+            isAnamnesisMode = false;
+            titleEl.textContent = "Principia";
+            titleEl.style.color = "#7CFF9B"; // 기본 색상 복구
+            if (wheelContainer) wheelContainer.classList.add('hidden');
+            overlay.classList.remove('active');
+            fetchAndRenderAstroData(); // 차트 재연산
+        }, 2000);
+    }
+}
+
 async function fetchAndRenderAstroData() {
     const params = new URLSearchParams(window.location.search);
     const system = params.get('system') || 'tropical';
@@ -97,7 +163,9 @@ async function fetchAndRenderAstroData() {
         orb = localStorage.getItem('tetramegistus_orb') || '1.0'; 
     }
     
-    const apiUrl = `/api/astro/principia/resting?system=${system}&ayanamsa=${ayanamsa}&view=${view}&h_sys=${h_sys}&fixed_star_orb=${orb}`;
+    // 🚀 [NEW] URL에 anamnesis 모드 정보 탑재
+    const anaParam = isAnamnesisMode ? currentAnaMode : 'off';
+    const apiUrl = `/api/astro/principia/resting?system=${system}&ayanamsa=${ayanamsa}&view=${view}&h_sys=${h_sys}&fixed_star_orb=${orb}&anamnesis=${anaParam}`;
 
     try {
         const response = await fetch(apiUrl);
