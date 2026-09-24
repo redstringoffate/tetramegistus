@@ -1,7 +1,13 @@
 <link rel="stylesheet" href="/static/world/albedo/modules/a2.css">
 
+<!-- 파일 최상단에 트랜지션 오버레이 추가 -->
+<div class="anamnesis-overlay" id="ana-overlay">
+    <div class="ana-glitch-text" id="ana-overlay-text">Once again, you recur.</div>
+</div>
+
 <div class="a2-coagulatio">
-    <h1 class="materia-title">COAGULATIO</h1>
+    <!-- 🚀 클릭 이벤트를 위해 id 부여 -->
+    <h1 class="materia-title" id="coagulatio-title">COAGULATIO</h1>
 
     <div class="control-row main-toggle-row">
         <div class="dichotomy-module main-toggle">
@@ -18,6 +24,16 @@
         <div id="davison-lords" class="lordship-bar" style="display: none;">
             <div class="lord-slot">Day Lord: <span class="val" id="day-lord">-</span></div>
             <div class="lord-slot">Hour Lord: <span class="val" id="hour-lord">-</span></div>
+            
+            <!-- 🚀 [NEW] N2와 동일한 4분할 Anamnesis 스퀘어 모듈 -->
+            <div class="anamnesis-wheel-container hidden" id="ana-wheel-container">
+                <div class="ana-wheel">
+                    <div class="ana-quadrant active" data-mode="N" title="Nigredo | Ascendant set to 0° Aries (Direct)">N</div>
+                    <div class="ana-quadrant" data-mode="A" title="Albedo | Immum Coeli set to 0° Aries (Direct)">A</div>
+                    <div class="ana-quadrant" data-mode="R" title="Rubedo | Ascendant set to 0° Aries (Retrograde)">R</div>
+                    <div class="ana-quadrant" data-mode="C" title="Citrinitas | Immum Coeli set to 0° Aries (Retrograde)">C</div>
+                </div>
+            </div>
         </div>
 
         <div id="composite-controls" class="anti-switch-module">

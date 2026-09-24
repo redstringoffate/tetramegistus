@@ -555,3 +555,122 @@
     color: #49dce1 !important; 
     text-shadow: 0 0 6px rgba(73, 220, 225, 0.6);
 }
+
+/* 🚀 1. 제목 Hover & Click 이펙트 (A2 전용) */
+#coagulatio-title {
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+#coagulatio-title.ritual-ready { 
+    cursor: pointer; 
+    user-select: none;
+}
+#coagulatio-title.ritual-ready:hover {
+    text-shadow: 0 0 15px #49dce1, 0 0 5px #49dce1;
+    transform: scale(1.02);
+}
+#coagulatio-title.ritual-ready:active {
+    transform: scale(0.97);
+    opacity: 0.8;
+}
+#coagulatio-title.time-unknown-locked {
+    cursor: default !important; 
+    pointer-events: none !important; 
+    user-select: text; 
+}
+
+/* 🚀 2. 4분할 Anamnesis Matrix (N2의 고급스러운 2x2 스퀘어 칩과 완전 동일) */
+.anamnesis-wheel-container {
+    display: flex; align-items: center;
+    margin-left: 30px; 
+    animation: fadeIn 1s forwards;
+}
+
+.ana-wheel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 52px; 
+    height: 52px;
+    gap: 3px; 
+    background: transparent; 
+}
+
+.ana-quadrant {
+    display: flex; justify-content: center; align-items: center;
+    font-size: 0.8rem;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    background: #0a0a0a; 
+    color: #49dce1;
+    opacity: 0.5;
+    border-radius: 3px; 
+    border: 1px solid rgba(73, 220, 225, 0.2);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ana-quadrant:hover { 
+    opacity: 0.9; 
+    border-color: #49dce1; 
+}
+
+.ana-quadrant.active { 
+    opacity: 1; 
+    transform: scale(1.15); 
+    z-index: 10; 
+    border-color: transparent;
+}
+
+.ana-quadrant[data-mode="N"].active { background: #000000 !important; color: #ffffff !important; border: 1px solid #333; box-shadow: 0 0 10px rgba(255,255,255,0.1); }
+.ana-quadrant[data-mode="A"].active { background: #ffffff !important; color: #000000 !important; box-shadow: 0 0 10px rgba(255,255,255,0.4); }
+.ana-quadrant[data-mode="R"].active { background: #e00000 !important; color: #000000 !important; box-shadow: 0 0 10px rgba(224,0,0,0.4); }
+.ana-quadrant[data-mode="C"].active { background: #ffe600 !important; color: #000000 !important; box-shadow: 0 0 10px rgba(255,230,0,0.3); }
+
+/* 🚀 3. 오버레이 및 시퀀스 이펙트 (N2와 완전 동일) */
+.anamnesis-overlay {
+    position: fixed !important; 
+    top: 0 !important; 
+    left: 0 !important; 
+    width: 100vw !important; 
+    height: 100vh !important;
+    background: rgba(0,0,0,0.85) !important; 
+    z-index: 100000 !important;
+    display: flex !important; 
+    justify-content: center !important; 
+    align-items: center !important;
+    opacity: 0; 
+    pointer-events: none;
+    transition: opacity 0.5s ease; 
+}
+.anamnesis-overlay.active { 
+    opacity: 1; 
+    pointer-events: auto; 
+}
+
+.ana-glitch-text {
+    color: #999 !important; 
+    font-family: ui-monospace, SFMono-Regular, monospace !important;
+    font-size: 1.1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 4px !important;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    position: relative;
+    z-index: 100002;
+}
+.ana-glitch-text.show { opacity: 1; }
+
+.ana-static-flash {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; opacity: 0; z-index: 100001;
+    background: repeating-linear-gradient(0deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 2px);
+}
+.ana-static-flash.trigger { animation: staticFlicker 0.25s forwards; }
+
+@keyframes staticFlicker {
+    0% { opacity: 0; background: #fff; }
+    40% { opacity: 0.9; filter: invert(1); }
+    70% { opacity: 0.5; filter: hue-rotate(90deg); }
+    100% { opacity: 0; background: transparent; }
+}

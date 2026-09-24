@@ -360,7 +360,8 @@ async def get_coagulatio_reading(
     ayanamsa: str = 'lahiri',
     view: str = 'zodiac',
     h_sys: str = 'P',
-    fixed_star_orb: float = 1.0  # 🚀 [수복]: 사용자 설정 Orb 파라미터 반영
+    fixed_star_orb: float = 1.0, # 🚀 [수복]: 사용자 설정 Orb 파라미터 반영
+    anamnesis: str = 'off'       # 🚀 [NEW]: Anamnesis 파라미터 수신
 ):
     """Albedo Station 데이터를 해석하여 UI 규격으로 반환"""
     albedo_data = get_seed_from_request(request, is_albedo=True)
@@ -388,8 +389,70 @@ async def get_coagulatio_reading(
             fixed_star_orb=fixed_star_orb,
             is_time_unknown=is_unk
         )
-        # 🔑 [Veil Sync]: JS가 인식할 수 있도록 meta에 플래그 강제 업데이트
-        result['meta'].update({"is_time_unknown": 1 if is_unk else 0})
+
+        # 🚀 [CORE LOGIC]: Anamnesis 재귀 연산 주입 (A2 Davison 전용)
+        if anamnesis != 'off' and not is_unk:
+            asc_lon = result['planets'].get('Ascendant', {}).get('longitude', 0.0)
+            ic_lon = result['planets'].get('Immum Coeli', {}).get('longitude', 0.0)
+            
+            # 🚀 원본(Davison) 하우스 커스프 경계 추출
+            cusps_simple = {}
+            for k, v in result.get('houses', {}).items():
+                cusps_simple[int(k)] = float(v['longitude']) if isinstance(v, dict) else float(v)
+
+            for p_key, p_val in result['planets'].items():
+                if 'longitude' not in p_val: continue
+                old_lon = p_val['longitude']
+                
+                # 모드별 좌표 변환
+                if anamnesis == 'N': new_lon = (old_lon - asc_lon) % 360
+                elif anamnesis == 'R': new_lon = (asc_lon - old_lon) % 360
+                elif anamnesis == 'A': new_lon = (old_lon - ic_lon) % 360
+                elif anamnesis == 'C': new_lon = (ic_lon - old_lon) % 360
+                else: new_lon = old_lon
+                
+                # 좌표 및 물리적 항성(Fixed Star) 초기화
+                p_val['longitude'] = new_lon
+                p_val['fixed_stars'] = []
+                
+                # 하위 속성 완벽 재연산
+                sign_idx = int(new_lon / 30) % 12
+                sign_name = engine_pkg.TROPICAL_SIGNS[sign_idx]
+                deg_in_sign = new_lon % 30
+                
+                p_val['dms'] = engine_pkg.format_dms_pretty(new_lon)
+                p_val['sign'] = sign_idx
+                p_val['is_anaretic'] = (deg_in_sign >= 29.0)
+                
+                p_val['duad'] = engine_pkg.SYMBOL_MAP.get(get_duad(sign_name, deg_in_sign), "-")
+                p_val['dodeca'] = engine_pkg.SYMBOL_MAP.get(get_dodecatemoria(deg_in_sign), "-")
+                p_val['decan'] = engine_pkg.SYMBOL_MAP.get(get_decan(sign_name, deg_in_sign), "-")
+                p_val['bound'] = engine_pkg.SYMBOL_MAP.get(get_egyptian_bounds(sign_name, deg_in_sign), "-")
+                p_val['sabian_index'] = get_sabian_index(new_lon)
+
+                # 🚀 Anamnesis House Overlay: 변환된 좌표가 원본 Davison 하우스 영역 중 어디에 속하는지 판별
+                if len(cusps_simple) == 12:
+                    found_house = 1
+                    for h_num in range(1, 13):
+                        cur = cusps_simple[h_num]
+                        nxt = cusps_simple[h_num+1] if h_num < 12 else cusps_simple[1]
+                        
+                        if cur < nxt:
+                            if cur <= new_lon < nxt: 
+                                found_house = h_num
+                                break
+                        else: 
+                            if cur <= new_lon < 360 or 0 <= new_lon < nxt: 
+                                found_house = h_num
+                                break
+                    
+                    p_val['house'] = str(found_house)
+
+        # 🔑 [Veil Sync]: JS가 인식할 수 있도록 meta에 플래그 강제 업데이트 및 Anamnesis 상태 반영
+        result['meta'].update({
+            "is_time_unknown": 1 if is_unk else 0,
+            "anamnesis_mode": anamnesis
+        })
         return result
 
     # 2. Composite 분기

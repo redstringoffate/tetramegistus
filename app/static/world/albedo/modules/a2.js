@@ -13,6 +13,9 @@ const ELEMENT_MAP = {
 };
 
 let FS_MEANINGS = {}; 
+// 🚀 [NEW] N2와 동일한 전역 변수
+let isAnamnesisMode = false;
+let currentAnaMode = 'N';
 
 document.addEventListener('DOMContentLoaded', async () => {
     console.log("[COAGULATIO] Initializing A2 Module...");
@@ -22,6 +25,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     initializeCoagulatioUI();
     await fetchAndRenderCoagulatio();
+
+    // 🚀 [NEW] N2와 동일한 이벤트 리스너 세팅
+    const titleEl = document.getElementById('coagulatio-title');
+    if (titleEl) {
+        titleEl.addEventListener('click', handleAnamnesisRitual);
+    }
+    
+    document.querySelectorAll('.ana-quadrant').forEach(quad => {
+        quad.addEventListener('click', (e) => {
+            if (!isAnamnesisMode) return;
+            currentAnaMode = e.target.dataset.mode;
+            document.querySelectorAll('.ana-quadrant').forEach(q => q.classList.remove('active'));
+            e.target.classList.add('active');
+            fetchAndRenderCoagulatio();
+        });
+    });
 
     document.addEventListener('click', (e) => {
         const popover = document.getElementById('fs-popover');
@@ -33,6 +52,74 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 });
+
+// 🚀 [NEW] N2와 동일한 타이밍 시퀀스의 암전 로직 (A2 Davison 조건 추가)
+async function handleAnamnesisRitual() {
+    const params = new URLSearchParams(window.location.search);
+    const method = params.get('method') || 'composite';
+    
+    if (method !== 'davison') {
+        alert("Anamnesis is only available in Davison mode.");
+        return;
+    }
+
+    const titleEl = document.getElementById('coagulatio-title');
+    if (titleEl.classList.contains('time-unknown-locked')) {
+        alert("Time Unknown. Anamnesis Ritual is locked.");
+        return;
+    }
+
+    const overlay = document.getElementById('ana-overlay');
+    const overlayText = document.getElementById('ana-overlay-text');
+    const wheelContainer = document.getElementById('ana-wheel-container');
+    const systemNav = document.getElementById('main-system-nav');
+    const subOptions = document.querySelector('.sub-options-vault');
+
+    let flashEl = document.getElementById('ana-static-flash');
+    if (!flashEl) {
+        flashEl = document.createElement('div');
+        flashEl.id = 'ana-static-flash';
+        flashEl.className = 'ana-static-flash';
+        overlay.appendChild(flashEl);
+    }
+
+    overlay.classList.add('active');
+
+    setTimeout(() => {
+        flashEl.classList.add('trigger');
+        
+        setTimeout(() => {
+            flashEl.classList.remove('trigger');
+            overlayText.textContent = isAnamnesisMode ? "As above, so below." : "Once again, you recur.";
+            overlayText.classList.add('show');
+            
+            setTimeout(() => {
+                isAnamnesisMode = !isAnamnesisMode;
+                
+                if (isAnamnesisMode) {
+                    currentAnaMode = 'N';
+                    document.querySelectorAll('.ana-quadrant').forEach(q => q.classList.remove('active'));
+                    document.querySelector('.ana-quadrant[data-mode="N"]').classList.add('active');
+                    
+                    titleEl.textContent = "ANAMNESIS";
+                    if (wheelContainer) wheelContainer.classList.remove('hidden');
+                    if (systemNav) systemNav.style.display = 'none';
+                    if (subOptions) subOptions.style.display = 'none';
+                } else {
+                    titleEl.textContent = "COAGULATIO";
+                    if (wheelContainer) wheelContainer.classList.add('hidden');
+                    if (systemNav) systemNav.style.display = '';
+                    if (subOptions) subOptions.style.display = '';
+                }
+                
+                overlay.classList.remove('active');
+                overlayText.classList.remove('show');
+                
+                fetchAndRenderCoagulatio();
+            }, 1500); 
+        }, 250); 
+    }, 2000); 
+}
 
 async function fetchAndRenderCoagulatio() {
     const params = new URLSearchParams(window.location.search);
@@ -56,7 +143,9 @@ async function fetchAndRenderCoagulatio() {
         if (!isNaN(parsed)) orbValue = parsed;
     }
 
-    const url = `/api/astro/coagulatio/reading?method=${method}&mode=${mode}&system=${sys}&ayanamsa=${ayan}&view=${view}&h_sys=${h_sys}&fixed_star_orb=${orbValue}`;
+    // 🚀 [NEW] URL에 anamnesis 파라미터 추가
+    const anaParam = isAnamnesisMode ? currentAnaMode : 'off';
+    const url = `/api/astro/coagulatio/reading?method=${method}&mode=${mode}&system=${sys}&ayanamsa=${ayan}&view=${view}&h_sys=${h_sys}&fixed_star_orb=${orbValue}&anamnesis=${anaParam}`;
 
     try {
         const response = await fetch(url);
@@ -64,10 +153,21 @@ async function fetchAndRenderCoagulatio() {
         const data = await response.json();
         if (!data || data.error) return;
 
-        // 1. [Lockdown Logic]: Angles Veil for Time Unknown
+        // 🚀 [NEW] A2 생시 락 동적 제어 (N2와 동일)
         const isTimeUnknown = data.meta && (data.meta.is_time_unknown === 1);
-        const anglesSection = document.getElementById('angles-section-a2');
+        const titleEl = document.getElementById('coagulatio-title');
+        if (titleEl) {
+            if (isTimeUnknown) {
+                titleEl.classList.add('time-unknown-locked');
+                titleEl.classList.remove('ritual-ready');
+            } else {
+                titleEl.classList.add('ritual-ready');
+                titleEl.classList.remove('time-unknown-locked');
+            }
+        }
 
+        // 1. [Lockdown Logic]: Angles Veil for Time Unknown
+        const anglesSection = document.getElementById('angles-section-a2');
         if (anglesSection) {
             anglesSection.classList.remove('section-time-locked');
             const existingLock = anglesSection.querySelector('.lock-blackout');
@@ -138,7 +238,8 @@ async function fetchAndRenderCoagulatio() {
                     const existingFs = bodyCell.querySelector('.fs-container');
                     if (existingFs) existingFs.remove();
 
-                    if (method === 'davison' && info.fixed_stars?.length > 0) {
+                    // 🚀 [NEW] Anamnesis 모드일 땐 항성 차단
+                    if (method === 'davison' && info.fixed_stars?.length > 0 && !isAnamnesisMode) {
                         const fsContainer = document.createElement('span');
                         fsContainer.className = 'fs-container';
                         info.fixed_stars.forEach(star => {
@@ -559,7 +660,9 @@ window.saveToGrimoire = async function() {
         method: method,
         mode: mode, 
         target_name: targetName,
-        language: currentLang  
+        language: currentLang,
+        // 🚀 [NEW] 아남네시스 모드 상태 전송 (A2)
+        anamnesis_mode: isAnamnesisMode ? currentAnaMode : 'off'
     };
 
     const bodies = {};
@@ -629,6 +732,9 @@ window.saveToGrimoire = async function() {
     
     if (method === 'composite') {
         compilerId = 'a2_comp';
+    } else if (isAnamnesisMode && method === 'davison') {
+        // 🚀 [NEW] Davison + Anamnesis 모드일 때 락온
+        compilerId = 'a2_anamnesis';
     } else if (currentView === 'nakshatra') {
         compilerId = 'a2_nak';
     }
