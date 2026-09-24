@@ -717,53 +717,122 @@
     user-select: text; /* 일반 텍스트처럼 드래그 가능하게 허용 */
 }
 
-/* 🚀 2. 4분할 Anamnesis Wheel (기하학적 연결 수복 & 고급화) */
+/* 🚀 1. 제목 Hover & Click 이펙트 (생시 미상 완벽 차단) */
+#principia-title {
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+#principia-title.ritual-ready { 
+    cursor: pointer; 
+    user-select: none;
+}
+#principia-title.ritual-ready:hover {
+    text-shadow: 0 0 15px #7CFF9B, 0 0 5px #7CFF9B;
+    transform: scale(1.02);
+}
+#principia-title.ritual-ready:active {
+    transform: scale(0.97);
+    opacity: 0.8;
+}
+#principia-title.time-unknown-locked {
+    cursor: default !important; 
+    pointer-events: none !important; 
+    user-select: text; 
+}
+
+/* 🚀 2. 4분할 Anamnesis Matrix (원형 폐기, 고급스러운 2x2 스퀘어 칩) */
 .anamnesis-wheel-container {
     display: flex; align-items: center;
-    margin-left: 30px; /* Hour Lord와의 적절한 여백 */
+    margin-left: 30px; 
     animation: fadeIn 1s forwards;
 }
 
 .ana-wheel {
     display: grid;
-    /* N-R(좌측), A-C(우측) 축을 완벽히 정렬하는 2x2 원형 그리드 */
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    width: 56px; 
-    height: 56px;
-    border-radius: 50%;
-    overflow: hidden;
-    
-    /* [핵심]: 그림판 느낌을 주던 두꺼운 테두리 삭제, 얇고 은은한 홀로그램 느낌으로 교체 */
-    border: 1px solid rgba(73, 220, 225, 0.4); 
-    box-shadow: 0 0 15px rgba(73, 220, 225, 0.15), inset 0 0 10px rgba(0,0,0,0.8);
-    
-    /* 각 사분면 사이의 십자선을 완벽한 1px 두께의 선으로 처리 */
-    gap: 1px; 
-    background: rgba(73, 220, 225, 0.3); /* 십자선 자체의 색상 */
+    width: 52px; 
+    height: 52px;
+    gap: 3px; /* 칩 사이의 간격 (세련된 여백) */
+    background: transparent; 
 }
 
 .ana-quadrant {
     display: flex; justify-content: center; align-items: center;
-    font-size: 0.8rem; /* 너무 크지도 작지도 않은 날렵한 사이즈 */
+    font-size: 0.8rem;
     font-weight: 900;
     cursor: pointer;
     font-family: ui-monospace, SFMono-Regular, monospace;
-    
-    /* 비활성 상태: 어둡고 차가운 터미널 느낌 */
-    background: #0a0a0a; 
+    background: #0a0a0a; /* 비활성 시 차가운 터미널 베이스 */
     color: #49dce1;
     opacity: 0.5;
-    transition: opacity 0.2s ease, background 0.2s ease;
+    border-radius: 3px; /* 각 모듈의 모서리 미세 마감 */
+    border: 1px solid rgba(73, 220, 225, 0.2);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.ana-quadrant:hover { opacity: 0.9; }
+.ana-quadrant:hover { 
+    opacity: 0.9; 
+    border-color: #49dce1; 
+}
 
-/* 🔥 활성화 상태: 지정된 연금술 원색이 100% 발현 */
-.ana-quadrant.active { opacity: 1; }
+/* 🔥 활성화 시 약간 돌출되며 연금술 고유 원색 발현 */
+.ana-quadrant.active { 
+    opacity: 1; 
+    transform: scale(1.15); /* 눌린 칩이 튀어나오는 듯한 효과 */
+    z-index: 10; 
+    border-color: transparent;
+}
 
-/* 오리지널 연금술 컬러 강제 (절대 변동 없음) */
-.ana-quadrant[data-mode="N"].active { background: #000000 !important; color: #ffffff !important; }
-.ana-quadrant[data-mode="A"].active { background: #ffffff !important; color: #000000 !important; }
-.ana-quadrant[data-mode="R"].active { background: #e00000 !important; color: #000000 !important; }
-.ana-quadrant[data-mode="C"].active { background: #ffe600 !important; color: #000000 !important; }
+.ana-quadrant[data-mode="N"].active { background: #000000 !important; color: #ffffff !important; border: 1px solid #333; box-shadow: 0 0 10px rgba(255,255,255,0.1); }
+.ana-quadrant[data-mode="A"].active { background: #ffffff !important; color: #000000 !important; box-shadow: 0 0 10px rgba(255,255,255,0.4); }
+.ana-quadrant[data-mode="R"].active { background: #e00000 !important; color: #000000 !important; box-shadow: 0 0 10px rgba(224,0,0,0.4); }
+.ana-quadrant[data-mode="C"].active { background: #ffe600 !important; color: #000000 !important; box-shadow: 0 0 10px rgba(255,230,0,0.3); }
+
+/* 🚀 3. 오버레이 및 시퀀스 이펙트 (망가진 레이아웃 강제 수복) */
+.anamnesis-overlay {
+    position: fixed !important; 
+    top: 0 !important; 
+    left: 0 !important; 
+    width: 100vw !important; 
+    height: 100vh !important;
+    background: rgba(0,0,0,0.85) !important; 
+    z-index: 100000 !important;
+    display: flex !important; 
+    justify-content: center !important; 
+    align-items: center !important;
+    opacity: 0; 
+    pointer-events: none;
+    transition: opacity 0.5s ease; 
+}
+.anamnesis-overlay.active { 
+    opacity: 1; 
+    pointer-events: auto; 
+}
+
+.ana-glitch-text {
+    color: #999 !important; 
+    font-family: ui-monospace, SFMono-Regular, monospace !important;
+    font-size: 1.1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 4px !important;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    position: relative;
+    z-index: 100002;
+}
+.ana-glitch-text.show { opacity: 1; }
+
+.ana-static-flash {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; opacity: 0; z-index: 100001;
+    background: repeating-linear-gradient(0deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 2px);
+}
+.ana-static-flash.trigger { animation: staticFlicker 0.25s forwards; }
+
+@keyframes staticFlicker {
+    0% { opacity: 0; background: #fff; }
+    40% { opacity: 0.9; filter: invert(1); }
+    70% { opacity: 0.5; filter: hue-rotate(90deg); }
+    100% { opacity: 0; background: transparent; }
+}
