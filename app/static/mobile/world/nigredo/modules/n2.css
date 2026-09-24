@@ -142,8 +142,10 @@
    🚀 [NEW] ANAMNESIS RITUAL (Mobile)
 ========================================================= */
 #principia-title {
-    display: inline-block;
+    display: block; /* 🚀 [수복]: 전체 너비를 차지하게 하여 중앙 정렬 유지 */
+    text-align: center;
     transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent; /* 모바일 터치 깜빡임 제거 */
 }
 #principia-title.ritual-ready { cursor: pointer; user-select: none; }
 #principia-title.ritual-ready:active { transform: scale(0.95); opacity: 0.8; }
