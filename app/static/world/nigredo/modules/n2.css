@@ -723,8 +723,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    width: 52px; /* 32px -> 52px 사이즈업 */
-    height: 52px;
+    width: 72px; /* 32px -> 52px 사이즈업 */
+    height: 72px;
     border-radius: 50%;
     border: 2px solid #49dce1; /* 바깥 테두리만 Cyan Blue */
     overflow: hidden;
@@ -742,10 +742,10 @@
 .ana-quadrant.active { opacity: 1; }
 
 /* N, A, R, C 각 모드별 확고한 색상 지정 (!important로 active 시 덮어쓰기 원천 차단) */
-.ana-quadrant[data-mode="N"] { background: #000000 !important; color: #ffffff !important; border-right: 1px solid rgba(255,255,255,0.25); border-bottom: 1px solid rgba(255,255,255,0.25); }
-.ana-quadrant[data-mode="A"] { background: #ffffff !important; color: #000000 !important; border-bottom: 1px solid rgba(0,0,0,0.2); }
-.ana-quadrant[data-mode="R"] { background: #e00000 !important; color: #000000 !important; border-right: 1px solid rgba(0,0,0,0.2); }
-.ana-quadrant[data-mode="C"] { background: #ffe600 !important; color: #000000 !important; }
+.ana-quadrant[data-mode="N"] { background: #000000 !important; font-family: ui-monospace; color: #ffffff !important; border-right: 1px solid rgba(255,255,255,0.25); border-bottom: 1px solid rgba(255,255,255,0.25); }
+.ana-quadrant[data-mode="A"] { background: #ffffff !important; font-family: ui-monospace; color: #000000 !important; border-bottom: 1px solid rgba(0,0,0,0.2); }
+.ana-quadrant[data-mode="R"] { background: #e00000 !important; font-family: ui-monospace; color: #000000 !important; border-right: 1px solid rgba(0,0,0,0.2); }
+.ana-quadrant[data-mode="C"] { background: #ffe600 !important; font-family: ui-monospace; color: #000000 !important; }
 
 /* 🚀 3. 오버레이 및 시퀀스 이펙트 (무심한 텍스트 + Static Flash) */
 .anamnesis-overlay {
