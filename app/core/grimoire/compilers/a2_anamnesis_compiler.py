@@ -7,7 +7,7 @@ from openpyxl.styles import Font, Alignment
 
 # 🚀 테트라메기스투스 코어 모듈 임포트
 from core.grimoire.styler import apply_grimoire_styles
-from core.grimoire.stamper import apply_davison_stamp
+from core.grimoire.stamper import apply_natal_stamp
 from api.astrology import resolve_seed_hydration
 from core.astrology.davison import calculate_davison_midpoint
 from core.astrology.engine import calculate_principia, _ensure_float_tz, format_dms_pretty, TROPICAL_SIGNS, SYMBOL_MAP
@@ -67,8 +67,9 @@ def compile_a2_anamnesis_grimoire(chart_data, seed_data=None):
     if is_unk:
         raise ValueError("Time Unknown. Anamnesis Ritual is locked.")
 
-    # A2 전용 스탬퍼 (두 사람의 정보 + Davison 결합 정보 도장)
-    apply_davison_stamp(ws, raw_s1, raw_s2, dav_h, cells=["A2", "A3", "A4"])
+    # 기존 A2 컴파일러와 동일한 오리지널 스탬퍼 적용
+    dav_h['name'] = meta.get('target_name', 'CONIUNCTIO')
+    apply_natal_stamp(ws, dav_h, method="single", cells=["A2"])
 
     lang_val = meta.get("language", chart_data.get("language", "en"))
     is_ko = "ko" in str(lang_val).lower().strip()
