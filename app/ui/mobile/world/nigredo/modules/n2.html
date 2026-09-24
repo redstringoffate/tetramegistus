@@ -1,16 +1,34 @@
-<link rel="stylesheet" href="/static/mobile/world/nigredo/modules/n2.css?v=3">
+<!-- 🚀 v=4로 올려서 모바일 캐시 갱신 -->
+<link rel="stylesheet" href="/static/mobile/world/nigredo/modules/n2.css?v=4">
+
+<!-- 🚀 파일 최상단에 트랜지션 오버레이 추가 -->
+<div class="anamnesis-overlay" id="ana-overlay">
+    <div class="ana-glitch-text" id="ana-overlay-text">Once again, you recur.</div>
+</div>
 
 <div class="m-n2-container">
-    <h2 class="m-materia-title">PRINCIPIA</h2>
+    <!-- 🚀 클릭 이벤트를 위해 id 부여 -->
+    <h2 class="m-materia-title" id="principia-title">PRINCIPIA</h2>
 
-    <div class="m-lordship-bar" id="m-n2-lords" style="display: flex; justify-content: center; margin-bottom: 20px;">
+    <!-- 🚀 align-items: center 추가 및 간격 조정 -->
+    <div class="m-lordship-bar" id="m-n2-lords" style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
         <div class="m-lord-slot" style="text-align: center;">
             Day Lord:<br>
             <span class="m-val" id="day-lord" style="margin-left: 0; display: inline-block; margin-top: 4px;">-</span>
         </div>
-        <div class="m-lord-slot" style="margin-left: 40px; text-align: center;">
+        <div class="m-lord-slot" style="margin-left: 30px; text-align: center;">
             Hour Lord:<br>
             <span class="m-val" id="hour-lord" style="margin-left: 0; display: inline-block; margin-top: 4px;">-</span>
+        </div>
+        
+        <!-- 🚀 4분할 Anamnesis Wheel 모듈 추가 -->
+        <div class="anamnesis-wheel-container m-hidden" id="ana-wheel-container" style="margin-left: 20px;">
+            <div class="ana-wheel">
+                <div class="ana-quadrant active" data-mode="N">N</div>
+                <div class="ana-quadrant" data-mode="A">A</div>
+                <div class="ana-quadrant" data-mode="R">R</div>
+                <div class="ana-quadrant" data-mode="C">C</div>
+            </div>
         </div>
     </div>
 

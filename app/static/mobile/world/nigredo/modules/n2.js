@@ -19,6 +19,9 @@ const ELEMENT_MAP = { "♈︎": "glow-fire", "♌︎": "glow-fire", "♐︎": "g
 
 let FS_MEANINGS = {};
 let n2ToastTimer = null;
+// 🚀 [NEW] 전역 변수
+let isAnamnesisMode = false;
+let currentAnaMode = 'N';
 
 document.addEventListener('DOMContentLoaded', async () => {
     loadN2StateFromUrl();
@@ -27,6 +30,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     updateN2UIState();
     await fetchAndRenderN2();
+
+    // 🚀 [NEW] 타이틀 클릭 이벤트
+    const titleEl = document.getElementById('principia-title');
+    if (titleEl) titleEl.addEventListener('click', handleAnamnesisRitual);
+    
+    // 🚀 [NEW] 휠 클릭 이벤트
+    document.querySelectorAll('.ana-quadrant').forEach(quad => {
+        quad.addEventListener('click', (e) => {
+            if (!isAnamnesisMode) return;
+            currentAnaMode = e.target.dataset.mode;
+            document.querySelectorAll('.ana-quadrant').forEach(q => q.classList.remove('active'));
+            e.target.classList.add('active');
+            fetchAndRenderN2();
+        });
+    });
 
     document.addEventListener('click', (e) => {
         const starIcon = e.target.closest('.fs-icon');
@@ -130,12 +148,81 @@ window.switchN2Category = function(cat) {
     window.location.href = u.toString(); 
 };
 
+// 🚀 [NEW] 모바일 Anamnesis 암전 로직
+async function handleAnamnesisRitual() {
+    const titleEl = document.getElementById('principia-title');
+    if (titleEl && titleEl.classList.contains('time-unknown-locked')) {
+        showN2Toast("<strong style='color:#ff4b4b;'>TIME UNKNOWN</strong><br>Anamnesis Ritual is locked.");
+        return;
+    }
+
+    const overlay = document.getElementById('ana-overlay');
+    const overlayText = document.getElementById('ana-overlay-text');
+    const wheelContainer = document.getElementById('ana-wheel-container');
+    
+    // 모바일 전용 UI 요소들
+    const sysTabs = document.querySelector('.m-connected-tabs'); 
+    const subOptions = document.getElementById('m-sidereal-vault');
+    const catGridZod = document.getElementById('m-cat-grid-zodiac');
+    const catGridNak = document.getElementById('m-cat-grid-nakshatra');
+
+    let flashEl = document.getElementById('ana-static-flash');
+    if (!flashEl) {
+        flashEl = document.createElement('div');
+        flashEl.id = 'ana-static-flash';
+        flashEl.className = 'ana-static-flash';
+        overlay.appendChild(flashEl);
+    }
+
+    overlay.classList.add('active');
+
+    setTimeout(() => {
+        flashEl.classList.add('trigger');
+        setTimeout(() => {
+            flashEl.classList.remove('trigger');
+            overlayText.textContent = isAnamnesisMode ? "As above, so below." : "Once again, you recur.";
+            overlayText.classList.add('show');
+            
+            setTimeout(() => {
+                isAnamnesisMode = !isAnamnesisMode;
+                
+                if (isAnamnesisMode) {
+                    currentAnaMode = 'N';
+                    document.querySelectorAll('.ana-quadrant').forEach(q => q.classList.remove('active'));
+                    document.querySelector('.ana-quadrant[data-mode="N"]').classList.add('active');
+                    
+                    titleEl.textContent = "ANAMNESIS";
+                    if (wheelContainer) wheelContainer.classList.remove('m-hidden');
+                    
+                    // 불필요한 컨트롤 숨기기 및 카테고리 고정
+                    if (sysTabs) sysTabs.style.display = 'none';
+                    if (subOptions) subOptions.style.display = 'none';
+                    if (catGridZod) catGridZod.style.display = 'none';
+                    if (catGridNak) catGridNak.style.display = 'none';
+                    N2_STATE.category = 'planets'; // 무조건 행성 고정
+                } else {
+                    titleEl.textContent = "PRINCIPIA";
+                    if (wheelContainer) wheelContainer.classList.add('m-hidden');
+                    if (sysTabs) sysTabs.style.display = 'flex';
+                    updateN2UIState(); // UI 복구
+                }
+                
+                overlay.classList.remove('active');
+                overlayText.classList.remove('show');
+                
+                fetchAndRenderN2();
+            }, 1500); 
+        }, 250); 
+    }, 2000); 
+}
+
 async function fetchAndRenderN2() {
     let h_sys = window.WorldSettings ? window.WorldSettings.getHouseCode() : (localStorage.getItem('tetramegistus_house') || 'P');
     let orbValue = parseFloat(localStorage.getItem('tetramegistus_orb')) || 1.5;
     
-    // N2는 단일 차트이므로 method, mode 파라미터가 없음
-    const url = `/api/astro/principia/resting?system=${N2_STATE.system}&ayanamsa=${N2_STATE.ayanamsa}&view=${N2_STATE.view}&h_sys=${h_sys}&fixed_star_orb=${orbValue}`;
+    // 🚀 [NEW] Anamnesis 파라미터 추가
+    const anaParam = isAnamnesisMode ? currentAnaMode : 'off';
+    const url = `/api/astro/principia/resting?system=${N2_STATE.system}&ayanamsa=${N2_STATE.ayanamsa}&view=${N2_STATE.view}&h_sys=${h_sys}&fixed_star_orb=${orbValue}&anamnesis=${anaParam}`;
 
     try {
         const response = await fetch(url);
@@ -143,8 +230,19 @@ async function fetchAndRenderN2() {
         const resData = await response.json();
         N2_STATE.data = resData;
 
-        // 🚀 [수정됨]: 심플한 락 클래스 부여 및 강제 이동 로직
         const isUnknown = resData.meta && resData.meta.is_time_unknown === 1;
+
+        // 🚀 [NEW] 타이틀 Lock 동적 할당
+        const titleEl = document.getElementById('principia-title');
+        if (titleEl) {
+            if (isUnknown) {
+                titleEl.classList.add('time-unknown-locked');
+                titleEl.classList.remove('ritual-ready');
+            } else {
+                titleEl.classList.add('ritual-ready');
+                titleEl.classList.remove('time-unknown-locked');
+            }
+        }
         const angleBtn = document.querySelector(`.cat-btn[data-cat="angles"]`);
         
         if (angleBtn) {
@@ -220,9 +318,9 @@ function renderN2Cards(planetData) {
         }
         const encodedToast = encodeURIComponent(toastHTML);
 
-        // N2는 단일 차트이므로 항성이 있으면 무조건 출력
+        // 🚀 [NEW] Anamnesis 모드일 때는 항성 출력 차단
         let starsHTML = "";
-        if (info.fixed_stars?.length > 0) {
+        if (info.fixed_stars?.length > 0 && !isAnamnesisMode) {
             starsHTML = `<div class="fs-container">`;
             info.fixed_stars.forEach(star => {
                 const sToast = encodeURIComponent(`<strong style="color:#7CFF9B;">${star.name}</strong><br><span style="color:#fff;"></span> ${star.position} | <span style="color:#fff;"></span> ${star.orb}°`);
@@ -401,7 +499,9 @@ window.saveToGrimoire = async function() {
         sys_tab: N2_STATE.system, ayanamsa: N2_STATE.ayanamsa,
         h_sys: h_sys, fixed_star_orb: orb,
         view_mode: N2_STATE.view, 
-        target_name: targetName, language: localStorage.getItem('tetramegistus_lang') || 'en'
+        target_name: targetName, language: localStorage.getItem('tetramegistus_lang') || 'en',
+        // 🚀 [NEW] 모드 전송
+        anamnesis_mode: isAnamnesisMode ? currentAnaMode : 'off'
     };
 
     const bodies = {};
@@ -442,6 +542,8 @@ window.saveToGrimoire = async function() {
     const payload = { seed_id: seedId, stage: 'nigredo', target_name: targetName, metadata: metadata, bodies: bodies };
 
     let compilerId = (N2_STATE.view === 'nakshatra') ? 'n2_nak' : 'n2';
+    // 🚀 [NEW] 컴파일러 락온
+    if (isAnamnesisMode) compilerId = 'n2_anamnesis';
 
     try {
         const res = await fetch(`/api/grimoire/save/excel/${compilerId}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
