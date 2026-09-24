@@ -225,17 +225,18 @@ def compile_n2_anamnesis_grimoire(chart_data, seed_data=None):
         ws[f"{col_decan}{row_idx}"] = str(p_data.get("decan", ""))
         ws[f"{col_bounds}{row_idx}"] = str(p_data.get("bound", ""))
         
-        # 🚀 [단일 정밀 공식]: 0도~359.999도를 정확히 1~360 인덱스로 치환 (중복 덧셈 원천 차단)
+        # 🚀 [완벽 수복]: sabian.json은 0번부터 시작하므로 +1 절대 금지.
+        # 또한 인덱스가 '0'일 때 파이썬이 빈 값(Falsy)으로 착각하지 않도록 명시적 처리.
         s_idx = None
         if "longitude" in p_data:
             try:
                 lon_val = float(p_data["longitude"]) % 360
-                s_idx = int(math.floor(lon_val)) + 1
+                s_idx = int(math.floor(lon_val)) 
             except:
                 s_idx = p_data.get("sabian_index")
         else:
             s_idx = p_data.get("sabian_index")
-
+            
         s_val_str = str(s_idx).strip() if s_idx is not None else ""
         sabian_text = ""
         
@@ -247,7 +248,6 @@ def compile_n2_anamnesis_grimoire(chart_data, seed_data=None):
                 else: sabian_text = fallback_txt.get("text_en", fallback_txt.get("en", fallback_txt.get("text_ko", fallback_txt.get("ko", ""))))
             elif isinstance(fallback_txt, str): sabian_text = fallback_txt
 
-        # 🚀 [수복 2]: 백엔드 딕셔너리 실패 시, 프론트엔드가 보낸 텍스트를 그대로 가져오는 안전장치 복구
         if not sabian_text:
             frontend_sabian = chart_data.get("bodies", {}).get(body_name, {}).get("sabian", "")
             if frontend_sabian: sabian_text = frontend_sabian
