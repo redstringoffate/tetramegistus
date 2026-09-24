@@ -20,6 +20,9 @@ const ELEMENT_MAP = { "♈︎": "glow-fire", "♌︎": "glow-fire", "♐︎": "g
 
 let FS_MEANINGS = {};
 let a2ToastTimer = null;
+// 🚀 [NEW] 전역 변수
+let isAnamnesisMode = false;
+let currentAnaMode = 'N';
 
 document.addEventListener('DOMContentLoaded', async () => {
     loadA2StateFromUrl();
@@ -28,6 +31,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     updateA2UIState();
     await fetchAndRenderA2();
+
+    // 🚀 [NEW] 타이틀 클릭 이벤트
+    const titleEl = document.getElementById('coagulatio-title');
+    if (titleEl) {
+        titleEl.addEventListener('click', handleAnamnesisRitual);
+    }
+    
+    // 🚀 [NEW] 휠 클릭 이벤트
+    document.querySelectorAll('.ana-quadrant').forEach(quad => {
+        quad.addEventListener('click', (e) => {
+            if (!isAnamnesisMode) return;
+            currentAnaMode = e.target.dataset.mode;
+            document.querySelectorAll('.ana-quadrant').forEach(q => q.classList.remove('active'));
+            e.target.classList.add('active');
+            fetchAndRenderA2();
+        });
+    });
 
     // 팝업 바깥 빈 공간 터치 시 닫기
     document.addEventListener('touchstart', (e) => {
@@ -177,20 +197,110 @@ window.switchA2Category = function(cat) {
     window.location.href = u.toString(); 
 };
 
+// 🚀 [NEW] 모바일 Anamnesis 암전 로직 (A2 Davison 전용)
+async function handleAnamnesisRitual() {
+    if (A2_STATE.method !== 'davison') {
+        showA2Toast("<strong style='color:#ff4b4b;'>ERROR</strong><br>Anamnesis is only available in Davison mode.");
+        return;
+    }
+
+    const titleEl = document.getElementById('coagulatio-title');
+    if (titleEl && titleEl.classList.contains('time-unknown-locked')) {
+        showA2Toast("<strong style='color:#ff4b4b;'>TIME UNKNOWN</strong><br>Anamnesis Ritual is locked.");
+        return;
+    }
+
+    const overlay = document.getElementById('ana-overlay');
+    const overlayText = document.getElementById('ana-overlay-text');
+    const wheelContainer = document.getElementById('ana-wheel-container');
+    
+    // 모바일 전용 UI 요소들 (A2)
+    const methodToggle = document.querySelector('.main-toggle-row'); 
+    const sysTabs = document.querySelector('.m-connected-tabs'); 
+    const subOptions = document.getElementById('m-sidereal-vault');
+    const catGridZod = document.getElementById('m-cat-grid-zodiac');
+    const catGridNak = document.getElementById('m-cat-grid-nakshatra');
+
+    let flashEl = document.getElementById('ana-static-flash');
+    if (!flashEl) {
+        flashEl = document.createElement('div');
+        flashEl.id = 'ana-static-flash';
+        flashEl.className = 'ana-static-flash';
+        overlay.appendChild(flashEl);
+    }
+
+    overlay.classList.add('active');
+
+    setTimeout(() => {
+        flashEl.classList.add('trigger');
+        setTimeout(() => {
+            flashEl.classList.remove('trigger');
+            overlayText.textContent = isAnamnesisMode ? "As above, so below." : "Once again, you recur.";
+            overlayText.classList.add('show');
+            
+            setTimeout(() => {
+                isAnamnesisMode = !isAnamnesisMode;
+                
+                if (isAnamnesisMode) {
+                    currentAnaMode = 'N';
+                    document.querySelectorAll('.ana-quadrant').forEach(q => q.classList.remove('active'));
+                    document.querySelector('.ana-quadrant[data-mode="N"]').classList.add('active');
+                    
+                    titleEl.textContent = "ANAMNESIS";
+                    if (wheelContainer) wheelContainer.classList.remove('m-hidden');
+                    
+                    // 불필요한 컨트롤 숨기기 및 카테고리 고정
+                    if (methodToggle) methodToggle.style.display = 'none';
+                    if (sysTabs) sysTabs.style.display = 'none';
+                    if (subOptions) subOptions.style.display = 'none';
+                    if (catGridZod) catGridZod.style.display = 'none';
+                    if (catGridNak) catGridNak.style.display = 'none';
+                    A2_STATE.category = 'planets'; // 무조건 행성 고정
+                } else {
+                    titleEl.textContent = "COAGULATIO";
+                    if (wheelContainer) wheelContainer.classList.add('m-hidden');
+                    if (methodToggle) methodToggle.style.display = 'flex';
+                    if (sysTabs) sysTabs.style.display = 'flex';
+                    updateA2UIState(); // UI 복구
+                }
+                
+                overlay.classList.remove('active');
+                overlayText.classList.remove('show');
+                
+                fetchAndRenderA2();
+            }, 1500); 
+        }, 250); 
+    }, 2000); 
+}
+
 async function fetchAndRenderA2() {
     let h_sys = window.WorldSettings ? window.WorldSettings.getHouseCode() : (localStorage.getItem('tetramegistus_house') || 'P');
     let orbValue = parseFloat(localStorage.getItem('tetramegistus_orb')) || 1.5;
-    const url = `/api/astro/coagulatio/reading?method=${A2_STATE.method}&mode=${A2_STATE.mode}&system=${A2_STATE.system}&ayanamsa=${A2_STATE.ayanamsa}&view=${A2_STATE.view}&h_sys=${h_sys}&fixed_star_orb=${orbValue}`;
+    
+    // 🚀 [NEW] Anamnesis 파라미터 추가
+    const anaParam = isAnamnesisMode ? currentAnaMode : 'off';
+    const url = `/api/astro/coagulatio/reading?method=${A2_STATE.method}&mode=${A2_STATE.mode}&system=${A2_STATE.system}&ayanamsa=${A2_STATE.ayanamsa}&view=${A2_STATE.view}&h_sys=${h_sys}&fixed_star_orb=${orbValue}&anamnesis=${anaParam}`;
 
-    // (a2.js fetchAndRenderA2 안의 fetch 블록 찾아서 교체)
     try {
         const response = await fetch(url);
         if (!response.ok) return;
         const resData = await response.json();
         A2_STATE.data = resData;
 
-        // 🚀 [추가됨]: Time Unknown 감지 및 Angles 탭 락 처리
         const isUnknown = resData.meta && resData.meta.is_time_unknown === 1;
+
+        // 🚀 [NEW] 타이틀 Lock 동적 할당
+        const titleEl = document.getElementById('coagulatio-title');
+        if (titleEl) {
+            if (isUnknown) {
+                titleEl.classList.add('time-unknown-locked');
+                titleEl.classList.remove('ritual-ready');
+            } else {
+                titleEl.classList.add('ritual-ready');
+                titleEl.classList.remove('time-unknown-locked');
+            }
+        }
+        
         const angleBtn = document.querySelector(`.cat-btn[data-cat="angles"]`);
         
         if (angleBtn) {
@@ -268,7 +378,8 @@ function renderA2Cards(planetData) {
 
         // 🚀 [수복 2]: 인라인 onclick 분쇄 후 안전한 dataset 속성 부여
         let starsHTML = "";
-        if (A2_STATE.method === 'davison' && info.fixed_stars?.length > 0) {
+        // 🚀 [NEW] Anamnesis 모드일 때는 항성 출력 차단
+        if (A2_STATE.method === 'davison' && info.fixed_stars?.length > 0 && !isAnamnesisMode) {
             starsHTML = `<div class="fs-container">`;
             info.fixed_stars.forEach(star => {
                 const sToast = encodeURIComponent(`<strong style="color:#FFD700;">${star.name}</strong><br><span style="color:#fff;"></span> ${star.position} | <span style="color:#fff;"></span> ${star.orb}°`);
@@ -456,7 +567,9 @@ window.saveToGrimoire = async function() {
         sys_tab: A2_STATE.system, ayanamsa: A2_STATE.ayanamsa,
         h_sys: h_sys, fixed_star_orb: orb,
         view_mode: A2_STATE.view, method: A2_STATE.method, mode: A2_STATE.mode, 
-        target_name: targetName, language: localStorage.getItem('tetramegistus_lang') || 'en'
+        target_name: targetName, language: localStorage.getItem('tetramegistus_lang') || 'en',
+        // 🚀 [NEW] 모드 전송
+        anamnesis_mode: isAnamnesisMode ? currentAnaMode : 'off'
     };
 
     const bodies = {};
@@ -498,6 +611,7 @@ window.saveToGrimoire = async function() {
 
     let compilerId = 'a2';
     if (A2_STATE.method === 'composite') compilerId = 'a2_comp';
+    else if (isAnamnesisMode && A2_STATE.method === 'davison') compilerId = 'a2_anamnesis'; // 🚀 [NEW] 컴파일러 락온
     else if (A2_STATE.view === 'nakshatra' && A2_STATE.system === 'sidereal') compilerId = 'a2_nak';
 
     try {

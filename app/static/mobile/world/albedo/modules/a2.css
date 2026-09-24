@@ -139,3 +139,80 @@
     cursor: not-allowed !important;
     pointer-events: auto !important;     /* 터치 이벤트는 살려둬야 토스트를 띄울 수 있음 */
 }
+
+/* =========================================================
+   🚀 [NEW] ANAMNESIS RITUAL (Mobile Albedo)
+========================================================= */
+#coagulatio-title {
+    display: block; /* 전체 너비 차지하여 중앙 정렬 유지 */
+    text-align: center;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+#coagulatio-title.ritual-ready { cursor: pointer; user-select: none; }
+#coagulatio-title.ritual-ready:active { transform: scale(0.95); opacity: 0.8; }
+#coagulatio-title.time-unknown-locked { cursor: default !important; pointer-events: none !important; }
+
+/* 2x2 스퀘어 매트릭스 */
+.anamnesis-wheel-container {
+    display: flex; align-items: center;
+    animation: fadeIn 1s forwards;
+}
+
+.ana-wheel {
+    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+    width: 44px; height: 44px;
+    gap: 2px; background: transparent; 
+    border-radius: 4px; padding: 2px;
+    border: 1px solid rgba(73, 220, 225, 0.2); 
+}
+
+.ana-quadrant {
+    display: flex; justify-content: center; align-items: center;
+    font-size: 0.7rem; font-weight: 900; cursor: pointer;
+    font-family: inherit; background: #0a0a0a; color: #49dce1; /* Albedo Cyan */
+    opacity: 0.4; border-radius: 2px; transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.ana-quadrant.active { opacity: 1; transform: scale(1.1); z-index: 10; box-shadow: 0 0 8px rgba(0,0,0,0.8); }
+
+/* 모바일 전용 색상 강제 오버라이드 */
+.ana-quadrant[data-mode="N"].active { background: #000000 !important; color: #ffffff !important; border: 1px solid #333; }
+.ana-quadrant[data-mode="A"].active { background: #ffffff !important; color: #000000 !important; }
+.ana-quadrant[data-mode="R"].active { background: #e00000 !important; color: #000000 !important; }
+.ana-quadrant[data-mode="C"].active { background: #ffe600 !important; color: #000000 !important; }
+
+/* 오버레이 효과 */
+.anamnesis-overlay {
+    position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important;
+    background: rgba(0,0,0,0.85) !important; z-index: 100000 !important;
+    display: flex !important; justify-content: center !important; align-items: center !important;
+    opacity: 0; visibility: hidden; pointer-events: none !important;
+    transition: opacity 0.5s ease, visibility 0.5s; 
+}
+.anamnesis-overlay.active { opacity: 1; visibility: visible; pointer-events: auto !important; }
+
+.ana-glitch-text {
+    color: #999 !important; font-family: inherit !important;
+    font-size: 1rem !important; text-transform: uppercase !important; letter-spacing: 4px !important;
+    opacity: 0; display: none; transition: opacity 0.4s ease; text-align: center;
+    /* 🚀 N2와 동일하게 38% 적용 */
+    position: absolute !important; top: 38% !important; left: 50% !important; transform: translate(-50%, -50%) !important;
+    z-index: 100002 !important; width: 100%;
+}
+.ana-glitch-text.show { opacity: 1; display: block; }
+
+.ana-static-flash {
+    position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important;
+    pointer-events: none !important; opacity: 0; z-index: 100001 !important;
+    background: repeating-linear-gradient(0deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 2px) !important;
+}
+.ana-static-flash.trigger { animation: staticFlicker 0.25s forwards; }
+
+@keyframes staticFlicker {
+    0% { opacity: 0; background: #fff; }
+    40% { opacity: 0.9; filter: invert(1); }
+    70% { opacity: 0.5; filter: hue-rotate(90deg); }
+    100% { opacity: 0; background: transparent; }
+}
