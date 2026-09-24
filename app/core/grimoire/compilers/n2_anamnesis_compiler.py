@@ -225,14 +225,18 @@ def compile_n2_anamnesis_grimoire(chart_data, seed_data=None):
         ws[f"{col_decan}{row_idx}"] = str(p_data.get("decan", ""))
         ws[f"{col_bounds}{row_idx}"] = str(p_data.get("bound", ""))
         
-        s_idx = p_data.get("sabian_index")
-        
-        # 🚀 [수복 1]: 0도(0.xxx)일 때 falsy(0)로 증발하는 버그 차단 및 도수 기반 강제 역산
-        if not s_idx and "longitude" in p_data:
-            try: s_idx = int(math.floor(float(p_data["longitude"]))) + 1
-            except: pass
-            
-        s_val_str = str(s_idx).strip() if s_idx else ""
+        # 🚀 [단일 정밀 공식]: 0도~359.999도를 정확히 1~360 인덱스로 치환 (중복 덧셈 원천 차단)
+        s_idx = None
+        if "longitude" in p_data:
+            try:
+                lon_val = float(p_data["longitude"]) % 360
+                s_idx = int(math.floor(lon_val)) + 1
+            except:
+                s_idx = p_data.get("sabian_index")
+        else:
+            s_idx = p_data.get("sabian_index")
+
+        s_val_str = str(s_idx).strip() if s_idx is not None else ""
         sabian_text = ""
         
         if s_val_str.isdigit(): sabian_text = get_sabian_text(s_val_str)
