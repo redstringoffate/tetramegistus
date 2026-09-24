@@ -100,12 +100,15 @@ function initializePrincipiaUI() {
     }
 }
 
-// 🚀 [NEW] 화면 암전 및 모드 토글 함수
+// 🚀 [NEW] 화면 암전 및 모드 토글 (타이밍 시퀀스 완벽 적용)
 async function handleAnamnesisRitual() {
     const activeSeed = JSON.parse(localStorage.getItem('active_seed'));
-    // 생시 미상 차트는 앵글이 없으므로 진입 차단
-    if (activeSeed && activeSeed.is_time_unknown === 1) {
-        alert("Anamnesis requires absolute birth time geometry (Angles).");
+    
+    // [수복 6]: 생시 미상 차트 완벽 차단 (값 검증 + UI 락 상태 교차 검증)
+    const isUnknown = (activeSeed && (activeSeed.is_time_unknown == 1)) || 
+                      document.querySelector('#angles-section-nakshatra.section-time-locked');
+    if (isUnknown) {
+        alert("Time Unknown. Anamnesis Ritual is locked.");
         return;
     }
 
@@ -113,33 +116,65 @@ async function handleAnamnesisRitual() {
     const overlayText = document.getElementById('ana-overlay-text');
     const titleEl = document.getElementById('principia-title');
     const wheelContainer = document.getElementById('ana-wheel-container');
+    const systemNav = document.getElementById('main-system-nav');
+    const subOptions = document.querySelector('.sub-options-vault');
 
-    // 오버레이(화면 암전) 켜기
+    // 스태틱 플래시를 위한 DOM 동적 생성
+    let flashEl = document.getElementById('ana-static-flash');
+    if (!flashEl) {
+        flashEl = document.createElement('div');
+        flashEl.id = 'ana-static-flash';
+        flashEl.className = 'ana-static-flash';
+        overlay.appendChild(flashEl);
+    }
+
+    // 1. 화면이 약간 어두워짐 (Overlay On)
     overlay.classList.add('active');
 
-    if (!isAnamnesisMode) {
-        // Principia -> Anamnesis 진입
-        overlayText.textContent = "Once again, you recur.";
+    // 2. 2초간 정지 (Pause)
+    setTimeout(() => {
+        // 3. Static Flash 효과 발동 (0.25초)
+        flashEl.classList.add('trigger');
+        
         setTimeout(() => {
-            isAnamnesisMode = true;
-            titleEl.textContent = "Anamnesis";
-            titleEl.style.color = "#49dce1"; // Cyan Blue로 변경
-            if (wheelContainer) wheelContainer.classList.remove('hidden');
-            overlay.classList.remove('active');
-            fetchAndRenderAstroData(); // 차트 재연산
-        }, 2000); // 2초 Freeze
-    } else {
-        // Anamnesis -> Principia 복귀
-        overlayText.textContent = "As above, so below.";
-        setTimeout(() => {
-            isAnamnesisMode = false;
-            titleEl.textContent = "Principia";
-            titleEl.style.color = "#7CFF9B"; // 기본 색상 복구
-            if (wheelContainer) wheelContainer.classList.add('hidden');
-            overlay.classList.remove('active');
-            fetchAndRenderAstroData(); // 차트 재연산
-        }, 2000);
-    }
+            flashEl.classList.remove('trigger');
+            
+            // 4. 무심하게 문구 등장
+            overlayText.textContent = isAnamnesisMode ? "As above, so below." : "Once again, you recur.";
+            overlayText.classList.add('show');
+            
+            // 5. 문구가 잠깐(1.5초) 머문 뒤 모드 전환
+            setTimeout(() => {
+                isAnamnesisMode = !isAnamnesisMode;
+                
+                if (isAnamnesisMode) {
+                    // [수복 2]: 전환 직후 'N' 모드로 즉각 세팅
+                    currentAnaMode = 'N';
+                    document.querySelectorAll('.ana-quadrant').forEach(q => q.classList.remove('active'));
+                    document.querySelector('.ana-quadrant[data-mode="N"]').classList.add('active');
+                    
+                    titleEl.textContent = "Anamnesis";
+                    // [수복 4]: 타이틀 색상 억지 변경 삭제. CSS 기본값 유지.
+                    
+                    // [수복 3]: T/S/D/K 시스템 탭 및 서브옵션 가리기
+                    if (wheelContainer) wheelContainer.classList.remove('hidden');
+                    if (systemNav) systemNav.style.display = 'none';
+                    if (subOptions) subOptions.style.display = 'none';
+                } else {
+                    titleEl.textContent = "Principia";
+                    if (wheelContainer) wheelContainer.classList.add('hidden');
+                    if (systemNav) systemNav.style.display = '';
+                    if (subOptions) subOptions.style.display = '';
+                }
+                
+                overlay.classList.remove('active');
+                overlayText.classList.remove('show');
+                
+                // [수복 2]: 즉시 재계산 및 렌더링
+                fetchAndRenderAstroData();
+            }, 1500); 
+        }, 250); // static 이펙트 지속시간 
+    }, 2000); // 2초 퍼즈
 }
 
 async function fetchAndRenderAstroData() {
@@ -235,7 +270,7 @@ async function fetchAndRenderAstroData() {
                         bodyCell.classList.remove('lord-active-body');
                     }
 
-                    if (info.fixed_stars && info.fixed_stars.length > 0) {
+                    if (info.fixed_stars && info.fixed_stars.length > 0 && !isAnamnesisMode) {
                         const fsContainer = document.createElement('span');
                         fsContainer.className = 'fs-container';
                         

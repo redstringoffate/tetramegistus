@@ -220,6 +220,7 @@ async def get_principia_resting(
                 
                 # 좌표 덮어쓰기
                 p_val['longitude'] = new_lon
+                p_val['fixed_stars'] = []
                 
                 # 🚀 바뀐 좌표를 기반으로 하위 속성(Duad, Dodeca 등) 완벽 재연산
                 sign_idx = int(new_lon / 30) % 12
