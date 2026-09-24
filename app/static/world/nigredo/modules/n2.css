@@ -717,63 +717,53 @@
     user-select: text; /* 일반 텍스트처럼 드래그 가능하게 허용 */
 }
 
-/* 🚀 2. 4분할 Anamnesis Matrix (MS Paint 탈피, 세련된 모듈형 칩) */
+/* 🚀 2. 4분할 Anamnesis Wheel (기하학적 연결 수복 & 고급화) */
 .anamnesis-wheel-container {
     display: flex; align-items: center;
-    margin-left: 30px; /* Hour Lord와의 간격 확보 */
+    margin-left: 30px; /* Hour Lord와의 적절한 여백 */
     animation: fadeIn 1s forwards;
 }
 
 .ana-wheel {
-    display: flex; /* 억지스러운 원형 그리드 폐기, 세련된 일렬 배치 */
-    gap: 8px; /* 각 모듈 사이의 숨통 트이는 여백 */
+    display: grid;
+    /* N-R(좌측), A-C(우측) 축을 완벽히 정렬하는 2x2 원형 그리드 */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 56px; 
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    
+    /* [핵심]: 그림판 느낌을 주던 두꺼운 테두리 삭제, 얇고 은은한 홀로그램 느낌으로 교체 */
+    border: 1px solid rgba(73, 220, 225, 0.4); 
+    box-shadow: 0 0 15px rgba(73, 220, 225, 0.15), inset 0 0 10px rgba(0,0,0,0.8);
+    
+    /* 각 사분면 사이의 십자선을 완벽한 1px 두께의 선으로 처리 */
+    gap: 1px; 
+    background: rgba(73, 220, 225, 0.3); /* 십자선 자체의 색상 */
 }
 
 .ana-quadrant {
-    width: 26px; /* 작고 정교한 정사각형 규격 */
-    height: 26px;
     display: flex; justify-content: center; align-items: center;
-    font-size: 0.75rem; /* 날렵하고 세련된 원래 폰트 사이즈 복구 */
+    font-size: 0.8rem; /* 너무 크지도 작지도 않은 날렵한 사이즈 */
     font-weight: 900;
     cursor: pointer;
     font-family: ui-monospace, SFMono-Regular, monospace;
     
-    /* 비활성 상태: 투명하고 차가운 터미널 느낌 */
-    opacity: 0.3;
-    border: 1px solid rgba(73, 220, 225, 0.3); /* 얇고 희미한 사이버네틱 테두리 */
+    /* 비활성 상태: 어둡고 차가운 터미널 느낌 */
+    background: #0a0a0a; 
     color: #49dce1;
-    background: transparent;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 2px; /* 아주 미세한 모서리 마감으로 고급스러움 추가 */
+    opacity: 0.5;
+    transition: opacity 0.2s ease, background 0.2s ease;
 }
 
-.ana-quadrant:hover {
-    opacity: 0.6;
-    border-color: #49dce1;
-}
+.ana-quadrant:hover { opacity: 0.9; }
 
-/* 🔥 활성화 상태: 연금술 원색이 100% 발현되며 약간 돌출됨 */
-.ana-quadrant.active { 
-    opacity: 1; 
-    transform: scale(1.15); /* 클릭 시 칩이 살짝 튀어나오는 UI 피드백 */
-    border-color: transparent; /* 활성화 시 어색한 테두리 증발 */
-}
+/* 🔥 활성화 상태: 지정된 연금술 원색이 100% 발현 */
+.ana-quadrant.active { opacity: 1; }
 
-/* 각 단계별 오리지널 연금술 컬러 (절대 변경 안 함) */
-.ana-quadrant[data-mode="N"].active { 
-    background: #000000 !important; color: #ffffff !important; 
-    box-shadow: 0 0 8px rgba(255,255,255,0.2); 
-    border: 1px solid #333; /* 칠흑 속에서 형태를 유지하기 위한 미세 테두리 */
-}
-.ana-quadrant[data-mode="A"].active { 
-    background: #ffffff !important; color: #000000 !important; 
-    box-shadow: 0 0 8px rgba(255,255,255,0.5); 
-}
-.ana-quadrant[data-mode="R"].active { 
-    background: #e00000 !important; color: #000000 !important; 
-    box-shadow: 0 0 8px rgba(224,0,0,0.5); 
-}
-.ana-quadrant[data-mode="C"].active { 
-    background: #ffe600 !important; color: #000000 !important; 
-    box-shadow: 0 0 8px rgba(255,230,0,0.4); 
-}
+/* 오리지널 연금술 컬러 강제 (절대 변동 없음) */
+.ana-quadrant[data-mode="N"].active { background: #000000 !important; color: #ffffff !important; }
+.ana-quadrant[data-mode="A"].active { background: #ffffff !important; color: #000000 !important; }
+.ana-quadrant[data-mode="R"].active { background: #e00000 !important; color: #000000 !important; }
+.ana-quadrant[data-mode="C"].active { background: #ffe600 !important; color: #000000 !important; }
