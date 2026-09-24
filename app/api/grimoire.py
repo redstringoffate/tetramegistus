@@ -30,6 +30,7 @@ from core.panopticon import get_pano_db
 
 # nigredo
 from core.grimoire.compilers.n2_compiler import compile_n2_grimoire
+from core.grimoire.compilers.n2_anamnesis_compiler import compile_n2_anamnesis_grimoire
 from core.grimoire.compilers.n2_nak_compiler import compile_n2_nak_grimoire
 from core.grimoire.compilers.n3_compiler import compile_n3_grimoire
 from core.grimoire.compilers.n3_domain_compiler import compile_n3_domain_grimoire
@@ -129,7 +130,7 @@ class GrimoireRenamePayload(BaseModel):
 router = APIRouter(prefix="/api/grimoire", tags=["grimoire-api"])
 
 NIGREDO_ORDER = [
-    "n2", "n2_nak", "n3", "n3_domain", "n3_lagna", "n4", "n5_unus", "n5_intersectus",
+    "n2", "n2_nak", "n2_anamnesis", "n3", "n3_domain", "n3_lagna", "n4", "n5_unus", "n5_intersectus",
     "n6", "n6_aspects", "n6_varga", "n7", "n7_sabian_planets", "n7_sabian_asteroids", 
     "n7_sabian_nodes", "n7_sabian_fates", "n7_sabian_angles", "n7_sabian_hermetic", "n7_planets",
     "n7_asteroids", "n7_nodes", "n7_fates", "n7_angles", "n7_hermetic", "n8", "n9", "n9_vd"
@@ -144,7 +145,7 @@ ALBEDO_ORDER = [
 ]
 
 EXCEL_COMPILERS = {
-    "n2": compile_n2_grimoire, "n2_nak": compile_n2_nak_grimoire, "n3": compile_n3_grimoire, "n3_domain": compile_n3_domain_grimoire,
+    "n2": compile_n2_grimoire, "n2_nak": compile_n2_nak_grimoire, "n2_anamnesis": compile_n2_anamnesis_grimoire, "n3": compile_n3_grimoire, "n3_domain": compile_n3_domain_grimoire,
     "n3_lagna": compile_n3_lagna_grimoire, "n4": compile_n4_grimoire, "n5_unus": compile_n5_unus_grimoire, "n5_intersectus": compile_n5_intersectus_grimoire,
     "n6": compile_n6_grimoire, "n6_aspects": compile_n6_aspects_grimoire, "n6_varga": compile_n6_varga_grimoire, "n6_varga_kp": compile_n6_varga_kp_grimoire,
     "n7": compile_n7_grimoire, "n7_sabian_planets": compile_n7_sabian_planets_grimoire, "n7_sabian_asteroids": compile_n7_sabian_asteroids_grimoire,
