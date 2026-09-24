@@ -692,14 +692,16 @@
     text-shadow: 0 0 6px rgba(40, 148, 255, 0.6);
 }
 
-/* 🚀 1. 제목 Hover & Click 이펙트 (생시 정상일 때만) */
+/* 🚀 1. 제목 Hover & Click 이펙트 (생시 미상 완벽 차단) */
 #principia-title {
     display: inline-block;
-    user-select: none;
     transition: all 0.2s ease;
 }
-/* 생시 정상 차트용 */
-#principia-title.ritual-ready { cursor: pointer; }
+/* 생시 정상 차트 (의식 가능) */
+#principia-title.ritual-ready { 
+    cursor: pointer; 
+    user-select: none;
+}
 #principia-title.ritual-ready:hover {
     text-shadow: 0 0 15px #7CFF9B, 0 0 5px #7CFF9B;
     transform: scale(1.02);
@@ -708,46 +710,59 @@
     transform: scale(0.97);
     opacity: 0.8;
 }
-/* 생시 미상 차트용 (효과 없음) */
+/* 생시 미상 차트 (완전한 정적 텍스트화) */
 #principia-title.time-unknown-locked {
-    cursor: default;
+    cursor: default !important; /* 마우스 포인터 기본값 강제 */
+    pointer-events: none !important; /* 호버/클릭 이벤트 원천 차단 */
+    user-select: text; /* 일반 텍스트처럼 드래그 가능하게 허용 */
 }
 
-/* 🚀 2. 4분할 Anamnesis Wheel (크기 증대 및 색상 강제) */
+/* 🚀 2. 4분할 Anamnesis Wheel (비율, 간격, 미학의 완전 수복) */
 .anamnesis-wheel-container {
     display: flex; align-items: center;
-    margin-left: -20px;
+    margin-left: 30px; /* Hour Lord와의 답답한 간격 해소 */
     animation: fadeIn 1s forwards;
 }
+
 .ana-wheel {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    width: 72px; /* 32px -> 52px 사이즈업 */
-    height: 72px;
+    width: 60px; /* 폰트와의 황금 비율을 위해 60px로 세팅 */
+    height: 60px;
     border-radius: 50%;
-    border: 2px solid #49dce1; /* 바깥 테두리만 Cyan Blue */
+    border: 2px solid #49dce1; 
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(73, 220, 225, 0.4);
+    box-shadow: 0 0 12px rgba(73, 220, 225, 0.4);
+    
+    /* 십자선을 개별 테두리가 아닌 Grid 틈새(Gap)로 구현하여 완벽한 1px 대칭 확보 */
+    gap: 1px; 
+    background: rgba(73, 220, 225, 0.5); /* 십자선 라인 색상 */
 }
+
 .ana-quadrant {
     display: flex; justify-content: center; align-items: center;
-    font-size: 0.75rem; font-weight: 900;
+    font-size: 1.15rem; /* 글자 크기 대폭 증대 */
+    font-weight: 900;
     cursor: pointer;
     font-family: ui-monospace, SFMono-Regular, monospace;
-    opacity: 0.4; /* 비활성 시 투명도 */
-    transition: opacity 0.2s;
+    opacity: 0.35; 
+    transition: all 0.2s ease;
 }
+
 .ana-quadrant:hover { opacity: 0.8; }
-.ana-quadrant.active { opacity: 1; }
+.ana-quadrant.active { 
+    opacity: 1; 
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8); /* 활성화 시 눌려 있는 듯한 깊이감 추가 */
+}
 
-/* N, A, R, C 각 모드별 확고한 색상 지정 (!important로 active 시 덮어쓰기 원천 차단) */
-.ana-quadrant[data-mode="N"] { background: #000000 !important; font-family: ui-monospace; color: #ffffff !important; border-right: 1px solid rgba(255,255,255,0.25); border-bottom: 1px solid rgba(255,255,255,0.25); }
-.ana-quadrant[data-mode="A"] { background: #ffffff !important; font-family: ui-monospace; color: #000000 !important; border-bottom: 1px solid rgba(0,0,0,0.2); }
-.ana-quadrant[data-mode="R"] { background: #e00000 !important; font-family: ui-monospace; color: #000000 !important; border-right: 1px solid rgba(0,0,0,0.2); }
-.ana-quadrant[data-mode="C"] { background: #ffe600 !important; font-family: ui-monospace; color: #000000 !important; }
+/* 연금술 고유 색상 완벽 복구 (Citrinitas & Rubedo 오리지널 테마 강제) */
+.ana-quadrant[data-mode="N"] { background: #000000 !important; color: #ffffff !important; }
+.ana-quadrant[data-mode="A"] { background: #ffffff !important; color: #000000 !important; }
+.ana-quadrant[data-mode="R"] { background: #e00000 !important; color: #000000 !important; text-shadow: none; }
+.ana-quadrant[data-mode="C"] { background: #ffe600 !important; color: #000000 !important; text-shadow: none; }
 
-/* 🚀 3. 오버레이 및 시퀀스 이펙트 (무심한 텍스트 + Static Flash) */
+/* 🚀 3. 오버레이 및 시퀀스 이펙트 */
 .anamnesis-overlay {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background: rgba(0,0,0,0.85); 
