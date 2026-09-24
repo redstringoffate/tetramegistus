@@ -233,8 +233,31 @@ def compile_a2_anamnesis_grimoire(chart_data, seed_data=None):
         ws[f"{col_bounds}{row_idx}"] = str(p_data.get("bound", ""))
 
         s_idx = p_data.get("sabian_index")
-        sabian_text = get_sabian_text(s_idx) if s_idx else ""
-        if not sabian_text and s_idx: sabian_text = f"[{s_idx}°] Rendering fallback"
+        
+        # 🚀 [수복 1]: 0도(0.xxx)일 때 falsy(0)로 증발하는 버그 차단 및 도수 기반 강제 역산
+        if not s_idx and "longitude" in p_data:
+            try: s_idx = int(math.floor(float(p_data["longitude"]))) + 1
+            except: pass
+            
+        s_val_str = str(s_idx).strip() if s_idx else ""
+        sabian_text = ""
+        
+        if s_val_str.isdigit(): sabian_text = get_sabian_text(s_val_str)
+        if not sabian_text:
+            fallback_txt = p_data.get("sabian", p_data.get("sabian_text", p_data.get("sabian_symbol", "")))
+            if isinstance(fallback_txt, dict):
+                if is_ko: sabian_text = fallback_txt.get("text_ko", fallback_txt.get("ko", fallback_txt.get("text_en", fallback_txt.get("en", ""))))
+                else: sabian_text = fallback_txt.get("text_en", fallback_txt.get("en", fallback_txt.get("text_ko", fallback_txt.get("ko", ""))))
+            elif isinstance(fallback_txt, str): sabian_text = fallback_txt
+
+        # 🚀 [수복 2]: 백엔드 딕셔너리 실패 시, 프론트엔드가 보낸 텍스트를 그대로 가져오는 안전장치 복구
+        if not sabian_text:
+            frontend_sabian = chart_data.get("bodies", {}).get(body_name, {}).get("sabian", "")
+            if frontend_sabian: sabian_text = frontend_sabian
+
+        if not sabian_text and s_val_str.isdigit():
+            sabian_text = f"[{s_val_str}°] Symbol rendering fallback"
+
         ws[f"{col_sabian}{row_idx}"] = sabian_text
 
         # B열부터 J열까지 스타일링 확장 (A2는 항성이 없으므로 B열부터 시작)
