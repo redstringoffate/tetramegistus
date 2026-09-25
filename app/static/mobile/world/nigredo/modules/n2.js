@@ -203,8 +203,8 @@ async function handleCharaKarakaRitual() {
         flashEl.classList.add('trigger');
         setTimeout(() => {
             flashEl.classList.remove('trigger');
-            overlayText.textContent = isCharaKarakaMode ? "Nothing escapes the law." : "Everything flows, out and in.";
-            overlayText.style.fontFamily = isCharaKarakaMode ? "" : '"Lucida Sans", "Lucida Sans Regular", Geneva, sans-serif';
+            // 🚀 <br> 태그를 위해 innerHTML 사용 및 대문자 적용
+            overlayText.innerHTML = isCharaKarakaMode ? "NOTHING ESCAPES THE LAW." : "EVERYTHING FLOWS,<br>OUT AND IN.";
             overlayText.classList.add('show');
             
             setTimeout(() => {
@@ -365,9 +365,13 @@ async function fetchAndRenderN2() {
 // 🚀 [NEW] 모바일 차라 카라카 렌더링 
 function renderCharaKarakaCards(data) {
     const container = document.getElementById('m-ck-container');
-    container.innerHTML = '';
-    
-    if (!data || !data.planets) return;
+    // 🚀 1. 헤더 카테고리명 추가
+    container.innerHTML = `
+        <div style="display: flex; justify-content: space-between; padding: 0 5px 10px 5px; border-bottom: 1px solid rgba(124, 255, 155, 0.4); margin-bottom: 10px; font-size: 0.75rem; color: #666; text-transform: uppercase;">
+            <span>Karaka</span>
+            <span>Graha</span>
+        </div>
+    `;
 
     const ckPlanets = [];
     const order = ["AK", "AmK", "BK", "MK", "PK", "GK", "DK"];
@@ -400,12 +404,14 @@ function renderCharaKarakaCards(data) {
         let fullName = p.karaka;
         if (KARAKA_DEFS[p.karaka]) fullName = KARAKA_DEFS[p.karaka].karaka;
         
-        const toastHTML = encodeURIComponent(`<strong style="color:#7CFF9B; font-size:1.1em;">${p.sanskrit}</strong><br><span style="color:#ccc;">${p.pos}</span>`);
+        const rawToast = `<strong style="color:#7CFF9B; font-size:1.1em;">${p.sanskrit}</strong><br><span style="color:#ccc;">${p.pos}</span>`;
+        // 🚀 2. 위치 데이터(p.pos)에 있는 작은따옴표(')가 onclick 속성을 깨지 않도록 치환
+        const safeToast = encodeURIComponent(rawToast).replace(/'/g, "%27");
 
         const html = `
             <div class="m-ck-row">
                 <span class="m-ck-label" onclick="showKarakaPopover('${p.karaka}')">${fullName}</span>
-                <span class="m-ck-graha" style="${grahaStyle}" onclick="showN2Toast(decodeURIComponent('${toastHTML}'))">${p.sanskrit}</span>
+                <span class="m-ck-graha" style="${grahaStyle}" onclick="showN2Toast(decodeURIComponent('${safeToast}'))">${p.sanskrit}</span>
             </div>
         `;
         container.insertAdjacentHTML('beforeend', html);

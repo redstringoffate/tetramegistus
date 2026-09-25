@@ -216,27 +216,59 @@
 }
 
 /* =========================================================
-   🚀 [NEW] CHARA KARAKA MODULE (Mobile)
+   🚀 CHARA KARAKA MODULE (Mobile) - Redesigned
 ========================================================= */
-/* 글로벌 폰트 체인저 (Lucida Sans 강제 적용) */
-.ck-mode-active,
-.ck-mode-active .m-materia-title,
-.ck-mode-active .m-lord-slot,
-.ck-mode-active .m-val,
-.ck-mode-active .m-tab {
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
-}
 
-/* 모바일용 카드 리스트 스타일 */
+/* 모바일용 심플 리스트 스타일 (촌스러운 박스 렌더링 제거) */
 .m-ck-row {
-    background: #02080a;
-    border: 1px solid rgba(124, 255, 155, 0.3);
-    border-radius: 8px;
-    padding: 18px 20px;
+    padding: 15px 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+    border-bottom: 1px dashed rgba(124, 255, 155, 0.15); /* 깔끔한 점선 구분선 */
+    background: transparent; 
+}
+
+.m-ck-row:last-child {
+    border-bottom: none;
+}
+
+/* 카라카 (클릭 가능) */
+.m-ck-label {
+    color: #49dce1;
+    font-size: 1.05rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px dotted #49dce1; /* 클릭 가능함을 넌지시 암시 */
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 그라하 (우측) */
+.m-ck-graha {
+    color: #e0e0e0;
+    font-size: 1.05rem;
+    text-align: right;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 모바일 전용 CK Popover 내부 요소 */
+.ck-popover-title {
+    color: #7CFF9B;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(124, 255, 155, 0.3);
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+.ck-popover-content {
+    color: #ccc;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    word-break: keep-all;
+    font-family: 'Consolas', 'Monaco', monospace !important; /* 팝업도 시스템 통일 */
 }
 
 /* 카라카 (클릭 가능) */
