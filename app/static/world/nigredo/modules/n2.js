@@ -803,3 +803,33 @@ window.saveToGrimoire = async function() {
         throw e;
     }
 };
+
+// 🚀 [수복]: 페이지 새로고침 없는 Ayanamsa 변경 (의식 상태 유지)
+window.switchAyanamsa = function(ayan) {
+    // 1. URL 파라미터만 조용히 업데이트 (location.href 새로고침 방지)
+    const url = new URL(window.location.href);
+    url.searchParams.set('ayanamsa', ayan);
+    window.history.replaceState({}, '', url.toString());
+
+    // 2. Ayanamsa 탭 UI 활성화/비활성화 처리
+    document.querySelectorAll('.ayan-tab').forEach(tab => {
+        if (tab.dataset.ayan === ayan) {
+            tab.classList.add('active');
+        } else {
+            tab.classList.remove('active');
+        }
+    });
+
+    // 3. KP 모드일 경우 Pada 헤더를 Sub-Lord로 변경
+    const padaHeaders = document.querySelectorAll('#pada-header-label');
+    if (ayan === 'kp') {
+        padaHeaders.forEach(el => { el.textContent = 'Sub-Lord'; });
+    } else {
+        padaHeaders.forEach(el => { el.textContent = 'Pada'; });
+    }
+
+    // 4. 🚀 핵심: 렌더링 함수만 재호출
+    // 브라우저가 새로고침되지 않았으므로 isCharaKarakaMode 전역 변수가 그대로 유지됩니다.
+    // 즉, 폰트와 모드가 켜진 상태 그대로 새로운 Ayanamsa 도수에 맞춰 표만 업데이트됩니다.
+    fetchAndRenderAstroData();
+};
