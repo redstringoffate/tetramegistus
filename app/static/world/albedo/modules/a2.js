@@ -13,8 +13,9 @@ const ELEMENT_MAP = {
 };
 
 let FS_MEANINGS = {}; 
-// 🚀 [NEW] N2와 동일한 전역 변수
+let KARAKA_DEFS = {}; // 🚀 [NEW]
 let isAnamnesisMode = false;
+let isCharaKarakaMode = false; // 🚀 [NEW]
 let currentAnaMode = 'N';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -22,14 +23,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     await ensureDataIntegrity();
     await loadFixedStarMeanings();
+    await loadKarakaMeanings(); // 🚀 [NEW] JSON 로드
 
     initializeCoagulatioUI();
     await fetchAndRenderCoagulatio();
 
-    // 🚀 [NEW] N2와 동일한 이벤트 리스너 세팅
+    // 🚀 [NEW] 관문 라우팅으로 교체
     const titleEl = document.getElementById('coagulatio-title');
     if (titleEl) {
-        titleEl.addEventListener('click', handleAnamnesisRitual);
+        titleEl.addEventListener('click', handleTitleRitual);
     }
     
     document.querySelectorAll('.ana-quadrant').forEach(quad => {
@@ -50,8 +52,38 @@ document.addEventListener('DOMContentLoaded', async () => {
                 popover.style.display = ''; 
             }
         }
+        
+        // 🚀 [NEW] Karaka 팝업 닫기
+        const ckPopover = document.getElementById('ck-popover');
+        if (ckPopover && ckPopover.style.display === 'block') {
+            if (!e.target.closest('.ck-label') && !e.target.closest('.ck-popover-box')) {
+                ckPopover.style.display = 'none';
+            }
+        }
     });
-});
+}); // <-- DOMContentLoaded 끝
+
+// 🚀 [NEW] 카라카 설명 JSON 패치
+async function loadKarakaMeanings() {
+    try { 
+        const res = await fetch('/api/astro/theory/karaka/definitions'); 
+        if(res.ok) KARAKA_DEFS = await res.json(); 
+    } catch(e) {}
+}
+
+// 🚀 [NEW] 현재 모드 및 뷰에 따른 관문
+async function handleTitleRitual() {
+    const params = new URLSearchParams(window.location.search);
+    const method = params.get('method') || 'composite';
+    const view = params.get('view') || 'zodiac';
+    
+    // A2: Davison 차트이면서 Nakshatra 뷰일 때만 Chara Karaka 활성화
+    if (method === 'davison' && view === 'nakshatra') {
+        await handleCharaKarakaRitual();
+    } else {
+        await handleAnamnesisRitual();
+    }
+}
 
 // 🚀 [NEW] N2와 동일한 타이밍 시퀀스의 암전 로직 (A2 Davison 조건 추가)
 async function handleAnamnesisRitual() {
@@ -121,6 +153,73 @@ async function handleAnamnesisRitual() {
     }, 2000); 
 }
 
+// 🚀 [NEW] Chara Karaka 암전 시퀀스 (Albedo PC 전용)
+async function handleCharaKarakaRitual() {
+    const overlay = document.getElementById('ana-overlay');
+    const overlayText = document.getElementById('ana-overlay-text');
+    const titleEl = document.getElementById('coagulatio-title');
+    const containerEl = document.querySelector('.a2-coagulatio'); 
+    
+    const methodToggle = document.querySelector('.main-toggle-row'); 
+    const systemNav = document.getElementById('main-system-nav');
+    const dichoToggle = document.getElementById('sidereal-view-toggle'); 
+    
+    let flashEl = document.getElementById('ana-static-flash');
+    if (!flashEl) {
+        flashEl = document.createElement('div');
+        flashEl.id = 'ana-static-flash';
+        flashEl.className = 'ana-static-flash';
+        overlay.appendChild(flashEl);
+    }
+
+    overlay.classList.add('active');
+
+    setTimeout(() => {
+        flashEl.classList.add('trigger');
+        
+        setTimeout(() => {
+            flashEl.classList.remove('trigger');
+            overlayText.textContent = isCharaKarakaMode ? "Nothing escapes the law." : "Everything flows, out and in.";
+            overlayText.style.fontFamily = isCharaKarakaMode ? "" : '"Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif';
+            overlayText.classList.add('show');
+            
+            setTimeout(() => {
+                isCharaKarakaMode = !isCharaKarakaMode;
+                
+                const nakContainer = document.getElementById('nakshatra-view-container');
+                const ckContainer = document.getElementById('chara-karaka-container');
+                
+                if (isCharaKarakaMode) {
+                    titleEl.textContent = "Chara Karaka";
+                    containerEl.classList.add('ck-mode-active'); 
+                    
+                    if (methodToggle) methodToggle.style.display = 'none';
+                    if (systemNav) systemNav.style.display = 'none';
+                    if (dichoToggle) dichoToggle.style.visibility = 'hidden'; // Ayanamsa 탭은 살리고 토글만 가림
+                    
+                    if (nakContainer) nakContainer.style.display = 'none';
+                    if (ckContainer) ckContainer.classList.remove('hidden');
+                } else {
+                    titleEl.textContent = "COAGULATIO";
+                    containerEl.classList.remove('ck-mode-active'); 
+                    
+                    if (methodToggle) methodToggle.style.display = 'flex';
+                    if (systemNav) systemNav.style.display = '';
+                    if (dichoToggle) dichoToggle.style.visibility = 'visible';
+                    
+                    if (nakContainer) nakContainer.style.display = 'block';
+                    if (ckContainer) ckContainer.classList.add('hidden');
+                }
+                
+                overlay.classList.remove('active');
+                overlayText.classList.remove('show');
+                
+                fetchAndRenderCoagulatio();
+            }, 1500); 
+        }, 250); 
+    }, 2000); 
+}
+
 async function fetchAndRenderCoagulatio() {
     const params = new URLSearchParams(window.location.search);
     const method = params.get('method') || 'composite';
@@ -155,9 +254,11 @@ async function fetchAndRenderCoagulatio() {
 
         // 🚀 [NEW] A2 생시 락 동적 제어 (N2와 동일)
         const isTimeUnknown = data.meta && (data.meta.is_time_unknown === 1);
+
+        // 🚀 [수정]: 생시 미상이어도 Nakshatra 뷰일 때는 의식(Chara Karaka) 진입 허용
         const titleEl = document.getElementById('coagulatio-title');
         if (titleEl) {
-            if (isTimeUnknown) {
+            if (isTimeUnknown && view !== 'nakshatra') {
                 titleEl.classList.add('time-unknown-locked');
                 titleEl.classList.remove('ritual-ready');
             } else {
@@ -201,8 +302,10 @@ async function fetchAndRenderCoagulatio() {
             } else { lordBar.style.display = 'none'; }
         }
 
-        // [Planets Rendering]
-        if (data.planets) {
+        // 🚀 [NEW] 모드 분기 렌더링
+        if (isCharaKarakaMode) {
+            renderCharaKarakaTable(data, dayLords, hourLord);
+        } else if (data.planets) {
             const rows = document.querySelectorAll('.a2-chart-table tbody tr');
 
             rows.forEach(row => {
@@ -760,4 +863,123 @@ window.saveToGrimoire = async function() {
         alert('Network Error during Grimoire Save.');
         throw e;
     }
+};
+
+// 🚀 [NEW] Chara Karaka 렌더링 함수 (Albedo)
+function renderCharaKarakaTable(data, dayLords, hourLord) {
+    const tbody = document.getElementById('chara-karaka-body');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    
+    if (!data || !data.planets) return;
+
+    const ckPlanets = [];
+    const order = ["AK", "AmK", "BK", "MK", "PiK", "PK", "DK"];
+
+    for (const [key, p] of Object.entries(data.planets)) {
+        if (p.chara_karaka) {
+            ckPlanets.push({
+                key: key,
+                karaka: p.chara_karaka,
+                sanskrit: p.sanskrit_name || key,
+                pos: p.dms,
+                deg: p.longitude % 30
+            });
+        }
+    }
+    
+    // 서열 정렬
+    ckPlanets.sort((a, b) => order.indexOf(a.karaka) - order.indexOf(b.karaka));
+
+    ckPlanets.forEach(p => {
+        const tr = document.createElement('tr');
+        
+        const isDayLord = dayLords.includes(p.key);
+        const isHourLord = hourLord === p.key;
+        
+        let grahaStyle = "";
+        if (isDayLord) grahaStyle += "text-transform: uppercase; ";
+        if (isHourLord) grahaStyle += "font-weight: bold; ";
+        
+        // TD 1: Karaka
+        const tdKaraka = document.createElement('td');
+        const spanKaraka = document.createElement('span');
+        spanKaraka.className = 'ck-label';
+        let fullName = p.karaka;
+        if (KARAKA_DEFS[p.karaka]) fullName = KARAKA_DEFS[p.karaka].karaka;
+        spanKaraka.textContent = fullName;
+        spanKaraka.onclick = (e) => {
+            e.stopPropagation();
+            showKarakaPopover(p.karaka, e);
+        };
+        tdKaraka.appendChild(spanKaraka);
+        
+        // TD 2: Graha
+        const tdGraha = document.createElement('td');
+        const spanGraha = document.createElement('span');
+        spanGraha.className = 'ck-graha';
+        spanGraha.style.cssText = grahaStyle;
+        spanGraha.title = `${p.key}: ${p.pos}`;
+        spanGraha.textContent = p.sanskrit;
+        tdGraha.appendChild(spanGraha);
+        
+        tr.appendChild(tdKaraka);
+        tr.appendChild(tdGraha);
+        tbody.appendChild(tr);
+    });
+}
+
+// 🚀 [NEW] Chara Karaka 의미 팝업 (Albedo 시안 블루)
+function showKarakaPopover(karakaCode, event) {
+    let popover = document.getElementById('ck-popover');
+    if (!popover) {
+        popover = document.createElement('div');
+        popover.id = 'ck-popover';
+        popover.className = 'ck-popover-box';
+        document.body.appendChild(popover);
+    }
+    
+    const def = KARAKA_DEFS[karakaCode];
+    if (!def) return;
+    
+    const userLang = localStorage.getItem('tetramegistus_lang') || 'en';
+    const targetLang = (userLang === 'ko' || userLang.startsWith('ko')) ? 'ko' : 'en';
+    
+    // JSON 배열 줄바꿈 처리
+    const rawContent = def[targetLang] || def['en'] || "-";
+    const contentLines = Array.isArray(rawContent) ? rawContent : [rawContent];
+    const contentHtml = contentLines.map(line => `<div style="margin-bottom: 8px;">${line}</div>`).join('');
+    
+    popover.innerHTML = `
+        <div class="ck-popover-title">${def.karaka} (${karakaCode})</div>
+        <div class="ck-popover-content">${contentHtml}</div>
+    `;
+    
+    popover.style.display = 'block';
+    popover.style.left = `${event.pageX + 15}px`;
+    popover.style.top = `${event.pageY + 15}px`;
+}
+
+// 🚀 [수복]: 페이지 새로고침 없는 Ayanamsa 변경 (의식 상태 유지 SPA 라우팅)
+window.switchAyanamsa = function(ayan) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('ayanamsa', ayan);
+    window.history.replaceState({}, '', url.toString());
+
+    document.querySelectorAll('.ayan-tab').forEach(tab => {
+        if (tab.dataset.ayan === ayan) {
+            tab.classList.add('active');
+        } else {
+            tab.classList.remove('active');
+        }
+    });
+
+    const padaHeaders = document.querySelectorAll('#pada-header-label');
+    if (ayan === 'kp') {
+        padaHeaders.forEach(el => { el.textContent = 'Sub-Lord'; });
+    } else {
+        padaHeaders.forEach(el => { el.textContent = 'Pada'; });
+    }
+
+    fetchAndRenderCoagulatio();
 };

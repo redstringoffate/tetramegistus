@@ -674,3 +674,55 @@
     70% { opacity: 0.5; filter: hue-rotate(90deg); }
     100% { opacity: 0; background: transparent; }
 }
+
+/* =========================================================
+   🚀 [NEW] CHARA KARAKA MODULE (Albedo PC)
+========================================================= */
+/* 🚀 전체 폰트를 Lucida Sans로 강제 변환 */
+.ck-mode-active,
+.ck-mode-active .materia-title,
+.ck-mode-active .lord-slot,
+.ck-mode-active .val,
+.ck-mode-active .ayan-tab,
+.ck-mode-active .ck-table th,
+.ck-mode-active .ck-table td {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+}
+
+.ck-table { margin-top: 10px; }
+.ck-table th {
+    color: #49dce1 !important; /* Albedo Cyan */
+    font-size: 0.85rem !important; 
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(73, 220, 225, 0.4) !important;
+    letter-spacing: 1px;
+}
+.ck-table td {
+    font-size: 1.0rem !important; color: #e0e0e0 !important;
+    padding: 16px 10px !important;
+    border-bottom: 1px dashed rgba(73, 220, 225, 0.1) !important;
+}
+
+/* 카라카 텍스트 */
+.ck-label {
+    cursor: pointer; border-bottom: 1px dotted #49dce1; color: #49dce1; transition: 0.2s ease;
+}
+.ck-label:hover { color: #fff; text-shadow: 0 0 8px #49dce1; }
+
+/* 그라하 텍스트 */
+.ck-graha {
+    color: #49dce1; cursor: help; transition: 0.2s ease;
+}
+.ck-graha:hover { text-shadow: 0 0 8px #49dce1; }
+
+/* 🚀 Chara Karaka Popover (Albedo 버전) */
+.ck-popover-box {
+    position: absolute; z-index: 10000; width: 320px;
+    background: rgba(10, 10, 10, 0.98); border: 1px solid #444; border-left: 3px solid #49dce1; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9); padding: 15px; border-radius: 4px; display: none; 
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", Geneva, sans-serif !important;
+}
+.ck-popover-title {
+    color: #49dce1; font-size: 1.0rem; font-weight: bold; margin-bottom: 8px; border-bottom: 1px solid #333; padding-bottom: 5px;
+}
+.ck-popover-content { color: #ccc; font-size: 0.85rem; line-height: 1.5; word-break: keep-all; }
