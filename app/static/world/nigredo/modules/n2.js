@@ -519,7 +519,7 @@ function renderCharaKarakaTable(data, dayLords, hourLord) {
         const spanGraha = document.createElement('span');
         spanGraha.className = 'ck-graha';
         spanGraha.style.cssText = grahaStyle;
-        spanGraha.title = `${p.key}: ${p.pos}`;
+        spanGraha.title = `${p.key}| ${p.pos}`;
         spanGraha.textContent = p.sanskrit;
         tdGraha.appendChild(spanGraha);
         
