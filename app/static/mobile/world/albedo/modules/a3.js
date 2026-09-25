@@ -365,22 +365,22 @@ function renderA3Table(data) {
         
         if (isDavison) {
             colgroup.innerHTML = `
-                <col style="width: 70px;">  
-                <col style="width: 150px;"> 
-                <col style="width: 100px;">  
-                <col style="width: 150px;">  
-                <col style="width: 150px;">  
-                <col style="width: 150px;">  
+                <col style="width: 75px;">  
+                <col style="width: 160px;"> 
+                <col style="width: 110px;">  
+                <col style="width: 250px;">  
+                <col style="width: 250px;">  
+                <col style="width: 250px;">  
             `;
             thead.innerHTML = `<tr><th>House</th><th>Info</th><th>Range</th><th>Planets</th><th>Asteroids</th><th>Hermetic</th></tr>`;
         } else {
             // Composite 모드는 Hermetic 컬럼 제외 (총 5열)
             colgroup.innerHTML = `
-                <col style="width: 70px;">  
-                <col style="width: 150px;"> 
-                <col style="width: 100px;">  
-                <col style="width: 150px;">  
-                <col style="width: 150px;">  
+                <col style="width: 75px;">  
+                <col style="width: 160px;"> 
+                <col style="width: 110px;">  
+                <col style="width: 250px;">  
+                <col style="width: 250px;">  
             `;
             thead.innerHTML = `<tr><th>House</th><th>Info</th><th>Range</th><th>Planets</th><th>Asteroids</th></tr>`;
         }
