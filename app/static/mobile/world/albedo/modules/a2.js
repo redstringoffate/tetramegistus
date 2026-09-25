@@ -336,7 +336,7 @@ function renderCharaKarakaCards(data) {
         if (KARAKA_DEFS[p.karaka]) fullName = KARAKA_DEFS[p.karaka].karaka;
         
         // 🚀 서양 행성명(p.key) 포함 및 작은따옴표 에러 방어(A2 컬러: #49dce1)
-        const rawToast = `<strong style="color:#49dce1; font-size:1.1em;">${p.sanskrit} (${p.key})</strong><br><span style="color:#ccc;">${p.pos}</span>`;
+        const rawToast = `<strong style="color:#49dce1; font-size:1.1em;">${p.key}</strong><br><span style="color:#ccc;">${p.pos}</span>`;
         const safeToast = encodeURIComponent(rawToast).replace(/'/g, "%27");
 
         const html = `
