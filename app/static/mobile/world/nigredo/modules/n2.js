@@ -404,8 +404,8 @@ function renderCharaKarakaCards(data) {
         let fullName = p.karaka;
         if (KARAKA_DEFS[p.karaka]) fullName = KARAKA_DEFS[p.karaka].karaka;
         
-        const rawToast = `<strong style="color:#7CFF9B; font-size:1.1em;">${p.sanskrit}</strong><br><span style="color:#ccc;">${p.pos}</span>`;
-        // 🚀 2. 위치 데이터(p.pos)에 있는 작은따옴표(')가 onclick 속성을 깨지 않도록 치환
+        // 🚀 영문 행성명(p.key)을 괄호 안에 함께 표시하여 의미 전달을 명확히 함
+        const rawToast = `<strong style="color:#7CFF9B; font-size:1.1em;">${p.sanskrit} (${p.key})</strong><br><span style="color:#ccc;">${p.pos}</span>`;
         const safeToast = encodeURIComponent(rawToast).replace(/'/g, "%27");
 
         const html = `

@@ -86,7 +86,24 @@
 
 /* 6. Toast & Popover */
 .m-toast-hidden { transform: translateY(100%); opacity: 0; pointer-events: none; }
-#m-n2-toast { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(5, 15, 20, 0.95); border-top: 1px solid #7CFF9B; color: #fff; padding: 15px 20px; font-size: 0.8rem; line-height: 1.4; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 9999; box-shadow: 0 -4px 15px rgba(0,0,0,0.5); backdrop-filter: blur(5px); padding-bottom: calc(15px + env(safe-area-inset-bottom)); text-align: center; }
+#m-n2-toast { 
+    position: fixed; 
+    bottom: 0; left: 0; width: 100%; 
+    background: rgba(5, 15, 20, 0.95); 
+    border-top: 1px solid #7CFF9B; 
+    color: #fff; 
+    /* 좌우 패딩을 동일하게 맞춰 텍스트 중앙 정렬 방해 요소 제거 */
+    padding: 15px; 
+    font-size: 0.8rem; 
+    line-height: 1.4; 
+    transition: transform 0.3s ease, opacity 0.3s ease; 
+    z-index: 9999; 
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.5); 
+    backdrop-filter: blur(5px); 
+    padding-bottom: calc(15px + env(safe-area-inset-bottom)); 
+    text-align: center !important; /* 🚀 중요: 텍스트 무조건 정중앙 */
+    box-sizing: border-box; /* 패딩이 너비 계산에 방해되지 않도록 설정 */
+}
 
 .fs-popover-box { 
     position: fixed !important; 
@@ -236,17 +253,17 @@
 /* 카라카 (클릭 가능) */
 .m-ck-label {
     color: #49dce1;
-    font-size: 1.05rem;
+    font-size: 0.85rem; /* 🚀 폰트 크기 대폭 축소 */
     font-weight: bold;
     cursor: pointer;
-    border-bottom: 1px dotted #49dce1; /* 클릭 가능함을 넌지시 암시 */
+    border-bottom: 1px dotted #49dce1; 
     -webkit-tap-highlight-color: transparent;
 }
 
 /* 그라하 (우측) */
 .m-ck-graha {
     color: #e0e0e0;
-    font-size: 1.05rem;
+    font-size: 0.85rem; /* 🚀 폰트 크기 대폭 축소 */
     text-align: right;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
@@ -304,4 +321,11 @@
     font-size: 0.9rem;
     line-height: 1.6;
     word-break: keep-all;
+}
+
+/* 🚀 팝업 내부 텍스트 폰트 강제 고정폭 설정 */
+#ck-popover.fs-popover-box,
+#ck-popover .ck-popover-title,
+#ck-popover .ck-popover-content {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
 }
