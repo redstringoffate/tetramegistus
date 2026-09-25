@@ -169,7 +169,7 @@ def inject_chara_karaka(planets_dict, view_mode):
         "Saturn": "Shani", "Rahu": "Rahu", "Ketu": "Ketu",
         "Mean Lilith": "Lilith", "Chiron": "Chiron"
     }
-    karaka_labels = ["AK", "AmK", "BK", "MK", "PiK", "PK", "DK"]
+    karaka_labels = ["AK", "AmK", "BK", "MK", "PK", "GK", "DK"]
     
     ck_list = []
     for g in grahas:
