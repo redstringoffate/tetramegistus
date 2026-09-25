@@ -131,7 +131,7 @@ function initializePrincipiaUI() {
     }
 }
 
-// 🚀 [NEW] 화면 암전 및 모드 토글 (타이밍 시퀀스 완벽 적용)
+// 🚀 [수복 완료] 화면 암전 및 모드 토글 (타이밍 시퀀스 완벽 적용)
 async function handleAnamnesisRitual() {
     const titleEl = document.getElementById('principia-title');
     if (titleEl.classList.contains('time-unknown-locked')) {
@@ -141,14 +141,10 @@ async function handleAnamnesisRitual() {
 
     const overlay = document.getElementById('ana-overlay');
     const overlayText = document.getElementById('ana-overlay-text');
-    // ... 이하 기존 handleAnamnesisRitual 코드 동일 ...
-    const overlayText = document.getElementById('ana-overlay-text');
-    const titleEl = document.getElementById('principia-title');
     const wheelContainer = document.getElementById('ana-wheel-container');
     const systemNav = document.getElementById('main-system-nav');
     const subOptions = document.querySelector('.sub-options-vault');
 
-    // 스태틱 플래시를 위한 DOM 동적 생성
     let flashEl = document.getElementById('ana-static-flash');
     if (!flashEl) {
         flashEl = document.createElement('div');
@@ -157,35 +153,26 @@ async function handleAnamnesisRitual() {
         overlay.appendChild(flashEl);
     }
 
-    // 1. 화면이 약간 어두워짐 (Overlay On)
     overlay.classList.add('active');
 
-    // 2. 2초간 정지 (Pause)
     setTimeout(() => {
-        // 3. Static Flash 효과 발동 (0.25초)
         flashEl.classList.add('trigger');
         
         setTimeout(() => {
             flashEl.classList.remove('trigger');
-            
-            // 4. 무심하게 문구 등장
             overlayText.textContent = isAnamnesisMode ? "As above, so below." : "Once again, you recur.";
             overlayText.classList.add('show');
             
-            // 5. 문구가 잠깐(1.5초) 머문 뒤 모드 전환
             setTimeout(() => {
                 isAnamnesisMode = !isAnamnesisMode;
                 
                 if (isAnamnesisMode) {
-                    // [수복 2]: 전환 직후 'N' 모드로 즉각 세팅
                     currentAnaMode = 'N';
                     document.querySelectorAll('.ana-quadrant').forEach(q => q.classList.remove('active'));
                     document.querySelector('.ana-quadrant[data-mode="N"]').classList.add('active');
                     
                     titleEl.textContent = "Anamnesis";
-                    // [수복 4]: 타이틀 색상 억지 변경 삭제. CSS 기본값 유지.
                     
-                    // [수복 3]: T/S/D/K 시스템 탭 및 서브옵션 가리기
                     if (wheelContainer) wheelContainer.classList.remove('hidden');
                     if (systemNav) systemNav.style.display = 'none';
                     if (subOptions) subOptions.style.display = 'none';
@@ -199,18 +186,18 @@ async function handleAnamnesisRitual() {
                 overlay.classList.remove('active');
                 overlayText.classList.remove('show');
                 
-                // [수복 2]: 즉시 재계산 및 렌더링
                 fetchAndRenderAstroData();
             }, 1500); 
-        }, 250); // static 이펙트 지속시간 
-    }, 2000); // 2초 퍼즈
+        }, 250); 
+    }, 2000); 
 }
 
-// 🚀 [NEW] Chara Karaka 암전 시퀀스 (생시 미상 무관)
+// 🚀 [수복 완료] Chara Karaka 암전 시퀀스 (생시 미상 무관)
 async function handleCharaKarakaRitual() {
     const overlay = document.getElementById('ana-overlay');
     const overlayText = document.getElementById('ana-overlay-text');
     const titleEl = document.getElementById('principia-title');
+    const containerEl = document.querySelector('.n2-principia'); 
     
     const systemNav = document.getElementById('main-system-nav');
     const dichoToggle = document.querySelector('.dichotomy-module'); 
@@ -230,9 +217,7 @@ async function handleCharaKarakaRitual() {
         
         setTimeout(() => {
             flashEl.classList.remove('trigger');
-            // 문구 전환
             overlayText.textContent = isCharaKarakaMode ? "Nothing escapes the law." : "Everything flows, out and in.";
-            // 폰트 전환
             overlayText.style.fontFamily = isCharaKarakaMode ? "" : '"Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif';
             overlayText.classList.add('show');
             
@@ -244,18 +229,20 @@ async function handleCharaKarakaRitual() {
                 
                 if (isCharaKarakaMode) {
                     titleEl.textContent = "Chara Karaka";
-                    titleEl.style.fontFamily = '"Lucida Sans", sans-serif';
+                    containerEl.classList.add('ck-mode-active'); 
                     
                     if (systemNav) systemNav.style.display = 'none';
-                    if (dichoToggle) dichoToggle.style.visibility = 'hidden'; // Ayanamsa는 냅두고 토글만 가림
+                    if (dichoToggle) dichoToggle.style.display = 'none'; 
+                    
                     if (nakContainer) nakContainer.classList.add('hidden');
                     if (ckContainer) ckContainer.classList.remove('hidden');
                 } else {
                     titleEl.textContent = "Principia";
-                    titleEl.style.fontFamily = '';
+                    containerEl.classList.remove('ck-mode-active'); 
                     
                     if (systemNav) systemNav.style.display = '';
-                    if (dichoToggle) dichoToggle.style.visibility = 'visible';
+                    if (dichoToggle) dichoToggle.style.display = 'flex';
+                    
                     if (nakContainer) nakContainer.classList.remove('hidden');
                     if (ckContainer) ckContainer.classList.add('hidden');
                 }
