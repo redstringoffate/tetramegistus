@@ -214,3 +214,62 @@
     70% { opacity: 0.5; filter: hue-rotate(90deg); }
     100% { opacity: 0; background: transparent; }
 }
+
+/* =========================================================
+   🚀 [NEW] CHARA KARAKA MODULE (Mobile)
+========================================================= */
+/* 글로벌 폰트 체인저 (Lucida Sans 강제 적용) */
+.ck-mode-active,
+.ck-mode-active .m-materia-title,
+.ck-mode-active .m-lord-slot,
+.ck-mode-active .m-val,
+.ck-mode-active .m-tab {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+}
+
+/* 모바일용 카드 리스트 스타일 */
+.m-ck-row {
+    background: #02080a;
+    border: 1px solid rgba(124, 255, 155, 0.3);
+    border-radius: 8px;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+}
+
+/* 카라카 (클릭 가능) */
+.m-ck-label {
+    color: #49dce1;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px dotted #49dce1;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 그라하 (우측) */
+.m-ck-graha {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+/* 모바일 전용 CK Popover 내부 요소 */
+.ck-popover-title {
+    color: #7CFF9B;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+.ck-popover-content {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    word-break: keep-all;
+}

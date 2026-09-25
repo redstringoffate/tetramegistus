@@ -22,18 +22,21 @@ let n2ToastTimer = null;
 // 🚀 [NEW] 전역 변수
 let isAnamnesisMode = false;
 let currentAnaMode = 'N';
+let KARAKA_DEFS = {}; // 🚀 [NEW] 카라카 데이터
+let isCharaKarakaMode = false; // 🚀 [NEW] 카라카 모드 상태
 
 document.addEventListener('DOMContentLoaded', async () => {
     loadN2StateFromUrl();
     await ensureDataIntegrity();
     await loadFixedStarMeanings();
+    await loadKarakaMeanings(); // 🚀 [NEW] 정의 로드
     
     updateN2UIState();
     await fetchAndRenderN2();
 
-    // 🚀 [NEW] 타이틀 클릭 이벤트
+    // 🚀 [NEW] 타이틀 클릭 이벤트 관문 설정
     const titleEl = document.getElementById('principia-title');
-    if (titleEl) titleEl.addEventListener('click', handleAnamnesisRitual);
+    if (titleEl) titleEl.addEventListener('click', handleTitleRitual);
     
     // 🚀 [NEW] 휠 클릭 이벤트
     document.querySelectorAll('.ana-quadrant').forEach(quad => {
@@ -60,6 +63,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (e.target.innerText === "TAP ANYWHERE TO CLOSE") {
                 popover.style.display = 'none';
                 popover.classList.remove('active');
+            }
+        }
+        
+        // 🚀 [NEW] CK 팝업 닫기 이벤트
+        const ckPopover = document.getElementById('ck-popover');
+        if (ckPopover && ckPopover.style.display === 'block') {
+            if (e.target.innerText === "TAP ANYWHERE TO CLOSE" || (!e.target.closest('.m-ck-label') && !e.target.closest('#ck-popover'))) {
+                ckPopover.style.display = 'none';
             }
         }
     });
@@ -147,6 +158,88 @@ window.switchN2Category = function(cat) {
     u.searchParams.set('category', cat); 
     window.location.href = u.toString(); 
 };
+
+// 🚀 [NEW] 카라카 설명 JSON 로드
+async function loadKarakaMeanings() {
+    try { 
+        const res = await fetch('/api/astro/theory/karaka/definitions'); 
+        if(res.ok) KARAKA_DEFS = await res.json(); 
+    } catch(e) {}
+}
+
+// 🚀 [NEW] Ritual 관문 분기
+async function handleTitleRitual() {
+    if (N2_STATE.view === 'nakshatra') {
+        await handleCharaKarakaRitual();
+    } else {
+        await handleAnamnesisRitual();
+    }
+}
+
+// 🚀 [NEW] Chara Karaka 암전 시퀀스 (Mobile)
+async function handleCharaKarakaRitual() {
+    const overlay = document.getElementById('ana-overlay');
+    const overlayText = document.getElementById('ana-overlay-text');
+    const titleEl = document.getElementById('principia-title');
+    const containerEl = document.querySelector('.m-n2-container'); 
+    
+    const sysTabs = document.querySelector('.m-connected-tabs'); 
+    const dichoToggle = document.getElementById('m-view-toggle');
+    const catGridNak = document.getElementById('m-cat-grid-nakshatra');
+    const nakContainer = document.getElementById('m-n2-cards-container');
+    const ckContainer = document.getElementById('m-ck-container');
+    
+    let flashEl = document.getElementById('ana-static-flash');
+    if (!flashEl) {
+        flashEl = document.createElement('div');
+        flashEl.id = 'ana-static-flash';
+        flashEl.className = 'ana-static-flash';
+        overlay.appendChild(flashEl);
+    }
+
+    overlay.classList.add('active');
+
+    setTimeout(() => {
+        flashEl.classList.add('trigger');
+        setTimeout(() => {
+            flashEl.classList.remove('trigger');
+            overlayText.textContent = isCharaKarakaMode ? "Nothing escapes the law." : "Everything flows, out and in.";
+            overlayText.style.fontFamily = isCharaKarakaMode ? "" : '"Lucida Sans", "Lucida Sans Regular", Geneva, sans-serif';
+            overlayText.classList.add('show');
+            
+            setTimeout(() => {
+                isCharaKarakaMode = !isCharaKarakaMode;
+                
+                if (isCharaKarakaMode) {
+                    titleEl.textContent = "CHARA KARAKA";
+                    containerEl.classList.add('ck-mode-active'); 
+                    
+                    if (sysTabs) sysTabs.style.display = 'none';
+                    if (dichoToggle) dichoToggle.style.display = 'none'; 
+                    if (catGridNak) catGridNak.style.display = 'none';
+                    
+                    if (nakContainer) nakContainer.classList.add('m-hidden');
+                    if (ckContainer) ckContainer.classList.remove('m-hidden');
+                } else {
+                    titleEl.textContent = "PRINCIPIA";
+                    containerEl.classList.remove('ck-mode-active'); 
+                    
+                    if (sysTabs) sysTabs.style.display = 'flex';
+                    if (dichoToggle) dichoToggle.style.display = 'flex';
+                    updateN2UIState(); // 카테고리 탭 복구
+                    
+                    if (nakContainer) nakContainer.classList.remove('m-hidden');
+                    if (ckContainer) ckContainer.classList.add('m-hidden');
+                }
+                
+                overlay.classList.remove('active');
+                overlayText.classList.remove('show');
+                
+                fetchAndRenderN2();
+            }, 1500); 
+        }, 250); 
+    }, 2000); 
+}
 
 // 🚀 [NEW] 모바일 Anamnesis 암전 로직
 async function handleAnamnesisRitual() {
@@ -259,9 +352,89 @@ async function fetchAndRenderN2() {
             document.getElementById('day-lord').textContent = resData.lords.day || "-";
             document.getElementById('hour-lord').textContent = resData.lords.hour || "-";
         }
-        renderN2Cards(resData.planets);
+        
+        // 🚀 [NEW] 분기 처리
+        if (isCharaKarakaMode) {
+            renderCharaKarakaCards(resData);
+        } else {
+            renderN2Cards(resData.planets);
+        }
     } catch (e) {}
 }
+
+// 🚀 [NEW] 모바일 차라 카라카 렌더링 
+function renderCharaKarakaCards(data) {
+    const container = document.getElementById('m-ck-container');
+    container.innerHTML = '';
+    
+    if (!data || !data.planets) return;
+
+    const ckPlanets = [];
+    const order = ["AK", "AmK", "BK", "MK", "PK", "GK", "DK"];
+
+    for (const [key, p] of Object.entries(data.planets)) {
+        if (p.chara_karaka) {
+            ckPlanets.push({
+                key: key,
+                karaka: p.chara_karaka,
+                sanskrit: p.sanskrit_name || key,
+                pos: p.dms
+            });
+        }
+    }
+    
+    // 서열 순(AK -> DK) 정렬
+    ckPlanets.sort((a, b) => order.indexOf(a.karaka) - order.indexOf(b.karaka));
+
+    const dayLords = (data.lords?.day || "").split('|').map(s => s.trim());
+    const hourLord = data.lords?.hour || "";
+
+    ckPlanets.forEach(p => {
+        const isDayLord = dayLords.includes(p.key);
+        const isHourLord = hourLord === p.key;
+        
+        let grahaStyle = "";
+        if (isDayLord) grahaStyle += "text-transform: uppercase; ";
+        if (isHourLord) grahaStyle += "font-weight: bold; ";
+
+        let fullName = p.karaka;
+        if (KARAKA_DEFS[p.karaka]) fullName = KARAKA_DEFS[p.karaka].karaka;
+        
+        const toastHTML = encodeURIComponent(`<strong style="color:#7CFF9B; font-size:1.1em;">${p.sanskrit}</strong><br><span style="color:#ccc;">${p.pos}</span>`);
+
+        const html = `
+            <div class="m-ck-row">
+                <span class="m-ck-label" onclick="showKarakaPopover('${p.karaka}')">${fullName}</span>
+                <span class="m-ck-graha" style="${grahaStyle}" onclick="showN2Toast(decodeURIComponent('${toastHTML}'))">${p.sanskrit}</span>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', html);
+    });
+}
+
+// 🚀 [NEW] 모바일 카라카 팝업
+window.showKarakaPopover = function(karakaCode) {
+    const popover = document.getElementById('ck-popover');
+    if (!popover) return;
+    
+    const def = KARAKA_DEFS[karakaCode];
+    if (!def) return;
+    
+    const userLang = localStorage.getItem('tetramegistus_lang') || 'en';
+    const targetLang = (userLang === 'ko' || userLang.startsWith('ko')) ? 'ko' : 'en';
+    
+    const rawContent = def[targetLang] || def['en'] || "-";
+    const contentLines = Array.isArray(rawContent) ? rawContent : [rawContent];
+    const contentHtml = contentLines.map(line => `<div style="margin-bottom: 12px;">• ${line}</div>`).join('');
+    
+    popover.innerHTML = `
+        <div class="ck-popover-title">${def.karaka} (${karakaCode})</div>
+        <div class="ck-popover-content">${contentHtml}</div>
+        <div style="margin-top: 15px; font-size: 0.7rem; color: #555; text-align: center; border-top: 1px dashed rgba(124, 255, 155, 0.2); padding-top: 10px;">TAP ANYWHERE TO CLOSE</div>
+    `;
+    
+    popover.style.display = 'block';
+};
 
 function renderN2Cards(planetData) {
     const container = document.getElementById('m-n2-cards-container');
