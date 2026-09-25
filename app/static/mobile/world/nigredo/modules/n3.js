@@ -291,12 +291,12 @@ function renderN3Table(data) {
         });
     } else {
         colgroup.innerHTML = `
-            <col style="width: 70px;">  
-            <col style="width: 150px;"> 
-            <col style="width: 100px;">  
-            <col style="width: 150px;">  
-            <col style="width: 150px;">  
-            <col style="width: 150px;">  
+            <col style="width: 75px;">  
+            <col style="width: 160px;"> 
+            <col style="width: 110px;">  
+            <col style="width: 250px;">  
+            <col style="width: 250px;">  
+            <col style="width: 250px;">  
         `;
         tableEl.classList.remove('m-lagna-table');
         wrapperEl.classList.remove('m-lagna-wrapper');
