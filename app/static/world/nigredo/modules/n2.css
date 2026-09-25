@@ -840,6 +840,17 @@
 /* =========================================================
    🚀 [NEW] CHARA KARAKA MODULE
 ========================================================= */
+/* 🚀 [수복]: 화면 전체 폰트를 Lucida Sans로 강제 변환하는 글로벌 체인저 */
+.ck-mode-active,
+.ck-mode-active .materia-title,
+.ck-mode-active .lord-slot,
+.ck-mode-active .val,
+.ck-mode-active .ayan-tab,
+.ck-mode-active .ck-table th,
+.ck-mode-active .ck-table td {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+}
+
 .ck-table, .ck-table th, .ck-table td {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
 }

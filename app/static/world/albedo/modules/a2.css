@@ -711,9 +711,10 @@
 
 /* 그라하 텍스트 */
 .ck-graha {
-    color: #49dce1; cursor: help; transition: 0.2s ease;
+    color: #ffffff !important; /* 🚀 시안 블루에서 순백색으로 변경하여 가독성 및 대비 확보 */
+    cursor: help; transition: 0.2s ease;
 }
-.ck-graha:hover { text-shadow: 0 0 8px #49dce1; }
+.ck-graha:hover { text-shadow: 0 0 8px #ffffff; }
 
 /* 🚀 Chara Karaka Popover (Albedo 버전) */
 .ck-popover-box {
