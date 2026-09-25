@@ -1,5 +1,5 @@
 <!-- 🚀 v=4로 올려서 모바일 캐시 갱신 -->
-<link rel="stylesheet" href="/static/mobile/world/albedo/modules/a2.css?v=4">
+<link rel="stylesheet" href="/static/mobile/world/albedo/modules/a2.css?v=10">
 
 <!-- 🚀 파일 최상단에 트랜지션 오버레이 추가 -->
 <div class="anamnesis-overlay" id="ana-overlay">
@@ -101,9 +101,15 @@
     </div>
 
     <div id="m-a2-cards-container" class="m-card-container"></div>
+    
+    <!-- 🚀 [NEW] 모바일 Chara Karaka 컨테이너 -->
+    <div id="m-ck-container" class="m-card-container m-hidden"></div>
 </div>
 
 <div id="m-a2-toast" class="m-toast-hidden"></div>
 <div id="fs-popover" class="fs-popover-box" style="display:none;"></div>
 
-<script src="/static/mobile/world/albedo/modules/a2.js?v=9"></script>
+<!-- 🚀 [NEW] Chara Karaka 모바일 팝업 레이어 (Varga 클론 - 폰트 강제 설정 제거) -->
+<div id="ck-popover" class="fs-popover-box" style="display:none; z-index: 100000;"></div>
+
+<script src="/static/mobile/world/albedo/modules/a2.js?v=10"></script>

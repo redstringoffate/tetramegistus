@@ -87,7 +87,23 @@
 
 /* 6. Toast & Popover */
 .m-toast-hidden { transform: translateY(100%); opacity: 0; pointer-events: none; }
-#m-a2-toast { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(5, 15, 20, 0.95); border-top: 1px solid #49dce1; color: #fff; padding: 15px 20px; font-size: 0.8rem; line-height: 1.4; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 9999; box-shadow: 0 -4px 15px rgba(0,0,0,0.5); backdrop-filter: blur(5px); padding-bottom: calc(15px + env(safe-area-inset-bottom)); text-align: center; }
+#m-a2-toast { 
+    position: fixed; 
+    bottom: 0; left: 0; width: 100%; 
+    background: rgba(5, 15, 20, 0.95); 
+    border-top: 1px solid #49dce1; 
+    color: #fff; 
+    padding: 15px; /* 좌우 패딩을 15px로 동일하게 강제 */
+    font-size: 0.8rem; 
+    line-height: 1.4; 
+    transition: transform 0.3s ease, opacity 0.3s ease; 
+    z-index: 9999; 
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.5); 
+    backdrop-filter: blur(5px); 
+    padding-bottom: calc(15px + env(safe-area-inset-bottom)); 
+    text-align: center !important; /* 🚀 텍스트 무조건 정중앙 */
+    box-sizing: border-box; /* 패딩이 너비 계산에 방해되지 않도록 설정 */
+}
 
 /* 🚀 [수복 2]: 별자리 해석 팝업 화면 정중앙 고정 */
 .fs-popover-box { 
@@ -215,4 +231,67 @@
     40% { opacity: 0.9; filter: invert(1); }
     70% { opacity: 0.5; filter: hue-rotate(90deg); }
     100% { opacity: 0; background: transparent; }
+}
+
+/* =========================================================
+   🚀 CHARA KARAKA MODULE (Mobile Albedo) - Redesigned
+========================================================= */
+
+/* 모바일용 심플 리스트 스타일 (촌스러운 박스 렌더링 제거) */
+.m-ck-row {
+    padding: 15px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed rgba(73, 220, 225, 0.15); /* Albedo Cyan 점선 */
+    background: transparent; 
+}
+
+.m-ck-row:last-child {
+    border-bottom: none;
+}
+
+/* 카라카 (클릭 가능) */
+.m-ck-label {
+    color: #49dce1;
+    font-size: 0.85rem; /* 🚀 폰트 크기 대폭 축소 */
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px dotted #49dce1; 
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 그라하 (우측) */
+.m-ck-graha {
+    color: #e0e0e0;
+    font-size: 0.85rem; /* 🚀 폰트 크기 대폭 축소 */
+    text-align: right;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 모바일 전용 CK Popover 내부 요소 */
+.ck-popover-title {
+    color: #49dce1;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(73, 220, 225, 0.3);
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+.ck-popover-content {
+    color: #ccc;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    word-break: keep-all;
+    font-family: 'Consolas', 'Monaco', monospace !important; /* 팝업 폰트 시스템 통일 */
+}
+
+/* 🚀 팝업 내부 텍스트 폰트 강제 고정폭 설정 */
+#ck-popover.fs-popover-box,
+#ck-popover .ck-popover-title,
+#ck-popover .ck-popover-content {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
 }
