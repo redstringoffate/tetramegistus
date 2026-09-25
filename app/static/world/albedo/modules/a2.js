@@ -874,7 +874,7 @@ function renderCharaKarakaTable(data, dayLords, hourLord) {
     if (!data || !data.planets) return;
 
     const ckPlanets = [];
-    const order = ["AK", "AmK", "BK", "MK", "PiK", "PK", "DK"];
+    const order = ["AK", "AmK", "BK", "MK", "PK", "GK", "DK"];
 
     for (const [key, p] of Object.entries(data.planets)) {
         if (p.chara_karaka) {
