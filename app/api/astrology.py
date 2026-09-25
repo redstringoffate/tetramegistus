@@ -156,6 +156,41 @@ def restore_ruler_and_dignity(planet_name, sign_idx):
         
     return ruler, dignity
 
+# 🚀 [NEW]: Chara Karaka 및 산스크리트어 변환기
+def inject_chara_karaka(planets_dict, view_mode):
+    """Nakshatra 뷰일 때 7행성의 별자리 내 도수(deg)를 비교하여 Chara Karaka를 부여합니다."""
+    if view_mode != 'nakshatra':
+        return
+        
+    grahas = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn"]
+    sanskrit_map = {
+        "Sun": "Surya", "Moon": "Chandra", "Mars": "Mangala", 
+        "Mercury": "Budha", "Jupiter": "Guru", "Venus": "Shukra", 
+        "Saturn": "Shani", "Rahu": "Rahu", "Ketu": "Ketu",
+        "Mean Lilith": "Lilith", "Chiron": "Chiron"
+    }
+    karaka_labels = ["AK", "AmK", "BK", "MK", "PiK", "PK", "DK"]
+    
+    ck_list = []
+    for g in grahas:
+        if g in planets_dict and 'longitude' in planets_dict[g]:
+            # 별자리(Sign) 내에서의 도수(0~29.999...) 추출
+            deg_in_sign = planets_dict[g]['longitude'] % 30
+            ck_list.append((g, deg_in_sign))
+    
+    # 도수가 높은 순서대로 내림차순 정렬
+    ck_list.sort(key=lambda x: x[1], reverse=True)
+    
+    # 순위대로 AK ~ DK 라벨 부여
+    for idx, (g, deg) in enumerate(ck_list):
+        if idx < len(karaka_labels):
+            planets_dict[g]['chara_karaka'] = karaka_labels[idx]
+            
+    # 프론트엔드가 렌더링하기 좋게 산스크리트어 이름 일괄 주입
+    for p_key, p_val in planets_dict.items():
+        if p_key in sanskrit_map:
+            p_val['sanskrit_name'] = sanskrit_map[p_key]
+
 # 🔑 [복구 1]: N1 모듈이 선택한 씨앗을 Station에 등록 (Me 렌더링 필수)
 @router.post("/check-in")
 async def check_in_seed(request: Request, data: dict = Body(...)):
@@ -259,6 +294,9 @@ async def get_principia_resting(
                     
                     # 판별된 오리지널 하우스 번호를 강제 주입
                     p_val['house'] = str(found_house)
+
+        # 🚀 [NEW] Chara Karaka 및 산스크리트 이름 주입
+        inject_chara_karaka(result['planets'], view)
 
         result['meta'].update({
             "name": data.get("name", "Unknown"),
@@ -447,6 +485,9 @@ async def get_coagulatio_reading(
                                 break
                     
                     p_val['house'] = str(found_house)
+
+        # 🚀 [NEW] Chara Karaka 및 산스크리트 이름 주입 (Davison)
+        inject_chara_karaka(result['planets'], view)
 
         # 🔑 [Veil Sync]: JS가 인식할 수 있도록 meta에 플래그 강제 업데이트 및 Anamnesis 상태 반영
         result['meta'].update({
@@ -1607,6 +1648,16 @@ async def get_sabian_definitions():
             return json.load(f)
     except Exception as e:
         print(f"[ERROR] Sabian JSON missing: {e}")
+        return {}
+
+# 🚀 [NEW]: Chara Karaka 정의 파일 배급소
+@router.get("/theory/karaka/definitions")
+async def get_karaka_definitions():
+    try:
+        with open('app/data/render/karaka.json', 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"[ERROR] Karaka JSON missing: {e}")
         return {}
 
 # 🚀 [N8 Fix]: 아라빅 랏 정의 파일 배급소

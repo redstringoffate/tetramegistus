@@ -1,0 +1,49 @@
+{
+    "AK": {
+        "karaka": "Atmakaraka",
+        "en": "Self and Soul. Represents the central drive of the incarnation, the deepest personal desire, and the primary lessons through which the self develops.",
+        "ko": "아트마카라카(Atmakaraka). 자아와 영혼의 중심적 욕구, 이번 생에서 추구하는 핵심 방향, 그리고 자아가 성장하기 위해 마주하는 근본적인 과제를 나타냅니다."
+    },
+
+    "AmK": {
+        "karaka": "Amatyakaraka",
+        "en": "Action and Vocation. Represents one's capacity to act in the world, professional direction, skills, and the means through which the purpose of the self is carried out.",
+        "ko": "아마티야카라카(Amatyakaraka). 세상에서 목적을 실행하는 능력, 직업적 방향, 기술, 그리고 자신의 뜻을 현실화하는 수단을 나타냅니다."
+    },
+
+    "BK": {
+        "karaka": "Bhratrikaraka",
+        "en": "Siblings and Initiative. Represents siblings, peers, courage, personal effort, and the capacity to pursue one's intentions.",
+        "ko": "브라트리카라카(Bhratrikaraka). 형제자매와 동료, 용기, 개인적인 노력, 그리고 자신의 의지를 행동으로 옮기는 힘을 나타냅니다."
+    },
+
+    "MK": {
+        "karaka": "Matrikaraka",
+        "en": "Mother and Nurture. Represents the mother, emotional nourishment, care, inner security, and one's relationship with protection and belonging.",
+        "ko": "마트리카라카(Matrikaraka). 어머니, 정서적 양육, 돌봄, 내적인 안정감, 그리고 보호와 소속에 대한 관계를 나타냅니다."
+    },
+
+    "PiK": {
+        "karaka": "Pitrikaraka",
+        "en": "Father and Guidance. Represents the father, authority, guidance, inherited principles, and the transmission of values across generations.",
+        "ko": "피트리카라카(Pitrikaraka). 아버지, 권위와 인도, 물려받은 원칙, 그리고 세대를 통해 전해지는 가치관을 나타냅니다."
+    },
+
+    "PK": {
+        "karaka": "Putrakaraka",
+        "en": "Children and Creation. Represents children, creativity, intelligence, learning, and the continuation of one's influence through what is created.",
+        "ko": "푸트라카라카(Putrakaraka). 자녀, 창조성, 지성, 배움, 그리고 자신이 만들어 낸 것을 통해 이어지는 영향력을 나타냅니다."
+    },
+
+    "GK": {
+        "karaka": "Gnatikaraka",
+        "en": "Conflict and Adversity. Represents obstacles, disputes, illness, rivals, extended relations, and the challenges that demand adaptation and endurance.",
+        "ko": "그나티카라카(Gnatikaraka). 장애, 갈등, 질병, 경쟁자, 친족 관계, 그리고 적응과 인내를 요구하는 현실적 난관을 나타냅니다."
+    },
+
+    "DK": {
+        "karaka": "Darakaraka",
+        "en": "Partner and Union. Represents the spouse, intimate partnership, attraction, and the qualities encountered through committed relationships.",
+        "ko": "다라카라카(Darakaraka). 배우자와 친밀한 파트너십, 관계에서의 끌림, 그리고 깊은 결합을 통해 마주하게 되는 특성을 나타냅니다."
+    }
+}
