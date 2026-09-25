@@ -405,7 +405,7 @@ function renderCharaKarakaCards(data) {
         if (KARAKA_DEFS[p.karaka]) fullName = KARAKA_DEFS[p.karaka].karaka;
         
         // 🚀 영문 행성명(p.key)을 괄호 안에 함께 표시하여 의미 전달을 명확히 함
-        const rawToast = `<strong style="color:#7CFF9B; font-size:1.1em;">${p.sanskrit} (${p.key})</strong><br><span style="color:#ccc;">${p.pos}</span>`;
+        const rawToast = `<strong style="color:#7CFF9B; font-size:1.1em;">${p.key}</strong><br><span style="color:#ccc;">${p.pos}</span>`;
         const safeToast = encodeURIComponent(rawToast).replace(/'/g, "%27");
 
         const html = `
