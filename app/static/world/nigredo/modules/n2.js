@@ -519,7 +519,7 @@ function renderCharaKarakaTable(data, dayLords, hourLord) {
         const spanGraha = document.createElement('span');
         spanGraha.className = 'ck-graha';
         spanGraha.style.cssText = grahaStyle;
-        spanGraha.title = `${p.key}| ${p.pos}`;
+        spanGraha.title = `${p.key} | ${p.pos}`;
         spanGraha.textContent = p.sanskrit;
         tdGraha.appendChild(spanGraha);
         
@@ -545,9 +545,14 @@ function showKarakaPopover(karakaCode, event) {
     const userLang = localStorage.getItem('tetramegistus_lang') || 'en';
     const targetLang = (userLang === 'ko' || userLang.startsWith('ko')) ? 'ko' : 'en';
     
+    // 🚀 [배열 렌더링 수복]: JSON이 배열([]) 형태일 경우 각각 <div>로 감싸서 줄바꿈 처리
+    const rawContent = def[targetLang] || def['en'] || "-";
+    const contentLines = Array.isArray(rawContent) ? rawContent : [rawContent];
+    const contentHtml = contentLines.map(line => `<div style="margin-bottom: 8px;">${line}</div>`).join('');
+    
     popover.innerHTML = `
         <div class="ck-popover-title">${def.karaka} (${karakaCode})</div>
-        <div class="ck-popover-content">${def[targetLang] || def['en']}</div>
+        <div class="ck-popover-content">${contentHtml}</div>
     `;
     
     popover.style.display = 'block';
