@@ -836,3 +836,74 @@
     70% { opacity: 0.5; filter: hue-rotate(90deg); }
     100% { opacity: 0; background: transparent; }
 }
+
+/* =========================================================
+   🚀 [NEW] CHARA KARAKA MODULE
+========================================================= */
+.ck-table, .ck-table th, .ck-table td {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+}
+
+.ck-table th {
+    color: #7CFF9B !important; 
+    font-size: 0.85rem !important; 
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(124, 255, 155, 0.4) !important;
+}
+
+.ck-table td {
+    font-size: 1.0rem !important; 
+    color: #e0e0e0 !important;
+    padding: 16px 10px !important;
+}
+
+/* 카라카 텍스트 (클릭 시 팝업) */
+.ck-label {
+    cursor: pointer;
+    border-bottom: 1px dotted #7CFF9B;
+    color: #49dce1; /* Albedo 색상을 약간 차용하여 신비감 조성 */
+    transition: 0.2s ease;
+}
+.ck-label:hover { 
+    color: #fff; 
+    text-shadow: 0 0 8px #49dce1; 
+}
+
+/* 그라하 텍스트 (호버 시 도수) */
+.ck-graha {
+    color: #7CFF9B;
+    cursor: help;
+    transition: 0.2s ease;
+}
+.ck-graha:hover { 
+    text-shadow: 0 0 8px #7CFF9B; 
+}
+
+/* 🚀 Chara Karaka Popover (N6 Varga 클론) */
+.ck-popover-box {
+    position: absolute;
+    z-index: 10000;
+    width: 320px;
+    background: rgba(10, 10, 10, 0.98);
+    border: 1px solid #444;
+    border-left: 3px solid #7CFF9B; /* DDS Green 포인터 */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    border-radius: 4px;
+    display: none; 
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", Geneva, sans-serif !important;
+}
+.ck-popover-title {
+    color: #7CFF9B;
+    font-size: 1.0rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+.ck-popover-content {
+    color: #ccc;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    word-break: keep-all;
+}

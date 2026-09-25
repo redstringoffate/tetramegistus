@@ -13,8 +13,10 @@ const ELEMENT_MAP = {
 };
 
 let FS_MEANINGS = {}; 
+let KARAKA_DEFS = {}; // 🚀 [NEW]
 let isAnamnesisMode = false;
-let currentAnaMode = 'N ;'
+let isCharaKarakaMode = false; // 🚀 [NEW]
+let currentAnaMode = 'N';
 
 document.addEventListener('DOMContentLoaded', async () => {
     console.log("[PRINCIPIA] Initializing N2 Module...");
@@ -23,19 +25,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         await syncLocalSeedToStation(activeSeed);
     }
     await loadFixedStarMeanings();
+    await loadKarakaMeanings(); // 🚀 [NEW] JSON 로드
     initializePrincipiaUI();
     fetchAndRenderAstroData();
     
-    // 🚀 [NEW] Anamnesis 의식(Ritual) 진입을 위한 타이틀 클릭 이벤트
+    // 🚀 [수정]: 생시 미상이어도 Nakshatra 모드는 진입 가능하므로 리스너는 항상 등록, 락은 동적 제어
     const titleEl = document.getElementById('principia-title');
     if (titleEl) {
-        // 생시 미상 차트 판별: 미상이면 텍스트처럼 고정, 아니면 클릭 이펙트 활성화
-        if (activeSeed && activeSeed.is_time_unknown === 1) {
-            titleEl.classList.add('time-unknown-locked');
-        } else {
-            titleEl.classList.add('ritual-ready');
-            titleEl.addEventListener('click', handleAnamnesisRitual);
-        }
+        titleEl.addEventListener('click', handleTitleRitual);
     }
     
     // 🚀 [NEW] N/A/R/C 4분할 휠 클릭 이벤트
@@ -59,6 +56,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (popover && popover.classList.contains('active')) {
             if (!e.target.closest('.fs-icon') && !e.target.closest('.fs-popover-box')) {
                 popover.classList.remove('active');
+            }
+        }
+        
+        // 🚀 [NEW] Karaka 팝업 닫기
+        const ckPopover = document.getElementById('ck-popover');
+        if (ckPopover && ckPopover.style.display === 'block') {
+            if (!e.target.closest('.ck-label') && !e.target.closest('.ck-popover-box')) {
+                ckPopover.style.display = 'none';
             }
         }
     });
@@ -88,6 +93,26 @@ async function syncLocalSeedToStation(seedData) {
     } catch (e) { console.error("Sync Error:", e); }
 }
 
+// 🚀 [NEW] 카라카 설명 JSON 패치
+async function loadKarakaMeanings() {
+    try { 
+        const res = await fetch('/api/astro/theory/karaka/definitions'); 
+        if(res.ok) KARAKA_DEFS = await res.json(); 
+    } catch(e) {}
+}
+
+// 🚀 [NEW] 현재 View에 따라 Anamnesis로 갈지 Chara Karaka로 갈지 결정하는 관문
+async function handleTitleRitual() {
+    const params = new URLSearchParams(window.location.search);
+    const view = params.get('view') || 'zodiac';
+    
+    if (view === 'nakshatra') {
+        await handleCharaKarakaRitual();
+    } else {
+        await handleAnamnesisRitual();
+    }
+}
+
 function initializePrincipiaUI() {
     const params = new URLSearchParams(window.location.search);
     const currentSys = params.get('system') || 'tropical';
@@ -108,17 +133,15 @@ function initializePrincipiaUI() {
 
 // 🚀 [NEW] 화면 암전 및 모드 토글 (타이밍 시퀀스 완벽 적용)
 async function handleAnamnesisRitual() {
-    const activeSeed = JSON.parse(localStorage.getItem('active_seed'));
-    
-    // [수복 6]: 생시 미상 차트 완벽 차단 (값 검증 + UI 락 상태 교차 검증)
-    const isUnknown = (activeSeed && (activeSeed.is_time_unknown == 1)) || 
-                      document.querySelector('#angles-section-nakshatra.section-time-locked');
-    if (isUnknown) {
+    const titleEl = document.getElementById('principia-title');
+    if (titleEl.classList.contains('time-unknown-locked')) {
         alert("Time Unknown. Anamnesis Ritual is locked.");
         return;
     }
 
     const overlay = document.getElementById('ana-overlay');
+    const overlayText = document.getElementById('ana-overlay-text');
+    // ... 이하 기존 handleAnamnesisRitual 코드 동일 ...
     const overlayText = document.getElementById('ana-overlay-text');
     const titleEl = document.getElementById('principia-title');
     const wheelContainer = document.getElementById('ana-wheel-container');
@@ -183,6 +206,69 @@ async function handleAnamnesisRitual() {
     }, 2000); // 2초 퍼즈
 }
 
+// 🚀 [NEW] Chara Karaka 암전 시퀀스 (생시 미상 무관)
+async function handleCharaKarakaRitual() {
+    const overlay = document.getElementById('ana-overlay');
+    const overlayText = document.getElementById('ana-overlay-text');
+    const titleEl = document.getElementById('principia-title');
+    
+    const systemNav = document.getElementById('main-system-nav');
+    const dichoToggle = document.querySelector('.dichotomy-module'); 
+    
+    let flashEl = document.getElementById('ana-static-flash');
+    if (!flashEl) {
+        flashEl = document.createElement('div');
+        flashEl.id = 'ana-static-flash';
+        flashEl.className = 'ana-static-flash';
+        overlay.appendChild(flashEl);
+    }
+
+    overlay.classList.add('active');
+
+    setTimeout(() => {
+        flashEl.classList.add('trigger');
+        
+        setTimeout(() => {
+            flashEl.classList.remove('trigger');
+            // 문구 전환
+            overlayText.textContent = isCharaKarakaMode ? "Nothing escapes the law." : "Everything flows, out and in.";
+            // 폰트 전환
+            overlayText.style.fontFamily = isCharaKarakaMode ? "" : '"Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif';
+            overlayText.classList.add('show');
+            
+            setTimeout(() => {
+                isCharaKarakaMode = !isCharaKarakaMode;
+                
+                const nakContainer = document.getElementById('nakshatra-view-container');
+                const ckContainer = document.getElementById('chara-karaka-container');
+                
+                if (isCharaKarakaMode) {
+                    titleEl.textContent = "Chara Karaka";
+                    titleEl.style.fontFamily = '"Lucida Sans", sans-serif';
+                    
+                    if (systemNav) systemNav.style.display = 'none';
+                    if (dichoToggle) dichoToggle.style.visibility = 'hidden'; // Ayanamsa는 냅두고 토글만 가림
+                    if (nakContainer) nakContainer.classList.add('hidden');
+                    if (ckContainer) ckContainer.classList.remove('hidden');
+                } else {
+                    titleEl.textContent = "Principia";
+                    titleEl.style.fontFamily = '';
+                    
+                    if (systemNav) systemNav.style.display = '';
+                    if (dichoToggle) dichoToggle.style.visibility = 'visible';
+                    if (nakContainer) nakContainer.classList.remove('hidden');
+                    if (ckContainer) ckContainer.classList.add('hidden');
+                }
+                
+                overlay.classList.remove('active');
+                overlayText.classList.remove('show');
+                
+                fetchAndRenderAstroData();
+            }, 1500); 
+        }, 250); 
+    }, 2000); 
+}
+
 async function fetchAndRenderAstroData() {
     const params = new URLSearchParams(window.location.search);
     const system = params.get('system') || 'tropical';
@@ -215,6 +301,18 @@ async function fetchAndRenderAstroData() {
         const isTimeUnknown = data.meta && (data.meta.is_time_unknown === 1);
         const anglesSection = document.getElementById('angles-section-nakshatra');
 
+        // 🚀 [수정]: 생시 락다운 (Anamnesis(Zodiac)는 막지만, Chara Karaka(Nakshatra)는 풀어둠)
+        const titleEl = document.getElementById('principia-title');
+        if (titleEl) {
+            if (isTimeUnknown && view !== 'nakshatra') {
+                titleEl.classList.add('time-unknown-locked');
+                titleEl.classList.remove('ritual-ready');
+            } else {
+                titleEl.classList.add('ritual-ready');
+                titleEl.classList.remove('time-unknown-locked');
+            }
+        }
+
         if (anglesSection) {
             anglesSection.classList.remove('section-time-locked');
             const existingLock = anglesSection.querySelector('.lock-blackout');
@@ -241,7 +339,10 @@ async function fetchAndRenderAstroData() {
             if (hLordEl) hLordEl.textContent = hourLord;
         }
 
-        if (data.planets) {
+        // 🚀 [NEW] 모드 분기
+        if (isCharaKarakaMode) {
+            renderCharaKarakaTable(data, dayLords, hourLord);
+        } else if (data.planets) {
             const rows = document.querySelectorAll('.n2-chart-table tbody tr');
             rows.forEach(row => {
                 const bodyCell = row.cells[0];
@@ -374,6 +475,97 @@ async function fetchAndRenderAstroData() {
             });
         }
     } catch (e) { console.error("Data Render Error:", e); }
+}
+
+// 🚀 [NEW] Chara Karaka 렌더링 함수
+function renderCharaKarakaTable(data, dayLords, hourLord) {
+    const tbody = document.getElementById('chara-karaka-body');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    
+    if (!data || !data.planets) return;
+
+    const ckPlanets = [];
+    const order = ["AK", "AmK", "BK", "MK", "PiK", "PK", "DK"];
+
+    for (const [key, p] of Object.entries(data.planets)) {
+        if (p.chara_karaka) {
+            ckPlanets.push({
+                key: key,
+                karaka: p.chara_karaka,
+                sanskrit: p.sanskrit_name || key,
+                pos: p.dms,
+                deg: p.longitude % 30
+            });
+        }
+    }
+    
+    // 서열 순(AK -> DK) 정렬
+    ckPlanets.sort((a, b) => order.indexOf(a.karaka) - order.indexOf(b.karaka));
+
+    ckPlanets.forEach(p => {
+        const tr = document.createElement('tr');
+        
+        const isDayLord = dayLords.includes(p.key);
+        const isHourLord = hourLord === p.key;
+        
+        // 🚀 Day Lord = 대문자, Hour Lord = 볼드
+        let grahaStyle = "";
+        if (isDayLord) grahaStyle += "text-transform: uppercase; ";
+        if (isHourLord) grahaStyle += "font-weight: bold; ";
+        
+        // TD 1: Karaka
+        const tdKaraka = document.createElement('td');
+        const spanKaraka = document.createElement('span');
+        spanKaraka.className = 'ck-label';
+        let fullName = p.karaka;
+        if (KARAKA_DEFS[p.karaka]) fullName = KARAKA_DEFS[p.karaka].karaka;
+        spanKaraka.textContent = fullName;
+        spanKaraka.onclick = (e) => {
+            e.stopPropagation();
+            showKarakaPopover(p.karaka, e);
+        };
+        tdKaraka.appendChild(spanKaraka);
+        
+        // TD 2: Graha
+        const tdGraha = document.createElement('td');
+        const spanGraha = document.createElement('span');
+        spanGraha.className = 'ck-graha';
+        spanGraha.style.cssText = grahaStyle;
+        spanGraha.title = `${p.key}: ${p.pos}`;
+        spanGraha.textContent = p.sanskrit;
+        tdGraha.appendChild(spanGraha);
+        
+        tr.appendChild(tdKaraka);
+        tr.appendChild(tdGraha);
+        tbody.appendChild(tr);
+    });
+}
+
+// 🚀 [NEW] Chara Karaka 의미 팝업 (N6 Varga 클론)
+function showKarakaPopover(karakaCode, event) {
+    let popover = document.getElementById('ck-popover');
+    if (!popover) {
+        popover = document.createElement('div');
+        popover.id = 'ck-popover';
+        popover.className = 'ck-popover-box';
+        document.body.appendChild(popover);
+    }
+    
+    const def = KARAKA_DEFS[karakaCode];
+    if (!def) return;
+    
+    const userLang = localStorage.getItem('tetramegistus_lang') || 'en';
+    const targetLang = (userLang === 'ko' || userLang.startsWith('ko')) ? 'ko' : 'en';
+    
+    popover.innerHTML = `
+        <div class="ck-popover-title">${def.karaka} (${karakaCode})</div>
+        <div class="ck-popover-content">${def[targetLang] || def['en']}</div>
+    `;
+    
+    popover.style.display = 'block';
+    popover.style.left = `${event.pageX + 15}px`;
+    popover.style.top = `${event.pageY + 15}px`;
 }
 
 function showFixedStarMeaning(starName, event) {

@@ -165,7 +165,7 @@ def inject_chara_karaka(planets_dict, view_mode):
     grahas = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn"]
     sanskrit_map = {
         "Sun": "Surya", "Moon": "Chandra", "Mars": "Mangala", 
-        "Mercury": "Budha", "Jupiter": "Guru", "Venus": "Shukra", 
+        "Mercury": "Budha", "Jupiter": "Brihaspati", "Venus": "Shukra", 
         "Saturn": "Shani", "Rahu": "Rahu", "Ketu": "Ketu",
         "Mean Lilith": "Lilith", "Chiron": "Chiron"
     }
