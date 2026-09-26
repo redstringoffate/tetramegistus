@@ -164,7 +164,7 @@ EXCEL_COMPILERS = {
     "n9": compile_n9_grimoire, "n9_vd": compile_n9_vd_grimoire,
 
     "a2_comp": compile_a2_comp_grimoire, "a2": compile_a2_grimoire, "a2_nak": compile_a2_nak_grimoire, 
-    "a2_anamnesis": compile_a2_anamnesis_grimoire, "a2_nak": compile_a2_ck_grimoire, "a3_comp": compile_a3_comp_grimoire,
+    "a2_anamnesis": compile_a2_anamnesis_grimoire, "a2_ck": compile_a2_ck_grimoire, "a3_comp": compile_a3_comp_grimoire,
     "a3_comp_domain": compile_a3_comp_domain_grimoire, "a3": compile_a3_grimoire, "a3_domain": compile_a3_domain_grimoire, "a3_lagna": compile_a3_lagna_grimoire,
     "a4": compile_a4_grimoire, "a5_comp": compile_a5_comp_grimoire, "a5_unus": compile_a5_unus_grimoire, "a5_intersectus": compile_a5_intersectus_grimoire,
     "a6_aspects": compile_a6_aspects_grimoire, "a6": compile_a6_grimoire, "a6_amsa": compile_a6_amsa_grimoire,"a6_varga": compile_a6_varga_grimoire, "a6_varga_kp": compile_a6_varga_kp_grimoire,
