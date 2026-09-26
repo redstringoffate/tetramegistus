@@ -482,6 +482,7 @@ function renderCharaKarakaTable(data, dayLords, hourLord) {
                 karaka: p.chara_karaka,
                 sanskrit: p.sanskrit_name || key,
                 pos: p.dms,
+                nakshatra: p.nakshatra ? p.nakshatra.name : "-", // 🚀 낙샤트라 추가
                 deg: p.longitude % 30
             });
         }
@@ -492,6 +493,13 @@ function renderCharaKarakaTable(data, dayLords, hourLord) {
 
     ckPlanets.forEach(p => {
         const tr = document.createElement('tr');
+        
+        // 🚀 나중에 Grimoire가 빼갈 수 있도록 데이터 은닉
+        tr.dataset.karaka = p.karaka;
+        tr.dataset.info = p.pos;
+        tr.dataset.nakshatra = p.nakshatra;
+        tr.dataset.graha_sa = p.sanskrit;
+        tr.dataset.graha_en = p.key;
         
         const isDayLord = dayLords.includes(p.key);
         const isHourLord = hourLord === p.key;
@@ -708,63 +716,72 @@ window.saveToGrimoire = async function() {
     };
 
     const bodies = {};
-    const rows = document.querySelectorAll('.n2-chart-table tbody tr');
-    
-    rows.forEach(row => {
-        if (!row.cells || row.cells.length < 2) return;
+    let compilerId = '';
 
-        const bodyCell = row.cells[0];
-        let pureName = bodyCell.textContent.replace(/^[^\w]+/, '').trim();
-        pureName = pureName.split('\n')[0].trim(); 
+    // 🚀 [NEW] Chara Karaka 모드일 때의 데이터 수집 로직
+    if (isCharaKarakaMode) {
+        const ckRows = document.querySelectorAll('#chara-karaka-body tr');
+        ckRows.forEach(row => {
+            const k = row.dataset.karaka;
+            if (!k) return;
+            bodies[k] = {
+                info: row.dataset.info || "-",
+                nakshatra: row.dataset.nakshatra || "-",
+                graha_sa: row.dataset.graha_sa || "-",
+                graha_en: row.dataset.graha_en || "-"
+            };
+        });
+        compilerId = 'n2_ck';
+    } else {
+        // 기존 Zodiac / Nakshatra 모드의 데이터 수집 로직
+        const rows = document.querySelectorAll('.n2-chart-table tbody tr');
+        rows.forEach(row => {
+            if (!row.cells || row.cells.length < 2) return;
+            
+            const bodyCell = row.cells[0];
+            let pureName = bodyCell.textContent.replace(/^[^\w]+/, '').trim();
+            pureName = pureName.split('\n')[0].trim(); 
 
-        const is_anaretic = row.cells[1].classList.contains('text-anaretic');
-        const infoText = row.cells[1].textContent.trim(); 
-        
-        const tooltip = row.cells[1].title || "";
-        let ruler = "";
-        let dignity = "";
-        const rulerMatch = tooltip.match(/Ruler:\s*([^\s|]+)/);
-        if (rulerMatch) ruler = rulerMatch[1];
-        const dignityMatch = tooltip.match(/Dignity:\s*([^\s|]+)/);
-        if (dignityMatch) dignity = dignityMatch[1];
+            const is_anaretic = row.cells[1].classList.contains('text-anaretic');
+            const infoText = row.cells[1].textContent.trim(); 
+            
+            const tooltip = row.cells[1].title || "";
+            let ruler = ""; let dignity = "";
+            const rulerMatch = tooltip.match(/Ruler:\s*([^\s|]+)/);
+            if (rulerMatch) ruler = rulerMatch[1];
+            const dignityMatch = tooltip.match(/Dignity:\s*([^\s|]+)/);
+            if (dignityMatch) dignity = dignityMatch[1];
 
-        const stars = [];
-        const starIcons = bodyCell.querySelectorAll('.fs-icon');
-        starIcons.forEach(icon => {
-            const parts = icon.title.split('|').map(s => s.trim());
-            if (parts.length >= 3) {
-                stars.push({
-                    name: parts[0],
-                    info: parts[1],
-                    orb: parts[2].replace('orb', '').trim()
-                });
+            const stars = [];
+            const starIcons = bodyCell.querySelectorAll('.fs-icon');
+            starIcons.forEach(icon => {
+                const parts = icon.title.split('|').map(s => s.trim());
+                if (parts.length >= 3) stars.push({ name: parts[0], info: parts[1], orb: parts[2].replace('orb', '').trim() });
+            });
+
+            let bodyData = { info: infoText, ruler: ruler, dignity: dignity, is_anaretic: is_anaretic, stars: stars };
+
+            if (view === 'zodiac' && row.cells.length >= 8) {
+                bodyData.house = row.cells[2].textContent.trim();
+                bodyData.duad = row.cells[3].textContent.trim();
+                bodyData.dodeca = row.cells[4].textContent.trim();
+                bodyData.decan = row.cells[5].textContent.trim();
+                bodyData.bounds = row.cells[6].textContent.trim();
+                bodyData.sabian = row.cells[7].textContent.trim();
+            } else if (view === 'nakshatra' && row.cells.length >= 5) {
+                bodyData.nakshatra = row.cells[2].textContent.trim();
+                bodyData.pada_lord = row.cells[3].textContent.trim();
+                bodyData.sabian = row.cells[4].textContent.trim();
             }
+            bodies[pureName] = bodyData;
         });
 
-        let bodyData = {
-            info: infoText,
-            ruler: ruler,
-            dignity: dignity,
-            is_anaretic: is_anaretic,
-            stars: stars
-        };
-
-        // 🔑 인덱스 변경 로직 (House 추가)
-        if (view === 'zodiac' && row.cells.length >= 8) {
-            bodyData.house = row.cells[2].textContent.trim();
-            bodyData.duad = row.cells[3].textContent.trim();
-            bodyData.dodeca = row.cells[4].textContent.trim();
-            bodyData.decan = row.cells[5].textContent.trim();
-            bodyData.bounds = row.cells[6].textContent.trim();
-            bodyData.sabian = row.cells[7].textContent.trim();
-        } else if (view === 'nakshatra' && row.cells.length >= 5) {
-            bodyData.nakshatra = row.cells[2].textContent.trim();
-            bodyData.pada_lord = row.cells[3].textContent.trim();
-            bodyData.sabian = row.cells[4].textContent.trim();
+        const currentView = String(view).toLowerCase();
+        compilerId = (currentView === 'nakshatra') ? 'n2_nak' : 'n2';
+        if (isAnamnesisMode) {
+            compilerId = 'n2_anamnesis';
         }
-
-        bodies[pureName] = bodyData;
-    });
+    }
 
     const payload = {
         seed_id: seedId,        
@@ -773,13 +790,6 @@ window.saveToGrimoire = async function() {
         metadata: metadata,
         bodies: bodies
     };
-
-    const currentView = String(view).toLowerCase();
-    // 🚀 [NEW] 아남네시스 모드일 경우 전용 컴파일러 락온
-    let compilerId = (currentView === 'nakshatra') ? 'n2_nak' : 'n2';
-    if (isAnamnesisMode) {
-        compilerId = 'n2_anamnesis';
-    }
 
     try {
         console.log(`[GRIMOIRE] Manifesting to Archive using [ ${compilerId} ]...`, payload);

@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "stamper": "A2",
+    "day_lord": "B4",
+    "hour_lord": "B5",
+    "ayanamsa": "B6"
+  },
+  "layout": {
+    "cols": { 
+      "info": "C", 
+      "nakshatra": "D", 
+      "graha_sa": "E", 
+      "graha_en": "F" 
+    },
+    "rows": {
+      "AK": 10,
+      "AmK": 11,
+      "BK": 12,
+      "MK": 13,
+      "PK": 14,
+      "GK": 15,
+      "DK": 16
+    }
+  }
+}
