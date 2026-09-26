@@ -44,10 +44,19 @@ const ASPECT_GROUPS = {
     "Minor": ["Quintile", "Septile", "Octile", "Novile", "Decile", "Undecile", "Semi-sextile", "Quincunx"]
 };
 
+// 🚀 [NEW] Jyotish 행성 기호 매핑
+const GRAHA_SYMBOLS = {
+    'Surya': '☉', 'Chandra': '☽', 'Budha': '☿', 'Shukra': '♀',
+    'Mangala': '♂', 'Brihaspati': '♃', 'Shani': '♄',
+    'Ketu': '☋', 'Rahu': '☊'
+};
+
 // 로컬 State
 let STATE = {
     mode: 'harmonics',
     view: 'positions',
+    varga_view: 'amsa',   // 🚀 [NEW] 'amsa' or 'graha'
+    v_amsa: 'D1',         // 🚀 [NEW] 선택된 Amsa Division
     h_level: 1,
     v_graha: 'Lagna',
     ayanamsa: 'lahiri',
@@ -137,19 +146,17 @@ window.a6_switchAyanamsa = function(ayan) {
     fetchMultiplicatioData();
 };
 
+// 🚀 [NEW] Varga 하위 모드 (Amsa <-> Graha) 토글
+window.a6_toggleVargaView = function() {
+    STATE.varga_view = (STATE.varga_view === 'amsa') ? 'graha' : 'amsa';
+    updateUrl(); 
+    syncUI(); 
+    refreshAllViews();
+};
+
 /* ─────────────────────────────────────────────────────────────
    Internal Functions (외부 노출 X)
    ───────────────────────────────────────────────────────────── */
-
-async function fetchVargaDefinitions() {
-    try {
-        const res = await fetch('/api/astro/theory/vargas/definitions');
-        if (res.ok) {
-            STATE.vargaDefs = await res.json();
-            if (STATE.mode === 'varga') renderVargaTable();
-        }
-    } catch (e) { console.error("Varga Defs Load Fail:", e); }
-}
 
 async function fetchMultiplicatioData() {
     const mask = document.getElementById('a6-loading-mask');
@@ -205,58 +212,112 @@ function handleVargaLock(isLocked) {
 
 function refreshAllViews() {
     if (STATE.mode === 'varga') {
-        renderVargaTable();
+        // 🚀 모드 분기
+        if (STATE.varga_view === 'amsa') {
+            renderVargaAmsaTable();
+        } else {
+            renderVargaTable();
+        }
     } else {
         renderHarmonicTable(); 
-        if (STATE.view === 'aspects') {
-            renderAspectExplorer(); 
-        }
+        if (STATE.view === 'aspects') renderAspectExplorer(); 
     }
 }
 
 function updateUrl() {
     const p = new URLSearchParams(window.location.search);
-    p.set('module', 'a6'); p.set('mode', STATE.mode); p.set('view', STATE.view); p.set('h', STATE.h_level);
+    p.set('module', 'a6'); 
+    p.set('mode', STATE.mode); 
+    p.set('view', STATE.view); 
+    p.set('varga_view', STATE.varga_view); // 🚀
+    p.set('h', STATE.h_level);
     window.history.replaceState({}, '', `${window.location.pathname}?${p.toString()}`);
 }
 
 function syncUI() {
     const mKnob = document.getElementById('a6-mode-knob');
     const vKnob = document.getElementById('a6-view-knob');
-    const subSwitch = document.getElementById('a6-sub-switch-container');
+    const vargaViewKnob = document.getElementById('a6-varga-view-knob'); // 🚀
+    
+    const subSwitchHarmonic = document.getElementById('a6-sub-switch-container');
+    const subSwitchVarga = document.getElementById('a6-varga-sub-switch'); // 🚀
     const vargaControls = document.getElementById('a6-varga-controls');
     
+    const labelHarm = document.getElementById('a6-label-harmonics');
+    const labelVarg = document.getElementById('a6-label-varga');
+    const labelPos = document.getElementById('a6-label-positions');
+    const labelAsp = document.getElementById('a6-label-aspects');
+    const labelAmsa = document.getElementById('a6-label-amsa');   // 🚀
+    const labelGraha = document.getElementById('a6-label-graha'); // 🚀
+
     const viewPos = document.getElementById('a6-view-harmonic-positions');
     const viewAsp = document.getElementById('a6-view-harmonic-aspects');
-    const viewVarga = document.getElementById('a6-view-varga');
+    const viewVargaGraha = document.getElementById('a6-view-varga-graha'); // 🚀
+    const viewVargaAmsa = document.getElementById('a6-view-varga-amsa');   // 🚀
     const harmonicWrapper = document.getElementById('a6-harmonic-wrapper'); 
+    
+    const gridGraha = document.getElementById('a6-graha-grid'); // 🚀
+    const gridAmsa = document.getElementById('a6-amsa-grid');   // 🚀
 
     if (STATE.mode === 'varga') {
         mKnob.classList.add('right');
+        labelHarm?.classList.remove('active');
+        labelVarg?.classList.add('active');
         
-        if(subSwitch) subSwitch.style.display = 'none'; 
+        if(subSwitchHarmonic) subSwitchHarmonic.style.display = 'none'; 
+        if(subSwitchVarga) subSwitchVarga.style.display = 'flex'; // 🚀
         if(vargaControls) vargaControls.style.display = 'block';
         
         if(viewPos) viewPos.style.display = 'none';
         if(viewAsp) viewAsp.style.display = 'none';
         if(harmonicWrapper) harmonicWrapper.style.display = 'none'; 
-        if(viewVarga) viewVarga.style.display = 'block';
+
+        // 🚀 Amsa / Graha 서브 뷰 분기
+        if (STATE.varga_view === 'graha') {
+            vargaViewKnob?.classList.add('right');
+            labelAmsa?.classList.remove('active');
+            labelGraha?.classList.add('active');
+            
+            if(gridAmsa) gridAmsa.style.display = 'none';
+            if(gridGraha) gridGraha.style.display = 'grid';
+
+            if(viewVargaAmsa) viewVargaAmsa.style.display = 'none';
+            if(viewVargaGraha) viewVargaGraha.style.display = 'block';
+        } else {
+            vargaViewKnob?.classList.remove('right');
+            labelAmsa?.classList.add('active');
+            labelGraha?.classList.remove('active');
+            
+            if(gridGraha) gridGraha.style.display = 'none';
+            if(gridAmsa) gridAmsa.style.display = 'grid';
+
+            if(viewVargaGraha) viewVargaGraha.style.display = 'none';
+            if(viewVargaAmsa) viewVargaAmsa.style.display = 'block';
+        }
 
     } else {
         mKnob.classList.remove('right');
+        labelHarm?.classList.add('active');
+        labelVarg?.classList.remove('active');
         
-        if(subSwitch) subSwitch.style.display = 'flex'; 
+        if(subSwitchHarmonic) subSwitchHarmonic.style.display = 'flex'; 
+        if(subSwitchVarga) subSwitchVarga.style.display = 'none';
         if(vargaControls) vargaControls.style.display = 'none';
         
-        if(viewVarga) viewVarga.style.display = 'none';
+        if(viewVargaGraha) viewVargaGraha.style.display = 'none';
+        if(viewVargaAmsa) viewVargaAmsa.style.display = 'none';
         if(harmonicWrapper) harmonicWrapper.style.display = 'block';
 
         if (STATE.view === 'aspects') {
             vKnob.classList.add('right'); 
+            labelPos?.classList.remove('active');
+            labelAsp?.classList.add('active');
             if(viewPos) viewPos.style.display = 'none'; 
             if(viewAsp) viewAsp.style.display = 'block';
         } else {
             vKnob.classList.remove('right'); 
+            labelPos?.classList.add('active');
+            labelAsp?.classList.remove('active');
             if(viewPos) viewPos.style.display = 'block'; 
             if(viewAsp) viewAsp.style.display = 'none';
         }
@@ -563,10 +624,116 @@ function renderGrahaButtons() {
     });
 }
 
+// 🚀 [NEW] Amsa 버튼 (5x3 Grid) 렌더링
+function renderAmsaButtons() {
+    const grid = document.getElementById('a6-amsa-grid');
+    if(!grid) return; 
+    grid.innerHTML = '';
+    
+    VARGA_DIVISIONS.forEach(d => {
+        const btn = document.createElement('div');
+        btn.className = `amsa-btn ${STATE.v_amsa === d ? 'active' : ''}`;
+        btn.textContent = d;
+        
+        if (STATE.vargaDefs && STATE.vargaDefs[d]) {
+            btn.title = STATE.vargaDefs[d].amsa; 
+        }
+        
+        btn.onclick = () => { 
+            STATE.v_amsa = d; 
+            renderAmsaButtons(); 
+            renderVargaAmsaTable(); 
+        };
+        grid.appendChild(btn);
+    });
+}
+
+// 🚀 vargas.json 호출 시 버튼 툴팁도 갱신
+async function fetchVargaDefinitions() {
+    try {
+        const res = await fetch('/api/astro/theory/vargas/definitions');
+        if (res.ok) {
+            STATE.vargaDefs = await res.json();
+            renderAmsaButtons(); // 버튼 갱신
+            if (STATE.mode === 'varga') refreshAllViews();
+        }
+    } catch (e) { console.error("Varga Defs Load Fail:", e); }
+}
+
+// 🚀 [NEW] Amsa 기준 행성 정렬 테이블 (기호 포함)
+window.renderVargaAmsaTable = function() {
+    const tbody = document.getElementById('a6-varga-amsa-body');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    const vData = (STATE.data && STATE.data.varga) ? STATE.data.varga : null;
+
+    GRAHAS.forEach(g => {
+        const tr = document.createElement('tr');
+        
+        const tdGraha = document.createElement('td');
+        tdGraha.className = 'sticky-col';
+        if (g.id === 'Lagna') {
+            tdGraha.textContent = g.id;
+        } else {
+            // 🚀 기호 선행 배치
+            tdGraha.innerHTML = `<strong>${GRAHA_SYMBOLS[g.id]}</strong> ${g.id}`;
+        }
+        tr.appendChild(tdGraha);
+
+        const tdInfo = document.createElement('td');
+        const tdNak = document.createElement('td');
+
+        const grahaMap = {
+            'Lagna': 'Ascendant', 'Surya': 'Sun', 'Chandra': 'Moon', 
+            'Budha': 'Mercury', 'Shukra': 'Venus', 'Mangala': 'Mars', 
+            'Brihaspati': 'Jupiter', 'Shani': 'Saturn',
+            'Ketu': 'South Node (t)', 'Rahu': 'North Node (t)'
+        };
+        const targetKey = grahaMap[g.id];
+
+        if (vData && vData[targetKey] && vData[targetKey][STATE.v_amsa]) {
+            const subData = vData[targetKey][STATE.v_amsa];
+            
+            const infoText = subData.formatted || '-';
+            tdInfo.textContent = infoText;
+            if (infoText !== '-') {
+                const signMatch = infoText.match(/^([a-zA-Z]+)/);
+                if (signMatch) {
+                    const ruler = SIGN_RULERS[signMatch[1]];
+                    if (ruler) { tdInfo.title = `Ruler: ${ruler}`; tdInfo.style.cursor = "help"; }
+                }
+            }
+            
+            const nakText = subData.nakshatra || '-';
+            tdNak.textContent = nakText;
+            
+            // D1 일 때는 Cyan Blue로 약간 강조 처리 (A6 테마)
+            if (STATE.v_amsa === 'D1') tdNak.style.color = '#aaffaa';
+            
+            if (nakText !== '-') {
+                const nakName = nakText.split('-')[0];
+                const idx = NAK_LIST.indexOf(nakName);
+                if (idx !== -1) {
+                    tdNak.title = `Nakshatra #${idx + 1} | Ruler: ${NAK_RULERS_CYCLE[idx % 9]}`;
+                    tdNak.style.cursor = "help";
+                }
+            }
+        } else {
+            tdInfo.textContent = '-'; tdNak.textContent = '-';
+        }
+
+        tr.appendChild(tdInfo);
+        tr.appendChild(tdNak);
+        tbody.appendChild(tr);
+    });
+};
+
 function initUI() {
     renderHButtons();
     renderAyanamsaButtons();
     renderGrahaButtons();
+    renderAmsaButtons(); // 🚀 [NEW]
     syncUI();
     
     if (STATE.view === 'aspects') renderAspectExplorer();
