@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "stamper": "A2",
+    "ayanamsa": "B4",
+    "amsa": "B5",
+    "amsa_name": "C5"
+  },
+  "layout": {
+    "cols": { "info": "B", "nakshatra": "C" },
+    "rows": {
+      "Ascendant": 9,
+      "Sun": 10,
+      "Moon": 11,
+      "Mercury": 12,
+      "Venus": 13,
+      "Mars": 14,
+      "Jupiter": 15,
+      "Saturn": 16,
+      "South Node (t)": 17,
+      "North Node (t)": 18
+    }
+  }
+}

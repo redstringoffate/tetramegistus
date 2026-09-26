@@ -82,6 +82,7 @@ from core.grimoire.compilers.a5_unus_compiler import compile_a5_unus_grimoire
 from core.grimoire.compilers.a5_intersectus_compiler import compile_a5_intersectus_grimoire
 from core.grimoire.compilers.a6_aspects_compiler import compile_a6_aspects_grimoire
 from core.grimoire.compilers.a6_compiler import compile_a6_grimoire
+from core.grimoire.compilers.a6_amsa_compiler import compile_a6_amsa_grimoire
 from core.grimoire.compilers.a6_varga_compiler import compile_a6_varga_grimoire
 from core.grimoire.compilers.a6_varga_kp_compiler import compile_a6_varga_kp_grimoire
 from core.grimoire.compilers.a7_compiler import compile_a7_grimoire
@@ -139,7 +140,7 @@ NIGREDO_ORDER = [
 
 ALBEDO_ORDER = [
     "a2_comp", "a2", "a2_nak", "a2_anamnesis", "a3_comp", "a3_comp_domain", "a3", "a3_domain", "a3_lagna", "a4",
-    "a5_comp", "a5_unus", "a5_intersectus", "a6", "a6_aspects", "a6_varga",
+    "a5_comp", "a5_unus", "a5_intersectus", "a6", "a6_aspects", "a6_amsa", "a6_varga",
     "a7", "a7_sabian_planets", "a7_sabian_asteroids", "a7_sabian_nodes", "a7_sabian_fates", "a7_sabian_angles", 
     "a7_sabian_hermetic", "a7_planets", "a7_asteroids", "a7_nodes", "a7_fates", "a7_angles", "a7_hermetic",
     "a8", "a9", "a9_synastry", "a9_vd", "a10"
@@ -161,7 +162,7 @@ EXCEL_COMPILERS = {
     "a2_comp": compile_a2_comp_grimoire, "a2": compile_a2_grimoire, "a2_nak": compile_a2_nak_grimoire, "a2_anamnesis": compile_a2_anamnesis_grimoire, "a3_comp": compile_a3_comp_grimoire,
     "a3_comp_domain": compile_a3_comp_domain_grimoire, "a3": compile_a3_grimoire, "a3_domain": compile_a3_domain_grimoire, "a3_lagna": compile_a3_lagna_grimoire,
     "a4": compile_a4_grimoire, "a5_comp": compile_a5_comp_grimoire, "a5_unus": compile_a5_unus_grimoire, "a5_intersectus": compile_a5_intersectus_grimoire,
-    "a6_aspects": compile_a6_aspects_grimoire, "a6": compile_a6_grimoire, "a6_varga": compile_a6_varga_grimoire, "a6_varga_kp": compile_a6_varga_kp_grimoire,
+    "a6_aspects": compile_a6_aspects_grimoire, "a6": compile_a6_grimoire, "a6_amsa": compile_a6_amsa_grimoire,"a6_varga": compile_a6_varga_grimoire, "a6_varga_kp": compile_a6_varga_kp_grimoire,
     "a7": compile_a7_grimoire, "a7_sabian_planets": compile_a7_sabian_planets_grimoire, "a7_sabian_asteroids": compile_a7_sabian_asteroids_grimoire,
     "a7_sabian_nodes": compile_a7_sabian_nodes_grimoire, "a7_sabian_fates": compile_a7_sabian_fates_grimoire, "a7_sabian_angles": compile_a7_sabian_angles_grimoire,
     "a7_sabian_hermetic": compile_a7_sabian_hermetic_grimoire, "a7_planets_en": compile_a7_planets_en_grimoire, "a7_planets_ko": compile_a7_planets_ko_grimoire,

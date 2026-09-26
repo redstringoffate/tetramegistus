@@ -800,7 +800,12 @@ window.saveToGrimoire = async function() {
     if (STATE.mode === 'harmonics') {
         compilerId = STATE.view === 'positions' ? 'a6' : 'a6_aspects';
     } else if (STATE.mode === 'varga') {
-        compilerId = STATE.ayanamsa === 'kp' ? 'a6_varga_kp' : 'a6_varga';
+        // 🚀 Amsa / Graha 뷰에 따라 컴파일러 분기
+        if (STATE.varga_view === 'amsa') {
+            compilerId = 'a6_amsa';
+        } else {
+            compilerId = STATE.ayanamsa === 'kp' ? 'a6_varga_kp' : 'a6_varga';
+        }
     }
 
     if (!compilerId) {
@@ -809,7 +814,6 @@ window.saveToGrimoire = async function() {
         return false;
     }
 
-    // 산스크리트어 Graha 이름을 영어 기본 명칭으로 변환
     const grahaMap = {
         'Lagna': 'Ascendant', 'Surya': 'Sun', 'Chandra': 'Moon', 
         'Budha': 'Mercury', 'Shukra': 'Venus', 'Mangala': 'Mars', 
@@ -818,10 +822,16 @@ window.saveToGrimoire = async function() {
     };
     const targetBody = grahaMap[STATE.v_graha] || 'Sun';
 
+    // 🚀 Amsa Name 추출 (vargas.json 기반)
+    let currentAmsaName = "";
+    if (STATE.vargaDefs && STATE.vargaDefs[STATE.v_amsa]) {
+        currentAmsaName = STATE.vargaDefs[STATE.v_amsa].amsa;
+    }
+
     // 4. Payload 조립
     const payload = {
         seed_id: seedId,
-        stage: 'albedo', // 🚀 스테이지는 Albedo
+        stage: 'albedo', 
         target_name: targetName,
         language: lang,
         metadata: {
@@ -829,7 +839,11 @@ window.saveToGrimoire = async function() {
             ayanamsa: STATE.ayanamsa,
             h_level: `H${STATE.h_level}`,
             graha: targetBody,
-            target_body: targetBody
+            target_body: targetBody,
+            
+            // 🚀 Amsa 엑셀 출력을 위한 추가 메타데이터
+            amsa_id: STATE.v_amsa,          // e.g., "D1"
+            amsa_name: currentAmsaName      // e.g., "Rasi"
         }
     };
 
