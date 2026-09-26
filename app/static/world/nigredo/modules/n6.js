@@ -741,7 +741,12 @@ window.saveToGrimoire = async function() {
     if (STATE.mode === 'harmonics') {
         compilerId = STATE.view === 'positions' ? 'n6' : 'n6_aspects';
     } else if (STATE.mode === 'varga') {
-        compilerId = STATE.ayanamsa === 'kp' ? 'n6_varga_kp' : 'n6_varga';
+        // 🚀 Amsa / Graha 뷰에 따라 컴파일러 분기
+        if (STATE.varga_view === 'amsa') {
+            compilerId = 'n6_amsa';
+        } else {
+            compilerId = STATE.ayanamsa === 'kp' ? 'n6_varga_kp' : 'n6_varga';
+        }
     }
 
     if (!compilerId) {
@@ -759,6 +764,12 @@ window.saveToGrimoire = async function() {
     };
     const targetBody = grahaMap[STATE.v_graha] || 'Sun';
 
+    // 🚀 Amsa Name 추출 (vargas.json 기반)
+    let currentAmsaName = "";
+    if (STATE.vargaDefs && STATE.vargaDefs[STATE.v_amsa]) {
+        currentAmsaName = STATE.vargaDefs[STATE.v_amsa].amsa;
+    }
+
     const payload = {
         seed_id: activeSeed.id ?? activeSeed.idx ?? "unknown",
         stage: 'Nigredo', // 🚀 스테이지 고정
@@ -770,7 +781,11 @@ window.saveToGrimoire = async function() {
             ayanamsa: STATE.ayanamsa,
             h_level: `H${STATE.h_level}`,
             graha: targetBody,
-            target_body: targetBody
+            target_body: targetBody,
+            
+            // 🚀 Amsa 엑셀 출력을 위한 추가 메타데이터
+            amsa_id: STATE.v_amsa,          // e.g., "D1"
+            amsa_name: currentAmsaName      // e.g., "Rasi"
         },
         seed: activeSeed 
     };
