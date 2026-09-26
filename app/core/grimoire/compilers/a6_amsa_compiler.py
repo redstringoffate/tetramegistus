@@ -146,7 +146,7 @@ def compile_a6_amsa_grimoire(chart_data, seed_data=None):
         apply_grimoire_styles(n_cell, n_val, skip_color=True)
         color_to_use = copy(n_cell.font.color) if n_cell.font and n_cell.font.color else "000000"
         n_cell.font = Font(name="Consolas", size=n_cell.font.size, bold=False, color=color_to_use)
-        n_cell.alignment = Alignment(horizontal='left', vertical='center')
+        n_cell.alignment = Alignment(horizontal='right', vertical='center')
 
     # Shrink Logic (4.5px 공백 처리)
     for r_idx in range(1, ws.max_row + 1):
