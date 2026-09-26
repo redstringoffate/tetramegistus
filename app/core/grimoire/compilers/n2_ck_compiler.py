@@ -49,25 +49,35 @@ def compile_n2_ck_grimoire(chart_data, seed_data=None):
     hour_ref = meta_map.get("hour_lord")
     ayan_ref = meta_map.get("ayanamsa")
 
+    # 🚀 [수복 1]: skip_color=False로 변경하고, .upper()를 제거하여 원본 행성명(Moon 등)을 전달해 색상이 입혀지도록 함
     if day_ref:
         c_day = ws[day_ref]
-        c_day.value = str(meta.get("day_lord", "-")).upper()
+        day_val = str(meta.get("day_lord", "-"))
+        c_day.value = day_val
         c_day.data_type = 's'
-        apply_grimoire_styles(c_day, c_day.value, skip_color=True)
+        apply_grimoire_styles(c_day, day_val, skip_color=False)
+        color_to_use = copy(c_day.font.color) if c_day.font and c_day.font.color else "000000"
+        c_day.font = Font(name="Consolas", size=11, bold=True, color=color_to_use)
         c_day.alignment = Alignment(horizontal='right', vertical='center')
 
     if hour_ref:
         c_hour = ws[hour_ref]
-        c_hour.value = str(meta.get("hour_lord", "-")).upper()
+        hour_val = str(meta.get("hour_lord", "-"))
+        c_hour.value = hour_val
         c_hour.data_type = 's'
-        apply_grimoire_styles(c_hour, c_hour.value, skip_color=True)
+        apply_grimoire_styles(c_hour, hour_val, skip_color=False)
+        color_to_use = copy(c_hour.font.color) if c_hour.font and c_hour.font.color else "000000"
+        c_hour.font = Font(name="Consolas", size=11, bold=True, color=color_to_use)
         c_hour.alignment = Alignment(horizontal='right', vertical='center')
 
     if ayan_ref:
         c_ayan = ws[ayan_ref]
-        c_ayan.value = str(meta.get("ayanamsa", "-")).upper()
+        ayan_val = str(meta.get("ayanamsa", "-")).upper()
+        c_ayan.value = ayan_val
         c_ayan.data_type = 's'
-        apply_grimoire_styles(c_ayan, c_ayan.value, skip_color=True)
+        apply_grimoire_styles(c_ayan, ayan_val, skip_color=True)
+        color_to_use = copy(c_ayan.font.color) if c_ayan.font and c_ayan.font.color else "000000"
+        c_ayan.font = Font(name="Consolas", size=11, bold=False, color=color_to_use)
         c_ayan.alignment = Alignment(horizontal='right', vertical='center')
 
     # 3. Chara Karaka Data (Rows 10-16)
@@ -112,7 +122,7 @@ def compile_n2_ck_grimoire(chart_data, seed_data=None):
         apply_grimoire_styles(c_g_en, sanitize_unicode(g_en_val), is_info_col=False, skip_color=False)
         c_g_en.alignment = Alignment(horizontal='left', vertical='center')
 
-    # Shrink Logic 및 폰트 강제 고정
+    # Shrink Logic (4.5px 공백 처리)
     for r_idx in range(1, ws.max_row + 1):
         cell_val = ws[f"A{r_idx}"].value
         if str(cell_val).strip() == ".":
@@ -123,14 +133,55 @@ def compile_n2_ck_grimoire(chart_data, seed_data=None):
             if ws.row_dimensions[r_idx].height != 4.5:
                 ws.row_dimensions[r_idx].height = 16.5
 
+    # 폰트 강제 고정
     for row in ws.iter_rows():
         for cell in row:
             if cell.value is not None:
                 cell.data_type = 's'
             if cell.font:
-                safe_color = copy(cell.font.color) if cell.font.color else None
+                c = cell.font.color
+                safe_color = None
+                if c:
+                    if c.type == 'rgb': safe_color = Color(rgb=c.rgb)
+                    elif c.type == 'indexed': safe_color = Color(indexed=c.indexed)
                 cell.font = Font(name="Consolas", size=cell.font.size, bold=cell.font.bold, italic=cell.font.italic, color=safe_color)
             else:
                 cell.font = Font(name="Consolas")
+
+    # ====================================================================
+    # 🚀 [수복 2]: 열 너비 축소(Shrink) 완벽 방어 (물리적 수치 강제 주입 + A1 해제)
+    # ====================================================================
+    forced_widths = {
+        "A": 18.0,  # Karaka
+        "B": 35.0,  # Description
+        "C": 22.0,  # Information
+        "D": 20.0,  # Nakshatra
+        "E": 18.0,  # Graha (SA)
+        "F": 18.0   # Graha (EN)
+    }
+    for col_char, target_width in forced_widths.items():
+        ws.column_dimensions[col_char].width = target_width
+
+    from openpyxl.utils import get_column_letter
+    merge_to_remove = None
+    for m_range in list(ws.merged_cells.ranges):
+        if "A1" in m_range.coord:
+            merge_to_remove = m_range
+            break
+            
+    if merge_to_remove:
+        max_col_letter = get_column_letter(merge_to_remove.max_col)
+        ws.unmerge_cells(merge_to_remove.coord)
+        
+        ws['B1'].value = ws['A1'].value
+        ws['A1'].value = None
+        
+        if ws['A1'].has_style:
+            ws['B1'].font = copy(ws['A1'].font)
+            ws['B1'].border = copy(ws['A1'].border)
+            ws['B1'].fill = copy(ws['A1'].fill)
+            ws['B1'].alignment = copy(ws['A1'].alignment)
+            
+        ws.merge_cells(f"B1:{max_col_letter}1")
 
     return wb
