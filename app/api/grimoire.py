@@ -71,6 +71,7 @@ from core.grimoire.compilers.n9_vd_compiler import compile_n9_vd_grimoire
 # albedo
 from core.grimoire.compilers.a2_comp_compiler import compile_a2_comp_grimoire
 from core.grimoire.compilers.a2_compiler import compile_a2_grimoire
+from core.grimoire.compilers.a2_ck_compiler import compile_a2_ck_grimoire
 from core.grimoire.compilers.a2_nak_compiler import compile_a2_nak_grimoire
 from core.grimoire.compilers.a2_anamnesis_compiler import compile_a2_anamnesis_grimoire
 from core.grimoire.compilers.a3_comp_compiler import compile_a3_comp_grimoire
@@ -141,7 +142,7 @@ NIGREDO_ORDER = [
 ]
 
 ALBEDO_ORDER = [
-    "a2_comp", "a2", "a2_nak", "a2_anamnesis", "a3_comp", "a3_comp_domain", "a3", "a3_domain", "a3_lagna", "a4",
+    "a2_comp", "a2", "a2_nak", "a2_anamnesis", "a2_ck", "a3_comp", "a3_comp_domain", "a3", "a3_domain", "a3_lagna", "a4",
     "a5_comp", "a5_unus", "a5_intersectus", "a6", "a6_aspects", "a6_amsa", "a6_varga",
     "a7", "a7_sabian_planets", "a7_sabian_asteroids", "a7_sabian_nodes", "a7_sabian_fates", "a7_sabian_angles", 
     "a7_sabian_hermetic", "a7_planets", "a7_asteroids", "a7_nodes", "a7_fates", "a7_angles", "a7_hermetic",
@@ -162,7 +163,8 @@ EXCEL_COMPILERS = {
     "n7_hermetic_ko": compile_n7_hermetic_ko_grimoire, "n8_en": compile_n8_en_grimoire, "n8_ko": compile_n8_ko_grimoire,
     "n9": compile_n9_grimoire, "n9_vd": compile_n9_vd_grimoire,
 
-    "a2_comp": compile_a2_comp_grimoire, "a2": compile_a2_grimoire, "a2_nak": compile_a2_nak_grimoire, "a2_anamnesis": compile_a2_anamnesis_grimoire, "a3_comp": compile_a3_comp_grimoire,
+    "a2_comp": compile_a2_comp_grimoire, "a2": compile_a2_grimoire, "a2_nak": compile_a2_nak_grimoire, 
+    "a2_anamnesis": compile_a2_anamnesis_grimoire, "a2_nak": compile_a2_ck_grimoire, "a3_comp": compile_a3_comp_grimoire,
     "a3_comp_domain": compile_a3_comp_domain_grimoire, "a3": compile_a3_grimoire, "a3_domain": compile_a3_domain_grimoire, "a3_lagna": compile_a3_lagna_grimoire,
     "a4": compile_a4_grimoire, "a5_comp": compile_a5_comp_grimoire, "a5_unus": compile_a5_unus_grimoire, "a5_intersectus": compile_a5_intersectus_grimoire,
     "a6_aspects": compile_a6_aspects_grimoire, "a6": compile_a6_grimoire, "a6_amsa": compile_a6_amsa_grimoire,"a6_varga": compile_a6_varga_grimoire, "a6_varga_kp": compile_a6_varga_kp_grimoire,

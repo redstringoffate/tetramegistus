@@ -865,7 +865,7 @@ window.saveToGrimoire = async function() {
     }
 };
 
-// 🚀 [NEW] Chara Karaka 렌더링 함수 (Albedo)
+// 🚀 [수정]: 데이터 은닉을 포함한 렌더링 함수
 function renderCharaKarakaTable(data, dayLords, hourLord) {
     const tbody = document.getElementById('chara-karaka-body');
     if (!tbody) return;
@@ -883,6 +883,7 @@ function renderCharaKarakaTable(data, dayLords, hourLord) {
                 karaka: p.chara_karaka,
                 sanskrit: p.sanskrit_name || key,
                 pos: p.dms,
+                nakshatra: p.nakshatra ? p.nakshatra.name : "-", // 🚀 낙샤트라 추가
                 deg: p.longitude % 30
             });
         }
@@ -894,6 +895,13 @@ function renderCharaKarakaTable(data, dayLords, hourLord) {
     ckPlanets.forEach(p => {
         const tr = document.createElement('tr');
         
+        // 🚀 나중에 Grimoire가 빼갈 수 있도록 데이터 은닉
+        tr.dataset.karaka = p.karaka;
+        tr.dataset.info = p.pos;
+        tr.dataset.nakshatra = p.nakshatra;
+        tr.dataset.graha_sa = p.sanskrit;
+        tr.dataset.graha_en = p.key;
+
         const isDayLord = dayLords.includes(p.key);
         const isHourLord = hourLord === p.key;
         
@@ -929,57 +937,154 @@ function renderCharaKarakaTable(data, dayLords, hourLord) {
     });
 }
 
-// 🚀 [NEW] Chara Karaka 의미 팝업 (Albedo 시안 블루)
-function showKarakaPopover(karakaCode, event) {
-    let popover = document.getElementById('ck-popover');
-    if (!popover) {
-        popover = document.createElement('div');
-        popover.id = 'ck-popover';
-        popover.className = 'ck-popover-box';
-        document.body.appendChild(popover);
+// 🚀 [수정]: 분기 로직이 들어간 세이브 시스템
+window.saveToGrimoire = async function() {
+    const params = new URLSearchParams(window.location.search);
+    const system = params.get('system') || 'tropical';
+    const ayanamsa = params.get('ayanamsa') || 'lahiri';
+    const view = params.get('view') || 'zodiac';
+    const method = params.get('method') || 'composite'; 
+    const mode = params.get('mode') || 'normal'; 
+
+    let h_sys = params.get('h_sys') || localStorage.getItem('tetramegistus_house') || 'P';
+    let orb = params.get('fixed_star_orb') || localStorage.getItem('tetramegistus_orb') || '1.0';
+
+    const currentLang = localStorage.getItem('tetramegistus_lang') || 'en';
+
+    const activeDavison = JSON.parse(localStorage.getItem('active_davison'));
+    const activeComposite = JSON.parse(localStorage.getItem('active_composite'));
+    const albedoStation = activeDavison || activeComposite || {};
+
+    let s1Name = albedoStation.seed1?.name || "";
+    let s2Name = albedoStation.seed2?.name || "";
+    let seedId = albedoStation.id;
+
+    if (!seedId) {
+        let id1 = albedoStation.seed1?.idx || albedoStation.seed1?.id || "unknown1";
+        let id2 = albedoStation.seed2?.idx || albedoStation.seed2?.id || "unknown2";
+        seedId = `${id1}_${id2}`;
     }
-    
-    const def = KARAKA_DEFS[karakaCode];
-    if (!def) return;
-    
-    const userLang = localStorage.getItem('tetramegistus_lang') || 'en';
-    const targetLang = (userLang === 'ko' || userLang.startsWith('ko')) ? 'ko' : 'en';
-    
-    // JSON 배열 줄바꿈 처리
-    const rawContent = def[targetLang] || def['en'] || "-";
-    const contentLines = Array.isArray(rawContent) ? rawContent : [rawContent];
-    const contentHtml = contentLines.map(line => `<div style="margin-bottom: 8px;">${line}</div>`).join('');
-    
-    popover.innerHTML = `
-        <div class="ck-popover-title">${def.karaka} (${karakaCode})</div>
-        <div class="ck-popover-content">${contentHtml}</div>
-    `;
-    
-    popover.style.display = 'block';
-    popover.style.left = `${event.pageX + 15}px`;
-    popover.style.top = `${event.pageY + 15}px`;
-}
 
-// 🚀 [수복]: 페이지 새로고침 없는 Ayanamsa 변경 (의식 상태 유지 SPA 라우팅)
-window.switchAyanamsa = function(ayan) {
-    const url = new URL(window.location.href);
-    url.searchParams.set('ayanamsa', ayan);
-    window.history.replaceState({}, '', url.toString());
+    let targetName = (s1Name && s2Name) ? `${s1Name} & ${s2Name}` : "Unknown Coniunctio";
 
-    document.querySelectorAll('.ayan-tab').forEach(tab => {
-        if (tab.dataset.ayan === ayan) {
-            tab.classList.add('active');
-        } else {
-            tab.classList.remove('active');
-        }
-    });
+    const metadata = {
+        day_lord: document.getElementById('day-lord')?.textContent || "",
+        hour_lord: document.getElementById('hour-lord')?.textContent || "",
+        sys_tab: system,
+        ayanamsa: ayanamsa,
+        h_sys: h_sys,
+        fixed_star_orb: orb,
+        view_mode: view,
+        method: method,
+        mode: mode, 
+        target_name: targetName,
+        language: currentLang,
+        anamnesis_mode: isAnamnesisMode ? currentAnaMode : 'off'
+    };
 
-    const padaHeaders = document.querySelectorAll('#pada-header-label');
-    if (ayan === 'kp') {
-        padaHeaders.forEach(el => { el.textContent = 'Sub-Lord'; });
+    const bodies = {};
+    let compilerId = 'a2';
+
+    // 🚀 [NEW] Chara Karaka 모드일 때의 데이터 수집 로직 (Davison 전용)
+    if (isCharaKarakaMode && method === 'davison') {
+        const ckRows = document.querySelectorAll('#chara-karaka-body tr');
+        ckRows.forEach(row => {
+            const k = row.dataset.karaka;
+            if (!k) return;
+            bodies[k] = {
+                info: row.dataset.info || "-",
+                nakshatra: row.dataset.nakshatra || "-",
+                graha_sa: row.dataset.graha_sa || "-",
+                graha_en: row.dataset.graha_en || "-"
+            };
+        });
+        compilerId = 'a2_ck';
     } else {
-        padaHeaders.forEach(el => { el.textContent = 'Pada'; });
+        // 기존 뷰(Composite / Davison Zodiac / Davison Nakshatra 등) 로직
+        const rows = document.querySelectorAll('.coagulatio-chart-table tbody tr, .a2-chart-table tbody tr, table tbody tr');
+
+        rows.forEach(row => {
+            if (!row.cells || row.cells.length < 2) return;
+            if (row.classList.contains('excluded-node')) return; 
+
+            const bodyCell = row.cells[0];
+            let pureName = bodyCell.textContent.replace(/^[^\w]+/, '').trim();
+            pureName = pureName.split('\n')[0].trim();
+
+            const is_anaretic = row.cells[1].classList.contains('text-anaretic');
+            const infoText = row.cells[1].textContent.trim();
+
+            const tooltip = row.cells[1].title || "";
+            let ruler = ""; let dignity = "";
+            const rulerMatch = tooltip.match(/Ruler:\s*([^\s|]+)/);
+            if (rulerMatch) ruler = rulerMatch[1];
+            const dignityMatch = tooltip.match(/Dignity:\s*([^\s|]+)/);
+            if (dignityMatch) dignity = dignityMatch[1];
+
+            const stars = [];
+            const starIcons = bodyCell.querySelectorAll('.fs-icon');
+            starIcons.forEach(icon => {
+                const parts = icon.title.split('|').map(s => s.trim());
+                if (parts.length >= 3) stars.push({ name: parts[0], info: parts[1], orb: parts[2].replace('orb', '').trim() });
+            });
+
+            let bodyData = { info: infoText, ruler: ruler, dignity: dignity, is_anaretic: is_anaretic, stars: stars };
+
+            const currentView = String(view).toLowerCase();
+            
+            if (currentView === 'zodiac' && row.cells.length >= 8) {
+                bodyData.house = row.cells[2].textContent.trim();
+                bodyData.duad = row.cells[3].textContent.trim();
+                bodyData.dodeca = row.cells[4].textContent.trim();
+                bodyData.decan = row.cells[5].textContent.trim();
+                bodyData.bounds = row.cells[6].textContent.trim();
+                bodyData.sabian = row.cells[7].textContent.trim();
+            } else if (currentView === 'nakshatra' && row.cells.length >= 5) {
+                bodyData.nakshatra = row.cells[2].textContent.trim();
+                bodyData.pada_lord = row.cells[3].textContent.trim();
+                bodyData.sabian = row.cells[4].textContent.trim();
+            }
+
+            bodies[pureName] = bodyData;
+        });
+
+        const currentView = String(view).toLowerCase();
+        if (method === 'composite') {
+            compilerId = 'a2_comp';
+        } else if (isAnamnesisMode && method === 'davison') {
+            compilerId = 'a2_anamnesis';
+        } else if (currentView === 'nakshatra') {
+            compilerId = 'a2_nak';
+        }
     }
 
-    fetchAndRenderCoagulatio();
+    const payload = {
+        seed_id: seedId,
+        stage: 'albedo',       
+        target_name: targetName,
+        metadata: metadata,
+        bodies: bodies
+    };
+
+    try {
+        console.log(`[GRIMOIRE] Manifesting to Archive using [ ${compilerId} ]...`, payload);
+        const res = await fetch(`/api/grimoire/save/excel/${compilerId}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const result = await res.json();
+
+        if (res.ok) {
+            console.log(`[GRIMOIRE] Archive [${targetName}] Saved Successfully!`);
+            return true;
+        } else {
+            alert('Failed to manifest Grimoire: ' + result.detail);
+            throw new Error(result.detail);
+        }
+    } catch (e) {
+        console.error(e);
+        alert('Network Error during Grimoire Save.');
+        throw e;
+    }
 };
