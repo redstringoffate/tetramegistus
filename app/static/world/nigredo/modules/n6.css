@@ -146,7 +146,7 @@
 }
 
 /* 4. R2 Style Matrix Grid */
-.h-keyboard-grid, .graha-grid-container {
+.h-keyboard-grid, .graha-grid-container, .amsa-grid-container {
     display: grid;
     background: #000;
     border: 1px solid #333;
@@ -158,8 +158,10 @@
 
 .h-keyboard-grid { grid-template-columns: repeat(8, 1fr); }
 .graha-grid-container { grid-template-columns: repeat(5, 1fr); }
+/* 🚀 [NEW] 5열로 구성 (5x3 비율 자동 생성) */
+.amsa-grid-container { grid-template-columns: repeat(5, 1fr); } 
 
-.keyboard-btn, .graha-btn {
+.keyboard-btn, .graha-btn, .amsa-btn {
     background: #080808;
     color: #666;
     border: none;
@@ -171,11 +173,11 @@
     text-transform: uppercase;
 }
 
-.keyboard-btn:hover, .graha-btn:hover {
+.keyboard-btn:hover, .graha-btn:hover, .amsa-btn:hover {
     background: rgba(124, 255, 155, 0.1);
     color: #7CFF9B;
 }
-.keyboard-btn.active, .graha-btn.active {
+.keyboard-btn.active, .graha-btn.active, .amsa-btn.active {
     background: #7CFF9B !important;
     color: #000 !important;
     box-shadow: inset 0 0 10px rgba(0,0,0,0.5);

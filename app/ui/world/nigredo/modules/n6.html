@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/static/world/nigredo/modules/n6.css?v=2">
+<link rel="stylesheet" href="/static/world/nigredo/modules/n6.css?v=3">
 
 <div class="n6-divisio">
     <div class="schema-header">
@@ -20,6 +20,15 @@
             <span id="n6-label-aspects" class="dicho-label">Aspects</span>
         </div>
 
+        <!-- 🚀 [NEW] Varga 모드 전용 Amsa / Graha 서브 토글 -->
+        <div id="n6-varga-sub-switch" class="dichotomy-wrapper" style="margin-top: 10px; display: none;">
+            <span id="n6-label-amsa" class="dicho-label active">Amsa</span>
+            <div class="toggle-switch" onclick="n6_toggleVargaView()">
+                <div class="toggle-knob" id="n6-varga-view-knob"></div>
+            </div>
+            <span id="n6-label-graha" class="dicho-label">Graha</span>
+        </div>
+
         <div id="n6-varga-controls" style="display: none; margin-top: 0px;">
             <nav class="ayanamsa-switch-module" id="n6-ayanamsa-nav-container">
                 <button class="ayan-tab active" onclick="n6_switchAyanamsa('lahiri')">Lahiri</button>
@@ -29,58 +38,58 @@
                 <button class="ayan-tab" onclick="n6_switchAyanamsa('yukteswar')">Yukteswar</button>
             </nav>
 
-            <div class="graha-grid-container" id="n6-graha-grid">
-                </div>
+            <!-- 🚀 [NEW] Amsa Grid (5x3) -->
+            <div class="amsa-grid-container" id="n6-amsa-grid" style="display: none;"></div>
+            
+            <div class="graha-grid-container" id="n6-graha-grid"></div>
         </div>
     </div>
 
     <hr class="separator" style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
 
-    <div id="n6-view-harmonic-positions" class="content-view">
-        <div class="h-scroll-view">
-            <table class="n6-table">
-                <thead>
-                    <tr>
-                        <th class="sticky-col">Celestial Bodies</th>
-                        <th>H1</th><th>H2</th><th>H3</th><th>H4</th><th>H5</th><th>H6</th>
-                        <th>H7</th><th>H8</th><th>H9</th><th>H10</th><th>H11</th><th>H12</th>
-                        <th>H16</th><th>H20</th><th>H24</th><th>H32</th>
-                    </tr>
-                </thead>
-                <tbody id="n6-h-pos-body">
-                    <tr><td class="sticky-col">Sun</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-                    <tr><td class="sticky-col">Moon</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-                    <tr><td class="sticky-col">Mercury</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-                    <tr><td class="sticky-col">Venus</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-                    <tr><td class="sticky-col">Mars</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-                </tbody>
-            </table>
+    <div id="n6-harmonic-wrapper">
+        <div id="n6-view-harmonic-positions" class="content-view">
+            <div class="h-scroll-view">
+                <table class="n6-table">
+                    <thead>
+                        <tr>
+                            <th class="sticky-col">Celestial Bodies</th>
+                            <th>H1</th><th>H2</th><th>H3</th><th>H4</th><th>H5</th><th>H6</th>
+                            <th>H7</th><th>H8</th><th>H9</th><th>H10</th><th>H11</th><th>H12</th>
+                            <th>H16</th><th>H20</th><th>H24</th><th>H32</th>
+                        </tr>
+                    </thead>
+                    <tbody id="n6-h-pos-body">
+                        <!-- JS Render -->
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
 
-    <div id="n6-view-harmonic-aspects" class="content-view" style="display: none;">
-        <div class="h-keyboard-grid" id="n6-h-btn-grid">
-            </div>
-        
-        <div class="aspect-explorer">
-            <div class="col-box" id="n6-col-h-bodies">
-                <div class="col-header">Celestial Bodies</div>
-                <div class="col-content" id="n6-list-h-bodies"></div>
-            </div>
-            <div class="col-box" id="n6-col-h-aspects">
-                <div class="col-header">Aspects</div>
-                <div class="col-content" id="n6-list-h-aspects"></div>
-            </div>
-            <div class="col-box" id="n6-col-h-objects">
-                <div class="col-header">Objects</div>
-                <div class="col-content" id="n6-list-h-objects">
-                    <div style="text-align: center; color: #444; margin-top: 50px;">Select Body & Aspect</div>
+        <div id="n6-view-harmonic-aspects" class="content-view" style="display: none;">
+            <div class="h-keyboard-grid" id="n6-h-btn-grid"></div>
+            
+            <div class="aspect-explorer">
+                <div class="col-box" id="n6-col-h-bodies">
+                    <div class="col-header">Celestial Bodies</div>
+                    <div class="col-content" id="n6-list-h-bodies"></div>
+                </div>
+                <div class="col-box" id="n6-col-h-aspects">
+                    <div class="col-header">Aspects</div>
+                    <div class="col-content" id="n6-list-h-aspects"></div>
+                </div>
+                <div class="col-box" id="n6-col-h-objects">
+                    <div class="col-header">Objects</div>
+                    <div class="col-content" id="n6-list-h-objects">
+                        <div style="text-align: center; color: #444; margin-top: 50px;">Select Body & Aspect</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="n6-view-varga" class="content-view" style="display: none;">
+    <!-- 🚀 ID를 graha 뷰 전용으로 변경 -->
+    <div id="n6-view-varga-graha" class="content-view" style="display: none;">
         <div class="varga-table-container">
             <table class="n6-table varga-table">
                 <colgroup>
@@ -98,15 +107,34 @@
                     </tr>
                 </thead>
                 <tbody id="n6-varga-body">
-                    <tr><td>D1</td><td>-</td><td>-</td><td>-</td></tr>
-                    <tr><td>D2</td><td>-</td><td>-</td><td>-</td></tr>
-                    <tr><td>D3</td><td>-</td><td>-</td><td>-</td></tr>
-                    <tr><td>D4</td><td>-</td><td>-</td><td>-</td></tr>
-                    <tr><td>D9</td><td>-</td><td>-</td><td>-</td></tr>
+                    <!-- JS Render -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 🚀 [NEW] Amsa View 전용 테이블 추가 -->
+    <div id="n6-view-varga-amsa" class="content-view" style="display: none;">
+        <div class="varga-table-container">
+            <table class="n6-table varga-table">
+                <colgroup>
+                    <col style="width: 180px;">
+                    <col style="width: 250px;">
+                    <col style="width: auto;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th class="sticky-col">Graha</th>
+                        <th>Information</th>
+                        <th>Nakshatra</th>
+                    </tr>
+                </thead>
+                <tbody id="n6-varga-amsa-body">
+                    <!-- JS Render -->
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
-<script src="/static/world/nigredo/modules/n6.js?v=4"></script>
+<script src="/static/world/nigredo/modules/n6.js?v=5"></script>
