@@ -146,8 +146,30 @@ window.switchN2System = function(sys) {
     } 
     window.location.href = u.toString(); 
 };
-window.switchN2Ayanamsa = function(ayan) { const u = new URL(window.location.href); u.searchParams.set('ayanamsa', ayan); window.location.href = u.toString(); };
-// 기존 window.switchN2Category = function(cat) { ... } 지우고 아래로 교체
+
+// 🚀 [수복]: 페이지 새로고침 없는 Ayanamsa 변경 (Chara Karaka 의식 상태 유지)
+window.switchN2Ayanamsa = function(ayan) { 
+    // 1. URL 파라미터 조용히 업데이트 (history.replaceState)
+    const u = new URL(window.location.href); 
+    u.searchParams.set('ayanamsa', ayan); 
+    window.history.replaceState({}, '', u.toString()); 
+    
+    // 2. 전역 상태 갱신
+    N2_STATE.ayanamsa = ayan;
+
+    // 3. Ayanamsa 탭 UI 활성화/비활성화 처리
+    document.querySelectorAll('.m-ayan-tabs .m-tab').forEach(tab => {
+        if (tab.dataset.ayan === ayan) {
+            tab.classList.add('active');
+        } else {
+            tab.classList.remove('active');
+        }
+    });
+
+    // 4. 모바일 N2 렌더링 함수 재호출 (모드 유지됨)
+    fetchAndRenderN2(); 
+};
+
 window.switchN2Category = function(cat) { 
     const btn = document.querySelector(`.cat-btn[data-cat="${cat}"]`);
     if (btn && btn.classList.contains('locked')) {

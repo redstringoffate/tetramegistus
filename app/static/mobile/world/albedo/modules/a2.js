@@ -195,8 +195,30 @@ window.switchA2System = function(sys) {
     } 
     window.location.href = u.toString(); 
 };
-window.switchA2Ayanamsa = function(ayan) { const u = new URL(window.location.href); u.searchParams.set('ayanamsa', ayan); window.location.href = u.toString(); };
-// 기존 window.switchA2Category = function(cat) { ... } 지우고 아래로 교체
+
+// 🚀 [수복]: 페이지 새로고침 없는 Ayanamsa 변경 (A2 Davison Chara Karaka 유지)
+window.switchA2Ayanamsa = function(ayan) { 
+    // 1. URL 파라미터 조용히 업데이트
+    const u = new URL(window.location.href); 
+    u.searchParams.set('ayanamsa', ayan); 
+    window.history.replaceState({}, '', u.toString()); 
+    
+    // 2. 전역 상태 갱신
+    A2_STATE.ayanamsa = ayan;
+
+    // 3. Ayanamsa 탭 UI 활성화/비활성화 처리
+    document.querySelectorAll('.m-ayan-tabs .m-tab').forEach(tab => {
+        if (tab.dataset.ayan === ayan) {
+            tab.classList.add('active');
+        } else {
+            tab.classList.remove('active');
+        }
+    });
+
+    // 4. 모바일 A2 렌더링 함수 재호출 (모드 유지됨)
+    fetchAndRenderA2(); 
+};
+
 window.switchA2Category = function(cat) { 
     const btn = document.querySelector(`.cat-btn[data-cat="${cat}"]`);
     if (btn && btn.classList.contains('locked')) {
