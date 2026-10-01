@@ -339,7 +339,7 @@ function populateN7Sabian() {
                     const toastStr = encodeURIComponent(`
                         <strong style="color:#7CFF9B; font-size:1.1em; display:inline-block; margin-bottom:4px;">${rowItem} in ${colTargetName}</strong><br>
                         ${lordHtml}
-                        <span style="color:#ccc;">${dmsDisp} | ${pData.house}H</span>
+                        <span style="color:#ccc;">${dmsDisp} | ${pData.house}</span>
                     `).replace(/'/g, "%27");
 
                     toastAttr = `onclick="showN7Toast(decodeURIComponent('${toastStr}'))"`;

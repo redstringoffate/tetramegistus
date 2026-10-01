@@ -329,7 +329,7 @@ function populateA7Sabian() {
                     const toastStr = encodeURIComponent(`
                         <strong style="color:#49dce1; font-size:1.1em; display:inline-block; margin-bottom:4px;">${rowItem} in ${colTargetName}</strong><br>
                         ${lordHtml}
-                        <span style="color:#ccc;">${dmsDisp} | ${pData.house}H</span>
+                        <span style="color:#ccc;">${dmsDisp} | ${pData.house}</span>
                     `).replace(/'/g, "%27");
 
                     toastAttr = `onclick="showA7Toast(decodeURIComponent('${toastStr}'))"`;
